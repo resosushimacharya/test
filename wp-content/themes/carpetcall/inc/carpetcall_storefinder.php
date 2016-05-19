@@ -404,7 +404,7 @@ function woocommerce_minicart_cc(){
             
           </ul>
         
-
+          
 
 <?php die(); } 
 add_action('wp_ajax_woocommerce_cc', 'woocommerce_minicart_cc');
