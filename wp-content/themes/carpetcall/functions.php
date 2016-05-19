@@ -5,8 +5,7 @@
 */
 //show_admin_bar(false );
 
-update_option('siteurl',"http://localhhost/carpetcall");
-update_option('home',"http://localhost/carpetcall");
+
 
 include_once TEMPLATEPATH."/inc/carpetcall-script.php";
 //include_once TEMPLATEPATH."/inc/carpetcall-search.php";
