@@ -1,0 +1,377 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+    font-family: 'proxima_nova_rgregular';
+    src: url('../fonts/proxima_nova_regular-webfont.eot');
+    src: url('../fonts/proxima_nova_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/proxima_nova_regular-webfont.woff') format('woff'),
+         url('../fonts/proxima_nova_regular-webfont.ttf') format('truetype'),
+         url('../fonts/proxima_nova_regular-webfont.svg#proxima_nova_rgregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'proxima_nova_ltsemibold';
+    src: url('../fonts/proxima_nova_semibold-webfont.eot');
+    src: url('../fonts/proxima_nova_semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/proxima_nova_semibold-webfont.woff') format('woff'),
+         url('../fonts/proxima_nova_semibold-webfont.ttf') format('truetype'),
+         url('../fonts/proxima_nova_semibold-webfont.svg#proxima_nova_ltsemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'proxima_nova_cn_ltlight';
+    src: url('../fonts/proxima_nova_condensed_light-webfont.eot');
+    src: url('../fonts/proxima_nova_condensed_light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/proxima_nova_condensed_light-webfont.woff') format('woff'),
+         url('../fonts/proxima_nova_condensed_light-webfont.ttf') format('truetype'),
+         url('../fonts/proxima_nova_condensed_light-webfont.svg#proxima_nova_cn_ltlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+	font-family: 'Brush Script MT';
+	src: url('../fonts/BrushScriptMT.eot');
+	src: url('../fonts/BrushScriptMT.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/BrushScriptMT.woff') format('woff'),
+		url('../fonts/BrushScriptMT.ttf') format('truetype'),
+		url('../fonts/BrushScriptMT.svg#BrushScriptMT') format('svg');
+	font-weight: normal;
+	font-style: italic;
+}
+* { padding:0; margin:0; }
+img { display:block; border:0; }
+ul, li { padding:0; margin:0; }
+h1, h2, h3, h4, h5, h6 {margin:0;}
+p {margin: 2px 0; font:normal 0.875em/150% 'proxima_nova_rgregular', sans-serif; color:#333333;  }
+html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-size: 100%; background:#fff; color:#000; line-height:150%; }
+
+.container { width:1024px; padding:0 20px;}
+.row { margin-right:-20px; margin-left:-20px;}
+
+
+
+.wrapper, .banner, .tstore, .cartblk, .calus, .wellblk, .crpchoose, .rtfloblk, .crptslide, .pont, .mystor, .expert, .footer_c, .sor_blk, .againlt, .fot_cpy, .limblk, .rugpro_blk, .rugspro_blk, .rug_size, .carpetcall_slide, .parcel_blk, .feature_pro, .trade { padding:0; }
+
+/* banner section start here ---*/
+.banner { background:#15489f; padding:22px 0 0 0;}
+.banner .col-md-12 {padding:0;}
+.searchm { margin-top:5px;}
+.searchm .form-control { height:46px; border-radius:0; border:0; color:#000; font-size:16px; font-weight:700; }
+.searchm .btn { background:#FFF; border-radius:0; border:0; padding:13px 12px 13px 12px;}
+.callinfo { position:relative; margin-left:28px;}
+.calme { margin:0; font:bold 30px 'proxima_nova_ltsemibold', sans-serif; color:#FFF; text-transform:uppercase; letter-spacing:5px; }
+.subcl { font:700 12px 'proxima_nova_rgregular', sans-serif; color:#FFF; margin:0; text-transform:uppercase; letter-spacing:1px; }
+.contblk { position:absolute; bottom:-1px; right:0px; padding:2px 10px; background:#c32327; text-align:center; }
+.contblk a {color:#FFF; font-size:13px; text-decoration:none; text-transform:uppercase;}
+.contblk a:hover { color:#CCC;}
+.navsrchblk { margin-top:23px;}
+.sfind { font:bold 28px/167% 'proxima_nova_ltsemibold', sans-serif; color:#FFF;}
+.mcrt { position:relative; margin:10px 0 0 0;}
+.crrt { font:bold 18px/150% 'proxima_nova_ltsemibold', sans-serif; color:#FFF; margin-left:18px; text-transform:uppercase; letter-spacing:1px;}
+.rnkct { position:absolute; left:20px; top:-7px;}
+.rnkct .badge { background:#c32327; }
+
+/*............ store finder menu css ..............*/
+/* Dropdown Button */
+.dropbtn {
+    color: white;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+	background-color:transparent;
+	text-transform:uppercase;
+	border-radius:0;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+	z-index:99999;
+	width:100%;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content { 
+	display:none;	 
+    position: absolute;
+    background-color: #0099ff;
+    min-width: 350px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	padding:10px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;	
+}
+
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;	
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color:#0099ff;
+	width:100%;
+}
+.srch_pro .col-lg-12 { padding-right:20px; padding-left:20px; }
+input  { background:#15489f; border:0; width:100%; padding:15px 20px; text-align:center; color:#FFF; font:bold 16px 'proxima_nova_rgregular', sans-serif; text-decoration:none; }
+.input-group  { width:100%;}
+ul#directory_list_id  {margin:10px 0; list-style:none; background:#fff; color:#000; font-size:16px;}
+ul#directory_list_id li { list-style: none; display:block; float:none; cursor:pointer; padding:0 10px; }
+#directory_list_id_s  { background:#fff; margin:0 10px; padding:10px; display:none; }
+.nav>li>a { padding:0; background:none; }
+.nav>li>a:focus, .nav>li>a:hover { background:none; text-decoration:none;}
+.navbar-right { margin:0; }
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {background:none; border-color: transparent; }
+.dropdown-menu { min-width:350px;}
+.navbar-nav>li>.dropdown-menu { margin-top:9px; border-radius:0; padding:0;}
+.dropdown-menu>li { border-bottom:1px solid #e2e2e2;}
+.mycrt_blk { font:bold 16px/300% 'proxima_nova_rgregular', sans-serif; color:#1858b8; text-transform:uppercase; padding-left:20px; }
+.crtblk_sec { padding:0 20px; }
+.crt_pname { float:left; max-width:100%; margin:12px 0; }
+.crt_price { float:right;}
+.crt_pname h2, .crt_pname h3 { margin:0; font:bold 12px 'proxima_nova_rgregular', sans-serif; color:#666666; text-transform:uppercase;  }
+.crt_pname h3 { font-weight:normal; }
+.rugcl { color:#c32327;}
+.crt_price { margin:12px 0; }
+.crt_price h4 { font:bold 16px 'proxima_nova_rgregular', sans-serif; color:#666666; text-transform:uppercase; text-align:center; }
+.crt_pname h5 {font:bold 16px 'proxima_nova_rgregular', sans-serif; color:#1858b8; text-transform:uppercase; margin-left:150px; }
+.crt_clear { background:#e7edf8; padding:20px; }
+.view_c { background:#0a71cf; display:inline-block; float:left; margin-left: 95px;}
+.view_cc a, .check_crtt a { padding:8px 16px; display:block; text-align:center; font:normal 13px 'proxima_nova_rgregular', sans-serif; color:#FFF; text-transform:uppercase; text-decoration:none; }
+.view_cc a:hover { background:#0661b5;}
+.check_crt { background:#c02226; display:inline-block; float:right; }
+.check_crtt a:hover { background:#a60a0e;}
+
+.loctitle, .loplc h3 {font:bold 15px/150% 'proxima_nova_rgregular', sans-serif; color:#15489f; text-align:left; }
+.sfind address { font:normal 13px/150% 'proxima_nova_rgregular', sans-serif; color:#333333; text-align:left; text-transform:uppercase; margin-top:15px;}
+.sfind p { font:normal 13px/150% 'proxima_nova_rgregular', sans-serif; color:#666666; margin-top:15px; }
+.morepl a {font:normal 13px/150% 'proxima_nova_rgregular', sans-serif; color:#003399; text-align:left; margin-bottom:10px; text-decoration:none; padding:0; }
+.morepl a:hover { color:#F00;}
+
+.loplc { text-align:left; padding:10px;}
+.loplc h3 { font-size:15px; color:#FFF; letter-spacing:1px; }
+.srch_pro { margin:8px 0; max-width:100%;}
+.srch_pro .form-control { border:0; border-radius:0; padding: 21px 12px; height:46px; }
+.srch_pro .btn-default { background-color:#FFF; border-color:#FFF; border-radius:0; padding:12px 12px; }
+.srch_pro .input-group-btn { margin:0;}
+.curnloc { margin:10px 0; display:block; background:#15489f; }
+.curnloca a { padding:15px 20px; text-align:center; color:#FFF; font:bold 16px 'proxima_nova_rgregular', sans-serif; text-decoration:none; }
+.curnloca a:hover { background:#15489f; }
+
+/*........... carpetcall slide start here .................*/
+.carpetcall_slide { }
+* { box-sizing: border-box;}
+
+.slider { height: 351px; margin:0 auto; overflow:hidden}
+
+.slick-slide { margin: 0px 20px;  }
+
+ .slick-slide img { width: 100%; }
+
+.slick-prev:before, .slick-next:before { color: black; }
+
+.hamro { position:absolute; top:50px; right:195px;}
+.hamro h3, .hamro h4 { font:bolder 40px 'proxima_nova_ltsemibold', sans-serif; color:#0a71cf; }
+.hamro h4 { font-size:19px; }
+.tryit { background:#c32327; display:inline-block; margin:12px 0 0 0; }
+.tryita a { padding:8px 19px; display:block; text-align:center; color:#FFF; font:normal 14px 'proxima_nova_rgregular', sans-serif; text-decoration:none;}
+.tryita a:hover {background:#a71014;}
+
+.carpetcall_slide .slider .slick-prev:before{
+		content: '\f104';
+		font-family: FontAwesome;
+		font-size:36px;
+		color: #15489f;
+		font-weight:normal;
+		}
+		
+		.carpetcall_slide .slider .slick-next:before{
+		content: '\f105';
+		font-family: FontAwesome;
+		font-size:36px;
+		color: #15489f;
+		font-weight:normal;
+		}
+
+/*.................. offer and delivery start here ..................*/
+.meroshop { margin-bottom:5px;}
+.shopping { box-shadow:0px 0px 5px #999999; background:#FFF; padding:12px; position:relative; top:-25px; }
+.aag{min-height: 66px;}
+.so_title, .aag p { margin-left:55px;}
+.aag_ab, .aag_a p { margin-left:65px; }
+.so_titlee a, .aag_ab a, .aag_cdd a { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#1858b8; text-decoration:none;}
+.so_titlee a:hover, .aag_ab a:hover, .aag_cdd a:hover {color:#333;}
+.aag p, .aag_a p, .aag_c p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666;}
+.merof { font-size:16px; font-weight:700; color:#c32327; }
+.aag_cd, .aag_c p { margin-left:53px;}
+.aag_c p { margin-bottom:22px;}
+
+
+/*............ callback section start here .....................*/
+.calbk { margin-top:20px; }
+.cpt_supt img {min-width:155px; min-height:129px; }
+.bookcbk, .cptspl { font:bold 33px 'proxima_nova_ltsemibold', sans-serif; color:#C32327; text-transform:uppercase; }
+.cptspl { font-size:18px; color:#6079B5; margin-bottom:5px; }
+.suptlst li { list-style:none; display:block; font:normal 14px/150% 'proxima_nova_rgregular', sans-serif; color:#666; text-decoration:none; text-transform:uppercase;}
+.cptin { margin:42px 0 0 125px; padding:7px 16px; background:#C32327;  display:inline-block;  text-align:center; }
+.cptinn a { font:bold 15px 'proxima_nova_rgregular', sans-serif; text-decoration:none; color:#FFF; text-transform:uppercase; }
+.cptinn a:hover { color:#FF0;}
+
+/*........... featured products start here ......................*/
+
+.feature_pro {background:#e7edf8}
+.meropro_blk { margin:20px 0 60px 0;}
+.meropro_blk h1 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin:45px 0 25px 0; text-align:center; text-transform:uppercase; }
+.pro_one, .pro_two, .pro_thr, .pro_for, .pro_fiv, .pro_six { background:#fff; border:7px solid #FFF;}
+.sublk_prom { margin:8px 0;}
+.ptxt { min-height:90px;}
+.ptxt h3 { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding-left:7px;}
+.ptxt h4, .ptxt h5 { font:normal 14px 'proxima_nova_rgregular', sans-serif; color:#087bda; text-transform:uppercase; padding-left:7px;}
+.ptxt h5 { font-weight:700;}
+.nowsp { background:#bb2225;}
+.nowspp a { display:block; padding:8px 19px; text-align:center; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#FFF; text-transform:uppercase; text-decoration:none; }
+.nowspp a:hover {background:#a9191c;}
+
+.responsive .slick-dots { bottom:-45px; }
+.responsive .slick-prev {left:0%;}
+.responsive .slick-next {right:0%;}
+.responsive .slick-prev:before{
+		content: '\f104';
+		font-family: FontAwesome;
+		font-size:36px;
+		color: #15489f;
+		font-weight:normal;
+		}
+.responsive .slick-next:before{
+		content: '\f105';
+		font-family: FontAwesome;
+		font-size:36px;
+		color: #15489f;
+		font-weight:normal;
+		}
+
+/*............. idea and advice start here .................*/
+.thought_blk { margin:40px 0;}
+.thought_blk h2, .hamro_trade h2 { font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin:45px 0 25px 0; text-align:center; text-transform:uppercase; }
+
+.rmvisual, .guide_a, .care_pro, .faq_blk { position:relative;}
+.rmblk_cont, .inner_cont, .quest_cont {position:absolute; top:15px; left:15px;}
+.rmblk_cont h3, .inner_cont h4, .quest_cont h4 { font:bold 20px 'proxima_nova_ltsemibold', sans-serif; color:#fff; margin:0 0 10px 0; }
+.rmblk_cont p { font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; margin:10px 169px 10px 0; }
+.trynow {font:bold 16px 'proxima_nova_ltsemibold', sans-serif;  color:#fff; }
+.trynoww a {  color:#fff; text-decoration:none;}
+.trynoww a:hover { color:#FF0;}
+
+.guide_a, .faq_blk { margin-top:12px;}
+ul.guide_list { margin:0; padding:0; }
+ul.guide_list li {list-style:none; display:block;}
+ul.guide_list li a {font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none;}
+ul.guide_list li a:hover { color:#FF0;}
+ul.guide_list .fa { color:#F00;}
+
+
+/*........... expert trade start here ..............*/
+.trade { background:#e7edf8; }
+.hamro_trade, .abvist { margin:40px 0;}
+.measure_blk { padding:0;}
+.measr_cnt { margin-top:15px; min-height:155px;}
+.measr_cnt h3 {font:bold 20px 'proxima_nova_ltsemibold', sans-serif; color:#1858b8;}
+.frcol { color:#c32327; }
+.measr_cnt p {font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#666666; margin:6px 0;}
+.find_tb { background:#c32327; display:inline-block; }
+.find_tbb a { display:block; padding:10px 22px; text-align:center; color:#FFF; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; text-decoration:none;}
+.find_tbb a:hover { background:#b01519;}
+
+/*............... about and visit start here ....................*/
+.intro { padding:0; }
+.intro h1 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin:0 0 25px 0; text-transform:uppercase; }
+.intro p {font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#666666; margin:6px 0 12px 0;}
+
+
+
+
+/*.............. footer section start here ...............*/
+.footer_c { background:#15489f; }
+.fot_logo { margin:25px 0; }
+.subcat { margin-bottom:15px;}
+.footlist, .carptfot, .carptfot_aa { margin:0; padding:0;}
+.footlist li { list-style:none; display:inline-block;}
+.fotgrid { width:33.33%; }
+.carptfot li, .carptfot_aa li { list-style:none; display:block;}
+.sourblk, .clbk { font:bold 15px 'proxima_nova_ltsemibold', sans-serif; color:#fff; }
+.carptfot li a, .carptfot_aa li a { font:normal 13px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-transform:uppercase; text-decoration:none;}
+.carptfot li a:hover, .carptfot_aa li a:hover { color:#FF0;}
+.clbk { margin:10px 0;}
+.carptfot_aa { -webkit-column-count: 2; }
+.footlist > li > a, .sourblk { cursor:text;}
+.footlist li .clblk_a a {font-weight:bold; cursor:text; letter-spacing:1px;}
+.footlist li .clblk_a a:hover { color:#FFF; text-decoration:none;}
+
+
+.social { margin-bottom:12px;}
+.social li { list-style:none; display:inline-block;}
+.social li a { font-family:18px; text-decoration:none; color:#FFF; padding:0px 5px; }
+.social li a:hover { color:#FF0; }
+.gtku { color:#FFF; font-weight:700; font-size:14px; margin-right:10px;}
+.calcall { font:normal 31px/100% 'Brush Script MT',sans-serif; color:#FFF; text-align:center; margin:44px 0 10px 0; -webkit-transform:  rotate(351deg);-moz-transform:  rotate(351deg);-o-transform:  rotate(351deg);writing-mode: lr-tb;}
+.calspl { font:bold 17px 'proxima_nova_ltsemibold', sans-serif; color:#fff; margin:35px 0 5px 0;}
+.bcwfsp {font:normal 13px 'proxima_nova_ltsemibold', sans-serif; color:#fff; }
+.againlt ul { margin-top:10px;}
+.againlt li { list-style:none; display:block; }
+.againlt li a { font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none;  }
+.againlt li a:hover { color:#FF0; }
+.fot_cpy ul { margin-bottom:15px;}
+.fot_cpy li { list-style:none; display:inline-block; }
+.fot_cpy li a {font:normal 11px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none; padding:0 5px; border-right:1px solid #FFF; }
+.fot_cpy li a.last-child { border-right:none;} 
+.fot_cpy li a:hover { color:#FF0;}
+.cpyrt {font:normal 11px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-transform:uppercase; border-right:1px solid #FFF; padding-right:5px; }
+
+
+/*........... rugproduct section start here ..........*/
+.rugspro_blk { background:#e7edf8;}
+.subrugs { margin:25px 0;}
+.subrugs .panel-default { border-color:transparent; }
+ .panel { margin:0; border:0; border-radius:0; }
+.panel-body { padding:0; }
+.panel-body .nav>li>a { background:#F5F3F3;}
+.panel-body .nav-tabs>li>a { border-radius:0; 
+.nav-tabs { border-bottom:0; background:#e7edf8; }
+.insec_bk { margin:15px 0;}
+.rug_slide { margin-top:15px;}
+.product_det { margin-top:15px; padding:0;}
+.product_det .label { color:#000; font-size:100%; color:#15489f;}
+.product_det p { font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#666666;}
+.insec_bk h2, .insec_bk h3 { font:bold 31px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin-top:25px;  }
+.insec_bk h3 { font-size:14px; color:#0099ff; margin:0;}
+.indesign { margin-top:15px; }
+.indesign .col-md-4 { padding:0 4px;}
+.imgtp { margin-top:10px;}
+.rug_ticket { margin:20px 0 25px 0; background:#0099ff; padding:15px; }
+.rug_ticket h3, .rug_ticket h4, .rug_ticket h5 { font:bold 31px 'proxima_nova_ltsemibold', sans-serif; color:#fff;}
+.rug_ticket h4, .rug_ticket h5 { font-size:14px; }
+.rug_ticket h5 { color:#15489f;}
+.rug_size h3, .rug_size h4 { font:bold 20px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin-bottom:12px; }
+.rug_size .form-control { border:1px solid #d1ddf1; border-radius:0; background:#e7edf8; height:45px; font-size:16px; font-weight:700; }
+.rug_size h5 { font:bold 17px/150% 'proxima_nova_ltsemibold', sans-serif; color:#15489f;}
+.rgyap { color:#c32327; }
+.rugcart, .rug_enqr { margin:12px 0 12px 88px; background:#c32327; display:inline-block;}
+.rugcartt a, .rug_enqrr a { display:block; padding:10px 24px; text-align:center; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-decoration:none; }
+.rugcartt a:hover, .rug_enqrr a:hover { color:#FF0; }
+.rug_enqr { margin-top:0; background:#15489f;}
+.rug_enqrr a { padding:10px 20px; }
+
+
