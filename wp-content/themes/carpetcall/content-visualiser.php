@@ -11,13 +11,19 @@
         <section class="center slider"><?php 
 while($vis->have_posts()):
     $vis->the_post();?><?php $feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-
+  $caption=get_field('visualiser_caption',$post->ID);
+$linku=get_field('visualiser_link',$post->ID);
+$linkt=get_field('visuailiser__link_title',$post->ID);
    ?>
    <div>
     <div class="hamro">
         <h3> <?php the_title();?> </h3>
-        <h4> <?php echo get_post(get_post_thumbnail_id())->post_excerpt;?> </h4>
-        <h5 class="tryit tryita"><a href="<?php the_permalink();?>"> TRY IT NOW </a></h5>
+        <?php if(!empty($caption)){?>
+        <h4> <?php echo $caption;?> </h4>
+        <?php }?>
+        <?php if(!empty($linkt)){?>
+        <h5 class="tryit tryita"><a href="<?php echo $linku;?>"> <?php echo $linkt; ?></a></h5>
+        <?php }?>
       </div>
       <img src="<?php echo $feat_image;?>" alt="images" class="img-responsive">
       
