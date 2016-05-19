@@ -6,8 +6,11 @@
 //show_admin_bar(false );
 
 
+//update_option('siteurl',"http://prakash.com/carpetcall");
+//update_option('home',"http://prakash.com/carpetcall");
 
-
+update_option('siteurl',"http://webdev.agileitsolutions.net/carpetcall/");
+update_option('home',"http://webdev.agileitsolutions.net/carpetcall/");
 
 include_once TEMPLATEPATH."/inc/carpetcall-script.php";
 //include_once TEMPLATEPATH."/inc/carpetcall-search.php";
