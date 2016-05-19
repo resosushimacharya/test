@@ -1,5 +1,5 @@
 <?php
-/* Template Name: home */
+/* Template Name: design */
  get_header();?>
     
         <?php/*    why choose us section          */?>
@@ -18,8 +18,8 @@
     
        <div class="container">
     <div class="calbk"><div class="row">
-    <div class="col-sm-2"><div class="cpt_supt"><img src="<?php echo get_template_directory_uri() ;?>/images/carpetcall-support-img.png" alt="support" class="img-responsive"/> </div></div><!-- support img end -->
-    <div class="col-sm-6">
+    <div class="col-sm-3"><div class="cpt_supt"><img src="<?php echo get_template_directory_uri() ;?>/images/carpetcall-support-img.png" alt="support" class="img-responsive"/> </div></div><!-- support img end -->
+    <div class="col-sm-5">
     <h3 class="bookcbk"> BOOK A CALLBACK </h3>
     <h4 class="cptspl"> WITH OUR FLOORING SPECIALISTS </h4>
     <div class="suptlst">
@@ -201,9 +201,7 @@
                 
             </div>
             
-
-
-          </div><div class="clearfix"></div><!-- faq end here -->
+            </div><div class="clearfix"></div><!-- faq end here -->
             
             
             </div><div class="clearfix"></div><!-- idea right side end here -->

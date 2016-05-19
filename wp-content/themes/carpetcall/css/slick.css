@@ -2,10 +2,8 @@
 .slick-slider
 {
     position: relative;
-
     display: block;
     box-sizing: border-box;
-
      -webkit-user-select: text;
   -khtml-user-select: text;
   -moz-user-select: text;
@@ -19,10 +17,8 @@
 .slick-list
 {
     position: relative;
-
     display: block;
     overflow: hidden;
-
     margin: 0;
     padding: 0;
 }
@@ -103,9 +99,7 @@
 .slick-vertical .slick-slide
 {
     display: block;
-
     height: auto;
-
     border: 1px solid transparent;
 }
 .slick-arrow.slick-hidden {

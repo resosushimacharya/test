@@ -49,6 +49,8 @@ ul, li { padding:0; margin:0; }
 h1, h2, h3, h4, h5, h6 {margin:0;}
 p {margin: 2px 0; font:normal 0.875em/150% 'proxima_nova_rgregular', sans-serif; color:#333333;  }
 html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-size: 100%; background:#fff; color:#000; line-height:150%; }
+.no-pr{padding-right: 0}
+.no-pl{padding-left: 0}
 
 .container { width:1024px; padding:0 20px;}
 .row { margin-right:-20px; margin-left:-20px;}
@@ -57,20 +59,23 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 
 .wrapper, .banner, .tstore, .cartblk, .calus, .wellblk, .crpchoose, .rtfloblk, .crptslide, .pont, .mystor, .expert, .footer_c, .sor_blk, .againlt, .fot_cpy, .limblk, .rugpro_blk, .rugspro_blk, .rug_size, .carpetcall_slide, .parcel_blk, .feature_pro, .trade { padding:0; }
 
+
+
 /* banner section start here ---*/
 .banner { background:#15489f; padding:22px 0 0 0;}
-.banner .col-md-12 {padding:0;}
+.banner .col-md-12 {padding:0 20px;}
+
 .searchm { margin-top:5px;}
 .searchm .form-control { height:46px; border-radius:0; border:0; color:#000; font-size:16px; font-weight:700; }
 .searchm .btn { background:#FFF; border-radius:0; border:0; padding:13px 12px 13px 12px;}
 .callinfo { position:relative; margin-left:28px;}
-.calme { margin:0; font:bold 30px 'proxima_nova_ltsemibold', sans-serif; color:#FFF; text-transform:uppercase; letter-spacing:5px; }
+.calme { margin:0; font:bold 28px 'proxima_nova_ltsemibold', sans-serif; color:#FFF; text-transform:uppercase; letter-spacing:7px; }
 .subcl { font:700 12px 'proxima_nova_rgregular', sans-serif; color:#FFF; margin:0; text-transform:uppercase; letter-spacing:1px; }
 .contblk { position:absolute; bottom:-1px; right:0px; padding:2px 10px; background:#c32327; text-align:center; }
 .contblk a {color:#FFF; font-size:13px; text-decoration:none; text-transform:uppercase;}
 .contblk a:hover { color:#CCC;}
 .navsrchblk { margin-top:23px;}
-.sfind { font:bold 28px/167% 'proxima_nova_ltsemibold', sans-serif; color:#FFF;}
+.sfind { font:bold 28px/148% 'proxima_nova_ltsemibold', sans-serif; color:#FFF;}
 .mcrt { position:relative; margin:10px 0 0 0;}
 .crrt { font:bold 18px/150% 'proxima_nova_ltsemibold', sans-serif; color:#FFF; margin-left:18px; text-transform:uppercase; letter-spacing:1px;}
 .rnkct { position:absolute; left:20px; top:-7px;}
@@ -136,7 +141,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .navbar-right { margin:0; }
 .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {background:none; border-color: transparent; }
 .dropdown-menu { min-width:350px;}
-.navbar-nav>li>.dropdown-menu { margin-top:9px; border-radius:0; padding:0;}
+.navbar-nav>li>.dropdown-menu { margin-top:9px; border-radius:0; padding:0; border:0;}
 .dropdown-menu>li { border-bottom:1px solid #e2e2e2;}
 .mycrt_blk { font:bold 16px/300% 'proxima_nova_rgregular', sans-serif; color:#1858b8; text-transform:uppercase; padding-left:20px; }
 .crtblk_sec { padding:0 20px; }
@@ -175,13 +180,15 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .carpetcall_slide { }
 * { box-sizing: border-box;}
 
-.slider { height: 351px; margin:0 auto; overflow:hidden}
+.slider { min-width:1024px; height: 351px; margin:0 auto; overflow:hidden}
 
-.slick-slide { margin: 0px 20px;  }
+.slider .slick-slide { margin: 0px; padding: 0 10px;  }
 
- .slick-slide img { width: 100%; }
+.slider .slick-slide img { width: 100%; }
 
-.slick-prev:before, .slick-next:before { color: black; }
+.slider .slick-prev:before, .slider .slick-next:before { color: black; }
+.slider .slick-prev { left:23.6%; width: 32px;  height: 54px;  border: 1px solid #d1ddf1;  background: #fff;  border-radius: 0; }
+.slider .slick-next { right:23.6%; width: 32px;  height: 54px;  border: 1px solid #d1ddf1;  background: #fff;  border-radius: 0; }
 
 .hamro { position:absolute; top:50px; right:195px;}
 .hamro h3, .hamro h4 { font:bolder 40px 'proxima_nova_ltsemibold', sans-serif; color:#0a71cf; }
@@ -207,8 +214,8 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 		}
 
 /*.................. offer and delivery start here ..................*/
-.meroshop { margin-bottom:5px;}
-.shopping { box-shadow:0px 0px 5px #999999; background:#FFF; padding:12px; position:relative; top:-25px; }
+.meroshop {margin:0;}
+.shopping { box-shadow:0px 0px 10px #999999; background:#FFF; padding:12px; position:relative; top:-25px; }
 .aag{min-height: 66px;}
 .so_title, .aag p { margin-left:55px;}
 .aag_ab, .aag_a p { margin-left:65px; }
@@ -220,14 +227,17 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .aag_c p { margin-bottom:22px;}
 
 
+
 /*............ callback section start here .....................*/
-.calbk { margin-top:20px; }
+.calbk { margin-top:10px; }
 .cpt_supt img {min-width:155px; min-height:129px; }
-.bookcbk, .cptspl { font:bold 33px 'proxima_nova_ltsemibold', sans-serif; color:#C32327; text-transform:uppercase; }
-.cptspl { font-size:18px; color:#6079B5; margin-bottom:5px; }
-.suptlst li { list-style:none; display:block; font:normal 14px/150% 'proxima_nova_rgregular', sans-serif; color:#666; text-decoration:none; text-transform:uppercase;}
-.cptin { margin:42px 0 0 125px; padding:7px 16px; background:#C32327;  display:inline-block;  text-align:center; }
-.cptinn a { font:bold 15px 'proxima_nova_rgregular', sans-serif; text-decoration:none; color:#FFF; text-transform:uppercase; }
+.bookcbk, .cptspl { font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#c32327; text-transform:uppercase; }
+.cptspl { font-size:18px; color:#15489f; margin-bottom:5px; }
+.suptlst li { list-style:none; display:block;}
+.suptlst li a { font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#666; text-decoration:none; text-transform:uppercase;}
+.suptlst li a:hover { color:#000;}
+.cptin { margin:42px 0 0 125px; padding:9px 30px; background:#C32327;  display:inline-block;  text-align:center; }
+.cptinn a { font:bold 18px 'proxima_nova_rgregular', sans-serif; text-decoration:none; color:#FFF; text-transform:uppercase; letter-spacing:1px; }
 .cptinn a:hover { color:#FF0;}
 
 /*........... featured products start here ......................*/
