@@ -1,9 +1,9 @@
  <div class="meroshop"><div class="container">
         	
             <div class="col-md-12">
-            <?php
-
-             $headings= get_field('heading_bar',274);
+            
+             <?php 
+             $headings= get_field('heading_bar','option');
            foreach($headings as $heading):?>
            <div class="col-md-4">
                 <div class="shopping">

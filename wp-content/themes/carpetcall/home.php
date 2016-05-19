@@ -1,5 +1,5 @@
 <?php
-/* Template Name: design */
+/* Template Name: home */
  get_header();?>
     
         <?php/*    why choose us section          */?>
@@ -201,7 +201,9 @@
                 
             </div>
             
-            </div><div class="clearfix"></div><!-- faq end here -->
+
+
+          </div><div class="clearfix"></div><!-- faq end here -->
             
             
             </div><div class="clearfix"></div><!-- idea right side end here -->
