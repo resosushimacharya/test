@@ -53,7 +53,7 @@
     </div></div>
     </div><div class="clearfix"></div><!-- contact us end here -->
     <!-- featured product starts here -->
-    
+        <?php get_template_part('content','featured'); ?>
        <div class="feature_pro">
         	<div class="container">
             	<div class="meropro_blk">
@@ -64,7 +64,7 @@
                 	<div class="responsive"><!-- feautured -->
                       
                       
-                    <?php get_template_part('content','featured'); ?>
+                
                       
                     
                       
