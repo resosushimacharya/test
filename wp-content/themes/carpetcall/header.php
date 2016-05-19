@@ -198,11 +198,9 @@ wp_nav_menu($defaults);?>
     </div><div class="clearfix"></div><!-- banner end -->
 
     <script type="text/javascript">
-        jQuery(document).ready(function(){
-    
-    jQuery("#mywoosection").click(function(e){
 
-    jQuery.ajax({
+    function load_minicart(){
+jQuery.ajax({
       // url: wp_ccwoocommerce_autocomplete.ajax_url,
       type: 'POST',
       url: "<?php echo admin_url('admin-ajax.php'); ?>",
@@ -211,13 +209,37 @@ wp_nav_menu($defaults);?>
         action: 'woocommerce_cc',
         
       },
-      success:function(data){
+      success:function(data){       
         
-        jQuery('#woo_control').show();
-        jQuery('#woo_control').html(data);
+       jQuery('#woo_control').html(data);
+        ajax_count++;
       }
     });
+
+
+    }
+
+        jQuery(document).ready(function(){
+    
+    jQuery("#mywoosection").click(function(e){
+load_minicart();
+jQuery('#woo_control').show();
+    
 });
   });
+        var ajax_count=0;
+ jQuery(document).on('click', '.ajax_add_to_cart', function() {
+ // alert('User clicked on "foo."');
+  ajax_count=1;
+});
+
+        jQuery(document).ajaxSuccess(function() {
+         //alert(ajax_count);
+          if(ajax_count==1){
+             load_minicart();
+          }
+         
+ 
+});
 
     </script>
