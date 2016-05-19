@@ -9,7 +9,7 @@ get_header();
 <div id="gmap" style="height: 600px; width:100%;"></div>
 </div>
 
-
+<!-- caro -->
 
 <?php 
 $locState = array();
