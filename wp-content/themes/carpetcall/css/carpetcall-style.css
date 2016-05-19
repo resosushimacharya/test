@@ -236,7 +236,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .suptlst li { list-style:none; display:block;}
 .suptlst li a { font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#666; text-decoration:none; text-transform:uppercase;}
 .suptlst li a:hover { color:#000;}
-.cptin { margin:42px 0 0 125px; padding:9px 30px; background:#C32327;  display:inline-block;  text-align:center; }
+.cptin { margin:42px 0 0 30px; padding:9px 30px; background:#C32327;  display:inline-block;  text-align:center; }
 .cptinn a { font:bold 18px 'proxima_nova_rgregular', sans-serif; text-decoration:none; color:#FFF; text-transform:uppercase; letter-spacing:1px; }
 .cptinn a:hover { color:#FF0;}
 
