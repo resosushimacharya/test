@@ -242,7 +242,7 @@
             <li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp; <a href="#"> Bamboo </a></li>
             </ul><div class="clearfix"></div>
             
-            </div>
+            </div><!-- end here -->
             
             </div><div class="clearfix"></div><!-- guide end here -->
             

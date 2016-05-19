@@ -6,8 +6,8 @@
 //show_admin_bar(false );
 
 
-//update_option('siteurl',"http://prakash.com/carpetcall");
-//update_option('home',"http://prakash.com/carpetcall");
+//update_option('siteurl',"http://192.168.3.120/carpetcall");
+//update_option('home',"http://192.168.3.120/carpetcall");
 
 //update_option('siteurl',"http://webdev.agileitsolutions.net/carpetcall/");
 //update_option('home',"http://webdev.agileitsolutions.net/carpetcall/");
