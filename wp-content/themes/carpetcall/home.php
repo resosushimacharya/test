@@ -1,5 +1,5 @@
 <?php
-/* Template Name: home */
+/* Template Name: design */
  get_header();?>
     
         <?php/*    why choose us section          */?>
@@ -9,86 +9,12 @@
         $choose = get_post($id);
        
         ?>
-       
-       <div class="container-fluid carpetcall_slide">
-       	<section class="center slider">
-    <div>
-    <div class="hamro">
-      	<h3> Room Visualiser </h3>
-        <h4> Ideas &amp; Advice  </h4>
-        <h5 class="tryit tryita"><a href="#"> TRY IT NOW </a></h5>
-      </div>
-      <img src="<?php echo get_template_directory_uri().'/slide/slide.jpg';?>" alt="images" class="img-responsive">
-      
-    </div>
-    <div>
-      <img src="<?php echo get_template_directory_uri().'/slide/carpetcall.jpg';?>" alt="images" class="img-responsive">
-    </div>
-    <div>
-      <img src="<?php echo get_template_directory_uri().'/slide/carpetcall1.jpg';?>" alt="images" class="img-responsive">
-    </div>
-    <div>
-      <img src="<?php echo get_template_directory_uri().'/slide/carpetcall2.jpg';?>" alt="images" class="img-responsive">
-    </div>
-    <div>
-      <img src="<?php echo get_template_directory_uri().'/slide/carpetcall3.jpg';?>" alt="images" class="img-responsive">
-    </div>
-    <div>
-      <img src="<?php echo get_template_directory_uri().'/slide/carpetcall4.jpg';?>" alt="images" class="img-responsive">
-    </div>
-    <div>
-       <img src="<?php echo get_template_directory_uri().'/slide/carpetcall4.jpg';?>" alt="images" class="img-responsive">
-    </div>
-   
-    
-  </section>
-       </div><div class="clearfix"></div><!-- slider end --> 
-       
-       <div class="meroshop"><div class="container">
-        	
-            <div class="col-md-12">
-            	<div class="col-md-4">
-                <div class="shopping">
-                
-                	<div class="aag">
-                    <img src="<?php echo get_template_directory_uri().'/images/shop-icon.png';?>" width="37" height="49" alt="icon" style="float:left;"/>
-                    <h3 class="so_title so_titlee"><a href="#"> Shop Online </a></h3>
-                    <p>Shop Online &amp; Collect in participating stores </p>
-                    
-                    </div><div class="clearfix"></div>
-                    
-                </div>
-                </div><!-- shop online end here -->
-                
-                <div class="col-md-4">
-                <div class="shopping">
-                
-                	<div class="aag_a">
-                    <img src="<?php echo get_template_directory_uri().'/images/free-icon.png';?>" width="52" height="45" alt="icon" style="float:left;"/>
-                    <h3 class="aag_ab aag_ab"><span class="merof"> FREE </span><a href="#">delivery </a></h3>
-                    <p>for all Online Rug orders within Australia</p>
-                    
-                    </div><div class="clearfix"></div>
-                    
-                </div>
-                </div><!-- free delivery end here  -->
-                
-                <div class="col-md-4">
-                <div class="shopping">
-                
-                	<div class="aag_c">
-                    <img src="<?php echo get_template_directory_uri().'/images/like-icon.png';?>" width="41" height="43" alt="icon" style="float:left;"/>
-                    <h3 class="aag_cd aag_cdd"><span class="merof">100%</span> <a href="#"> Product &amp; Delivery </a></h3>
-                    <p>Satisfaction Rate</p>
-                    
-                    </div><div class="clearfix"></div>
-                    
-                </div>
-                </div><!-- product delivery end here  -->
-                
-            </div><div class="clearfix visible-md"></div>
-            
-        </div></div><div class="clearfix"></div><!-- parcel delivery end here -->      
+       <!-- slider start -->
+
+       <?php get_template_part('content','visualiser');?>
+       <!-- slider end --> 
+       <!-- parcel delivery end  --> 
+       <?php get_template_part('content','headings');?><!-- parcel delivery end here -->      
     
        <div class="container">
     <div class="calbk"><div class="row">
