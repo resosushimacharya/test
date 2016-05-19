@@ -59,75 +59,8 @@
                 <div class="col-md-12">
                 
                 	<div class="responsive">
-                      <div class="pro_one">
-                      <img src="<?php echo get_template_directory_uri().'/images/product-a.jpg';?>" alt="product" class="img-responsive"/>
-                      <div class="sublk_prom">
-                      		<div class="ptxt">
-                            	<h3>Faded oak </h3>
-                                <h4> Carpet </h4>
-                            </div><div class="clearfix"></div>
-                           <div class="nowsp nowspp"><a href="#"> SHOP NOW </a></div><div class="clearfix"></div> 
-                      </div><div class="clearfix"></div>
-                      
-                      </div><!-- product one end  -->
-                      
-                      <div class="pro_two">
-                      <img src="<?php echo get_template_directory_uri().'/images/product-b.jpg';?>" alt="product" class="img-responsive"/>
-                      <div class="sublk_prom">
-                      		<div class="ptxt">
-                            	<h3>CLASSIC 1050 </h3>
-                                <h4> LAMINATE FLOORING </h4>
-                                <h5> A$28.00/sqm </h5>
-                            </div><div class="clearfix"></div>
-                           <div class="nowsp nowspp"><a href="#"> SHOP NOW </a></div><div class="clearfix"></div> 
-                      </div><div class="clearfix"></div>
-                      </div><!--  product two end -->
-                      
-                      <div class="pro_thr">
-                       <img src="<?php echo get_template_directory_uri().'/images/product-c.jpg';?>" alt="product" class="img-responsive"/>
-                      <div class="sublk_prom">
-                      		<div class="ptxt">
-                            	<h3>Trim </h3>
-                                <h4> ACCESSORIES </h4>
-                                <h5> A$32.00 </h5>
-                            </div><div class="clearfix"></div>
-                           <div class="nowsp nowspp"><a href="#"> SHOP NOW </a></div><div class="clearfix"></div> 
-                      </div><div class="clearfix"></div>
-                      </div><!-- product three end  -->
-                      
-                      <div class="pro_for">
-                       <img src="<?php echo get_template_directory_uri().'/images/product-d.jpg';?>" alt="product" class="img-responsive"/>
-                      <div class="sublk_prom">
-                      		<div class="ptxt">
-                            	<h3>DESIGNER COLLECTION  </h3>
-                                <h4> RUGS</h4>
-                                <h5> A$225.00 </h5>
-                            </div><div class="clearfix"></div>
-                           <div class="nowsp nowspp"><a href="#"> SHOP NOW </a></div><div class="clearfix"></div> 
-                      </div><div class="clearfix"></div>
-                      </div><!-- product four end  -->
-                      
-                      <div class="pro_fiv">
-                       <img src="<?php echo get_template_directory_uri().'/images/product-e.jpg';?>" alt="product" class="img-responsive"/>
-                      <div class="sublk_prom">
-                      		<div class="ptxt">
-                            	<h3>Faded oak </h3>
-                                <h4> Carpet </h4>
-                            </div><div class="clearfix"></div>
-                           <div class="nowsp nowspp"><a href="#"> SHOP NOW </a></div><div class="clearfix"></div> 
-                      </div><div class="clearfix"></div>
-                      </div><!-- product five end  -->
-                      
-                      <div class="pro_six">
-                       <img src="<?php echo get_template_directory_uri().'/images/product-f.jpg';?>" alt="product" class="img-responsive"/>
-                      <div class="sublk_prom">
-                      		<div class="ptxt">
-                            	<h3>Faded oak </h3>
-                                <h4> Carpet </h4>
-                            </div><div class="clearfix"></div>
-                           <div class="nowsp nowspp"><a href="#"> SHOP NOW </a></div><div class="clearfix"></div> 
-                      </div><div class="clearfix"></div>
-                      </div><div class="clearfix"></div><!-- product six end  -->
+                     <!-- product six end  -->
+                     <?php get_template_part('content','featured'); ?>
                       
                     </div><div class="clearfix"></div>
                     
