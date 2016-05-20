@@ -14,40 +14,25 @@
         <div class="thought_blk">
         <h2> IDEAS &amp; ADVICE </h2>
         <div class="row">
+        <?php $guides=get_field('ideas_and_advice_section','option');
+        $gi= 2 ;
         
-            <div class="col-md-6 idea-left">
-            
-            <div class="rmvisual" style="background:url(<?php echo get_template_directory_uri().'/images/room-visual.png';?>); float:right; background-color:#0a71cf; min-width:482px; min-height:146px; background-size: cover;">
-            <img src="<?php echo get_template_directory_uri().'/images/room-visual.png';?>" alt="room" class="img-responsive" style="float:right;"/>
-            
-            <div class="rmblk_cont">
-                <h3> ROOM VISUALISER </h3>
-                <p> See how your choice of rug, carpet or hard flooring looks with this tool. </p>
-                <div class="trynow trynoww"><a href="#"> TRY IT NOW </a> &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i> </div><div class="clearfix"></div>               
+        foreach($guides as $guide):?>
+             <div class="col-md-6  <?php echo ($gi%2==0?'idea-left':'idea-right') ;?>">
+             <div class="<?php echo ($gi%2==0?'rmvisual':'care_pro') ;?>" style="background:url(<?php echo $guide['image']['url'];?>); float:right; background-color:#0a71cf; min-width:482px; min-height:146px; background-size: cover;">
+             <img src="<?php echo $guide['image']['url'];?>" alt="room" class="img-responsive" style="float:right;"/>
+             <div class="rmblk_cont">
+                <h3> <?php  echo $guide['title'];?></h3>
+                <p> <?php  echo $guide['description'];?></p>
+                <div class="trynow trynoww"><a href="<?php  echo $guide['link_url'];?>"> <?php  echo $guide['link_title'];?> </a> &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i> </div><div class="clearfix"></div>               
             </div>
-            
-            </div><div class="clearfix"></div><!-- room visualiser end here -->
-            
-                        
-            
-            </div><!-- idea left side end here -->
-            
-            
-            <div class="col-md-6 idea-right">
-            
-            <div class="care_pro" style="background:url(<?php echo get_template_directory_uri().'/images/care.png';?>); float:right; background-color:#0a71cf; min-width:482px; min-height:146px; background-size: cover;">
-                <img src="<?php echo get_template_directory_uri().'/images/care.png';?>" alt="room" class="img-responsive" style="float:right;"/>
-                <div class="rmblk_cont">
-                <h3> PRODUCT CARE </h3>
-                <p> Find comprehensive care and cleaning guides for all our quality flooring products. </p>
-                <div class="trynow trynoww"><a href="#"> SEE IT NOW </a> &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i> </div><div class="clearfix"></div>               
-            </div>
-            </div><div class="clearfix"></div><!-- prodoct care end here -->
-            
-            
-            
-            
-            </div><div class="clearfix"></div><!-- idea right side end here -->
+             </div><div class="clearfix"></div>
+             </div>
+        <?php $gi++;
+
+        	endforeach;
+         ?>
+           
             
         </div><div class="clearfix"></div>
         
