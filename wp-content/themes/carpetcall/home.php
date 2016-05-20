@@ -56,7 +56,7 @@
             	<div class="meropro_blk">
                 <h1> Featured Products </h1>
                 
-                <div class="col-md-12">
+                <div class="col-md-12 no-lr">
                 
                 	<div class="responsive">
                      <!-- product six end  -->
