@@ -1,5 +1,7 @@
 <div id="<?php echo the_ID();  ?>">
-<div id="gmap" style="height: 325px; width:100%;"></div>
+<div style="overflow:hidden;height:470px">
+<div id="gmap" style="height: 500px; width:100%;"></div>
+</div>
 </div>
 
 
@@ -129,14 +131,14 @@ function deg2rad(deg) {
     scaleControl: false,
     draggable: false,
     disableDefaultUI: true,
-            zoom: 3,
+            zoom: 1,
           styles: [
                 {
                     "featureType": "water",
                     "elementType": "geometry",
                     "stylers": [
                         {
-                            "color": "#e9e9e9"
+                            "color": "#FFFFFF"
                         },
                         {
                             "lightness": 17
@@ -262,7 +264,8 @@ function deg2rad(deg) {
                     "elementType": "labels.icon",
                     "stylers": [
                         {
-                            "visibility": "off"
+                            "visibility": "off",
+                            "border" : "2px solid black"
                         }
                     ]
                 },
@@ -284,6 +287,8 @@ function deg2rad(deg) {
                     "stylers": [
                         {
                             "color": "#fefefe"
+                            
+       
                         },
                         {
                             "lightness": 20
@@ -336,11 +341,17 @@ function deg2rad(deg) {
 
             geocodeAddress(locations, i);
            // alert()
+           var myoverlay = new google.maps.OverlayView();
+  myoverlay.draw = function () {
+    //this assigns an id to the markerlayer Pane, so it can be referenced by CSS
+    this.getPanes().markerLayer.id='markerLayer'; 
+  };
+  myoverlay.setMap(map);
+
+    }
            
         }
 
-
-    }
     google.maps.event.addDomListener(window, "load", initialize);
 
 
@@ -358,10 +369,13 @@ function deg2rad(deg) {
                        
                         //alert(results[0].geometry.location);
                           //(results[0].geometry.location.latitude);
-                          console.log(results[0].geometry.location);
+                       // console.log(results);
                           var res=results[0].geometry.location;
-                         dis = getDistanceFromLatLonInKm(res.lat(), res.lng(), -33.837864, 151.02846769999996)
+                         dis = getDistanceFromLatLonInKm(res.lat(), res.lng(), -33.837864, 151.02846769999996);
+
+                         var latlong=[res.lat(), res.lng()];
                              //if()
+                     
 
                            // alert(dis+'km');
                           //alert(res.lng());
@@ -369,9 +383,10 @@ function deg2rad(deg) {
                             // rs.push([res.lat(),res.lng()]);
                             // alert(rs);
                            
-                            console.log(rs);
+                          //  console.log(rs);
                                 var state = address.split(',');
                                 var asl=state[0];
+                                
                                
                         var marker_img = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
                         var marker = new google.maps.Marker({
@@ -383,7 +398,14 @@ function deg2rad(deg) {
                             address: address,
                             
                         })
-                        infoWindow(marker, map, title, address,asl);
+                        var html = "<div class='map_info' style='height:40px;width:100px;z-index:-10><div class='contents'><h5 style='color:red;''>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "Stores</h6></div></div>";
+                        //infoWindow(marker, map, title, address,asl);
+                        console.log(latlong);
+                         var infoBox = new InfoBox({
+            latlng:marker.getPosition(),
+            map: map,
+            content: html
+        });
 
                         bounds.extend(marker.getPosition());
                         map.fitBounds(bounds);
@@ -406,15 +428,157 @@ function deg2rad(deg) {
                });
      }
     
-       
+     function InfoBox(opts) {
+    google.maps.OverlayView.call(this);
+    this.latlng_ = opts.latlng;
+    this.map_ = opts.map;
+    this.content = opts.content;
+    this.offsetVertical_ = -20;
+    this.offsetHorizontal_ =-80;
+    this.height_ = 50;
+    this.width_ = 80;
+    var me = this;
+    this.boundsChangedListener_ =
+        google.maps.event.addListener(this.map_, "bounds_changed", function () {
+            return me.panMap.apply(me);
+        });
+    // Once the properties of this OverlayView are initialized, set its map so
+    // that we can display it. This will trigger calls to panes_changed and
+    // draw.
+    this.setMap(this.map_);
+}
+/* InfoBox extends GOverlay class from the Google Maps API
+ */
+InfoBox.prototype = new google.maps.OverlayView();
+/* Creates the DIV representing this InfoBox
+ */
+InfoBox.prototype.remove = function () {
+    if (this.div_) {
+        this.div_.parentNode.removeChild(this.div_);
+        this.div_ = null;
+    }
+};
+/* Redraw the Bar based on the current projection and zoom level
+ */
+InfoBox.prototype.draw = function () {
+    // Creates the element if it doesn't exist already.
+    this.createElement();
+    if (!this.div_) return;
+    // Calculate the DIV coordinates of two opposite corners of our bounds to
+    // get the size and position of our Bar
+    var pixPosition = this.getProjection().fromLatLngToDivPixel(this.latlng_);
+    if (!pixPosition) return;
+    // Now position our DIV based on the DIV coordinates of our bounds
+    this.div_.style.width = this.width_ + "px";
+    this.div_.style.left = (pixPosition.x + this.offsetHorizontal_) + "px";
+    this.div_.style.height = this.height_ + "px";
+    this.div_.style.top = (pixPosition.y + this.offsetVertical_) + "px";
+    this.div_.style.display = 'block';
+};
+/* Creates the DIV representing this InfoBox in the floatPane. If the panes
+ * object, retrieved by calling getPanes, is null, remove the element from the
+ * DOM. If the div exists, but its parent is not the floatPane, move the div
+ * to the new pane.
+ * Called from within draw. Alternatively, this can be called specifically on
+ * a panes_changed event.
+ */
+InfoBox.prototype.createElement = function () {
+    var panes = this.getPanes();
+    var div = this.div_;
+    if (!div) {
+        // This does not handle changing panes. You can set the map to be null and
+        // then reset the map to move the div.
+        div = this.div_ = document.createElement("div");
+            div.className = "infobox"
+        var contentDiv = document.createElement("div");
+            contentDiv.className = "content"
+            contentDiv.innerHTML = this.content;
+        var closeBox = document.createElement("div");
+            closeBox.className = "close";
+            closeBox.innerHTML = "x";
+        div.appendChild(closeBox);
+
+        function removeInfoBox(ib) {
+            return function () {
+                ib.setMap(null);
+            };
+        }
+        google.maps.event.addDomListener(closeBox, 'click', removeInfoBox(this));
+        div.appendChild(contentDiv);
+        div.style.display = 'none';
+        panes.floatPane.appendChild(div);
+        this.panMap();
+    } else if (div.parentNode != panes.floatPane) {
+        // The panes have changed. Move the div.
+        div.parentNode.removeChild(div);
+        panes.floatPane.appendChild(div);
+    } else {
+        // The panes have not changed, so no need to create or move the div.
+    }
+}
+/* Pan the map to fit the InfoBox.
+ */
+InfoBox.prototype.panMap = function () {
+    // if we go beyond map, pan map
+    var map = this.map_;
+    var bounds = map.getBounds();
+    if (!bounds) return;
+    // The position of the infowindow
+    var position = this.latlng_;
+    // The dimension of the infowindow
+    var iwWidth = this.width_;
+    var iwHeight = this.height_;
+    // The offset position of the infowindow
+    var iwOffsetX = this.offsetHorizontal_;
+    var iwOffsetY = this.offsetVertical_;
+    // Padding on the infowindow
+    var padX = 40;
+    var padY = 40;
+    // The degrees per pixel
+    var mapDiv = map.getDiv();
+    var mapWidth = mapDiv.offsetWidth;
+    var mapHeight = mapDiv.offsetHeight;
+    var boundsSpan = bounds.toSpan();
+    var longSpan = boundsSpan.lng();
+    var latSpan = boundsSpan.lat();
+    var degPixelX = longSpan / mapWidth;
+    var degPixelY = latSpan / mapHeight;
+    // The bounds of the map
+    var mapWestLng = bounds.getSouthWest().lng();
+    var mapEastLng = bounds.getNorthEast().lng();
+    var mapNorthLat = bounds.getNorthEast().lat();
+    var mapSouthLat = bounds.getSouthWest().lat();
+    // The bounds of the infowindow
+    var iwWestLng = position.lng() + (iwOffsetX - padX) * degPixelX;
+    var iwEastLng = position.lng() + (iwOffsetX + iwWidth + padX) * degPixelX;
+    var iwNorthLat = position.lat() - (iwOffsetY - padY) * degPixelY;
+    var iwSouthLat = position.lat() - (iwOffsetY + iwHeight + padY) * degPixelY;
+    // calculate center shift
+    var shiftLng =
+        (iwWestLng < mapWestLng ? mapWestLng - iwWestLng : 0) +
+        (iwEastLng > mapEastLng ? mapEastLng - iwEastLng : 0);
+    var shiftLat =
+        (iwNorthLat > mapNorthLat ? mapNorthLat - iwNorthLat : 0) +
+        (iwSouthLat < mapSouthLat ? mapSouthLat - iwSouthLat : 0);
+    // The center of the map
+    var center = map.getCenter();
+    // The new map center
+    var centerX = center.lng() - shiftLng;
+    var centerY = center.lat() - shiftLat;
+    // center the map to the new shifted center
+    map.setCenter(new google.maps.LatLng(centerY, centerX));
+    // Remove the listener after panning is complete.
+    google.maps.event.removeListener(this.boundsChangedListener_);
+    this.boundsChangedListener_ = null;
+};  
 
 
     function infoWindow(marker, map, title,address,asl) {
         if (typeof (window.google) !== 'undefined' && google.maps) {
             
-                var html = "<div class='map_info' style='height:40px;width:50px;z-index:-10><div class='contents'><h5 style='color:red;''>" + asl +'</h5>'+ "<h6>" + title  + "Stores</h6></div></div>";
+                var html = "<div class='map_info' style='height:40px;width:50px;z-index:-10><div class='contents'><h5 style='color:red;''>" + asl +'</h5>'+ "<h6 style='color:black !important'>" + title  + "Stores</h6></div></div>";
 
-                iw = new google.maps.InfoWindow({
+                iw = new google.maps.InfoBox({
                     content: html,
                     maxWidth: 350,
                     pixelOffset: new google.maps.Size(-20,40)
@@ -450,3 +614,56 @@ function deg2rad(deg) {
 
 
 </script> 
+<style>
+#markerLayer img {
+        border: 2px solid red !important;
+        width: 85% !important;
+        height: 90% !important;
+        border-radius: 5px;z-index:2000;
+      }
+
+      .infobox {
+  background: none repeat scroll 0 0 #fff;
+  color: #F1F1F1;
+  font-family: arial;
+  line-height: 50px;
+  position: absolute;
+  z-index:-1;
+}
+.infobox:before, .infobox:after {
+  border-color: transparent transparent transparent #212121;
+  border-style: solid;
+  border-width: 20px 20px 0;
+  bottom: -1px;
+  content: "";
+  display: none;
+  height: 0;
+  left: -1px;
+  position: absolute;
+  width: 0;
+  z-index:2
+}
+.infobox:after {
+  border-color: transparent transparent transparent #FFFFFF;
+  border-width:24px 24px 0;
+  z-index:1
+}
+.infobox .close {
+background: none repeat scroll 0 0 #212121;
+cursor: pointer;
+float: right;
+font-size: 17px;
+height: 25px;
+line-height: 22px;
+position: relative;
+right: -25px;
+text-align: center;
+top: 0;
+width: 25px;
+display:none;
+}
+
+.infobox .content {
+  margin:10px;
+}
+</style>
