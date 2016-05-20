@@ -1,15 +1,8 @@
-<?php 
-/*
-* Template Name: Map
-*/
-get_header();
-?>
-
 <div id="<?php echo the_ID();  ?>">
-<div id="gmap" style="height: 600px; width:100%;"></div>
+<div id="gmap" style="height: 300px; width:400px;"></div>
 </div>
 
-<!-- caro -->
+
 
 <?php 
 $locState = array();
@@ -17,9 +10,9 @@ $args= array('post_type'=>'wpsl_stores');
 $loop = new WP_Query($args);
 while($loop->have_posts()):
    $loop->the_post();
-   the_title();
+  // the_title();
    $mpos = get_post_meta($post->ID);
-   do_action('pr',$mpos);
+   //do_action('pr',$mpos);
    
     
     endwhile;
@@ -27,37 +20,37 @@ while($loop->have_posts()):
     $query = new WP_Query( array( 'meta_key' => 'wpsl_state', 'meta_value' => 'NSW' ,'post_type'=>'wpsl_stores') );
 
    $countNSW = $query->found_posts;
-   $locState[] = array('NSW',$countNSW);
+   $locState[] = array('NSW, AUSTRALIA',$countNSW);
    wp_reset_query();
    $query = new WP_Query( array( 'meta_key' => 'wpsl_state', 'meta_value' => 'SA' ,'post_type'=>'wpsl_stores') );
 
    $countSA = $query->found_posts;
-    $locState[] = array('QA',$countSA);
+    $locState[] = array('SA, AUSTRALIA',$countSA);
    wp_reset_query();
    $query = new WP_Query( array( 'meta_key' => 'wpsl_state', 'meta_value' => 'TAS' ,'post_type'=>'wpsl_stores') );
 
    $countTAS = $query->found_posts;
-    $locState[] = array('TAS',$countTAS);
+    $locState[] = array('TAS, AUSTRALIA',$countTAS);
    wp_reset_query();
    $query = new WP_Query( array( 'meta_key' => 'wpsl_state', 'meta_value' => 'VIC' ,'post_type'=>'wpsl_stores') );
 
    $countVIC = $query->found_posts;
-    $locState[] = array('VIC',$countVIC);
+    $locState[] = array('VIC, AUSTRALIA',$countVIC);
 
    wp_reset_query();
    $query = new WP_Query( array( 'meta_key' => 'wpsl_state', 'meta_value' => 'QLD' ,'post_type'=>'wpsl_stores') );
 
    $countQLD = $query->found_posts;
-    $locState[] = array('QLD',$countQLD);
+    $locState[] = array('QLD, AUSTRALIA',$countQLD);
    wp_reset_query();
     $query = new WP_Query( array( 'meta_key' => 'wpsl_state', 'meta_value' => 'WA' ,'post_type'=>'wpsl_stores') );
 
    $countWA = $query->found_posts;
-    $locState[] = array('WA',$countWA);
+    $locState[] = array('WA, AUSTRALIA',$countWA);
 
-    echo $countWA;
+   // echo $countWA;
    wp_reset_query();
-   do_action('pr',$locState);
+  // do_action('pr',$locState);
 
 
 
@@ -85,7 +78,7 @@ function showPosition(position) {
     myx = [-33.811721, 151.192396];
     setTimeout(function(){ loadmap(); }, 2000);
    sll.push(myx);
-   alert(sll);
+   //alert(sll);
     
 }
  var locations = [
@@ -96,7 +89,7 @@ function showPosition(position) {
     <?php endforeach; ?>
 
  ];
-   alert("hey"+locations[0][1]);
+  //alert(locations.length);
     console.log(locations);
     var rs = [];
     var myrs= [];
@@ -130,6 +123,7 @@ function deg2rad(deg) {
             center: new google.maps.LatLng(42, -97),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             scrollwheel: false,
+            zoom: 2,
           styles: [
                 {
                     "featureType": "water",
@@ -312,13 +306,17 @@ function deg2rad(deg) {
            
         // This is needed to set the zoom after fitbounds, 
         google.maps.event.addListener(map, 'zoom_changed', function() {
+
+
+
             zoomChangeBoundsListener = 
                 google.maps.event.addListener(map, 'bounds_changed', function(event) {
-                    if (this.getZoom() > 8 && this.initialZoom === true) {
+                   /*/ if (this.getZoom() > 8 && this.initialZoom === true) {
                         // Change max/min zoom here
-                        this.setZoom(8);
+                        this.setZoom(10);
                         this.initialZoom = false;
-                    }
+                    }*/
+                    this.setZoom(3);
                 google.maps.event.removeListener(zoomChangeBoundsListener);
             });
         });
@@ -331,7 +329,7 @@ function deg2rad(deg) {
 
 
             geocodeAddress(locations, i);
-            alert()
+           // alert()
            
         }
 
@@ -359,14 +357,16 @@ function deg2rad(deg) {
                          dis = getDistanceFromLatLonInKm(res.lat(), res.lng(), -33.837864, 151.02846769999996)
                              //if()
 
-                            alert(dis+'km');
+                           // alert(dis+'km');
                           //alert(res.lng());
                              
-                             rs.push([res.lat(),res.lng()]);
-                             alert(rs);
+                            // rs.push([res.lat(),res.lng()]);
+                            // alert(rs);
                            
                             console.log(rs);
-
+                                var state = address.split(',');
+                                var asl=state[0];
+                               
                         var marker_img = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
                         var marker = new google.maps.Marker({
                             icon: marker_img,
@@ -375,8 +375,9 @@ function deg2rad(deg) {
                             title: title,
                             animation: google.maps.Animation.DROP,
                             address: address,
+                            
                         })
-                        infoWindow(marker, map, title, address);
+                        infoWindow(marker, map, title, address,asl);
                         bounds.extend(marker.getPosition());
                         map.fitBounds(bounds);
                     } else {
@@ -401,14 +402,15 @@ function deg2rad(deg) {
        
 
 
-    function infoWindow(marker, map, title,address) {
+    function infoWindow(marker, map, title,address,asl) {
         if (typeof (window.google) !== 'undefined' && google.maps) {
             google.maps.event.addListener(marker, 'mouseover', function () {
-                var html = "<div class='map_info' style='height:200px;width:200px'><div class='contents'><h3>" + title + "<h5>"+address + "</h5></h3></div></div>";
+                var html = "<div class='map_info' style='height:50px;width:50px;><div class='contents'><h3 style='color:red;''>" + asl +'</h3>'+ "<h6>" + title  + "Stores</h6></div></div>";
 
                 iw = new google.maps.InfoWindow({
                     content: html,
                     maxWidth: 350,
+                    pixelOffset: new google.maps.Size(20,20)
                 });
                 iw.open(map, marker);
 
@@ -441,6 +443,3 @@ function deg2rad(deg) {
 
 
 </script> 
-
-
-<?php get_footer(); ?>

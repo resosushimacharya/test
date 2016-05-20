@@ -16,7 +16,8 @@
                 	<h2> VISIT OUR STORES </h2>
                     
                     <div class="store-map">
-                    map here !!!
+                    
+                    <?php get_template_part('content','map');?>
                     </div><div class="clearfix"></div><!-- for store map end -->
                     
                     <div class="rmore rmoree"><a href="#"> Find a Store </a></div><div class="clearfix"></div>
