@@ -6,6 +6,7 @@ get_arguments('visualiser','visualisers');
 get_arguments('workflow','workflows');
 get_arguments('expert','experts');
 get_arguments('FAQ','FAQS');
+get_arguments('Guide','Guides');
 }
 function get_arguments($singular,$plural){
 		$labels = array(

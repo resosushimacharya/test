@@ -7,12 +7,13 @@ function callCustomTaxonomy()
 {
 
    
-create_dynamic_hierarchical_taxonomy('profaq','profaqs','faqs','Faqcategory');
+create_dynamic_hierarchical_taxonomy('profaq','profaqs','faqs','Faqcategory','faq');
+create_dynamic_hierarchical_taxonomy('Guide','Guides','Guides','Gudiecategory','guide');
 
 }
 
 
-function create_dynamic_hierarchical_taxonomy($singular,$plural,$posttype,$cat) {
+function create_dynamic_hierarchical_taxonomy($singular,$plural,$posttype,$cat,$catreg) {
 
 // Add new taxonomy, make it hierarchical like categories
 //first do the translations part for GUI
@@ -33,7 +34,7 @@ function create_dynamic_hierarchical_taxonomy($singular,$plural,$posttype,$cat) 
 
 // Now register the taxonomy
 
-  register_taxonomy($cat,array($posttype), array(
+  register_taxonomy($catreg,array($posttype), array(
     'hierarchical' => true,
     'labels' => $labels,
     'show_ui' => true,
