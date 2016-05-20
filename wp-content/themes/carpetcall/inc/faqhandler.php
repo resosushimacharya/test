@@ -39,7 +39,7 @@ function create_dynamic_hierarchical_taxonomy($singular,$plural,$posttype,$cat) 
     'show_ui' => true,
     'show_admin_column' => true,
     'query_var' => true,
-    'rewrite' => array( 'slug' => $singular ),
+    'rewrite' => array( 'slug' => $cat ),
   ));
 
 }

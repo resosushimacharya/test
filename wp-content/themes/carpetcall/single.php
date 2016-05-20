@@ -17,7 +17,7 @@ if(have_posts()):
 
 
 	else:
-		echo "not found";
+		echo "not found hello";
 
 
 	endif;
