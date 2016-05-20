@@ -2,7 +2,7 @@
 
 ?>
 <?php
-$tax = 'Faqcategory';
+$tax = 'faq';
 
 $link = rtrim($_SERVER['REQUEST_URI'],'/');
 $link =ltrim($link,'/');
