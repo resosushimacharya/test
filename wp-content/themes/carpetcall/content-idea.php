@@ -1,50 +1,10 @@
 <?php
-$tax = 'Faqcategory';
+
  ?><div class="container">
 					<div class="row">
 					<div class="col-md-12">
 					<ul>
-					<?php
-						$tax_terms = get_terms($tax);
 
-					 $args=array(
-					'post_type' => 'faqs',
-					
-					'post_status' => 'publish',
-					'posts_per_page' => -1,
-					'ignore_sticky_posts'=> 1
-					);
-					//echo $tax_term->slug;
-					$my_query = null;
-					$my_query = new WP_Query($args);
-					while ($my_query->have_posts()) : $my_query->the_post();
-					
-					?>
-
-                   
-                    
-					<?php
-					
-
-					$reqTempTerms=get_the_terms($post->ID,$tax);
-					
-					foreach($reqTempTerms as $reqTerm){ 
-						   
-						  
-						 
-						  	echo '<li>'.$reqTerm->name.'</li>';
-						  	echo '<a href="'.get_term_link($reqTerm).'">'.$reqTerm->name.'</a>';
-					}
-					
-					?>
-					
-				
-					
-               <?php
-
-					endwhile;
-					wp_reset_query();
-					?>
 					</ul>
 					</div></div></div>
 
@@ -105,11 +65,17 @@ $tax = 'Faqcategory';
             <div class="quest_cont">
                 <h4> FAQ'S </h4>
                 <ul class="guide_list">
-            <li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp; <a href="#"> Carpet </a></li>
-            <li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp; <a href="#"> Rugs </a></li>
-            <li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp; <a href="#"> Hard Floor </a></li>
-            <li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp; <a href="#"> Vinyls </a></li>
-            <li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp; <a href="#"> Bamboo </a></li>
+            
+					<?php
+                            $tax = 'Faqcategory'; 
+						$tax_terms = get_terms($tax);
+						
+						foreach($tax_terms as $tax_term)
+						{
+						echo '<li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp;<a href="'.get_term_link($tax_term).'">'.$tax_term->name.'</li></a>';
+						}
+
+				?>
             </ul><div class="clearfix"></div>
                 
             </div>
