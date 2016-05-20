@@ -7,33 +7,33 @@ function callCustomTaxonomy()
 {
 
    
-create_dynamic_hierarchical_taxonomy('profaq','profaqs','faqs');
+create_dynamic_hierarchical_taxonomy('profaq','profaqs','faqs','Faqcategory');
 
 }
 
 
-function create_dynamic_hierarchical_taxonomy($singular,$plural,$posttype) {
+function create_dynamic_hierarchical_taxonomy($singular,$plural,$posttype,$cat) {
 
 // Add new taxonomy, make it hierarchical like categories
 //first do the translations part for GUI
 
   $labels = array(
-    'name' => _x( $plural, 'taxonomy general name' ),
+    'name' => _x( $cat, 'taxonomy general name' ),
     'singular_name' => _x( $singular, 'taxonomy singular name' ),
-    'search_items' =>  __( 'Search'. $plural ),
-    'all_items' => __( 'All'. $plural ),
-    'parent_item' => __( 'Parent'.$singular ),
-    'parent_item_colon' => __( 'Parent'.$singular.':' ),
-    'edit_item' => __( 'Edit'. $singular ), 
-    'update_item' => __( 'Update'. $singular ),
-    'add_new_item' => __( 'Add New'. $singular),
+    'search_items' =>  __( 'Search '. $plural ),
+    'all_items' => __( 'All '. $plural ),
+    'parent_item' => __( 'Parent '.$singular ),
+    'parent_item_colon' => __( 'Parent '.$singular.':' ),
+    'edit_item' => __( 'Edit '. $cat ), 
+    'update_item' => __( 'Update '. $singular ),
+    'add_new_item' => __( 'Add New '. $cat),
     'new_item_name' => __( 'New '.$singular .'Name' ),
-    'menu_name' => __( $plural ),
+    'menu_name' => __( $cat ),
   ); 	
 
 // Now register the taxonomy
 
-  register_taxonomy($plural,array($posttype), array(
+  register_taxonomy($cat,array($posttype), array(
     'hierarchical' => true,
     'labels' => $labels,
     'show_ui' => true,
