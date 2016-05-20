@@ -1,7 +1,7 @@
 <div class="footer_c">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 idea-left">
                 <div class="fot_logo">
                     <img src="<?php echo get_template_directory_uri() ;?>/images/carpetcall-logo.png" alt="logo" class="img-responsive"/>
                 </div>
@@ -61,7 +61,7 @@
                 <div class="clearfix"></div><!-- social end -->
             </div><!-- left footer end -->
 
-            <div class="col-md-4">
+            <div class="col-md-4 idea-right">
 
                 <h2 class="calcall"> “Call, Call, Carpetcall the experts in the trade” </h2>
                 <h3 class="calspl">CALL&nbsp;<?php echo get_field('telephone',89);?></h3>

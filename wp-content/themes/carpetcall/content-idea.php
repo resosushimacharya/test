@@ -14,9 +14,10 @@
         <div class="thought_blk">
         <h2> IDEAS &amp; ADVICE </h2>
         <div class="row">
-            <div class="col-md-6">
+        
+            <div class="col-md-6 idea-left">
             
-            <div class="rmvisual" style="background:<?php echo get_template_directory_uri().'/images/room-visual.png';?>; float:right; background-color:#0a71cf;">
+            <div class="rmvisual" style="background:url(<?php echo get_template_directory_uri().'/images/room-visual.png';?>); float:right; background-color:#0a71cf; min-width:482px; min-height:146px; background-size: cover;">
             <img src="<?php echo get_template_directory_uri().'/images/room-visual.png';?>" alt="room" class="img-responsive" style="float:right;"/>
             
             <div class="rmblk_cont">
@@ -27,7 +28,33 @@
             
             </div><div class="clearfix"></div><!-- room visualiser end here -->
             
-            <div class="guide_a" style="background:<?php echo get_template_directory_uri().'/images/guides.png';?>; float:right; background-color:#15489f;">
+                        
+            
+            </div><!-- idea left side end here -->
+            
+            
+            <div class="col-md-6 idea-right">
+            
+            <div class="care_pro" style="background:url(<?php echo get_template_directory_uri().'/images/care.png';?>); float:right; background-color:#0a71cf; min-width:482px; min-height:146px; background-size: cover;">
+                <img src="<?php echo get_template_directory_uri().'/images/care.png';?>" alt="room" class="img-responsive" style="float:right;"/>
+                <div class="rmblk_cont">
+                <h3> PRODUCT CARE </h3>
+                <p> Find comprehensive care and cleaning guides for all our quality flooring products. </p>
+                <div class="trynow trynoww"><a href="#"> SEE IT NOW </a> &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i> </div><div class="clearfix"></div>               
+            </div>
+            </div><div class="clearfix"></div><!-- prodoct care end here -->
+            
+            
+            
+            
+            </div><div class="clearfix"></div><!-- idea right side end here -->
+            
+        </div><div class="clearfix"></div>
+        
+        <div class="row">
+        
+        <div class="col-md-6 idea-left">
+        <div class="guide_a" style="background:url(<?php echo get_template_directory_uri().'/images/guides.png';?>); float:right; background-color:#15489f; min-width:482px; min-height:178px; background-size: cover;">
             <img src="<?php echo get_template_directory_uri().'/images/guides.png';?>" alt="guide" class="img-responsive" style="float:right;"/>
             
             <div class="inner_cont">
@@ -49,22 +76,11 @@
             </div><!-- end here --><!-- testing phase end -->
             
             </div><div class="clearfix"></div><!-- guide end here -->
-            
-            
-            </div><!-- idea left side end here -->
-            ideas_and_advice_section
-            <div class="col-md-6">
-            
-            <div class="care_pro" style="background:url(<?php echo get_template_directory_uri().'/images/care.png';?>); float:right; background-color:#0a71cf;">
-                <img src="<?php echo get_template_directory_uri().'/images/care.png';?>" alt="room" class="img-responsive" style="float:right;"/>
-                <div class="rmblk_cont">
-                <h3> PRODUCT CARE </h3>
-                <p> Find comprehensive care and cleaning guides for all our quality flooring products. </p>
-                <div class="trynow trynoww"><a href="#"> SEE IT NOW </a> &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i> </div><div class="clearfix"></div>               
-            </div>
-            </div><div class="clearfix"></div><!-- prodoct care end here -->
-            
-            <div class="faq_blk" style="background:<?php echo get_template_directory_uri().'/images/faq.png';?>; float:right; background-color:#15489f;">
+
+        </div>
+        
+        <div class="col-md-6 idea-right">
+        <div class="faq_blk" style="background:url(<?php echo get_template_directory_uri().'/images/faq.png';?>); float:right; background-color:#15489f; min-width:482px; min-height:178px; background-size: cover;">
             <img src="<?php echo get_template_directory_uri().'/images/faq.png';?>" alt="room" class="img-responsive" style="float:right;"/>
             
             <div class="quest_cont">
@@ -86,9 +102,8 @@
             </div>
             
             </div><div class="clearfix"></div><!-- faq end here -->
-            
-            
-            </div><div class="clearfix"></div><!-- idea right side end here -->
+        </div>
+        
         </div><div class="clearfix"></div>
         
         

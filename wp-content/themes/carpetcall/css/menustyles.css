@@ -49,6 +49,8 @@
   position: absolute;
   left: -9999px;
   top: auto;
+  padding: 10px;
+  background: #fff;
 }
 #cssmenu ul li ul li {
   max-height: 0;
@@ -109,7 +111,6 @@
 #cssmenu ul li ul li.active > a {
   color: #fff;
   background:url(../images/menu-hover-bg.png) no-repeat;
-  margin:0 0 0 10px;
 }
 #cssmenu ul li ul li:hover:after,
 #cssmenu ul li ul li.active:after {
@@ -240,7 +241,7 @@
   display: block;
 }
 #cssmenu > ul > li > ul > li {
-  width: 212px;
+  width: 202px;
   display: block;
 }
 @media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
