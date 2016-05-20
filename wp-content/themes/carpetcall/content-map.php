@@ -1,5 +1,5 @@
 <div id="<?php echo the_ID();  ?>">
-<div id="gmap" style="height: 300px; width:400px;"></div>
+<div id="gmap" style="height: 325px; width:100%;"></div>
 </div>
 
 
@@ -116,14 +116,20 @@ function deg2rad(deg) {
 }
     function initialize() {
 
-
+       
 
         map = new google.maps.Map(document.getElementById("gmap"), {
 
             center: new google.maps.LatLng(42, -97),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             scrollwheel: false,
-            zoom: 2,
+
+    navigationControl: false,
+    mapTypeControl: false,
+    scaleControl: false,
+    draggable: false,
+    disableDefaultUI: true,
+            zoom: 3,
           styles: [
                 {
                     "featureType": "water",
@@ -316,7 +322,7 @@ function deg2rad(deg) {
                         this.setZoom(10);
                         this.initialZoom = false;
                     }*/
-                    this.setZoom(3);
+                    this.setZoom(4);
                 google.maps.event.removeListener(zoomChangeBoundsListener);
             });
         });
@@ -378,6 +384,7 @@ function deg2rad(deg) {
                             
                         })
                         infoWindow(marker, map, title, address,asl);
+
                         bounds.extend(marker.getPosition());
                         map.fitBounds(bounds);
                     } else {
@@ -404,17 +411,17 @@ function deg2rad(deg) {
 
     function infoWindow(marker, map, title,address,asl) {
         if (typeof (window.google) !== 'undefined' && google.maps) {
-            google.maps.event.addListener(marker, 'mouseover', function () {
-                var html = "<div class='map_info' style='height:50px;width:50px;><div class='contents'><h3 style='color:red;''>" + asl +'</h3>'+ "<h6>" + title  + "Stores</h6></div></div>";
+            
+                var html = "<div class='map_info' style='height:40px;width:50px;z-index:-10><div class='contents'><h5 style='color:red;''>" + asl +'</h5>'+ "<h6>" + title  + "Stores</h6></div></div>";
 
                 iw = new google.maps.InfoWindow({
                     content: html,
                     maxWidth: 350,
-                    pixelOffset: new google.maps.Size(20,20)
+                    pixelOffset: new google.maps.Size(-20,40)
                 });
                 iw.open(map, marker);
 
-            });
+           
         }
 
 
