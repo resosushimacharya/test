@@ -107,9 +107,9 @@
     </ul><div class="clearfix"></div>
             </div><div class="clearfix"></div>
             
-            <div class="mycnt mycntt"><a href="#"> CONTACT US </a></div>
+            <div class="fcnt-or fcnt-orr clearfix"><a href="#" target="_blank"> CONTACT US</a> </div>
             
-            </div><!-- right footer end -->
+            </div><div class="clearfix"></div><!-- right footer end -->
         </div></div><div class="clearfix"></div>
         
         <div class="container"><div class="row">
