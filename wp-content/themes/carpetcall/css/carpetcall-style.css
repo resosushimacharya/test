@@ -51,6 +51,7 @@ p {margin: 2px 0; font:normal 0.875em/150% 'proxima_nova_rgregular', sans-serif;
 html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-size: 100%; background:#fff; color:#000; line-height:150%; }
 .no-pr{padding-right: 0}
 .no-pl{padding-left: 0}
+.no-lr{padding:0;}
 
 .container { width:1024px; padding:0 20px;}
 .row { margin-right:-20px; margin-left:-20px;}
@@ -189,6 +190,9 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .slider .slick-prev:before, .slider .slick-next:before { color: black; }
 .slider .slick-prev { left:23.6%; width: 32px;  height: 54px;  border: 1px solid #d1ddf1;  background: #fff;  border-radius: 0; }
 .slider .slick-next { right:23.6%; width: 32px;  height: 54px;  border: 1px solid #d1ddf1;  background: #fff;  border-radius: 0; }
+.slider .slick-dots li.slick-active button:before { opacity:1; color:#15489f; }
+
+.slider .slick-dots li button:before { opacity:.75; color:#e2e2e2;}
 
 .hamro { position:absolute; top:50px; right:195px;}
 .hamro h3, .hamro h4 { font:bolder 40px 'proxima_nova_ltsemibold', sans-serif; color:#0a71cf; }
@@ -216,7 +220,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 /*.................. offer and delivery start here ..................*/
 .meroshop {margin:0;}
 .shopping { box-shadow:0px 0px 10px #999999; background:#FFF; padding:12px; position:relative; top:-25px; }
-.aag{min-height: 66px;}
+.aag{min-height: 68px;}
 .so_title, .aag p { margin-left:55px;}
 .aag_ab, .aag_a p { margin-left:65px; }
 .so_titlee a, .aag_ab a, .aag_cdd a { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#1858b8; text-decoration:none;}
@@ -244,8 +248,9 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 
 .feature_pro {background:#e7edf8}
 .meropro_blk { margin:20px 0 60px 0;}
+
 .meropro_blk h1 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin:45px 0 25px 0; text-align:center; text-transform:uppercase; }
-.pro_one, .pro_two, .pro_thr, .pro_for, .pro_fiv, .pro_six { background:#fff; border:7px solid #FFF;}
+.pro_one, .pro_two, .pro_thr, .pro_for, .pro_fiv, .pro_six { background:#fff; padding: 10px; margin: 10px;}
 .sublk_prom { margin:8px 0;}
 .ptxt { min-height:90px;}
 .ptxt h3 { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding-left:7px;}
@@ -256,8 +261,8 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .nowspp a:hover {background:#a9191c;}
 
 .responsive .slick-dots { bottom:-45px; }
-.responsive .slick-prev {left:0%;}
-.responsive .slick-next {right:0%;}
+.responsive .slick-prev {left:0%; width: 32px;  height: 54px;  border: 1px solid #d1ddf1;  background: #fff;  border-radius: 0; }
+.responsive .slick-next {right:0%; width: 32px;  height: 54px;  border: 1px solid #d1ddf1;  background: #fff;  border-radius: 0; }
 .responsive .slick-prev:before{
 		content: '\f104';
 		font-family: FontAwesome;
@@ -306,9 +311,12 @@ ul.guide_list .fa { color:#F00;}
 .find_tbb a:hover { background:#b01519;}
 
 /*............... about and visit start here ....................*/
-.intro { padding:0; }
-.intro h1 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin:0 0 25px 0; text-transform:uppercase; }
+.intro, .stmap { padding:0; }
+.intro h1, .stmap h2 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin:0 0 25px 0; text-transform:uppercase; }
 .intro p {font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#666666; margin:6px 0 12px 0;}
+.rmore { margin:15px 0;}
+.rmoree a {font:600 16px 'proxima_nova_rgregular', sans-serif; color:#1858b8; text-decoration:none;}
+.rmoree a:hover {color:#15489f;}
 
 
 
