@@ -6,7 +6,7 @@ get_header();
 ?>
 
 <div id="<?php echo the_ID();  ?>">
-<div id="gmap" style="height: 600px; width:100%;"></div>
+<div id="gmap" style="height: 300px; width:400px;"></div>
 </div>
 
 
@@ -130,6 +130,7 @@ function deg2rad(deg) {
             center: new google.maps.LatLng(42, -97),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             scrollwheel: false,
+            zoom: 5,
           styles: [
                 {
                     "featureType": "water",
@@ -312,13 +313,17 @@ function deg2rad(deg) {
            
         // This is needed to set the zoom after fitbounds, 
         google.maps.event.addListener(map, 'zoom_changed', function() {
+
+
+
             zoomChangeBoundsListener = 
                 google.maps.event.addListener(map, 'bounds_changed', function(event) {
-                    if (this.getZoom() > 8 && this.initialZoom === true) {
+                   /*/ if (this.getZoom() > 8 && this.initialZoom === true) {
                         // Change max/min zoom here
-                        this.setZoom(8);
+                        this.setZoom(10);
                         this.initialZoom = false;
-                    }
+                    }*/
+                    this.setZoom(4);
                 google.maps.event.removeListener(zoomChangeBoundsListener);
             });
         });

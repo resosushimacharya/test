@@ -52,7 +52,7 @@
             
             
             </div><!-- idea left side end here -->
-            
+            ideas_and_advice_section
             <div class="col-md-6">
             
             <div class="care_pro" style="background:url(<?php echo get_template_directory_uri().'/images/care.png';?>); float:right; background-color:#0a71cf;">
