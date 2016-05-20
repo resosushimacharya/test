@@ -7,7 +7,7 @@
                 </div>
 
                 <div class="subcat">
-                    <div class="row"><!--my style ---->
+                    <!--my style ---->
 
                         <!--- -->
                         <?php    /**
@@ -36,7 +36,7 @@
 
                         <div class="clearfix"></div>
 
-                    </div>
+                
                 </div>
                 <div class="clearfix"></div><!-- sub category listing end -->
                 <div class="social">
@@ -87,8 +87,8 @@
 </div><div class="clearfix"></div><!-- right footer end -->
 </div></div><div class="clearfix"></div>
 
-<div class="container"><div class="row">
-<div class="col-md-12">
+<div class="container">
+<div class="col-md-12 no-pl">
 <div class="fot_cpy">
 <ul>
 <li><span class="cpyrt"> © Copyright 2016 Carpet CalL</span> </li>
@@ -97,7 +97,7 @@
 </ul><div class="clearfix"></div>
 </div><div class="clearfix"></div>
 </div>
-</div></div><div class="clearfix"></div>
+</div><div class="clearfix"></div>
 
 
 </div><div class="clearfix"></div><!-- footer end -->
