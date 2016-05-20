@@ -67,7 +67,7 @@
                 <ul class="guide_list">
             
 					<?php
-                            $tax = 'Faqcategory'; 
+                            $tax = 'faq'; 
 						$tax_terms = get_terms($tax);
 						
 						foreach($tax_terms as $tax_term)
