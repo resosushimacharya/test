@@ -34,11 +34,16 @@
             <h4> BUYING GUIDES  </h4>
             
             <ul class="guide_list">
-            <li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp; <a href="#"> Carpet </a></li>
-            <li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp; <a href="#"> Rugs </a></li>
-            <li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp; <a href="#"> Hard Floor </a></li>
-            <li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp; <a href="#"> Vinyls </a></li>
-            <li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp; <a href="#"> Bamboo </a></li>
+            <?php
+                            $tax = 'guide'; 
+						$tax_terms = get_terms($tax);
+						
+						foreach($tax_terms as $tax_term)
+						{
+						echo '<li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp;<a href="'.get_term_link($tax_term).'">'.$tax_term->name.'</li></a>';
+						}
+
+				?>
             </ul><div class="clearfix"></div>
             
             </div><!-- end here --><!-- testing phase end -->
@@ -50,7 +55,7 @@
             
             <div class="col-md-6">
             
-            <div class="care_pro" style="background:<?php echo get_template_directory_uri().'/images/care.png';?>; float:right; background-color:#0a71cf;">
+            <div class="care_pro" style="background:url(<?php echo get_template_directory_uri().'/images/care.png';?>); float:right; background-color:#0a71cf;">
                 <img src="<?php echo get_template_directory_uri().'/images/care.png';?>" alt="room" class="img-responsive" style="float:right;"/>
                 <div class="rmblk_cont">
                 <h3> PRODUCT CARE </h3>

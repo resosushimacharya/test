@@ -20,7 +20,7 @@ $termname= $linkarr[$len-1];
 
 					 $args=array(
 					'post_type' => 'faqs',
-					
+					"$tax" => $termname,
 					'post_status' => 'publish',
 					'posts_per_page' => -1,
 					'ignore_sticky_posts'=> 1
