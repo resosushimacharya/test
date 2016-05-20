@@ -23,6 +23,10 @@ array(
 );
 }
 add_action( 'init', 'register_my_menus' );
+add_action( 'init', 'my_add_excerpts_to_pages' );
+function my_add_excerpts_to_pages() {
+     add_post_type_support( 'page', 'excerpt' );
+}
 add_filter('pre_get_posts', 'query_post_type');
 function query_post_type($query) {
   if(is_category() || is_tag()) {
