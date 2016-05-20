@@ -3,11 +3,12 @@
         	<div class="row">
             	<div class="col-md-6"><!-- about start here -->
                 <div class="intro">
-                	<h1> ABOUT CARPETCALL </h1>
-                    <p>Carpet Call is Australia’s largest independent flooring retailer stocking and installing all of your flooring needs with our huge range of flooring products. We have over 70 stores Australia wide completely stocked with all types of flooring including carpet, rugs, timber, laminate, vinyl floors, and much more. At Carpet Call you’ll find exactly what you need to brighten up any room in your home. </p>
-                    <p> Our first Carpet Call store opened 40 years ago and since then we have grown to become one of Australia’s most well-known and best loved providers of quality flooring products. We are known for our professional and knowledgeable staff, so visit a Carpet Call store near you for expert advice about your next flooring purchase.</p>
+                <?php $about = get_post(317);
+                 ?>
+                	<h1> <?php echo $about->post_title; ?></h1>
+                    <p><?php echo $about->post_excerpt; ?></p>
                     
-                    <div class="rmore rmoree"><a href="#"> Read More </a></div><div class="clearfix"></div>
+                    <div class="rmore rmoree"><a href="<?php echo get_permalink($about->ID); ?>"> Read More </a></div><div class="clearfix"></div>
                 </div>
                 </div><!-- about end here -->
                 

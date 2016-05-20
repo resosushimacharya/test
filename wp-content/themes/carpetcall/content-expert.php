@@ -2,47 +2,59 @@
        		<div class="container">
             	<div class="hamro_trade">
                 	<h2>we are the experts in the trade </h2>
+                   <div class="row">
+                    <?php
                     
-                    <div class="row">
-                    	<div class="col-md-6 idea-left">
+                    $ei = 2;
+
+ $args=array(
+          'post_type' => 'experts',
+          'order' => 'DESC',
+          'post_status' => 'publish',
+          'posts_per_page' => -1,
+          'ignore_sticky_posts'=> 1
+          );
+          //echo $tax_term->slug;
+          $my_query = null;
+          $my_query = new WP_Query($args);
+          while ($my_query->have_posts()) : $my_query->the_post();
+$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+  $highlight =get_field('highlight',$post->ID);
+   $non_highlight_section =get_field('non_highlight_section',$post->ID);
+    $link_title =get_field('link_title',$post->ID);
+     $link =get_field('link',$post->ID);
+
+                     ?>
+                        <div class="col-md-6 <?php echo ($ei%2==0?'idea-left':'idea-right') ;?>">
                         <div class="measure_blk">
-                        	<div class="meas_img" style="background:url(<?php echo get_template_directory_uri().'/images/trade-a.jpg';?>); min-width:482px; min-height:267px; background-size:cover;">
-                            <img src="<?php echo get_template_directory_uri().'/images/trade-a.jpg';?>" alt="guide" class="img-responsive"/>
+                          <div class="meas_img" style="background:url(<?php echo $feat_image;?>); min-width:482px; min-height:267px; background-size:cover;">
+                            <img src="<?php echo $feat_image ;?>" alt="guide" class="img-responsive"/>
                             </div><div class="clearfix"></div>
                            
                            <div class="measr_cnt">
-                           	<h3><span class="frcol"> FREE</span> MEASURE AND QUOTE </h3>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                            <p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  </p>
+                            <h3>
+                            <?php if(!empty($highlight)){?>
+                            <span class="frcol"> <?php echo $highlight;?></span>
+                            <?php }?> <?php echo $non_highlight_section ;?> </h3>
+                            <p>
+                              <?php echo get_the_content();?>
+                            </p>
                            </div><div class="clearfix"></div>
                            
                            <div class="find_tb find_tbb">
-                          <a href="#"> FIND OUT MORE </a>
+                          <a href="<?php echo $link;?>"> <?php echo $link_title;?></a>
                            </div><div class="clearfix"></div>
                             
                         </div>
-                        </div><!-- measuer end -->
-                        
-                        <div class="col-md-6 idea-right">
-                        <div class="measure_blk">
-                        	<div class="meas_img" style="backgroundurl(<?php echo get_template_directory_uri().'/images/trade-b.jpg';?>); min-width:482px; min-height:267px; background-size:cover;">
-                            <img src="<?php echo get_template_directory_uri().'/images/trade-b.jpg';?>" alt="guide" class="img-responsive"/>
-                            </div><div class="clearfix"></div>
-                           
-                           <div class="measr_cnt">
-                           	<h3> CARPETCALL INSTALLATION </h3>
-                            <p> Carpetcall offers flooring installation for our laminate, vinyl, bamboo, cork, timber &amp; carpet products. </p>
-                            <p> One of our Flooring Specialist can meet you in your home, where they can accurately measure and quote on your installation.  </p>
-                           </div><div class="clearfix"></div>
-                           
-                           <div class="find_tb find_tbb">
-                          <a href="#"> CONTACT US </a>
-                           </div><div class="clearfix"></div>
-                            
-                        </div>
-                        </div><!-- installation end -->
-                        
-                    </div><div class="clearfix"></div>
+                        </div><!-- measuer end -->    
+
+                     <?php 
+                     $ei++;
+                     endwhile;
+                     wp_reset_query();?>
+                     </div>
+
+                   <div class="clearfix"></div>
                     
                 </div><div class="clearfix"></div>
             </div>
