@@ -1,5 +1,5 @@
 <div id="<?php echo the_ID();  ?>">
-<div style="overflow:hidden;height:300px;width:90%;margin-left:60px;margin-top:30px">
+<div style="overflow:hidden;height:288px;width:90%;margin-left:5px;">
 <div id="gmap" style="position:relative;height: 500px; width:100%;top:-120px"></div>
 </div>
 </div>
@@ -439,19 +439,19 @@ function deg2rad(deg) {
                         })
                        
                         if((asl.toUpperCase() === tempvar[0].toUpperCase())|| (asl.toUpperCase() === tempvar[1].toUpperCase()) ){
-                        var html = "<div class='map_info xyz'><div class='contents  modify'><h5 style='color:red;''>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "Stores</h6><div class='custom_icon_right'></div></div></div>";
+                        var html = "<div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "stores</h6><div class='custom_icon_right'></div></div></div>";
                            
                             var right_=1;
 
                     }
                     else if((asl.toUpperCase() === tempvar[2].toUpperCase())){
-                         var html = "<div class='map_info xyz'><div class='contents  modify'><h5 style='color:red;''>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "Stores</h6><div class='custom_icon_down'></div></div></div>";
+                         var html = "<div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "stores</h6><div class='custom_icon_down'></div></div></div>";
                            
                             var right_=2;
 
                     }
                         else{
-                            var html = "<div class='map_info ' ><div class='contents'><h5 style='color:red;''>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "Stores</h6><div class='custom_icon'></div></div></div>";
+                            var html = "<div class='map_info ' ><div class='contents'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "stores</h6><div class='custom_icon'></div></div></div>";
                            
                            var right_=0;
                         }
@@ -727,6 +727,8 @@ margin: 5px;
   z-index:1
 }
 */
+.contents h5 {font:700 16px 'proxima_nova_ltsemibold', sans-serif; color:#c32327;}
+.contents h6 {font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#666666;}
 
 .infobox .close {
 
@@ -750,7 +752,7 @@ display:none;
 
  margin: 5px;
     position: relative;
-    left: -2px;
+    left: -6px;
     height: 40px;
     padding: 5px;
     top: 77px;
