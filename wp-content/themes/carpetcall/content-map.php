@@ -131,6 +131,7 @@ function deg2rad(deg) {
     scaleControl: false,
     draggable: false,
     disableDefaultUI: true,
+    //#c6d3ea
             zoom: 1,
           styles: [
                 {
@@ -142,6 +143,10 @@ function deg2rad(deg) {
                         },
                         {
                             "lightness": 17
+                        },
+                        
+                         {
+                            "visibility": "off"
                         }
                     ]
                 },
@@ -155,6 +160,7 @@ function deg2rad(deg) {
                         {
                             "lightness": 20
                         }
+
                     ]
                 },
                 {
@@ -166,6 +172,9 @@ function deg2rad(deg) {
                         },
                         {
                             "lightness": 17
+                        },
+                         {
+                            "visibility": "off"
                         }
                     ]
                 },
@@ -230,6 +239,9 @@ function deg2rad(deg) {
                         {
                             "lightness": 21
                         }
+                        , {
+                            "visibility": "off"
+                        }
                     ]
                 },
                 {
@@ -257,7 +269,11 @@ function deg2rad(deg) {
                         },
                         {
                             "lightness": 40
+                        },
+                        , {
+                            "visibility": "off"
                         }
+
                     ]
                 },
                 {
