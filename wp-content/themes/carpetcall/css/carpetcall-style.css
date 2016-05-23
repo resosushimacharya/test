@@ -331,7 +331,7 @@ ul.guide_list .fa { color:#F00;}
 .footlist li { list-style:none; display:inline-block;}
 .fotgrid { width:33.33%; }
 .carptfot li, .carptfot_aa li { list-style:none; display:block;}
-.sourblk, .clbk { font:bold 15px 'proxima_nova_ltsemibold', sans-serif; color:#fff; }
+.sourblk, .clbk { font:bold 13px 'proxima_nova_ltsemibold', sans-serif; color:#fff; }
 .carptfot li a, .carptfot_aa li a { font:normal 13px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-transform:uppercase; text-decoration:none;}
 .carptfot li a:hover, .carptfot_aa li a:hover { color:#FF0;}
 .clbk { margin:10px 0;}
