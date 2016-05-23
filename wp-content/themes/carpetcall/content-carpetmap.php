@@ -1,6 +1,6 @@
 <div class="container"><!-- about and map section start here -->
-       	<div class="abvist">
-        	<div class="row">
+       	<div class="abvist clearfix">
+        	
             	<div class="col-md-6"><!-- about start here -->
                 <div class="intro">
                 <?php $about = get_post(317);
@@ -24,7 +24,6 @@
                     <div class="rmore rmoree"><a href="#"> Find a Store </a></div><div class="clearfix"></div>
                 </div>
                 </div><!-- maps end here -->
-                
-            </div><div class="clearfix"></div>
+           
         </div><div class="clearfix"></div>
        </div><div class="clearfix"></div>

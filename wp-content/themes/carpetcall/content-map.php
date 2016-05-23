@@ -143,11 +143,9 @@ function deg2rad(deg) {
                         },
                         {
                             "lightness": 17
-                        },
-                        
-                         {
-                            "visibility": "off"
                         }
+
+                         
                     ]
                 },
                 {
@@ -155,10 +153,7 @@ function deg2rad(deg) {
                     "elementType": "geometry",
                     "stylers": [
                         {
-                            "color": "#f5f5f5"
-                        },
-                        {
-                            "lightness": 20
+                            "color": "#c6d3ea"
                         }
 
                     ]
@@ -168,7 +163,7 @@ function deg2rad(deg) {
                     "elementType": "geometry.fill",
                     "stylers": [
                         {
-                            "color": "#ffffff"
+                            "color": "#c6d3ea"
                         },
                         {
                             "lightness": 17
@@ -183,13 +178,16 @@ function deg2rad(deg) {
                     "elementType": "geometry.stroke",
                     "stylers": [
                         {
-                            "color": "#ffffff"
+                            "color": "#c6d3ea"
                         },
                         {
                             "lightness": 29
                         },
                         {
                             "weight": 0.2
+                        },
+                         {
+                            "visibility": "off"
                         }
                     ]
                 },
@@ -214,6 +212,9 @@ function deg2rad(deg) {
                         },
                         {
                             "lightness": 16
+                        },
+                        {
+                            "visibility": "off"
                         }
                     ]
                 },
@@ -226,6 +227,9 @@ function deg2rad(deg) {
                         },
                         {
                             "lightness": 21
+                        }, 
+                        {
+                            "visibility": "off"
                         }
                     ]
                 },
@@ -255,6 +259,9 @@ function deg2rad(deg) {
                         },
                         {
                             "lightness": 16
+                        },
+                        {
+                            "visibility": "off"
                         }
                     ]
                 },
@@ -270,7 +277,7 @@ function deg2rad(deg) {
                         {
                             "lightness": 40
                         },
-                        , {
+                        {
                             "visibility": "off"
                         }
 
@@ -280,9 +287,14 @@ function deg2rad(deg) {
                     "elementType": "labels.icon",
                     "stylers": [
                         {
-                            "visibility": "off",
+                            
                             "border" : "2px solid black"
+                        },
+                        {
+                            
+                            "visibility": "off"
                         }
+                        
                     ]
                 },
                 {
@@ -294,6 +306,8 @@ function deg2rad(deg) {
                         },
                         {
                             "lightness": 19
+                        },{
+                            "visibility": "off"
                         }
                     ]
                 },
@@ -308,6 +322,8 @@ function deg2rad(deg) {
                         },
                         {
                             "lightness": 20
+                        },{
+                            "visibility": "off"
                         }
                     ]
                 },
@@ -323,6 +339,10 @@ function deg2rad(deg) {
                         },
                         {
                             "weight": 1.2
+                        }, 
+                        {
+                            
+                            "visibility": "off"
                         }
                     ]
                 }
@@ -404,7 +424,7 @@ function deg2rad(deg) {
                                 var asl=state[0];
                                 
                                
-                        var marker_img = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
+                        var marker_img = "http:localhost//carpetcall/wp-content/themes/carpetcall/images/location-bg.png";
                         var marker = new google.maps.Marker({
                             icon: marker_img,
                             map: map,
@@ -640,6 +660,7 @@ InfoBox.prototype.panMap = function () {
   line-height: 50px;
   position: absolute;
   z-index:-100;
+
 }
 .infobox:before, .infobox:after {
   border-color: transparent transparent transparent #212121;
@@ -659,8 +680,10 @@ InfoBox.prototype.panMap = function () {
   border-width:24px 24px 0;
   z-index:1
 }
+
 .infobox .close {
-background: none repeat scroll 0 0 #212121;
+
+
 cursor: pointer;
 float: right;
 font-size: 17px;
@@ -671,17 +694,12 @@ right: -25px;
 text-align: center;
 top: 0;
 width: 25px;
-display:none;
+
 }
 
 .infobox .content {
   margin:10px;
+  background-image: url('http:localhost//carpetcall/wp-content/themes/carpetcall/images/location.png');
 }
-#markerLayer img {
-        border: 2px solid red !important;
-        width: 85% !important;
-        height: 90% !important;
-        border-radius: 5px;
-        z-index:2000 !important;
-      }
+
 </style>
