@@ -6,7 +6,7 @@
                 <?php $about = get_post(317);
                  ?>
                 	<h1> <?php echo $about->post_title; ?></h1>
-                    <p><?php echo $about->post_excerpt; ?></p>
+                    <p><?php echo apply_filters('the_content',$about->post_content); ?></p>
                     
                     <div class="rmore rmoree"><a href="<?php echo get_permalink($about->ID); ?>"> Read More </a></div><div class="clearfix"></div>
                 </div>

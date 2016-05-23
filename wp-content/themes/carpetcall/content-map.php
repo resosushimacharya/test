@@ -615,12 +615,7 @@ InfoBox.prototype.panMap = function () {
 
 </script> 
 <style>
-#markerLayer img {
-        border: 2px solid red !important;
-        width: 85% !important;
-        height: 90% !important;
-        border-radius: 5px;z-index:2000;
-      }
+
 
       .infobox {
   background: none repeat scroll 0 0 #fff;
@@ -628,7 +623,7 @@ InfoBox.prototype.panMap = function () {
   font-family: arial;
   line-height: 50px;
   position: absolute;
-  z-index:-1;
+  z-index:-100;
 }
 .infobox:before, .infobox:after {
   border-color: transparent transparent transparent #212121;
@@ -666,4 +661,11 @@ display:none;
 .infobox .content {
   margin:10px;
 }
+#markerLayer img {
+        border: 2px solid red !important;
+        width: 85% !important;
+        height: 90% !important;
+        border-radius: 5px;
+        z-index:2000 !important;
+      }
 </style>

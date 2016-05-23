@@ -9,7 +9,8 @@
 
  $args=array(
           'post_type' => 'experts',
-          'order' => 'DESC',
+
+          'order' => 'ASC',
           'post_status' => 'publish',
           'posts_per_page' => -1,
           'ignore_sticky_posts'=> 1

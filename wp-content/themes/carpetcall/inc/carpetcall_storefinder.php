@@ -56,7 +56,8 @@ foreach($array as $k=>$v){
      $break=0;
      $myArrays= array();
 	$backarg=array('post_type'=>'wpsl_stores',
-		'posts_per_page'=>10);
+    'posts_per_page'=>'-1'
+		);
 
 	$loop= new WP_Query(
 		$backarg);
@@ -134,7 +135,7 @@ usort($myArrays, 'sortByOrder');?>
 
                             <address>
                               <strong><u><?php the_title();?>:</u></strong><br>
-                               <?php echo $ma[0].' ,'.$ma[1][0].' ,'.$ma[2].' ,'.$ma[3] ;
+                               <?php echo $ma[0].' ,'.$ma[1].' ,'.$ma[2].' ,'.$ma[3] ;
                                ?>
                               
                             </address>
@@ -146,15 +147,17 @@ usort($myArrays, 'sortByOrder');?>
 
 <?php else:?>
 	<?php foreach($myArrays as $ma):?>
-		<?php 
+		<?php if($zloop==4){
 
-			?>
+      break;
+      } 
+      $zloop++;?>
 		<div class="row">
            <div class="col-md-8">
 
                             <address>
-                              <strong><u><?php the_title();?>:</u></strong><br>
-                               <?php echo $ma[0].' ,'.$ma[1][0].' ,'.$ma[2].' ,'.$ma[3] ;
+                              <strong><u><?php //the_title();?>:</u></strong><br>
+                               <?php echo $ma[0].' ,'.$ma[1].' ,'.$ma[2].' ,'.$ma[3].count($myArrays ) ;
                                ?>
                               
                             </address>
@@ -252,6 +255,7 @@ if((strcasecmp($strzip[0],$keyword)==0)){?>
    <?php 
   
         $html.= '<li onclick="set_store(\''.str_replace("-", ",", $loc['wpsl_zip'][0]).'\')">'.$loc['wpsl_zip'][0].'</li>';
+         break;
         
         
       ?>
@@ -263,6 +267,7 @@ if((strcasecmp($strzip[0],$keyword)==0)){?>
    <?php 
   
         $html.= '<li onclick="set_store(\''.str_replace("-", ",",$loc['wpsl_city'][0]).'\')">'.$loc['wpsl_city'][0].'</li>';
+        break;
         
         
       ?>
