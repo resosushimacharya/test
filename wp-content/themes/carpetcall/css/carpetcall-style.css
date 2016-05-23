@@ -62,6 +62,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 
 
 
+
 /* banner section start here ---*/
 .banner { background:#15489f; padding:22px 0 0 0;}
 .banner .col-md-12 {padding:0 20px;}
@@ -72,7 +73,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 .callinfo { position:relative; margin-left:28px;}
 .calme { margin:0; font:bold 28px 'proxima_nova_ltsemibold', sans-serif; color:#FFF; text-transform:uppercase; letter-spacing:6px; }
 .subcl { font:700 12px 'proxima_nova_rgregular', sans-serif; color:#FFF; margin:0; text-transform:uppercase; letter-spacing:1px; }
-.contblk { position:absolute; bottom:-1px; right:0px; padding:2px 10px; background:#c32327; text-align:center; }
+.contblk { position:absolute; bottom:-1px; right:0px; padding:2px 13px; background:#c32327; text-align:center; }
 .contblk a {color:#FFF; font-size:13px; text-decoration:none; text-transform:uppercase;}
 .contblk a:hover { color:#CCC;}
 .navsrchblk { margin-top:23px;}
@@ -229,6 +230,17 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .merof { font-size:16px; font-weight:700; color:#c32327; }
 .aag_cd, .aag_c p { margin-left:53px;}
 .aag_c p { margin-bottom:22px;}
+.meroshop .col-md-12 .col-md-4{padding: 0 10px;}
+
+/*.meroshop .col-md-12 .col-md-4:nth-child(1) .shopping{
+	margin-right:10px;
+}
+.meroshop .col-md-12 .col-md-4:nth-child(2) .shopping{
+	margin:0 15px;
+}
+.meroshop .col-md-12 .col-md-4:nth-child(3) .shopping{
+	margin-left:10px;
+}*/
 
 
 
@@ -240,7 +252,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .suptlst li { list-style:none; display:block;}
 .suptlst li a { font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#666; text-decoration:none; text-transform:uppercase;}
 .suptlst li a:hover { color:#000;}
-.cptin { margin:42px 0 0 30px; padding:9px 30px; background:#C32327;  display:inline-block;  text-align:center; }
+.cptin { margin:42px 0 0 30px; padding:12px 51px; background:#C32327;  display:inline-block;  text-align:center; }
 .cptinn a { font:bold 18px 'proxima_nova_rgregular', sans-serif; text-decoration:none; color:#FFF; text-transform:uppercase; letter-spacing:1px; }
 .cptinn a:hover { color:#FF0;}
 
@@ -309,7 +321,7 @@ ul.guide_list .fa { color:#F00;}
 .frcol { color:#c32327; }
 .measr_cnt p {font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#666666; margin:6px 0;}
 .find_tb { background:#c32327; display:inline-block; }
-.find_tbb a { display:block; padding:10px 22px; text-align:center; color:#FFF; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; text-decoration:none;}
+.find_tbb a { display:block; padding:15px 42px; text-align:center; color:#FFF; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; text-decoration:none;}
 .find_tbb a:hover { background:#b01519;}
 
 /*............... about and visit start here ....................*/
@@ -327,21 +339,24 @@ ul.guide_list .fa { color:#F00;}
 .footer_c { background:#15489f; }
 .fot_logo { margin:25px 0; }
 .subcat { margin-bottom:15px;}
-.footlist, .carptfot, .carptfot_aa { margin:0; padding:0;}
+.footlist, .carptfot_aa { margin:0; padding:0;}
+.carptfot { margin:5px 0; }
 .footlist li { list-style:none; display:inline-block;}
 .fotgrid { width:33.33%; }
 .carptfot li, .carptfot_aa li { list-style:none; display:block;}
+.carptfot li::before { content: '-';}
 .sourblk, .clbk { font:bold 13px 'proxima_nova_ltsemibold', sans-serif; color:#fff; }
-.carptfot li a, .carptfot_aa li a { font:normal 13px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-transform:uppercase; text-decoration:none;}
+.carptfot li a, .carptfot_aa li a { font:normal 12px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-transform:uppercase; text-decoration:none; letter-spacing:1px;}
 .carptfot li a:hover, .carptfot_aa li a:hover { color:#FF0;}
+li.clblk_a::before {content: '';}
 .clbk { margin:10px 0;}
 .carptfot_aa { -webkit-column-count: 2; }
 .footlist > li > a, .sourblk { cursor:text;}
 .footlist li .clblk_a a {font-weight:bold; cursor:text; letter-spacing:1px;}
 .footlist li .clblk_a a:hover { color:#FFF; text-decoration:none;}
-
+#menu-footer-menu .col-md-6 {padding:0;}
 .fcnt-or { margin-top:30px;}
-.fcnt-orr a { background:#c32327; padding:9px 22px; text-align:center; font:700 18px 'proxima_nova_ltsemibold', sans-serif; text-transform:uppercase; color:#fff; text-decoration:none; }
+.fcnt-orr a { background:#c32327; padding:15px 55px; text-align:center; font:700 18px 'proxima_nova_ltsemibold', sans-serif; text-transform:uppercase; color:#fff; text-decoration:none; display:inline-block; }
 .fcnt-orr a:hover {background:#b51a1d;}
 
 

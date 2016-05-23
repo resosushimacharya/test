@@ -85,9 +85,11 @@
 <div class="fcnt-or fcnt-orr clearfix"><a href="#" target="_blank"> CONTACT US</a> </div>
 
 </div><div class="clearfix"></div><!-- right footer end -->
-</div></div><div class="clearfix"></div>
+</div>
+	</div><div class="clearfix"></div>
 
 <div class="container">
+
 <div class="col-md-12 no-pl">
 <div class="fot_cpy">
 <ul>
@@ -97,6 +99,7 @@
 </ul><div class="clearfix"></div>
 </div><div class="clearfix"></div>
 </div>
+
 </div><div class="clearfix"></div>
 
 
