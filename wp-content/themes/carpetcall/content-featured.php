@@ -31,7 +31,10 @@ $tax = 'product_cat';
                ?>
                      <?php  if($woo['_featured'][0]=='yes'){ ?>
                    <div class="pro_for">
-                    <img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/>
+                  
+                  <div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div>
+                  
+                    <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
                     <div class="sublk_prom">
                       		<div class="ptxt">
 					<h3><?php

@@ -277,6 +277,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 		color: #15489f;
 		font-weight:normal;
 		}
+.img_cntr {background-position:center center; background-size:cover; min-height:127px;  }
 
 /*............. idea and advice start here .................*/
 .thought_blk { margin:40px 0;}
