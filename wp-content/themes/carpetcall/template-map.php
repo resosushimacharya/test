@@ -323,7 +323,7 @@ function deg2rad(deg) {
                         this.setZoom(10);
                         this.initialZoom = false;
                     }*/
-                    this.setZoom(4);
+                    this.setZoom(3);
                 google.maps.event.removeListener(zoomChangeBoundsListener);
             });
         });

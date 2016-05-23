@@ -1,6 +1,6 @@
 <div id="<?php echo the_ID();  ?>">
-<div style="overflow:hidden;height:470px">
-<div id="gmap" style="height: 500px; width:100%;"></div>
+<div style="overflow:hidden;height:300px;width:70%;margin-left:60px;margin-top:30px">
+<div id="gmap" style="position:relative;height: 500px; width:100%;top:-120px"></div>
 </div>
 </div>
 
@@ -131,8 +131,10 @@ function deg2rad(deg) {
     scaleControl: false,
     draggable: false,
     disableDefaultUI: true,
+    zoom:20,
+
     //#c6d3ea
-            zoom: 1,
+           
           styles: [
                 {
                     "featureType": "water",
@@ -363,7 +365,7 @@ function deg2rad(deg) {
                         this.setZoom(10);
                         this.initialZoom = false;
                     }*/
-                    this.setZoom(4);
+                    this.setZoom(3);
                 google.maps.event.removeListener(zoomChangeBoundsListener);
             });
         });
@@ -411,7 +413,8 @@ function deg2rad(deg) {
 
                          var latlong=[res.lat(), res.lng()];
                              //if()
-                     
+                       var tempvar = ["QLD","NSW","TAS"];
+                       alert(tempvar);
 
                            // alert(dis+'km');
                           //alert(res.lng());
@@ -424,7 +427,7 @@ function deg2rad(deg) {
                                 var asl=state[0];
                                 
                                
-                        var marker_img = "http:localhost//carpetcall/wp-content/themes/carpetcall/images/location-bg.png";
+                        var marker_img = "<?php echo get_template_directory_uri();?>/images/location.png";
                         var marker = new google.maps.Marker({
                             icon: marker_img,
                             map: map,
@@ -434,13 +437,26 @@ function deg2rad(deg) {
                             address: address,
                             
                         })
-                        var html = "<div class='map_info' style='height:40px;width:100px;z-index:-10><div class='contents'><h5 style='color:red;''>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "Stores</h6></div></div>";
+                       
+                        if((asl.toUpperCase() === tempvar[0].toUpperCase())|| (asl.toUpperCase() === tempvar[1].toUpperCase())|| (asl.toUpperCase() === tempvar[2].toUpperCase())){
+                        var html = "<div class='map_info xyz'><div class='contents'><h5 style='color:red;''>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "Stores</h6><div class='custom_icon_right'></div></div></div>";
+                           
+                            var right_=1;
+
+                    }
+                        else{
+                            var html = "<div class='map_info ' ><div class='contents'><h5 style='color:red;''>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "Stores</h6><div class='custom_icon'></div></div></div>";
+                           
+                           var right_=0;
+                        }
                         //infoWindow(marker, map, title, address,asl);
                         console.log(latlong);
                          var infoBox = new InfoBox({
             latlng:marker.getPosition(),
             map: map,
-            content: html
+            content: html,
+            right__:right_
+            
         });
 
                         bounds.extend(marker.getPosition());
@@ -469,10 +485,11 @@ function deg2rad(deg) {
     this.latlng_ = opts.latlng;
     this.map_ = opts.map;
     this.content = opts.content;
-    this.offsetVertical_ = -20;
-    this.offsetHorizontal_ =-80;
+    this.offsetVertical_ = -100;
+    this.offsetHorizontal_ =-50;
     this.height_ = 50;
     this.width_ = 80;
+    this.right__=opts.right__;
     var me = this;
     this.boundsChangedListener_ =
         google.maps.event.addListener(this.map_, "bounds_changed", function () {
@@ -520,14 +537,20 @@ InfoBox.prototype.draw = function () {
  */
 InfoBox.prototype.createElement = function () {
     var panes = this.getPanes();
-    var div = this.div_;
+    var div = this.div_; 
+   
     if (!div) {
         // This does not handle changing panes. You can set the map to be null and
         // then reset the map to move the div.
         div = this.div_ = document.createElement("div");
             div.className = "infobox"
         var contentDiv = document.createElement("div");
+        if(this.right__==1){
+            contentDiv.className = "content_right"
+        }else{
             contentDiv.className = "content"
+        }
+            
             contentDiv.innerHTML = this.content;
         var closeBox = document.createElement("div");
             closeBox.className = "close";
@@ -612,7 +635,7 @@ InfoBox.prototype.panMap = function () {
     function infoWindow(marker, map, title,address,asl) {
         if (typeof (window.google) !== 'undefined' && google.maps) {
             
-                var html = "<div class='map_info' style='height:40px;width:50px;z-index:-10><div class='contents'><h5 style='color:red;''>" + asl +'</h5>'+ "<h6 style='color:black !important'>" + title  + "Stores</h6></div></div>";
+                var html = "<div class='map_info' style='height:40px;width:50px;padding-left:10px'><div class='contents'><h5 style='color:red;''>" + asl +'</h5>'+ "<h6 style='color:black !important'>" + title  + "Stores</h6><div class='custom_icon'></div></div></div>";
 
                 iw = new google.maps.InfoBox({
                     content: html,
@@ -652,17 +675,29 @@ InfoBox.prototype.panMap = function () {
 </script> 
 <style>
 
-
-      .infobox {
-  background: none repeat scroll 0 0 #fff;
+.infobox {
+  /* background: none repeat scroll 0 0 rgba(255,255,255,0.4); */
   color: #F1F1F1;
   font-family: arial;
   line-height: 50px;
   position: absolute;
-  z-index:-100;
+  /* margin-top:80px; */ 
+  z-index:1;
+  margin-left:-20px;
+  /* border:2px solid #ddd; */
 
 }
-.infobox:before, .infobox:after {
+      
+/*
+margin: 5px;
+    position: relative;
+    left: -21px;
+    height: 50px;
+    padding: 5px;
+    top: 68px;
+    width: 70px;
+    background: red;
+    .infobox:before, .infobox:after {
   border-color: transparent transparent transparent #212121;
   border-style: solid;
   border-width: 20px 20px 0;
@@ -672,6 +707,7 @@ InfoBox.prototype.panMap = function () {
   height: 0;
   left: -1px;
   position: absolute;
+
   width: 0;
   z-index:2
 }
@@ -680,6 +716,7 @@ InfoBox.prototype.panMap = function () {
   border-width:24px 24px 0;
   z-index:1
 }
+*/
 
 .infobox .close {
 
@@ -694,12 +731,65 @@ right: -25px;
 text-align: center;
 top: 0;
 width: 25px;
+display:none;
 
 }
 
-.infobox .content {
-  margin:10px;
-  background-image: url('http:localhost//carpetcall/wp-content/themes/carpetcall/images/location.png');
+
+.infobox .content { 
+    
+ margin: 5px;
+    position: relative;
+    left: -2px;
+    height: 50px;
+    padding: 5px;
+    top: 77px;
+    width: 70px;
+    background: rgba(255,255,255,0.5);padding-left:20px;
 }
 
+.infobox .content_right {
+ margin: 5px;
+    position: relative;
+    left:60px;
+    height: 50px;
+    padding: 5px;
+    top: 58px;
+    width: 70px;
+    background: rgba(255,255,255,0.5);
+}
+
+
+div.custom_icon{
+    background-image: url('<?php echo get_template_directory_uri();?>/images/location.png');
+    width:22px;
+    height: 28px;
+    position: absolute;
+    right: -15px;
+    top: -17px;
+    z-index:20000 !important;
+    display: inline-block;
+}
+div.custom_icon_right{
+    background-image: url('http://localhost/carpetcall/wp-content/themes/carpetcall/images/location.png');
+    width: 22px;
+    height: 28px;
+    position: absolute;
+    left: -12px;
+    top: 1px;
+    z-index: 20000 !important;
+    display: inline-block;
+}
+.contents{
+    background: none repeat scroll 0 0 rgba(255,255,255,0.4);
+  color: #F1F1F1;
+  font-family: arial;
+  line-height: 50px;
+  position: absolute;
+  
+  z-index:1;
+ 
+  border:2px solid #ddd;
+}
+  .maf_info{margin-left: 20px !important;}
 </style>
