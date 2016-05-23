@@ -67,7 +67,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 .banner .col-md-12 {padding:0 20px;}
 
 .searchm { margin-top:5px;}
-.searchm .form-control { height:46px; border-radius:0; border:0; color:#000; font-size:16px; font-weight:700; }
+.searchm .form-control { height:46px; border-radius:0; border:0; color:#000; font-size:16px; font-weight:700; text-align:left; }
 .searchm .btn { background:#FFF; border-radius:0; border:0; padding:13px 12px 13px 12px;}
 .callinfo { position:relative; margin-left:28px;}
 .calme { margin:0; font:bold 28px 'proxima_nova_ltsemibold', sans-serif; color:#FFF; text-transform:uppercase; letter-spacing:6px; }
@@ -195,10 +195,10 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .slider .slick-dots li button:before { opacity:.75; color:#e2e2e2;}
 
 .hamro { position:absolute; top:50px; right:195px;}
-.hamro h3, .hamro h4 { font:bolder 40px 'proxima_nova_ltsemibold', sans-serif; color:#0a71cf; }
+.hamro h3, .hamro h4 { font:bolder 40px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-shadow:1px 2px 1px #666666; }
 .hamro h4 { font-size:19px; }
 .tryit { background:#c32327; display:inline-block; margin:12px 0 0 0; }
-.tryita a { padding:8px 19px; display:block; text-align:center; color:#FFF; font:normal 14px 'proxima_nova_rgregular', sans-serif; text-decoration:none;}
+.tryita a { padding:10px 40px; display:block; text-align:center; color:#FFF; font:normal 18px 'proxima_nova_rgregular', sans-serif; text-decoration:none; text-transform:uppercase;}
 .tryita a:hover {background:#a71014;}
 
 .carpetcall_slide .slider .slick-prev:before{
