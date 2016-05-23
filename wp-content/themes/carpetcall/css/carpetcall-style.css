@@ -196,7 +196,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .slider .slick-dots li button:before { opacity:.75; color:#e2e2e2;}
 
 .hamro { position:absolute; top:50px; right:195px;}
-.hamro h3, .hamro h4 { font:bolder 40px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-shadow:1px 2px 1px #666666; }
+.hamro h3, .hamro h4 { font:bolder 40px 'proxima_nova_ltsemibold', sans-serif; color:#0a71cf; text-shadow:0px 1px 0px #fff; }
 .hamro h4 { font-size:19px; }
 .tryit { background:#c32327; display:inline-block; margin:12px 0 0 0; }
 .tryita a { padding:10px 40px; display:block; text-align:center; color:#FFF; font:normal 18px 'proxima_nova_rgregular', sans-serif; text-decoration:none; text-transform:uppercase;}
