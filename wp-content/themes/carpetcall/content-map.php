@@ -1,5 +1,5 @@
 <div id="<?php echo the_ID();  ?>">
-<div style="overflow:hidden;height:300px;width:70%;margin-left:60px;margin-top:30px">
+<div style="overflow:hidden;height:300px;width:90%;margin-left:60px;margin-top:30px">
 <div id="gmap" style="position:relative;height: 500px; width:100%;top:-120px"></div>
 </div>
 </div>
@@ -414,7 +414,7 @@ function deg2rad(deg) {
                          var latlong=[res.lat(), res.lng()];
                              //if()
                        var tempvar = ["QLD","NSW","TAS"];
-                       alert(tempvar);
+                      
 
                            // alert(dis+'km');
                           //alert(res.lng());
@@ -427,7 +427,7 @@ function deg2rad(deg) {
                                 var asl=state[0];
                                 
                                
-                        var marker_img = "<?php echo get_template_directory_uri();?>/images/location.png";
+                        var marker_img = "<?php echo get_template_directory_uri();?>/images/location-bg.png";
                         var marker = new google.maps.Marker({
                             icon: marker_img,
                             map: map,
@@ -438,10 +438,16 @@ function deg2rad(deg) {
                             
                         })
                        
-                        if((asl.toUpperCase() === tempvar[0].toUpperCase())|| (asl.toUpperCase() === tempvar[1].toUpperCase())|| (asl.toUpperCase() === tempvar[2].toUpperCase())){
-                        var html = "<div class='map_info xyz'><div class='contents'><h5 style='color:red;''>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "Stores</h6><div class='custom_icon_right'></div></div></div>";
+                        if((asl.toUpperCase() === tempvar[0].toUpperCase())|| (asl.toUpperCase() === tempvar[1].toUpperCase()) ){
+                        var html = "<div class='map_info xyz'><div class='contents  modify'><h5 style='color:red;''>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "Stores</h6><div class='custom_icon_right'></div></div></div>";
                            
                             var right_=1;
+
+                    }
+                    else if((asl.toUpperCase() === tempvar[2].toUpperCase())){
+                         var html = "<div class='map_info xyz'><div class='contents  modify'><h5 style='color:red;''>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "Stores</h6><div class='custom_icon_down'></div></div></div>";
+                           
+                            var right_=2;
 
                     }
                         else{
@@ -546,11 +552,15 @@ InfoBox.prototype.createElement = function () {
             div.className = "infobox"
         var contentDiv = document.createElement("div");
         if(this.right__==1){
-            contentDiv.className = "content_right"
-        }else{
-            contentDiv.className = "content"
+            contentDiv.className = "content_right";
         }
-            
+         else if(this.right__==2)
+        {
+         contentDiv.className = "content_down";
+        }  
+        else 
+        { contentDiv.className = "content";}
+         
             contentDiv.innerHTML = this.content;
         var closeBox = document.createElement("div");
             closeBox.className = "close";
@@ -684,7 +694,7 @@ InfoBox.prototype.panMap = function () {
   /* margin-top:80px; */ 
   z-index:1;
   margin-left:-20px;
-  /* border:2px solid #ddd; */
+
 
 }
       
@@ -737,28 +747,40 @@ display:none;
 
 
 .infobox .content { 
-    
+
  margin: 5px;
     position: relative;
     left: -2px;
-    height: 50px;
+    height: 40px;
     padding: 5px;
     top: 77px;
     width: 70px;
     background: rgba(255,255,255,0.5);padding-left:20px;
+     border:2px solid #ddd; 
 }
 
 .infobox .content_right {
  margin: 5px;
     position: relative;
     left:60px;
-    height: 50px;
+    height: 40px;
     padding: 5px;
     top: 58px;
     width: 70px;
     background: rgba(255,255,255,0.5);
+     border:2px solid #ddd; 
 }
-
+.infobox .content_down {
+     margin: 5px;
+    position: relative;
+    left: 72px;
+    height: 40px;
+    padding: 5px;
+    top: 86px;
+    width: 70px;
+    background: rgba(255,255,255,0.5);
+    border: 2px solid #ddd;
+}
 
 div.custom_icon{
     background-image: url('<?php echo get_template_directory_uri();?>/images/location.png');
@@ -779,9 +801,17 @@ div.custom_icon_right{
     top: 1px;
     z-index: 20000 !important;
     display: inline-block;
-}
+}div.custom_icon_down{
+background-image: url('http://localhost/carpetcall/wp-content/themes/carpetcall/images/location.png');
+    width: 22px;
+    height: 28px;
+    position: absolute;
+    left: -24px;
+    top: -26px;
+    z-index: 20000 !important;
+    display: inline-block;}
 .contents{
-    background: none repeat scroll 0 0 rgba(255,255,255,0.4);
+    
   color: #F1F1F1;
   font-family: arial;
   line-height: 50px;
@@ -789,7 +819,15 @@ div.custom_icon_right{
   
   z-index:1;
  
-  border:2px solid #ddd;
+  
 }
   .maf_info{margin-left: 20px !important;}
+  .store-map{
+    zoom: 1.25;
+    -moz-transform: scale(0.5);
+}
+.modify h5,.modify h6 {
+    padding-left:15px;
+
+}
 </style>
