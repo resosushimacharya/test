@@ -358,6 +358,8 @@ li.clblk_a::before {content: '';}
 .fcnt-or { margin-top:30px;}
 .fcnt-orr a { background:#c32327; padding:15px 55px; text-align:center; font:700 18px 'proxima_nova_ltsemibold', sans-serif; text-transform:uppercase; color:#fff; text-decoration:none; display:inline-block; }
 .fcnt-orr a:hover {background:#b51a1d;}
+#menu-footer-menu .clblk_a { margin-top:15px;}
+#menu-footer-menu .col-md-3 { padding-left:0px;}
 
 
 
