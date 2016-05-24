@@ -123,12 +123,12 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
+.dropdown.click-open .dropdown-content {
     display: block;	
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
+.dropdown.click-open .dropbtn {
     background-color:#0099ff;
 	width:100%;
 }

@@ -5,9 +5,9 @@
 
 
 
-                        <div class="dropdown">
+                        <div class="dropdown storefinder_cntr">
                         
-                          <button class="dropbtn"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>&nbsp;&nbsp; STORE FINDER &nbsp; <i class="fa fa-angle-down" aria-hidden="true"></i> </button>
+                          <button class="dropbtn" id="storefinder_btn"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>&nbsp;&nbsp; STORE FINDER &nbsp; <i class="fa fa-angle-down" aria-hidden="true"></i> </button>
                           <div class="dropdown-content">
                     
                             <div>
