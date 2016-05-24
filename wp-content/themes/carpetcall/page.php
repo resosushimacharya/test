@@ -1,5 +1,5 @@
 <?php
-/* page tempalte */
+
  get_header();
 
 if(have_posts()):
