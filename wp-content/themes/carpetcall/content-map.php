@@ -1,8 +1,8 @@
-<div id="<?php echo the_ID();  ?>">
+
 <div style="overflow:hidden;height:288px;width:90%;margin-left:5px;">
 <div id="gmap" style="position:relative;height: 500px; width:100%;top:-120px"></div>
 </div>
-</div>
+
 
 
 
@@ -785,6 +785,7 @@ display:none;
 
 div.custom_icon{
     background-image: url('<?php echo get_template_directory_uri();?>/images/location.png');
+    background-repeat: no-repeat; 
     width:22px;
     height: 28px;
     position: absolute;
@@ -795,6 +796,7 @@ div.custom_icon{
 }
 div.custom_icon_right{
     background-image: url('http://localhost/carpetcall/wp-content/themes/carpetcall/images/location.png');
+    background-repeat: no-repeat; 
     width: 22px;
     height: 28px;
     position: absolute;
@@ -804,6 +806,7 @@ div.custom_icon_right{
     display: inline-block;
 }div.custom_icon_down{
 background-image: url('http://localhost/carpetcall/wp-content/themes/carpetcall/images/location.png');
+background-repeat: no-repeat; 
     width: 22px;
     height: 28px;
     position: absolute;

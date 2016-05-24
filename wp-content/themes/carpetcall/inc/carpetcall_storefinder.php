@@ -140,7 +140,7 @@ usort($myArrays, 'sortByOrder');?>
                               
                             </address>
                             </div> <div class="col-md-4"><p><strong><?php
-                             echo $ma[4];
+                             echo $ma[4].' km';
                        ?> 
                             </strong></p></div> </div><div class="clearfix"></div>
 	<?php endforeach;?>
