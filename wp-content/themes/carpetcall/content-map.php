@@ -125,13 +125,12 @@ function deg2rad(deg) {
             center: new google.maps.LatLng(42, -97),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             scrollwheel: false,
-
-    navigationControl: false,
-    mapTypeControl: false,
-    scaleControl: false,
-    draggable: false,
-    disableDefaultUI: true,
-    zoom:20,
+            navigationControl: false,
+            mapTypeControl: false,
+            scaleControl: false,
+            draggable: false,
+            disableDefaultUI: true,
+            zoom:20,
 
     //#c6d3ea
            

@@ -101,10 +101,10 @@ $myArray[]=array($loc['wpsl_address'][0],$loc['wpsl_city'],$loc['wpsl_state'][0]
        <?php 
         $latlongloc = getDistanceBetweenPointsNew($lat, $long, $latitude2, $longitude2,'Km');
           
-        $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0],$latlongloc); ?>
+        $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0],$latlongloc,get_the_title()); ?>
         <?php }
         else{
-      $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0]); 
+      $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0],get_the_title()); 
          }?>
                           
                             
@@ -134,7 +134,7 @@ usort($myArrays, 'sortByOrder');?>
            <div class="col-md-8">
 
                             <address>
-                              <strong><u><?php the_title();?>:</u></strong><br>
+                              <strong><u><?php echo $ma[5];?>:</u></strong><br>
                                <?php echo $ma[0].' ,'.$ma[1].' ,'.$ma[2].' ,'.$ma[3] ;
                                ?>
                               
@@ -156,8 +156,8 @@ usort($myArrays, 'sortByOrder');?>
            <div class="col-md-8">
 
                             <address>
-                              <strong><u><?php //the_title();?>:</u></strong><br>
-                               <?php echo $ma[0].' ,'.$ma[1].' ,'.$ma[2].' ,'.$ma[3].count($myArrays ) ;
+                              <strong><u><?php echo $ma[4];?>:</u></strong><br>
+                               <?php echo $ma[0].' ,'.$ma[1].' ,'.$ma[2].' ,'.$ma[3] ;
                                ?>
                               
                             </address>
@@ -253,10 +253,11 @@ curl_close($ch);*/
 if((strcasecmp($strzip[0],$keyword)==0)){?>
 
    <?php 
-  
+          if($sto!=$loc['wpsl_zip'][0]){
         $html.= '<li onclick="set_store(\''.str_replace("-", ",", $loc['wpsl_zip'][0]).'\')">'.$loc['wpsl_zip'][0].'</li>';
-         break;
-        
+      }
+      
+         $sto=$loc['wpsl_zip'][0];
         
       ?>
        
@@ -265,10 +266,11 @@ if((strcasecmp($strzip[0],$keyword)==0)){?>
   if((strcasecmp($strcity[0],$keyword)==0)){?>
 
    <?php 
-  
-        $html.= '<li onclick="set_store(\''.str_replace("-", ",",$loc['wpsl_city'][0]).'\')">'.$loc['wpsl_city'][0].'</li>';
-        break;
-        
+         if($sto!=$loc['wpsl_city'][0]){
+
+        $html.= '<li onclick="set_store(\''.str_replace("-", ",",$loc['wpsl_city'][0]).'\')">'.$loc['wpsl_city'][0].'</li>';}
+       
+        $sto=$loc['wpsl_city'][0];
         
       ?>
        
