@@ -128,7 +128,7 @@ function errorHandler(error) {
  
             <div class="navsrchblk clearfix">
             <div class="col-md-12">
-            	<div class="col-md-7 no-pl">
+            	<div class="col-md-7 no-lr">
                 <?php $defaults = array(
 
 	'theme_location'  => 'header-menu',
@@ -169,7 +169,7 @@ wp_nav_menu($defaults);?>
 
                 </div><!-- menu end -->
                 <!-- store finder begin -->
-                <div class="col-md-3 no-pl">
+                <div class="col-md-3 no-lr">
                 <div class="sfind">
                   <?php get_template_part('content','store');?>
                 

@@ -2,7 +2,7 @@
     $i=0;
  $visarg =array(
   'post_type'=>'visualisers',
-   'orderby' => 'rand',
+   //'orderby' => 'rand',
    'posts_per_page'=>6
 
     );
