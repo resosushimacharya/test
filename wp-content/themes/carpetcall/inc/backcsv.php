@@ -110,12 +110,15 @@ if($i>0){
 				update_post_meta($new_post_id,'yarn_type',$csv[9]);
 				update_post_meta($new_post_id,'construction',$csv[11]);
 				update_post_meta($new_post_id,'care_instructions',$csv[12]);   
-				
-				update_post_meta( $new_post_id, '_stock', $csv[13] );
+				update_post_meta( $new_post_id, '_weight', $csv[15] );
+				update_post_meta( $new_post_id, '_regular_price', $csv[16] );
+				update_post_meta( $new_post_id, '_sale_price', $csv[18] );
+				update_post_meta($new_post_id,'state',$csv[0]);
 				update_post_meta( $new_post_id, '_visibility', 'visible' );
 				update_post_meta( $new_post_id, '_length', $length);
 				update_post_meta( $new_post_id, '_width', $width );
-				update_post_meta( $new_post_id, '_height',  $height );
+				update_post_meta( $new_post_id, '_featured', 'no' );
+
 			     
 				
 				
@@ -165,7 +168,9 @@ if($i>0){
 					}
 					//update_post_meta( $new_post_id, '_product_image_gallery', $imgID);
 					$set = set_post_thumbnail($new_post_id, $thumbid);
-					$image_id[]=$thumbid;
+						if(!is_wp_error($thumbid)){
+						$image_id[]=$thumbid;
+					}
 
 
 					$tmp = download_url( $side );
@@ -190,7 +195,9 @@ if($i>0){
 					}
 					//update_post_meta( $new_post_id, '_product_image_gallery', $imgID);
 					//$set = set_post_thumbnail($new_post_id, $thumbid);
-					$image_id[]=$thumbid;
+						if(!is_wp_error($thumbid)){
+						$image_id[]=$thumbid;
+					}
 
 
 					$tmp = download_url( $life );
@@ -215,18 +222,19 @@ if($i>0){
 					}
 					//update_post_meta( $new_post_id, '_product_image_gallery', $imgID);
 					//$set = set_post_thumbnail($new_post_id, $thumbid);
-					$image_id[]=$thumbid;
-
-
-
-
-
-
-
-
+					if(!is_wp_error($thumbid)){
+						$image_id[]=$thumbid;
+					}
+					
 				update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id));
 
+                $my_post = array(
+      'ID'           => $new_post_id,
+      'post_title'   =>  $csv[1]
+  );
 
+// Update the post into the database
+  wp_update_post( $my_post );
 
 
 
