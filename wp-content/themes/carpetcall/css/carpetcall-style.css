@@ -337,11 +337,11 @@ ul.guide_list .fa { color:#F00;}
 .trade { background:#e7edf8; }
 .hamro_trade, .abvist { margin:40px 0;}
 .measure_blk { padding:0;}
-.measr_cnt { margin-top:15px; min-height:155px;}
-.measr_cnt h3 {font:bold 20px 'proxima_nova_ltsemibold', sans-serif; color:#1858b8;}
+.measr_cnt { margin-top:48px; min-height:155px;}
+.measr_cnt h3 {font:bold 20px 'proxima_nova_ltsemibold', sans-serif; color:#1858b8; margin-bottom:23px;}
 .frcol { color:#c32327; }
 .measr_cnt p {font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#666666; margin:6px 0;}
-.find_tb { background:#c32327; display:inline-block; }
+.find_tb { background:#c32327; display:inline-block; margin:25px 0 60px 0; }
 .find_tbb a { display:block; padding:15px 42px; text-align:center; color:#FFF; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; text-decoration:none;}
 .find_tbb a:hover { background:#b01519;}
 
@@ -358,7 +358,7 @@ ul.guide_list .fa { color:#F00;}
 
 /*.............. footer section start here ...............*/
 .footer_c { background:#15489f; }
-.fot_logo { margin:25px 0; }
+.fot_logo { margin:31px 0 51px 0; }
 .subcat { margin-bottom:15px;}
 .footlist, .carptfot_aa { margin:0; padding:0;}
 .carptfot { margin:5px 0; }
@@ -392,8 +392,9 @@ li.clblk_a::before {content: '';}
 .calcall { font:normal 31px/100% 'Brush Script MT',sans-serif; color:#FFF; text-align:center; margin:44px 0 10px 0; -webkit-transform:  rotate(351deg);-moz-transform:  rotate(351deg);-o-transform:  rotate(351deg);writing-mode: lr-tb;}
 .calspl { font:bold 17px 'proxima_nova_ltsemibold', sans-serif; color:#fff; margin:35px 0 5px 0;}
 .bcwfsp {font:normal 12px 'proxima_nova_ltsemibold', sans-serif; color:#fff; }
-.againlt ul { margin-top:10px;}
+.againlt ul { margin:25px 0 2px 0;}
 .againlt li { list-style:none; display:block; }
+.againlt li::before { content: '-'; color:#FFF;}
 .againlt li a { font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none;  }
 .againlt li a:hover { color:#FF0; }
 .fot_cpy ul { margin-bottom:15px;}

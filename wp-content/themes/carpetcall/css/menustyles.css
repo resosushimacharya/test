@@ -118,7 +118,7 @@
 }
 #cssmenu ul li ul li:hover > ul {
   left: 100%;
-  top: 0;
+  top: -70px;
 }
 #cssmenu ul li ul li:hover > ul > li {
   max-height: 72px;

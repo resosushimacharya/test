@@ -49,7 +49,7 @@ function query_post_type($query) {
 
 function carpet_search_form( $form ) {
 	 if(empty(get_search_query())){
-	 	$mysearch="search for";
+	 	$mysearch="TYPE TO SEARCH";
 	 }
 	 else $mysearch=get_search_query();
 
@@ -58,7 +58,7 @@ function carpet_search_form( $form ) {
     <div class="input-group">
     <input type="text" class="form-control" aria-label="Product" placeholder="' . $mysearch. '" name="s" id="s" />
     <span class="input-group-btn">
-    <button type="submit" class="btn btn-default" id="searchsubmit" value="" /><i class="fa fa-search" aria-hidden="true"></i>
+    <button type="submit" class="btn btn-default" id="searchsubmit" value="" /><i class="fa fa-search fa-lg" aria-hidden="true"></i>
     </button>
     </span>
 
