@@ -9,7 +9,7 @@
                 <div class="shopping">
                 
                     <div class="aag">
-                    <img src="<?php echo $heading['icon']['sizes']['thumbnail'];?>" width="41" height="43" alt="icon" style="float:left;"/>
+                    <img src="<?php echo $heading['icon']['sizes']['thumbnail'];?>"  alt="icon" style="float:left;"/>
                     <h3 class="so_title so_titlee">
                     <?php if(!empty($heading['highlight'])){?>
                     <span class="merof"><?php echo $heading['highlight'];?></span> 
