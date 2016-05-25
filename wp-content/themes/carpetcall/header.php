@@ -106,7 +106,7 @@ function errorHandler(error) {
     <div class="container-fluid banner clearfix">
     	<div class="container"><div class="row">
         	<div class="col-md-12">
-            	<div class="col-md-3 no-pl"><div class="logo"><a href="<?php echo site_url(); ?>"> <img src="<?php echo get_theme_mod('carpet-logo');?>" alt="carpetcall" class="img-responsive"/> </a></div></div><!-- logo end -->
+            	<div class="col-md-4 no-lr"><div class="logo"><a href="<?php echo site_url(); ?>"> <img src="<?php echo get_theme_mod('carpet-logo');?>" alt="carpetcall" class="img-responsive"/> </a></div></div><!-- logo end -->
                 <div class="col-md-4">
                 <div class="searchm">
                 <?php get_search_form ( );
@@ -114,7 +114,7 @@ function errorHandler(error) {
         </div>
                 </div><!-- search end -->
                 
-                <div class="col-md-5 no-pr">
+                <div class="col-md-4 no-lr">
                 <div class="callinfo">
                 	<h2 class="calme"> CALL 1300 502 427 </h2>
                     <h3 class="subcl">OR BOOK A CALL BACK WITH</br>

@@ -66,13 +66,16 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 /* banner section start here ---*/
 .banner { background:#15489f; padding:22px 0 0 0;}
 .banner .col-md-12 {padding:0 20px;}
+.banner .col-md-4 { width:28.2%}
+.banner .col-md-12 .col-md-4:nth-child(2) { width:30.2%; margin:0 61px 0 29px; padding:0; }
+.banner .col-md-12 .col-md-4:nth-child(3) { width:32.4%;}
 
 .searchm { margin-top:5px;}
 .searchm .form-control { height:46px; border-radius:0; border:0; color:#000; font-size:16px; font-weight:700; text-align:left; }
 .searchm .btn { background:#FFF; border-radius:0; border:0; padding:13px 12px 13px 12px;}
-.callinfo { position:relative; margin-left:28px;}
-.calme { margin:0; font:bold 28px 'proxima_nova_ltsemibold', sans-serif; color:#FFF; text-transform:uppercase; letter-spacing:6px; }
-.subcl { font:700 12px 'proxima_nova_rgregular', sans-serif; color:#FFF; margin:0; text-transform:uppercase; letter-spacing:1px; }
+.callinfo { position:relative;}
+.calme { margin:0; font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#FFF; text-transform:uppercase;  }
+.subcl { font:700 12px 'proxima_nova_rgregular', sans-serif; color:#FFF; margin:0; text-transform:uppercase; letter-spacing:1px; margin-left:4px; }
 .contblk { position:absolute; bottom:-1px; right:0px; padding:2px 13px; background:#c32327; text-align:center; }
 .contblk a {color:#FFF; font-size:13px; text-decoration:none; text-transform:uppercase;}
 .contblk a:hover { color:#CCC;}
