@@ -175,7 +175,7 @@ wp_nav_menu($defaults);?>
                 
                 </div>
                 </div><!-- store finder end -->
-                <div class="col-md-2 no-pr">
+                <div class="col-md-2 no-lr">
                 
                  <?php get_template_part('content','navwoo');?>
                

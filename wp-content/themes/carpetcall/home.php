@@ -82,7 +82,7 @@
     
     <script type="text/javascript">
     $(document).on('ready', function() {
-      var left_offset = jQuery(".container").offset().left;
+      var left_offset = jQuery(".container").offset().left - 10;
 	
       $('.center').slick({
 		  centerMode: true,

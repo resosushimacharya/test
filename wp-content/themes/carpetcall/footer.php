@@ -37,8 +37,8 @@
                         <div class="clearfix"></div>
 
                 
-                </div>
-                <div class="clearfix"></div><!-- sub category listing end -->
+                </div><div class="clearfix"></div><!-- sub category listing end -->
+                
                 <div class="social">
                     <ul>
                         <li> <span class="gtku">GET TO KNOW US</span>  </li>
@@ -57,8 +57,19 @@
                         echo '<li><a href="'.get_theme_mod('carpet-social-instagram').'"> <i class="fa fa-instagram" aria-hidden="true"></i> </a></a></li>';?>
                     </ul>
                     <div class="clearfix"></div>
-                </div>
-                <div class="clearfix"></div><!-- social end -->
+                </div><div class="clearfix"></div><!-- social end -->
+                
+                <div class="col-md-12 no-pl">
+<div class="fot_cpy">
+<ul>
+<li><span class="cpyrt"> © Copyright 2016 Carpet CalL</span> </li>
+<li><a href="#"> SITE MAP </a></li>
+<li><a href="#" class="last-child"> TERMS AND CONDITIONS </a></li>
+</ul><div class="clearfix"></div>
+</div><div class="clearfix"></div>
+</div>
+                
+                
             </div><!-- left footer end -->
 
             <div class="col-md-4 idea-right">
@@ -88,19 +99,6 @@
 </div>
 	</div><div class="clearfix"></div>
 
-<div class="container">
-
-<div class="col-md-12 no-pl">
-<div class="fot_cpy">
-<ul>
-<li><span class="cpyrt"> © Copyright 2016 Carpet CalL</span> </li>
-<li><a href="#"> SITE MAP </a></li>
-<li><a href="#" class="last-child"> TERMS AND CONDITIONS </a></li>
-</ul><div class="clearfix"></div>
-</div><div class="clearfix"></div>
-</div>
-
-</div><div class="clearfix"></div>
 
 
 </div><div class="clearfix"></div><!-- footer end -->

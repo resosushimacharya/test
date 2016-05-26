@@ -59,7 +59,8 @@ function carpet_search_form( $form ) {
     <div class="input-group">
     <input type="text" class="form-control" aria-label="Product" placeholder="' . $mysearch. '" name="s" id="s" />
     <span class="input-group-btn">
-    <button type="submit" class="btn btn-default" id="searchsubmit" value="" /><i class="fa fa-search fa-lg" aria-hidden="true"></i>
+    <button type="submit" class="btn btn-default" id="searchsubmit" value="" />
+	<img src="'.get_template_directory_uri().'/images/magnify.png" alt="icon" width="22" height="22"/> 
     </button>
     </span>
 
