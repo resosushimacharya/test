@@ -392,7 +392,7 @@ li.clblk_a::before {content: '';}
 .carptfot_aa { -webkit-column-count: 2; }
 .footlist > li > a, .sourblk { cursor:text;}
 .footlist li .clblk_a a {font-weight:bold; cursor:text; letter-spacing:1px;}
-.footlist li .clblk_a a:hover { color:#FFF; text-decoration:none;}
+.footlist li .clblk_a a:hover, .sourblk:hover { color:#FF0; text-decoration:none; cursor:pointer;}
 #menu-footer-menu .col-md-6 {padding:0;}
 .fcnt-or { margin:30px 0 45px 0;}
 .fcnt-orr a { background:#c32327; padding:15px 55px; text-align:center; font:700 18px 'proxima_nova_ltsemibold', sans-serif; text-transform:uppercase; color:#fff; text-decoration:none; display:inline-block; }
