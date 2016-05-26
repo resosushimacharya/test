@@ -136,7 +136,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 .dropdown-content { 
 	display:none;	 
     position: absolute;
-    background-color: #e7edf8;
+    background-color: #0099ff;
     min-width: 350px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	padding:10px;
@@ -200,7 +200,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .morepl a:hover { color:#F00;}
 
 .loplc { text-align:left; padding:10px;}
-.loplc h3 { font-size:15px; color:#1858b8; letter-spacing:1px; }
+.loplc h3 { font-size:15px; color:#FFF; letter-spacing:1px; }
 .srch_pro { margin:8px 0; max-width:100%;}
 .srch_pro .form-control { border:0; border-radius:0; padding: 21px 12px; height:46px; text-transform:uppercase; text-align:left; }
 .srch_pro .btn-default { background-color:#FFF; border-color:#FFF; border-radius:0; padding:12px 12px; }
