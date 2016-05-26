@@ -43,6 +43,15 @@
 	font-weight: normal;
 	font-style: italic;
 }
+@font-face {
+	font-family: 'Proxima Nova Bl';
+	src: url('../fonts/ProximaNova-Black.eot');
+	src: url('../fonts/ProximaNova-Black.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/ProximaNova-Black.woff') format('woff'),
+		url('../fonts/ProximaNova-Black.ttf') format('truetype');
+	font-weight: 900;
+	font-style: normal;
+}
 * { padding:0; margin:0; }
 img { display:block; border:0; }
 ul, li { padding:0; margin:0; }
@@ -75,7 +84,9 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 .searchm .btn { background:#FFF; border-radius:0; border:0; padding:13px 12px 12px 12px;}
 .callinfo { position:relative;}
 .calme { margin:0; font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#FFF; text-transform:uppercase;  }
-.subcl { font:700 12px 'proxima_nova_rgregular', sans-serif; color:#FFF; margin:0; text-transform:uppercase; letter-spacing:1px; margin-left:4px; }
+.callmea a { text-decoration:none; color:#FFF; }
+.callmea a:hover { color:#faf9f9;}
+.subcl { font:700 12px 'proxima_nova_rgregular', sans-serif; color:#FFF; margin:0; text-transform:uppercase; letter-spacing:1px;}
 .contblk { position:absolute; bottom:-1px; right:0px; padding:2px 13px; background:#c32327; text-align:center; }
 .contblk a {color:#FFF; font-size:13px; text-decoration:none; text-transform:uppercase;}
 .contblk a:hover { color:#CCC;}
