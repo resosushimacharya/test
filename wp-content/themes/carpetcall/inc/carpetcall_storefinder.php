@@ -137,7 +137,7 @@ usort($myArrays, 'sortByOrder');?>
 
                             <address>
                               <strong><u><?php echo $ma[5];?>:</u></strong><br>
-                               <?php echo $ma[0].' ,'.$ma[1].' ,'.$ma[2].' ,'.$ma[3] ;
+                               <?php echo $ma[0].' '.$ma[1].' '.$ma[2].' '.$ma[3] ;
                                ?>
                               
                             </address>
@@ -159,7 +159,7 @@ usort($myArrays, 'sortByOrder');?>
 
                             <address>
                               <strong><u><?php echo $mas[4];?>:</u></strong><br>
-                               <?php echo $mas[0].' ,'.$mas[1].' ,'.$mas[2].' ,'.$mas[3] ;
+                               <?php echo $mas[0].' '.$mas[1].' '.$mas[2].' '.$mas[3] ;
                                ?>
                               
                             </address>

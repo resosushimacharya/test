@@ -35,8 +35,9 @@
           
                    
         
-    </div><div class="input-group">
-     <ul id="directory_list_id"></ul></div>
+    </div>
+    <!--<div class="input-group">
+     <ul id="directory_list_id"></ul></div>-->
 </form><!-- /input-group -->
                                   </div><!-- /.col-lg-6 -->
                                 </div><!-- /.row -->
