@@ -11,10 +11,8 @@
                     <div class="aag">
                     <img src="<?php echo $heading['icon']['sizes']['thumbnail'];?>"  alt="icon" style="float:left;"/>
                     <h3 class="so_title so_titlee">
-                    <?php if(!empty($heading['highlight'])){?>
-                    <span class="merof"><?php echo $heading['highlight'];?></span> 
-                    <?php }?>
-                    <a href="<?php echo $heading['link'];?>"> <?php echo $heading['title'];?> </a></h3>
+                   
+                     <?php echo $heading['title'];?> </h3>
                     <p><?php echo $heading['description'];?> </p>
                     
                     </div><div class="clearfix"></div>

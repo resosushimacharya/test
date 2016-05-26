@@ -11,6 +11,7 @@ update_option('home',"http://localhost/carpetcall");
 
 
 include_once TEMPLATEPATH."/inc/carpetcall-script.php";
+remove_filter ('acf_the_content', 'wpautop');
 //include_once TEMPLATEPATH."/inc/carpetcall-search.php";
 add_theme_support( 'post-thumbnails' );
 function register_my_menus() {
