@@ -1,5 +1,5 @@
 function storecomplet() {
-	var min_length = 3; // min caracters to display the autocomplete
+	var min_length = 1; // min caracters to display the autocomplete
 	
 	var keyword = jQuery('#dir_keyword').val();
 	

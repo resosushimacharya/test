@@ -10,11 +10,11 @@
                 
                     <div class="aag">
                     <img src="<?php echo $heading['icon']['sizes']['thumbnail'];?>"  alt="icon" style="float:left;"/>
-                    <h3 class="so_title so_titlee">
+                
+                         <h3 class="so_title so_titlee">
                    
                      <?php echo $heading['title'];?> </h3>
                     <p><?php echo $heading['description'];?> </p>
-                    
                     </div><div class="clearfix"></div>
                     
                 </div>

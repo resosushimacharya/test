@@ -24,7 +24,8 @@ add_filter('gd', 'getDistanceBetweenPointsNew' ,12, 5);
 	$keyword = $_POST['keyword'];
 	$lat=$_POST['latitude'];
 	$long=$_POST['longitude'];
-     
+
+   
 	
 	/*$ip  = !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
 $url = "http://freegeoip.net/json/$ip";
@@ -111,6 +112,7 @@ $myArray[]=array($loc['wpsl_address'][0],$loc['wpsl_city'],$loc['wpsl_state'][0]
                            
         <?php 
         }?>
+
  
  <?php  
  
@@ -121,9 +123,9 @@ $myArray[]=array($loc['wpsl_address'][0],$loc['wpsl_city'],$loc['wpsl_state'][0]
 }
 
 usort($myArrays, 'sortByOrder');?>
-
-	
-	    <?php $zloop=1; if(!empty($lat)):?>
+  
+	    <?php  if(count($myArrays)!=0):?>
+	    <?php $zloop=1; if($lat):?>
 	<?php foreach($myArrays as $ma):?>
 		<?php if($zloop==4){
 
@@ -140,13 +142,13 @@ usort($myArrays, 'sortByOrder');?>
                               
                             </address>
                             </div> <div class="col-md-4"><p><strong><?php
-                             echo $ma[4].' km';
+                             echo $ma[4].' km'; 
                        ?> 
                             </strong></p></div> </div><div class="clearfix"></div>
 	<?php endforeach;?>
 
 <?php else:?>
-	<?php foreach($myArrays as $ma):?>
+	<?php foreach($myArrays as $mas):?>
 		<?php if($zloop==4){
 
       break;
@@ -156,14 +158,27 @@ usort($myArrays, 'sortByOrder');?>
            <div class="col-md-8">
 
                             <address>
-                              <strong><u><?php echo $ma[4];?>:</u></strong><br>
-                               <?php echo $ma[0].' ,'.$ma[1].' ,'.$ma[2].' ,'.$ma[3] ;
+                              <strong><u><?php echo $mas[4];?>:</u></strong><br>
+                               <?php echo $mas[0].' ,'.$mas[1].' ,'.$mas[2].' ,'.$mas[3] ;
                                ?>
                               
                             </address>
                             </div>  </div><div class="clearfix"></div>
 	<?php endforeach;?>
-<?php endif;?>
+<?php endif;
+else:?>
+    <div class="row">
+           <div class="col-md-8">
+
+                            <address>
+                              
+                               <?php echo "no stores found" ;
+                              echo  count($myarrays);?>
+                               
+                              
+                            </address>
+                            </div>  </div><div class="clearfix"></div>
+  <?php endif;?>
 	<div class="morepl"><a href="#"> See more nearby stores </a></div>
    
 	<?php die();
