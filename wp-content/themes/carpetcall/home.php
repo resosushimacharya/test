@@ -14,7 +14,7 @@
        <?php get_template_part('content','visualiser');?>
        <!-- slider end --> 
        <!-- parcel delivery end  --> 
-       <?php get_template_part('content','headings');?><!-- parcel delivery end here -->      
+       <?php // get_template_part('content','headings');?><!-- parcel delivery end here -->      
     
        <div class="container">
     <div class="calbk"><div class="row">

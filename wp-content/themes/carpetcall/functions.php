@@ -56,7 +56,7 @@ function carpet_search_form( $form ) {
     $form = '<form role="search" method="get" id="" class="" action="' . home_url( '/' ) . '" >
    
     <div class="input-group">
-    <input type="text" class="form-control" aria-label="Product" value="' . $mysearch. '" name="s" id="s" />
+    <input type="text" class="form-control" aria-label="Product" placeholder="' . $mysearch. '" name="s" id="s" />
     <span class="input-group-btn">
     <button type="submit" class="btn btn-default" id="searchsubmit" value="" /><i class="fa fa-search fa-lg" aria-hidden="true"></i>
     </button>
