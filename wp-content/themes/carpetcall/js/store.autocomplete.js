@@ -17,6 +17,9 @@ function autocomplet() {
 			},
 			success:function(data){
 				
+				jQuery("#dir_keyword").val('suburb or postcode');
+				
+				jQuery("#after_heading").css("color","#1858b8");
 				jQuery("#after_dropdown").css("background-color"," #e7edf8");
 				jQuery('#after_location').hide();
 				jQuery('#after_browse').hide();
