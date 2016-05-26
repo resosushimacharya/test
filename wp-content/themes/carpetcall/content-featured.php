@@ -17,13 +17,12 @@ $tax = 'product_cat';
 					$woo=get_post_meta($post->ID);
 					
 					$price=$woo['_regular_price'][0];
-					$ben=get_field('benefits',$post->ID);
-					$con=get_field('construction',$post->ID);
-					$rem=get_field('recommended_for',$post->ID);
+					
+					
 					$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 					
-					if(!empty(unserialize($woo['_product_attributes'][0])))
-				$prounits=unserialize($woo['_product_attributes'][0]);
+					/*if(!empty(unserialize($woo['_product_attributes'][0])))
+				$prounits=unserialize($woo['_product_attributes'][0]);*/
 				
 				if(isset($prounits['size']['value'])){
 					$prounit=$prounits['size']['value'];
@@ -58,9 +57,9 @@ $tax = 'product_cat';
 					
 					if(!empty($price)){
 						echo '<h5>A'.$price;?>
-						<?php if(!empty($prounit)){
+						<?php /*if(!empty($prounit)){
  	echo '/'.$prounit;
- }
+ }*/
 						echo '</h5>';
 					}?></div>
 					<div class="clearfix"></div>
