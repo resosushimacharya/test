@@ -370,7 +370,8 @@ ul.guide_list .fa { color:#F00;}
 
 /*.............. footer section start here ...............*/
 .footer_c { background:#15489f; }
-.fot_logo { margin:31px 0 51px 0; }
+.fot_logo { margin:39px 0 51px 0; }
+.fot_logo { width:42.5%; height:59px;}
 .subcat { margin-bottom:15px;}
 .footlist, .carptfot_aa { margin:0; padding:0;}
 .carptfot { margin:5px 0; }
