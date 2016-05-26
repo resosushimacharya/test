@@ -16,15 +16,18 @@ $(document).ready(function(e) {
     $('#storefinder_btn').click(function(){
 		$(this).parent('.dropdown').toggleClass('click-open');
 	})
-	$(document).click(function(event) { 
+	$(document).on('click',function(event) { 	
 		if(!$(event.target).closest('.storefinder_cntr').length &&
 		   !$(event.target).is('.storefinder_cntr')) {
 			if($('.storefinder_cntr').is(":visible")) {
 				$('.storefinder_cntr').removeClass('click-open');
 			}
 		}        
-	})
+	});
 	
+	$(document).on('click','.dropdown-toggle',function(){
+		$('.storefinder_cntr').removeClass('click-open');
+	})
 	
 	
 });

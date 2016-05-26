@@ -96,6 +96,10 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 .navsrchblk .col-md-12 .col-md-2:nth-child(3) { width:13.7%; margin-left:13px; }
 
 .sfind { font:bold 28px/148% 'proxima_nova_ltsemibold', sans-serif; color:#FFF;}
+.sfind .col-md-8 { padding-left:20px; padding-right:20px;}
+#directory_list_id_s .col-md-8 { padding-left:0;}
+#directory_list_id_s .col-md-4 { padding-right:0;}
+#directory_list_id_s p strong { font-size:12px;}
 .mcrt { position:relative; margin:10px 0 0 0;}
 .crrt { font:bold 18px/150% 'proxima_nova_ltsemibold', sans-serif; color:#FFF; margin-left:18px; text-transform:uppercase; letter-spacing:1px;}
 .rnkct { position:absolute; left:20px; top:-7px;}
@@ -161,10 +165,10 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 }
 .srch_pro .col-lg-12 { padding-right:20px; padding-left:20px; }
 input  { background:#15489f; border:0; width:100%; padding:15px 20px; text-align:center; color:#FFF; font:bold 16px 'proxima_nova_rgregular', sans-serif; text-decoration:none; }
-.input-group  { width:100%;}
+.input-group  { width:100%; border:1px solid #a6a6a6;}
 ul#directory_list_id  {margin:10px 0; list-style:none; background:#fff; color:#000; font-size:16px;}
 ul#directory_list_id li { list-style: none; display:block; float:none; cursor:pointer; padding:0 10px; }
-#directory_list_id_s  { background:#fff; margin:0 10px; padding:10px; display:none; }
+#directory_list_id_s  { background:#fff; margin:-10px -10px 0; padding:10px 20px; display:none; }
 .nav>li>a { padding:0; background:none; }
 .nav>li>a:focus, .nav>li>a:hover { background:none; text-decoration:none;}
 .navbar-right { margin:0; }
@@ -190,9 +194,9 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .check_crtt a:hover { background:#a60a0e;}
 
 .loctitle, .loplc h3 {font:bold 15px/150% 'proxima_nova_rgregular', sans-serif; color:#15489f; text-align:left; }
-.sfind address { font:normal 13px/150% 'proxima_nova_rgregular', sans-serif; color:#333333; text-align:left; text-transform:uppercase; margin-top:15px;}
+.sfind address { font:normal 12px/150% 'proxima_nova_rgregular', sans-serif; color:#333333; text-align:left; text-transform:uppercase; margin:15px 0 0 0;}
 .sfind p { font:normal 13px/150% 'proxima_nova_rgregular', sans-serif; color:#666666; margin-top:15px; }
-.morepl a {font:normal 13px/150% 'proxima_nova_rgregular', sans-serif; color:#003399; text-align:left; margin-bottom:10px; text-decoration:none; padding:0; }
+.morepl a {font:normal 13px/150% 'proxima_nova_rgregular', sans-serif; color:#003399; text-align:left; margin-bottom:10px; text-decoration:none; padding:0; margin-top:18px; }
 .morepl a:hover { color:#F00;}
 
 .loplc { text-align:left; padding:10px;}
@@ -247,7 +251,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 
 /*.................. offer and delivery start here ..................*/
 .meroshop {margin:0;}
-.shopping { box-shadow:0px 0px 10px #999999; background:#FFF; padding:10px; position:relative; top:-25px; }
+.shopping { box-shadow:0px 0px 10px #999999; background:#FFF; padding:10px; position:relative; top:-25px; height:90px; }
 .aag{min-height: 68px;}
 .so_title, .aag p { margin-left:55px;}
 .aag_ab, .aag_a p { margin-left:65px; }
@@ -394,7 +398,7 @@ li.clblk_a::before {content: '';}
 .footlist li .clblk_a a {font-weight:bold; cursor:text; letter-spacing:1px;}
 .footlist li .clblk_a a:hover, .sourblk:hover { color:#FF0; text-decoration:none; cursor:pointer;}
 #menu-footer-menu .col-md-6 {padding:0;}
-.fcnt-or { margin:30px 0 45px 0;}
+.fcnt-or { margin:30px 0 10px 0;}
 .fcnt-orr a { background:#c32327; padding:15px 55px; text-align:center; font:700 18px 'proxima_nova_ltsemibold', sans-serif; text-transform:uppercase; color:#fff; text-decoration:none; display:inline-block; }
 .fcnt-orr a:hover {background:#b51a1d;}
 #menu-footer-menu .clblk_a { margin-top:15px;}
@@ -415,7 +419,7 @@ li.clblk_a::before {content: '';}
 .againlt li::before { content: '-'; color:#FFF;}
 .againlt li a { font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none;  }
 .againlt li a:hover { color:#FF0; }
-.fot_cpy ul { margin:0px;}
+.fot_cpy ul { margin-bottom:20px;}
 .fot_cpy li { list-style:none; display:inline-block; }
 .fot_cpy li a {font:normal 11px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none; padding:0 5px; border-right:1px solid #FFF; }
 .fot_cpy li a.last-child { border-right:none;} 

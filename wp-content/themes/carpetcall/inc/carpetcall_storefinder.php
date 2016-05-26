@@ -132,7 +132,7 @@ usort($myArrays, 'sortByOrder');?>
 			break;
 			} 
 			$zloop++;?>
-		<div class="row">
+		
            <div class="col-md-8">
 
                             <address>
@@ -141,10 +141,11 @@ usort($myArrays, 'sortByOrder');?>
                                ?>
                               
                             </address>
-                            </div> <div class="col-md-4"><p><strong><?php
+                            </div> 
+                            <div class="col-md-4"><p><strong><?php
                              echo $ma[4].' km'; 
                        ?> 
-                            </strong></p></div> </div><div class="clearfix"></div>
+                            </strong></p></div><div class="clearfix"></div>
 	<?php endforeach;?>
 
 <?php else:?>
@@ -154,7 +155,7 @@ usort($myArrays, 'sortByOrder');?>
       break;
       } 
       $zloop++;?>
-		<div class="row">
+		
            <div class="col-md-8">
 
                             <address>
@@ -163,11 +164,11 @@ usort($myArrays, 'sortByOrder');?>
                                ?>
                               
                             </address>
-                            </div>  </div><div class="clearfix"></div>
+                            </div><div class="clearfix"></div>
 	<?php endforeach;?>
 <?php endif;
 else:?>
-    <div class="row">
+    
            <div class="col-md-8">
 
                             <address>
@@ -177,7 +178,7 @@ else:?>
                                
                               
                             </address>
-                            </div>  </div><div class="clearfix"></div>
+                            </div><div class="clearfix"></div>
   <?php endif;?>
 	<div class="morepl"><a href="#"> See more nearby stores </a></div>
    

@@ -59,15 +59,7 @@
                     <div class="clearfix"></div>
                 </div><div class="clearfix"></div><!-- social end --><?php */?>
                 
-                <div class="col-md-12 no-pl">
-<div class="fot_cpy">
-<ul>
-<li><span class="cpyrt"> © Copyright 2016 Carpet CalL</span> </li>
-<li><a href="#"> SITE MAP </a></li>
-<li><a href="#" class="last-child"> TERMS AND CONDITIONS </a></li>
-</ul><div class="clearfix"></div>
-</div><div class="clearfix"></div>
-</div>
+                
                 
                 
             </div><!-- left footer end -->
@@ -98,7 +90,18 @@
 </div><div class="clearfix"></div><!-- right footer end -->
 </div>
 	</div><div class="clearfix"></div>
-
+    
+<div class="container">
+<div class="col-md-12 no-pl">
+<div class="fot_cpy">
+<ul>
+<li><span class="cpyrt"> © Copyright 2016 Carpet CalL</span> </li>
+<li><a href="#"> SITE MAP </a></li>
+<li><a href="#" class="last-child"> TERMS AND CONDITIONS </a></li>
+</ul><div class="clearfix"></div>
+</div><div class="clearfix"></div>
+</div>
+</div>
 
 
 </div><div class="clearfix"></div><!-- footer end -->
