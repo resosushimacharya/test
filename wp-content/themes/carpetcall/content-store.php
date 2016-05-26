@@ -24,9 +24,10 @@
                             <div class="srch_pro">
                             <div class="row">
                                   <div class="col-lg-12">
-                                    <form role="search" method="get" id="" class="" action="">
+                                   
     <div class="input-group">
-      <input id="dir_keyword" name="dir_keyword" type="text" class="form-control" placeholder="suburb or postcode" onkeyup="storecomplet()" autocomplete="off">
+      <input id="dir_keyword" name="dir_keyword" type="text" class="form-control" placeholder="suburb or postcode" onkeyup="storecomplet()" autocomplete="off"
+      onkeypress="handle(event)">
       
       <span class="input-group-btn">
         <button class="btn btn-default" type="button" onclick="autocomplet();"><i class="fa fa-search" aria-hidden="true"></i></button>
@@ -38,7 +39,7 @@
     </div>
     <!--<div class="input-group">
      <ul id="directory_list_id"></ul></div>-->
-</form><!-- /input-group -->
+<!-- /input-group -->
                                   </div><!-- /.col-lg-6 -->
                                 </div><!-- /.row -->
                             </div><div class="clearfix"></div>
@@ -58,4 +59,13 @@
                             <!--more store sec end  -->
                             
                           </div>
-                        </div><!-- store finder menu end -->
+                        </div><!-- store finder menu end --><script>
+    function handle(e){
+        if(e.keyCode === 13){
+          autocomplet();
+         
+        }
+
+        return false;
+    }
+</script>
