@@ -119,7 +119,7 @@ function errorHandler(error) {
                 	<h2 class="calme" ><a href="tel:1300 502 427"> CALL 1300 502 427 </a></h2>
                     <h3 class="subcl">OR BOOK A CALL BACK WITH</br>
 						OUR FLOORING SPECIALISTS </h3>
-                     <div class="contblk"><a href="#">  CONTACT US </a></div>
+                     <div class="contblk"><a href="<?php echo get_permalink(89);?>">  CONTACT US </a></div>
                 </div>
                 </div><!-- call info end -->
                 

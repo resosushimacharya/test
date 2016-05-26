@@ -1,5 +1,10 @@
 <?php
 get_header();?>
+<div class="container">
+<?php if(!esc_html( get_search_query( false ) )){
+	echo "You have not serach any thing ...";
+}
+else{?>
     <p>You searched for "
         <?php echo esc_html( get_search_query( false ) ); ?> ". Here are the results:</p>
     <?php
@@ -26,8 +31,10 @@ the_content();
 }
 endwhile;
 else:
-	if($flag == 1){echo "no results found";}
+	if($flag == 1){echo '"Sorry we can not seem to find what you are looking for"';}
 
 endif;
-get_footer();
+}?>
+</div>
+<?php get_footer();
 ?>
