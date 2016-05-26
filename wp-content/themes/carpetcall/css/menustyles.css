@@ -14,7 +14,7 @@
   margin: 0;
   padding: 0;
   display: block;
-  z-index:9999;
+  
 }
 #cssmenu ul:after,
 #cssmenu:after {
@@ -31,6 +31,7 @@
   display: block;
   position: relative;
   background:#0a71cf;
+  
 }
 #cssmenu ul li a {
   text-decoration: none;
@@ -51,6 +52,7 @@
   top: auto;
   padding: 10px;
   background: #fff;
+  z-index:99999;
 }
 #cssmenu ul li ul li {
   max-height: 0;
@@ -100,11 +102,11 @@
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
-  color: #000000;
+  color: #1858b8;
   letter-spacing: 0;
   display: block;
   width: 170px;
-  padding: 11px 10px 11px 20px;
+  padding: 10px;
   line-height:8px;
 }
 #cssmenu > ul >li > ul> li:hover > a,
@@ -118,7 +120,7 @@
 }
 #cssmenu ul li ul li:hover > ul {
   left: 100%;
-  top: -70px;
+
 }
 #cssmenu ul li ul li:hover > ul > li {
   max-height: 72px;
@@ -159,7 +161,6 @@
   height: 0;
   top: 0;
   z-index: 0;
-  background: #ffffff;
   -webkit-transition: height .2s;
   -moz-transition: height .2s;
   -ms-transition: height .2s;
@@ -194,14 +195,14 @@
 }
 #cssmenu > ul > li > a {
   color: #ffffff;
-  padding: 15px 3px;
+  padding: 15px 10px;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 18px;
   z-index: 2;
   position: relative;
-  margin:0 6px;
+  margin:0;
 }
 #cssmenu > ul > li:hover:after,
 #cssmenu > ul > li.active:after {
@@ -209,7 +210,8 @@
 }
 #cssmenu > ul > li:hover > a,
 #cssmenu > ul > li.active > a {
-  color: #000000;
+  color: #fff;
+  background:#0099ff;
 }
 #cssmenu > ul > li:hover > a:after,
 #cssmenu > ul > li.active > a:after {
@@ -237,13 +239,29 @@
   margin-right:19px;
 }
 #cssmenu > ul > li > ul {
-  width: 221px;
+  width: 217px;
   display: block;
+  min-height:171px;
 }
 #cssmenu > ul > li > ul > li {
-  width: 210px;
+  width: 207px;
   display: block;
 }
+#cssmenu .menu-item-has-children ul.sub-menu {
+    z-index: 100;
+}
+#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children{
+	
+}
+#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu{
+	    top: -66px;
+		    padding-top: 11px;
+}
+#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a{
+	padding: 7px 10px;
+    line-height: 7px;
+}
+
 @media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
   #cssmenu > ul {
     max-height: 0;

@@ -200,8 +200,8 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .slider .slick-slide img { width: 100%; }
 
 .slider .slick-prev:before, .slider .slick-next:before { color: black; }
-.slider .slick-prev { left:23.6%; width: 32px;  height: 54px;  border: 1px solid #d1ddf1;  background: #fff;  border-radius: 0; }
-.slider .slick-next { right:23.6%; width: 32px;  height: 54px;  border: 1px solid #d1ddf1;  background: #fff;  border-radius: 0; }
+.slider .slick-prev { left:23.6%; width: 32px;  height: 54px;  border: 1px solid #d1ddf1;  background: #fff;  border-radius: 0; z-index: 10; }
+.slider .slick-next { right:23.6%; width: 32px;  height: 54px;  border: 1px solid #d1ddf1;  background: #fff;  border-radius: 0; z-index: 10; }
 .slider .slick-dots li.slick-active button:before { opacity:1; color:#15489f; }
 
 .slider .slick-dots li button:before { opacity:.75; color:#C7C7C7;}
