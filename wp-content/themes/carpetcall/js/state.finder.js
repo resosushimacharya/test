@@ -15,7 +15,7 @@ function storecomplet() {
 				longitude:rs[1]
 			},
 			success:function(data){
-				jQuery('#directory_list_id').show();
+				jQuery('#directory_list_id').hide();
 				jQuery('#directory_list_id').html(data);
 			}
 		});

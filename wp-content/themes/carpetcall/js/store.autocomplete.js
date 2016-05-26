@@ -2,7 +2,7 @@ function autocomplet() {
 	var min_length = 0; // min caracters to display the autocomplete
 	
 	var keyword = jQuery('#dir_keyword').val();
-	
+
 	if(keyword){
 	if (keyword.length >= min_length) {
 		jQuery.ajax({

@@ -431,13 +431,3 @@ function woocommerce_minicart_cc(){
 <?php die(); } 
 add_action('wp_ajax_woocommerce_cc', 'woocommerce_minicart_cc');
 add_action('wp_ajax_nopriv_woocommerce_cc', 'woocommerce_minicart_cc');
-// function woocommerce_cc(){
-//   //wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', '',true);
-//     //wp_enqueue_script('jquery');
-//   wp_register_script('ccwoocommerce_autocomplete', get_template_directory_uri(). '/js/custom.woocommerce.js', '',true);
-
-// wp_enqueue_script('ccwoocommerce_autocomplete');
-// wp_localize_script( 'ccwoocommerce_autocomplete', 'wp_ccwoocommerce_autocomplete', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
-
-// }
-// add_action( 'wp_enqueue_scripts', 'woocommercecc_scripts');
