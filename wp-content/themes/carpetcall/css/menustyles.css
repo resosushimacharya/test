@@ -25,7 +25,7 @@
   clear: both;
   visibility: hidden;
 }
-#cssmenu ul li {
+#cssmenu > ul > li {
   margin: 0;
   padding: 0;
   display: block;
@@ -55,8 +55,7 @@
   z-index:99999;
 }
 #cssmenu ul li ul li {
-  max-height: 0;
-  position: absolute;
+ 
   -webkit-transition: max-height 0.4s ease-out;
   -moz-transition: max-height 0.4s ease-out;
   -ms-transition: max-height 0.4s ease-out;
@@ -228,11 +227,11 @@
   border-top-color: #ffffff;
 }
 #cssmenu > ul > li:hover > ul {
-  left: 0;
+  left: 0; 
 }
 #cssmenu > ul > li:hover > ul > li {
   max-height: 72px;
-  position: relative;
+ /* position: relative;*/
 }
 #cssmenu #menu-button {
   display: none;
@@ -251,18 +250,19 @@
 }
 #cssmenu > ul > li > ul > li > ul { 
   width: 100%;
-  display: block;
+  /*display: block;*/
 }
 #cssmenu .menu-item-has-children ul.sub-menu {
-    z-index: 100;
+    z-index: 100; position:absolute;
 }
-#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children{
-	
-}
+
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu  {
-	    top: -66px;
+	    top:0; left:100%;
 		padding-top: 11px;
-		height:171px;
+		height:171px; display:none;
+}
+#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children:hover ul.sub-menu{
+	 display:block;
 }
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a{
 	padding: 7px 10px;

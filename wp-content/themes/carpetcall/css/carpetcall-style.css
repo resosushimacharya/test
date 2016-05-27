@@ -82,6 +82,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 .searchm { margin-top:11px;}
 .searchm .form-control { height:45px; border-radius:0; border:0; color:#000; font-size:16px; font-weight:700; text-align:left; text-transform:uppercase;}
 .searchm .btn { background:#FFF; border-radius:0; border:0; padding:11px 12px 12px 12px; outline:none;}
+.searchm .btn:active, .searchm .btn:focus { outline:none; background:#FFF; box-shadow:none;}
 .callinfo { position:relative;}
 .calme { margin:0; font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#FFF; text-transform:uppercase;  }
 .callmea a { text-decoration:none; color:#FFF; }
@@ -232,7 +233,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 
 .slider { min-width:1024px; height: 351px; margin:0 auto; overflow:hidden;}
 
-.slider .slick-slide { margin: 0 10px; padding: 0;  }
+.slider .slick-slide { margin: 0 10px; padding: 0; outline:none; }
 
 .slider .slick-slide img { width: 100%; }
 
