@@ -78,6 +78,8 @@ foreach($array as $k=>$v){
     }
     $latitude2=$loc['wpsl_lat'][0];
     	$longitude2=$loc['wpsl_lng'][0];
+      $ziptrunc = str_split($loc['wpsl_zip'][0],$len);
+
 //echo $x;$sto['wpsl_lat'][0],$sto['wpsl_lng'][0]
 /* testing start */
      $fi++;?>
@@ -100,7 +102,7 @@ $myArray[]=array($loc['wpsl_address'][0],$loc['wpsl_city'],$loc['wpsl_state'][0]
        <div class="loctitle" >STORES NEAR <?php echo $keyArray[0]; ?> </div>  
        <?php $controlzip++; }?>
         <?php
-        if((strcasecmp($keyArray[0],$keyword)==0)||(strcasecmp($keyArray[0],$loc['wpsl_city'][0])==0)||(strcasecmp($keyArray[0],$loc['wpsl_state'][0])==0)){?>
+        if((strcasecmp($keyArray[0],$ziptrunc[0])==0)||(strcasecmp($keyArray[0],$loc['wpsl_city'][0])==0)||(strcasecmp($keyArray[0],$loc['wpsl_state'][0])==0)){?>
         
 
         <?php if(!empty($lat)){?>
