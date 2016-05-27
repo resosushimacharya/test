@@ -265,6 +265,8 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 		color: #15489f;
 		font-weight:normal;
 		}
+		.tryitwob a { font-weight:700; color:#14489c; text-transform:lowercase; font-size:24px; padding:10px 0; text-align:left; display:inline-block; cursor:text;}
+		.tryita a:hover { background:none; text-decoration:none;}
 
 /*.................. offer and delivery start here ..................*/
 .meroshop {margin:0; z-index: 12; position: relative;}
@@ -348,6 +350,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 		}
 .img_cntr {background-position:center center; background-size:cover; min-height:127px;  }
 
+
 /*............. idea and advice start here .................*/
 .thought_blk { margin:42px 0 61px 0;}
 .thought_blk h2, .hamro_trade h2 { font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-align:center; text-transform:uppercase; }
@@ -376,7 +379,7 @@ ul.guide_list .fa { color:#F00;}
  .abvist { margin:70px 0 59px 0;}
 .measure_blk { padding:0;}
 .measr_cnt { margin-top:48px; min-height:155px;}
-.measr_cnt h3 {font:bold 20px 'proxima_nova_ltsemibold', sans-serif; color:#1858b8; margin-bottom:23px;}
+.measr_cnt h3 {font:bold 20px 'proxima_nova_ltsemibold', sans-serif; color:#1858b8; margin-bottom:12px;}
 .frcol { color:#c32327; }
 .measr_cnt p {font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#666666; margin:10px 0;}
 .find_tb { background:#c32327; display:inline-block; margin:8px 0 90px 0; }
