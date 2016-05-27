@@ -86,6 +86,7 @@ foreach($array as $k=>$v){
      <script>
        alert(<?php echo $keyArray[0];?>);
         alert(<?php echo json_encode("hel".$keyword);?>);
+        
      </script>
      <?php 
 
