@@ -81,19 +81,39 @@
        
     
     <script type="text/javascript">
-    $(document).on('ready', function() {
-      var left_offset = jQuery(".container").offset().left - 10;
 	
-      $('.center').slick({
+	$(window).load(function(){
+		function slider_position(){
+			var left_offset = jQuery(".container").offset().left - 10;	
+		 	var left_arrow = jQuery(".slider .slick-prev").css({ 'left': left_offset + 10 });
+	    	var left_arrow = jQuery(".slider .slick-next").css({ 'right': left_offset + 10 });	
+		}
+		slider_position();
+		var slider_inner = jQuery('.hamro').show();;
+	});
+	
+
+	
+    $(document).on('ready', function() {
+	
+      var left_offset = jQuery(".container").offset().left - 10;
+
+      $('.center')
+	  	.on('init', function(slick) {            
+            $('.center').fadeIn(3000);
+        })
+		.slick({
 		  centerMode: true,
 		  centerPadding: left_offset + 'px',
 		  slidesToShow: 1,
 		  arrows: true,
 		  dots: true,
-		   draggable:false,
+		  draggable:false,
+		  lazyLoad: 'ondemand',
+		  speed: 1000,
 		  responsive: [
 			{
-			  breakpoint: 768,
+			  breakpoint: 769,
 			  settings: {
 				arrows: false,
 				centerMode: true,
@@ -103,7 +123,7 @@
 			  }
 			},
 			{
-			  breakpoint: 480,
+			  breakpoint: 481,
 			  settings: {
 				arrows: false,
 				centerMode: true,
@@ -114,9 +134,12 @@
 			  }
 			}
 		  ]
-		});		
+		});	
+		$('.center').show();
+	
+	
 		
-				$('.responsive').slick({
+	$('.responsive').slick({
 		  dots: true,
 		  infinite: false,
 		  speed: 300,

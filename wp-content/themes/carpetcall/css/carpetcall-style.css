@@ -213,7 +213,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .carpetcall_slide { }
 * { box-sizing: border-box;}
 
-.slider { min-width:1024px; height: 351px; margin:0 auto; overflow:hidden}
+.slider { min-width:1024px; height: 351px; margin:0 auto; overflow:hidden;}
 
 .slider .slick-slide { margin: 0 10px; padding: 0;  }
 
@@ -226,7 +226,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 
 .slider .slick-dots li button:before { opacity:.75; color:#C7C7C7;}
 
-.hamro { position:absolute; top:50px; right:195px;}
+.hamro { position:absolute; top:50px; right:195px;display: none;}
 .hamro h3, .hamro h4 { font:700 36px 'Proxima Nova Bl', sans-serif; color:#0a71cf; text-shadow:0px 0.1px 1px #fff; }
 .hamro h4 { font-size:24px; }
 .tryit { background:#c32327; display:inline-block; margin:12px 0 0 0; }
