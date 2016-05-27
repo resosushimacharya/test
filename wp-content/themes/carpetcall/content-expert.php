@@ -37,9 +37,9 @@ $feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
                             <?php if(!empty($highlight)){?>
                             <span class="frcol"> <?php echo $highlight;?></span>
                             <?php }?> <?php echo $non_highlight_section ;?> </h3>
-                            <p>
-                              <?php echo get_the_content();?>
-                            </p>
+                            
+                              <?php the_content();?>
+                            
                            </div><div class="clearfix"></div>
                            
                            <div class="find_tb find_tbb">

@@ -130,6 +130,7 @@ function deg2rad(deg) {
             scaleControl: false,
             draggable: false,
             disableDefaultUI: true,
+            disableDoubleClickZoom: true,
             zoom:20,
 
     //#c6d3ea

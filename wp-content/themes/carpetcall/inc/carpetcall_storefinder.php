@@ -80,7 +80,12 @@ foreach($array as $k=>$v){
     	$longitude2=$loc['wpsl_lng'][0];
 //echo $x;$sto['wpsl_lat'][0],$sto['wpsl_lng'][0]
 /* testing start */
-     $fi++;
+     $fi++;?>
+     <script>
+       alert(<?php echo $keyArray[0];?>);
+        alert(<?php echo json_encode("hel".$keyword);?>);
+     </script>
+     <?php 
 
 
           $loc=get_post_meta(get_the_ID());
