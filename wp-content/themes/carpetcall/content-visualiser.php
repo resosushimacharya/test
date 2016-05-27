@@ -14,16 +14,24 @@ while($vis->have_posts()):
   $caption=get_field('visualiser_caption',$post->ID);
 $linku=get_field('visualiser_link',$post->ID);
 $linkt=get_field('visuailiser__link_title',$post->ID);
+$title=get_field('visualiser_title',$post->ID);
+$wobox=get_field('visuailiser_link_title_without_box',$post->ID);
    ?>
    <div>
     <div class="hamro">
-        <h3> <?php the_title();?> </h3>
-        <?php if(!empty($caption)){?>
+    <?php if($title){?>
+        <h3> <?php echo $title;?> </h3>
+        <?php }?>
+        <?php if($caption){?>
         <h4> <?php echo $caption;?> </h4>
         <?php }?>
-        <?php if(!empty($linkt)){?>
+        <?php if($linkt){?>
         <h5 class="tryit tryita"><a href="<?php echo $linku;?>"> <?php echo $linkt; ?></a></h5>
+        
         <?php }?>
+        <?php if($wobox) {?>
+       <h5 class="tryitwob tryita tryitwob"><a href="<?php echo $linku;?>"> <?php echo $wobox; ?></a></h5> 
+       <?php }?>
       </div>
       <img src="<?php echo $feat_image;?>" alt="images" class="img-responsive">
       
@@ -34,6 +42,6 @@ $linkt=get_field('visuailiser__link_title',$post->ID);
  </section>
 
 
- <div class="slider_overlay"></div>
+ <div class="slider_overlay"><img src="<?php echo get_template_directory_uri();?>/images/ajax-loader.gif" style="margin-left:50%;margin-top:5%;"/></div>
        </div><div class="clearfix"></div>
    
