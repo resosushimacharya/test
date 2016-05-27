@@ -64,7 +64,7 @@
   transition: max-height 0.4s ease-out;
   background: #ffffff;
 }
-#cssmenu ul li ul li.has-sub:after {
+/*#cssmenu ul li ul li.has-sub:after {
   display: block;
   position: absolute;
   content: "";
@@ -75,12 +75,12 @@
   z-index: 1;
   top: 13px;
   right: 15px;
-}
+}*/
 #cssmenu.align-right ul li ul li.has-sub:after {
   right: auto;
   left: 15px;
 }
-#cssmenu ul li ul li.has-sub:before {
+/*#cssmenu ul li ul li.has-sub:before {
   display: block;
   position: absolute;
   content: "";
@@ -91,7 +91,7 @@
   z-index: 2;
   top: 15px;
   right: 15px;
-}
+}*/
 #cssmenu.align-right ul li ul li.has-sub:before {
   right: auto;
   left: 15px;
@@ -168,7 +168,7 @@
   transition: height .2s;
 }
 #cssmenu > ul > li.has-sub > a {
-  padding-right: 40px;
+
 }
 /*#cssmenu > ul > li.has-sub > a:after {
   display: block;
@@ -193,8 +193,9 @@
   right: 16px;
   top: 21px;
 }*/
-
-#cssmenu > ul > li:nth-child(3) { margin-right:0;}
+#cssmenu > ul > li:nth-child(1) { width:215px; margin-right:16px;}
+#cssmenu > ul > li:nth-child(2) {width:195px; margin-right:14px;}
+#cssmenu > ul > li:nth-child(3) {width:154px; margin-right:0;}
 
 
 #cssmenu > ul > li > a {
@@ -207,6 +208,7 @@
   z-index: 2;
   position: relative;
   margin:0;
+  text-align:center;
 }
 #cssmenu > ul > li:hover:after,
 #cssmenu > ul > li.active:after {
@@ -243,12 +245,12 @@
   margin-right:20px;
 }
 #cssmenu > ul > li > ul {
-  width: 100%;
+  width: 66%;
   display: block;
   min-height:171px;
 }
 #cssmenu > ul > li > ul > li {
-  width: 100%;
+  width: 70%;
   display: block;
 }
 #cssmenu .menu-item-has-children ul.sub-menu {
@@ -259,7 +261,7 @@
 }
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu{
 	    top: -66px;
-		    padding-top: 11px;
+		padding-top: 11px;
 }
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a{
 	padding: 7px 10px;
