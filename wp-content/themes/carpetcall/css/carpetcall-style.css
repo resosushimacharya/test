@@ -73,7 +73,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 
 
 /* banner section start here ---*/
-.banner { background:#15489f; padding:20px 0 0 0;}
+.banner { background:#15489f; padding:20px 0 0 0; position:fixed; z-index:99999; width:100%;}
 .banner .col-md-12 {padding:0 20px;}
 .banner .col-md-4 { width:28.2%}
 .banner .col-md-12 .col-md-4:nth-child(2) { width:30.2%; margin:0 61px 0 21px; padding:0; }
@@ -210,7 +210,9 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .curnloca a:hover { background:#15489f; }
 
 /*........... carpetcall slide start here .................*/
-.carpetcall_slide { }
+.carpetcall_slide { margin-top:154px; }
+.carpetcall_slide { position: relative; }
+.carpetcall_slide .slider_overlay{ position:absolute; top:0; left:0; right:0; bottom:0; background:#fff; z-index: 10; }
 * { box-sizing: border-box;}
 
 .slider { min-width:1024px; height: 351px; margin:0 auto; overflow:hidden;}
@@ -250,9 +252,9 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 		}
 
 /*.................. offer and delivery start here ..................*/
-.meroshop {margin:0;}
+.meroshop {margin:0; z-index: 12; position: relative;}
 .shopping { box-shadow:0px 0px 10px #999999; background:#FFF; padding:10px; position:relative; top:-25px; height:90px; }
-.aag{min-height: 68px;}
+.aag{min-height: 68px; z-index:12; position:relative;}
 .so_title, .aag p { margin-left:55px;}
 .aag_ab, .aag_a p { margin-left:65px; }
 .so_titlee a, .aag_ab a, .aag_cdd a { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#1858b8; text-decoration:none;}

@@ -163,6 +163,8 @@ $('.select-tab').on('click', function() {
 $tabs.responsiveTabs('activate', $(this).val());
 });
 });
+
+
 </script>
 <?php wp_footer();?>
 </body>
