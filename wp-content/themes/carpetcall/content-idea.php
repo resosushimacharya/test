@@ -19,8 +19,8 @@
         
         foreach($guides as $guide):?>
              <div class="col-md-6  <?php echo ($gi%2==0?'idea-left':'idea-right') ;?>">
-             <div class="<?php echo ($gi%2==0?'rmvisual':'care_pro') ;?>" style="background:url(<?php echo $guide['image']['url'];?>); float:right; background-color:#0a71cf; min-width:482px; min-height:146px; background-size: cover;">
-             <img src="<?php echo $guide['image']['url'];?>" alt="room" class="img-responsive" style="float:right;"/>
+             <div class="<?php echo ($gi%2==0?'rmvisual':'care_pro') ;?>" style="background:url(<?php echo $guide['image']['url'];?>); float:right; background-color:#0a71cf; min-width:483px; min-height:156px; background-size:cover; background-position:center; background-repeat:no-repeat; overflow:hidden;">
+             
              <div class="rmblk_cont">
                 <h3> <?php  echo $guide['title'];?></h3>
                 <p> <?php  echo $guide['description'];?></p>
@@ -39,8 +39,8 @@
         <div class="row">
         
         <div class="col-md-6 idea-left">
-        <div class="guide_a" style="background:url(<?php echo get_template_directory_uri().'/images/guides.png';?>); float:right; background-color:#15489f; min-width:482px; min-height:178px; background-size: cover;">
-            <img src="<?php echo get_template_directory_uri().'/images/guides.png';?>" alt="guide" class="img-responsive" style="float:right;"/>
+        <div class="guide_a" style="background:url(<?php echo get_template_directory_uri().'/images/guides.png';?>); float:right; background-color:#15489f; min-width:483px; min-height:197px; background-size: cover; background-position:center; background-repeat:no-repeat; overflow:hidden;">
+           
             
             <div class="inner_cont">
             <h4> BUYING GUIDES  </h4>
@@ -65,8 +65,8 @@
         </div>
         
         <div class="col-md-6 idea-right">
-        <div class="faq_blk" style="background:url(<?php echo get_template_directory_uri().'/images/faq.png';?>); float:right; background-color:#15489f; min-width:482px; min-height:178px; background-size: cover;">
-            <img src="<?php echo get_template_directory_uri().'/images/faq.png';?>" alt="room" class="img-responsive" style="float:right;"/>
+        <div class="faq_blk" style="background:url(<?php echo get_template_directory_uri().'/images/faq.png';?>); float:right; background-color:#15489f; min-width:483px; min-height:197px; background-size: cover; background-position:center; background-repeat:no-repeat; overflow:hidden;">
+           
             
             <div class="quest_cont">
                 <h4> FAQ'S </h4>

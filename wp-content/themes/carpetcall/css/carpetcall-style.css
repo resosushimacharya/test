@@ -272,7 +272,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .meroshop {margin:0; z-index: 12; position: relative;}
 .shopping { box-shadow:0px 0px 10px #999999; background:#FFF; padding:10px; position:relative; top:-25px; height:90px; }
 .aag{min-height: 68px; z-index:12; position:relative;}
-.so_title, .aag p { margin-left:55px;}
+.so_title, .aag p { margin-left:70px;}
 .aag_ab, .aag_a p { margin-left:65px; }
 .so_titlee a, .aag_ab a, .aag_cdd a { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#1858b8; text-decoration:none;}
 .so_titlee a:hover, .aag_ab a:hover, .aag_cdd a:hover {color:#333;}
@@ -282,12 +282,17 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .aag_c p { margin-bottom:22px;}
 .meroshop .col-md-12 .col-md-4{padding: 0 10px;}
 
-.meroshop .col-md-4:nth-child(1) .aag img{ width:37px; height:49px; }
-.meroshop .col-md-4:nth-child(2) .aag img{ width:52px; height:45px; }
-.meroshop .col-md-4:nth-child(3) .aag img{ width:41px; height:43px; }
+.meroshop .col-md-4:nth-child(1) .aag img{ width:37px; height:49px; margin-left:12px; margin-top:8px; }
+.meroshop .col-md-4:nth-child(2) .aag img{ width:52px; height:45px; margin-left:12px; margin-top:10px; }
+.meroshop .col-md-4:nth-child(3) .aag img{ width:41px; height:43px; margin-left:12px; margin-top:10px; }
 
-.meroshop .col-md-4:nth-child(2) .aag .so_title { margin-left:67px;}
-.meroshop .col-md-4:nth-child(2) .aag p { margin-left:67px;}
+.meroshop .col-md-4:nth-child(2) .aag .so_title { margin-left:80px;}
+.meroshop .col-md-4:nth-child(2) .aag p { margin-left:80px;}
+
+.meroshop .col-md-4:nth-child(3) .aag .so_title { margin-left:70px;}
+.meroshop .col-md-4:nth-child(3) .aag p { margin-left:70px; padding-top:11px;}
+
+
 
 /*.meroshop .col-md-12 .col-md-4:nth-child(1) .shopping{
 	margin-right:10px;
@@ -324,11 +329,11 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .pro_one, .pro_two, .pro_thr, .pro_for, .pro_fiv, .pro_six { background:#fff; padding: 10px; margin: 10px;}
 .sublk_prom { margin:8px 0;}
 .ptxt { min-height:90px;}
-.ptxt h3 { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding-left:7px;}
-.ptxt h4, .ptxt h5 { font:normal 14px 'proxima_nova_rgregular', sans-serif; color:#087bda; text-transform:uppercase; padding-left:7px;}
+.ptxt h3 { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding-left:16px;}
+.ptxt h4, .ptxt h5 { font:normal 14px 'proxima_nova_rgregular', sans-serif; color:#087bda; text-transform:uppercase; padding-left:16px;}
 .ptxt h5 { font-weight:700;}
-.nowsp { background:#bb2225;}
-.nowspp a { display:block; padding:8px 19px; text-align:center; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#FFF; text-transform:uppercase; text-decoration:none; }
+.nowsp { background:#bb2225; display:inline-block; width:181px; height:45px; margin-left:17px;}
+.nowspp a { display:block; padding:12px 19px; text-align:center; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#FFF; text-transform:uppercase; text-decoration:none; }
 .nowspp a:hover {background:#a9191c;}
 
 .responsive .slick-dots { bottom:-45px; }
@@ -365,14 +370,14 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .trynoww a {  color:#fff; text-decoration:none;}
 .trynoww a:hover { color:#FF0;}
 
-.guide_a, .faq_blk { margin-top:12px;}
+.guide_a, .faq_blk { margin-top:11px;}
 ul.guide_list { margin:0; padding:0; }
 ul.guide_list li {list-style:none; display:block;}
 ul.guide_list li a {font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none;}
 ul.guide_list li a:hover { color:#FF0;}
 ul.guide_list .fa { color:#F00;}
-.idea-left{padding-left: 20px;padding-right: 10px}
-.idea-right{padding-right: 20px;padding-left: 10px}
+.idea-left{padding-left: 20px;padding-right: 9px}
+.idea-right{padding-right: 20px;padding-left: 9px}
 
 /*........... expert trade start here ..............*/
 .trade { background:#e7edf8; }
@@ -382,8 +387,8 @@ ul.guide_list .fa { color:#F00;}
 .measr_cnt h3 {font:bold 20px 'proxima_nova_ltsemibold', sans-serif; color:#1858b8; margin-bottom:12px;}
 .frcol { color:#c32327; }
 .measr_cnt p {font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#666666; margin:10px 0;}
-.find_tb { background:#c32327; display:inline-block; margin:8px 0 90px 0; }
-.find_tbb a { display:block; padding:15px 42px; text-align:center; color:#FFF; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; text-decoration:none;}
+.find_tb { background:#c32327; display:inline-block; margin:0 0 80px 0; width:220px; height:45px; }
+.find_tbb a { display:block; padding:12px 0; text-align:center; color:#FFF; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; text-decoration:none;}
 .find_tbb a:hover { background:#b01519;}
 
 /*............... about and visit start here ....................*/
