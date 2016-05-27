@@ -245,12 +245,12 @@
   margin-right:20px;
 }
 #cssmenu > ul > li > ul {
-  width: 66%;
+  width: 73%;
   display: block;
-  min-height:171px;
+  min-height:171px; 
 }
-#cssmenu > ul > li > ul > li {
-  width: 70%;
+#cssmenu > ul > li > ul > li > ul { 
+  width: 100%;
   display: block;
 }
 #cssmenu .menu-item-has-children ul.sub-menu {
@@ -267,6 +267,7 @@
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a{
 	padding: 7px 10px;
     line-height: 7px;
+	font-size:12px;
 }
 
 

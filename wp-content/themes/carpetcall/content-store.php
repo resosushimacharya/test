@@ -30,7 +30,9 @@
       onkeypress="handle(event)">
       
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button" onclick="autocomplet();"><i class="fa fa-search" aria-hidden="true"></i></button>
+        <button class="btn btn-default" type="button" onclick="autocomplet();">
+        <img src="<?php  echo get_template_directory_uri();?>/images/magnify.png"/>
+        </button>
       </span>
 
           
