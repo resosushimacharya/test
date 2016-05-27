@@ -32,5 +32,8 @@ $linkt=get_field('visuailiser__link_title',$post->ID);
  endwhile;
  wp_reset_query()?>
  </section>
+
+
+ <div class="slider_overlay"></div>
        </div><div class="clearfix"></div>
    

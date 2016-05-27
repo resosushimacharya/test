@@ -20,22 +20,12 @@ add_filter('gd', 'getDistanceBetweenPointsNew' ,12, 5);
 	function directory_autocomplete()
 {
 	global $wpdb;
-	//print_r($wpdb);
+	
 	$keyword = $_POST['keyword'];
 	$lat=$_POST['latitude'];
 	$long=$_POST['longitude'];
 
-   
-	
-	/*$ip  = !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
-$url = "http://freegeoip.net/json/$ip";
-$ch  = curl_init();
-
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-$data = curl_exec($ch);
-curl_close($ch);*/
+  
 
 $a=array();
 $controlzip=1;
@@ -47,6 +37,7 @@ foreach($array as $k=>$v){
         }
     }
 }
+//var_dump($keyword);
    $keyArray=explode(",",$keyword);
   // print_r($keyArray);
 	
@@ -78,20 +69,17 @@ foreach($array as $k=>$v){
     }
     $latitude2=$loc['wpsl_lat'][0];
     	$longitude2=$loc['wpsl_lng'][0];
-      $ziptrunc = str_split($loc['wpsl_zip'][0],$len);
+    
 
 //echo $x;$sto['wpsl_lat'][0],$sto['wpsl_lng'][0]
 /* testing start */
      $fi++;?>
-     <script>
-       alert(<?php echo $keyArray[0];?>);
-        alert(<?php echo json_encode("hel".$keyword);?>);
-        
-     </script>
+    
      <?php 
 
 
           $loc=get_post_meta(get_the_ID());
+            $ziptrunc = str_split($loc['wpsl_zip'][0],$len);
            
         $locdisplay=array($loc['wpsl_address'][0],$loc['wpsl_city'],$loc['wpsl_state'][0],$loc['wpsl_zip'][0]);
 $myArray[]=array($loc['wpsl_address'][0],$loc['wpsl_city'],$loc['wpsl_state'][0],$loc['wpsl_zip'][0]);
@@ -103,10 +91,10 @@ $myArray[]=array($loc['wpsl_address'][0],$loc['wpsl_city'],$loc['wpsl_state'][0]
        <div class="loctitle" >STORES NEAR <?php echo $keyArray[0]; ?> </div>  
        <?php $controlzip++; }?>
         <?php
-        if((strcasecmp($keyArray[0],$ziptrunc[0])==0)||(strcasecmp($keyArray[0],$loc['wpsl_city'][0])==0)||(strcasecmp($keyArray[0],$loc['wpsl_state'][0])==0)){?>
-        
-
+        if((strcasecmp($keyword,$ziptrunc[0])==0)||(strcasecmp($keyArray[0],$loc['wpsl_city'][0])==0)||(strcasecmp($keyArray[0],$loc['wpsl_state'][0])==0)){?>
+         
         <?php if(!empty($lat)){?>
+
        <?php 
         $latlongloc = getDistanceBetweenPointsNew($lat, $long, $latitude2, $longitude2,'Km');
           
@@ -114,9 +102,7 @@ $myArray[]=array($loc['wpsl_address'][0],$loc['wpsl_city'],$loc['wpsl_state'][0]
         <?php }
         else{
       $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0],get_the_title()); 
-         }?>
-                          
-                            
+         }?>         
                            
         <?php 
         }?>
