@@ -34,8 +34,9 @@
         var map = null;
             function showlocation() {
                // One-shot position request.
+
                  navigator.geolocation.getCurrentPosition(callback, errorHandler);
-                  setTimeout(function(){ autocomplet(); }, 1000);
+                 // setTimeout(function(){}, 2000);
                  
             }
 
@@ -64,10 +65,9 @@ function errorHandler(error) {
         lon = position.coords.longitude;
         rs=[lat,lon];
        
-        alert(rs);
-         
-             document.getElementById('latitude').innerHTML = lat;
-         document.getElementById('longitude').innerHTML = lon;
+       
+        // document.getElementById('latitude').innerHTML = lat;
+        // document.getElementById('longitude').innerHTML = lon;
              
         var latLong = new google.maps.LatLng(lat, lon);
          
@@ -78,7 +78,7 @@ function errorHandler(error) {
                 marker.setMap(map);
         map.setZoom(8);
         map.setCenter(marker.getPosition());
-        autocomplet();sw
+        autocomplet();
       }
        
       google.maps.event.addDomListener(window, 'load', initMap);
@@ -118,10 +118,10 @@ function errorHandler(error) {
                 
                 <div class="col-md-4 no-lr">
                 <div class="callinfo">
-                	<h2 class="calme callmea"><a href="tel:1300 502 427"> CALL 1300 502 427 </a></h2>
-                    <h3 class="subcl">OR BOOK A CALL BACK WITH</br>
-						OUR FLOORING SPECIALISTS </h3>
-                     <div class="contblk"><a href="<?php echo get_permalink(89);?>">  CONTACT US </a></div>
+                	<h2 class="calme callmea"><a href="tel:<?php echo get_field('telephone_link','89'); ?>"><?php echo get_field('telephone','89'); ?> </a></h2>
+                    <h3 class="subcl"><?php echo get_field('contact_label','89'); ?> </h3>
+                     <div class="contblk"><a href="<?php echo get_field('contact_url','89'); ?>">
+                     <?php echo get_field('contact_link_title','89'); ?></a></div>
                 </div>
                 </div><!-- call info end -->
                 
@@ -188,7 +188,7 @@ wp_nav_menu($defaults);?>
                 </div>
                 
                 
-                </div></div><div class="clearfix"></div><!-- navi section end here ----------->
+                </div></div><div class="clearfix"></div><!-- navi section end here -->
             
             
         </div></div>

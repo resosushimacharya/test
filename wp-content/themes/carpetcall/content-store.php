@@ -30,7 +30,7 @@
       onkeypress="handle(event)"> -->
       <input id="edit_dir_keyword" name="edit_dir_keyword" type="text" class="form-control controls" placeholder="suburb or postcode">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button" onclick="autocomplet();">
+        <button class="btn btn-default" type="button" onclick="rs='';autocomplet();">
         <img src="<?php  echo get_template_directory_uri();?>/images/magnify.png"/>
         </button>
       </span>

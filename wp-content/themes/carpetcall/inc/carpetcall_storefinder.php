@@ -5,13 +5,11 @@
      $distance = (sin(deg2rad($latitude1)) * sin(deg2rad($latitude2))) + (cos(deg2rad($latitude1)) * cos(deg2rad($latitude2)) * cos(deg2rad($theta)));
      $distance = acos($distance);
      $distance = rad2deg($distance);
-     //echo '<h1>'.$distance.'</h1>';
-    // echo hello;
-     //echo $latitude1;
+    
      $distance = $distance * 60 * 1.1515; switch($unit) {
           case 'Mi': break; case 'Km' : $distance = $distance * 1.609344;
      }
-        //echo round($distance,2).$unit;
+        
      return (round($distance,2));
 
 }
@@ -31,7 +29,9 @@ add_filter('gd', 'getDistanceBetweenPointsNew' ,12, 5);
   $prelong = $_POST['prelong'];
 
 $a=array();
-$controlzip=1;
+$controlzip=1;?>
+
+<?php
 
    $keyArray=explode(",",$keyword);
   
@@ -53,12 +53,12 @@ $controlzip=1;
 	$loop->the_post();?>
     <?php $strpart=str_split(get_the_title(),$len);
     
-  // print_r($strpart);
+  
    $loc = get_post_meta(get_the_ID());
 
-      $locdisplayy =array();
+
       
-    $x=strcmp($strpart[0],$keyword);
+
     
     $latitude2=$loc['wpsl_lat'][0];
     	$longitude2=$loc['wpsl_lng'][0];
@@ -71,14 +71,14 @@ $controlzip=1;
        
          
         <?php if(!empty($lat)){?>
-<script>alert(<?php echo json_encode($lat);?>)</script>
+
        <?php 
         $latlongloc = getDistanceBetweenPointsNew($lat, $long, $latitude2, $longitude2,'Km');
           
         $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0],$latlongloc,get_the_title()); ?>
         <?php }
-        else{
-         
+        else{?>
+         <?php
           $latlongloc = getDistanceBetweenPointsNew($prelat, $prelong, $latitude2, $longitude2,'Km');
 
 

@@ -85,7 +85,7 @@
                 </div>
                 <div class="clearfix"></div>
 
-<div class="fcnt-or fcnt-orr clearfix"><a href="#" target="_blank"> CONTACT US</a> </div>
+<div class="fcnt-or fcnt-orr clearfix"><a href="<?php echo get_field('contact_url','89'); ?>" target="_blank"> <?php echo get_field('contact_link_title','89'); ?></a> </div>
 
 </div><div class="clearfix"></div><!-- right footer end -->
 </div>

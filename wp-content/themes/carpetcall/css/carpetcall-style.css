@@ -87,7 +87,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 .calme { margin:0; font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#FFF; text-transform:uppercase;  }
 .callmea a { text-decoration:none; color:#FFF; }
 .callmea a:hover { color:#faf9f9;}
-.subcl { font:700 12px 'proxima_nova_rgregular', sans-serif; color:#FFF; margin:0; text-transform:uppercase; letter-spacing:1px;}
+.subcl { font:700 12px 'proxima_nova_rgregular', sans-serif; color:#FFF; margin:0; text-transform:uppercase; letter-spacing:1px;width: 200px;}
 .contblk { position:absolute; bottom:-1px; right:0px; padding:2px 13px; background:#c32327; text-align:center; }
 .contblk a {color:#FFF; font-size:13px; text-decoration:none; text-transform:uppercase;}
 .contblk a:hover { color:#CCC;}

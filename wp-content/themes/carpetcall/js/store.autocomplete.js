@@ -1,10 +1,11 @@
 function autocomplet() {
+
 	var min_length = 0; // min caracters to display the autocomplete
 	
 	var keyword = jQuery('#edit_dir_keyword').val();
-      console.log(stoLocation);
-	if(keyword){
-	if (keyword.length >= min_length) {
+      
+     
+	     
 		jQuery.ajax({
 			url: wp_autocomplete.ajax_url,
 			type: 'POST',
@@ -32,9 +33,7 @@ function autocomplet() {
 				jQuery('#directory_list_id_s').html(data);
 			}
 		});
-	} else {
-		jQuery('#directory_list_id_s').hide();
-	}}
+	
 }
 
 // set_item : this function will be executed when we select an item
