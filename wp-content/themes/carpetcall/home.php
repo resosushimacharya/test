@@ -62,13 +62,18 @@
                 	<div class="responsive">
                      <!-- product six end  -->
                      <?php get_template_part('content','featured'); ?>
+                     
+                     
                       
                     </div><div class="clearfix"></div>
+                    
                     
                 </div><div class="clearfix"></div>
                 
                 </div></div><div class="clearfix"></div>
             </div>
+            
+            
      </div><div class="clearfix"></div><!-- featured product end here -->
        <!--ideas and advice strats here -->
        <?php get_template_part('content','idea');?>

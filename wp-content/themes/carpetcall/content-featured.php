@@ -74,3 +74,4 @@ $tax = 'product_cat';
 					wp_reset_query();
 					?>
 					
+                     <div class="slider_overlay"><img src="<?php echo get_template_directory_uri();?>/images/ajax-loader.gif" style="margin-left:50%;margin-top:5%;"/></div>
