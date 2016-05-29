@@ -1,7 +1,7 @@
 function storecomplet() {
 	var min_length = 1; // min caracters to display the autocomplete
 	
-	var keyword = jQuery('#dir_keyword').val();
+	var keyword = jQuery('#edit_dir_keyword').val();
 	
 	
 	if (keyword.length >= min_length) {

@@ -59,9 +59,7 @@ while($loop->have_posts()):
 
 
 ?>
-<script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js">
-</script> 
+
 
 <script>
  stoLLPTL=[];
@@ -146,6 +144,7 @@ function deg2rad(deg) {
                         {
                             "lightness": 17
                         }
+                        
 
                          
                     ]
@@ -835,4 +834,11 @@ background-repeat: no-repeat;
     padding-left:15px;
 
 }
+.pac-container {
+    z-index: 100000 !important;
+    height:150px;
+   
+
+}
+
 </style>

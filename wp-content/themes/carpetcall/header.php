@@ -35,7 +35,7 @@
             function showlocation() {
                // One-shot position request.
                  navigator.geolocation.getCurrentPosition(callback, errorHandler);
-                  setTimeout(function(){ autocomplet(); }, 2000);
+                  setTimeout(function(){ autocomplet(); }, 1000);
                  
             }
 
@@ -63,7 +63,7 @@ function errorHandler(error) {
         lat = position.coords.latitude;
         lon = position.coords.longitude;
         rs=[lat,lon];
-        console.log(rs);
+       
         alert(rs);
          
              document.getElementById('latitude').innerHTML = lat;
@@ -78,7 +78,7 @@ function errorHandler(error) {
                 marker.setMap(map);
         map.setZoom(8);
         map.setCenter(marker.getPosition());
-        autocomplet();
+        autocomplet();sw
       }
        
       google.maps.event.addDomListener(window, 'load', initMap);

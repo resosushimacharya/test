@@ -19,30 +19,25 @@
 add_filter('gd', 'getDistanceBetweenPointsNew' ,12, 5);
 	function directory_autocomplete()
 {
+
 	global $wpdb;
-	
+
+
 	$keyword = $_POST['keyword'];
 	$lat=$_POST['latitude'];
 	$long=$_POST['longitude'];
 
-  
+  $prelat = $_POST['prelat'];
+  $prelong = $_POST['prelong'];
 
 $a=array();
 $controlzip=1;
-// organize the array by cusip
-foreach($array as $k=>$v){
-    foreach($v as $key=>$value){
-        if(!in_array($value, $a)){
-        $a[]=$value;
-        }
-    }
-}
-//var_dump($keyword);
+
    $keyArray=explode(",",$keyword);
-  // print_r($keyArray);
+  
 	
 	$len=strlen($keyword);
-	//echo $len;
+	
 	$fi==0;
 	$li=0;
      $break=0;
@@ -51,6 +46,7 @@ foreach($array as $k=>$v){
     'posts_per_page'=>'-1'
 		);
 
+
 	$loop= new WP_Query(
 		$backarg);
 	while($loop->have_posts()):
@@ -58,65 +54,54 @@ foreach($array as $k=>$v){
     <?php $strpart=str_split(get_the_title(),$len);
     
   // print_r($strpart);
+   $loc = get_post_meta(get_the_ID());
+
       $locdisplayy =array();
       
     $x=strcmp($strpart[0],$keyword);
-    if($fi==2)
-    {
-    	$latitude1=$loc['wpsl_lat'][0];
-
-    	$longitude1=$loc['wpsl_lng'][0];
-    }
+    
     $latitude2=$loc['wpsl_lat'][0];
     	$longitude2=$loc['wpsl_lng'][0];
-    
-
-//echo $x;$sto['wpsl_lat'][0],$sto['wpsl_lng'][0]
-/* testing start */
-     $fi++;?>
-    
-     <?php 
-
-
-          $loc=get_post_meta(get_the_ID());
-            $ziptrunc = str_split($loc['wpsl_zip'][0],$len);
-           
-        $locdisplay=array($loc['wpsl_address'][0],$loc['wpsl_city'],$loc['wpsl_state'][0],$loc['wpsl_zip'][0]);
-$myArray[]=array($loc['wpsl_address'][0],$loc['wpsl_city'],$loc['wpsl_state'][0],$loc['wpsl_zip'][0]);
-       
-
-       ?>
+  ?>
+ 
        <?PHP if($controlzip==1){?>
 
        <div class="loctitle" >STORES NEAR <?php echo $keyArray[0]; ?> </div>  
        <?php $controlzip++; }?>
-        <?php
-        if((strcasecmp($keyword,$ziptrunc[0])==0)||(strcasecmp($keyArray[0],$loc['wpsl_city'][0])==0)||(strcasecmp($keyArray[0],$loc['wpsl_state'][0])==0)){?>
+       
          
         <?php if(!empty($lat)){?>
-
+<script>alert(<?php echo json_encode($lat);?>)</script>
        <?php 
         $latlongloc = getDistanceBetweenPointsNew($lat, $long, $latitude2, $longitude2,'Km');
           
         $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0],$latlongloc,get_the_title()); ?>
         <?php }
         else{
-      $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0],get_the_title()); 
+         
+          $latlongloc = getDistanceBetweenPointsNew($prelat, $prelong, $latitude2, $longitude2,'Km');
+
+
+
+      $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0],$latlongloc,get_the_title()); 
          }?>         
-                           
-        <?php 
-        }?>
+              
 
  
  <?php  
  
 	endwhile;
+
+
+
    ?>
 	<?php function sortByOrder($a, $b) {
     return $a[4] - $b[4];
 }
 
-usort($myArrays, 'sortByOrder');?>
+usort($myArrays, 'sortByOrder');
+
+?>
   
 	    <?php  if(count($myArrays)!=0):?>
 	    <?php $zloop=1; if($lat):?>
@@ -143,22 +128,29 @@ usort($myArrays, 'sortByOrder');?>
 	<?php endforeach;?>
 
 <?php else:?>
-	<?php foreach($myArrays as $mas):?>
+	<?php foreach($myArrays as $ma):?>
 		<?php if($zloop==4){
 
       break;
       } 
-      $zloop++;?>
+      $zloop++;
+
+      ?>
 		
+
            <div class="col-md-8">
 
-                            <address>
-                              <strong><u><?php echo $mas[4];?>:</u></strong><br>
-                               <?php echo $mas[0].' '.$mas[1].' '.$mas[2].' '.$mas[3] ;
+                             <address>
+                              <strong><u><?php echo $ma[5];?>:</u></strong><br>
+                               <?php echo $ma[0].' '.$ma[1].' '.$ma[2].' '.$ma[3] ;
                                ?>
                               
                             </address>
-                            </div><div class="clearfix"></div>
+                            </div> 
+                            <div class="col-md-4"><p><strong><?php
+                             echo $ma[4].' km'; 
+                       ?> 
+                            </strong></p></div><div class="clearfix"></div>
 	<?php endforeach;?>
 <?php endif;
 else:?>

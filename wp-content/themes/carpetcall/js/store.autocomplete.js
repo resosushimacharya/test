@@ -1,8 +1,8 @@
 function autocomplet() {
 	var min_length = 0; // min caracters to display the autocomplete
 	
-	var keyword = jQuery('#dir_keyword').val();
-
+	var keyword = jQuery('#edit_dir_keyword').val();
+      console.log(stoLocation);
 	if(keyword){
 	if (keyword.length >= min_length) {
 		jQuery.ajax({
@@ -12,12 +12,14 @@ function autocomplet() {
 				keyword:keyword,
 				latitude:rs[0],
 				longitude:rs[1],
+				prelat:stoLocation[0],
+				prelong:stoLocation[1],
 				action: 'dir_autocmp'
 				
 			},
 			success:function(data){
 				
-				jQuery("#dir_keyword").val('suburb or postcode');
+				//jQuery("#edit_dir_keyword").val('suburb or postcode');
 				
 				jQuery("#after_heading").css("color","#1858b8");
 				jQuery("#after_dropdown").css("background-color"," #e7edf8");
