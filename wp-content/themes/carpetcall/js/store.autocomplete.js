@@ -25,7 +25,7 @@ function autocomplet() {
 				jQuery('#after_browse').hide();
 				jQuery('#before_heading').hide();
 				jQuery('#after_heading').show();
-				jQuery('#directory_list_id').hide();
+				jQuery('#directory_list_id').show();
 				jQuery('#directory_list_id_s').show();
 				jQuery('#directory_list_id_s').html(data);
 			}

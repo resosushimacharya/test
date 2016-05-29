@@ -78,6 +78,7 @@ function errorHandler(error) {
                 marker.setMap(map);
         map.setZoom(8);
         map.setCenter(marker.getPosition());
+        autocomplet();
       }
        
       google.maps.event.addDomListener(window, 'load', initMap);

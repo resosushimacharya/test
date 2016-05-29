@@ -26,7 +26,7 @@
                                   <div class="col-lg-12">
                                    
     <div class="input-group">
-      <input id="dir_keyword" name="dir_keyword" type="text" class="form-control" placeholder="suburb or postcode"  autocomplete="off"
+      <input id="dir_keyword" name="dir_keyword" type="text" class="form-control" placeholder="suburb or postcode"  autocomplete="off" onkeyup="storecomplet()" 
       onkeypress="handle(event)">
       
       <span class="input-group-btn">
@@ -36,9 +36,10 @@
       </span>
 
           
-                   
+                  
         
-    </div>
+    </div><div class="input-group" id="directory_list_id">
+     </div>
     <!--<div class="input-group">
      <ul id="directory_list_id"></ul></div>-->
 <!-- /input-group -->

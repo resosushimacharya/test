@@ -221,24 +221,35 @@ curl_close($ch);*/
 	$conDis=1;
 	$li=1;
 	$html="";
+$tax="wpsl_store_category";
 
 	if(!empty($_POST['keyword'])){?>
-	<?php $backarg=array('post_type'=>'wpsl_stores',
-		);
-
+	<?php $backarg=array('post_type'=>'wpsl_stores'
+    
+    );
+$mn = 1 ;
 	$loop= new WP_Query(
 		$backarg);
 	while($loop->have_posts()):
 	$loop->the_post();?>
     <?php
+   $tax_terms=get_the_terms(get_the_ID(),'wpsl_store_category');
 
-     $break++;
+     $mn++;
+       foreach ($tax_terms  as $tax_term) {
+          if(strcmp($tax_term->slug=="center")==0){
+       // do_action('pr',$tax_terms);
+     $break++; 
+          
      $loc=get_post_meta(get_the_ID());
+
+    
      $strpart=str_split(get_the_title(),$len);
     $strzip = str_split($loc['wpsl_zip'][0],$len);
     $strstate = str_split($loc['wpsl_state'][0],$len);
     $strcity = str_split($loc['wpsl_city'][0],$len);
-  // print_r($strpart);
+     
+
       $locdisplayy =array();
     $x=strcmp($strpart[0],$keyword);
     if($fi==2)
@@ -261,11 +272,11 @@ curl_close($ch);*/
         
 <?php
 if((strcasecmp($strzip[0],$keyword)==0)){?>
-
+ 
    <?php 
-          if($sto!=$loc['wpsl_zip'][0]){
-        $html.= '<li onclick="set_store(\''.str_replace("-", ",", $loc['wpsl_zip'][0]).'\')">'.$loc['wpsl_zip'][0].'</li>';
-      }
+        
+        $html.= '<a onclick="set_store(\''.str_replace("-", ",", $loc['wpsl_zip'][0]).'\')">'.$loc['wpsl_zip'][0].'</a>';
+  
       
          $sto=$loc['wpsl_zip'][0];
         
@@ -276,9 +287,9 @@ if((strcasecmp($strzip[0],$keyword)==0)){?>
   if((strcasecmp($strcity[0],$keyword)==0)){?>
 
    <?php 
-         if($sto!=$loc['wpsl_city'][0]){
+         
 
-        $html.= '<li onclick="set_store(\''.str_replace("-", ",",$loc['wpsl_city'][0]).'\')">'.$loc['wpsl_city'][0].'</li>';}
+        $html.= '<li onclick="set_store(\''.str_replace("-", ",",$loc['wpsl_city'][0]).'\')">'.$loc['wpsl_city'][0].'</li>';
        
         $sto=$loc['wpsl_city'][0];
         
@@ -310,7 +321,7 @@ if((strcasecmp($strzip[0],$keyword)==0)){?>
 
 
 	<?php
-	$conDis++;
+	$conDis++;}}
 	endwhile;
 	wp_reset_query();
 	}

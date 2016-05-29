@@ -17,7 +17,7 @@ function storecomplet() {
 			success:function(data){
 				jQuery('#before_heading').hide();
 				jQuery('#after_heading').show();
-				jQuery('#directory_list_id').hide();
+				jQuery('#directory_list_id').show();
 				jQuery('#directory_list_id').html(data);
 			}
 		});
