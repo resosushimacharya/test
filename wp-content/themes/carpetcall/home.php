@@ -69,6 +69,7 @@
                 
                 </div></div><div class="clearfix"></div>
             </div>
+            <div class="featured_overlay"><img src="<?php echo get_template_directory_uri();?>/images/ajax-loader.gif" style="margin-left:50%;margin-top:12%;"/></div>
      </div><div class="clearfix"></div><!-- featured product end here -->
        <!--ideas and advice strats here -->
        <?php get_template_part('content','idea');?>

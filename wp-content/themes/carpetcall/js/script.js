@@ -34,6 +34,7 @@ $(document).ready(function(e) {
 jQuery(window).load(function(){
 
 	jQuery('.carpetcall_slide .slider_overlay').hide();
+	jQuery('.feature_pro .featured_overlay').hide();
 
 });
 

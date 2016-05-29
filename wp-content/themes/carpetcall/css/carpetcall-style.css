@@ -229,6 +229,8 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .carpetcall_slide { margin-top:154px; }
 .carpetcall_slide { position: relative; }
 .carpetcall_slide .slider_overlay{ position:absolute; top:0; left:0; right:0; bottom:0; background:#fff; z-index: 10; }
+.feature_pro{ position: relative;}
+.feature_pro .featured_overlay{ position:absolute; top:0; left:0; right:0; bottom:0; background:#fff; z-index: 10; }
 * { box-sizing: border-box;}
 
 .slider { min-width:1024px; height: 351px; margin:0 auto; overflow:hidden;}
