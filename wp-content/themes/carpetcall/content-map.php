@@ -836,10 +836,20 @@ background-repeat: no-repeat;
 }
 .pac-container {
     z-index: 100000 !important;
-    height:150px;
-    
-   
+    /* position:static !important; */
+}
+.pac-container:after {
+    /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
+
+    background-image: none !important;
+    height: 0px;
+}
+.pac-icon-marker {
+    display: none !important;
+    top:-700px !important;
 
 }
-
+.pac-item-query {
+    margin-left: 7px;
+}
 </style>

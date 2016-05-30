@@ -2,26 +2,26 @@
 function custom_post_type()
 	{
 //get_arguments('Background','Backgrounds') ;
-get_arguments('visualiser','visualisers');
+get_arguments('visualiser','visualisers','Visulaiser','Visulaisers','Visulaisers');
 //get_arguments('workflow','workflows');
-get_arguments('expert','experts');
+get_arguments('expert','experts','Expert','Experts','Experts');
 
-get_arguments('FAQ','FAQS');
-get_arguments('Guide','Guides');
+get_arguments('FAQ','FAQS','FAQ','FAQS','FAQS');
+get_arguments('Guide','Guides','Guide','Guides','Guides');
 }
-function get_arguments($singular,$plural){
+function get_arguments($singular,$plural,$singular_name,$menu_name,$name){
 		$labels = array(
-		'name' => _x($plural, 'Post Type General Name', 'text_domain') ,
-		'singular_name' => _x($singular, 'Post Type Singular Name', 'text_domain') ,
-		'menu_name' => __($plural, 'text_domain') ,
-		'parent_item_colon' => __('Parent '.$singular.':', 'text_domain') ,
-		'all_items' => __('All '.$plural, 'text_domain') ,
-		'view_item' => __('View '.$singular, 'text_domain') ,
-		'add_new_item' => __('Add New '.$singular, 'text_domain') ,
-		'add_new' => __('New '.$singular, 'text_domain') ,
-		'edit_item' => __('Edit '.$singular, 'text_domain') ,
-		'update_item' => __('Update '.$singular, 'text_domain') ,
-		'search_items' => __('Search '.$singular, 'text_domain') ,
+		'name' => _x($name, 'Post Type General Name', 'text_domain') ,
+		'singular_name' => _x($singular_name, 'Post Type Singular Name', 'text_domain') ,
+		'menu_name' => __($menu_name, 'text_domain') ,
+		'parent_item_colon' => __('Parent '.$singular_name.':', 'text_domain') ,
+		'all_items' => __('All '.$menu_name, 'text_domain') ,
+		'view_item' => __('View '.$singular_name, 'text_domain') ,
+		'add_new_item' => __('Add New '.$singular_name, 'text_domain') ,
+		'add_new' => __('New '.$singular_name, 'text_domain') ,
+		'edit_item' => __('Edit '.$singular_name, 'text_domain') ,
+		'update_item' => __('Update '.$singular_name, 'text_domain') ,
+		'search_items' => __('Search '.$singular_name, 'text_domain') ,
 		'not_found' => __('Not found', 'text_domain') ,
 		'not_found_in_trash' => __('Not found in Trash', 'text_domain') ,
 	);

@@ -4,8 +4,8 @@ add_action( 'init', 'callCustomTaxonomy', 0 );
 function callCustomTaxonomy()
 {
 
-create_dynamic_hierarchical_taxonomy('profaq','profaqs','faqs','Faqcategory','faq');
-create_dynamic_hierarchical_taxonomy('Guide','Guides','guides','Gudiecategory','guide');
+create_dynamic_hierarchical_taxonomy('profaq','profaqs','faqs','FAQ Category','faq');
+create_dynamic_hierarchical_taxonomy('Guide','Guides','guides','Gudie Category','guide');
 }
 function create_dynamic_hierarchical_taxonomy($singular,$plural,$posttype,$cat,$catreg) {
 // Add new taxonomy, make it hierarchical like categories

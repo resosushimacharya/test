@@ -37,6 +37,8 @@ jQuery(window).load(function(){
 	jQuery('.feature_pro .featured_overlay').hide();
 
 });
-
+$(window).scroll(function (event) {
+    jQuery('.pac-container').hide();
+});
 
 

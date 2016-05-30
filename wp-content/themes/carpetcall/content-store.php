@@ -28,8 +28,8 @@
     <div class="input-group">
       <!-- <input id="dir_keyword" name="dir_keyword" type="text" class="form-control" placeholder="suburb or postcode"  autocomplete="off" onkeyup="storecomplet()" 
       onkeypress="handle(event)"> -->
-      <input id="edit_dir_keyword" name="edit_dir_keyword" type="text" class="form-control controls" placeholder="suburb or postcode">
-      <span class="input-group-btn">
+      <input id="edit_dir_keyword" name="edit_dir_keyword" type="text" class="form-control controls" placeholder="suburb or postcode" onkeyup="mymap()" autocomplete="off">
+     <div id="map"></div> <span class="input-group-btn">
         <button class="btn btn-default" type="button" onclick="rs='';autocomplet();">
         <img src="<?php  echo get_template_directory_uri();?>/images/magnify.png"/>
         </button>
@@ -78,23 +78,25 @@
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
   var stoLocation= [];
+  var autocomplete = null;
+
       function mymap() {
+
         var input = document.getElementById('edit_dir_keyword');
+         var count = input.value;
        var options = { types: ['geocode'],componentRestrictions: {country: "AU"} };
         var types = document.getElementById('type');
-      
-
-        var autocomplete = new google.maps.places.Autocomplete(input,options);
-      //  console.log(autocomplete);
-      
-
-        
+       
+          if(count.length>=3){
+          
+        autocomplete = new google.maps.places.Autocomplete(input,options);
+         
         autocomplete.addListener('place_changed', function() {
          
           var place = autocomplete.getPlace();
            stoLocation.push(place);
           stoLocation = [place.geometry.location.lat(),place.geometry.location.lng()];
-          //input.value="";
+          input.value="";
 
           console.log(place);
           if (!place.geometry) {
@@ -108,9 +110,22 @@
          
         });
 
+      }
+      else{
+        google.maps.event.clearListeners(input, "focus");
+        google.maps.event.clearListeners(input, "blur");
+        google.maps.event.clearListeners(input, "keydown");
+
+    $(".pac-container").hide();
+      
+      }
+      //  console.log(autocomplete);
+      
+
+
 
        
       }
     </script>
-   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=mymap"
+   <script src="https://maps.googleapis.com/maps/api/js?libraries=places"
         ></script>

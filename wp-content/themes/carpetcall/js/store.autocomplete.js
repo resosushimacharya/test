@@ -20,7 +20,7 @@ function autocomplet() {
 			},
 			success:function(data){
 				
-				//jQuery("#edit_dir_keyword").val('suburb or postcode');
+				jQuery("#edit_dir_keyword").val('');
 				
 				jQuery("#after_heading").css("color","#1858b8");
 				jQuery("#after_dropdown").css("background-color"," #e7edf8");
@@ -31,6 +31,8 @@ function autocomplet() {
 				jQuery('#directory_list_id').show();
 				jQuery('#directory_list_id_s').show();
 				jQuery('#directory_list_id_s').html(data);
+				 
+
 			}
 		});
 	
