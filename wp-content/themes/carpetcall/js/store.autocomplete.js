@@ -4,7 +4,7 @@ function autocomplet() {
 	
 	var keyword = jQuery('#edit_dir_keyword').val();
       
-     
+      
 	     
 		jQuery.ajax({
 			url: wp_autocomplete.ajax_url,

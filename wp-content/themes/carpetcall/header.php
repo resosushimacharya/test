@@ -30,7 +30,7 @@
     <script type="text/javascript">
       var lat ;
       var long;
-      var rs =[];
+      rs =[];
         var map = null;
             function showlocation() {
                // One-shot position request.
