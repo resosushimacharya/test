@@ -268,8 +268,8 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 		color: #15489f;
 		font-weight:normal;
 		}
-		.tryitwob a { font-weight:700; color:#14489c; text-transform:lowercase; font-size:24px; padding:10px 0; text-align:left; display:inline-block; cursor:text;}
-		.tryita a:hover { background:none; text-decoration:none;}
+		.tryitwob a { font-weight:700; color:#14489c; text-transform:lowercase; font-size:24px; padding:10px 0; text-align:left; display:inline-block;}
+		.tryita a:hover { background:none; text-decoration:none; outline:none;}
 
 /*.................. offer and delivery start here ..................*/
 .meroshop {margin:0; z-index: 12; position: relative;}
