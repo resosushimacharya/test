@@ -2,11 +2,12 @@
 
 add_action('admin_menu', 'import_css_products');
 function import_css_products(){
-	add_submenu_page( 'edit.php?post_type=product', 'Products Import', 'Products Import', 'manage_options', 'css-products-import', 'css_products_import' );
+	add_submenu_page( 'edit.php?post_type=product', 'CSV Import ', 'CSV Import', 'manage_options', 'css-products-import', 'css_products_import' );
 }
 function readCSV($csvFile){
  $file_handle = fopen($csvFile, 'r');
  $i=0;
+
  while (!feof($file_handle) ) {
 	$line_of_text[] = fgetcsv($file_handle, 0);
  }
@@ -15,7 +16,7 @@ function readCSV($csvFile){
 }
 
 function css_products_import(){
-	echo '<h1>Products Imports</h1>';
+	echo '<h1>CSV Import</h1>';
 	if(isset($_POST['submit'])){
 		$mimes = array('application/vnd.ms-excel','text/plain','text/csv','text/tsv');	
 		
@@ -56,9 +57,11 @@ function css_products_import(){
 						 }
 						global $wpdb;
 						$i =0;
+
 						foreach($csvs as $csv){
 
-if($i>0){
+
+if(strcasecmp($csv[0],'state')!=0){
 
 							$exist = get_page_by_title( $csv[1], OBJECT, 'product' );
 			if($csv && !isset($exist->ID)){
@@ -239,11 +242,11 @@ if($i>0){
 
 
 
-					echo $csv[1].' product imported';
+					echo $csv[1].' CSV imported';
 	
 			} else  {
 				if(isset($exist->ID)){
-					echo $csv[1].' product already exists';
+					echo $csv[1].'Item already exists';
 				}
 			}
 		}
@@ -260,9 +263,9 @@ if($i>0){
 	}
 	?>
 <form method="post" enctype="multipart/form-data">
-Select csv file to import:
+Select CSV file to import:
     <input type="file" name="importcsv" id="importcsv">
-    <input type="submit" value="Import Products" name="submit">
+    <input type="submit" value="Import" name="submit">
 </form>
 <?php
 
