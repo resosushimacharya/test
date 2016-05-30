@@ -84,7 +84,7 @@
         var types = document.getElementById('type');
       var check = input.value;
         if(check.length>=3){
-          alert(check );
+         
         var autocomplete = new google.maps.places.Autocomplete(input,options);
       //  console.log(autocomplete);
       
