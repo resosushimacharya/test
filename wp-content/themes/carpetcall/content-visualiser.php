@@ -30,7 +30,7 @@ $slider_external_link=get_field('slider_external_link',$post->ID);
         <?php }?>
        
         <?php if($slider_link_title_without_box) {?>
-       <h5 class="tryitwob tryita tryitwob"><a href="<?php echo($slider_external_link!=null?$slider_external_link:$slider_link);?>"> 
+       <h5 class="tryitwob tryita tryitwob"><a href="<?php echo($slider_external_link!=null?$slider_external_link:$slider_link);?>" target="_blank"> 
        <?php echo $slider_link_title_without_box; ?></a></h5> 
        <?php }
        else{?>
