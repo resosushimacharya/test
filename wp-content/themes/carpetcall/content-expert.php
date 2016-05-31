@@ -1,7 +1,7 @@
  <div class="trade"><!-- trade section start here -->
        		<div class="container">
             	<div class="hamro_trade">
-                	<h2>we are the experts in the trade </h2>
+                	<h2><?php echo get_field('home_expert_heading','option') ;?> </h2>
                    <div class="row">
                     <?php
                     

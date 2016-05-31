@@ -12,7 +12,7 @@
 
 					 <div class="container">
         <div class="thought_blk">
-        <h2> IDEAS &amp; ADVICE </h2>
+        <h2>  <?php echo get_field('home_ideas_and_advice_heading','option') ;?> </h2>
         <div class="row">
         <?php $guides=get_field('ideas_and_advice_section','option');
         $gi= 2 ;

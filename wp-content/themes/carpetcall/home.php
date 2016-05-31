@@ -20,8 +20,8 @@
     <div class="calbk"><div class="row">
     <div class="col-sm-3"><div class="cpt_supt"><img src="<?php echo get_template_directory_uri() ;?>/images/carpetcall-support-img.png" alt="support" class="img-responsive"/> </div></div><!-- support img end -->
     <div class="col-sm-5">
-    <h3 class="bookcbk"> BOOK A CALLBACK </h3>
-    <h4 class="cptspl"> WITH OUR FLOORING SPECIALISTS </h4>
+    <h3 class="bookcbk"><?php echo get_field('home_contact_heading','option') ;?></h3>
+    <h4 class="cptspl"><?php echo get_field('contact_sub_heading','option') ;?></h4>
     <div class="suptlst">
     <?php $booklink=get_field('contactlink',89);
     //do_action('custom_hook_inspect_carpetcall',$booklink);?>
@@ -55,7 +55,7 @@
         	<div class="container">
             		<div class="row">
             	<div class="meropro_blk">
-                <h1> Featured Products </h1>
+                <h1> <?php echo get_field('home_product_heading','option') ;?> </h1>
                 
                 <div class="col-md-12 no-lr">
                 
