@@ -440,7 +440,9 @@ li.clblk_a::before {content: '';}
 .social li a:hover { color:#FF0; }
 .gtku { color:#FFF; font-weight:700; font-size:14px; margin-right:10px;}
 .calcall { font:normal 31px/100% 'Brush Script MT',sans-serif; color:#FFF; text-align:center; margin:44px 0 10px 0; -webkit-transform:  rotate(351deg);-moz-transform:  rotate(351deg);-o-transform:  rotate(351deg);writing-mode: lr-tb;}
-.calspl { font:bold 17px 'proxima_nova_ltsemibold', sans-serif; color:#fff; margin:35px 0 5px 0;}
+.calspl  { margin:35px 0 5px 0;}
+.calspll a {font:bold 17px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-decoration:none;}
+.calspll a:hover { color:#FFF; }
 .bcwfsp {font:normal 12px 'proxima_nova_ltsemibold', sans-serif; color:#fff; }
 .againlt ul { margin:25px 0 2px 0;}
 .againlt li { list-style:none; display:block; }

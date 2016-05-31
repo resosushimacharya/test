@@ -67,7 +67,7 @@
             <div class="col-md-4 idea-right">
 
                 <h2 class="calcall"> “<?php echo bloginfo('description');?>” </h2>
-                <h3 class="calspl"><a href="tel:<?php echo get_field('telephone_link','89'); ?>"><?php echo get_field('telephone_footer_title',89);?><a/></h3>
+                <h3 class="calspl calspll"><a href="tel:<?php echo get_field('telephone_link','89'); ?>"><?php echo get_field('telephone_footer_title',89);?><a/></h3>
                 <h4 class="bcwfsp"><?php echo get_field('footer_contact_title_label',89);?> </h4>
 
                 <div class="againlt">
