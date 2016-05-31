@@ -454,6 +454,9 @@ li.clblk_a::before {content: '';}
 .fot_cpy li a:hover { color:#FF0;}
 .cpyrt {font:normal 11px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-transform:uppercase; border-right:1px solid #FFF; padding-right:5px; }
 
+/*............. inner page section start here .................*/
+.inerblock_serc { margin:155px 0 20px 0;}
+
 
 /*........... rugproduct section start here ..........*/
 .rugspro_blk { background:#e7edf8;}
