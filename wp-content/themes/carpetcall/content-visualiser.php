@@ -35,7 +35,7 @@ $slider_external_link=get_field('slider_external_link',$post->ID);
        <?php }
        else{?>
  <?php if($slider_link_title){?>
-        <h5 class="tryit tryita"><a href="<?php echo ($slider_external_link!=null?$slider_external_link:$slider_link);?>"> <?php echo $slider_link_title; ?></a></h5>
+        <h5 class="tryit tryita"><a href="<?php echo ($slider_external_link!=null?$slider_external_link:$slider_link);?> "target="_blank"> <?php echo $slider_link_title; ?></a></h5>
         
         <?php }?>
        <?php  }?>

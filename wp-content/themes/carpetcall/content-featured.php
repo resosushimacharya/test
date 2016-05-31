@@ -63,7 +63,7 @@ $tax = 'product_cat';
 						echo '</h5>';
 					}?></div>
 					<div class="clearfix"></div>
-                           <div class="nowsp nowspp"><a href="<?php echo the_permalink(); ?>"> SHOP NOW </a></div><div class="clearfix"></div> 
+                           <div class="nowsp nowspp"><a href="<?php echo the_permalink(); ?>" target="_blank"> SHOP NOW </a></div><div class="clearfix"></div> 
                       </div><div class="clearfix"></div>
                       </div>
                       <?php }?>

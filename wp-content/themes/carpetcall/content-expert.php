@@ -43,7 +43,7 @@ $feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
                            </div><div class="clearfix"></div>
                            
                            <div class="find_tb find_tbb">
-                          <a href="<?php echo $link;?>"> <?php echo $link_title;?></a>
+                          <a href="<?php echo $link;?>" target="_blank"> <?php echo $link_title;?></a>
                            </div><div class="clearfix"></div>
                             
                         </div>
