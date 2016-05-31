@@ -45,7 +45,7 @@
     </div><!-- support text end -->
     <div class="col-sm-4">
     <div class="cptin cptinn">
-    <a href="#"> CONTACT US </a>
+    <a href="<?php echo get_field('contact_url','89'); ?>" target="_blank"> <?php echo get_field('contact_link_title','89'); ?></a>
     </div>
     </div><!-- contact end -->
     </div></div>
