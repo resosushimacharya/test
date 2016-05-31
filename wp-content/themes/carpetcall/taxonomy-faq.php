@@ -9,9 +9,9 @@ $link =ltrim($link,'/');
 $linkarr= explode('/',$link);
 $len = count($linkarr);
 $termname= $linkarr[$len-1];
+echo $termname;
 
-
- ?><div class="container">
+ ?><div class="container"  style="margin-top:150px;">
 					<div class="row">
 					<div class="col-md-12">
 					<ul>

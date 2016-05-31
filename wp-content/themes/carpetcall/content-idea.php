@@ -24,7 +24,7 @@
              <div class="rmblk_cont">
                 <h3> <?php  echo $guide['title'];?></h3>
                 <p> <?php  echo $guide['description'];?></p>
-                <div class="trynow trynoww"><a href="<?php  echo $guide['link_url'];?>"> <?php  echo $guide['link_title'];?> </a> &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i> </div><div class="clearfix"></div>               
+                <div class="trynow trynoww"><a href="<?php  echo ($guide['link_url_external']!=null?$guide['link_url_external']:$guide['link_url']);?>"> <?php  echo $guide['link_title'];?> </a> &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i> </div><div class="clearfix"></div>               
             </div>
              </div><div class="clearfix"></div>
              </div>

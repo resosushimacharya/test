@@ -8,6 +8,7 @@ get_arguments('expert','experts','Expert','Experts','Experts');
 
 get_arguments('FAQ','FAQS','FAQ','FAQS','FAQS');
 get_arguments('Guide','Guides','Guide','Guides','Guides');
+get_arguments('Slider','Sliders','Slider','Sliders','Sliders');
 }
 function get_arguments($singular,$plural,$singular_name,$menu_name,$name){
 		$labels = array(
