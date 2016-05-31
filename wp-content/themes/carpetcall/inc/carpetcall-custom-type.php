@@ -1,9 +1,7 @@
 <?php 
 function custom_post_type()
 	{
-//get_arguments('Background','Backgrounds') ;
-get_arguments('visualiser','visualisers','Visualiser','Visualisers','Visualisers');
-//get_arguments('workflow','workflows');
+
 get_arguments('expert','experts','Expert','Experts','Experts');
 
 get_arguments('FAQ','FAQS','FAQ','FAQS','FAQS');
