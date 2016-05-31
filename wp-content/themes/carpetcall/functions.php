@@ -79,7 +79,7 @@ function pr($x){
 }
 include_once TEMPLATEPATH."/inc/carpetcall_customizer.php";
 include_once TEMPLATEPATH."/inc/carpetcall_woocommerce.php";
-include_once TEMPLATEPATH."/inc/backcsv.php";
+/*include_once TEMPLATEPATH."/inc/backcsv.php";*/
 /* shoping cart section */
 function filter_search($query) {
 if ($query->is_search) {
