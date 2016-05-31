@@ -4,7 +4,10 @@
 */
 get_header();
 
-?><div class="container">
+?>
+
+<br>
+<br><div class="container" style="margin-top:150px;">
 <div class="col-md-12"><div class="row"><div class="col-md-12">
 	<h3 style="text-align:center;background-color:#ccc">Square Meter Calculator</h3>
 </div></div>
