@@ -88,9 +88,9 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 .callmea a { text-decoration:none; color:#FFF; }
 .callmea a:hover { color:#faf9f9;}
 .subcl { font:700 12px 'proxima_nova_rgregular', sans-serif; color:#FFF; margin:0; text-transform:uppercase; letter-spacing:1px;width: 200px;}
-.contblk { position:absolute; bottom:-1px; right:0px; padding:2px 13px; background:#c32327; text-align:center; }
-.contblk a {color:#FFF; font-size:13px; text-decoration:none; text-transform:uppercase;}
-.contblk a:hover { color:#CCC;}
+.contblk { position:absolute; bottom:-1px; right:0px; display:inline-block }
+.contblk a { padding:2px 13px; background:#c32327; text-align:center;color:#FFF; font-size:13px; text-decoration:none; text-transform:uppercase; display:block;}
+.contblk a:hover {background:#b01519;}
 .navsrchblk { margin-top:12px;}
 .navsrchblk .col-md-12 .col-md-7 { width:60.4%; }
 .navsrchblk .col-md-12 .col-md-3:nth-child(2) { width:21.5%; margin-left:23px; }
@@ -318,9 +318,9 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .suptlst li::before { content: '-';}
 .suptlst li a { font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666; text-decoration:none; text-transform:uppercase; padding-left:5px;}
 .suptlst li a:hover { color:#000;}
-.cptin { margin:42px 0 0 30px; padding:10px 51px 11px 50px; background:#C32327;  display:inline-block;  text-align:center; }
-.cptinn a { font:bold 18px 'proxima_nova_rgregular', sans-serif; text-decoration:none; color:#FFF; text-transform:uppercase; letter-spacing:1px; }
-.cptinn a:hover { color:#FF0;}
+.cptin { display:inline-block; }
+.cptinn a {margin:42px 0 0 30px;  display:block; padding:10px 51px 11px 50px; background:#C32327; font:bold 18px 'proxima_nova_rgregular', sans-serif; text-decoration:none; color:#FFF; text-transform:uppercase; letter-spacing:1px; text-align:center; }
+.cptinn a:hover {background:#b01519;}
 
 
 /*........... featured products start here ......................*/

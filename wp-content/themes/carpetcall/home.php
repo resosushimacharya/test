@@ -29,7 +29,7 @@
     foreach($booklink as $singlelink)
     {  
         
-            echo '<li><a href="'.$singlelink['contact_url'].'"'.'target="_blank">'.$singlelink['_ask_an_expert'].'</li>';
+            echo '<li><a href="'.$singlelink['contact_url'].'"'.'target="_blank">'.$singlelink['_ask_an_expert'].'</a></li>';
         
        
     }
