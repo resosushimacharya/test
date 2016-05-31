@@ -66,7 +66,7 @@
 
             <div class="col-md-4 idea-right">
 
-                <h2 class="calcall"> “Call, Call, Carpetcall the experts in the trade” </h2>
+                <h2 class="calcall"> “<?php echo bloginfo('description');?>” </h2>
                 <h3 class="calspl">CALL&nbsp;<?php echo get_field('telephone',89);?></h3>
                 <h4 class="bcwfsp"> BOOK A CALLBACK WITH OUR FLOORING SPECIALISTS </h4>
 
