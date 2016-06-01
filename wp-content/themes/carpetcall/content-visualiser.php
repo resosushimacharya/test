@@ -49,6 +49,6 @@ $slider_external_link=get_field('slider_external_link',$post->ID);
  </section>
 
 
- <div class="slider_overlay"><img src="<?php echo get_template_directory_uri();?>/images/ajax-loader.gif" style="margin-left:50%;margin-top:5%;"/></div>
+ <div class="slider_overlay"><img src="<?php echo get_template_directory_uri();?>/images/ajax-loader.gif"/></div>
        </div><div class="clearfix"></div>
    
