@@ -39,7 +39,7 @@
                 
                 </div><div class="clearfix"></div><!-- sub category listing end -->
                 
-               <?php /*?> <div class="social">
+                <div class="social">
                     <ul>
                         <li> <span class="gtku">GET TO KNOW US</span>  </li>
                         <?php echo '<li><a href="'.get_theme_mod('carpet-social-facebook').'"
@@ -57,7 +57,7 @@
                         echo '<li><a href="'.get_theme_mod('carpet-social-instagram').'"> <i class="fa fa-instagram" aria-hidden="true"></i> </a></a></li>';?>
                     </ul>
                     <div class="clearfix"></div>
-                </div><div class="clearfix"></div><!-- social end --><?php */?>
+                </div><div class="clearfix"></div><!-- social end -->
                 
                 
                 
