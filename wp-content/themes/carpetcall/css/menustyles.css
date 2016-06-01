@@ -105,13 +105,14 @@
   letter-spacing: 0;
   display: block;
   width: 111px;
-  padding: 10px;
-  line-height:8px;
+  padding: 21px 10px;
+  line-height:0px;
 }
 #cssmenu > ul >li > ul> li:hover > a,
 #cssmenu ul li ul li.active > a {
   color: #fff;
-  background:url(../images/menu-hover-bg.png) no-repeat;
+  background:url(../images/menu-hover-bg.png) no-repeat center left;
+  
 }
 #cssmenu ul li ul li:hover:after,
 #cssmenu ul li ul li.active:after {
@@ -244,7 +245,7 @@
   margin-right:20px;
 }
 #cssmenu > ul > li > ul {
-  width: 61%;
+  width: 73%;
   display: block;
   min-height:171px; 
 }
@@ -257,9 +258,10 @@
 }
 
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu  {
-	    top:0; left:80%;
+	    top:0; left:81%;
 		padding-top: 11px;
-		height:171px; display:none;
+		height:230px; display:none;
+		padding-left:18px;
 }
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children:hover ul.sub-menu{
 	 display:block;
