@@ -45,22 +45,22 @@
                    
                         <?php
                         if(get_theme_mod('carpet-social-facebook')){ echo '<li><a href="'.get_theme_mod('carpet-social-facebook').'"
-                        target="_balnk"
+                         target="_blank"
                         ><i class="fa fa-facebook-square" aria-hidden="true"></i> </a></li>';
                     }
                        if(get_theme_mod('carpet-social-youtube')){ echo '<li><a href="'.get_theme_mod('carpet-social-youtube').'"
-                        target="_balnk"
+                         target="_blank"
                         ><i class="fa fa-youtube-play" aria-hidden="true"></i> </a></li>';
                     }if(get_theme_mod('carpet-social-pininterest')){
                         echo '<li><a href="'.get_theme_mod('carpet-social-pininterest').'"
-                        target="_balnk"
+                        target="_blank"
                         > <i class="fa fa-pinterest" aria-hidden="true"></i> </a></li>';
                     }if(get_theme_mod('carpet-social-googleplus')){
                         echo '<li><a href="'.get_theme_mod('carpet-social-googleplus').'"
-                        target="_balnk"
+                         target="_blank"
                         ><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>';
                     }if(get_theme_mod('carpet-social-instagram')){
-                        echo '<li><a href="'.get_theme_mod('carpet-social-instagram').'"> <i class="fa fa-instagram" aria-hidden="true"></i> </a></a></li>';
+                        echo '<li><a href="'.get_theme_mod('carpet-social-instagram').'" target="_blank"> <i class="fa fa-instagram" aria-hidden="true"></i> </a></a></li>';
                         }?>
                     </ul>
                     <div class="clearfix"></div>

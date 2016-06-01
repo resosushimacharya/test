@@ -266,7 +266,7 @@ if(strcasecmp($csv[0],'state')!=0){
 
 
 
-					echo $csv[1].' CSV imported';
+					echo 'Product '.$csv[1].' imported</br>';
 	
 			} else  {
 				if(isset($exist->ID)){
