@@ -259,7 +259,8 @@ if(strcasecmp($csv[0],'state')!=0){
 
                 $my_post = array(
       'ID'           => $new_post_id,
-      'post_title'   =>  $csv[1]
+      'post_title'   =>  $csv[1],
+      'post_type'    =>'product'
   );
 
 // Update the post into the database

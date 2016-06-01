@@ -65,7 +65,7 @@ $myarray[]=$test['Category'].$test['Range'];
  do_action('pr',array_count_values($myarray));
  //do_action('pr',array_count_values($tempfil));
  //echo count(array_count_values($tempfil));
- 
+ do_action('pr',array_count_values($myarray)); 
 fclose($file);
 
 $args=array('post_type' => 'product', 'posts_per_page'=>'-1');

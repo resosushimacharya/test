@@ -66,7 +66,7 @@ $controlzip=1;?>
  
        <?PHP if($controlzip==1){?>
 
-       <div class="loctitle" >STORES NEAR <?php echo $keyArray[0]; ?> </div>  
+       <div class="loctitle" >STORES NEAR :&nbsp; <?php echo $keyArray[0]; ?> </div>  
        <?php $controlzip++; }?>
        
          
