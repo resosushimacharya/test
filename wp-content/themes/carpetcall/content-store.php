@@ -28,7 +28,7 @@
     <div class="input-group">
       <!-- <input id="dir_keyword" name="dir_keyword" type="text" class="form-control" placeholder="suburb or postcode"  autocomplete="off" onkeyup="storecomplet()" 
       onkeypress="handle(event)"> -->
-      <input id="edit_dir_keyword" name="edit_dir_keyword" type="text" class="form-control controls" placeholder="suburb or postcode" onkeyup="mymap();">
+      <input id="edit_dir_keyword" name="edit_dir_keyword" type="text" class="form-control controls" placeholder="suburb or postcode" onkeyup="mymap(event);">
       <span class="input-group-btn">
         <button class="btn btn-default" type="button" onclick="rs='';autocomplet();">
         <img src="<?php  echo get_template_directory_uri();?>/images/magnify.png"/>
@@ -62,27 +62,28 @@
                             <!--more store sec end  -->
                             
                           </div>
-                        </div><!-- store finder menu end --><script>
-    function handle(e){
-        if(e.keyCode === 13){
-          autocomplet();
-         
-        }
-
-        return false;
-    }
-</script>
+                        </div><!-- store finder menu end -->
  <script>
       // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
   var stoLocation= [];
-      function mymap() {
+      function mymap(e) {
         var input = document.getElementById('edit_dir_keyword');
        var options = { types: ['geocode'],componentRestrictions: {country: "AU"} };
         var types = document.getElementById('type');
       var check = input.value;
+        e.which = e.which || e.keyCode;
+    if(e.which == 13) {
+       document.addEventListener("keydown", KeyCheck); 
+          google.maps.event.clearListeners(input, "focus");
+        google.maps.event.clearListeners(input, "blur");
+        google.maps.event.clearListeners(input, "keydown");
+
+    $(".pac-container").hide();
+       autocomplet();
+    }
         if(check.length>=3){
          
         var autocomplete = new google.maps.places.Autocomplete(input,options);
@@ -141,6 +142,14 @@ function KeyCheck(event)
       default:
       break;
    }
+}
+    </script>
+    <script>
+      function storekeycheck(e) {
+    e.which = e.which || e.keyCode;
+    if(e.which == 13) {
+        // submit
+    }
 }
     </script>
    <script src="https://maps.googleapis.com/maps/api/js?libraries=places"

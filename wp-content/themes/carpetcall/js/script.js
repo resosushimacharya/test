@@ -18,7 +18,8 @@ $(document).ready(function(e) {
         $("#storefinder_id").addClass('click-open');
 
     })
-    $(document).on('hover', function(event) {
+  
+  $(document).on('hover', function(event) {
         if (!$(event.target).closest('.storefinder_cntr').length &&
             !$(event.target).is('.storefinder_cntr')) {
             if ($('.storefinder_cntr').is(":visible")) {
@@ -26,7 +27,6 @@ $(document).ready(function(e) {
             }
         }
     });
-
 
 
     $(document).mouseup(function(e) {
