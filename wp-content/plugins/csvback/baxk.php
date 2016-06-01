@@ -88,6 +88,7 @@ function css_products_import(){
 
 
 if(strcasecmp($csv[0],'state')!=0){
+	
 
 							$exist = get_page_by_title( $csv[1], OBJECT, 'product' );
 			if($csv && !isset($exist->ID)){
@@ -142,6 +143,8 @@ if(strcasecmp($csv[0],'state')!=0){
 				update_post_meta( $new_post_id, '_weight', $csv[15] );
 				update_post_meta( $new_post_id, '_regular_price', $csv[16] );
 				update_post_meta( $new_post_id, '_sale_price', $csv[18] );
+				update_post_meta( $new_post_id, '_price', $csv[18] );
+				
 				update_post_meta($new_post_id,'state',$csv[0]);
 				update_post_meta( $new_post_id, '_visibility', 'visible' );
 				update_post_meta( $new_post_id, '_length', $length);
@@ -257,14 +260,8 @@ if(strcasecmp($csv[0],'state')!=0){
 					
 				update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id));
 
-                $my_post = array(
-      'ID'           => $new_post_id,
-      'post_title'   =>  $csv[1],
-      'post_type'    =>'product'
-  );
 
-// Update the post into the database
-  wp_update_post( $my_post );
+       
 
 
 
@@ -279,6 +276,8 @@ if(strcasecmp($csv[0],'state')!=0){
 		}
 		$i++;
 					}
+
+
 
 				} else {echo 'Sorry file can\'t be uploaded';}
 			}

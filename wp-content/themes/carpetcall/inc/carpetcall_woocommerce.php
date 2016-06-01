@@ -156,3 +156,9 @@ function carpetcall_woocommerce_template_loop_add_to_cart( $args = array() ) {
 function add_to_cart_link_revised() {
     echo '<button class="qbutton add-to-cart-button button add_to_cart_button product_type_simple product_type_booking" id="carpetcall_cart">ADD TO CART</button>';
 }*/
+add_filter('woocommerce_available_variation', function ($value, $object = null, $variation = null) {
+    if ($value['price_html'] == '') {
+        $value['price_html'] = '<span class="price">' . $variation->get_price_html() . '</span>';
+    }
+    return $value;
+}, 10, 3);

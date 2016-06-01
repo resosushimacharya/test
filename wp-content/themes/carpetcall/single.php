@@ -1,6 +1,9 @@
 <?php
 
- get_header();
+ get_header();?>
+ <div class="container clearfix">
+<div class="inerblock_serc">
+ <?php
 
 if(have_posts()):
 
@@ -20,7 +23,11 @@ if(have_posts()):
 		echo "not found hello";
 
 
-	endif;
+	endif;?>
+</div>
+</div><div class="clearfix"></div>
+
+  <?php 
 
 
 
