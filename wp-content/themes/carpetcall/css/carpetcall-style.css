@@ -311,7 +311,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 
 
 /*............ callback section start here .....................*/
-.calbk { margin-top:10px; }
+.calbk { margin-top:29px; }
 .cpt_supt img {min-width:155px; min-height:129px; }
 .bookcbk, .cptspl { font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#c32327; text-transform:uppercase; }
 .cptspl { font-size:18px; color:#15489f; margin:-7px 0 15px 2px; }
@@ -430,7 +430,7 @@ li.clblk_a::before {content: '';}
 .footlist > li > a, .sourblk { cursor:text;}
 .footlist li .clblk_a a {font-weight:bold; cursor:text; letter-spacing:1px;}
 .footlist li .clblk_a a:hover, .sourblk:hover { color:#FF0; text-decoration:none; cursor:pointer;}
-#menu-footer-menu .col-md-6 {padding:0;}
+#menu-footer .col-md-6 {padding:0;}
 .fcnt-or { margin:30px 0 10px 0;}
 .fcnt-orr a { background:#c32327; padding:15px 55px; text-align:center; font:700 18px 'proxima_nova_ltsemibold', sans-serif; text-transform:uppercase; color:#fff; text-decoration:none; display:inline-block; }
 .fcnt-orr a:hover {background:#b51a1d;}

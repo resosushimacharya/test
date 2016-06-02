@@ -3,7 +3,7 @@
 * @package carpetcall
 * @subpackage carpetcall
 */
-//show_admin_bar(false );
+show_admin_bar(false );
 
 
 update_option('siteurl',"http://localhost/carpetcall");

@@ -62,6 +62,8 @@
   -o-transition: max-height 0.4s ease-out;
   transition: max-height 0.4s ease-out;
   background: #ffffff;
+  padding-right:30px;
+  margin-right: -30px;
 }
 /*#cssmenu ul li ul li.has-sub:after {
   display: block;
@@ -104,15 +106,28 @@
   color: #1858b8;
   letter-spacing: 0;
   display: block;
-  width: 111px;
-  padding: 21px 10px;
+  width: auto;
+  padding: 15px 10px;
   line-height:0px;
+  position: relative;
+  margin-bottom:10px;
 }
 #cssmenu > ul >li > ul> li:hover > a,
 #cssmenu ul li ul li.active > a {
   color: #fff;
-  background:url(../images/menu-hover-bg.png) no-repeat center left;
+  position:relative;
+  background:#0099ff;
   
+}
+#cssmenu > ul >li > ul> li:hover a.menu-link.sub-menu-link:after {
+    position: absolute;
+    right: -10px;
+    content: '';
+    height: 100%;
+    top: 0;
+    border-left: 10px solid #0099ff;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
 }
 #cssmenu ul li ul li:hover:after,
 #cssmenu ul li ul li.active:after {
@@ -245,9 +260,11 @@
   margin-right:20px;
 }
 #cssmenu > ul > li > ul {
-  width: 73%;
+  width:auto;
   display: block;
   min-height:171px; 
+  white-space:nowrap;
+  padding: 15px 30px 15px 15px;
 }
 #cssmenu > ul > li > ul > li > ul { 
   width: 100%;
@@ -258,9 +275,9 @@
 }
 
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu  {
-	    top:0; left:81%;
+	    top:0; left:100%;
 		padding-top: 11px;
-		height:230px; display:none;
+		height:270px; display:none;
 		padding-left:18px;
 }
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children:hover ul.sub-menu{
@@ -271,8 +288,11 @@
     line-height: 7px;
 	font-size:12px;
 }
-
-
+#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li{margin: 0; padding: 0}
+#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a { margin:5px 0 }
+#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a::after{content: '';display:none}
+#cssmenu > ul#menu-main  li.menu-item-depth-0:nth-child(2){}
+#cssmenu > ul#menu-main  li.menu-item-depth-0:nth-child(2) ul.sub-menu li.menu-item-depth-1 ul.sub-menu{ height:198px;}
 
 @media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
   #cssmenu > ul {
