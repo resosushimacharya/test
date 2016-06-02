@@ -17,16 +17,15 @@ $(document).ready(function(e) {
         $("#after_dropdown").show();
 
         $("#storefinder_id").addClass('click-open');
+       
+      $('.woocomerce_dropdown').removeClass('open');
+        $('.dropdown-menu').hide() ;
+  
+   
 
     });
-     /*$('#storefinder_btn').click(function() {
-        $(this).parent('.dropdown').toggleClass('click-open');
-        $("#after_dropdown").hide();
-        
-       
-
-    });*/
-
+    
+     
     $(document).on('hover', function(event) {
         if (!$(event.target).closest('.storefinder_cntr').length &&
             !$(event.target).is('.storefinder_cntr')) {
@@ -42,7 +41,7 @@ $(document).ready(function(e) {
         var container = $("#after_dropdown");
         var extra = $(".pac-container");
         var xclick = window.event.clientX;
-
+  
         var yclick = window.event.clientY;
         yclick = yclick + 150;
         var compare = $("#after_dropdown").height();
