@@ -403,7 +403,7 @@ ul.guide_list .fa { color:#F00;}
 /*............... about and visit start here ....................*/
 .intro, .stmap { padding:0; }
 .intro h1, .stmap h2 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin:0 0 22px 0; text-transform:uppercase; }
-.stmap h2 { margin-left:2px; }
+
 .intro p {font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#666666; margin:6px 0 12px 0;}
 .rmore { margin:15px 0;}
 .rmoree a {font:600 16px 'proxima_nova_rgregular', sans-serif; color:#1858b8; text-decoration:none;}
