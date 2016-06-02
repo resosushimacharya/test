@@ -220,6 +220,8 @@ jQuery.ajax({
     
     jQuery("#mywoosection").click(function(e){
 load_minicart();
+  jQuery('#after_dropdown').hide();
+            $('.storefinder_cntr').removeClass('click-open');
 jQuery('#woo_control').show();
     
 });

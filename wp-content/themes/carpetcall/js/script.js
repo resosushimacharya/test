@@ -40,6 +40,7 @@ $(document).ready(function(e) {
         yclick = yclick + 150;
         var compare = $("#after_dropdown").height();
         var posx = $("#after_dropdown").position();
+       
         var postoptbox = $("#after_dropdown").offset().top + $("#after_dropdown").height();
         postoptbox = postoptbox + 100;
 
@@ -47,7 +48,7 @@ $(document).ready(function(e) {
         var posleftbox = $("#storefinder_btn").offset().left + $("#after_dropdown").width();
 
         compare = compare + 150;
-        if (yclick > 900 || (xclick > posleftbox || xclick < $("#storefinder_btn").offset().left)) {
+        if ((yclick > 900 )|| (xclick > posleftbox || xclick < $("#storefinder_btn").offset().left)) {
 
             jQuery('#after_dropdown').hide();
             $('.storefinder_cntr').removeClass('click-open');
