@@ -32,7 +32,7 @@ function autocomplet() {
 				jQuery('#directory_list_id_s').show();
 				jQuery('#directory_list_id_s').html(data);
 				 
-
+          
 			}
 		});
 	

@@ -64,11 +64,13 @@ get_header();
 <script>
 $(document).ready(function(){
   $("#cal_more").click(function () {
-  	$("#cal_pro>div").length;
+  	var count = $("#cal_pro>div").length;
   	alert($("#cal_pro>div").length);
-      $("#cal_pro").append('<div class="form-group col-md-6"><div class="col-md-6"><label for="width">Room 1 width(m)</label></div><div class="col-md-6"><input type="text" class="form-control" id="width" placeholder=""></div></div><div class="form-group col-md-6"><div class="col-md-6"><label for="width">Length(m)</label></div><div class="col-md-6"> <input type="text" class="form-control" id="length" placeholder=""></div></div>');
+      $("#cal_pro").append('<div class="form-group col-md-6"><div class="col-md-6"><label for="width">Room 1 width(m)</label></div><div class="col-md-6"><input type="text" class="form-control" id="item_value_'+count+'" placeholder=""></div></div><div class="form-group col-md-6"><div class="col-md-6"><label for="width">Length(m)</label></div><div class="col-md-6"> <input type="text" class="form-control" id="length" placeholder=""></div></div>');
+    $("#item_total_wrapper").append('<div class="item_total_1"><div class="form-group col-md-8"><input type="text" class="form-control col-md-8" id="width" placeholder=""></div><div class="form-group col-md-4">%</div></div>');
+
     });
-  $("#item_total_wrapper").append('<div class="item_total_1"><div class="form-group col-md-8"><input type="text" class="form-control col-md-8" id="width" placeholder=""></div><div class="form-group col-md-4">%</div></div>');
+  
 });
 </script>
 <?php 

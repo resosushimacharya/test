@@ -84,7 +84,7 @@
     $(".pac-container").hide();
        autocomplet();
     }
-        if(check.length>=3){
+        if(check.length>3){
          
         var autocomplete = new google.maps.places.Autocomplete(input,options);
       //  console.log(autocomplete);
