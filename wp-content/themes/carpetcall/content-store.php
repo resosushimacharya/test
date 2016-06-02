@@ -64,6 +64,14 @@
                           </div>
                         </div><!-- store finder menu end -->
  <script>
+
+ jQuery(document).ready(function(){
+
+    jQuery(document).on('click','.pac-item',function(){
+
+      alert('afds');
+    })
+ })
       // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">

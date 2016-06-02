@@ -12,7 +12,7 @@
     });
 })(jQuery);
 $(document).ready(function(e) {
-    $('#storefinder_btn').click(function() {
+    $('#storefinder_btn').hover(function() {
         $(this).parent('.dropdown').toggleClass('click-open');
         $("#after_dropdown").show();
 
