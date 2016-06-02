@@ -18,7 +18,14 @@ $(document).ready(function(e) {
 
         $("#storefinder_id").addClass('click-open');
 
-    })
+    });
+     /*$('#storefinder_btn').click(function() {
+        $(this).parent('.dropdown').toggleClass('click-open');
+        $("#after_dropdown").hide();
+        
+       
+
+    });*/
 
     $(document).on('hover', function(event) {
         if (!$(event.target).closest('.storefinder_cntr').length &&

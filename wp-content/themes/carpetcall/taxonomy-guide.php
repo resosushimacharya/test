@@ -11,9 +11,9 @@ $len = count($linkarr);
 $termname= $linkarr[$len-1];
 
 
- ?><div class="container">
-					<div class="row">
-					<div class="col-md-12">
+ ?><div class="container clearfix">
+<div class="inerblock_serc">
+					<ul>
 					<ul>
 					<?php
 						$tax_terms = get_terms($tax);
@@ -61,7 +61,8 @@ $termname= $linkarr[$len-1];
 					wp_reset_query();
 					?>
 					</ul>
-					</div></div></div>
+						</div>
+</div><div class="clearfix"></div>
 <?php 
 get_footer();
 ?>
