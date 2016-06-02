@@ -73,7 +73,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 
 
 /* banner section start here ---*/
-.banner { background:#15489f; padding:20px 0 0 0; position:fixed; z-index:99999; width:100%;}
+.banner { background:#15489f; padding:17px 0 0 0; position:fixed; z-index:99999; width:100%;}
 .banner .col-md-12 {padding:0 20px;}
 .banner .col-md-4 { width:28.2%}
 .banner .col-md-12 .col-md-4:nth-child(2) { width:30.2%; margin:0 61px 0 21px; padding:0; }
@@ -226,7 +226,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .curnloca a:hover { background:#15489f; }
 
 /*........... carpetcall slide start here .................*/
-.carpetcall_slide { margin-top:154px; }
+.carpetcall_slide { margin-top:151px; }
 .carpetcall_slide { position: relative; }
 .carpetcall_slide .slider_overlay{position:absolute; top: 0; left: 0; right: 0; bottom: 0;z-index: 7;background: #fff}
 .carpetcall_slide .slider_overlay img{ position:absolute; top:50%; left:50%; background:#fff; z-index: 10; transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); }
@@ -250,8 +250,9 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .hamro { position:absolute; top:50px; right:195px;display: none;}
 .hamro h3, .hamro h4 { font:700 36px 'Proxima Nova Bl', sans-serif; color:#0a71cf; text-shadow:0px 0.1px 1px #fff; }
 .hamro h4 { font-size:24px; }
+h5.tryit.tryita { width:220px; height:45px;}
 .tryit { background:#c32327; display:inline-block; margin:12px 0 0 0; }
-.tryita a { padding:10px 40px; display:block; text-align:center; color:#FFF; font:normal 18px 'proxima_nova_rgregular', sans-serif; text-decoration:none; text-transform:uppercase;}
+.tryita a { padding:12px 40px; display:block; text-align:center; color:#FFF; font:normal 18px 'proxima_nova_rgregular', sans-serif; text-decoration:none; text-transform:uppercase;}
 .tryita a:hover {background:#a71014;}
 
 .carpetcall_slide .slider .slick-prev:before{
@@ -329,10 +330,10 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .feature_pro {background:#e7edf8}
 .meropro_blk { margin:0 0 71px 0;}
 
-.meropro_blk h1 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin:36px 0 15px 0; text-align:center; text-transform:uppercase; }
+.meropro_blk h1 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin:36px 0 9px 0; text-align:center; text-transform:uppercase; }
 .pro_one, .pro_two, .pro_thr, .pro_for, .pro_fiv, .pro_six { background:#fff; padding: 10px; margin: 10px;}
-.sublk_prom { margin:8px 0;}
-.ptxt { min-height:90px;}
+.sublk_prom { margin:22px 0 16px 0;}
+.ptxt { min-height:103px;}
 .ptxt h3 { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding-left:16px;}
 .ptxt h4, .ptxt h5 { font:normal 14px 'proxima_nova_rgregular', sans-serif; color:#087bda; text-transform:uppercase; padding-left:16px;}
 .ptxt h5 { font-weight:700;}
@@ -373,7 +374,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .rmvisual, .guide_a, .care_pro, .faq_blk { position:relative;}
 .rmblk_cont, .inner_cont, .quest_cont {position:absolute; top:15px; left:15px;}
 .rmblk_cont h3, .inner_cont h4, .quest_cont h4 { font:bold 20px 'proxima_nova_ltsemibold', sans-serif; color:#fff; margin:0 0 10px 0; }
-.rmblk_cont p { font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; margin:10px 169px 10px 0; }
+.rmblk_cont p { font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; margin:10px 171px 10px 0; }
 .trynow {font:bold 16px 'proxima_nova_ltsemibold', sans-serif;  color:#fff; }
 .trynoww a {  color:#fff; text-decoration:none;}
 .trynoww a:hover { color:#FF0;}
@@ -402,6 +403,7 @@ ul.guide_list .fa { color:#F00;}
 /*............... about and visit start here ....................*/
 .intro, .stmap { padding:0; }
 .intro h1, .stmap h2 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin:0 0 22px 0; text-transform:uppercase; }
+.stmap h2 { margin-left:2px; }
 .intro p {font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#666666; margin:6px 0 12px 0;}
 .rmore { margin:15px 0;}
 .rmoree a {font:600 16px 'proxima_nova_rgregular', sans-serif; color:#1858b8; text-decoration:none;}
@@ -432,7 +434,7 @@ li.clblk_a::before {content: '';}
 .footlist li .clblk_a a:hover, .sourblk:hover { color:#FF0; text-decoration:none; cursor:pointer;}
 #menu-footer .col-md-6 {padding:0;}
 .fcnt-or { margin:30px 0 10px 0;}
-.fcnt-orr a { background:#c32327; padding:15px 55px; text-align:center; font:700 18px 'proxima_nova_ltsemibold', sans-serif; text-transform:uppercase; color:#fff; text-decoration:none; display:inline-block; }
+.fcnt-orr a { background:#c32327; padding:12px 55px; text-align:center; font:700 18px 'proxima_nova_ltsemibold', sans-serif; text-transform:uppercase; color:#fff; text-decoration:none; display:inline-block; }
 .fcnt-orr a:hover {background:#b51a1d;}
 .footlist .clblk_a { margin-top:15px !important;}
 .footlist .col-md-3 { padding-left:0px !important;}

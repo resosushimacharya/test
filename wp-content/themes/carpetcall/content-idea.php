@@ -26,7 +26,7 @@
                 <p> <?php  echo $guide['description'];?></p>
                 <div class="trynow trynoww">
                 <a href="<?php echo ($guide['link_url_external']!=null?$guide['link_url_external']:$guide['link_url']);?>" target="_blank"> 
-                <?php  echo $guide['link_title'];?> </a> &nbsp; <i class="fa fa-angle-right" aria-hidden="true"></i> </div><div class="clearfix"></div>               
+                <?php  echo $guide['link_title'];?> </a><i class="fa fa-angle-right" aria-hidden="true"></i> </div><div class="clearfix"></div>               
             </div>
              </div><div class="clearfix"></div>
              </div>
