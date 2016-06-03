@@ -433,7 +433,7 @@ li.clblk_a::before {content: '';}
 .footlist li .clblk_a a {font-weight:bold; cursor:text; letter-spacing:1px;}
 .footlist li .clblk_a a:hover, .sourblk:hover { color:#FF0; text-decoration:none; cursor:pointer;}
 #menu-footer .col-md-6 {padding:0;}
-.fcnt-or { margin:30px 0 10px 0;}
+.fcnt-or { margin:35px 0 0px 0;}
 .fcnt-orr a { background:#c32327; padding:12px 55px; text-align:center; font:700 18px 'proxima_nova_ltsemibold', sans-serif; text-transform:uppercase; color:#fff; text-decoration:none; display:inline-block; }
 .fcnt-orr a:hover {background:#b51a1d;}
 .footlist .clblk_a { margin-top:22px !important;}
@@ -446,8 +446,8 @@ li.clblk_a::before {content: '';}
 .social li a { font-family:18px; text-decoration:none; color:#FFF; padding:0px 5px; }
 .social li a:hover { color:#FF0; }
 .gtku { color:#FFF; font-weight:700; font-size:14px; margin-right:10px;}
-.calcall { font:normal 31px/100% 'Brush Script MT',sans-serif; color:#FFF; text-align:center; margin:44px 0 10px 0; -webkit-transform:  rotate(351deg);-moz-transform:  rotate(351deg);-o-transform:  rotate(351deg);writing-mode: lr-tb;}
-.calspl  { margin:35px 0 5px 0;}
+.calcall { font:normal 30px/100% 'Brush Script MT',sans-serif; color:#FFF; text-align:center; margin:44px 0 10px 0; -webkit-transform:  rotate(351deg);-moz-transform:  rotate(351deg);-o-transform:  rotate(351deg);writing-mode: lr-tb;}
+.calspl  { margin:22px 0 14px 0;}
 .calspll a {font:bold 17px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-decoration:none;}
 .calspll a:hover { color:#FFF; }
 .bcwfsp {font:normal 12px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-transform:uppercase; }
@@ -456,7 +456,7 @@ li.clblk_a::before {content: '';}
 .againlt li::before { content: '-'; color:#FFF;}
 .againlt li a { font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none;  }
 .againlt li a:hover { color:#FF0; }
-.fot_cpy ul { margin-bottom:20px;}
+.fot_cpy ul { margin-bottom:22px;}
 .fot_cpy li { list-style:none; display:inline-block; }
 .fot_cpy li a {font:normal 11px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none; padding:0 5px; border-right:1px solid #FFF; }
 .fot_cpy li a.last-child { border-right:none;} 
