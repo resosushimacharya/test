@@ -390,7 +390,7 @@ ul.guide_list .fa { color:#F00;}
 
 /*........... expert trade start here ..............*/
 .trade { background:#e7edf8; }
- .abvist { margin:70px 0 59px 0;}
+ .abvist { margin:45px 0 34px 0;}
 .measure_blk { padding:0;}
 .measr_cnt { margin-top:48px; min-height:155px;}
 .measr_cnt h3 {font:bold 20px 'proxima_nova_ltsemibold', sans-serif; color:#1858b8; margin-bottom:12px;}
@@ -450,7 +450,7 @@ li.clblk_a::before {content: '';}
 .calspl  { margin:35px 0 5px 0;}
 .calspll a {font:bold 17px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-decoration:none;}
 .calspll a:hover { color:#FFF; }
-.bcwfsp {font:normal 12px 'proxima_nova_ltsemibold', sans-serif; color:#fff; }
+.bcwfsp {font:normal 12px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-transform:uppercase; }
 .againlt ul { margin:25px 0 2px 0;}
 .againlt li { list-style:none; display:block; }
 .againlt li::before { content: '-'; color:#FFF;}

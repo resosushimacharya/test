@@ -261,10 +261,9 @@
 }
 #cssmenu > ul > li > ul {
   width:auto;
-  display: block;
-  min-height:171px; 
+  display: block; 
   white-space:nowrap;
-  padding: 15px 30px 15px 15px;
+  padding: 10px 30px 0 15px;
 }
 #cssmenu > ul > li > ul > li > ul { 
   width: 100%;
@@ -277,7 +276,7 @@
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu  {
 	    top:0; left:100%;
 		padding-top: 11px;
-		height:270px; display:none;
+		height:auto; display:none;
 		padding-left:18px;
 }
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children:hover ul.sub-menu{
@@ -292,7 +291,7 @@
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a { margin:5px 0 }
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a::after{content: '';display:none}
 #cssmenu > ul#menu-main  li.menu-item-depth-0:nth-child(2) ul.sub-menu { height:auto;}
-#cssmenu > ul#menu-main  li.menu-item-depth-0:nth-child(2) ul.sub-menu li.menu-item-depth-1 ul.sub-menu{ height:198px; left:98.5%;}
+#cssmenu > ul#menu-main  li.menu-item-depth-0:nth-child(2) ul.sub-menu li.menu-item-depth-1 ul.sub-menu{ height:auto; left:98.5%; width:75%;}
 
 @media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
   #cssmenu > ul {
