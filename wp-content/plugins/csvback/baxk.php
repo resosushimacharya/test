@@ -149,8 +149,9 @@ if(strcasecmp($csv[0],'state')!=0){
 				update_post_meta( $new_post_id, '_visibility', 'visible' );
 				update_post_meta( $new_post_id, '_length', $length);
 				update_post_meta( $new_post_id, '_width', $width );
+				update_post_meta( $new_post_id, '_height', $height);
 				update_post_meta( $new_post_id, '_featured', 'no' );
-
+            
 			     
 				
 				
