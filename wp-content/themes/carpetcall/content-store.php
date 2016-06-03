@@ -106,7 +106,7 @@
           stoLocation = [place.geometry.location.lat(),place.geometry.location.lng()];
           //input.value="";
 
-          console.log(place);
+         
           if (!place.geometry) {
             window.alert("Autocomplete's returned place contains no geometry");
             return;

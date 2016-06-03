@@ -90,7 +90,7 @@ function showPosition(position) {
 
  ];
   //alert(locations.length);
-    console.log(locations);
+   /* console.log(locations);*/
     var rs = [];
     var myrs= [];
     var geocoder;
@@ -455,7 +455,7 @@ function deg2rad(deg) {
                            var right_=0;
                         }
                         //infoWindow(marker, map, title, address,asl);
-                        console.log(latlong);
+                       
                          var infoBox = new InfoBox({
             latlng:marker.getPosition(),
             map: map,

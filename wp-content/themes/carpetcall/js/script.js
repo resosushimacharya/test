@@ -11,29 +11,34 @@
         });
     });
 })(jQuery);
+$i=1;
 $(document).ready(function(e) {
-    $('#storefinder_btn').hover(function() {
-        $(this).parent('.dropdown').toggleClass('click-open');
-        $("#after_dropdown").show();
+    $('#storefinder_btn').click(function() {
+        
 
-        $("#storefinder_id").addClass('click-open');
+        $(".dropdown-content").toggle();
+         $(this).parent('.dropdown').toggleClass('click-open');
+    
+
+     
        
       $('.woocomerce_dropdown').removeClass('open');
         $('.dropdown-menu').hide() ;
+
   
    
 
     });
     
-     
-    $(document).on('hover', function(event) {
+    
+   /* $(document).on('hover', function(event) {
         if (!$(event.target).closest('.storefinder_cntr').length &&
             !$(event.target).is('.storefinder_cntr')) {
             if ($('.storefinder_cntr').is(":visible")) {
                 $('.storefinder_cntr').removeClass('click-open');
             }
         }
-    });
+    });*/
 
 
     $(document).mouseup(function(e) {
