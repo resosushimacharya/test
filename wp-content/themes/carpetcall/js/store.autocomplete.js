@@ -2,10 +2,10 @@ function autocomplet() {
 
 	var min_length = 0; // min caracters to display the autocomplete
 	
-	var keyword = jQuery('#edit_dir_keyword').val();
-      
-      
-	     
+	var keyword = jQuery('#edit_dir_keyword').val().trim();
+      alert(keyword);
+      if(keyword!="" && keyword!=null && keyword.length!=0)
+	    {
 		jQuery.ajax({
 			url: wp_autocomplete.ajax_url,
 			type: 'POST',
@@ -35,7 +35,7 @@ function autocomplet() {
 				 
           
 			}
-		});
+		});}
 	
 }
 

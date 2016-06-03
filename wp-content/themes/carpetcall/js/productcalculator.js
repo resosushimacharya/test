@@ -1,8 +1,11 @@
 function autocomplet() {
 	var min_length = 0; // min caracters to display the autocomplete
-	
+	/*var str1.localeCompare(str2)*/
+	var str1 = "";
+
 	var keyword = jQuery('#dir_keyword').val();
-	
+		alert(keyword );
+	if(keyword !="" || keyword!=null ){
 	if (keyword.length >= min_length) {
 		jQuery.ajax({
 			url: wp_product_calculator.ajax_url,
@@ -21,6 +24,7 @@ function autocomplet() {
 	} else {
 		jQuery('#product_calculator_id').hide();
 	}
+}
 }
 
 // set_item : this function will be executed when we select an item
