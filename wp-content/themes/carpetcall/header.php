@@ -23,10 +23,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-<!-- custom css -->
-<script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?sensor=false">
-    </script>
+<!-- custom css --><script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
     <script type="text/javascript">
       var lat ;
       var long;
@@ -69,7 +66,7 @@ function errorHandler(error) {
         // document.getElementById('latitude').innerHTML = lat;
         // document.getElementById('longitude').innerHTML = lon;
              
-        var latLong = new google.maps.LatLng(lat, lon);
+       /* var latLong = new google.maps.LatLng(lat, lon);
          
                 var marker = new google.maps.Marker({
                     position: latLong
@@ -77,11 +74,11 @@ function errorHandler(error) {
                  
                 marker.setMap(map);
         map.setZoom(8);
-        map.setCenter(marker.getPosition());
+        map.setCenter(marker.getPosition());*/
         autocomplet();
       }
        
-      google.maps.event.addDomListener(window, 'load', initMap);
+      /*google.maps.event.addDomListener(window, 'load', initMap);
       function initMap() {
         var mapOptions = {
           center: new google.maps.LatLng(0, 0),
@@ -91,7 +88,7 @@ function errorHandler(error) {
         map = new google.maps.Map(document.getElementById("map-canvas"), 
                                           mapOptions);
        
-      }
+      }*/
     </script>
 
 

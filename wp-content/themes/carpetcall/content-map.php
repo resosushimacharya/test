@@ -49,7 +49,10 @@ while($loop->have_posts()):
 
    $countWA = $query->found_posts;
     $locState[] = array('WA, AUSTRALIA',$countWA);
+ $query = new WP_Query( array( 'meta_key' => 'wpsl_state', 'meta_value' => 'ACT' ,'post_type'=>'wpsl_stores') );
 
+   $countACT = $query->found_posts;
+    $locState[] = array('ACT, AUSTRALIA',$countACT);
    // echo $countWA;
    wp_reset_query();
   // do_action('pr',$locState);
@@ -63,6 +66,8 @@ while($loop->have_posts()):
 
 <script>
  stoLLPTL=[];
+ urlstore = <?php echo json_encode(site_url().'/store-category/');?>;
+ alert(urlstore);
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -91,6 +96,7 @@ function showPosition(position) {
  ];
   //alert(locations.length);
    /* console.log(locations);*/
+   /*locations.push('url',urlstore);*/
     var rs = [];
     var myrs= [];
     var geocoder;
@@ -413,7 +419,7 @@ function deg2rad(deg) {
                          var latlong=[res.lat(), res.lng()];
                              //if()
                        var tempvar = ["QLD","NSW","TAS"];
-                      
+                         
 
                            // alert(dis+'km');
                           //alert(res.lng());
@@ -436,21 +442,21 @@ function deg2rad(deg) {
                             address: address,
                             
                         })
-                       
+                      
                         if((asl.toUpperCase() === tempvar[0].toUpperCase())|| (asl.toUpperCase() === tempvar[1].toUpperCase()) ){
-                        var html = "<div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_right'></div></div></div>";
+                        var html = "<a href="+'http://localhost/carpetcall/store-category/'+asl+"><div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_right'></div></div></div></a>";
                            
                             var right_=1;
 
                     }
                     else if((asl.toUpperCase() === tempvar[2].toUpperCase())){
-                         var html = "<div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_down'></div></div></div>";
+                         var html = "<a href="+'http://localhost/carpetcall/store-category/'+asl+"><div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_down'></div></div></div></a>";
                            
                             var right_=2;
 
                     }
                         else{
-                            var html = "<div class='map_info ' ><div class='contents'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon'></div></div></div>";
+                            var html = "<a href="+'http://localhost/carpetcall/store-category/'+asl+"><div class='map_info ' ><div class='contents'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon'></div></div></div></a>";
                            
                            var right_=0;
                         }

@@ -48,7 +48,7 @@
                             </div><div class="clearfix"></div>
                             
                             <div class="curlocate input" id="after_location">
-                            <input type="button" class="userlocation" onclick="showlocation();" value="USE CURRENT LOCATION"/>
+                            <input type="button" class="userlocation" onclick="showlocation();rs='';" value="USE CURRENT LOCATION"/>
                             </div><div class="clearfix"></div>
                             
                             
