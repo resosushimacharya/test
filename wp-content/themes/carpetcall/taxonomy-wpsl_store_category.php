@@ -5,9 +5,9 @@
 <?php 
 while(have_posts()):
   the_post();
-the_title();
-the_content();
-	endwhile;
+the_title();?>
+<br/>
+<?php 	endwhile;
 	?>
 </div>
 </div><div class="clearfix"></div>

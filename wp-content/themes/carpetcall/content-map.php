@@ -18,49 +18,51 @@ while($loop->have_posts()):
    
     
     endwhile;
-    wp_reset_query();
-    $query = new WP_Query( array( 'meta_key' => 'wpsl_state', 'meta_value' => 'NSW' ,'post_type'=>'wpsl_stores') );
+    
+    
+    //$query = new WP_Query( array( 'meta_key' => 'wpsl_state', 'meta_value' => 'NSW' ,'post_type'=>'wpsl_stores') );
 
-   $countNSW = $query->found_posts;
-   $locState[] = array('NSW, AUSTRALIA',$countNSW);
-   wp_reset_query();
-   $query = new WP_Query( array( 'meta_key' => 'wpsl_state', 'meta_value' => 'SA' ,'post_type'=>'wpsl_stores') );
-
-   $countSA = $query->found_posts;
-    $locState[] = array('SA, AUSTRALIA',$countSA);
-   wp_reset_query();
-   $query = new WP_Query( array( 'meta_key' => 'wpsl_state', 'meta_value' => 'TAS' ,'post_type'=>'wpsl_stores') );
-
-   $countTAS = $query->found_posts;
-    $locState[] = array('TAS, AUSTRALIA',$countTAS);
-   wp_reset_query();
-   $query = new WP_Query( array( 'meta_key' => 'wpsl_state', 'meta_value' => 'VIC' ,'post_type'=>'wpsl_stores') );
-
-   $countVIC = $query->found_posts;
-    $locState[] = array('VIC, AUSTRALIA',$countVIC);
-
-   wp_reset_query();
-   $query = new WP_Query( array( 'meta_key' => 'wpsl_state', 'meta_value' => 'QLD' ,'post_type'=>'wpsl_stores') );
-
-   $countQLD = $query->found_posts;
-    $locState[] = array('QLD, AUSTRALIA',$countQLD);
-   wp_reset_query();
-    $query = new WP_Query( array( 'meta_key' => 'wpsl_state', 'meta_value' => 'WA' ,'post_type'=>'wpsl_stores') );
-
-   $countWA = $query->found_posts;
-    $locState[] = array('WA, AUSTRALIA',$countWA);
- $query = new WP_Query( array( 'meta_key' => 'wpsl_state', 'meta_value' => 'ACT' ,'post_type'=>'wpsl_stores') );
-
-   $countACT = $query->found_posts;
-    $locState[] = array('ACT, AUSTRALIA',$countACT);
+  
    // echo $countWA;
    wp_reset_query();
   // do_action('pr',$locState);
+//starts from here 
+$posts = get_posts('post_type=wpsl_stores&wpsl_store_category=nsw'); 
+    $count = count($posts); 
+   //$countNSW = $query->found_posts;
+   $locState[] = array('NSW, AUSTRALIA',$count);
+   wp_reset_postdata();
+$posts = get_posts('post_type=wpsl_stores&wpsl_store_category=sa'); 
+    $count = count($posts); 
 
+ $locState[] = array('SA, AUSTRALIA',$count);
+ wp_reset_postdata();
+ $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=tas'); 
+    $count = count($posts); 
 
+ $locState[] = array('TAS, AUSTRALIA',$count);
+ wp_reset_postdata();
+ $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=vic'); 
+    $count = count($posts); 
+   //$countNSW = $query->found_posts;
+   $locState[] = array('VIC, AUSTRALIA',$count);
+   wp_reset_postdata();
+$posts = get_posts('post_type=wpsl_stores&wpsl_store_category=qld'); 
+    $count = count($posts); 
 
+ $locState[] = array('QLD, AUSTRALIA',$count);
+ wp_reset_postdata();
+ $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=wa'); 
+    $count = count($posts); 
 
+ $locState[] = array('WA, AUSTRALIA',$count);
+ wp_reset_postdata();
+ /*$posts = get_posts('post_type=wpsl_stores&wpsl_store_category=act'); 
+    $count = count($posts); 
 
+ $locState[] = array('ACT, AUSTRALIA',$count);
+ wp_reset_postdata();*/
+ 
 ?>
 
 
