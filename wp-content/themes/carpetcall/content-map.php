@@ -438,19 +438,19 @@ function deg2rad(deg) {
                         })
                        
                         if((asl.toUpperCase() === tempvar[0].toUpperCase())|| (asl.toUpperCase() === tempvar[1].toUpperCase()) ){
-                        var html = "<div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "stores</h6><div class='custom_icon_right'></div></div></div>";
+                        var html = "<div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_right'></div></div></div>";
                            
                             var right_=1;
 
                     }
                     else if((asl.toUpperCase() === tempvar[2].toUpperCase())){
-                         var html = "<div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "stores</h6><div class='custom_icon_down'></div></div></div>";
+                         var html = "<div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_down'></div></div></div>";
                            
                             var right_=2;
 
                     }
                         else{
-                            var html = "<div class='map_info ' ><div class='contents'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "stores</h6><div class='custom_icon'></div></div></div>";
+                            var html = "<div class='map_info ' ><div class='contents'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon'></div></div></div>";
                            
                            var right_=0;
                         }
