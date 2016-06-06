@@ -20,8 +20,9 @@
                     
                     <?php get_template_part('content','map');?>
                     </div><div class="clearfix"></div><!-- for store map end -->
-                    
-                    <div class="rmore rmoree"><a href="#" target="_blank"> Find a Store </a></div><div class="clearfix"></div>
+                    <?php $storelink = get_field('find_store_link','option');
+                    ?>
+                    <div class="rmore rmoree"><?php echo $storelink;?></div><div class="clearfix"></div>
                 </div>
                 </div><!-- maps end here -->
            

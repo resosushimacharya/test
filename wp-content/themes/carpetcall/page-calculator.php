@@ -16,14 +16,25 @@
             </div>
         </div>
         <br>
+       <div class="row">
+            <div class="col-md-12"><div class="col-md-2">
+            <label for="cov_per_pack">Enter Coverage Per Pack</label></div>
+            <div class="col-md-2">
+                 <input type="text" class="form-control" id="cov_per_pack" placeholder="" name="cov_per_pack">
+                 </div><div class="col-md-3">
+            	sqm/pack
+            </div>
+            </div>
+        </div>
+         <br>
         <div class="calculator_container" id="calculator_container">
-        <div class="row">
+        <div class="row" id="row_cal_1">
             <div class="col-md-8 col-item-price">
                 <div class="cal_pro" id="cal_pro_1">
                     <div class="container_1">
                         <div class="form-group col-md-6">
                             <div class="col-md-6">
-                                <label for="width_1">Room 1 width(m)</label>
+                                <label for="width_1">Room 1 Width(m)</label>
                             </div>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" id="width_1" placeholder="" name="width_1">
@@ -116,7 +127,7 @@
         $("#cal_more").click(function() {
         		var count = $("#calculator_container>div").length;
         		count = count + 1;
-              $("#calculator_container").append('<div class="row"> <div class="col-md-8 col-item-price"><div class="cal_pro" id="cal_pro_'+count+'"> <div class="container_'+count+'"><div class="form-group col-md-6"> <div class="col-md-6"> <label for="width_'+count+'">Room 1 width(m)</label> </div> <div class="col-md-6"> <input type="text" class="form-control" id="width_'+count+'" placeholder="" name="width_'+count+'"> </div> </div> <div class="form-group col-md-6"> <div class="col-md-6"> <label for="legth_'+count+'">Length(m)</label> </div> <div class="col-md-6"> <input type="text" class="form-control" id="length_'+count+'" placeholder="" name="length_'+count
+              $("#calculator_container").append('<div class="row" id="row_cal_'+count+'"> <div class="col-md-8 col-item-price"><div class="cal_pro" id="cal_pro_'+count+'"> <div class="container_'+count+'"><div class="form-group col-md-6"> <div class="col-md-6"> <label for="width_'+count+'">Room '+count+' Width(m)</label> </div> <div class="col-md-6"> <input type="text" class="form-control" id="width_'+count+'" placeholder="" name="width_'+count+'"> </div> </div> <div class="form-group col-md-6"> <div class="col-md-6"> <label for="legth_'+count+'">Length(m)</label> </div> <div class="col-md-6"> <input type="text" class="form-control" id="length_'+count+'" placeholder="" name="length_'+count
               	+'"> </div> </div> </div> </div> </div> <div class="col-md-4 "> <div class="form-group col-md-8"> <input type="text" class="form-control col-md-8 item_indivisual_total" id="item_total_'+count
               	+'" placeholder="" name="item_total_'+count
               	+'" readonly> </div> <div class="form-group col-md-4"> m<sup>2</sup> </div> </div> </div> ');
@@ -133,8 +144,12 @@
        	$loop =$("#calculator_container>div").length;
          $calarea = 0;
        	/*alert($loop);*/
-       	$covperpack = 2.49;
-       	  
+       	$covperpack =$('#cov_per_pack').val();
+       	if($('#cov_per_pack').val()===""){
+       		alert("plese enter coverage per pack!");
+
+       	}
+       	  else{
        	for($i=1;$i<=$loop;$i++){
        		$length = '#length_'+$i;
        		$width = '#width_'+$i;
@@ -159,10 +174,17 @@
     /*for DU1133 TPM and  1.6 area/quantiy */ 
    $apq = 1.6;
     $quantity = Math.ceil($estarea/$apq); 
-    alert($quantity);
-       	});
-       $(document).on("click",'#cancel_calc',function(){
+}
+   /* alert($quantity);
+*/
 
+       	});
+
+/* to erase the data and added div */
+
+
+       $(document).on("click",'#cancel_calc',function(){
+                    
 
              
        $("#exceess_area_percent").val('');
@@ -170,7 +192,7 @@
         $("#no_of_packs").val('');
         $loop =$("#calculator_container>div").length;
          $calarea = 0;
-       	alert($loop);
+       	/*alert($loop);*/
        	$covperpack = 2.49;
        	  
        	for($i=1;$i<=$loop;$i++){
@@ -180,6 +202,10 @@
        		$($length).val('');
        		$($width).val('');
        		 $($item_id).val('');
+       		 if($i>=2){
+               $rowid = '#row_cal_'+$i;
+       		 	 $($rowid).remove();
+       		 }
        	
            
 
