@@ -8,7 +8,9 @@
                 	<h1> <?php echo get_field('home_about_heading','option') ;?></h1>
                     <?php echo apply_filters('the_content',$about->post_content); ?>
                     
-                    <div class="rmore rmoree"><a href="<?php echo get_permalink($about->ID); ?>" target="_blank"> Read More </a></div><div class="clearfix"></div>
+                     <?php $aboutlink = get_field('about_us_link','option');
+                    ?>
+                    <div class="rmore rmoree"><?php echo $aboutlink;?></div><div class="clearfix"></div>
                 </div>
                 </div><!-- about end here -->
                 
@@ -20,7 +22,7 @@
                     
                     <?php get_template_part('content','map');?>
                     </div><div class="clearfix"></div><!-- for store map end -->
-                    <?php $storelink = get_field('find_store_link','option');
+                    <?php $storelink = get_field('store_finder_link','option');
                     ?>
                     <div class="rmore rmoree"><?php echo $storelink;?></div><div class="clearfix"></div>
                 </div>
