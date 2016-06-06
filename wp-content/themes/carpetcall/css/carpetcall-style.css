@@ -441,7 +441,7 @@ li.clblk_a::before {content: '';}
 
 
 
-.social { margin-bottom:12px;}
+.social { margin:15px 0 0 0;}
 .social li { list-style:none; display:inline-block;}
 .social li a { font-family:18px; text-decoration:none; color:#FFF; padding:0px 5px; }
 .social li a:hover { color:#FF0; }
@@ -456,7 +456,7 @@ li.clblk_a::before {content: '';}
 .againlt li::before { content: '-'; color:#FFF;}
 .againlt li a { font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none;  }
 .againlt li a:hover { color:#FF0; }
-.fot_cpy ul { margin-bottom:22px;}
+.fot_cpy ul { margin: -9px 0 22px 0;}
 .fot_cpy li { list-style:none; display:inline-block; }
 .fot_cpy li a {font:normal 11px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none; padding:0 5px; border-right:1px solid #FFF; }
 .fot_cpy li a.last-child { border-right:none;} 
