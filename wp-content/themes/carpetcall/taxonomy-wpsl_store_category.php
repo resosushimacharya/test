@@ -6,7 +6,8 @@
 while(have_posts()):
   the_post();
 the_title();?>
-<br/>
+<br>
+<a href="<?php the_permalink();?>">read more</a>
 <?php 	endwhile;
 	?>
 </div>
