@@ -57,7 +57,7 @@ img { display:block; border:0; }
 ul, li { padding:0; margin:0; }
 h1, h2, h3, h4, h5, h6 {margin:0;}
 p {margin: 2px 0; font:normal 0.875em/150% 'proxima_nova_rgregular', sans-serif; color:#333333;  }
-html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-size: 100%; background:#fff; color:#000; line-height:150%; }
+html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-size: 100%; background:#fff; color:#000; line-height:150%; -webkit-font-smoothing: antialiased; }
 .no-pr{padding-right: 0}
 .no-pl{padding-left: 0}
 .no-lr{padding:0;}
@@ -84,7 +84,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 .searchm .btn { background:#FFF; border-radius:0; border:0; padding:11px 12px 12px 12px; outline:none;}
 .searchm .btn:active, .searchm .btn:focus { outline:none; background:#FFF; box-shadow:none;}
 .callinfo { position:relative;}
-.calme { margin:0; font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#FFF; text-transform:uppercase;  }
+.calme { margin:0; font-family:'proxima_nova_ltsemibold', sans-serif; font-size:36px; color:#FFF; text-transform:uppercase; -webkit-font-smoothing:antialiased; text-rendering:optimizelegibility;  }
 .callmea a { text-decoration:none; color:#FFF; }
 .callmea a:hover { color:#faf9f9;}
 .subcl { font:700 12px 'proxima_nova_rgregular', sans-serif; color:#FFF; margin:0; text-transform:uppercase; letter-spacing:1px;width: 200px;}
