@@ -67,7 +67,7 @@ while($loop->have_posts()):
 <script>
  stoLLPTL=[];
  urlstore = <?php echo json_encode(site_url().'/store-category/');?>;
- alert(urlstore);
+ //alert(urlstore);
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -382,7 +382,7 @@ function deg2rad(deg) {
         for (i = 0; i < locations.length; i++) {
 
 
-            geocodeAddress(locations, i);
+            geocodeAddress(locations, i,urlstore);
            // alert()
            var myoverlay = new google.maps.OverlayView();
   myoverlay.draw = function () {
@@ -401,9 +401,10 @@ function deg2rad(deg) {
 
 
 
-    function geocodeAddress(locations, i) {
+    function geocodeAddress(locations, i, urlstore) {
         var title = locations[i][0];
         var address = locations[i][1];
+		//alert(urlstore);
         geocoder.geocode({
             'address': locations[i][1]
         },
@@ -444,19 +445,19 @@ function deg2rad(deg) {
                         })
                       
                         if((asl.toUpperCase() === tempvar[0].toUpperCase())|| (asl.toUpperCase() === tempvar[1].toUpperCase()) ){
-                        var html = "<a href="+'http://localhost/carpetcall/store-category/'+asl+"><div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_right'></div></div></div></a>";
+                        var html = "<a href="+urlstore+asl+"><div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_right'></div></div></div></a>";
                            
                             var right_=1;
 
                     }
                     else if((asl.toUpperCase() === tempvar[2].toUpperCase())){
-                         var html = "<a href="+'http://localhost/carpetcall/store-category/'+asl+"><div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_down'></div></div></div></a>";
+                         var html = "<a href="+urlstore+asl+"><div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_down'></div></div></div></a>";
                            
                             var right_=2;
 
                     }
                         else{
-                            var html = "<a href="+'http://localhost/carpetcall/store-category/'+asl+"><div class='map_info ' ><div class='contents'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon'></div></div></div></a>";
+                            var html = "<a href="+urlstore+asl+"><div class='map_info ' ><div class='contents'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon'></div></div></div></a>";
                            
                            var right_=0;
                         }
