@@ -44,7 +44,7 @@
                         <li> <span class="gtku">GET TO KNOW US</span>  </li>
                    
                         <?php
-                        if(get_theme_mod('carpet-social-facebook')){ echo '<li><a href="'.get_theme_mod('carpet-social-facebook').'"
+                       /* if(get_theme_mod('carpet-social-facebook')){ echo '<li><a href="'.get_theme_mod('carpet-social-facebook').'"
                          target="_blank"
                         ><i class="fa fa-facebook-square" aria-hidden="true"></i> </a></li>';
                     }
@@ -60,8 +60,17 @@
                          target="_blank"
                         ><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>';
                     }if(get_theme_mod('carpet-social-instagram')){
-                        echo '<li><a href="'.get_theme_mod('carpet-social-instagram').'" target="_blank"> <i class="fa fa-instagram" aria-hidden="true"></i> </a></a></li>';
-                        }?>
+                        echo '<li><a href="'.get_theme_mod('carpet-social-instagram').'" target="_blank"> <i class="fa fa-instagram" aria-hidden="true"></i> </a></a></li>';}*/
+                        $soclinks=get_field('social_links',89);
+                        foreach($soclinks as $soclink){
+                            if($soclink['social_link_url']){?>
+                               <li><a href="<?php echo $soclink['social_link_url'] ;?>" target="_blank">
+                       
+                        <i class="fa  <?php echo $soclink['class_name'] ;?>" aria-hidden="true"></i></a></li>
+                           <?php }
+                        }
+                     
+                        ?>
                     </ul>
                     <div class="clearfix"></div>
                 </div><div class="clearfix"></div><!-- social end -->
