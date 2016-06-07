@@ -49,7 +49,8 @@ function query_post_type($query) {
 </form>*/
 
 function carpet_search_form( $form ) {
-	 if(empty(get_search_query())){
+  $serch_tt=get_search_query();
+	 if(empty($serch_tt){
 	 	$mysearch="TYPE TO SEARCH";
 	 }
 	 else $mysearch=get_search_query();

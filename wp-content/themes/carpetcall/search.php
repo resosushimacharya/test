@@ -1,6 +1,8 @@
 <?php
 get_header();?>
-<div class="container">
+<div class="container clearfix">
+<div class="inerblock_serc">
+
 <?php if(!esc_html( get_search_query( false ) )){
 	echo "You have not serach any thing ...";
 }
@@ -35,6 +37,8 @@ else:
 
 endif;
 }?>
+
 </div>
+</div><div class="clearfix"></div>
 <?php get_footer();
 ?>
