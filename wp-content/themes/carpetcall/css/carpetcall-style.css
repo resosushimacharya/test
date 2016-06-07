@@ -414,8 +414,7 @@ ul.guide_list .fa { color:#F00;}
 
 /*.............. footer section start here ...............*/
 .footer_c { background:#15489f; }
-.fot_logo { margin:29px 0 43px 0; }
-.fot_logo { width:42.5%; height:59px;}
+.fot_logo { width:42.5%; height:59px; margin:29px 0 46px 0;}
 .subcat { margin-bottom:15px;}
 .footlist, .carptfot_aa { margin:0; padding:0;}
 .carptfot { margin:2px 0; }
@@ -424,7 +423,7 @@ ul.guide_list .fa { color:#F00;}
 .carptfot li, .carptfot_aa li { list-style:none; display:block;}
 .carptfot li::before { content: '-';}
 .sourblk, .clbk { font:bold 13px 'proxima_nova_ltsemibold', sans-serif; color:#fff; }
-.carptfot li a, .carptfot_aa li a { font:normal 12px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-transform:uppercase; text-decoration:none; letter-spacing:1px;}
+.carptfot li a, .carptfot_aa li a { font:normal 12px/174% 'proxima_nova_rgregular', sans-serif; color:#fff; text-transform:uppercase; text-decoration:none; letter-spacing:1px;}
 .carptfot li a:hover, .carptfot_aa li a:hover { color:#FF0;}
 li.clblk_a::before {content: '';}
 .clbk { margin:10px 0;}
@@ -436,17 +435,17 @@ li.clblk_a::before {content: '';}
 .fcnt-or { margin:35px 0 0px 0;}
 .fcnt-orr a { background:#c32327; padding:12px 55px; text-align:center; font:700 18px 'proxima_nova_ltsemibold', sans-serif; text-transform:uppercase; color:#fff; text-decoration:none; display:inline-block; }
 .fcnt-orr a:hover {background:#b51a1d;}
-.footlist .clblk_a { margin-top:17px !important;}
-.footlist .col-md-3 { padding-left:0px !important; margin-top:-3px;}
+.footlist .clblk_a { margin-top:19px !important;}
+.footlist .col-md-3 { padding-left:0px !important; margin-top:-2px;}
 
 
 
-.social { margin:15px 0 0 0;}
+.social { margin:19px 0 0 0;}
 .social li { list-style:none; display:inline-block;}
 .social li:nth-child(2) { padding-left:0px;}
-.social li a { font-family:18px; text-decoration:none; color:#FFF; padding:0px 9px 0 9px; }
+.social li a { font-size:18px; text-decoration:none; color:#FFF; padding:0px 9px 0 9px; }
 .social li a:hover { color:#FF0; }
-.gtku { color:#FFF; font-weight:700; font-size:14px; margin-right:6px;}
+.gtku { color:#FFF; font-weight:700; font-size:13px; margin-right:7px;}
 .calcall { font:normal 30px/100% 'Brush Script MT',sans-serif; color:#FFF; text-align:center; margin:44px 0 10px 0; -webkit-transform:  rotate(351deg);-moz-transform:  rotate(351deg);-o-transform:  rotate(351deg);writing-mode: lr-tb;}
 .calspl  { margin:22px 0 14px 0;}
 .calspll a {font:bold 17px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-decoration:none;}
