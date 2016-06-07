@@ -431,7 +431,7 @@ function deg2rad(deg) {
 
                            // alert(dis+'km');
                           //alert(res.lng());
-                             
+      
                             // rs.push([res.lat(),res.lng()]);
                             // alert(rs);
                            
@@ -440,7 +440,7 @@ function deg2rad(deg) {
                                 var asl=state[0];
                                 
                                
-                        var marker_img = "<?php echo get_template_directory_uri();?>/images/location-bg.png";
+                        var marker_img = "<?php echo get_template_directory_uri();?>/images/location.png";
                         var marker = new google.maps.Marker({
                             icon: marker_img,
                             map: map,
