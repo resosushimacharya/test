@@ -57,11 +57,16 @@ $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=qld');
 
  $locState[] = array('WA, AUSTRALIA',$count);
  wp_reset_postdata();
- /*$posts = get_posts('post_type=wpsl_stores&wpsl_store_category=act'); 
+ $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=act'); 
     $count = count($posts); 
 
  $locState[] = array('ACT, AUSTRALIA',$count);
- wp_reset_postdata();*/
+ wp_reset_postdata();
+  $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=nt'); 
+    $count = count($posts); 
+
+ $locState[] = array('NT, AUSTRALIA',$count);
+ wp_reset_postdata();
  
 ?>
 
