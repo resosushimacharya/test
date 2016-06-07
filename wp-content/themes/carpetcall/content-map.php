@@ -438,7 +438,7 @@ function deg2rad(deg) {
                           //  console.log(rs);
                                 var state = address.split(',');
                                 var asl=state[0];
-                                
+                               asll = asl.toLowerCase();
                                
                         var marker_img = "<?php echo get_template_directory_uri();?>/images/location.png";
                         var marker = new google.maps.Marker({
@@ -452,19 +452,19 @@ function deg2rad(deg) {
                         })
                       
                         if((asl.toUpperCase() === tempvar[0].toUpperCase())|| (asl.toUpperCase() === tempvar[1].toUpperCase()) ){
-                        var html = "<a href="+urlstore+asl+"><div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_right'></div></div></div></a>";
+                        var html = "<a href="+urlstore+asll+"><div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_right'></div></div></div></a>";
                            
                             var right_=1;
 
                     }
                     else if((asl.toUpperCase() === tempvar[2].toUpperCase())){
-                         var html = "<a href="+urlstore+asl+"><div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_down'></div></div></div></a>";
+                         var html = "<a href="+urlstore+asll+"><div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_down'></div></div></div></a>";
                            
                             var right_=2;
 
                     }
                         else{
-                            var html = "<a href="+urlstore+asl+"><div class='map_info ' ><div class='contents'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon'></div></div></div></a>";
+                            var html = "<a href="+urlstore+asll+"><div class='map_info ' ><div class='contents'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon'></div></div></div></a>";
                            
                            var right_=0;
                         }
