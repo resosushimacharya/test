@@ -226,7 +226,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .curnloca a:hover { background:#15489f; }
 
 /*........... carpetcall slide start here .................*/
-.carpetcall_slide { margin-top:151px; }
+.carpetcall_slide { margin-top:145px; }
 .carpetcall_slide { position: relative; }
 .carpetcall_slide .slider_overlay{position:absolute; top: 0; left: 0; right: 0; bottom: 0;z-index: 7;background: #fff}
 .carpetcall_slide .slider_overlay img{ position:absolute; top:50%; left:50%; background:#fff; z-index: 10; transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); }
