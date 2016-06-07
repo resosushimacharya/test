@@ -1,5 +1,5 @@
 
-<div style="overflow:hidden;height:259px;width:90%;margin-left:5px;">
+<div style="overflow:hidden;height:259px;width:100%;">
 <div id="gmap" style="position:relative;height: 500px; width:100%;top:-120px"></div>
 </div>
 
