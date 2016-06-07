@@ -426,7 +426,7 @@ function deg2rad(deg) {
 
                          var latlong=[res.lat(), res.lng()];
                              //if()
-                       var tempvar = ["QLD","NSW","TAS"];
+                       var tempvar = ["QLD","NSW","TAS","ACT"];
                          
 
                            // alert(dis+'km');
@@ -451,16 +451,29 @@ function deg2rad(deg) {
                             
                         })
                       
-                        if((asl.toUpperCase() === tempvar[0].toUpperCase())|| (asl.toUpperCase() === tempvar[1].toUpperCase()) ){
+                        if((asl.toUpperCase() === tempvar[0].toUpperCase())){
                         var html = "<a href="+urlstore+asll+"><div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_right'></div></div></div></a>";
                            
                             var right_=1;
+
+                    }
+                    else if((asl.toUpperCase() === tempvar[1].toUpperCase())){
+                           var html = "<a href="+urlstore+asll+"><div class='map_info xyz'><div class='contents  nsw_modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_nsw'></div></div></div></a>";
+                           
+                            var right_=4;
 
                     }
                     else if((asl.toUpperCase() === tempvar[2].toUpperCase())){
                          var html = "<a href="+urlstore+asll+"><div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_down'></div></div></div></a>";
                            
                             var right_=2;
+
+                    }
+                    else if((asl.toUpperCase() === tempvar[3].toUpperCase())){
+                        var html = "<a href="+urlstore+asll+"><div class='map_info xyz'><div class='contents  act_modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_act'></div></div></div></a>";
+                           
+                            var right_=3;
+
 
                     }
                         else{
@@ -570,7 +583,13 @@ InfoBox.prototype.createElement = function () {
          else if(this.right__==2)
         {
          contentDiv.className = "content_down";
-        }  
+        } 
+        else if(this.right__==3){
+          contentDiv.className = "content_act" ; 
+        } 
+        else if(this.right__==4){
+          contentDiv.className = "content_nsw" ; 
+        } 
         else 
         { contentDiv.className = "content";}
          
