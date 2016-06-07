@@ -34,7 +34,7 @@ $wp_customize->add_section('logo' , array(
 		)));
 }
 add_action('customize_register','carpetcall_customize');
-function carpetcall_sociallinks($wp_customize)
+/*function carpetcall_sociallinks($wp_customize)
 {$wp_customize->add_section('social' , array(
 		'title' => __('Social links', 'carpetcall'),
 		'description' => 'Fill up the url of social links'
@@ -85,4 +85,4 @@ function carpetcall_sociallinks($wp_customize)
 		'settings' => 'carpet-social-instagram'
 		
 		)));
-}
+}*/
