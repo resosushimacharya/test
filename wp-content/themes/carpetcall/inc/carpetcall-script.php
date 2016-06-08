@@ -20,6 +20,9 @@ add_action( 'wp_enqueue_scripts', 'header_script' );
 
 
 function carpetcall_scripts() {
+	if(is_page_template('page-calculator.php' )){
+		wp_enqueue_script( 'product-calculator', get_template_directory_uri().'/js/product-calculator.js', array(), false, false);
+	}
  wp_enqueue_script( 'jquery-sub', get_template_directory_uri().'/js/jquery-2.1.4.js', array(), false, false);
 wp_enqueue_script( 'modernizer', get_template_directory_uri().'/js/modernizr.custom.79639.js', array(), false, false);
 

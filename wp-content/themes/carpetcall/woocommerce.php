@@ -1,5 +1,9 @@
 <?php 
-get_header();
+get_header();?>
+
+<div class="container clearfix">
+<div class="inerblock_serc">
+<?php
 $ben=get_field('benefits',get_the_id());
 $con=get_field('construction',get_the_id());
 $rem=get_field('recommended_for',get_the_id());
@@ -67,7 +71,11 @@ hello<a class="cart-contents" href="<?php echo WC()->cart->get_cart_url(); ?>" t
 			}
 		}
 
-woocommerce_content();
+woocommerce_content();?>
+
+</div>
+</div><div class="clearfix"></div>
+<?php 
 get_footer();
 // Ensure cart contents update when products are added to the cart via AJAX (place the following in functions.php)
 ?>

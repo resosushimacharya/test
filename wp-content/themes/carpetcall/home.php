@@ -19,6 +19,7 @@
     
        <div class="container">
     <div class="calbk"><div class="row">
+    
     <div class="col-sm-3"><div class="cpt_supt"><img src="<?php echo get_template_directory_uri() ;?>/images/carpetcall-support-img.png" alt="support" class="img-responsive"/> </div></div><!-- support img end -->
     <div class="col-sm-5">
     <h3 class="bookcbk"><?php echo get_field('home_contact_heading','option') ;?></h3>

@@ -2,7 +2,8 @@
 
  get_header();
 ?>
-<div class="container">
+<div class="container clearfix">
+<div class="inerblock_serc">
 <?php 
 if(have_posts()):
 
@@ -23,7 +24,9 @@ if(have_posts()):
 	endif;
 
 ?>
-</div><?php 
+
+</div>
+</div><div class="clearfix"></div><?php 
 
  get_footer();
 
