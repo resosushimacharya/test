@@ -443,7 +443,7 @@ li.clblk_a::before {content: '';}
 .social { margin:18px 0 0 0;}
 .social li { list-style:none; display:inline-block;}
 .social li:nth-child(2) { padding-left:0px;}
-.social li a { font-size:18px; text-decoration:none; color:#FFF; padding:0px 9px 0 9px; }
+.social li a { font-size:18px; text-decoration:none; color:#FFF; padding:0px 5px 0 9px; }
 .social li a:hover { color:#FF0; }
 .gtku { color:#FFF; font-weight:700; font-size:13px; margin-right:7px;}
 .calcall { font:normal 30px/100% 'Brush Script MT',sans-serif; color:#FFF; text-align:center; margin:44px 0 10px 0; -webkit-transform:  rotate(351deg);-moz-transform:  rotate(351deg);-o-transform:  rotate(351deg);writing-mode: lr-tb;}
