@@ -1,0 +1,210 @@
+/*..... content map start here ..............*/
+.infobox {
+  /* background: none repeat scroll 0 0 rgba(255,255,255,0.4); */
+  color: #F1F1F1;
+  font-family: arial;
+  line-height: 50px;
+  position: absolute;
+  /* margin-top:80px; */ 
+  z-index:1;
+  margin-left:-20px;
+
+}
+      
+/*
+margin: 5px;
+    position: relative;
+    left: -21px;
+    height: 50px;
+    padding: 5px;
+    top: 68px;
+    width: 70px;
+    background: red;
+    .infobox:before, .infobox:after {
+  border-color: transparent transparent transparent #212121;
+  border-style: solid;
+  border-width: 20px 20px 0;
+  bottom: -1px;
+  content: "";
+  display: none;
+  height: 0;
+  left: -1px;
+  position: absolute;
+
+  width: 0;
+  z-index:2
+}
+.infobox:after {
+  border-color: transparent transparent transparent #FFFFFF;
+  border-width:24px 24px 0;
+  z-index:1
+}
+*/
+.contents h5 {font:700 15px 'proxima_nova_ltsemibold', sans-serif; color:#c32327; line-height:1;}
+.contents h6 {font:normal 11px 'proxima_nova_rgregular', sans-serif; color:#666666; line-height:16px;}
+
+.infobox .close {
+
+
+cursor: pointer;
+float: right;
+font-size: 17px;
+height: 25px;
+line-height: 22px;
+position: relative;
+right: -25px;
+text-align: center;
+top: 0;
+width: 25px;
+display:none;
+
+}
+
+.infobox:nth-child(1) .content_nsw{ top:37px; left:60px; margin:0; width:auto; height:38px; background:#ecf0f8; border:1px solid #c6d3ea; position:relative; padding:5px;}
+.infobox:nth-child(2) .content{ top:85px; left:-10px;}
+.infobox:nth-child(3) .content_down{ top:98px; left:72px; margin:0; width:auto; height:38px; background:#ecf0f8; border:1px solid #c6d3ea;}
+.infobox:nth-child(4) .content{ top:74px; left:-11px;}
+.infobox:nth-child(5) .content_right{ top:58px; left:78px; margin:0; width:auto; height:38px; background:#ecf0f8; border:1px solid #c6d3ea;}
+.infobox:nth-child(6) .content{ top:76px; left:-26px;}
+.infobox:nth-child(7) .content_act{ top:78px; left:75px; margin:0; width:auto; height:38px; background:#ecf0f8; border:1px solid #c6d3ea; position:relative; padding:5px;}
+.infobox:nth-child(8) .content{ top:60px;}
+
+.infobox:nth-child(4) div.custom_icon { right:-29px; top:-15px; }
+
+
+.infobox .content { 
+ 	margin:0;
+    position: relative;
+    left:0;
+    height: 38px;
+    padding: 5px;
+    top: 77px;
+    width: auto;
+    background:#ecf0f8;
+    border:1px solid #c6d3ea; 
+}
+
+.infobox .content_right {
+ margin: 5px;
+    position: relative;
+    left:60px;
+    height: 40px;
+    padding: 5px;
+    top: 58px;
+    width: 70px;
+    background: rgba(255,255,255,0.5);
+     border:2px solid #ddd; 
+}
+.infobox .content_down {
+     margin: 5px;
+    position: relative;
+    left: 72px;
+    height: 40px;
+    padding: 5px;
+    top: 86px;
+    width: 70px;
+    background: rgba(255,255,255,0.5);
+    border: 2px solid #ddd;
+}
+
+div.custom_icon{
+    background-image: url('http://localhost/carpetcall/wp-content/themes/carpetcall/images/location.png');
+    background-repeat: no-repeat; 
+    width:22px;
+    height: 28px;
+    position: absolute;
+    right: -29px;
+    top: -17px;
+    z-index:20000 !important;
+    display: inline-block;
+}
+div.custom_icon_right{
+    background-image: url('http://localhost/carpetcall/wp-content/themes/carpetcall/images/location.png');
+    background-repeat: no-repeat; 
+    width: 22px;
+    height: 28px;
+    position: absolute;
+    left: -35px;
+    top: -3px;
+    z-index: 20000 !important;
+    display: inline-block;
+}div.custom_icon_down{
+background-image: url('http://localhost/carpetcall/wp-content/themes/carpetcall/images/location.png');
+background-repeat: no-repeat; 
+    width: 22px;
+    height: 28px;
+    position: absolute;
+    left: -32px;
+    top: -26px;
+    z-index: 20000 !important;
+    display: inline-block;
+	}
+.custom_icon_nsw {
+background-image: url('http://localhost/carpetcall/wp-content/themes/carpetcall/images/location.png');
+background-repeat: no-repeat; 
+    width: 22px;
+    height: 28px;
+    position: absolute;
+    left: -35px;
+    top: -2px;
+    z-index: 20000 !important;
+    display: inline-block;	
+}
+.custom_icon_act {
+	background-image: url('http://localhost/carpetcall/wp-content/themes/carpetcall/images/location.png');
+background-repeat: no-repeat; 
+    width: 22px;
+    height: 28px;
+    position: absolute;
+    left: -33px;
+    top: -7px;
+    z-index: 20000 !important;
+    display: inline-block;	
+
+}
+	
+.contents{   
+  color: #F1F1F1;
+  font-family: arial;
+  line-height: 50px;
+  position: absolute; 
+  z-index:1;
+ 	text-align: center;
+	-webkit-transform: translateX(-50%);
+		-moz-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+				-o-transform: translateX(-50%);
+					transform: translateX(-50%);
+  left: 50%;
+ }
+  .maf_info{margin-left: 20px !important;}
+  .store-map{
+    zoom: 1.25;
+    transform: scale(1);
+	    -webkit-transform: scale(1);
+		    -moz-transform: scale(1);
+			    -ms-transform: scale(1);
+				    -o-transform: scale(1);
+}
+.modify h5,.modify h6 {
+    padding-left:0px;
+
+}
+.pac-container {
+    z-index: 100000 !important;
+    /* position:static !important; */
+}
+.pac-container:after {
+    /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
+
+    background-image: none !important;
+    height: 0px;
+}
+.pac-icon-marker {
+    display: none !important;
+    top:-700px !important;
+
+}
+.pac-item-query {
+    margin-left: 7px;
+}

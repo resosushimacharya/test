@@ -11,6 +11,7 @@ wp_enqueue_style('responsive-tabs',get_template_directory_uri().'/css/responsive
 wp_enqueue_style('tabstyle',get_template_directory_uri().'/css/tabstyle.css');
 wp_enqueue_style('menustyless',get_template_directory_uri().'/css/menustyles.css');
 wp_enqueue_style('main',get_template_directory_uri().'/css/carpetcall-style.css');
+wp_enqueue_style('map-store-style',get_template_directory_uri().'/css/map-store-style.css');
  //wp_enqueue_style( 'style', get_stylesheet_uri() );
 
 }
