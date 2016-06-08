@@ -208,3 +208,4 @@ background-repeat: no-repeat;
 .pac-item-query {
     margin-left: 7px;
 }
+.gm-style, .gm-style div{background-color: transparent !important;}

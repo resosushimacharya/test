@@ -1,6 +1,7 @@
 
-<div style="overflow:hidden;height:259px;width:100%;">
-<div id="gmap" style="position:relative;height: 500px; width:100%;top:-120px"></div>
+<div style="overflow:hidden;height:259px;width:100%;background-image: url(<?php echo get_template_directory_uri(); ?>/images/map-content.png);">
+    <div class="map_img"  style=""></div>
+<div id="gmap" style="position:relative;height: 500px; width:100%;top:-120px;background-color: transparent;"></div>
 </div>
 
 
@@ -156,6 +157,9 @@ function deg2rad(deg) {
                         },
                         {
                             "lightness": 17
+                        },
+                        {
+                            "visibility": "off"
                         }
                         
 
@@ -167,7 +171,11 @@ function deg2rad(deg) {
                     "elementType": "geometry",
                     "stylers": [
                         {
-                            "color": "#c6d3ea"
+                            "color": "#ffffff"
+                        },
+
+                         {
+                            "visibility": "off"
                         }
 
                     ]
@@ -452,7 +460,7 @@ function deg2rad(deg) {
                         })
                       
                         if((asl.toUpperCase() === tempvar[0].toUpperCase())){
-                        var html = "<a href="+urlstore+asll+"><div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_right'></div></div></div></a>";
+                        var html = "<div class='map_overlay'></div><a href="+urlstore+asll+"><div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_right'></div></div></div></a>";
                            
                             var right_=1;
 
@@ -680,7 +688,7 @@ InfoBox.prototype.panMap = function () {
                 var html = "<div class='map_info' style='height:40px;width:50px;padding-left:10px'><div class='contents'><h5 style='color:red;''>" + asl +'</h5>'+ "<h6 style='color:black !important'>" + title  + "Stores</h6><div class='custom_icon'></div></div></div>";
 
                 iw = new google.maps.InfoBox({
-                    content: html,
+                   /* content: html,*/
                     maxWidth: 350,
                     pixelOffset: new google.maps.Size(-20,40)
                 });

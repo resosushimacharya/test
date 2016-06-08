@@ -15,7 +15,7 @@
                 </div><!-- about end here -->
                 
                 <div class="col-md-6"><!-- maps start here -->
-                <div class="stmap">
+                <div class="stmap" >
                 	<h2> VISIT OUR STORES </h2>
                     
                     <div class="store-map">
