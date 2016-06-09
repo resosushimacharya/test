@@ -459,11 +459,11 @@ li.clblk_a::before {content: '';}
 .againlt li a { font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none;  }
 .againlt li a:hover { color:#FF0; }
 .fot_cpy ul { margin: -1px 0 22px 0;}
-.fot_cpy li { list-style:none; display:inline-block; }
+.fot_cpy li { list-style:none; display:inline-block; margin:-2px; }
 .fot_cpy li a {font:normal 11px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none; padding:0 5px; border-right:1px solid #FFF; }
 .fot_cpy li a.last-child { border-right:none;} 
 .fot_cpy li a:hover { color:#FF0;}
-.cpyrt {font:normal 11px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-transform:uppercase; border-right:1px solid #FFF; padding-right:5px; }
+.cpyrt {font:normal 11px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-transform:uppercase; border-right:1px solid #FFF; padding-right:6px; }
 
 .stmap:nth-child(1) .rmore { margin-top:339px;}
 
