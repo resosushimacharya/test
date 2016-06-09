@@ -7,7 +7,7 @@
 <meta http-equiv="Cache-Control" content="no-store" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="<?php echo get_template_directory_uri();?>/images/favicon.ico"/>
-<title><?php bloginfo('title');?>|<?php echo bloginfo('description');?></title>
+<title><?php bloginfo('title');?> | <?php echo bloginfo('description');?></title>
 <meta http-equiv="Cache-Control" content="no-cache"/>
 
 

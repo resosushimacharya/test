@@ -66,3 +66,4 @@ function get_arguments($singular,$plural,$singular_name,$menu_name,$name){
 	flush_rewrite_rules();
 }
 	add_action('init', 'custom_post_type',0);
+	

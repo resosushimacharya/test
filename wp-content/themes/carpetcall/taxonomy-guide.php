@@ -1,5 +1,4 @@
 <?php get_header();
-
 ?>
 <?php
 $tax = 'guide';
@@ -16,6 +15,8 @@ $termname= $linkarr[$len-1];
 					<ul>
 					<ul>
 					<?php
+
+
 						$tax_terms = get_terms($tax);
 
 					 $args=array(
