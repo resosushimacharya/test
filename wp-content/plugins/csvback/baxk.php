@@ -41,12 +41,12 @@ function readCSV($csvFile){
  return $line_of_text;
 }
 function  csv_import_rugs($csv){
-	do_action('pr',$_POST);
+	/*do_action('pr',$_POST);*/
 
 							$exist = get_page_by_title( $csv[1], OBJECT, 'product' );
 			if($csv && !isset($exist->ID)){
 				
-				
+				   /*do_action('pr',$exist);*/
 				$post = array(
 						 'post_title'   => $csv[1],
 						 'post_status'  => "publish",
@@ -211,7 +211,7 @@ function  csv_import_rugs($csv){
 }
 function css_products_import(){
 	echo '<h1>CSV Import</h1>';
-	if(isset($_POST['submit'])){
+	if(isset($_POST['submit'])&& $_POST['choice']=="rugs"){
 		  
 		$mimes = array('application/vnd.ms-excel');	
 		
