@@ -255,13 +255,15 @@ function css_products_import()
             }
             
         } else {
-            echo "Sorry, mime type not allowed";
+            echo "Sorry, File type not allowed";
         }
     }
 ?>
 <form method="post" enctype="multipart/form-data">
 Select CSV file to import:
     <input type="file" name="importcsv" id="importcsv">
+    Rugs<input type="radio" name="choice" value="rugs"><br />
+    Hard Flooring <input type="radio" name="choice" value="hard-flooring">
     <input type="submit" value="Import" name="submit">
 </form>
 <?php

@@ -44,6 +44,7 @@ function readCSV($csvFile){
 function css_products_import(){
 	echo '<h1>CSV Import</h1>';
 	if(isset($_POST['submit'])){
+		do_action('pr',$_POST);
 		$mimes = array('application/vnd.ms-excel','text/plain','text/csv','text/tsv');	
 		
 		if(in_array($_FILES['importcsv']['type'],$mimes)){
@@ -292,6 +293,8 @@ if(strcasecmp($csv[0],'state')!=0){
 <form method="post" enctype="multipart/form-data">
 Select CSV file to import:
     <input type="file" name="importcsv" id="importcsv">
+    Rugs<input type="radio" name="choice" value="rugs"><br />
+    Hard Flooring <input type="radio" name="choice" value="hard-flooring">
     <input type="submit" value="Import" name="submit">
 </form>
 <?php
