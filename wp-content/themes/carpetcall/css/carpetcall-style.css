@@ -428,7 +428,7 @@ ul.guide_list .fa { color:#F00;}
 li.clblk_a::before {content: '';}
 .clbk { margin:10px 0;}
 .carptfot_aa { -webkit-column-count: 2; }
-.footlist > li > a, .sourblk { cursor:text;}
+
 .footlist li .clblk_a a {font-weight:bold; cursor:text; letter-spacing:1px;}
 .footlist li .clblk_a a:hover, .sourblk:hover { color:#FF0; text-decoration:none; cursor:pointer;}
 #menu-footer .col-md-6 {padding:0;}
@@ -437,8 +437,10 @@ li.clblk_a::before {content: '';}
 .fcnt-orr a:hover {background:#b51a1d;}
 .footlist .clblk_a { margin-top:19px !important;}
 .footlist .col-md-3 { padding-left:0px !important; margin-top:-2px;}
-
-
+.shp_blk, .shp_blk > a, .shp_blk > a span {
+    cursor: default !important;
+}
+.shp_blk a:hover, .shp_blk a:hover span{color: #fff; text-decoration:none}
 
 .social { margin:18px 0 0 0;}
 .social li { list-style:none; display:inline-block;}
