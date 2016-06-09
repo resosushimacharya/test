@@ -121,7 +121,15 @@ if(strcasecmp($csv[0],'state')!=0){
 							$transient_name = 'wc_product_children_ids_' . $new_post_id;
 							delete_transient( $transient_name );					
 				//set product values:
-				update_post_meta( $new_post_id, '_stock_status', $csv[13]);
+					
+			  if($csv[13]!=0){
+                                    update_post_meta($new_post_id, '_stock_status', 'instock');
+                                    update_post_meta($new_post_id, '_stock', $csv[13]);
+                                    update_post_meta($new_post_id, '_manage_stock', 'yes');
+                                }
+                                else{
+                                    update_post_meta($new_post_id, '_stock_status', 'outofstock');
+                                }
 				$hhh = $csv[14];
 				
 				$hh=explode(' ',$hhh);

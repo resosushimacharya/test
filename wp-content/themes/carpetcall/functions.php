@@ -9,9 +9,18 @@
 update_option('siteurl',"http://localhost/carpetcall");
 update_option('home',"http://localhost/carpetcall");
 
-
+add_action('pr','inspect_carpetcall',10,1);
+function inspect_carpetcall($arg)
+{
+echo '<pre>';
+       print_r($arg);
+  echo '</pre>';
+}
+/*do_action('pr',$_POST);
+die();*/
 include_once TEMPLATEPATH."/inc/carpetcall-script.php";
 remove_filter ('acf_the_content', 'wpautop');
+
 //include_once TEMPLATEPATH."/inc/carpetcall-search.php";
 add_theme_support( 'post-thumbnails' );
 function register_my_menus() {
@@ -89,13 +98,7 @@ $query->set('post_type', array('backgrounds','product','workflows','visualiser',
 return $query;
 };
 add_filter('pre_get_posts', 'filter_search');
-add_action('pr','inspect_carpetcall',10,1);
-function inspect_carpetcall($arg)
-{
-echo '<pre>';
-       print_r($arg);
-	echo '</pre>';
-}
+
 include_once TEMPLATEPATH."/inc/carpetcall_walker.php";
 include_once TEMPLATEPATH."/inc/carpetcall_storefinder.php";
 	

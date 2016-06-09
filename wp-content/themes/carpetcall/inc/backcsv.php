@@ -88,7 +88,13 @@ function css_products_import()
                                     $transient_name = 'wc_product_children_ids_' . $new_post_id;
                                     delete_transient($transient_name);
                                     //set product values:
-                                    update_post_meta($new_post_id, '_stock_status', 'instock');
+                                    if($csv[13]!=0){
+                                    update_post_meta($new_post_id, '_stock_status', 'in stock');
+                                    update_post_meta($new_post_id, '_stock', 'instock');
+                                }
+                                else{
+                                    update_post_meta($new_post_id, '_stock_status', 'out of stock');
+                                }
                                     $hhh = $csv[14];
                                     
                                     $hh = explode(' ', $hhh);
