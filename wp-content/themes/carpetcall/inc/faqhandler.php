@@ -36,20 +36,13 @@ register_taxonomy($catreg,array($posttype), array(
 add_action('admin_init','add_category_once');
 function add_category_once(){
 ///////////////////// Create Main Category /////////////////////////
-$cats = array(
+	 $rootcats = array(
 
-array('name' => 'Modern','description' => ' ','slug' => 'modern'),
-array('name' => 'Shag','description' => ' ','slug' => 'shag'),
-array('name' => 'Tribal ','description' => ' ','slug' => 'tribal'),
-array('name' => 'Clearance ','description' => ' ','slug' => 'clearance'),
-array('name' => 'Traditional','description' => ' ','slug' => 'traditional'),
-array('name' => 'Childrens','description' => ' ','slug' => 'childrens'),
-array('name' => 'Bathroom','description' => ' ','slug' => 'bathroom'),
-array('name' => 'Outdoor','description' => ' ','slug' => 'outdoor'),
-array('name' => 'Handknotted','description' => ' ','slug' => 'handknotted'),
-
+array('name' => 'Rugs','description' => ' ','slug' => 'rugs'),
+array('name' => 'Hard Flooring','description' => ' ','slug' => 'hard-flooring')
 );
-foreach($cats as $data) {
+foreach($rootcats as $data) {
+	/*$parent = get_term_by('slug',$data['parent'], 'product_cat');*/
 $cid = wp_insert_term(
 $data['name'], // the term
 'product_cat', // the taxonomy
@@ -61,6 +54,32 @@ array(
 );
 }
 
+$cats = array(
+
+array('name' => 'Modern','description' => ' ','slug' => 'modern','parent'=>"rugs"),
+array('name' => 'Shag','description' => ' ','slug' => 'shag','parent'=>"rugs"),
+array('name' => 'Tribal ','description' => ' ','slug' => 'tribal','parent'=>"rugs"),
+array('name' => 'Clearance ','description' => ' ','slug' => 'clearance','parent'=>"rugs"),
+array('name' => 'Traditional','description' => ' ','slug' => 'traditional','parent'=>"rugs"),
+array('name' => 'Childrens','description' => ' ','slug' => 'childrens','parent'=>"rugs"),
+array('name' => 'Bathroom','description' => ' ','slug' => 'bathroom','parent'=>"rugs"),
+array('name' => 'Outdoor','description' => ' ','slug' => 'outdoor','parent'=>"rugs"),
+array('name' => 'Handknotted','description' => ' ','slug' => 'handknotted','parent'=>"rugs"),
+
+);
+foreach($cats as $data) {
+
+$parent = get_term_by('slug',$data['parent'], 'product_cat');
+$cid = wp_insert_term(
+$data['name'], // the term
+'product_cat', // the taxonomy
+array(
+'description'=> $data['description'],
+'slug' => $data['slug'],
+'parent' => $parent->term_id
+)
+);
+}
 
 ///////////////////// Create  Sub  Category /////////////////////////
 $sub_cats=array(
@@ -150,7 +169,7 @@ array('name' => 'BRAZIL','description' => ' ','slug' => 'brazil','parent'=>"trib
 
 foreach($sub_cats as $data) {
 
-$parent=$category = get_term_by('slug',$data['parent'], 'product_cat');
+$parent = get_term_by('slug',$data['parent'], 'product_cat');
 $cid = wp_insert_term(
 $data['name'], // the term
 'product_cat', // the taxonomy
