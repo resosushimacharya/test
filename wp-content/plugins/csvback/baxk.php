@@ -40,68 +40,19 @@ function readCSV($csvFile){
  fclose($file_handle);
  return $line_of_text;
 }
-
-function css_products_import(){
-	echo '<h1>CSV Import</h1>';
-	if(isset($_POST['submit'])){
-		do_action('pr',$_POST);
-		$mimes = array('application/vnd.ms-excel','text/plain','text/csv','text/tsv');	
-		
-		if(in_array($_FILES['importcsv']['type'],$mimes)){
-			 if ($_FILES["importcsv"]["error"] > 0){
-                echo "Error Code: " . $_FILES["importcsv"]["error"];
-             }
-        		else{
-				$new_file_name = strtolower($_FILES['importcsv']['name']);
-				if(file_exists(TEMPLATEPATH.'/csv/'.$new_file_name)) unlink(TEMPLATEPATH.'/csv/'.$new_file_name);
-				if(move_uploaded_file($_FILES['importcsv']['tmp_name'], TEMPLATEPATH.'/csv/'.$new_file_name)){
-					// Set path to CSV file
-					$csvFile = TEMPLATEPATH.'/csv/'.$new_file_name;
-
-
-
-
-
-
-
-
-
-
-
-
-					//calling the function
-					$csvs = readCSV($csvFile);
-						if($csvs){
-						  $args = array(
-							 'taxonomy'     => 'product_cat',
-							 'hide_empty'               => 0,
-						  );
-						  $cats = array();
-						  
-						 $procats = get_categories( $args );
-						 foreach ($procats as $cat){
-							 $cats[$cat->name][0] = (int) $cat->term_id;
-						 }
-						global $wpdb;
-						$i =0;
-
-						foreach($csvs as $csv){
-
-
-if(strcasecmp($csv[0],'state')!=0){
-	
+function  csv_import_rugs($csv){
+	do_action('pr',$_POST);
 
 							$exist = get_page_by_title( $csv[1], OBJECT, 'product' );
 			if($csv && !isset($exist->ID)){
-				$i++;
-				//echo '<pre>';
-				//var_dump($csv);die;
+				
+				
 				$post = array(
 						 'post_title'   => $csv[1],
 						 'post_status'  => "publish",
 						 'post_name'    => sanitize_title($csv[1]), //name/slug
 						 'post_type'    => "product",
-						 'post_content'    =>$csv[4],
+						 'post_content' =>$csv[4],
 						 'post_excerpt' =>$csv[4]
 					);
 	 
@@ -120,7 +71,7 @@ if(strcasecmp($csv[0],'state')!=0){
 				//########################## Done adding attributes to product #################
 							$transient_name = 'wc_product_children_ids_' . $new_post_id;
 							delete_transient( $transient_name );					
-				//set product values:
+				
 					
 			  if($csv[13]!=0){
                                     update_post_meta($new_post_id, '_stock_status', 'instock');
@@ -137,9 +88,8 @@ if(strcasecmp($csv[0],'state')!=0){
   $length= str_replace("cm","","$hh[0]");
   $width= str_replace("cm","","$hh[2]");
   $height =$hh[10];
-  //echo  'hello width'.$width.'hello width'.$length.'hello height'.$height;
-				//update_post_meta( $new_post_id, '_weight', "0.06" );
-                 update_post_meta($new_post_id,'state',$csv[0]);
+  
+                update_post_meta($new_post_id,'state',$csv[0]);
 				update_post_meta( $new_post_id, '_sku', $csv[1]);
 				update_post_meta($new_post_id,'description_1',$csv[4]);
 				update_post_meta($new_post_id,'description_2',$csv[5]);
@@ -153,38 +103,21 @@ if(strcasecmp($csv[0],'state')!=0){
 				update_post_meta( $new_post_id, '_regular_price', $csv[16] );
 				update_post_meta( $new_post_id, '_sale_price', $csv[18] );
 				update_post_meta( $new_post_id, '_price', $csv[18] );
-				
 				update_post_meta($new_post_id,'state',$csv[0]);
 				update_post_meta( $new_post_id, '_visibility', 'visible' );
 				update_post_meta( $new_post_id, '_length', $length);
 				update_post_meta( $new_post_id, '_width', $width );
 				update_post_meta( $new_post_id, '_height', $height);
 				update_post_meta( $new_post_id, '_featured', 'no' );
-            
-			     
-				
-				
-				
-				update_post_meta($new_post_id,'discount',$csv[17]);
-				
-				
-				
-				
-
-				
-				    $url= 'http://www.carpetcall.com.au/downloads/Image/products/large/';
-				    $swatch = $url.$csv[19].'.jpg';
-				    $side = $url.$csv[20].'.jpg';
-				    $life = $url.$csv[21].'.jpg';
-					require_once(ABSPATH . 'wp-admin/includes/file.php');
-					require_once(ABSPATH . 'wp-admin/includes/media.php');
-					require_once(ABSPATH . "wp-admin" . '/includes/image.php');
-					
-
-				
-
-
-					$tmp = download_url( $swatch );
+                 update_post_meta($new_post_id,'discount',$csv[17]);
+				 $url= 'http://www.carpetcall.com.au/downloads/Image/products/large/';
+				 $swatch = $url.$csv[19].'.jpg';
+				 $side = $url.$csv[20].'.jpg';
+				 $life = $url.$csv[21].'.jpg';
+			     require_once(ABSPATH . 'wp-admin/includes/file.php');
+			     require_once(ABSPATH . 'wp-admin/includes/media.php');
+				require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+				 $tmp = download_url( $swatch );
 
 
 
@@ -199,16 +132,14 @@ if(strcasecmp($csv[0],'state')!=0){
 					$file_array['tmp_name'] = '';
 					}
 					
-					//use media_handle_sideload to upload img:
+					
 					$thumbid = media_handle_sideload( $file_array, $new_post_id, basename($matches[0], '.jpg') );
-					//var_dump( is_wp_error($thumbid));
-					// If error storing permanently, unlink
+					
 					if ( is_wp_error($thumbid) ) {
 					@unlink($file_array['tmp_name']);
-					//return $thumbid;
-					//$logtxt .= "Error: media_handle_sideload error - $thumbid\n";
+					
 					}
-					//update_post_meta( $new_post_id, '_product_image_gallery', $imgID);
+					
 					$set = set_post_thumbnail($new_post_id, $thumbid);
 						if(!is_wp_error($thumbid)){
 						$image_id[]=$thumbid;
@@ -226,17 +157,14 @@ if(strcasecmp($csv[0],'state')!=0){
 					$file_array['tmp_name'] = '';
 					}
 					
-					//use media_handle_sideload to upload img:
+				
 					$thumbid = media_handle_sideload( $file_array, $new_post_id, basename($matches[0], '.jpg') );
-					//var_dump( is_wp_error($thumbid));
-					// If error storing permanently, unlink
+					
 					if ( is_wp_error($thumbid) ) {
 					@unlink($file_array['tmp_name']);
-					//return $thumbid;
-					//$logtxt .= "Error: media_handle_sideload error - $thumbid\n";
+					
 					}
-					//update_post_meta( $new_post_id, '_product_image_gallery', $imgID);
-					//$set = set_post_thumbnail($new_post_id, $thumbid);
+					
 						if(!is_wp_error($thumbid)){
 						$image_id[]=$thumbid;
 					}
@@ -253,17 +181,14 @@ if(strcasecmp($csv[0],'state')!=0){
 					$file_array['tmp_name'] = '';
 					}
 					
-					//use media_handle_sideload to upload img:
+					
 					$thumbid = media_handle_sideload( $file_array, $new_post_id, basename($matches[0], '.jpg') );
-					//var_dump( is_wp_error($thumbid));
-					// If error storing permanently, unlink
+				
 					if ( is_wp_error($thumbid) ) {
 					@unlink($file_array['tmp_name']);
-					//return $thumbid;
-					//$logtxt .= "Error: media_handle_sideload error - $thumbid\n";
+					
 					}
-					//update_post_meta( $new_post_id, '_product_image_gallery', $imgID);
-					//$set = set_post_thumbnail($new_post_id, $thumbid);
+					
 					if(!is_wp_error($thumbid)){
 						$image_id[]=$thumbid;
 					}
@@ -276,15 +201,54 @@ if(strcasecmp($csv[0],'state')!=0){
 
 
 
-					echo 'Product '.$csv[1].' imported</br>';
+					echo 'Rugs Product '.$csv[1].' imported</br>';
 	
 			} else  {
 				if(isset($exist->ID)){
-					echo $csv[1].'Item already exists';
+					echo $csv[1].'Rugs Item already exists';
 				}
 			}
-		}
-		$i++;
+}
+function css_products_import(){
+	echo '<h1>CSV Import</h1>';
+	if(isset($_POST['submit'])){
+		  
+		$mimes = array('application/vnd.ms-excel');	
+		
+		if(in_array($_FILES['importcsv']['type'],$mimes)){
+			 if ($_FILES["importcsv"]["error"] > 0){
+                echo "Error Code: " . $_FILES["importcsv"]["error"];
+             }
+		else{
+			$new_file_name = strtolower($_FILES['importcsv']['name']);
+			if(file_exists(TEMPLATEPATH.'/csv/'.$new_file_name)) unlink(TEMPLATEPATH.'/csv/'.$new_file_name);
+				if(move_uploaded_file($_FILES['importcsv']['tmp_name'], TEMPLATEPATH.'/csv/'.$new_file_name)){
+					
+					$csvFile = TEMPLATEPATH.'/csv/'.$new_file_name;
+					$csvs = readCSV($csvFile);
+						if($csvs){
+						  $args = array(
+							 'taxonomy'     => 'product_cat',
+							 'hide_empty'               => 0,
+						  );
+						  $cats = array();
+						  
+						 $procats = get_categories( $args );
+						 foreach ($procats as $cat){
+							 $cats[$cat->name][0] = (int) $cat->term_id;
+						 }
+						global $wpdb;
+						$i =0;
+                       
+						foreach($csvs as $csv){
+
+                         
+                  if(strcasecmp($csv[0],'state')!=0){
+	                      csv_import_rugs($csv);
+
+		                     }
+		
+		
 					}
 
 
@@ -293,21 +257,32 @@ if(strcasecmp($csv[0],'state')!=0){
 			}
 }
 
-		} else {
-  			echo "Sorry, mime type not allowed";
+		} else { 
+			if(empty($_FILES['importcsv']['type']))
+			{ echo "you haven't uploaded any file.";}
+		 else{
+
+  			echo "Sorry, File type ".$_FILES['importcsv']['type']." is not supported";
+		 }
+
 		}
 	}
+	
 	?>
-<form method="post" enctype="multipart/form-data">
-Select CSV file to import:
-    <input type="file" name="importcsv" id="importcsv">
-    Rugs<input type="radio" name="choice" value="rugs"><br />
-    Hard Flooring <input type="radio" name="choice" value="hard-flooring">
+	<div class="container" class="import_csv_container">
+<form method="post" enctype="multipart/form-data" class="import_csv_form">
+<h2 for="">Select CSV file to import:</h2>
+    <p><input type="file" name="importcsv" id="importcsv" class="import_csv_input"></p>
+    <p><label for="import_csv_radio_left">Rugs</label> <input type="radio" name="choice" value="rugs" class="import_csv_radio_left" id="import_csv_radio_left">
+     <label for="import_csv_radio_right">Hard Flooring </label><input type="radio" name="choice" value="hard-flooring" class="import_csv_radio_right" id="import_csv_radio_right"></p>
+     <input type="hidden" value="123" name="hidden_field"/>
     <input type="submit" value="Import" name="submit">
 </form>
+</div>
 <?php
 
 }
+
 
 
 

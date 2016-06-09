@@ -1,0 +1,72 @@
+single page--for carpet---(2.1.1_CC_CarpetProduct_01)
+
+Unknown things:
+1.whteher to use plugin for breadcrumb or
+make custom...
+1.1(shop our range>carpets>Loop Pile >Dark KNIGHT
+1.2 Loop Pile
+2.returns section content src is unknown..
+3.product right section
+3.1need to know about the enquiry now..
+3.2 need to know about code section
+3.3 price section sqm (=>Weight per Sq Meter) and price is product price..
+4.You may also like section
+4.1 (related product)
+4.2 images(come from either featured section or swatch or side shot
+Known things..
+1. image section of product images..
+2. details section
+3.care instruction section
+4.specification section
+
+catgory page(2.2.1_CC_RugsSubCategory_01)
+
+1 known things
+1.1catgories
+1.2 subcategories..
+1.3 sort by popularity..
+1.4 ideas and advice 
+1.4.1 buying guides
+1.4.2 FAQ's
+
+2.Unknown things 
+2.1 Modern rugs sectio (above the footer section )
+2.2 breadcrumb section Shop Our Range> rugs>modern rugs..
+2.2.1 where rugs come from?
+2.3 Price section
+2.4 size section
+2.5 color section
+2.6 new arival section
+2.7 product care 
+single product page section again(2.2.2_CC_RugProduct_03)
+Unknown things 
+1.Enquiry Now
+2.content for out of stock '
+3.shiping 
+4. free delivery section
+5.pick up section
+6. avialable sizes
+7. Returns section
+8.share link section
+9.You may also like section
+9.1 (related product)
+9.2 images(come from either featured section or swatch or side shot
+Known things
+1.product display
+2.details section
+3.care instruction section
+4.FAQ'S section
+5 price section
+Hard flooring product section(2.3.2_CC_HardFlooringProduct_03)
+
+need to discuss..
+Carpet FAQ(3.1_CC_StandardArticle_01)
+familiar in all terms....
+Carpet Guide(3.1_CC_ArticleFAQ_01)
+unfamiliar in content sections..
+From the development perspective
+overall(5 days at most...)
+
+
+
+
