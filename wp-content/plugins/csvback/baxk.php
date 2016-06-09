@@ -121,13 +121,13 @@ if(strcasecmp($csv[0],'state')!=0){
 							$transient_name = 'wc_product_children_ids_' . $new_post_id;
 							delete_transient( $transient_name );					
 				//set product values:
-				update_post_meta( $new_post_id, '_stock_status', 'instock');
+				update_post_meta( $new_post_id, '_stock_status', $csv[13]);
 				$hhh = $csv[14];
 				
 				$hh=explode(' ',$hhh);
   $hh[0];
- $width= str_replace("cm","","$hh[0]");
-  $length= str_replace("cm","","$hh[2]");
+  $length= str_replace("cm","","$hh[0]");
+  $width= str_replace("cm","","$hh[2]");
   $height =$hh[10];
   //echo  'hello width'.$width.'hello width'.$length.'hello height'.$height;
 				//update_post_meta( $new_post_id, '_weight', "0.06" );
