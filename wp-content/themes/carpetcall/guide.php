@@ -20,6 +20,12 @@
 <div class="container clearfix">
 <div class="inerblock_serc">
 <div class="col-md-12">
+ <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
+    <?php if(function_exists('bcn_display'))
+    {
+        bcn_display();
+    }?>
+</div>
 <?php
 $tax = 'product_cat';
  ?><?php
