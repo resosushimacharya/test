@@ -31,10 +31,54 @@ add_action('admin_menu', 'import_css_products');
 	* function to make sub-menu in side bar navigation 
 	* it comes inside product menu
 */
+
 function import_css_products()
 {
 	add_submenu_page( 'edit.php?post_type=product', 'CSV Import ', 'CSV Import', 'manage_options', 'css-products-import', 'css_products_import' );
 }
+/*
+ *checking whether to presence of second level category term in product_cat
+  *it will add term if not present...
+*/
+function category_second_level($csvitem,$rootcatterm)
+{
+	$sluglower = strtolower($csvitem);
+	$second_level_cat = array('name' => $csvitem,'description' => ' ','slug' =>$sluglower ,'parent'=>$rootcatterm);
+	$parent = get_term_by('slug',$second_level_cat['parent'], 'product_cat');
+	$cid = wp_insert_term(
+	$second_level_cat['name'], // the term
+	'product_cat', // the taxonomy
+	array(
+	'description'=> $second_level_cat['description'],
+	'slug' => $second_level_cat['slug'],
+	'parent' => $parent->term_id
+	)
+	); 
+}
+/*
+ *checking whether to presence of third level category term in product_cat
+  *it will add term if not present...
+*/
+function category_third_level($csvitem,$slct)
+{
+	$sluglower = strtolower($csvitem);
+	$parentslug= strtolower($slct);
+	$second_level_cat = array('name' => $csvitem,'description' => ' ','slug' =>$sluglower ,'parent'=>$parentslug);
+	$parent = get_term_by('slug',$second_level_cat['parent'], 'product_cat');
+	$cid = wp_insert_term(
+	$second_level_cat['name'], // the term
+	'product_cat', // the taxonomy
+	array(
+	'description'=> $second_level_cat['description'],
+	'slug' => $second_level_cat['slug'],
+	'parent' => $parent->term_id
+	)
+	); 
+}
+/*
+ *To read CSV FILE
+  *it will store the result in array and return the array
+*/
 function readCSV($csvFile)
 {
 	$file_handle = fopen($csvFile, 'r');
@@ -67,13 +111,29 @@ function  csv_import_rugs($csv)
 					 'post_excerpt' => $csv[4]
 				     );
 	 
-				
+		$rootcatterm = $_POST['choice'];		
 		$new_post_id = wp_insert_post( $post );
-		$main_cat=get_term_by( 'name', $csv[3], 'product_cat');
-		
-		$sub_cat=get_term_by( 'name', $csv[2], 'product_cat');
+		$slct        = $csv[3];
+		$tlct        = $csv[2];
+		if(!term_exists( $slct, 'product_cat', $rootcatterm ))
+		{  
+		   category_second_level($slct ,$rootcatterm) ;
+		   category_third_level($tlct ,$slct);
+		}
+		elseif(!term_exists($tlct,'product_cat',$tlct ))
+		{
+		  category_third_level($tlct ,$slct);	
+		}
+		else{
+			echo '<br/>'.ucfirst($rootcatterm).'>'.$slct.'>'.$tlct.'<br/>';
+		}
+		$main_cat = get_term_by( 'name', $slct, 'product_cat');
+  
+		$sub_cat  = get_term_by( 'name', $tlct, 'product_cat');
+		$root_cat = get_term_by( 'name', ucfirst($rootcatterm), 'product_cat');
 		wp_set_object_terms( $new_post_id, $main_cat->slug, 'product_cat',true);
 		wp_set_object_terms( $new_post_id, $sub_cat->slug, 'product_cat',true);
+		wp_set_object_terms( $new_post_id, $root_cat->slug, 'product_cat',true);
 
 							
 			
