@@ -11,3 +11,4 @@
 
 				?>
 </ul>
+<div class="nowsp nowspp"><a href="#" target="_blank"> SHOP NOW </a></div>
