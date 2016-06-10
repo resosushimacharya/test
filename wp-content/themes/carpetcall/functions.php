@@ -83,7 +83,7 @@ add_filter( 'get_search_form', 'carpet_search_form' );
 include_once TEMPLATEPATH."/inc/carpetcall-custom-type.php";
 
 include_once TEMPLATEPATH."/inc/faqhandler.php";
-	
+
 function pr($x){
 	echo '<pre>'.$x.'</pre>';
 }
@@ -101,6 +101,283 @@ add_filter('pre_get_posts', 'filter_search');
 
 include_once TEMPLATEPATH."/inc/carpetcall_walker.php";
 include_once TEMPLATEPATH."/inc/carpetcall_storefinder.php";
+include_once TEMPLATEPATH."/inc/register-sidebar-admin.php";
 	
 
 
+class MyNewWidget extends WP_Widget {
+
+  function __construct() {
+    // Instantiate the parent object
+    parent::__construct( false, 'My New Widget Title' );
+  }
+
+  function widget( $args, $instance ) {?>
+  <input type="text" class="widefat"  />
+ <?php }
+
+  function update( $new_instance, $old_instance ) {
+    // Save widget options
+  }
+
+  function form( $instance ) {
+    // Output admin widget options form
+  }
+}
+
+function myplugin_register_widgets() {
+  register_widget( 'MyNewWidget' );
+}
+
+add_action( 'widgets_init', 'myplugin_register_widgets' );
+if (!class_exists('catPostdisplay')) {
+
+class catPostdisplay extends WP_Widget {
+  
+   function __construct() {
+    global $control_ops, $post_cat, $post_num, $post_length;  
+
+    $widget_ops = array(            
+            'classname' => 'Guide-Widget', 
+            'description' => __( 'Dispalys Related Category Posts', 'Carpetcall') 
+            );
+    
+    /*$this->WP_Widget('catPostdisplay', __('Category Posts', 'Sajha-Khabar'), $widget_ops, $control_ops);*/
+    parent::__construct( false, 'Guide Widget Title',  $widget_ops,$control_ops );
+  } 
+  
+  function widget($args, $instance){
+
+    extract($args); do_action('pr',$args);  
+    do_action('pr',$instance);      
+    $mycategory       =  isset( $instance['guide'] ) ? $instance['guide'] : '';
+    $number_ofposts       =  isset( $instance['number_ofposts'] ) ? $instance['number_ofposts'] : '3';
+    if($number_ofposts==0)
+    {
+       $number_ofposts=3;
+    }
+    elseif($number_ofposts<0)
+    {
+      $number_ofposts= ceil(0-$number_ofposts);
+    }
+    else
+    {
+      $number_ofposts=ceil($number_ofposts);
+
+    }
+    echo $args['before_widget'];
+    ?>  
+ 
+  <!-- main front end area todisplay -->
+                  
+
+              <div class="sidebar-widget">
+                            <div class="hot_news">
+                                <h3 class="news-header"><?php echo $mycategory ; $mycatid=get_cat_id($mycategory);?></h3>
+                                <div class="newsinfo-detail">
+                                  <?php  echo ctype_digit($number_ofposts)  ;?>
+                                    <ul>
+                                    <?php 
+                  $args=array('posts_per_page'=>$number_ofposts,'cat'=>$mycatid,'order'=>'DESC');
+                                    $query = new WP_Query($args);
+                                    if($query->have_posts()) :while ($query->have_posts()) : $query->the_post();
+                                    ?>
+                                        <li><a href="<?php the_permalink(); ?>"> <?php the_title() ;?></a></li>
+                                     <?php
+                                     endwhile; endif;
+                                     wp_reset_query();
+                                     ?>
+                                       
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+  <!-- end of displaying area -->   
+  <?php
+  echo $args['before_widget'];
+  } 
+    
+  function form($instance){ 
+    
+    $instance = wp_parse_args( (array) $instance, array(
+            'mycategory'      => 'carpet',  
+            
+            ) 
+          );
+    
+    
+    $mycategory           =  isset( $instance['mycategory'] ) ? $instance['mycategory'] : '';
+    $number_ofposts       =  isset( $instance['number_ofposts'] ) ? $instance['number_ofposts'] : '';
+    if($number_ofposts==0)
+    {
+       $number_ofposts=3;
+    }
+    elseif($number_ofposts<0)
+    {
+      $number_ofposts= ceil(0-$number_ofposts);
+    }
+    else
+    {
+      $number_ofposts=ceil($number_ofposts);
+
+    }
+    
+    ?>
+
+
+    <p>
+    <label for="<?php echo $this->get_field_name('mycategory'); ?>">
+    <?php _e('Choose your Category', 'Sajha-Khabar'); ?>:  </label>
+    <select class="widefat" name="<?php echo $this->get_field_name('mycategory'); ?>" > 
+
+    <?php 
+         $cat_args=array(
+        'orderby' => 'name',
+        'order' => 'ASC'
+         );
+
+     $categories =  get_categories($cat_args); 
+     foreach ( $categories as $category ) {
+     ?>
+
+    <option value="<?php echo $category->name ; ?>" <?php if($category->name  == $mycategory){ echo 'selected="selected"';} ?>> <?php echo $category->name ; ?></option>
+
+    <?php 
+     }
+     ?>
+
+    </select> 
+    </p>
+
+
+
+    <p>
+    <label for="<?php echo $this->get_field_name('number_ofposts'); ?>">
+    <?php _e('No. of posts to Display', 'Sajha-Khabar'); ?>:  </label>
+    <input type="number" class="widefat" name="<?php echo $this->get_field_name('number_ofposts'); ?>" value="<?php echo $number_ofposts ?>" >
+    </p>
+
+
+
+    <?php   
+  
+  } //end of form
+  
+  function update($new_instance, $old_instance){
+
+    $instance               = $old_instance;
+    $instance['mycategory']       = $new_instance['mycategory'];  
+    $instance['number_ofposts']     = $new_instance['number_ofposts'];    
+    
+    return $instance;
+  }
+    
+  }// END class
+  
+  
+  function catPostdisplay_init() {
+    register_widget('catPostdisplay');
+  } 
+  add_action('widgets_init', 'catPostdisplay_init');
+
+}
+class TutsplusText_Widget extends WP_Widget {
+ 
+    public function __construct() {
+     
+        parent::__construct(
+            'tutsplustext_widget',
+            __( 'TutsPlus Text Widget', 'Carpetcall' ),
+            array(
+                'classname'   => 'tutsplustext_widget',
+                'description' => __( 'A basic text widget to demo the Tutsplus series on creating your own widgets.', 'Carpetcall' )
+                )
+        );
+       
+       /* load_plugin_textdomain( 'Carpetcall', false, basename( dirname( __FILE__ ) ) . '/languages' );*/
+       
+    }
+ 
+    /**  
+     * Front-end display of widget.
+     *
+     * @see WP_Widget::widget()
+     *
+     * @param array $args     Widget arguments.
+     * @param array $instance Saved values from database.
+     */
+    public function widget( $args, $instance ) {    
+         
+        extract( $args );
+         
+        $title      = apply_filters( 'widget_title', $instance['title'] );
+        $message    = $instance['message'];
+         
+        echo $before_widget;
+         
+        if ( $title ) {
+            echo $before_title . $title . $after_title;
+        }
+                             
+        echo $message;
+        echo $after_widget;
+         
+    }
+ 
+  
+    /**
+      * Sanitize widget form values as they are saved.
+      *
+      * @see WP_Widget::update()
+      *
+      * @param array $new_instance Values just sent to be saved.
+      * @param array $old_instance Previously saved values from database.
+      *
+      * @return array Updated safe values to be saved.
+      */
+    public function update( $new_instance, $old_instance ) {        
+         
+        $instance = $old_instance;
+         
+        $instance['title'] = strip_tags( $new_instance['title'] );
+        $instance['message'] = strip_tags( $new_instance['message'] );
+         
+        return $instance;
+         
+    }
+  
+    /**
+      * Back-end widget form.
+      *
+      * @see WP_Widget::form()
+      *
+      * @param array $instance Previously saved values from database.
+      */
+    public function form( $instance ) {    
+     
+        $title      = (isset($instance['title']))?esc_attr( $instance['title'] ):'';
+        $message    = (isset($instance['message']))?esc_attr( $instance['message'] ):'';
+        ?>
+         
+        <p>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> 
+            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+        </p>
+        <p>
+            <label for="<?php echo $this->get_field_id('message'); ?>"><?php _e('Simple Message'); ?></label> 
+            <textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id('message'); ?>" name="<?php echo $this->get_field_name('message'); ?>"><?php echo $message; ?></textarea>
+        </p>
+     
+    <?php 
+    }
+     
+}
+ 
+/* Register the widget */
+add_action( 'widgets_init', function(){
+     register_widget( 'TutsplusText_Widget' );
+});
