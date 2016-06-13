@@ -4,7 +4,7 @@ function autocomplet() {
 	
 	var keyword = jQuery('#edit_dir_keyword').val().trim();
   
-      if(keyword!="" && keyword!=null && keyword.length!=0 ||rs[0]!=null)
+      if(keyword!="" && keyword!=null && keyword.length>3 ||rs[0]!=null)
 	    {
 		jQuery.ajax({
 			url: wp_autocomplete.ajax_url,
