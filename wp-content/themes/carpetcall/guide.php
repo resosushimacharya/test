@@ -29,6 +29,8 @@
 <?php
 $tax = 'product_cat';
  ?><?php
+						
+
 						$tax_terms = get_terms($tax);
 
 					 $args=array(
