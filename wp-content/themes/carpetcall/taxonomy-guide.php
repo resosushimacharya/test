@@ -100,6 +100,7 @@ $custompost= get_post($guideID);
 </div><div class="clearfix"></div>
 <div class="container clearfix">
 <div class="inerblock_serc">
+<div class="col-md-12"><h3 style="text-align:center">YOU MAY ALSO LIKE</h3></div>
 <div class="col-md-12">
 
 <?php
