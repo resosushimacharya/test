@@ -30,7 +30,7 @@
       onkeypress="handle(event)"> -->
       <input id="edit_dir_keyword" name="edit_dir_keyword" type="text" class="form-control controls" placeholder="suburb or postcode" onkeyup="mymap(event);">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button" onclick="rs='';autocomplet();">
+        <button class="btn btn-default" type="button" onclick="rs='';autocomplet();" id="check_control">
         <img src="<?php  echo get_template_directory_uri();?>/images/magnify.png"/>
         </button>
       </span>
@@ -82,7 +82,7 @@
        autocomplet();
     }
         if(check.length>3){
-         
+        $("#check_control").addClass("store-key-control");
         var autocomplete = new google.maps.places.Autocomplete(input,options);
       //  console.log(autocomplete);
       

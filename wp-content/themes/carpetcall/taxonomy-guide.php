@@ -41,7 +41,7 @@ $custompost= get_post($guideID);
 		</div>
 		<div class="col-md-10">
 			
-			<p> <?php echo $custompost->post_content;?></p>
+			 <?php echo  apply_filters('the_content',$custompost->post_content);?>
 		</div>
 </div>
 </div><div class="container clearfix">
@@ -112,7 +112,7 @@ $tax = 'product_cat';
 					'post_type' => 'product',
 					
 					'post_status' => 'publish',
-					'posts_per_page' => -1,
+					'posts_per_page' => 3,
 					'ignore_sticky_posts'=> 1
 					);
 					//echo $tax_term->slug;

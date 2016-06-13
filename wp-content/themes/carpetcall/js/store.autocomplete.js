@@ -1,10 +1,13 @@
 function autocomplet() {
 
 	var min_length = 0; // min caracters to display the autocomplete
-	
+	jQuery('#alert_msg').remove();
 	var keyword = jQuery('#edit_dir_keyword').val().trim();
-  
-      if(keyword!="" && keyword!=null && keyword.length>3 ||rs[0]!=null)
+     if((typeof stoLocation[0] == 'undefined')){
+     	jQuery("#edit_dir_keyword").parent().parent().prepend('<h5 id="alert_msg">Please select the keywords</h5>');
+
+     }
+      if(keyword!="" && keyword!=null && keyword.length>3 && (typeof stoLocation[0] != 'undefined')||rs[0]!=null)
 	    {
 		jQuery.ajax({
 			url: wp_autocomplete.ajax_url,
@@ -33,6 +36,7 @@ function autocomplet() {
 				jQuery('#directory_list_id_s').html(data);
 				jQuery("#edit_dir_keyword").focus();
              rs= null;
+             stoLocation = [];
 				  
 
 			}
