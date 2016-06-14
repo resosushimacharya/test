@@ -83,6 +83,7 @@ display:none;
     width: auto;
     background:#ecf0f8;
     border:1px solid #c6d3ea; 
+    cursor: pointer !important;
 }
 
 .infobox .content_right {
