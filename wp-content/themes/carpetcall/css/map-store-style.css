@@ -60,7 +60,7 @@ display:none;
 
 }
 
-.infobox:nth-child(1) .content_nsw{ top:69px; left:106px; margin:0; width:auto; height:38px; background:#ecf0f8; border:1px solid #c6d3ea; position:relative; padding:5px; width:85px;}
+.infobox:nth-child(1) .content_nsw{ top:69px; left:103px; margin:0; width:auto; height:38px; background:#ecf0f8; border:1px solid #c6d3ea; position:relative; padding:5px; width:85px;}
 .infobox:nth-child(2) .content{ top:107px; left:0px; width:85px;}
 .infobox:nth-child(3) .content_down{ top:106px; left:105px; margin:0; width:auto; height:38px; background:#ecf0f8; border:1px solid #c6d3ea; width:85px;}
 .infobox:nth-child(4) .content{ top:99px; left:17px; width:85px;}
@@ -180,10 +180,10 @@ background-repeat: no-repeat;
   .maf_info{margin-left: 20px !important;}
   .store-map{
     transform: scale(1.20);
-	    -webkit-transform: scale(1.20);
-		    -moz-transform: scale(1.20);
-			    -ms-transform: scale(1.20);
-				    -o-transform: scale(1.20);
+	    -webkit-transform: scale(1.10);
+		    -moz-transform: scale(1.10);
+			    -ms-transform: scale(1.10);
+				    -o-transform: scale(1.10);
 					position:absolute;
 					top: 85px;
 					left:0;
