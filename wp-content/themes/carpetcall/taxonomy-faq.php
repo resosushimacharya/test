@@ -79,26 +79,7 @@ endwhile;
       </div>
     </div>
   </div>
-  <?php 
-						  	
-				/*	
-					foreach($reqTempTerms as $reqTerm){ 
-						  
-						  if(strcasecmp($reqTerm->name,$termname)==0){?>
-						  <?php 	//echo '<li>'.$reqTerm->name.'</li>';
-						  	
-						  
-						  	the_title();
-						  	the_content();?>
-						  	<a href="<?php the_permalink();?>">click here</a>
-						  	<?php }
-						  	else{
-						  		echo "hello";
-						  	}
-					}
-					*/
-					?>
-					
+		
 				
 					
                <?php

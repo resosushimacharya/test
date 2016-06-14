@@ -4,13 +4,7 @@ get_header();?>
 <div class="container clearfix">
 <div class="inerblock_serc">
 <?php
-$ben=get_field('benefits',get_the_id());
-$con=get_field('construction',get_the_id());
-$rem=get_field('recommended_for',get_the_id());
-echo $ben.'<br>';
-echo $con.'<br>';
-echo $rem;
-echo  get_the_id();
+
 echo'<h1>display cart count</h1>';?>
 <div id="counts"></div>
 <?php //do_action( 'woocommerce_before_cart_totals' ); ?>

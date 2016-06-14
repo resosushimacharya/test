@@ -10,7 +10,7 @@
         
         <?php $aboutlink = get_field('about_carpetcall_link',317);
         ?>
-        <div class="rmore rmoree"><?php echo $aboutlink;?></div><div class="clearfix"></div>
+        <div class="rmore rmoree"><?php echo $aboutlink;?></div><div class="clearfix">  </div>
     </div>
     </div><!-- about end here -->
     

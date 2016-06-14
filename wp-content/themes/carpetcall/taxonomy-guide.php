@@ -36,7 +36,7 @@ $custompost= get_post($guideID);
  <div class="container clearfix">
 	<div class="inerblock_serc">
 		<div class="col-md-3">
-			<?php get_sidebar();?>
+			<?php get_sidebar('guide');?>
             <div class="clearfix"></div>
 		</div>
 		<div class="col-md-9">
