@@ -460,32 +460,52 @@ function deg2rad(deg) {
                         })
                       
                         if((asl.toUpperCase() === tempvar[0].toUpperCase())){
-                        var html = "<div class='map_overlay'></div><a href="+urlstore+asll+"><div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_right'></div></div></div></a>";
+                            var class__= "";
+                            if(Number(title)<=0){
+                                    var class__= "hide_info";
+                            }
+                        var html = "<div class='map_overlay'></div><a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_right'></div></div></div></a>";
                            
                             var right_=1;
 
                     }
                     else if((asl.toUpperCase() === tempvar[1].toUpperCase())){
-                           var html = "<a href="+urlstore+asll+"><div class='map_info xyz'><div class='contents  nsw_modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_nsw'></div></div></div></a>";
+                         var class__= "";
+                            if(Number(title)<=0){
+                                    var class__= "hide_info";
+                            }
+                           var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  nsw_modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_nsw'></div></div></div></a>";
                            
                             var right_=4;
 
                     }
                     else if((asl.toUpperCase() === tempvar[2].toUpperCase())){
-                         var html = "<a href="+urlstore+asll+"><div class='map_info xyz'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_down'></div></div></div></a>";
+                         var class__= "";
+                            if(Number(title)<=0){
+                                    var class__= "hide_info";
+                            }
+                         var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_down'></div></div></div></a>";
                            
                             var right_=2;
 
                     }
                     else if((asl.toUpperCase() === tempvar[3].toUpperCase())){
-                        var html = "<a href="+urlstore+asll+"><div class='map_info xyz'><div class='contents  act_modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_act'></div></div></div></a>";
+                         var class__= "";
+                            if(Number(title)<=0){
+                                    var class__= "hide_info";
+                            }
+                        var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  act_modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon_act'></div></div></div></a>";
                            
                             var right_=3;
 
 
                     }
                         else{
-                            var html = "<a href="+urlstore+asll+"><div class='map_info ' ><div class='contents'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon'></div></div></div></a>";
+                             var class__= "";
+                            if(Number(title)<=0){
+                                    var class__= "hide_info";
+                            }
+                            var html = "<a href="+urlstore+asll+"><div class='map_info  "+class__+"' ><div class='contents'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + " stores</h6><div class='custom_icon'></div></div></div></a>";
                            
                            var right_=0;
                         }
@@ -501,11 +521,12 @@ function deg2rad(deg) {
 
                         bounds.extend(marker.getPosition());
                         map.fitBounds(bounds);
+
                     } else {
                         alert("geocode of " + address + " failed:" + status);
                     }
                   
-               
+              
 
               /*for(var h=0;h<rs.)
               dis = getDistanceFromLatLonInKm(rs, sll[4][1], sll[i][0], sll[i][1])
@@ -679,6 +700,7 @@ InfoBox.prototype.panMap = function () {
     // Remove the listener after panning is complete.
     google.maps.event.removeListener(this.boundsChangedListener_);
     this.boundsChangedListener_ = null;
+    jQuery('.hide_info').parents('.infobox').css({"visibility":"hidden"});
 };  
 
 
@@ -720,6 +742,9 @@ InfoBox.prototype.panMap = function () {
         return marker;
     }*/
 
+jQuery(window).load(function(e){
 
+      jQuery('.hide_info').parents('.infobox').css({"visibility":"hidden"});
+})
 
 </script> 
