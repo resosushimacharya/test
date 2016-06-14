@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?>
-
+<div class="contaniner clearfix">	<div class="inerblock_serc">
 	<?php
 		/**
 		 * woocommerce_before_main_content hook.
@@ -43,7 +43,7 @@ get_header( 'shop' ); ?>
 		 *
 		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
 		 */
-		//do_action( 'woocommerce_after_main_content' );
+		do_action( 'woocommerce_after_main_content' );
 	?>
 
 	<?php
@@ -54,5 +54,5 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_sidebar' );
 	?>
-
+</div></div>
 <?php get_footer( 'shop' ); ?>

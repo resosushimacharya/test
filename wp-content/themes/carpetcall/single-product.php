@@ -1,117 +1,58 @@
 <?php
-/*
-* Template Name: 
-*/?><?php get_header();?>
+/**
+ * The Template for displaying all single products
+ *
+ * This template can be overridden by copying it to yourtheme/woocommerce/single-product.php.
+ *
+ * HOWEVER, on occasion WooCommerce will need to update template files and you (the theme developer).
+ * will need to copy the new files to your theme to maintain compatibility. We try to do this.
+ * as little as possible, but it does happen. When this occurs the version of the template file will.
+ * be bumped and the readme will list any important changes.
+ *
+ * @see 	    http://docs.woothemes.com/document/template-structure/
+ * @author 		WooThemes
+ * @package 	WooCommerce/Templates
+ * @version     1.6.4
+ */
 
-<div class="container clearfix">
-	<div class="inerblock_serc">
-		<?php 
-		global $product;
-			while(have_posts()):
-			the_post();
-		    the_title();
-			the_content();
-			$data = get_post_meta($post->ID);
-			echo
-			the_post_thumbnail();
-			do_action('pr',$data);
-			$product->get_gallery_attachment_ids();
-			endwhile;
-		?>	
-		<?php 
-   			global  $product;
-
-				$attachment_ids = $product->get_gallery_attachment_ids();
-
-if ( $attachment_ids ) {
-	$loop 		= 0;
-	$columns 	= apply_filters( 'woocommerce_product_thumbnails_columns', 3 );
-	?>
-	<div class="thumbnails col-md-12 <?php echo 'columns-' . $columns; ?>"><?php
-
-		foreach ( $attachment_ids as $attachment_id ) {
-
-			$classes = array( 'zoom' );
-
-			if ( $loop === 0 || $loop % $columns === 0 )
-				$classes[] = 'first';
-
-			if ( ( $loop + 1 ) % $columns === 0 )
-				$classes[] = 'last';
-
-			$image_link = wp_get_attachment_url( $attachment_id );
-
-			if ( ! $image_link )
-				continue;
-
-			$image_title 	= esc_attr( get_the_title( $attachment_id ) );
-			$image_caption 	= esc_attr( get_post_field( 'post_excerpt', $attachment_id ) );
-
-			$image       = wp_get_attachment_image( $attachment_id, apply_filters( 'single_product_small_thumbnail_size', 'shop_thumbnail' ), 0, $attr = array(
-				'title'	=> $image_title,
-				'alt'	=> $image_title
-				) );
-
-			$image_class = esc_attr( implode( ' ', $classes ) );
-            ?>
-            <div class="col-md-2"><?php
-			echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', sprintf( '<a href="%s" class="%s" title="%s" data-rel="prettyPhoto[product-gallery]">%s</a>', $image_link, $image_class, $image_caption, $image ), $attachment_id, $post->ID, $image_class );
-            ?>
-            </div>
-            <?php
-			$loop++;
-		}
-
-	?></div>
-	<?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
 }
-?>
-    </div>
-</div>
-<div class="clearfix"></div>
-<div class="container clearfix">
- 
-  <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">DETAILS</a></li>
-    <li><a data-toggle="tab" href="#menu1">CARE INSTRUCTIONS</a></li>
-    <li><a data-toggle="tab" href="#menu2">FAQ'S</a></li>
-    <li><a data-toggle="tab" href="#menu3">RETURNS</a></li>
-  </ul>
 
-  <div class="tab-content">
-    <div id="home" class="tab-pane fade in active ">
-      <h3>DETAILS</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
-    <div id="menu1" class="tab-pane fade">
-      
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-    <div id="menu2" class="tab-pane fade">
-     <div class="panel-group" id="accordion">
-      <?php for($faqcounter=1;$faqcounter<=4;$faqcounter++){?>
-      <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $faqcounter;?>">
-          <span class="pull-right glyphicon <?php echo ($faqcounter==1)?'glyphicon-chevron-up':'glyphicon glyphicon-chevron-down'?>"></span>
-         <?php echo "FAQ".$faqcounter;?>
-        </a>
-      </h4>
-    </div>
-    <div id="collapse_<?php echo $faqcounter;?>" class="panel-collapse collapse <?php echo ($faqcounter==1)?'in':'' ;?> ">
-      <div class="panel-body">
-        <?php echo "FAQ".$faqcounter."content" ;?>
-      </div>
-    </div>
-  </div><?php }?>
-  </div>
-    </div>
-    <div id="menu3" class="tab-pane fade">
-      <h2>RETURNS</h2>
-      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-    </div>
-  </div>
-</div>
+get_header( 'shop' ); ?>
+<div class="contaniner clearfix">	<div class="inerblock_serc">
+	<?php
+		/**
+		 * woocommerce_before_main_content hook.
+		 *
+		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+		 * @hooked woocommerce_breadcrumb - 20
+		 */
+		do_action( 'woocommerce_before_main_content' );
+	?>
 
-<?php get_footer();?>
+		<?php while ( have_posts() ) : the_post(); ?>
+
+			<?php wc_get_template_part( 'content', 'single-product' ); ?>
+
+		<?php endwhile; // end of the loop. ?>
+
+	<?php
+		/**
+		 * woocommerce_after_main_content hook.
+		 *
+		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+		 */
+		do_action( 'woocommerce_after_main_content' );
+	?>
+
+	<?php
+		/**
+		 * woocommerce_sidebar hook.
+		 *
+		 * @hooked woocommerce_get_sidebar - 10
+		 */
+		do_action( 'woocommerce_sidebar' );
+	?>
+</div></div>
+<?php get_footer( 'shop' ); ?>

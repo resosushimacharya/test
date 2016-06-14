@@ -162,3 +162,164 @@ add_filter('woocommerce_available_variation', function ($value, $object = null, 
     }
     return $value;
 }, 10, 3);
+add_filter( 'woocommerce_product_description_heading', 'remove_product_description_heading' );
+function remove_product_description_heading() {
+return '';
+}
+add_filter( 'woocommerce_product_tabs', 'woo_new_product_tab' );
+function woo_new_product_tab( $tabs ) {
+	
+	// Adds the new tab
+	
+	$tabs['faq_tab'] = array(
+		'title' 	=> __( "FAQ'S", 'woocommerce' ),
+		'priority' 	=> 50,
+		'callback' 	=> 'woo_new_product_tab_content'
+	);
+
+	return $tabs;
+
+}
+function woo_new_product_tab_content() {?>
+
+
+
+	   <div class="panel-group" id="accordion">
+      <?php for($faqcounter=1;$faqcounter<=4;$faqcounter++){?>
+      <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $faqcounter;?>">
+          <span class="pull-right glyphicon <?php echo ($faqcounter==1)?'glyphicon-chevron-up':'glyphicon glyphicon-chevron-down'?>"></span>
+         <?php echo "FAQ".$faqcounter;?>
+        </a>
+      </h4>
+    </div>
+    <div id="collapse_<?php echo $faqcounter;?>" class="panel-collapse collapse <?php echo ($faqcounter==1)?'in':'' ;?> ">
+      <div class="panel-body">
+        <?php echo "FAQ".$faqcounter."content" ;?>
+      </div>
+    </div>
+  </div><?php }?>
+  </div>
+  <div class="">
+  	<p>For more answers to your questions,please refer to our <a href="">RUGS FAQ page</a></p>
+  </div>
+<?php	
+}
+add_filter( 'woocommerce_product_tabs', 'woo_rename_tabs', 98 );
+function woo_rename_tabs( $tabs ) {
+
+     unset( $tabs['description'] );      	// Remove the description tab
+    unset( $tabs['reviews'] ); 			// Remove the reviews tab
+	$tabs['additional_information']['title'] = __( 'DETAILS' );	// Rename the additional information tab
+
+	return $tabs;
+
+}
+add_filter( 'woocommerce_product_tabs', 'woo_new_product_tab_care' );
+function woo_new_product_tab_care( $tabs ) {
+	
+	// Adds the new tab
+	
+	$tabs['care_tab'] = array(
+		'title' 	=> __( 'CARE INSTRUCTIONS', 'woocommerce' ),
+		'priority' 	=> 50,
+		'callback' 	=> 'woo_new_product_tab_content_care'
+	);
+
+	return $tabs;
+
+}
+function woo_new_product_tab_content_care() {?>
+<?php global $product;
+global $post;
+$careins = get_field('care_instructions',$post->ID);
+if(!empty($careins)){
+	echo $careins;
+}
+?>
+
+<?php }?><?php 
+add_filter( 'woocommerce_product_tabs', 'woo_new_product_tab_ret',96 );
+function woo_new_product_tab_ret( $tabs ) {
+	
+	// Adds the new tab
+	
+	$tabs['ret_tab'] = array(
+		'title' 	=> __( 'RETURNS', 'woocommerce' ),
+		'priority' 	=> 50,
+		'callback' 	=> 'woo_new_product_tab_content_ret'
+	);
+
+	return $tabs;
+
+}
+function woo_new_product_tab_content_ret() {?>
+<?php global $product;
+global $post;
+/*$rets = get_field('care_instructions',$post->ID);
+if(!empty($rets)){
+	echo $rets;
+}*/
+echo " ";
+?>
+
+<?php }?><?php 
+add_filter( 'woocommerce_product_tabs', 'woo_reorder_tabs', 98 );
+function woo_reorder_tabs( $tabs ) {
+
+	$tabs['additional_information']['priority'] = 5;			// Reviews first
+	$tabs['care_tab']['priority'] = 10;			// Description second
+	$tabs['faq_tab']['priority'] = 15;
+	$tabs['ret_tab']['priority'] = 20; 	// Additional information third
+
+	return $tabs;
+}
+add_filter( 'woocommerce_product_tabs', 'woo_custom_information_tab', 98 );
+function woo_custom_information_tab( $tabs ) {
+
+	$tabs['additional_information']['callback'] = 'woo_custom_information_tab_content';	// Custom description callback
+
+	return $tabs;
+}
+
+function woo_custom_information_tab_content() {
+    global	$post;
+	echo '<h2 class="detail-heading-item">Overview</h2>';
+	$d1 = get_field('description_1',$post->ID);
+	$d2 = get_field('description_2',$post->ID);
+	$d3 = get_field('description_3',$post->ID);
+	$d4 = get_field('description_4',$post->ID);
+	$yarn=get_field('yarn_type',$post->ID);
+	$length= get_post_meta( $post->ID, '_length', TRUE );
+	$width= get_post_meta( $post->ID, '_width', TRUE );
+	$height= get_post_meta( $post->ID, '_height', TRUE );
+	$weight= get_post_meta( $post->ID, '_weight', TRUE );
+if(!empty($d1)){
+	echo '<p>'.$d1.'</p>';
+}
+if(!empty($d2)){
+	echo '<p>'.$d2.'</p>';
+}
+if(!empty($d3)){
+	echo '<p>'.$d3.'</p>';
+}
+if(!empty($d4)){
+echo '<p>'.$d4.'</p>';
+}
+		echo '<h2 class="detail-heading-item">SPECIFICATIONS</h2>';?>
+
+		<ul>
+		<?php if(!empty('yarn_type')){?>
+		<li>YARN TYPE: </li><?php }?>
+		<?php if(!empty($length) && !empty($width) && !empty($height)) {?>
+		<li>SIZE:<?php echo $length.'cm x '.$width." ".$height;?> 
+		</li>
+		<?php }?>
+		<?php if(!empty($weight)){?>
+		<li>Weight:<?php echo $weight." kg"; ?> </li>
+		<?php }?>
+		</ul>
+		<?php 
+}?>
