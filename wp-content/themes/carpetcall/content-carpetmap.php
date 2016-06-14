@@ -1,7 +1,7 @@
 <div class="container"><!-- about and map section start here -->
 <div class="abvist clearfix">
     
-    <div class="col-md-6"><!-- about start here -->
+    <div class="col-md-6 no-pl"><!-- about start here -->
     <div class="intro">
         <?php $about = get_post(317);
         ?>
