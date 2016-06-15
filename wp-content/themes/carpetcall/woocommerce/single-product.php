@@ -21,6 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 <div class="contaniner clearfix">	<div class="inerblock_serc">
+<div class="container">
+<div class="col-md-12">
 	<?php
 		/**
 		 * woocommerce_before_main_content hook.
@@ -30,7 +32,7 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_before_main_content' );
 	?>
-
+</div></div>
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<?php wc_get_template_part( 'content', 'single-product' ); ?>
