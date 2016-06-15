@@ -360,13 +360,13 @@ function css_products_import()
 	<form method="post" enctype="multipart/form-data" class="import_csv_form">
 		<h2 for="">Select CSV file to import:</h2>
     	<p>
-    		<input type="file" name="importcsv" id="importcsv" class="import_csv_input">
+    		<input type="file" name="importcsv" id="importcsv" class="import_csv_input" required>
     	</p>
         <p>
         	<label for="import_csv_radio_left">Rugs</label>
-        	<input type="radio" name="choice" value="rugs" class="import_csv_radio_left" id="import_csv_radio_left">
+        	<input type="radio" name="choice" value="rugs" class="import_csv_radio_left" id="import_csv_radio_left" required>
      		<label for="import_csv_radio_right">Hard Flooring </label>
-     		<input type="radio" name="choice" value="hard-flooring" class="import_csv_radio_right" id="import_csv_radio_right">
+     		<input type="radio" name="choice" value="hard-flooring" class="import_csv_radio_right" id="import_csv_radio_right" required>
  		</p>
      	<input type="submit" value="Import" name="submit">
      </form>

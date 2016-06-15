@@ -34,7 +34,10 @@ get_header( 'shop' ); ?>
 	?>
 </div></div>
 		<?php while ( have_posts() ) : the_post(); ?>
-
+                <?php  
+                   $reqTempTerms=get_the_terms($post->ID,'product_cat');
+                   do_action('pr',$reqTempTerms);
+                 ?>
 			<?php wc_get_template_part( 'content', 'single-product' ); ?>
 
 		<?php endwhile; // end of the loop. ?>
