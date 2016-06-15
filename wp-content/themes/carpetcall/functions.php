@@ -384,3 +384,27 @@ add_action( 'widgets_init', function(){
 
 
 
+/*
+  * filtering WP Store Locator
+  * removing fields 'address2' and 'state' from Location
+  * removing fields 'email' and 'url' from Additional Information
+*/
+add_filter( 'wpsl_meta_box_fields', 'custom_meta_box_fields' );
+function custom_meta_box_fields( $meta_fields ) {
+    // check for compatibility - delete if only exists ; may need to change code on plugin upgrade
+    // don't show fields not in use
+  
+    if( isset( $meta_fields['Location']['address2'] ))
+      unset($meta_fields['Location']['address2']);
+    
+    if( isset( $meta_fields['Location']['state'] ) ) 
+      unset($meta_fields['Location']['state']);
+
+    if( isset( $meta_fields['Additional Information']['email'] ) ) 
+      unset($meta_fields['Additional Information']['email']);
+      
+    if( isset( $meta_fields['Additional Information']['url'] ) ) 
+      unset($meta_fields['Additional Information']['url']);  
+
+    return $meta_fields;
+}

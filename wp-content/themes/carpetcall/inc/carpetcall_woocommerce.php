@@ -311,8 +311,8 @@ echo '<p>'.$d4.'</p>';
 		echo '<h2 class="detail-heading-item">SPECIFICATIONS</h2>';?>
 
 		<ul>
-		<?php if(!empty('yarn_type')){?>
-		<li>YARN TYPE: </li><?php }?>
+		<?php if(!empty($yarn)){?>
+		<li>YARN TYPE: <?php echo $yarn; ?></li><?php }?>
 		<?php if(!empty($length) && !empty($width) && !empty($height)) {?>
 		<li>SIZE:<?php echo $length.'cm x '.$width." ".$height;?> 
 		</li>
