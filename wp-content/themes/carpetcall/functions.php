@@ -87,8 +87,8 @@ include_once TEMPLATEPATH."/inc/faqhandler.php";
 function pr($x){
 	echo '<pre>'.$x.'</pre>';
 }
-include_once TEMPLATEPATH."/inc/carpetcall_customizer.php";
-include_once TEMPLATEPATH."/inc/carpetcall_woocommerce.php";
+include_once TEMPLATEPATH."/inc/carpetcall-customizer.php";
+include_once TEMPLATEPATH."/inc/carpetcall-woocommerce.php";
 /*include_once TEMPLATEPATH."/inc/backcsv.php";*/
 /* shoping cart section */
 function filter_search($query) {
@@ -99,8 +99,8 @@ return $query;
 };
 add_filter('pre_get_posts', 'filter_search');
 
-include_once TEMPLATEPATH."/inc/carpetcall_walker.php";
-include_once TEMPLATEPATH."/inc/carpetcall_storefinder.php";
+include_once TEMPLATEPATH."/inc/carpetcall-walker.php";
+include_once TEMPLATEPATH."/inc/carpetcall-storefinder.php";
 include_once TEMPLATEPATH."/inc/register-sidebar-admin.php";
 	
 
