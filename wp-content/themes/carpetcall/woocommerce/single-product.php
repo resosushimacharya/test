@@ -36,9 +36,22 @@ get_header( 'shop' ); ?>
 		<?php while ( have_posts() ) : the_post(); ?>
                 <?php  
                    $reqTempTerms=get_the_terms($post->ID,'product_cat');
-                   do_action('pr',$reqTempTerms);
+                   
+                   
+                if($reqTempTerms){
+                   foreach($reqTempTerms as $cat){
+                   	
+                   		if($cat->term_taxonomy_id==326){
+                   		wc_get_template_part( 'content', 'single-rugs-product' );
+                   	}
+                   	else{
+                   		wc_get_template_part( 'content', 'single-hard-flooring-product');
+                   		
+                   	}
+                   
+                   }}
                  ?>
-			<?php wc_get_template_part( 'content', 'single-product' ); ?>
+			
 
 		<?php endwhile; // end of the loop. ?>
 

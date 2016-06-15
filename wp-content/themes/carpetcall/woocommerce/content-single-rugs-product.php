@@ -78,16 +78,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 			do_action('cc_woocommerce_single_product_summary');
 			do_action( 'woocommerce_single_product_summary' );
             do_action('cc_woocommerce_single_product_summary_remove');
-      
+    //do_action('cc_after_select_design_start');
+
              //do_action( 'woocommerce_single_product_summary' );
 			// remove action woocommerce_single_product_summary
 			// add action cc_woocommerce_single_product_summary
 			// insert woocommerce_output_related_products();
-			woocommerce_template_single_title()
+			
 			
 		
 		?>
+     <?php 
+      /**
+       *Select a design section 
+       *here we show the related products image and links
+      */ ?>
+      <div class="cc-related-product-design-section">
 
+      <h3>SELECT A DESIGN</h3>
+      </div>
+      <?php $pro = get_post_meta($post->ID);
+      global $post;
+      
+       ?>
+      <?php if(strcasecmp($pro['_stock_status'][0],'instock')!=0){?><div>
+      <h3> OUT OF STOCK</h3>
+      <?php do_action('cc_after_select_design_start');  do_action( 'woocommerce_single_product_summary' ); ?>
+      </div><?php }?>
+      <div class="cc-size-quantity-section">
+      	<?php do_action('cc_size_quantity');
+      	 do_action( 'woocommerce_single_product_summary' );
+      	 $x=do_shortcode('[add_to_cart_url id="'.$post->ID.'"]');
+      	 ?>
+      	 <a rel="nof" href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $post->ID;?>" data-product_sku="<?php
+      	  echo $pro['_sku'][0] ; ?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart" >ADD TO CART</a>
+      </div>
 	</div><!-- .summary -->
 
 	<?php
@@ -102,7 +127,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		//woocommerce_output_product_data_tabs();
 		
 		// as per design , this section appears in [] page
-		// woocommerce_output_related_products();
+		
 	?>
 
 	<meta itemprop="url" content="<?php the_permalink(); ?>" />
