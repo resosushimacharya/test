@@ -24,6 +24,26 @@ remove_filter ('acf_the_content', 'wpautop');
 //include_once TEMPLATEPATH."/inc/carpetcall-search.php";
 add_theme_support( 'post-thumbnails' );
 function register_my_menus() {
+  global $wp_taxonomies;
+$store_categories = $wp_taxonomies['wpsl_store_category']->labels;
+$store_categories->name = 'Store States';
+$store_categories->singular_name = 'Store State';
+$store_categories->search_items = 'Search Store States';
+$store_categories->all_items = 'All Store States';
+$store_categories->parent_item = 'Parent Store State';
+$store_categories->parent_item_colon = 'Parent Store State';
+$store_categories->edit_item = 'Edit Store State';
+$store_categories->view_item = 'View State';
+$store_categories->update_item = 'Update Store State';
+$store_categories->add_new_item = 'Add New Store State';
+$store_categories->new_item_name = 'New Store State Name';
+$store_categories->not_found = 'No states found.';
+$store_categories->no_terms = 'No states';
+$store_categories->items_list_navigation = 'States list navigation';
+$store_categories->items_list = 'States list';
+$store_categories->menu_name = 'Store States';
+$store_categories->name_admin_bar = 'Store State';
+$store_categories->archives = 'All Store States';
 register_nav_menus(
 array(
 'header-menu' => __( 'Header Menu' ),
