@@ -81,7 +81,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			// add action cc_woocommerce_single_product_summary
 			// insert woocommerce_output_related_products();
 			do_action('cc_woocommerce_single_product_summary');
-			do_action('woocommerce_template_single_price');
+			do_action('woocommerce_template_single_add_to_cart');
 		
 		?>
 
