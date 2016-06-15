@@ -122,6 +122,7 @@ add_filter('pre_get_posts', 'filter_search');
 include_once TEMPLATEPATH."/inc/carpetcall-walker.php";
 include_once TEMPLATEPATH."/inc/carpetcall-storefinder.php";
 include_once TEMPLATEPATH."/inc/register-sidebar-admin.php";
+include_once TEMPLATEPATH."/inc/carpetcall-tax-radiometabox.php";
 	
 
 
