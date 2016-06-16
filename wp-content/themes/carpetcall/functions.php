@@ -26,9 +26,9 @@ add_theme_support( 'post-thumbnails' );
 function register_my_menus() {
   global $wp_taxonomies;
 $store_categories = $wp_taxonomies['wpsl_store_category']->labels;
-$store_categories->name = 'Store States';
+$store_categories->name = 'Store State';
 $store_categories->singular_name = 'Store State';
-$store_categories->search_items = 'Search Store States';
+$store_categories->search_items = 'Search Store State';
 $store_categories->all_items = 'All Store States';
 $store_categories->parent_item = 'Parent Store State';
 $store_categories->parent_item_colon = 'Parent Store State';
@@ -122,9 +122,6 @@ add_filter('pre_get_posts', 'filter_search');
 include_once TEMPLATEPATH."/inc/carpetcall-walker.php";
 include_once TEMPLATEPATH."/inc/carpetcall-storefinder.php";
 include_once TEMPLATEPATH."/inc/register-sidebar-admin.php";
-//include_once TEMPLATEPATH."/inc/carpetcall-tax-radiometabox.php";
-	
-
 
 class MyNewWidget extends WP_Widget {
 
@@ -418,8 +415,8 @@ function custom_meta_box_fields( $meta_fields ) {
     if( isset( $meta_fields['Location']['address2'] ))
       unset($meta_fields['Location']['address2']);
     
-    if( isset( $meta_fields['Location']['state'] ) ) 
-      unset($meta_fields['Location']['state']);
+    // if( isset( $meta_fields['Location']['state'] ) ) 
+    //   unset($meta_fields['Location']['state']);
 
     if( isset( $meta_fields['Additional Information']['email'] ) ) 
       unset($meta_fields['Additional Information']['email']);
@@ -429,3 +426,58 @@ function custom_meta_box_fields( $meta_fields ) {
 
     return $meta_fields;
 }
+
+/*
+  * customizing WP Store Locator
+  * remove State column from Store listing
+  * convert State category checkboxes to radio
+  * on selecting State category , populate State field
+*/
+
+// remove State column from listing to avoid duplicate entries
+function aits_wpsl_columns_filter( $columns ) {
+  unset( $columns['state'] );
+  return $columns;
+}
+add_filter( 'manage_edit-wpsl_stores_columns', 'aits_wpsl_columns_filter', 10, 1 );
+
+/*
+  * include customizer file : change category checkboxes to radio
+  * code reference : https://goo.gl/ZgIzk8
+*/
+include_once TEMPLATEPATH . "/inc/carpetcall-tax-radiometabox.php";
+
+// include script in admin to set State value
+add_action( 'admin_enqueue_scripts', 'aits_wpsl_admin_script', 11 );
+add_action( 'admin_enqueue_scripts', 'aits_wpsl_admin_script', 11 );
+function aits_wpsl_admin_script() {
+    global $post_type;
+
+    if( 'wpsl_stores' == $post_type )
+      wp_enqueue_script( 'aits-wpsl-admin-script', get_stylesheet_directory_uri() . '/js/admin.js' );
+}
+
+/*
+// temporary code to update all State fields for Store Locations
+add_action( 'admin_init', 'aits_wpsl_update_states' );
+function aits_wpsl_update_states() {
+  // get all Stores
+  $args = array(
+    'post_type' => 'wpsl_stores'
+  );
+  $all_stores = new WP_Query( $args );
+
+  if ( $all_stores->have_posts() ) {
+    while ( $all_stores->have_posts() ) {
+      $all_stores->the_post();
+       
+      $id             = get_the_id();
+      $state_category = get_the_terms( $id, 'wpsl_store_category' );
+      $state_name     = $state_category[0]->name;
+
+      // update State field
+      update_post_meta( $id, 'wpsl_state', $state_name );
+    }
+  }
+}
+*/

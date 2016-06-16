@@ -132,7 +132,7 @@ if ( !class_exists( 'WDS_Taxonomy_Radio' ) ) {
  
    }
  
-   $custom_tax_mb = new WDS_Taxonomy_Radio( 'custom-tax-slug' );
+   $custom_tax_mb = new WDS_Taxonomy_Radio( 'wpsl_store_category' );
  
    // Update optional properties
  
