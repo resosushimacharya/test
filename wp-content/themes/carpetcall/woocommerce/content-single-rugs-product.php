@@ -110,8 +110,16 @@ if ( ! defined( 'ABSPATH' ) ) {
       	 do_action( 'woocommerce_single_product_summary' );
       	 $x=do_shortcode('[add_to_cart_url id="'.$post->ID.'"]');
       	 ?>
-      	 <a rel="nof" href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $post->ID;?>" data-product_sku="<?php
-      	  echo $pro['_sku'][0] ; ?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart" >ADD TO CART</a>
+      	 <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $post->ID;?>" data-product_sku="<?php
+      	  echo $pro['_sku'][0] ; ?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart" id="store-count-quantity" >ADD TO CART</a>
+      	  <form class="cart" method="post" enctype="multipart/form-data">
+	 	
+	
+	 	<input type="hidden" name="add-to-cart" value="<?php echo $post->ID;?>">
+
+	 	<button type="submit" class="button product_type_simple add_to_cart_button ajax_add_to_cart single_add_to_cart_button button alt">Add to cart</button>
+
+			</form>
       </div>
 	</div><!-- .summary -->
 

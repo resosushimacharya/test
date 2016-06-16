@@ -6,8 +6,8 @@
 //show_admin_bar(false );
 
 
-update_option('siteurl',"http://localhost/carpetcall");
-update_option('home',"http://localhost/carpetcall");
+#update_option('siteurl',"http://localhost/carpetcall");
+#update_option('home',"http://localhost/carpetcall");
 
 add_action('pr','inspect_carpetcall',10,1);
 function inspect_carpetcall($arg)
@@ -414,9 +414,6 @@ function custom_meta_box_fields( $meta_fields ) {
   
     if( isset( $meta_fields['Location']['address2'] ))
       unset($meta_fields['Location']['address2']);
-    
-    // if( isset( $meta_fields['Location']['state'] ) ) 
-    //   unset($meta_fields['Location']['state']);
 
     if( isset( $meta_fields['Additional Information']['email'] ) ) 
       unset($meta_fields['Additional Information']['email']);
@@ -439,7 +436,7 @@ function aits_wpsl_columns_filter( $columns ) {
   unset( $columns['state'] );
   return $columns;
 }
-add_filter( 'manage_edit-wpsl_stores_columns', 'aits_wpsl_columns_filter', 10, 1 );
+#add_filter( 'manage_edit-wpsl_stores_columns', 'aits_wpsl_columns_filter', 10, 1 );
 
 /*
   * include customizer file : change category checkboxes to radio
@@ -456,28 +453,3 @@ function aits_wpsl_admin_script() {
     if( 'wpsl_stores' == $post_type )
       wp_enqueue_script( 'aits-wpsl-admin-script', get_stylesheet_directory_uri() . '/js/admin.js' );
 }
-
-/*
-// temporary code to update all State fields for Store Locations
-add_action( 'admin_init', 'aits_wpsl_update_states' );
-function aits_wpsl_update_states() {
-  // get all Stores
-  $args = array(
-    'post_type' => 'wpsl_stores'
-  );
-  $all_stores = new WP_Query( $args );
-
-  if ( $all_stores->have_posts() ) {
-    while ( $all_stores->have_posts() ) {
-      $all_stores->the_post();
-       
-      $id             = get_the_id();
-      $state_category = get_the_terms( $id, 'wpsl_store_category' );
-      $state_name     = $state_category[0]->name;
-
-      // update State field
-      update_post_meta( $id, 'wpsl_state', $state_name );
-    }
-  }
-}
-*/

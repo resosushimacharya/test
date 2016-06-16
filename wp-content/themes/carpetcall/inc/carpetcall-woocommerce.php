@@ -386,6 +386,22 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
-//add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+
+
+
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 }
+function custom_quantity_field_archive() {
+	$product = wc_get_product( get_the_ID() );
+	if ( ! $product->is_sold_individually() && 'variable' != $product->product_type && $product->is_purchasable() ) {
+		woocommerce_quantity_input( array( 'min_value' => 1, 'max_value' => $product->backorders_allowed() ? '' : $product->get_stock_quantity() ) );
+	}
+}
+add_action( 'xy', 'custom_quantity_field_archive', 0, 9 );
+
+// Place the following code in your theme's functions.php file
+// override the quantity input with a dropdown
+// Note that you still have to invoke this function like this:
+
+
 
