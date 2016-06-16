@@ -57,7 +57,7 @@ img { display:block; border:0; }
 ul, li { padding:0; margin:0; }
 h1, h2, h3, h4, h5, h6 {margin:0;}
 p {margin: 2px 0; font:normal 0.875em/150% 'proxima_nova_rgregular', sans-serif; color:#333333;  }
-html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-size: 100%; background:#fff; color:#000; line-height:150%; -webkit-font-smoothing: antialiased; }
+html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-size: 100%; background:#fff; color:#000; line-height:150%; }
 .no-pr{padding-right: 0}
 .no-pl{padding-left: 0}
 .no-lr{padding:0;}
@@ -415,10 +415,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 
 .guide_a, .faq_blk { margin-top:11px;}
 ul.guide_list { margin:0; padding:0; }
-ul.guide_list li {list-style:none; display:block;}
-ul.guide_list li a {font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none;}
-ul.guide_list li a:hover { color:#FF0;}
-ul.guide_list .fa { color:#F00;}
+ul.guide_list { background:#e7edf8; padding:28px; margin-bottom:21px;}
+ul.guide_list li {list-style:none;}
+ul.guide_list li .fa { float:right; margin-top:8px; color:#c32327; }
+ul.guide_list li a {font:bold 14px/29px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-decoration:none; text-transform:uppercase; display:block; margin-bottom:5px;}
+ul.guide_list li a:hover { color:#15489f; cursor:pointer;}
 .idea-left{padding-left: 20px;padding-right: 9px}
 .idea-right{padding-right: 20px;padding-left: 9px}
 
@@ -505,5 +506,26 @@ li.clblk_a::before {content: '';}
 .inerblock_serc { margin:155px 0 20px 0;}
 
 /*.............. carpet buying guide start here ..................*/
-.cbg_blk { background:#e6e6e6; margin-top:9px; }
-.breadcrumbs .home { font-size:18px;}
+.cbg_blk { background:#e6e6e6; margin-top:8px; }
+.breadcrumbs .home { font-size:12px; text-transform:uppercase; text-decoration:none; color:#15489f;}
+.breadcrumbs .post.post-guides-archive {font-size:12px; text-transform:uppercase; text-decoration:none; color:#15489f;}
+.breadcrumbs {font-size:12px; text-transform:uppercase; text-decoration:none; color:#000;}
+.breadcrumbs, .breadcrumbs .home, .breadcrumbs .post.post-guides-archive:hover { cursor:pointer;}
+.breadcrumbs { margin-bottom:12px;}
+.inerblock_serc h3 {font:normal 36px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; border-bottom:1px solid #627ab2; display:inline-block; line-height:25px; margin-bottom:13px;}
+.ab_arrow { font-size:25px; margin-right:6px;}
+.inerblock_sec { margin-top:19px; }
+.nowspe { background:#bb2225; display:inline-block; width:231px; height:45px;}
+.nowsppe a { display:block; padding:12px 19px; text-align:center; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#FFF; text-transform:uppercase; text-decoration:none; }
+.nowsppe a:hover {background:#a9191c; cursor:pointer;}
+.cbg_content { padding-left:17px;}
+.cbg_content p {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 0 24px 0;}
+.inerblock_sec_a { background:#e7edf8; margin-top:52px; padding-bottom:61px; }
+.inerblock_sec_a h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin:33px 0 26px 0; text-transform:uppercase;}
+.you_may_link_cntr{padding: 0 10px;}
+.you_may_link_cntr .col-md-4{padding: 0 10px;}
+.pro_secone { background:#FFF; padding:16px 20px; }
+.mero_itemss { margin:24px 0 18px 0;}
+.proabtxt { min-height:50px; clear:both; }
+.proabtxt h4{font:bolder 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-left:3px;}
+.proabtxt h5{font:normal 12px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase; margin-left:3px;}

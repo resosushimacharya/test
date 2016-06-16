@@ -33,80 +33,34 @@ $custompost= get_post($guideID);
     }?>
 
 </div>
-<h3><?php echo $custompost->post_title;?></h3></div>
+<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo $custompost->post_title;?></h3></div>
 </div>
 </div>
 
 
  <div class="container clearfix">
-	<div class="inerblock_serc">
-		<div class="col-md-3">
+	<div class="inerblock_sec">
+		<div class="col-md-3 no-pl">
+        <div class="meromm">
 			<?php get_sidebar('guide');?>
+            </div>
             <div class="clearfix"></div>
 		</div>
 		<div class="col-md-9">
-			
+			<div class="cbg_content">
 			 <?php echo  apply_filters('the_content',$custompost->post_content);?>
+             </div>
 		</div>
 </div>
-</div><div class="container clearfix">
-<div class="inerblock_serc">
-					<ul>
-					
+</div>
+
+
+	<div class="inerblock_sec_a">
+
+    <div class="container clearfix you_may_link_cntr">
+        <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
+
 		
-					<?php
-					
-						$tax_terms = get_terms($tax);
-
-					 $args=array(
-					'post_type' => 'guides',
-					"$tax" => $termname,
-					'post_status' => 'publish',
-					'posts_per_page' => -1,
-					'ignore_sticky_posts'=> 1
-					);
-					//echo $tax_term->slug;
-					$my_query = null;
-					$my_query = new WP_Query($args);
-					while ($my_query->have_posts()) : $my_query->the_post();
-					
-					?>
-
-                   
-                    
-					<?php 
-
-					$reqTempTerms=get_the_terms($post->ID,$tax);
-					       
-					
-					foreach($reqTempTerms as $reqTerm){ 
-						  
-						  if(strcasecmp($reqTerm->name,$termname)==0){?>
-						  <?php 	//echo '<li>'.$reqTerm->name.'</li>';
-						  	
-						  
-						  	the_title();
-						  	the_content();?>
-						  	<a href="<?php the_permalink();?>">click here</a>
-						  	<?php }
-					}
-					
-					?>
-					
-				
-					
-               <?php
-
-					endwhile;
-					wp_reset_query();
-					?>
-					</ul>
-						</div>
-</div><div class="clearfix"></div>
-<div class="container clearfix">
-<div class="inerblock_serc">
-<div class="col-md-12"><h3 style="text-align:center">YOU MAY ALSO LIKE</h3></div>
-<div class="col-md-12">
 
 <?php
 $tax = 'product_cat';
@@ -140,14 +94,14 @@ $tax = 'product_cat';
                ?>
                      <?php  if($woo['_featured'][0]=='yes'){ ?>
                    <div class="col-md-4">
-                  
+                  		<div class="pro_secone">
                   		<div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div>
                   
                     <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
-                    <div class="sublk_prom">
-                      		<div class="ptxt">
-					<h3><?php
-					the_title();?></h3><?php 
+                    <div class="mero_itemss">
+                      		<div class="proabtxt">
+					<h4><?php
+					the_title();?></h4><?php 
 
 					$reqTempTerms=get_the_terms($post->ID,'product_cat');
 					
@@ -163,6 +117,7 @@ $tax = 'product_cat';
                            
                       </div>
                       </div>
+                      </div>
                       <?php }?>
 					
                <?php
@@ -170,8 +125,10 @@ $tax = 'product_cat';
 					endwhile;
 					wp_reset_query();
 					?><div class="clearfix"></div>
-					</div></div>
-					</div>
+					
+                    
+    </div>
+    </div>
 <?php 
 get_footer();
 ?>
