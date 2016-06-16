@@ -21,7 +21,8 @@ $custompost= get_post($guideID);
 
 
  ?>
- <div class="container clearfix">
+ <div class="cbg_blk clearfix">
+ <div class="container">
 <div class="inerblock_serc">
 					
 					
@@ -32,7 +33,11 @@ $custompost= get_post($guideID);
     }?>
 
 </div>
-<h3><?php echo $custompost->post_title;?></h3></div></div>
+<h3><?php echo $custompost->post_title;?></h3></div>
+</div>
+</div>
+
+
  <div class="container clearfix">
 	<div class="inerblock_serc">
 		<div class="col-md-3">

@@ -67,7 +67,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 
 
 
-.wrapper, .banner, .tstore, .cartblk, .calus, .wellblk, .crpchoose, .rtfloblk, .crptslide, .pont, .mystor, .expert, .footer_c, .sor_blk, .againlt, .fot_cpy, .limblk, .rugpro_blk, .rugspro_blk, .rug_size, .carpetcall_slide, .parcel_blk, .feature_pro, .trade { padding:0; }
+.wrapper, .banner, .tstore, .cartblk, .calus, .wellblk, .crpchoose, .rtfloblk, .crptslide, .pont, .mystor, .expert, .footer_c, .sor_blk, .againlt, .fot_cpy, .limblk, .rugpro_blk, .rugspro_blk, .rug_size, .carpetcall_slide, .parcel_blk, .feature_pro, .trade, .cbg_blk { padding:0; }
 
 
 
@@ -504,40 +504,6 @@ li.clblk_a::before {content: '';}
 /*............. inner page section start here .................*/
 .inerblock_serc { margin:155px 0 20px 0;}
 
-
-
-
-/*........... rugproduct section start here 
-.rugspro_blk { background:#e7edf8;}
-.subrugs { margin:25px 0;}
-.subrugs .panel-default { border-color:transparent; }
- .panel { margin:0; border:0; border-radius:0; }
-.panel-body { padding:0; }
-.panel-body .nav>li>a { background:#F5F3F3;}
-.panel-body .nav-tabs>li>a { border-radius:0; 
-.nav-tabs { border-bottom:0; background:#e7edf8; }
-.insec_bk { margin:15px 0;}
-.rug_slide { margin-top:15px;}
-.product_det { margin-top:15px; padding:0;}
-.product_det .label { color:#000; font-size:100%; color:#15489f;}
-.product_det p { font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#666666;}
-.insec_bk h2, .insec_bk h3 { font:bold 31px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin-top:25px;  }
-.insec_bk h3 { font-size:14px; color:#0099ff; margin:0;}
-.indesign { margin-top:15px; }
-.indesign .col-md-4 { padding:0 4px;}
-.imgtp { margin-top:10px;}
-.rug_ticket { margin:20px 0 25px 0; background:#0099ff; padding:15px; }
-.rug_ticket h3, .rug_ticket h4, .rug_ticket h5 { font:bold 31px 'proxima_nova_ltsemibold', sans-serif; color:#fff;}
-.rug_ticket h4, .rug_ticket h5 { font-size:14px; }
-.rug_ticket h5 { color:#15489f;}
-.rug_size h3, .rug_size h4 { font:bold 20px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin-bottom:12px; }
-.rug_size .form-control { border:1px solid #d1ddf1; border-radius:0; background:#e7edf8; height:45px; font-size:16px; font-weight:700; }
-.rug_size h5 { font:bold 17px/150% 'proxima_nova_ltsemibold', sans-serif; color:#15489f;}
-.rgyap { color:#c32327; }
-.rugcart, .rug_enqr { margin:12px 0 12px 88px; background:#c32327; display:inline-block;}
-.rugcartt a, .rug_enqrr a { display:block; padding:10px 24px; text-align:center; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-decoration:none; }
-.rugcartt a:hover, .rug_enqrr a:hover { color:#FF0; }
-.rug_enqr { margin-top:0; background:#15489f;}
-.rug_enqrr a { padding:10px 20px; }..........*/
-
-
+/*.............. carpet buying guide start here ..................*/
+.cbg_blk { background:#e6e6e6; margin-top:9px; }
+.breadcrumbs .home { font-size:18px;}
