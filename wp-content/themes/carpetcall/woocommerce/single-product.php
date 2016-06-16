@@ -37,7 +37,7 @@ get_header( 'shop' ); ?>
                 <?php  
                    $reqTempTerms=get_the_terms($post->ID,'product_cat');
                    
-                   
+                 
                 if($reqTempTerms){
                    foreach($reqTempTerms as $cat){
                    	

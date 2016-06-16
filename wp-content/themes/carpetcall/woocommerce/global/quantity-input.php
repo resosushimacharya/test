@@ -37,8 +37,7 @@ $(document).ready(function() {
 
        $(document).on('change','#quantity-control',function(){
        		$stoq = $('#quantity-control').val();       		
-       	
-       		$(".add_to_cart_button ").data('quantity',$stoq);
+       	    $(".add_to_cart_button").attr('data-quantity',$stoq);
        	  });
 
 	 	 });

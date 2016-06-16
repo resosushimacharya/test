@@ -397,11 +397,22 @@ function custom_quantity_field_archive() {
 		woocommerce_quantity_input( array( 'min_value' => 1, 'max_value' => $product->backorders_allowed() ? '' : $product->get_stock_quantity() ) );
 	}
 }
-add_action( 'xy', 'custom_quantity_field_archive', 0, 9 );
+add_action( 'cc_custom_quantiy', 'custom_quantity_field_archive', 0, 9 );
 
 // Place the following code in your theme's functions.php file
 // override the quantity input with a dropdown
 // Note that you still have to invoke this function like this:
 
+add_action('cc_parent_product','smart_category_top_parent_id',10,1);
+function smart_category_top_parent_id ($catid) {
+    while ($catid) {
+        $cat = get_category($catid); // get the object for the catid
+        $catid = $cat->category_parent; // assign parent ID (if exists) to $catid
+          // the while loop will continue whilst there is a $catid
+          // when there is no longer a parent $catid will be NULL so we can assign our $catParent
+        $catParent = $cat->cat_ID;
+    }
+    return $catParent;
+}
 
 

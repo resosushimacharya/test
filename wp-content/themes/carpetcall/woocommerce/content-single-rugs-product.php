@@ -96,6 +96,55 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="cc-related-product-design-section">
 
       <h3>SELECT A DESIGN</h3>
+      <div class="col-md-12">
+      <?php 
+       $strsizes= array();
+           $reqTempTerms=get_the_terms($post->ID,'product_cat');
+
+   
+            if($reqTempTerms){
+            	
+           foreach($reqTempTerms as $cat){
+           	$has_sub_cat=get_terms(array('parent'=>$cat->term_id,'taxonomy'=>'product_cat'));
+           	
+              if(count($has_sub_cat)==0){
+						
+						wp_reset_query();
+						$args = array('post_type'=>'product','posts_per_pages'=>'4',
+							'taxonomy'=>'product_cat','term'=>$cat->slug);
+						$loop = new WP_Query($args);
+						$i=0;
+						while($loop->have_posts())
+						{?><div class="col-md-3">
+                         <?php   $loop->the_post();
+							
+							echo '<br>';$post->ID;?>
+							<a href="<?php the_permalink()?>">
+							<?php the_post_thumbnail( );?>
+							</a>
+							</div>
+						<?php 
+						$productsize = get_post_meta($post->ID);
+						
+                         $length= get_post_meta( $post->ID, '_length', TRUE );
+	                     $width= get_post_meta( $post->ID, '_width', TRUE );
+	                     $height= get_post_meta( $post->ID, '_height', TRUE );
+	                     $price = get_post_meta($post->ID,'_sale_price',TRUE);
+	                     $productsize   = $length.'CM X '. $length.'CM - '.$price;  
+	                     $strsizes[$i] =array($productsize,get_the_permalink(),$post->ID);
+	                      $i++;
+					}
+					wp_reset_query();
+
+}     	
+                   
+                   
+                   
+                   }
+               }
+              
+                 ?>
+                 </div>
       </div>
       <?php $pro = get_post_meta($post->ID);
       global $post;
@@ -106,20 +155,33 @@ if ( ! defined( 'ABSPATH' ) ) {
       <?php do_action('cc_after_select_design_start');  do_action( 'woocommerce_single_product_summary' ); ?>
       </div><?php }?>
       <div class="cc-size-quantity-section">
+      <div class="cc-size-section">
+      <h3>AVAILABLE SIZES</h3>
+      <select class="selectpicker" name="cc-size" id="cc-size" onchange="location = this.value;">
+      <?php foreach($strsizes as $ss):?>
+      
+       <option <?php echo ($ss[2]==$post->ID?'selected="selected"':'');?> value="<?php echo $ss[1];?>"><?php echo $ss[0];?></option>
+     
+     <?php  endforeach ;?>
+   
+
+
+</select>
+
+
+
+      </div>
+      <div class="cc-quantiy-section">
+      <h3>QUANTITY</h3>
+
       	<?php do_action('cc_size_quantity');
-      	 do_action( 'woocommerce_single_product_summary' );
+      	 
       	 $x=do_shortcode('[add_to_cart_url id="'.$post->ID.'"]');
       	 ?>
+      	 <?php  do_action( 'cc_custom_quantiy' );?>
       	 <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $post->ID;?>" data-product_sku="<?php
       	  echo $pro['_sku'][0] ; ?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart" id="store-count-quantity" >ADD TO CART</a>
-      	  <form class="cart" method="post" enctype="multipart/form-data">
-	 	
-	
-	 	<input type="hidden" name="add-to-cart" value="<?php echo $post->ID;?>">
-
-	 	<button type="submit" class="button product_type_simple add_to_cart_button ajax_add_to_cart single_add_to_cart_button button alt">Add to cart</button>
-
-			</form>
+      	  </div>
       </div>
 	</div><!-- .summary -->
 
