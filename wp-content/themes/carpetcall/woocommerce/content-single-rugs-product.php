@@ -57,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * @hooked woocommerce_show_product_sale_flash - 10
 		 * @hooked woocommerce_show_product_images - 20
 		 */
-		global $post;
+		
 		do_action( 'woocommerce_before_single_product_summary' );?>
 		
 		
@@ -109,7 +109,7 @@ if ( ! defined( 'ABSPATH' ) ) {
            	$has_sub_cat=get_terms(array('parent'=>$cat->term_id,'taxonomy'=>'product_cat'));
            	
               if(count($has_sub_cat)==0){
-						
+						$current_post_term_id = $cat->term_id;
 						wp_reset_query();
 						$args = array('post_type'=>'product','posts_per_pages'=>'4',
 							'taxonomy'=>'product_cat','term'=>$cat->slug);
@@ -119,7 +119,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						{?><div class="col-md-3">
                          <?php   $loop->the_post();
 							
-							echo '<br>';$post->ID;?>
+							//echo '<br>';$post->ID;?>
 							<a href="<?php the_permalink()?>">
 							<?php the_post_thumbnail( );?>
 							</a>
@@ -227,10 +227,100 @@ wrapper close start */?>
 <div class="inerblock_serc">
 <div class="col-md-12"><h3 style="text-align:center">YOU MAY ALSO LIKE</h3></div>
 <div class="col-md-12">
+<?php               wp_reset_query();
+
+
+
+
+                    global $post;
+
+                    
+					$reqTempTerms=get_the_terms($post->ID,'product_cat');
+					//do_action('pr',$reqTempTerms);
+					foreach($reqTempTerms as $cat){
+						//echo $cat->parent;
+						if($cat->parent==0){
+							$args = array(
+       'hide_empty'         => 0,
+       'orderby'            => 'id',
+       'show_count'         => 0,
+       'use_desc_for_title' => 0,
+       'child_of'           => $cat->term_id
+      );
+      $terms = get_terms( 'product_cat', $args );
+                           // do_action('pr',$terms);
+                            
+						}
+					}
+					shuffle($terms);
+                        $i=1;
+					foreach($terms as $term){
+
+
+						if($current_post_term_id!=$term->term_id){
+							
+							$has_sub_cat=get_terms(array('parent'=>$term->term_id,'taxonomy'=>'product_cat'));
+								if(count($has_sub_cat)==0){
+                                        if($i<=3){
+									//do_action('pr',$term);
+                                        	echo "hello".$term->name;
+									$filargs = array(
+													'post_type'=>'product',
+													'posts_per_page'=>'1',
+													'tax_query' => array(
+																		array(
+																			'taxonomy' => 'product_cat',
+																			'field'    => 'term_id',
+																			'terms'    => $term->term_id,
+																		),
+																	),
+													
+													);
+									 wp_reset_postdata();
+								$filloop = new WP_Query($filargs);
+								if($filloop->have_posts()){
+									while($filloop->have_posts()):
+										$filloop->the_post();?>
+										<?php the_post_thumbnail();
+										
+										$temp = get_post_meta($post->ID,'product');
+										echo $temp['_regular_price'][0]."hello";
+
+
+										?>
+
+
+								<?php endwhile;?>
+                     		<?php 
+                     		wp_reset_query(); }
+                     		
+							$i++;
+                     				}
+								}
+
+
+							
+                    
+
+						}
+
+
+					}
+			
+
+ ?>
+
+
+
+
+
+
+
 
 <?php
 $tax = 'product_cat';
- ?><?php
+
+
 						$tax_terms = get_terms($tax);
 
 					 $args=array(
@@ -269,7 +359,6 @@ $tax = 'product_cat';
 					<h3><?php
 					the_title();?></h3><?php 
 
-					$reqTempTerms=get_the_terms($post->ID,'product_cat');
 					
 
 					
