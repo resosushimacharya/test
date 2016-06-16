@@ -19,14 +19,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 ?>
-<div class="quantity">
+<div class="quantity col-md-12">
     <?php
     $options = '';
     for ( $count = $args['min_value']; $count <= $args['max_value']; $count = $count+$args['step'] ) {
-        $options .= '<option' . selected( $args['input_value'], $count, false ) . ' value="' . $count . '">' . $count . '</option>';
+        $options .= '<option' . selected( $args['input_value'], $count, false ) .' class= "col-md-12"'. ' value="' . $count . '" >' . $count . '</option>';
     } 
     if ( $options ){ ?>
-    <select name="<?php echo esc_attr( $args['input_name'] ); ?>" id="quantity-control" title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="qty" /><?php echo $options;?></select>
+    <select name="<?php echo esc_attr( $args['input_name'] ); ?>" id="quantity-control" title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="qty col-md-12 selectpicker " /><?php echo $options;?></select>
     <?php } else {
         printf( '%s <input type="hidden" name="%s" value="%s" />', $args['input_value'], $args['input_name'], $args['input_value'] );
     } ?>
@@ -44,3 +44,26 @@ $(document).ready(function() {
 
 
 </script>
+<style>
+     #quantity-control{width: 60%;}
+     .cc-quantiy-section
+     {
+      margin-top:5px;
+      margin-bottom:5px;
+     }
+     .cc-size-section{
+      margin-top:5px;
+      margin-bottom:5px;
+     }
+     .cc-quantiy-section-inner
+     {
+       margin-top:5px;
+      margin-bottom:5px;
+      }
+      .quantity{
+        margin-top:5px;
+      margin-bottom:5px;
+      }
+      .mod-social , .mod-social a{float:left;padding-right:5px;}
+
+</style>

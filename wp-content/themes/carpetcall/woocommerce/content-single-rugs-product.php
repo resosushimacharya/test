@@ -57,10 +57,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * @hooked woocommerce_show_product_sale_flash - 10
 		 * @hooked woocommerce_show_product_images - 20
 		 */
-		do_action( 'woocommerce_before_single_product_summary' );
-
-	?>
-
+		global $post;
+		do_action( 'woocommerce_before_single_product_summary' );?>
+		
+		
+	
 	<div class="summary entry-summary">
 
 		<?php
@@ -179,11 +180,14 @@ if ( ! defined( 'ABSPATH' ) ) {
       	 $x=do_shortcode('[add_to_cart_url id="'.$post->ID.'"]');
       	 ?>
       	 <?php  do_action( 'cc_custom_quantiy' );?>
+      	 <div class="cc-quantiy-section-inner">
       	 <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $post->ID;?>" data-product_sku="<?php
       	  echo $pro['_sku'][0] ; ?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart col-md-12" id="store-count-quantity" >ADD TO CART</a>
       	  </div>
+      	  </div>
       </div>
       <div class="clearfix"></div>
+     
       <div class="cc-product-enquiry col-md-12">
       	<button type="button" class="btn btn-default col-md-12"> Enquiry NOW</button>
       </div>
