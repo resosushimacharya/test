@@ -390,6 +390,7 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
 
 
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 }
 function custom_quantity_field_archive() {
 	$product = wc_get_product( get_the_ID() );
@@ -414,5 +415,22 @@ function smart_category_top_parent_id ($catid) {
     }
     return $catParent;
 }
+/**
+*to change the separator
+*/
+add_filter( 'woocommerce_breadcrumb_defaults', 'jk_change_breadcrumb_delimiter' );
+function jk_change_breadcrumb_delimiter( $defaults ) {
+	// Change the breadcrumb delimeter from '/' to '>'
+	$defaults['delimiter'] = ' &gt; ';
+	return $defaults;
+}
+ //remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
+function sv_change_product_price_display( $price ) {
+	global $post;
+	$pro = get_post_meta($post->ID);
+	$price =  '<div class="cc-price-control">
+	<h3><span class="cc-sale-price-title">A$'.$pro['_sale_price'][0].'</span> $'.$pro['_regular_price'][0].'</h3></div>';
 
-
+	return $price;
+}
+add_filter( 'woocommerce_get_price_html', 'sv_change_product_price_display' );

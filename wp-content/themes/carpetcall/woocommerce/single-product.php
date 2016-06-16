@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-get_header( 'shop' ); ?>
+get_header( 'shop' ); ?> 
 <div class="contaniner clearfix">	<div class="inerblock_serc">
 <div class="container">
 <div class="col-md-12">

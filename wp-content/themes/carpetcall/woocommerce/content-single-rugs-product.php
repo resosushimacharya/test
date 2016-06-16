@@ -130,7 +130,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	                     $width= get_post_meta( $post->ID, '_width', TRUE );
 	                     $height= get_post_meta( $post->ID, '_height', TRUE );
 	                     $price = get_post_meta($post->ID,'_sale_price',TRUE);
-	                     $productsize   = $length.'CM X '. $length.'CM - '.$price;  
+	                     $productsize   = $length.'CM X '. $length.'CM - $'.$price;  
 	                     $strsizes[$i] =array($productsize,get_the_permalink(),$post->ID);
 	                      $i++;
 					}
@@ -155,12 +155,12 @@ if ( ! defined( 'ABSPATH' ) ) {
       <?php do_action('cc_after_select_design_start');  do_action( 'woocommerce_single_product_summary' ); ?>
       </div><?php }?>
       <div class="cc-size-quantity-section">
-      <div class="cc-size-section">
+      <div class="cc-size-section col-md-12">
       <h3>AVAILABLE SIZES</h3>
-      <select class="selectpicker" name="cc-size" id="cc-size" onchange="location = this.value;">
+      <select class="selectpicker col-md-10" name="cc-size" id="cc-size" onchange="location = this.value;" >
       <?php foreach($strsizes as $ss):?>
       
-       <option <?php echo ($ss[2]==$post->ID?'selected="selected"':'');?> value="<?php echo $ss[1];?>"><?php echo $ss[0];?></option>
+       <option <?php echo ($ss[2]==$post->ID?'selected="selected"':'');?> class="col-md-12" value="<?php echo $ss[1];?>"><?php echo $ss[0];?></option>
      
      <?php  endforeach ;?>
    
@@ -171,7 +171,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
       </div>
-      <div class="cc-quantiy-section">
+      <div class="cc-quantiy-section col-md-12">
       <h3>QUANTITY</h3>
 
       	<?php do_action('cc_size_quantity');
@@ -180,8 +180,18 @@ if ( ! defined( 'ABSPATH' ) ) {
       	 ?>
       	 <?php  do_action( 'cc_custom_quantiy' );?>
       	 <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $post->ID;?>" data-product_sku="<?php
-      	  echo $pro['_sku'][0] ; ?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart" id="store-count-quantity" >ADD TO CART</a>
+      	  echo $pro['_sku'][0] ; ?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart col-md-12" id="store-count-quantity" >ADD TO CART</a>
       	  </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="cc-product-enquiry col-md-12">
+      	<button type="button" class="btn btn-default col-md-12"> Enquiry NOW</button>
+      </div>
+      <div class="cc-product-ship-free-section col-md-12">
+      <div class="col-md-6">SHIPPING</div><div class="col-md-6"> FREE DELIVERY</div>
+      </div>
+      <div class="cc-product-pick-location-section col-md-12">
+      <div class="col-md-6">PICK UP</div><div class="col-md-6"><button type="button" class="btn btn-default col-md-12"> PICK UP LOCATION</button></div>
       </div>
 	</div><!-- .summary -->
 
@@ -193,7 +203,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * @hooked woocommerce_upsell_display - 15
 		 * @hooked woocommerce_output_related_products - 20
 		 */
-		 do_action( 'woocommerce_after_single_product_summary' );
+		// do_action( 'woocommerce_after_single_product_summary' );
 		//woocommerce_output_product_data_tabs();
 		
 		// as per design , this section appears in [] page
@@ -209,3 +219,72 @@ wrapper close start */?>
 </div></div>
 <?php /* before-wrapper close end*/?>
 <?php do_action( 'woocommerce_after_single_product' ); ?>
+<div class="container clearfix">
+<div class="inerblock_serc">
+<div class="col-md-12"><h3 style="text-align:center">YOU MAY ALSO LIKE</h3></div>
+<div class="col-md-12">
+
+<?php
+$tax = 'product_cat';
+ ?><?php
+						$tax_terms = get_terms($tax);
+
+					 $args=array(
+					'post_type' => 'product',
+					
+					'post_status' => 'publish',
+					'posts_per_page' => -1,
+					'ignore_sticky_posts'=> 1
+					);
+					//echo $tax_term->slug;
+					$my_query = null;
+					$my_query = new WP_Query($args);
+					while ($my_query->have_posts()) : $my_query->the_post();
+					$woo=get_post_meta($post->ID);
+					
+					$price=$woo['_regular_price'][0];
+					
+					
+					$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+					
+					/*if(!empty(unserialize($woo['_product_attributes'][0])))
+				$prounits=unserialize($woo['_product_attributes'][0]);*/
+				
+				if(isset($prounits['size']['value'])){
+					$prounit=$prounits['size']['value'];
+				}
+               ?>
+                     <?php  if($woo['_featured'][0]=='yes'){ ?>
+                   <div class="col-md-4">
+                  
+                  		<div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div>
+                  
+                    <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
+                    <div class="sublk_prom">
+                      		<div class="ptxt">
+					<h3><?php
+					the_title();?></h3><?php 
+
+					$reqTempTerms=get_the_terms($post->ID,'product_cat');
+					
+
+					
+
+					
+					if(!empty($price)){
+						echo '<h5> FROM A$'.$price.'</h5>';
+						
+						}?></div>
+					<div class="clearfix"></div>
+                           
+                      </div>
+                      </div>
+                      <?php }?>
+					
+               <?php
+
+					endwhile;
+					wp_reset_query();
+					?><div class="clearfix"></div>
+					</div></div>
+					</div>
