@@ -47,6 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div class="container">
 <div class="col-md-12">
+
 <?php /*before-wrapper open  end */  ?>
 <div itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -263,10 +264,13 @@ wrapper close start */?>
 								if(count($has_sub_cat)==0){
                                         if($i<=3){
 									//do_action('pr',$term);
-                                        	echo "hello".$term->name;
+                                        	
 									$filargs = array(
 													'post_type'=>'product',
 													'posts_per_page'=>'1',
+													'meta_key'=>'_sale_price',
+													'orderby' => 'meta_value_num',
+													 'order'     => 'ASC',
 													'tax_query' => array(
 																		array(
 																			'taxonomy' => 'product_cat',
@@ -274,20 +278,32 @@ wrapper close start */?>
 																			'terms'    => $term->term_id,
 																		),
 																	),
-													
+																
 													);
 									 wp_reset_postdata();
 								$filloop = new WP_Query($filargs);
+								 //do_action('pr',$filloop);
+								$hold = 1;
 								if($filloop->have_posts()){
 									while($filloop->have_posts()):
-										$filloop->the_post();?>
+										$filloop->the_post();
+
+											/*var_dump($filloop->post->ID);*/
+
+
+									?><div class="col-md-4 cc-other-term-pro">
 										<?php the_post_thumbnail();
 										
-										$temp = get_post_meta($post->ID,'product');
-										echo $temp['_regular_price'][0]."hello";
+										
+										$woo=get_post_meta($filloop->post->ID);
+										//do_action('pr',$woo);
+					                     // echo $post->ID;
+										echo '<h3>'.$term->name.'</h3>';
+										echo "<h5>FROM A$".$woo['_sale_price'][0].'</h5>';
 
 
 										?>
+										</div>
 
 
 								<?php endwhile;?>
@@ -312,9 +328,9 @@ wrapper close start */?>
 
 
 
+</div>
 
-
-
+<div class="col-md-12">
 
 
 <?php
