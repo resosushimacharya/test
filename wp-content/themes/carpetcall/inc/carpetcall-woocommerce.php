@@ -429,7 +429,7 @@ function sv_change_product_price_display( $price ) {
 	global $post;
 	$pro = get_post_meta($post->ID);
 	$price =  '<div class="cc-price-control">
-	<h3><span class="cc-sale-price-title">A$'.$pro['_sale_price'][0].'</span> $'.$pro['_regular_price'][0].'</h3></div>';
+	<h3><span class="cc-sale-price-title">A$'.$pro['_sale_price'][0].'</span> <span class="cc-line-through">$'.$pro['_regular_price'][0].'</span></h3></div>';
 
 	return $price;
 }
