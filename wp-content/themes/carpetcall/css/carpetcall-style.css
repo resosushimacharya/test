@@ -52,7 +52,7 @@
 	font-weight: 900;
 	font-style: normal;
 }
-* { padding:0; margin:0; }
+* { padding:0; margin:0; outline:none; }
 img { display:block; border:0; }
 ul, li { padding:0; margin:0; }
 h1, h2, h3, h4, h5, h6 {margin:0;}
@@ -81,7 +81,10 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 
 .searchm { margin-top:11px;}
 .searchm .form-control { height:45px; border-radius:0; border:0; color:#000; font-size:16px; font-weight:700; text-align:left; text-transform:uppercase;}
-.searchm .btn { background:#FFF; border-radius:0; border:0; padding:11px 12px 12px 12px; outline:none;}
+.searchm .btn { background:#FFF; border-radius:0; border:0; padding:11px 12px 12px 12px; outline:none; width: 100%; margin: 0}
+.input-group-btn:last-child>.btn{margin: 0}
+.searchm .btn img{margin: 0 auto;}
+.searchm .input-group-btn{width: auto; margin: 0}
 .searchm .btn:active, .searchm .btn:focus { outline:none; background:#FFF; box-shadow:none;}
 .callinfo { position:relative;}
 .calme { margin:0; font-family:'proxima_nova_ltsemibold', sans-serif;  color:#FFF; text-transform:uppercase; -webkit-font-smoothing:antialiased; text-rendering:optimizelegibility; white-space:inherit; font-size:2.187em; }
@@ -528,9 +531,46 @@ li.clblk_a::before {content: '';}
 .proabtxt { min-height:50px; clear:both; }
 .proabtxt h4{font:bolder 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-left:3px;}
 .proabtxt h5{font:normal 12px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase; margin-left:3px;}
-ul.guide_list_cbg { margin:0; padding:0; }
+
 ul.guide_list_cbg { background:#e7edf8; padding:28px; margin-bottom:21px;}
 ul.guide_list_cbg li {list-style:none;}
 ul.guide_list_cbg li .fa { float:right; margin-top:8px; color:#c32327; }
 ul.guide_list_cbg li a {font:bold 14px/29px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-decoration:none; text-transform:uppercase; display:block; margin-bottom:5px;}
 ul.guide_list_cbg li a:hover { color:#15489f; cursor:pointer;}
+
+
+/*.......... carpetcall faq start here ...................*/
+.inerblock_sec_faq { margin:139px 0 38px 0;}
+.breadcrumbs .home { font-size:12px; text-transform:uppercase; text-decoration:none; color:#15489f;}
+.breadcrumbs .post.post-faqs-archive {font-size:12px; text-transform:uppercase; text-decoration:none; color:#15489f;}
+.breadcrumbs {font-size:12px; text-transform:uppercase; text-decoration:none; color:#000;}
+.breadcrumbs, .breadcrumbs .home, .breadcrumbs .post.post-faqs-archive:hover { cursor:pointer;}
+.breadcrumbs { margin-bottom:12px;}
+.inerblock_sec_faq h3 {font:normal 36px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; border-bottom:1px solid #627ab2; display:inline-block; line-height:25px; margin-bottom:13px;}
+.ab_arrow { font-size:25px; margin-right:6px;}
+.faq-cont-blka { padding:0;}
+ul.guide_list_cfaq { background:#e7edf8; padding:28px;}
+ul.guide_list_cfaq li { list-style:none;}
+ul.guide_list_cfaq li .fa { float:right; margin-top:8px; color:#c32327;}
+ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsemibold',sans-serif; color:#15489f; text-decoration:none; text-transform:uppercase; margin-bottom:10px;}
+.faq-cont-blka .col-md-9 { padding-left:5px;}
+.cont-panl { border-top:1px solid #efefef;}
+.panel-group .panel{ border-radius:0; border-left:0; border-right:0; border-top:0; border-bottom:1px solid #efefef; box-shadow:none; -webkit-box-shadow:none;}
+.faq-cont-blka .panel-default>.panel-heading, .faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body { background:none; border:none; border-radius:0; padding: 0}
+.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body{padding:0 15px 15px 15px;}
+.faq-cont-blka .panel-default>.panel-heading a{position: relative;width: 100%;display: block;padding: 15px; text-decoration:none; color:#0099ff; font:bold 18px 'proxima_nova_ltsemibold',sans-serif; text-transform:uppercase; }
+.faq-cont-blka .panel-body p {font:normal 18px/21px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-right:30px;}
+.faq-cont-blka .glyphicon-chevron-down:before{
+		content: '\f107';
+		font-family: FontAwesome;
+		font-size:24px;
+		color: #15489f;
+		font-weight:normal;
+		}
+.faq-cont-blka .glyphicon-chevron-up:before{
+		content: '\f106';
+		font-family: FontAwesome;
+		font-size:24px;
+		color: #15489f;
+		font-weight:normal;
+		}

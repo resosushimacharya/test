@@ -12,8 +12,8 @@ $termname= $linkarr[$len-1];
 echo $termname;
 
  ?>
-  <div class="container clearfix">
-<div class="inerblock_serc">
+	<div class="container clearfix">
+<div class="inerblock_sec_faq">
 					
 					
 					 <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
@@ -23,14 +23,24 @@ echo $termname;
     }?>
 
 </div>
-</div></div><div class="container clearfix">
+<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i> Carepet faqs</span></h3>
 
-<div class="col-md-3">
+</div>
+
+</div><!-- step one end -->
+
+		<div class="faq-cont-blka">
+		<div class="container clearfix">
+
+			<div class="col-md-3 no-pl">
+<div class="meromm">
 			<?php get_sidebar('faqterm');?>
-            <div class="clearfix"></div>
+            </div><div class="clearfix"></div>
 		</div>
-<div class="col-md-9">
-<div class="panel-group" id="accordion">
+        
+			<div class="col-md-9">
+            <div class="cont-panl">
+			<div class="panel-group" id="accordion">
 
 					<?php while(have_posts()):
 the_post();
@@ -88,12 +98,20 @@ endwhile;
 					wp_reset_query();
 					?>
 					
-				</div></div>
-</div><div class="clearfix"></div>
-<div class="container clearfix">
-<div class="inerblock_serc">
-<div class="col-md-12"><h3 style="text-align:center">YOU MAY ALSO LIKE</h3></div>
-<div class="col-md-12">
+				</div>
+            </div>
+            </div>
+                
+        </div>  
+		</div><div class="clearfix"></div><!-- step two end here -->
+
+
+    <div class="inerblock_sec_a">
+
+    <div class="container clearfix you_may_link_cntr">
+        <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
+
+		
 
 <?php
 $tax = 'product_cat';
@@ -127,14 +145,14 @@ $tax = 'product_cat';
                ?>
                      <?php  if($woo['_featured'][0]=='yes'){ ?>
                    <div class="col-md-4">
-                  
+                  		<div class="pro_secone">
                   		<div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div>
                   
                     <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
-                    <div class="sublk_prom">
-                      		<div class="ptxt">
-					<h3><?php
-					the_title();?></h3><?php 
+                    <div class="mero_itemss">
+                      		<div class="proabtxt">
+					<h4><?php
+					the_title();?></h4><?php 
 
 					$reqTempTerms=get_the_terms($post->ID,'product_cat');
 					
@@ -150,6 +168,7 @@ $tax = 'product_cat';
                            
                       </div>
                       </div>
+                      </div>
                       <?php }?>
 					
                <?php
@@ -157,8 +176,13 @@ $tax = 'product_cat';
 					endwhile;
 					wp_reset_query();
 					?><div class="clearfix"></div>
-					</div></div>
-					</div>
+					
+                    
+    </div>
+    </div><!-- step three end here --------->
+                    
+                    
+                    
 <script type="text/javascript">
 	$('.collapse').on('shown.bs.collapse', function(){
 $(this).parent().find(".glyphicon-chevron-down").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");

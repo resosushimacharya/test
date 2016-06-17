@@ -1,4 +1,4 @@
-<ul class="guide_list " style="color:black;">
+<ul class="guide_list_cfaq">
             
 					<?php
                             $tax = 'faq'; 
@@ -6,7 +6,7 @@
 						
 						foreach($tax_terms as $tax_term)
 						{
-						echo '<li> &nbsp;<a href="'.get_term_link($tax_term).'" style="color:#000000;">'.$tax_term->name.'<i class="fa fa-caret-right" aria-hidden="true"></i></li></a>';
+						echo '<li><a href="'.get_term_link($tax_term).'">'.$tax_term->name.'<i class="fa fa-caret-right" aria-hidden="true"></i></li></a>';
 						}
 
 				?>

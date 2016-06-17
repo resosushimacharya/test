@@ -33,7 +33,8 @@ $custompost= get_post($guideID);
     }?>
 
 </div>
-<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo $custompost->post_title;?></h3></div>
+<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo $custompost->post_title;?></h3>
+</div>
 </div>
 </div>
 
