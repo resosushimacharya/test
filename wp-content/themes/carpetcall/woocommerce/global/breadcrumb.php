@@ -26,11 +26,12 @@ if ( ! empty( $breadcrumb ) ) {
        $i=1;
        $len =count($breadcrumb);
        $seclast = $len-1;
-      
+      $appafter='';
       
 	foreach ( $breadcrumb as $key => $crumb ) {
   
 		echo $before;
+		if($len>4){
         if(($i!=1) && ($i!=$len)){
 		if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
 			echo '<a href="' . esc_url( $crumb[1] ) . '" class="breadcrum-link-'.$i.'">' . esc_html( $crumb[0] ) . '</a>';
@@ -47,6 +48,29 @@ if ( ! empty( $breadcrumb ) ) {
 	}
 	}
 	$i++;
+}
+else{
+
+if(($i!=1)){
+		if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
+			if($i==$seclast && $len==4){ $appafter = esc_html( $crumb[0] ); 
+			}
+			echo '<a href="' . esc_url( $crumb[1] ) . '" class="breadcrum-link-'.$i.'">' . esc_html( $crumb[0] ) . '</a>';
+		} else {
+			echo esc_html( $crumb[0] ).' '.$appafter;
+		}
+
+		echo $after;
+		
+
+		if ( sizeof( $breadcrumb ) !== $key + 1 ) {
+			echo $delimiter;
+		}
+	
+	}
+	$i++;
+
+}
 
 	}
 
