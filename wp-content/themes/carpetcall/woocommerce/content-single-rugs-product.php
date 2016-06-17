@@ -117,7 +117,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						$loop = new WP_Query($args);
 						$i=0;
 						while($loop->have_posts())
-						{?><div class="col-md-3">
+						{?><div class="select-design-product-image">
                          <?php   $loop->the_post();
 							
 							//echo '<br>';$post->ID;?>
