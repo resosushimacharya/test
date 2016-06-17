@@ -415,11 +415,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 
 .guide_a, .faq_blk { margin-top:11px;}
 ul.guide_list { margin:0; padding:0; }
-ul.guide_list { background:#e7edf8; padding:28px; margin-bottom:21px;}
-ul.guide_list li {list-style:none;}
-ul.guide_list li .fa { float:right; margin-top:8px; color:#c32327; }
-ul.guide_list li a {font:bold 14px/29px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-decoration:none; text-transform:uppercase; display:block; margin-bottom:5px;}
-ul.guide_list li a:hover { color:#15489f; cursor:pointer;}
+ul.guide_list li {list-style:none; display:block;}
+ul.guide_list li a {font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none;}
+ul.guide_list li a:hover { color:#FF0;}
+ul.guide_list .fa { color:#F00;}
 .idea-left{padding-left: 20px;padding-right: 9px}
 .idea-right{padding-right: 20px;padding-left: 9px}
 
@@ -529,3 +528,9 @@ li.clblk_a::before {content: '';}
 .proabtxt { min-height:50px; clear:both; }
 .proabtxt h4{font:bolder 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-left:3px;}
 .proabtxt h5{font:normal 12px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase; margin-left:3px;}
+ul.guide_list_cbg { margin:0; padding:0; }
+ul.guide_list_cbg { background:#e7edf8; padding:28px; margin-bottom:21px;}
+ul.guide_list_cbg li {list-style:none;}
+ul.guide_list_cbg li .fa { float:right; margin-top:8px; color:#c32327; }
+ul.guide_list_cbg li a {font:bold 14px/29px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-decoration:none; text-transform:uppercase; display:block; margin-bottom:5px;}
+ul.guide_list_cbg li a:hover { color:#15489f; cursor:pointer;}

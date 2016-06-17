@@ -1,4 +1,4 @@
-<ul class="guide_list">
+<ul class="guide_list_cbg">
             
 					<?php
                             $tax = 'guide'; 
