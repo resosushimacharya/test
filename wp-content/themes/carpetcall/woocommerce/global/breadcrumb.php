@@ -26,6 +26,8 @@ if ( ! empty( $breadcrumb ) ) {
        $i=1;
        $len =count($breadcrumb);
        $seclast = $len-1;
+      
+      
 	foreach ( $breadcrumb as $key => $crumb ) {
   
 		echo $before;
@@ -51,3 +53,4 @@ if ( ! empty( $breadcrumb ) ) {
 	echo $wrap_after;
 
 }
+

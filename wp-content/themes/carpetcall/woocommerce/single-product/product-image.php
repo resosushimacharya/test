@@ -23,6 +23,24 @@ global $post, $woocommerce, $product;
 
 ?>
 <div class="images">
+    <?php 
+     $reqTempTerms=get_the_terms($post->ID,'product_cat');
+
+   
+            if($reqTempTerms){
+            	
+           foreach($reqTempTerms as $cat){
+           	$has_sub_cat=get_terms(array('parent'=>$cat->term_id,'taxonomy'=>'product_cat'));
+           	
+              if(count($has_sub_cat)==0){
+
+                  
+                  $parent_term = get_term( $cat->parent, 'product_cat');
+                  
+                 echo '<h4 class="cc-category-show">'.$cat->name.' '.$parent_term->name.'</h4>';
+              	}
+              	}
+              	}?>
 	<?php
 		if ( has_post_thumbnail() ) {
 			$image_caption = get_post( get_post_thumbnail_id() )->post_excerpt;
