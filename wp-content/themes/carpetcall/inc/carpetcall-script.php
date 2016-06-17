@@ -33,6 +33,9 @@ wp_enqueue_script( 'auda', get_template_directory_uri().'/js/slick.js', array(),
 wp_enqueue_script( 'responsiveTabs', get_template_directory_uri().'/js/jquery.responsiveTabs.min.js', array(), false, false);
 wp_enqueue_script( 'bootstrap-script', get_template_directory_uri().'/js/bootstrap.min.js', array(), false, true);
 //wp_enqueue_script( 'search-script', get_template_directory_uri().'/js/carpetcall-script.js', array(), false, false);
-
+if ( is_single() ) {
+	 wp_enqueue_script( 'jquery-accordion', get_template_directory_uri().'/js/accordion.product.js', array(), false, false);
+	}
 }
+
 add_action( 'wp_enqueue_scripts', 'carpetcall_scripts' );
