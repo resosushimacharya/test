@@ -19,8 +19,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-get_header( 'shop' ); ?>
-
+get_header( 'shop' ); ?> 
+<div class="contaniner clearfix">	<div class="inerblock_serc">
+<div class="container">
+<div class="col-md-12">
 	<?php
 		/**
 		 * woocommerce_before_main_content hook.
@@ -30,10 +32,26 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_before_main_content' );
 	?>
-
+</div></div>
 		<?php while ( have_posts() ) : the_post(); ?>
-
-			<?php wc_get_template_part( 'content', 'single-product' ); ?>
+                <?php  
+                   $reqTempTerms=get_the_terms($post->ID,'product_cat');
+                   
+                 
+                if($reqTempTerms){
+                   foreach($reqTempTerms as $cat){
+                   	
+                   		if($cat->term_taxonomy_id==326){
+                   		wc_get_template_part( 'content', 'single-rugs-product' );
+                   	}
+                   	else{
+                   		wc_get_template_part( 'content', 'single-hard-flooring-product');
+                   		
+                   	}
+                   
+                   }}
+                 ?>
+			
 
 		<?php endwhile; // end of the loop. ?>
 
@@ -43,7 +61,7 @@ get_header( 'shop' ); ?>
 		 *
 		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
 		 */
-		//do_action( 'woocommerce_after_main_content' );
+		do_action( 'woocommerce_after_main_content' );
 	?>
 
 	<?php
@@ -54,5 +72,5 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_sidebar' );
 	?>
-
+</div></div>
 <?php get_footer( 'shop' ); ?>

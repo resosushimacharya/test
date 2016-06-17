@@ -216,3 +216,4 @@ background-repeat: no-repeat;
     margin-left: 7px;
 }
 /* .gm-style, .gm-style div{background-color: transparent !important;} */
+p.out-of-stock{display:none !important;}

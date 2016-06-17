@@ -49,4 +49,18 @@ global $post, $woocommerce, $product;
 	?>
 
 	<?php do_action( 'woocommerce_product_thumbnails' ); ?>
+		<div class="mod-social">
+		<a href="http://www.facebook.com/sharer.php?u=<?php echo get_permalink($post->ID);?>" target="_blank">
+          <i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i>
+         </a>
+         <a href="https://twitter.com/share?url=<?php echo get_the_permalink($post->ID);?> " target="_blank">      
+         <i class="fa fa-2x  fa-twitter" aria-hidden="true"></i>
+         </a>
+<a href="#" onclick="window.open('https://www.pinterest.com/pin/create/bookmarklet/?url=<?php echo get_the_permalink($post->ID); ?>')">
+          <i class="fa fa-2x fa-pinterest" aria-hidden="true"></i>
+           </a>
+
+
+
+         </div>
 </div>

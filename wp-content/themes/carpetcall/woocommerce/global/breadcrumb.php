@@ -23,11 +23,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! empty( $breadcrumb ) ) {
 
 	echo $wrap_before;
-
+       $i=1;
+       $len =count($breadcrumb);
+       $seclast = $len-1;
 	foreach ( $breadcrumb as $key => $crumb ) {
-
+  
 		echo $before;
-
+        if(($i!=1) && ($i!=$len)){
 		if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
 			echo '<a href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a>';
 		} else {
@@ -35,10 +37,14 @@ if ( ! empty( $breadcrumb ) ) {
 		}
 
 		echo $after;
+		if($i!=$seclast){
 
 		if ( sizeof( $breadcrumb ) !== $key + 1 ) {
 			echo $delimiter;
 		}
+	}
+	}
+	$i++;
 
 	}
 

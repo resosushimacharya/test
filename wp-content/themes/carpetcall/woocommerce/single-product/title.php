@@ -20,4 +20,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<h1 itemprop="name" class="product_title entry-title"><?php the_title(); ?></h1>
+<h3>ONLINE PRICE</h3>
+<h3 itemprop="name" class="product_title entry-title"><?php echo "<span>CODE:</span>"; the_title(); ?></h3>
