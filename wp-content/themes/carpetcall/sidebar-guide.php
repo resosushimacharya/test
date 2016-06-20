@@ -24,4 +24,4 @@
     $cat_link = get_category_link($destinationcat->term_id);
     }
      ?>
-<div class="nowspe nowsppe"><a href="<?php echo (strcasecmp($cat_link,'halt')!=0)?$cat_link:'#'; ?>"> SHOP NOW </a></div>
+<div class="nowspe nowsppe"><a href="<?php echo (strcasecmp($cat_link,'halt')!=0)?$cat_link:'javascript:void(0)'; ?>"> SHOP NOW </a></div>
