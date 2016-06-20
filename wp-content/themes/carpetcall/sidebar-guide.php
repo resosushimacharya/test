@@ -6,7 +6,7 @@
 						
 						foreach($tax_terms as $tax_term)
 						{
-						echo '<li><a href="'.get_term_link($tax_term).'">'.$tax_term->name.'<i class="fa fa-caret-right" aria-hidden="true"></i></li></a>';
+						echo '<li><a href="'.get_term_link($tax_term).'">'.$tax_term->name.'<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
 						}
 
 				?>

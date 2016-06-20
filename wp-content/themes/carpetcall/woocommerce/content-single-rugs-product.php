@@ -100,7 +100,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="cc-related-product-design-section">
 
       <h3>SELECT A DESIGN</h3>
-      <div class="col-md-12">
+      <div class="cc-select-design-pro-all col-md-12">
       <?php 
        $strsizes= array();
            $reqTempTerms=get_the_terms($post->ID,'product_cat');

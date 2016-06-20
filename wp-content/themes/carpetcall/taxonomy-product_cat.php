@@ -21,11 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 <div class="contaniner clearfix">	<div class="inerblock_serc">
-<div class="container">
-<div class="col-md-3 cc-cat-pro-section-left">
-</div>
-<div class="col-md-9 cc-cat-pro-section-right">
-	<?php
+
+<div class="container"><div class="row"><?php
 		/**
 		 * woocommerce_before_main_content hook.
 		 *
@@ -34,6 +31,30 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_before_main_content' );
 	?>
+	<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo single_cat_title('',false).' '.$appafter;?></h3></div>
+	<div class="container">
+<div class="row">
+<?php $term_id =  get_queried_object()->term_id;
+$currentcat = get_queried_object();
+?>
+	<p>
+		<span class="cc-cat-title-count">
+			<?php echo $currentcat->count;?>
+			<?php echo single_cat_title('',false).' '.$appafter;?>
+			Products 
+		</span>
+		<a href="javascript:void(0)">CLEAR ALL</a>
+	</p>
+</div>
+</div>
+
+<div class="col-md-3 cc-cat-pro-section-left">
+<?php get_sidebar('pro-subcategory');?>
+
+
+</div>
+<div class="col-md-9 cc-cat-pro-section-right">
+	
 
 <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 
@@ -49,10 +70,11 @@ get_header( 'shop' ); ?>
 			 $childcats = get_categories('child_of=' . get_queried_object()->term_id . '&hide_empty=1');
 			 //do_action('pr',get_queried_object());
 			 $discats=get_terms(array('parent'=>$term_id,'taxonomy'=>'product_cat'));
+
 			 //do_action('pr',$has_sub_cat);
                             foreach($discats as $discat){
                             	?>
-                          
+                          <div class="row">
                             		<h3><?php woocommerce_page_title();?></h3><br />
                             		<?php
                             	echo '<h3>'.$discat->name.'</h3><br/>';?>
@@ -61,9 +83,9 @@ get_header( 'shop' ); ?>
                             	<?php 
 									$filargs = array(
 													'post_type'=>'product',
-													'posts_per_page'=>'-1',
-													'meta_key'=>'_sale_price',
-													'orderby' => 'meta_value',
+													'posts_per_page'=>'10',
+													/*'meta_key'=>'_sale_price',
+													'orderby' => 'meta_value',*/
 													 'order'     => 'ASC',
 													'tax_query' => array(
 																		array(
@@ -80,12 +102,14 @@ get_header( 'shop' ); ?>
 								if($filloop->have_posts()){
 									while($filloop->have_posts()):
 										$filloop->the_post();
-
+ 										 $feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
 											/*var_dump($filloop->post->ID);*/
 
 
 									?><div class="col-md-4 cc-other-term-pro">
-										<?php the_post_thumbnail();
+									<div class="cc-img-wrapper">
+									<img src="<?php echo $feat_image;?>"/>
+										<?php
 										
 										
 										$woo=get_post_meta($filloop->post->ID);
@@ -95,19 +119,21 @@ get_header( 'shop' ); ?>
 
 
 										?>
+										<a hef="<?php the_permalink();?>" class="cc-pro-view">VIEW</a>
+										</div>
 										</div>
 
 
 								<?php endwhile;?>
                      		<?php 
                      		wp_reset_query(); }?>
+                     		
                      		</div>
-                     		<br>
                      		<?php 
                      	}
 			  ?>
 		
-
+</div>
 		<?php endif; 
 		?>
 		</div></div></div>

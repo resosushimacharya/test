@@ -27,13 +27,17 @@ if ( ! empty( $breadcrumb ) ) {
        global $len; 
        $len =count($breadcrumb);
        $seclast = $len-1;
-      $appafter='';
+       global $appafter;
+       $appafter='';
       
 	foreach ( $breadcrumb as $key => $crumb ) {
   
 		echo $before;
 		if($len>4){
         if(($i!=1) && ($i!=$len)){
+        	if($i==2){
+        		
+        	}
 		if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
 			echo '<a href="' . esc_url( $crumb[1] ) . '" class="breadcrum-link-'.$i.'">' . esc_html( $crumb[0] ) . '</a>';
 		} else {
