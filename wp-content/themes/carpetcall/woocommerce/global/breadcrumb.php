@@ -24,6 +24,7 @@ if ( ! empty( $breadcrumb ) ) {
 
 	echo $wrap_before;
        $i=1;
+       global $len; 
        $len =count($breadcrumb);
        $seclast = $len-1;
       $appafter='';
@@ -53,7 +54,9 @@ else{
 
 if(($i!=1)){
 		if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
-			if($i==$seclast && $len==4){ $appafter = esc_html( $crumb[0] ); 
+			if($i==$seclast && $len==4){
+			 $appafter = esc_html( $crumb[0] ); 
+
 			}
 			echo '<a href="' . esc_url( $crumb[1] ) . '" class="breadcrum-link-'.$i.'">' . esc_html( $crumb[0] ) . '</a>';
 		} else {
@@ -73,6 +76,7 @@ if(($i!=1)){
 }
 
 	}
+
 
 	echo $wrap_after;
 
