@@ -11,4 +11,17 @@
 
 				?>
 </ul>
-<div class="nowspe nowsppe"><a href="#" target="_blank"> SHOP NOW </a></div>
+<?php  
+
+    /**
+    *relate the category guide term to prodcut term
+    */
+   
+    $sourcecat = get_queried_object();
+    $cat_link = 'halt';
+    if(get_term_by('slug',$sourcecat->slug,'product_cat')){
+    $destinationcat=get_term_by('slug',$sourcecat->slug,'product_cat'); 
+    $cat_link = get_category_link($destinationcat->term_id);
+    }
+     ?>
+<div class="nowspe nowsppe"><a href="<?php echo (strcasecmp($cat_link,'halt')!=0)?$cat_link:'#'; ?>"> SHOP NOW </a></div>

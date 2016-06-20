@@ -110,4 +110,6 @@ get_header( 'shop' ); ?>
 
 		<?php endif; 
 		?>
+		</div></div></div>
 
+<?php get_footer();?>
