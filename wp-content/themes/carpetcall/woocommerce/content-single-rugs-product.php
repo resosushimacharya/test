@@ -195,7 +195,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       	<button type="button" class="btn btn-default col-md-12"> Enquiry NOW</button>
       </div>
       <div class="cc-product-ship-free-section col-md-12">
-      <div class="cc-product-ship col-md-6">SHIPPING</div><div class="cc-product-free col-md-6"> FREE DELIVERY</div>
+      <div class="cc-product-ship col-md-6">SHIPPING<i class="fa fa-info-circle" aria-hidden="true"></i></div><div class="cc-product-free col-md-6"> FREE DELIVERY</div>
       </div>
       <div class="cc-product-pick-location-section col-md-12">
       <div class="cc-product-pick col-md-6">PICK UP</div><div class="cc-product-location col-md-6"><button type="button" class="btn btn-default col-md-12"> PICK UP LOCATION</button></div>
