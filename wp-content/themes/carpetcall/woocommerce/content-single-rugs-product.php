@@ -27,7 +27,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 *
 	 * @hooked wc_print_notices - 10
 	 */
-	?><div class="container">
+	?>
+    <div class="container">
 <div class="col-md-12">
 <?php 
 	 do_action( 'woocommerce_before_single_product' );
@@ -46,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 */
 ?>
 <div class="container">
-<div class="col-md-12">
+<div class="col-md-12 no-lr">
 
 <?php /*before-wrapper open  end */  ?>
 <div itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
