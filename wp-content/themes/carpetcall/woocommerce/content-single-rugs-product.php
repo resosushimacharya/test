@@ -103,6 +103,9 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="cc-select-design-pro-all col-md-12">
       <?php 
        $strsizes= array();
+       global $post;
+       $pro_cur_id = $post->ID;
+       
            $reqTempTerms=get_the_terms($post->ID,'product_cat');
 
    
@@ -123,7 +126,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                          <?php   $loop->the_post();
 							
 							//echo '<br>';$post->ID;?>
-							<a href="<?php the_permalink()?>">
+							
+							<a href="<?php the_permalink()?>" class="<?php echo ($pro_cur_id==$post->ID)?'pro-active':'null'?>">
 							<?php the_post_thumbnail( );?>
 							</a>
 							</div>
