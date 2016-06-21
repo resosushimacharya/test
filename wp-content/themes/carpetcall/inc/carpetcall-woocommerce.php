@@ -236,7 +236,7 @@ function woo_new_product_tab_content_care() {?>
 global $post;
 $careins = get_field('care_instructions',$post->ID);
 if(!empty($careins)){
-	echo $careins;
+	echo '<p>'.$careins.'</p>';
 }
 ?>
 
