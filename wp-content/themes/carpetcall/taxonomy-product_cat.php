@@ -37,6 +37,7 @@ get_header( 'shop' ); ?>
 <?php $term_id =  get_queried_object()->term_id;
 $currentcat = get_queried_object();
 ?>
+<div class="col-md-6 pull-left">
 	<p>
 		<span class="cc-cat-title-count">
 			<?php echo $currentcat->count;?>
@@ -45,6 +46,13 @@ $currentcat = get_queried_object();
 		</span>
 		<a href="javascript:void(0)">CLEAR ALL</a>
 	</p>
+	
+</div>
+<div class="col-md-6  ">
+<div class="pull-right cc-product-sort">
+	<?php do_action( 'woocommerce_before_shop_loop' ); ?>
+	</div>
+</div>
 </div>
 </div>
 
@@ -84,8 +92,8 @@ $currentcat = get_queried_object();
 									$filargs = array(
 													'post_type'=>'product',
 													'posts_per_page'=>'10',
-													/*'meta_key'=>'_sale_price',
-													'orderby' => 'meta_value',*/
+													'meta_key'=>'_sale_price',
+													'orderby' => 'meta_value',
 													 'order'     => 'ASC',
 													'tax_query' => array(
 																		array(
@@ -119,7 +127,7 @@ $currentcat = get_queried_object();
 
 
 										?>
-										<a hef="<?php the_permalink();?>" class="cc-pro-view">VIEW</a>
+										<a href ="<?php the_permalink();?>" class="cc-pro-view">VIEW</a>
 										</div>
 										</div>
 
@@ -138,4 +146,26 @@ $currentcat = get_queried_object();
 		?>
 		</div></div></div>
 
+<style>
+.cc-img-wrapper a.cc-pro-view {
+	position:absolute;
+	top:50%;
+	left:50%;
+	/* transform:translate(-50%,-50%); */
+	cursor:pointer;
+
+}
+/* a.cc-pro-view:hover{
+	display:block;
+}
+ */
+.cc-product-sort ul{
+	list-style:none;
+
+}
+.cc-product-sort li{
+	float:left;
+	padding:5px 10px;
+}
+</style>
 <?php get_footer();?>
