@@ -575,8 +575,8 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 		color: #15489f;
 		font-weight:normal;
 		}
-/*................ Inner product start here ...................*/
-.inerblock-sec-prod { margin:145px 0 20px 0; }
+/*................ Inner Featured Product start here ...................*/
+.inerblock-sec-prod-a { margin:145px 0 0px 0; }
 .woocommerce-breadcrumb a.breadcrum-link-2, .woocommerce-breadcrumb a.breadcrum-link-3, .woocommerce-breadcrumb a.breadcrum-link-4, .woocommerce-breadcrumb a.breadcrum-link-5 { font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:none; text-transform:uppercase;}
 .woocommerce .woocommerce-breadcrumb { margin:16px 0 9px 0;}
 .woocommerce-breadcrumb a.breadcrum-link-5 { color:#666; }
@@ -639,7 +639,7 @@ select#cc-size { height:45px; border:1px solid #d1ddf1; background:#e7edf8; font
 .summary.entry-summary .cc-product-pick-location-section { margin:1px 0 0 0;}
 .woocommerce div.product .woocommerce-tabs ul.tabs:before{display: none;}
 .woocommerce div.product .woocommerce-tabs ul.tabs{overflow: visible;border-bottom: 1px solid #d3ced2;padding: 0;font-size: 0}
-.woocommerce div.product .woocommerce-tabs ul.tabs li {border-radius:0; background-color:#FFF; position: relative; border: 0;margin: 0;font-size: 16px;}
+.woocommerce div.product .woocommerce-tabs ul.tabs li {border-radius:0; background-color:#FFF; position: relative; border: 0;margin: 0;font-size: 16px; padding:0 9px;}
 .woocommerce div.product .woocommerce-tabs ul.tabs li:before { display:none;}
 .woocommerce div.product .woocommerce-tabs ul.tabs li:after {     
 	content: '';
@@ -648,11 +648,50 @@ select#cc-size { height:45px; border:1px solid #d1ddf1; background:#e7edf8; font
     width: 100%;
     left: 0;
 	bottom: auto;
-    background: #000;
-    height: 5px;
+    background: #0099ff;
+    height: 6px;
     right: auto;
 	border-radius:0;
 	display:none;
 }
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active a { color:#15479c;}
+.woocommerce div.product .woocommerce-tabs ul.tabs li a { color:#15479c; }
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active:after{display: block}
 .woocommerce div.product .woocommerce-tabs ul.tabs li:hover:after{display: block}
+.woocommerce div.product .woocommerce-tabs .panel { margin:0;}
+.panel { border:0; border-radius:0; -webkit-box-shadow:none; box-shadow:none; outline:none;}
+.detail-heading-item {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15479c; text-transform:uppercase; margin:20px 0 0 0;}
+.panel.entry-content.wc-tab p { font:normal 16px/21px 'proxima_nova_rgregular', sans-serif; color:#333333; }
+ul.specific-list { margin:0; padding:0;}
+ul.specific-list li { list-style:none; display:block; font:normal 16px/26px 'proxima_nova_rgregular', sans-serif; color:#333333;}
+ul.specific-list li span { font-weight:700; color:#333333;}
+.panel.entry-content.wc-tab .panel-default>.panel-heading { background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;}
+.panel.entry-content.wc-tab .panel-default>.panel-heading a{ position: relative;
+    width: 100%;
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #0099ff;
+    font: bold 18px 'proxima_nova_ltsemibold',sans-serif;
+    text-transform: uppercase;}
+.panel.entry-content.wc-tab .panel-default>.panel-heading+.panel-collapse>.panel-body{ padding:0 15px 15px 15px;}
+.panel.entry-content.wc-tab .glyphicon-chevron-down:before{
+		content: '\f107';
+		font-family: FontAwesome;
+		font-size:24px;
+		color: #15489f;
+		font-weight:normal;
+		}
+.panel.entry-content.wc-tab .glyphicon-chevron-up:before{
+		content: '\f106';
+		font-family: FontAwesome;
+		font-size:24px;
+		color: #15489f;
+		font-weight:normal;
+		}
+.panel.entry-content.wc-tab .panel-group .panel-heading+.panel-collapse>.panel-body { border:0; }
+
+
