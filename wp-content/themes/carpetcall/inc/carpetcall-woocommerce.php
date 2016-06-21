@@ -202,6 +202,66 @@ function woo_new_product_tab_content() {?>
     </div>
   </div><?php }?>
   </div>
+     <div class="cont-panl">
+			<div class="panel-group" id="accordion">
+
+					
+					<?php
+					 $sourcecat = get_queried_object();do_action('pr',$sourcecat);
+    $cat_link = 'halt';
+    if(get_term_by('slug',$sourcecat->slug,'product_cat')){
+    $destinationcat=get_term_by('slug',$sourcecat->slug,'product_cat'); 
+    $cat_link = get_category_link($destinationcat->term_id);
+    }
+						/*$tax_terms = get_terms($tax);
+*/
+					 $args=array(
+					'post_type' => 'faqs',
+					"product_cat" => $destinationcat->name,
+					'post_status' => 'publish',
+					'posts_per_page' => -1,
+					'ignore_sticky_posts'=> 1
+					);
+					//echo $tax_term->slug;
+					 $faqcounter = 1;
+					$my_query = null;
+					$my_query = new WP_Query($args);
+					while ($my_query->have_posts()) : $my_query->the_post();
+					
+					?>
+
+                   
+                    
+					<?php 
+
+					//$reqTempTerms=get_the_terms($post->ID,$tax);
+					      ?>
+					      
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $faqcounter;?>">
+          <span class="pull-right glyphicon <?php echo ($faqcounter==1)?'glyphicon-chevron-up':'glyphicon glyphicon-chevron-down'?>"></span>
+          <?php echo the_title();?>
+        </a>
+      </h4>
+    </div>
+    <div id="collapse_<?php echo $faqcounter;?>" class="panel-collapse collapse <?php echo ($faqcounter==1)?'in':'' ;?> ">
+      <div class="panel-body">
+        <?php the_content();?>
+      </div>
+    </div>
+  </div>
+		
+				
+					
+               <?php
+                       $faqcounter++;
+					endwhile;
+					wp_reset_query();
+					?>
+					
+				</div></div>
   <div class="">
   	<p>For more answers to your questions,please refer to our <a href="">RUGS FAQ page</a></p>
   </div>

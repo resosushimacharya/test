@@ -42,13 +42,7 @@ echo $termname;
             <div class="cont-panl">
 			<div class="panel-group" id="accordion">
 
-					<?php while(have_posts()):
-the_post();
-the_title();
-the_content();
-
-endwhile;
-?>
+					
 					<?php
 						$tax_terms = get_terms($tax);
 

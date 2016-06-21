@@ -117,7 +117,7 @@ if ( ! defined( 'ABSPATH' ) ) {
               if(count($has_sub_cat)==0){
 						$current_post_term_id = $cat->term_id;
 						wp_reset_query();
-						$args = array('post_type'=>'product','posts_per_pages'=>'4',
+						$args = array('post_type'=>'product','posts_per_page'=>'10',
 							'taxonomy'=>'product_cat','term'=>$cat->slug);
 						$loop = new WP_Query($args);
 						$i=0;
