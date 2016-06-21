@@ -308,9 +308,9 @@ if(!empty($d3)){
 if(!empty($d4)){
 echo '<p>'.$d4.'</p>';
 }
-		echo '<h2 class="detail-heading-item">SPECIFICATIONS</h2>';?>
+		echo '<h3 class="detail-heading-item">SPECIFICATIONS</h3>';?>
 
-		<ul>
+		<ul class="specific-list">
 		<?php if(!empty($yarn)){?>
 		<li>YARN TYPE: <?php echo $yarn; ?></li><?php }?>
 		<?php if(!empty($length) && !empty($width) && !empty($height)) {?>
@@ -437,4 +437,21 @@ add_filter( 'woocommerce_get_price_html', 'sv_change_product_price_display' );
 remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
 remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
 add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 50;' ), 20 );
+/**Modify the default WooCommerce orderby dropdown
 
+/* Options: menu_order, popularity, rating, date, price, price-desc
+/* In this example I'm removing price & price-desc but you can remove any of the options
+*/
+function patricks_woocommerce_catalog_orderby( $orderby ) {
+	unset($orderby["rating"]);
+	unset($orderby["date"]);
+	unset($orderby["menu_order"]);
+	$orderby['popularity']="Popularity";
+	 $orderby['price'] ="Low to High";
+    $orderby['price-desc'] = "High to Low";
+//do_action('pr',$orderby);
+	return $orderby;
+
+	
+}
+add_filter( "woocommerce_catalog_orderby", "patricks_woocommerce_catalog_orderby", 20 );
