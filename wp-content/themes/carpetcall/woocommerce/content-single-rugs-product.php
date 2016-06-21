@@ -319,8 +319,9 @@ wrapper close start */?>
                     <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
                     <div class="mero_itemss">
                       		<div class="proabtxt">
-					<h4><?php
-					the_title();?></h4><?php 
+					<h4>
+					<?php echo $term->name;?>
+					</h4><?php 
 
 					$reqTempTerms=get_the_terms($post->ID,'product_cat');
 					
