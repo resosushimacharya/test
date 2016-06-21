@@ -122,12 +122,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 						$loop = new WP_Query($args);
 						$i=0;
 						while($loop->have_posts())
-						{?><div class="select-design-product-image">
+						{?><div class="select-design-product-image <?php echo ($pro_cur_id==$post->ID)?'pro-active':null;?>">
                          <?php   $loop->the_post();
 							
 							//echo '<br>';$post->ID;?>
 							
-							<a href="<?php the_permalink()?>" class="<?php echo ($pro_cur_id==$post->ID)?'pro-active':null;?>">
+							<a href="<?php the_permalink()?>" class="">
 							<?php the_post_thumbnail( );?>
 							</a>
 							</div>
