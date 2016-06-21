@@ -210,7 +210,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * @hooked woocommerce_upsell_display - 15
 		 * @hooked woocommerce_output_related_products - 20
 		 */
+		remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products',20);
 		do_action( 'woocommerce_after_single_product_summary' );
+		add_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products',20);
+
 		//woocommerce_output_product_data_tabs();
 		
 		// as per design , this section appears in [] page
@@ -226,11 +229,13 @@ wrapper close start */?>
 </div></div>
 <?php /* before-wrapper close end*/?>
 <?php do_action( 'woocommerce_after_single_product' ); ?>
-<div class="container clearfix">
-<div class="inerblock_serc">
-<div class="col-md-12"><h3 style="text-align:center">YOU MAY ALSO LIKE</h3></div>
-<div class="col-md-12">
-<?php               wp_reset_query();
+
+ <div class="inerblock_sec_a">
+
+    <div class="container clearfix you_may_link_cntr">
+        <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
+
+		<?php               wp_reset_query();
 
 
 
@@ -264,7 +269,7 @@ wrapper close start */?>
 							
 							$has_sub_cat=get_terms(array('parent'=>$term->term_id,'taxonomy'=>'product_cat'));
 								if(count($has_sub_cat)==0){
-                                        if($i<=3){
+                                        
 									//do_action('pr',$term);
                                         	
 									$filargs = array(
@@ -286,97 +291,38 @@ wrapper close start */?>
 								$filloop = new WP_Query($filargs);
 								 //do_action('pr',$filloop);
 								$hold = 1;
+
 								if($filloop->have_posts()){
+									if($i<=3){
+									$i++;
+
+                     				}
+                     				else{
+                     					break;
+                     				}
 									while($filloop->have_posts()):
 										$filloop->the_post();
 
 											/*var_dump($filloop->post->ID);*/
-
-
-									?><div class="col-md-4 cc-other-term-pro">
-										<?php the_post_thumbnail();
-										
-										
-										$woo=get_post_meta($filloop->post->ID);
-										//do_action('pr',$woo);
-					                     // echo $post->ID;
-										echo '<h3>'.$term->name.'</h3>';
-										echo "<h5>FROM A$".$woo['_sale_price'][0].'</h5>';
-
-
-										?>
-										</div>
-
-
-								<?php endwhile;?>
-                     		<?php 
-                     		wp_reset_query(); }
-                     		
-							$i++;
-                     				}
-								}
-
-
-							
-                    
-
-						}
-
-
-					}
-			
-
- ?>
-
-
-
-</div>
-
-<div class="col-md-12">
-
-
-<?php
-$tax = 'product_cat';
-
-
-						$tax_terms = get_terms($tax);
-
-					 $args=array(
-					'post_type' => 'product',
-					
-					'post_status' => 'publish',
-					'posts_per_page' => -1,
-					'ignore_sticky_posts'=> 1
-					);
-					//echo $tax_term->slug;
-					$my_query = null;
-					$my_query = new WP_Query($args);
-					while ($my_query->have_posts()) : $my_query->the_post();
-					$woo=get_post_meta($post->ID);
+											$woo=get_post_meta($post->ID);
 					
 					$price=$woo['_regular_price'][0];
 					
 					
 					$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-					
-					/*if(!empty(unserialize($woo['_product_attributes'][0])))
-				$prounits=unserialize($woo['_product_attributes'][0]);*/
-				
-				if(isset($prounits['size']['value'])){
-					$prounit=$prounits['size']['value'];
-				}
-               ?>
-                     <?php  if($woo['_featured'][0]=='yes'){ ?>
-                   <div class="col-md-4">
-                  
+
+
+									?> <div class="col-md-4">
+                  		<div class="pro_secone">
                   		<div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div>
                   
                     <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
-                    <div class="sublk_prom">
-                      		<div class="ptxt">
-					<h3><?php
-					the_title();?></h3><?php 
+                    <div class="mero_itemss">
+                      		<div class="proabtxt">
+					<h4><?php
+					the_title();?></h4><?php 
 
+					$reqTempTerms=get_the_terms($post->ID,'product_cat');
 					
 
 					
@@ -390,12 +336,30 @@ $tax = 'product_cat';
                            
                       </div>
                       </div>
-                      <?php }?>
-					
-               <?php
+                      </div>
 
-					endwhile;
-					wp_reset_query();
-					?><div class="clearfix"></div>
-					</div></div>
-					</div>
+
+								<?php endwhile;?>
+                     		<?php 
+                     		wp_reset_query(); }
+                     		
+							
+								}
+
+
+							
+                    
+
+						}
+
+
+					}
+			
+
+ ?>
+<div class="clearfix"></div>
+					
+                    
+    </div>
+    </div><!-- step three end here --------->
+
