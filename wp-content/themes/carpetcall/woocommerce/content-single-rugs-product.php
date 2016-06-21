@@ -127,7 +127,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							
 							//echo '<br>';$post->ID;?>
 							
-							<a href="<?php the_permalink()?>" class="<?php echo ($pro_cur_id==$post->ID)?'pro-active':'null'?>">
+							<a href="<?php the_permalink()?>" class="<?php echo ($pro_cur_id==$post->ID)?'pro-active':null;?>">
 							<?php the_post_thumbnail( );?>
 							</a>
 							</div>
