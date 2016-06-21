@@ -312,13 +312,13 @@ echo '<p>'.$d4.'</p>';
 
 		<ul class="specific-list">
 		<?php if(!empty($yarn)){?>
-		<li>YARN TYPE: <?php echo $yarn; ?></li><?php }?>
+		<li><span>YARN TYPE: </span><?php echo $yarn; ?></li><?php }?>
 		<?php if(!empty($length) && !empty($width) && !empty($height)) {?>
-		<li>SIZE:<?php echo $length.'cm x '.$width." ".$height;?> 
+		<li><span>SIZE: </span><?php echo $length.'cm x '.$width." ".$height;?> 
 		</li>
 		<?php }?>
 		<?php if(!empty($weight)){?>
-		<li>Weight:<?php echo $weight." kg"; ?> </li>
+		<li><span>Weight: </span><?php echo $weight." kg"; ?> </li>
 		<?php }?>
 		</ul>
 		<?php 
