@@ -611,8 +611,9 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .summary.entry-summary .col-md-12 .select-design-product-image:nth-child(9) { width:18%; margin:0 10px 10px 0; float:left; text-decoration:none;}
 .summary.entry-summary .col-md-12 .select-design-product-image:nth-child(10) { width:17.9%; margin:0 0 10px 0; float:left; text-decoration:none;}
 */
-.summary.entry-summary .col-md-12 .select-design-product-image{width: 20%;float: none;display: inline-block;padding:5px; vertical-align:top; position:relative;}
-.summary.entry-summary .col-md-12 .select-design-product-image:after { content:''; position:absolute; width:100%; height:100%; border:5px solid #0099ff; border-radius:3px; top:0; left:0; display:none;}
+.summary.entry-summary .col-md-12 .select-design-product-image{width: 20%;float: none;display: inline-block;padding:5px; vertical-align:top; position:relative;z-index: 10;}
+.summary.entry-summary .col-md-12 .select-design-product-image:after { content:''; position:absolute; width:100%; height:100%; border:5px solid #0099ff; border-radius:3px; top:0; left:0; display:none; z-index:-1;}
+.summary.entry-summary .col-md-12 .select-design-product-image a{position: relative;z-index: 11;}
 .summary.entry-summary .col-md-12 .select-design-product-image:hover:after { display:block;}
 .cc-size-quantity-section .cc-size-section h3{font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin:9px 0 16px 0; }
 select#cc-size { height:45px; border:1px solid #d1ddf1; background:#e7edf8; font-size:16px; color:#1858b8; font-weight:700; width:84.7%; -webkit-appearance:none; -moz-appearance:none; appearance:none; background-image:url(../images/icon.jpg); background-repeat:no-repeat; background-position:100% 0%;}
@@ -661,7 +662,7 @@ select#cc-size { height:45px; border:1px solid #d1ddf1; background:#e7edf8; font
 .woocommerce div.product .woocommerce-tabs .panel { margin:0;}
 .panel { border:0; border-radius:0; -webkit-box-shadow:none; box-shadow:none; outline:none;}
 .detail-heading-item {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15479c; text-transform:uppercase; margin:20px 0 0 0;}
-.panel.entry-content.wc-tab p { font:normal 16px/21px 'proxima_nova_rgregular', sans-serif; color:#333333; }
+.panel.entry-content.wc-tab p { font:normal 16px/21px 'proxima_nova_rgregular', sans-serif; color:#333333; margin:13px 0;}
 ul.specific-list { margin:0; padding:0;}
 ul.specific-list li { list-style:none; display:block; font:normal 16px/26px 'proxima_nova_rgregular', sans-serif; color:#333333;}
 ul.specific-list li span { font-weight:700; color:#333333;}
