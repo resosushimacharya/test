@@ -21,9 +21,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?> 
 <div class="contaniner clearfix">
-<div class="inerblock-sec-prod">
-<div class="container">
-<div class="col-md-12 no-pl">
+	<div class="inerblock-sec-prod-a">
+		<div class="container">
+			<div class="col-md-12 no-pl">
 	<?php
 		/**
 		 * woocommerce_before_main_content hook.
@@ -33,7 +33,8 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_before_main_content' );
 	?>
-</div></div>
+			</div>
+		</div>
 		<?php while ( have_posts() ) : the_post(); ?>
                 <?php  
                    $reqTempTerms=get_the_terms($post->ID,'product_cat');
@@ -41,16 +42,21 @@ get_header( 'shop' ); ?>
                  
                 if($reqTempTerms){
                    foreach($reqTempTerms as $cat){
-                   	
-                   		if($cat->term_taxonomy_id==326){
-                   		wc_get_template_part( 'content', 'single-rugs-product' );
-                   	}
-                   	else{
-                   		wc_get_template_part( 'content', 'single-hard-flooring-product');
+                   	  
+                   		if($cat->parent==0){
+                   			
+                   			if(strcasecmp($cat->slug, 'rugs')==0){
+                   				wc_get_template_part( 'content', 'single-rugs-product' );
+                   			}
                    		
+                   	
+                   			if(strcasecmp($cat->slug, 'hard-flooring')==0){
+                   				wc_get_template_part( 'content', 'single-hard-flooring-product' );
+                   			}
+                   		
+                   		}
                    	}
-                   
-                   }}
+               	}
                  ?>
 			
 
@@ -62,7 +68,7 @@ get_header( 'shop' ); ?>
 		 *
 		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
 		 */
-		do_action( 'woocommerce_after_main_content' );
+		//do_action( 'woocommerce_after_main_content' );
 	?>
 
 	<?php
@@ -71,7 +77,7 @@ get_header( 'shop' ); ?>
 		 *
 		 * @hooked woocommerce_get_sidebar - 10
 		 */
-		do_action( 'woocommerce_sidebar' );
+		//do_action( 'woocommerce_sidebar' );
 	?>
 </div></div>
 <?php get_footer( 'shop' ); ?>
