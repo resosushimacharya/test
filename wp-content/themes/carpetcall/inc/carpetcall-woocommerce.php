@@ -184,44 +184,23 @@ function woo_new_product_tab_content() {?>
 
 
 
-	   <div class="panel-group" id="accordion">
-      <?php for($faqcounter=1;$faqcounter<=4;$faqcounter++){?>
-      <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $faqcounter;?>">
-          <span class="pull-right glyphicon <?php echo ($faqcounter==1)?'glyphicon-chevron-up':'glyphicon glyphicon-chevron-down'?>"></span>
-         <?php echo "FAQ".$faqcounter;?>
-        </a>
-      </h4>
-    </div>
-    <div id="collapse_<?php echo $faqcounter;?>" class="panel-collapse collapse <?php echo ($faqcounter==1)?'in':'' ;?> ">
-      <div class="panel-body">
-        <?php echo "FAQ".$faqcounter."content" ;?>
-      </div>
-    </div>
-  </div><?php }?>
-  </div>
      <div class="cont-panl">
 			<div class="panel-group" id="accordion">
 
 					
 					<?php
-					 $sourcecat = get_queried_object();do_action('pr',$sourcecat);
-    $cat_link = 'halt';
-    if(get_term_by('slug',$sourcecat->slug,'product_cat')){
-    $destinationcat=get_term_by('slug',$sourcecat->slug,'product_cat'); 
-    $cat_link = get_category_link($destinationcat->term_id);
-    }
+					global $post;
+				$procats=get_the_terms($post->ID,'product_cat');
 						/*$tax_terms = get_terms($tax);
-*/
-					 $args=array(
-					'post_type' => 'faqs',
-					"product_cat" => $destinationcat->name,
-					'post_status' => 'publish',
-					'posts_per_page' => -1,
-					'ignore_sticky_posts'=> 1
-					);
+*/                     foreach($procats as $pc){
+						if($pc->parent==0){
+							$cat_name = $pc->slug;
+
+						}
+					}
+					$args = array('post_type'=>'faqs','posts_per_page'=>'10',
+							'taxonomy'=>'faq','term'=>$cat_name);
+					
 					//echo $tax_term->slug;
 					 $faqcounter = 1;
 					$my_query = null;
