@@ -23,15 +23,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php $old_query_or_uri=$_SERVER['REQUEST_URI'];?>
 <ul>
 <li><span class="cc-count-label">Sort by:</span></li><?php  foreach ( $catalog_orderby_options as $id => $name ) : ?>
-	<li><?php 
-$new_url=add_query_arg( 
+	<?php 
+	
+	 $urlstore = explode('=',$old_query_or_uri);
+	 $urllen = count($urlstore);
+     $new_url=add_query_arg( 
 		    array( 
 		        'orderby' =>esc_attr( $id ),	       
 		        
 		    ), 
 		    $old_query_or_uri
 		);
-	?>
+	?><li <?php echo ($urllen==1 && strcasecmp(esc_attr( $id ),'popularity')==0)?'class="cc-count-active"':
+   (strcasecmp(esc_attr( $id ),$urlstore[1])==0)?'class="cc-count-active"':null
+	; ?>>
 		<a href="<?php echo $new_url ;?>"><?php echo esc_html( $name ); ?></a>
 	</li>
 	<?php endforeach; ?>
