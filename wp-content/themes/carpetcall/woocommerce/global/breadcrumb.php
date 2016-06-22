@@ -64,7 +64,7 @@ if(($i!=1)){
 			}
 			echo '<a href="' . esc_url( $crumb[1] ) . '" class="breadcrum-link-'.$i.'">' . esc_html( $crumb[0] ) . '</a>';
 		} else {
-			echo esc_html( $crumb[0] ).' '.$appafter;
+			echo esc_html( $crumb[0] ).' '.'<span class="cc-product-term">'.$appafter.'</span>';
 		}
 
 		echo $after;
