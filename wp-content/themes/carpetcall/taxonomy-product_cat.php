@@ -51,7 +51,7 @@ $currentcat = get_queried_object();
 			<?php echo single_cat_title('',false).' '.$appafter;?>
 			Products 
 		</span>
-		<a href="javascript:void(0)">CLEAR ALL</a>
+		<span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span>
 	</p>
 	
 </div>
