@@ -22,11 +22,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <?php $old_query_or_uri=$_SERVER['REQUEST_URI'];?>
 <ul>
-<li><span class="cc-count-label">Sort by:</span></li><?php  foreach ( $catalog_orderby_options as $id => $name ) : ?>
+<li><span class="cc-count-label">Sort by:</span></li><?php  $urlstore = explode('=',$old_query_or_uri);
+ $urllen = count($urlstore);
+ if(count($urlstore)==1){
+ 	$urlstore[1]="hey";
+ }
+ foreach ( $catalog_orderby_options as $id => $name ) : ?>
 	<?php 
 	
-	 $urlstore = explode('=',$old_query_or_uri);
-	 $urllen = count($urlstore);
+	
+	
      $new_url=add_query_arg( 
 		    array( 
 		        'orderby' =>esc_attr( $id ),	       

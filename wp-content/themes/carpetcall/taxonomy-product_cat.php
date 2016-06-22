@@ -77,23 +77,23 @@ $currentcat = get_queried_object();
 			
 			
 			<?php 
-			// echo single_cat_title("",false) ;
+			
 			 global $wp_query;
-			 //do_action('pr',$wp_query);
-			// do_action('pr',$wp_query->posts);
+		
 			 $term_id =  get_queried_object()->term_id;
 
-			// $childcats = get_categories('child_of=' . get_queried_object()->term_id . '&hide_empty=1');
-			 //do_action('pr',get_queried_object());
+			 do_action('pr',get_queried_object());
 			 $discats=get_terms(array('parent'=>$term_id,'taxonomy'=>'product_cat'));
-
-			 //do_action('pr',$has_sub_cat);
+                            
+				$loopcounter = 0;
                             foreach($discats as $discat){
+                            	$loopcounter++;
                             	?>
                           <div class="row">
                             		<div class="col-md-6"><h3><?php woocommerce_page_title();?></h3><br />
                             		<?php
-                            	echo '<h3>'.$discat->name.'</h3><br/>';?>
+                            	echo '<h3>'.$discat->name.'</h3><br/>';
+                            	echo $term_id; ?>
                             	</div>
                             
                             	
@@ -118,6 +118,7 @@ $currentcat = get_queried_object();
 									 $pch = 1;
 								$filloop = new WP_Query($filargs);
 									$hold = 1;
+
 								if($filloop->have_posts()){
 									while($filloop->have_posts()):
 										$filloop->the_post();
@@ -157,7 +158,8 @@ $currentcat = get_queried_object();
                      		<?php 
                      	}
 			  ?>
-		
+		<input type="button" name="cc_load_more" id ="cc_load_more" value="load more"/>
+		<input type="hidden" id="cc_count" value="<?php echo $loopcounter ;?>"></div>
 </div>
 		<?php endif; 
 		?>

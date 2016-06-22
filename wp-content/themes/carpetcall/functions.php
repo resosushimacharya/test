@@ -443,7 +443,7 @@ function aits_wpsl_columns_filter( $columns ) {
   * code reference : https://goo.gl/ZgIzk8
 */
 include_once TEMPLATEPATH . "/inc/carpetcall-tax-radiometabox.php";
-
+include_once  TEMPLATEPATH . "/inc/woocommerce-load.php";
 // include script in admin to set State value
 add_action( 'admin_enqueue_scripts', 'aits_wpsl_admin_script', 11 );
 add_action( 'admin_enqueue_scripts', 'aits_wpsl_admin_script', 11 );
