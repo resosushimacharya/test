@@ -20,8 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?>
-<div class="contaniner clearfix">	<div class="inerblock_serc">
-<div class="container-fluid"><div class="container">
+<div class="contaniner clearfix">	<div class="inerblock_seC_mrugss">
+<div class="container-fluid mmrugm"><div class="container">
 <?php
 		/**
 		 * woocommerce_before_main_content hook.
