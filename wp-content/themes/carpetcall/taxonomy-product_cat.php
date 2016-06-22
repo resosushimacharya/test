@@ -51,7 +51,7 @@ $currentcat = get_queried_object();
 <div class="col-md-6  ">
 <div class="pull-right cc-product-sort">
 	<?php do_action( 'woocommerce_before_shop_loop' ); ?>
-	</div>
+	 </div>
 </div>
 </div>
 </div>
@@ -75,7 +75,7 @@ $currentcat = get_queried_object();
 			// do_action('pr',$wp_query->posts);
 			 $term_id =  get_queried_object()->term_id;
 
-			 $childcats = get_categories('child_of=' . get_queried_object()->term_id . '&hide_empty=1');
+			// $childcats = get_categories('child_of=' . get_queried_object()->term_id . '&hide_empty=1');
 			 //do_action('pr',get_queried_object());
 			 $discats=get_terms(array('parent'=>$term_id,'taxonomy'=>'product_cat'));
 
@@ -83,17 +83,19 @@ $currentcat = get_queried_object();
                             foreach($discats as $discat){
                             	?>
                           <div class="row">
-                            		<h3><?php woocommerce_page_title();?></h3><br />
+                            		<div class="col-md-6"><h3><?php woocommerce_page_title();?></h3><br />
                             		<?php
                             	echo '<h3>'.$discat->name.'</h3><br/>';?>
+                            	</div>
                             
                             	
                             	<?php 
+
 									$filargs = array(
 													'post_type'=>'product',
 													'posts_per_page'=>'10',
 													'meta_key'=>'_sale_price',
-													'orderby' => 'meta_value',
+													'orderby' => 'meta_value_num',
 													 'order'     => 'ASC',
 													'tax_query' => array(
 																		array(
@@ -105,6 +107,7 @@ $currentcat = get_queried_object();
 																
 													);
 									 wp_reset_postdata();
+									 $pch = 1;
 								$filloop = new WP_Query($filargs);
 									$hold = 1;
 								if($filloop->have_posts()){
@@ -113,6 +116,12 @@ $currentcat = get_queried_object();
  										 $feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
 											/*var_dump($filloop->post->ID);*/
 
+                                          if($pch==1){
+                                             $res = get_post_meta($post->ID ,'_sale_price',true);
+                                             echo '<div class="col-md-6">From A$'.$res.'</div></div> <div class="row">';
+
+                                             $pch++;
+                                          }
 
 									?><div class="col-md-4 cc-other-term-pro">
 									<div class="cc-img-wrapper">
