@@ -1,4 +1,3 @@
-
 <div style="overflow:hidden;height:259px;width:100%;background-image: url(<?php echo get_template_directory_uri(); ?>/images/map-content.png); background-repeat:no-repeat; background-size:contain; background-position:50% 50%;">
     <div class="map_img"  style=""></div>
 <div id="gmap" style="position:relative;height: 500px; width:100%;top:-120px;background-color: transparent;"></div>
@@ -28,42 +27,44 @@ while($loop->have_posts()):
    wp_reset_query();
   // do_action('pr',$locState);
 //starts from here 
-$posts = get_posts('post_type=wpsl_stores&wpsl_store_category=nsw'); 
+$posts = get_posts('post_type=wpsl_stores&wpsl_store_category=nsw&posts_per_page=-1'); 
     $count = count($posts); 
+
    //$countNSW = $query->found_posts;
    $locState[] = array('NSW, AUSTRALIA',$count);
    wp_reset_postdata();
-$posts = get_posts('post_type=wpsl_stores&wpsl_store_category=sa'); 
+$posts = get_posts('post_type=wpsl_stores&wpsl_store_category=sa&posts_per_page=-1'); 
     $count = count($posts); 
 
  $locState[] = array('SA, AUSTRALIA',$count);
  wp_reset_postdata();
- $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=tas'); 
+ $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=tas&posts_per_page=-1'); 
     $count = count($posts); 
 
  $locState[] = array('TAS, AUSTRALIA',$count);
  wp_reset_postdata();
- $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=vic'); 
+ $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=vic&posts_per_page=-1'); 
     $count = count($posts); 
+
    //$countNSW = $query->found_posts;
    $locState[] = array('VIC, AUSTRALIA',$count);
    wp_reset_postdata();
-$posts = get_posts('post_type=wpsl_stores&wpsl_store_category=qld'); 
+$posts = get_posts('post_type=wpsl_stores&wpsl_store_category=qld&posts_per_page=-1'); 
     $count = count($posts); 
 
  $locState[] = array('QLD, AUSTRALIA',$count);
  wp_reset_postdata();
- $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=wa'); 
+ $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=wa&posts_per_page=-1'); 
     $count = count($posts); 
 
  $locState[] = array('WA, AUSTRALIA',$count);
  wp_reset_postdata();
- $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=act'); 
+ $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=act&posts_per_page=-1'); 
     $count = count($posts); 
 
  $locState[] = array('ACT, AUSTRALIA',$count);
  wp_reset_postdata();
-  $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=nt'); 
+  $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=nt&posts_per_page=-1'); 
     $count = count($posts); 
 
  $locState[] = array('NT, AUSTRALIA',$count);
@@ -419,7 +420,7 @@ function deg2rad(deg) {
     function geocodeAddress(locations, i, urlstore) {
         var title = locations[i][0];
         var address = locations[i][1];
-		//alert(urlstore);
+        //alert(urlstore);
         geocoder.geocode({
             'address': locations[i][1]
         },

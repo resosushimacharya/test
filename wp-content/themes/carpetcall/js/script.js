@@ -86,3 +86,8 @@ $(window).scroll(function(event) {
     jQuery('#after_dropdown').hide();
     $('.storefinder_cntr').removeClass('click-open');
 });
+jQuery(window).load(function() {
+
+     $('#tag-description').remove();
+
+});

@@ -33,7 +33,7 @@ register_taxonomy($catreg,array($posttype), array(
 'rewrite' => array( 'slug' => $catreg ),
 ));
 }
-add_action('admin_init','add_category_once');
+//add_action('admin_init','add_category_once');
 function add_category_once(){
 ///////////////////// Create Main Category /////////////////////////
 	 $rootcats = array(
@@ -181,3 +181,27 @@ array(
 );
 }
 }
+
+ add_action( 'admin_footer-edit-tags.php', 'cc_remove_description' );
+
+function cc_remove_description(){
+    global $current_screen;
+    switch ( $current_screen->id ) 
+    {
+        case 'edit-product_cat':?>
+            // WE ARE AT /wp-admin/edit-tags.php?taxonomy=category
+            <script type="text/javascript">
+    jQuery(document).ready( function($) {
+        $('#tag-description').parent().hide();
+    });
+    </script>
+          <?php
+        case 'edit-post_tag':
+            
+            break;
+    }
+    ?>
+  
+    <?php
+}
+
