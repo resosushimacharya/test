@@ -182,9 +182,9 @@ array(
 }
 }
 
- add_action( 'admin_footer-edit-tags.php', 'cc_remove_description' );
+ add_action( 'admin_footer-edit-tags.php', 'cc_remove_cat_description' );
 
-function cc_remove_description(){
+function cc_remove_cat_description(){
     global $current_screen;
     switch ( $current_screen->id ) 
     {
@@ -196,12 +196,42 @@ function cc_remove_description(){
     });
     </script>
           <?php
-        case 'edit-post_tag':
-            
-            break;
+        case 'edit-post_tag':?>
+             <script type="text/javascript">
+    jQuery(document).ready( function($) {
+        $('#tag-description').parent().remove();
+    });
+    </script>
+            <?php break;
     }
     ?>
   
     <?php
 }
-
+add_action('admin_footer-term.php','cc_remove_term_description');
+function cc_remove_term_description(){
+ global $current_screen;
+ echo '<pre>';
+ /*var_dump($current_screen); */
+ echo 'hello'.$current_screen->id;
+ switch($current_screen->id){
+         
+    case 'edit-product_cat':
+    ?><script type="text/javascript">
+    jQuery(document).ready( function($) {
+        $('#description').parent().remove();
+        $('.term-description-wrap').remove();
+    });
+    </script><?php 
+    break;
+ }
+  
+  /*switch ( $current_screen->id ) {
+     
+      case 'edit-product_cat':
+  }*/  
+}
+/**
+ * Remove default description column from category
+ *
+ */
