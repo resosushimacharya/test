@@ -21,8 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 <div class="contaniner clearfix">	<div class="inerblock_serc">
-
-<div class="container"><div class="row"><?php
+<div class="container-fluid"><div class="container">
+<?php
 		/**
 		 * woocommerce_before_main_content hook.
 		 *
@@ -31,7 +31,15 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_before_main_content' );
 	?>
-	<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo single_cat_title('',false).' '.$appafter;?></h3></div>
+	<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo single_cat_title('',false).' '.$appafter;?></h3>
+    </div></div>
+    
+    
+    
+<div class="container">
+
+    
+    
 	<div class="container">
 <div class="row">
 <?php $term_id =  get_queried_object()->term_id;

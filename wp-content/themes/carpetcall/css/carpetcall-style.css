@@ -68,7 +68,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 
 
 
-.wrapper, .banner, .tstore, .cartblk, .calus, .wellblk, .crpchoose, .rtfloblk, .crptslide, .pont, .mystor, .expert, .footer_c, .sor_blk, .againlt, .fot_cpy, .limblk, .rugpro_blk, .rugspro_blk, .rug_size, .carpetcall_slide, .parcel_blk, .feature_pro, .trade, .cbg_blk { padding:0; }
+.wrapper, .banner, .tstore, .cartblk, .calus, .wellblk, .crpchoose, .rtfloblk, .crptslide, .pont, .mystor, .expert, .footer_c, .sor_blk, .againlt, .fot_cpy, .limblk, .rugpro_blk, .rugspro_blk, .rug_size, .carpetcall_slide, .parcel_blk, .feature_pro, .trade, .cbg_blk, .modernrugs_sec { padding:0; }
 
 
 
@@ -611,8 +611,9 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .summary.entry-summary .col-md-12 .select-design-product-image:nth-child(9) { width:18%; margin:0 10px 10px 0; float:left; text-decoration:none;}
 .summary.entry-summary .col-md-12 .select-design-product-image:nth-child(10) { width:17.9%; margin:0 0 10px 0; float:left; text-decoration:none;}
 */
-.summary.entry-summary .col-md-12 .select-design-product-image{width: 20%;float: none;display: inline-block;padding:5px; vertical-align:top; position:relative;z-index: 10;}
+.summary.entry-summary .col-md-12 .select-design-product-image{width: 20%;float: none;display: inline-block;padding:5px; vertical-align:top; position:relative; z-index: 10;}
 .summary.entry-summary .col-md-12 .select-design-product-image:after { content:''; position:absolute; width:100%; height:100%; border:5px solid #0099ff; border-radius:3px; top:0; left:0; display:none; z-index:-1;}
+.summary.entry-summary .col-md-12 .select-design-product-image.pro-active::after {display: block;}
 .summary.entry-summary .col-md-12 .select-design-product-image a{position: relative;z-index: 11;}
 .summary.entry-summary .col-md-12 .select-design-product-image:hover:after { display:block;}
 .cc-size-quantity-section .cc-size-section h3{font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin:9px 0 16px 0; }
@@ -695,4 +696,7 @@ ul.specific-list li span { font-weight:700; color:#333333;}
 		}
 .panel.entry-content.wc-tab .panel-group .panel-heading+.panel-collapse>.panel-body { border:0; }
 
-
+/*....... Modern Rugs start here ..................*/
+.modernrugs_sec{ margin:145px 0 20px 0;}
+.mrugs-top { background:#e6e6e6; }
+.mrug_title_show { margin:15px 0 15px 0; }
