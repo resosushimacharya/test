@@ -40,12 +40,11 @@ get_header( 'shop' ); ?>
 
     
     
-	<div class="container">
-<div class="row">
+<div class="tophead_sec col-md-12 no-lr">
 <?php $term_id =  get_queried_object()->term_id;
 $currentcat = get_queried_object();
 ?>
-<div class="col-md-6 pull-left">
+<div class="rugm-blk col-md-6 no-pl">
 	<p>
 		<span class="cc-cat-title-count">
 			<?php echo $currentcat->count;?>
@@ -56,13 +55,13 @@ $currentcat = get_queried_object();
 	</p>
 	
 </div>
-<div class="col-md-6  ">
+<div class="col-md-6 no-pr">
 <div class="pull-right cc-product-sort">
 	<?php do_action( 'woocommerce_before_shop_loop' ); ?>
 	 </div>
 </div>
 </div>
-</div>
+
 
 <div class="col-md-3 cc-cat-pro-section-left">
 <?php get_sidebar('pro-subcategory');?>
