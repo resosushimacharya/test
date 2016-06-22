@@ -705,3 +705,26 @@ section#main { margin:18px 0 19px 0;}
 .inerblock_seC_mrugss h3 {margin-top:3px;}
 .tophead_sec { margin:20px 0 8px 0; border-bottom:1px solid #efefef; padding-bottom:4px;}
 .rugm-blk p { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase;}
+.cc-count-clear a {font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; text-decoration:underline;}
+.cc-count-clear a:hover { color:#333; text-decoration:none;}
+.cc-count-label {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666;}
+
+.cc-product-sort li { list-style:none; display:inline-block;}
+.cc-product-sort li a {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-decoration:none; border-bottom:3px solid #0099ff;}
+.cc-product-sort li a:hover {border-bottom:3px solid #15489f; cursor:pointer;}
+.cc-cat-pro-section-left.col-md-3.no-lr { width:23.5%;}
+.cc-pro-sub-cat-ul.guide_list_cbg h3 {font:bold 16px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; border:0;}
+.cc-color-var-section h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-decoration:none; border-bottom:1px solid #efefef; padding-bottom:10px; margin:0 0 6px 0; width:100%; text-transform:none;}
+.panel-group.cc-color-var .panel-default>.panel-heading { background-color:#FFF; padding:10px 0; }
+.glyphicon-chevron-up:before {
+	content:'\f106';
+		font-family: FontAwesome;
+		font-size:16px;
+		color: #0099ff;
+		font-weight:normal;
+
+}
+.panel-title>a {font:bold 16px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none; margin-left:16px;}
+a.pull-right { font:normal 10px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-transform:uppercase; text-decoration:underline; margin-top:4px; }
+a.pull-right:hover { color:#000; text-decoration:none;}
+.panel-group .panel-heading+.panel-collapse>.panel-body { border:0; }

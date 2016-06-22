@@ -55,6 +55,7 @@ $currentcat = get_queried_object();
 	</p>
 	
 </div>
+
 <div class="col-md-6 no-pr">
 <div class="pull-right cc-product-sort">
 	<?php do_action( 'woocommerce_before_shop_loop' ); ?>
@@ -63,7 +64,7 @@ $currentcat = get_queried_object();
 </div>
 
 
-<div class="col-md-3 cc-cat-pro-section-left">
+<div class="cc-cat-pro-section-left col-md-3 no-lr">
 <?php get_sidebar('pro-subcategory');?>
 
 
