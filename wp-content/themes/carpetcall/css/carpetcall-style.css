@@ -68,7 +68,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 
 
 
-.wrapper, .banner, .tstore, .cartblk, .calus, .wellblk, .crpchoose, .rtfloblk, .crptslide, .pont, .mystor, .expert, .footer_c, .sor_blk, .againlt, .fot_cpy, .limblk, .rugpro_blk, .rugspro_blk, .rug_size, .carpetcall_slide, .parcel_blk, .feature_pro, .trade, .cbg_blk, .modernrugs_sec { padding:0; }
+.wrapper, .banner, .tstore, .cartblk, .calus, .wellblk, .crpchoose, .rtfloblk, .crptslide, .pont, .mystor, .expert, .footer_c, .sor_blk, .againlt, .fot_cpy, .limblk, .rugpro_blk, .rugspro_blk, .rug_size, .carpetcall_slide, .parcel_blk, .feature_pro, .trade, .cbg_blk, .mmrugm { padding:0; }
 
 
 
@@ -697,6 +697,8 @@ ul.specific-list li span { font-weight:700; color:#333333;}
 .panel.entry-content.wc-tab .panel-group .panel-heading+.panel-collapse>.panel-body { border:0; }
 
 /*....... Modern Rugs start here ..................*/
-.modernrugs_sec{ margin:145px 0 20px 0;}
-.mrugs-top { background:#e6e6e6; }
-.mrug_title_show { margin:15px 0 15px 0; }
+.inerblock_seC_mrugss{ margin:145px 0 20px 0;}
+.mmrugm { background:#e6e6e6; }
+.cc-product-term { font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#666666; text-transform:uppercase; text-decoration:none;}
+.cc-product-term:hover {color:#000; cursor:pointer;}
+section#main { margin-top:18px;}
