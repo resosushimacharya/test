@@ -21,7 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <?php $old_query_or_uri=$_SERVER['REQUEST_URI'];?>
-<ul><?php  foreach ( $catalog_orderby_options as $id => $name ) : ?>
+<ul>
+<li><span class="cc-count-label">Sort by:</span></li><?php  foreach ( $catalog_orderby_options as $id => $name ) : ?>
 	<li><?php 
 $new_url=add_query_arg( 
 		    array( 
