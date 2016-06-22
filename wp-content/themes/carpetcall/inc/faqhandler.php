@@ -189,7 +189,7 @@ function cc_remove_cat_description(){
     switch ( $current_screen->id ) 
     {
         case 'edit-product_cat':?>
-            // WE ARE AT /wp-admin/edit-tags.php?taxonomy=category
+            
             <script type="text/javascript">
     jQuery(document).ready( function($) {
         $('#tag-description').parent().hide();
@@ -211,9 +211,7 @@ function cc_remove_cat_description(){
 add_action('admin_footer-term.php','cc_remove_term_description');
 function cc_remove_term_description(){
  global $current_screen;
- echo '<pre>';
- /*var_dump($current_screen); */
- echo 'hello'.$current_screen->id;
+
  switch($current_screen->id){
          
     case 'edit-product_cat':
