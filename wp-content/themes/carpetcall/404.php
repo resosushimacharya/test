@@ -8,7 +8,7 @@
 <?php 
 
 $oldlink = null;
- if(empty($_SERVER['HTTP_REFERER'] )) {
+if(empty($_SERVER['HTTP_REFERER'] )) {
     wp_redirect (site_url() );
     exit;
 }
@@ -21,24 +21,45 @@ else{
 get_header();
 ?>
 
-<div class="container clearfix">
-	<div class="error-section row">
-	    <div class="error-wrapper">   
-			 <h1 class="error-title">404</h1>
-			 <h3 class="error-info">Sorry, the page you requestedcannot be bispalyed </h3>	
-			 <h4 class="error-prob">We may have accidentally swept it under the rug  </h4>
-
+ <?php
+ 	   $error_title = get_field('error_title','option');
+ 	   $error_info =  get_field('error_description','option');
+ 	   $error_prob =  get_field('error_additional_description','option');
+ 	   $error_wrapper = get_field('background_image','option');
+ 	   //do_action('pr',$error_wrapper);
+  ?>
+<div class="container">
+	<div class="error-section row")>
+	    <div class="error-wrapper " style="background-image:url(<?php echo $error_wrapper['url'];?>);">   
+	    
+	    			 <h1 class="error-title"><?php echo $error_title;?></h1>
+			 <h3 class="error-info"><?php echo $error_info;?></h3>	
+			 <h4 class="error-prob"><?php echo $error_prob;?></h4>
+             <div class="col-md-12">
+			<button class="error-red-link" ><a href="<?php echo $oldlink; ?>">GO BACK</a></button>
+		</div>
 		</div>
 		
-		<div class="">
-			<button><a href="<?php echo $oldlink; ?>">GO BACK</a></button>
-		</div>
+		
 	</div>
 </div>
  <style>
  .error-section{
  	margin:150px 0 38px 0;
+
  }
+ .error-wrapper{
+     
+    float: right;
+    
+    min-width: 100%;
+    min-height: 156px;
+    height:auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
  .error-wrapper{
  	color:#000000;
  }
@@ -59,6 +80,11 @@ get_header();
  	text-transform: uppercase;
 
  }
+ .error-red-link{
+ 	text-align:center;
+ }
+
+
 
  </style>
 
