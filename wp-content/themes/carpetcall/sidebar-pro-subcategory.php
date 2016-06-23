@@ -1,4 +1,4 @@
-<div class="row">
+
     <div class="cc-product-sub-category-list">
     <?php 
     /**
@@ -7,8 +7,11 @@
     $term_id =  get_queried_object()->term_id;
    
     $prosubcats=get_terms(array('child'=>$term_id,'taxonomy'=>'product_cat'));?>
-    <h3>Categories</h3>
+    
     <ul class="cc-pro-sub-cat-ul guide_list_cbg">
+    
+    <h3>Categories</h3>
+    
     <?php 
     foreach($prosubcats as $psc)
     {
@@ -21,9 +24,12 @@
     </ul>
     
    
-    </div>
-</div>
-<div class="row">
+    </div><div class="clearfix"></div>
+
+
+
+
+
 <div class="cc-color-var-section">
 <h3>Refine by</h3>
    <div class="panel-group cc-color-var" id="accordion-color">
@@ -151,7 +157,7 @@
     </div>
 
 </div>
-</div>
+
 
 <style>
 .swatch{
