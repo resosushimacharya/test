@@ -30,7 +30,7 @@
                else
                {
                 $external_link = null;
-                echo "hello";
+                
                }
                
              ?>
