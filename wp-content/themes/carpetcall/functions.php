@@ -4,6 +4,16 @@
 * @subpackage carpetcall
 */
 //show_admin_bar(false );
+/*
+  * register multiple ACF pages
+  * Option pages :
+    + Labeling
+    + Front-Page Sections
+    + Miscellaneous
+*/
+  acf_add_options_sub_page('Labeling');
+  acf_add_options_sub_page('Front-Page Sections');
+  acf_add_options_sub_page('Miscellaneous');
 
 
 #update_option('siteurl',"http://localhost/carpetcall");

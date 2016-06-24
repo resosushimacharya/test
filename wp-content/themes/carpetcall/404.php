@@ -27,9 +27,9 @@ get_header();
  	   $error_prob =  get_field('error_additional_description','option');
  	   $error_wrapper = get_field('background_image','option');
  	   //do_action('pr',$error_wrapper);
-  ?>
+  ?><div class="body-wrapper">
 <div class="container">
-	<div class="error-section row")>
+	<div class="error-section row">
 	    <div class="error-wrapper " style="background-image:url(<?php echo $error_wrapper['url'];?>);">   
 	    
 	    			 <h1 class="error-title"><?php echo $error_title;?></h1>
@@ -43,8 +43,9 @@ get_header();
 		
 	</div>
 </div>
+</div>
  <style>
- .error-section{
+ .body-wrapper{
  	margin:150px 0 38px 0;
 
  }
