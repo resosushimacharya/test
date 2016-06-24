@@ -16,7 +16,7 @@
   acf_add_options_sub_page('Miscellaneous');
 
 
-#update_option('siteurl',"http://localhost/carpetcall");
+ #update_option('siteurl',"http://localhost/carpetcall");
 #update_option('home',"http://localhost/carpetcall");
 
 add_action('pr','inspect_carpetcall',10,1);
