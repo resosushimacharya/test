@@ -35,9 +35,9 @@ function order_of_ideas_and_advice_function($a, $b) {
 usort($iadata, 'order_of_ideas_and_advice_function');
 foreach($iadata as $iad){?>
     <?php if(strcasecmp($iad['category'],'More')==0):?>
-	<div class="col-md-6 cc-ia-item">
+	<div class="col-md-6 cc-ia-item cc-ia-more">
 		<h3><?php echo $iad['title'];?></h3>
-		<p><?php echo $iad['description'];?></p>
+		<?php echo $iad['description'];?>
 	</div>
     <?php 
     /**
@@ -119,8 +119,19 @@ ul.cat_list{
 	list-style:none;
 
 }
+.cc-ia-item ul{
+	list-style:none;
+}
+.cc-ia-more ul,.cc-ia-more ul li{
+	text-decoration:none;
+}
+.cc-ia-more ul li i{
+	float:left;
+}
 </style>
-
+<script>
+  $(".cc-ia-more ul li ").append('<i class="fa fa-caret-right" aria-hidden="true"></i>');
+</script>
 
 <?php 
 get_footer();
