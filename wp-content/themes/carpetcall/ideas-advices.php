@@ -39,14 +39,69 @@ foreach($iadata as $iad){?>
 		<h3><?php echo $iad['title'];?></h3>
 		<p><?php echo $iad['description'];?></p>
 	</div>
+    <?php 
+    /**
+    *reading the category
+    *relating with our category such as guide,faq and product care  
+    *it must include in else section(exlusion of More category)
+    */
+    $descats=get_terms(array('slug'=>$iad['category'],'taxonomy'=>'product_cat'));
+    
+    ?>
+    <?php elseif(strcasecmp($iad['category'],'Product Care')==0):
+      $tax = 'product_care';
 
-    <?php else:
+   
+    $res_tax=strtolower($tax);
+     $tax_terms = get_terms($res_tax);?>
+     <div class="col-md-6 cc-ia-item">
+		<h3><?php echo $iad['title'];?></h3>
+		<p><?php echo $iad['description'];?></p>
+
+            <ul class="cat_list">
+            <?php
+                          
+						
+						foreach($tax_terms as $tax_term)
+						{
+						echo '<li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp;<a href="'.get_term_link($tax_term).'">'.$tax_term->name.'</li></a>';
+						}
+
+				?>
+            </ul>
+	</div>
+     <?php 
+    
+    else:
+   
+    $tax = explode("'",$iad['category']);
+
+   
+    $res_tax=strtolower($tax[0]);
+     $tax_terms = get_terms($res_tax);
+    
     ?>
    
     <div class="col-md-6 cc-ia-item">
 		<h3><?php echo $iad['title'];?></h3>
 		<p><?php echo $iad['description'];?></p>
-	</div>
+		  
+            
+            
+            <ul class="cat_list">
+            <?php
+                          
+						
+						foreach($tax_terms as $tax_term)
+						{
+						echo '<li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp;<a href="'.get_term_link($tax_term).'">'.$tax_term->name.'</li></a>';
+						}
+
+				?>
+            </ul>
+            
+            </div>
+	
 <?php 
 endif;
 }
@@ -58,6 +113,11 @@ endif;
 <style>
 .body-wrapper{
 		margin:150px 0 38px 0;
+}
+ul.cat_list{
+	text-decoration:none;
+	list-style:none;
+
 }
 </style>
 
