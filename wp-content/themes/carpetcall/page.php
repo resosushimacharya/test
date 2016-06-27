@@ -2,8 +2,14 @@
 
  get_header();
 ?>
+
 <div class="container clearfix">
 <div class="inerblock_serc">
+<?php
+$parent_title = get_the_title($post->post_parent);
+echo $parent_title;
+?>
+<?php if(empty( $post->post_parent)): ?>
 <?php 
 if(have_posts()):
 
@@ -24,11 +30,13 @@ if(have_posts()):
 	endif;
 
 ?>
-
+<?php else: ?>
+	<?php get_template_part('content','second');?>
+<?php endif;?>	
 </div>
-</div><div class="clearfix"></div><?php 
+</div><div class="clearfix"></div>
 
- get_footer();
+ <?php get_footer();
 
 
  ?>

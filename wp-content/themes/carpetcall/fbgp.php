@@ -1,6 +1,6 @@
 <?php 
 /*
-**
+**Template Name: Ideas and Advice inner page
 **
 */ get_header();
 /**
@@ -13,8 +13,7 @@
   */
  $term_id_sub =  get_queried_object()->term_id;
  $term_name = get_queried_object()->name;
-
- ?>
+?>
  <div class="cbg_blk clearfix">
  <div class="container">
 <div class="inerblock_serc">
@@ -43,44 +42,17 @@
 		</div>
 		<div class="col-md-9">
 			<div class="cbg_content">
+             <?php while(have_posts()){
+             	the_post();
+             	?>
+             	<h3><?php echo get_the_title();?></h3>
+             
+             		<?php the_content();?>
+             	
+            <?php  }
+            wp_reset_query();?>
 
 
-<?php $args= array(
-               'post_type'=>'buying-guides',
-               'posts_per_page'=>1,
-               'tax_query' => array(
-												array(
-															'taxonomy' => 'guide',
-															'field'    => 'term_id',
-															'terms'    => $term_id_sub,
-																		),
-																	),
-																
-              
-				);
-			   $loop = new WP_Query($args);
-			   if($loop->have_posts()):
-			   	while($loop->have_posts()){
-			   	$loop->the_post();
-                  the_title();
-                  the_content();
-                  $res = get_field('buying_guide_archive',$loop->post->ID);
-                 
-                  $i=0;
-                  foreach($res as $rs){
-                  	$i++;?>
-                      <h3 id="<?php echo "guide_item_".$i; ?>"><?php echo $rs['title'];?></h3>
-                      <p> <?php echo $rs['description'];?></p>
-                  <?php  } 
-              }
-               wp_reset_query();
-                else:
-                	echo "Post Not Found";
-
-			   	endif;
-
-
-			  ?>
              </div>
 		</div>
 </div>

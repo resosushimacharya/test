@@ -1,24 +1,4 @@
-<?php 
-/*
-**
-**
-*/ get_header();
-/**
-  * Template tag for breadcrumbs.
-  *
-  * @param string $before  What to show before the breadcrum
-  * @param string $after   What to show after the breadcrumb.
-  * @param bool   $display Whether to display the breadcrumb (true) or return it (false).
-  * @return string
-  */
- $term_id_sub =  get_queried_object()->term_id;
- $term_name = get_queried_object()->name;
-
- ?>
- <div class="cbg_blk clearfix">
- <div class="container">
-<div class="inerblock_serc">
-					
+<?php echo 'content-second';?>
  <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
     <?php if(function_exists('bcn_display'))
     {
@@ -27,17 +7,37 @@
 
 </div>
 
-<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo single_cat_title('',false);?> Buying Guides </h3>
+<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo get_the_title();?> <?php echo get_the_title($post->post_parent);?> </h3>
+  
+           
 </div>
 </div>
 </div>
-
-
+<!-- fdhsalfklsaf -->
  <div class="container clearfix">
 	<div class="inerblock_sec">
 		<div class="col-md-3 no-pl">
         <div class="meromm">
-			<?php get_sidebar('guide');?>
+			<ul class="guide_list_cbg">
+
+
+<?php 
+
+
+ $res = get_field('buying_guide_archive', get_the_id());
+        
+        $i = 0;
+        foreach ($res as $rs) {
+            $i++;
+?>
+                     <?php
+            echo '<li><a href="' . '#guide_item_' . $i . '">' . $rs['title'] . '<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+?>
+                     
+                  <?php
+        }
+ ?>
+</ul>
             </div>
             <div class="clearfix"></div>
 		</div>
@@ -45,42 +45,13 @@
 			<div class="cbg_content">
 
 
-<?php $args= array(
-               'post_type'=>'buying-guides',
-               'posts_per_page'=>1,
-               'tax_query' => array(
-												array(
-															'taxonomy' => 'guide',
-															'field'    => 'term_id',
-															'terms'    => $term_id_sub,
-																		),
-																	),
-																
-              
-				);
-			   $loop = new WP_Query($args);
-			   if($loop->have_posts()):
-			   	while($loop->have_posts()){
-			   	$loop->the_post();
-                  the_title();
-                  the_content();
-                  $res = get_field('buying_guide_archive',$loop->post->ID);
-                 
-                  $i=0;
-                  foreach($res as $rs){
+ <?php
+			  $i = 0; foreach($res as $rs){
                   	$i++;?>
                       <h3 id="<?php echo "guide_item_".$i; ?>"><?php echo $rs['title'];?></h3>
                       <p> <?php echo $rs['description'];?></p>
                   <?php  } 
-              }
-               wp_reset_query();
-                else:
-                	echo "Post Not Found";
-
-			   	endif;
-
-
-			  ?>
+            ?>
              </div>
 		</div>
 </div>

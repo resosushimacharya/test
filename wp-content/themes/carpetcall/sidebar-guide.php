@@ -1,48 +1,23 @@
 <ul class="guide_list_cbg">
             
-                    <?php
-$term_id_sub = get_queried_object()->term_id;
-$term_name   = get_queried_object()->name;
-?>
-                <?php
+<?php 
 $args = array(
-    'post_type' => 'buying-guides',
-    'posts_per_page' => 1,
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'guide',
-            'field' => 'term_id',
-            'terms' => $term_id_sub
-        )
-    )
-    
-    
-);
-$loop = new WP_Query($args);
-if ($loop->have_posts()):
-    while ($loop->have_posts()) {
-        $loop->the_post();
-        
-        $res = get_field('buying_guide_archive', $loop->post->ID);
-        
-        $i = 0;
-        foreach ($res as $rs) {
-            $i++;
-?>
-                     <?php
-            echo '<li><a href="' . '#guide_item_' . $i . '">' . $rs['title'] . '<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
-?>
-                     
-                  <?php
-        }
-    }
-    wp_reset_query();
-else:
-    echo "Post Not Found";
-endif;
+    'post_type'      => 'page',
+    'posts_per_page' => -1,
+    'post_parent'    => $post->ID,
+    'order'          => 'ASC',
+    'orderby'        => 'menu_order'
+ );
 
 
-?>
+$parent = new WP_Query( $args );
+while($parent->have_posts()){
+    $parent->the_post();
+    
+     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). '<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+}
+wp_reset_query();
+ ?>
 </ul>
 <?php
 
@@ -61,18 +36,3 @@ if (get_term_by('slug', $sourcecat->slug, 'product_cat')) {
 echo (strcasecmp($cat_link, 'halt') != 0) ? $cat_link : 'javascript:void(0)';
 ?>"> SHOP NOW </a></div>
 
-<script>
-        jQuery(document).ready(function($) {
-    $('ul.guide_list_cbg li a[href^="#"]').bind('click.smoothscroll',function (e) {
-        e.preventDefault();
-        var target = this.hash,
-        $target = $(target);
-
-        $('html, body').stop().animate( {
-            'scrollTop': $target.offset().top - 185
-        }, 900, 'swing', function () {
-            window.location.hash = target;
-        } );
-    } );
-} );
-    </script>

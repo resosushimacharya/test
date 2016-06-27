@@ -156,14 +156,15 @@ function aits_wpsl_admin_script() {
     wp_enqueue_script( 'aits-wpsl-admin-script', get_stylesheet_directory_uri() . '/js/admin.js' );}
   
 function carpetcall_procare(){
-        if(!is_post_type_archive('guides')){
+        if(!is_post_type_archive('buying-guides')){
+          
    if(get_queried_object()!=null){ 
    
       if((strcasecmp(get_queried_object()->taxonomy,'product_care')==0)){
       wp_enqueue_script( 'jquery-accordion', get_template_directory_uri().'/js/accordion.product.js', array(), false, false);
     }
   }
-
+wp_reset_query();
 }
 }
 add_action( 'wp_enqueue_scripts', 'carpetcall_procare');
