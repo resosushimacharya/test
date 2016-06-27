@@ -33,6 +33,7 @@ function order_of_ideas_and_advice_function($a, $b) {
     return $a['order_of_ideas_and_advice'] - $b['order_of_ideas_and_advice'];
 }
 usort($iadata, 'order_of_ideas_and_advice_function');
+/*do_action('pr',$iadata);*/
 foreach($iadata as $iad){?>
     <?php if(strcasecmp($iad['category'],'More')==0):?>
 	<div class="col-md-6 cc-ia-item cc-ia-more">
@@ -47,7 +48,28 @@ foreach($iadata as $iad){?>
     */
     $descats=get_terms(array('slug'=>$iad['category'],'taxonomy'=>'product_cat'));
     
-    ?>
+    ?><?php elseif(strcasecmp($iad['category'],'Buying Guides')==0):?>
+       <div class="col-md-6 cc-ia-item">
+    <h3><?php echo $iad['title'];?></h3>
+    <p><?php echo $iad['description'];?></p>
+      <ul class="cat_list"><?php  $args = array(
+    'post_type'      => 'page',
+    'posts_per_page' => -1,
+    'post_parent'    => 1690,
+    'order'          => 'ASC',
+    'orderby'        => 'menu_order'
+ );
+
+
+$parent = new WP_Query( $args );
+while($parent->have_posts()){
+    $parent->the_post();
+    
+     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). '<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+}
+wp_reset_query();?>
+</ul>
+</div>
     <?php elseif(strcasecmp($iad['category'],'Product Care')==0):
       $tax = 'product_care';
 
@@ -59,15 +81,22 @@ foreach($iadata as $iad){?>
 		<p><?php echo $iad['description'];?></p>
 
             <ul class="cat_list">
-            <?php
-                          
-						
-						foreach($tax_terms as $tax_term)
-						{
-						echo '<li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp;<a href="'.get_term_link($tax_term).'">'.$tax_term->name.'</li></a>';
-						}
+            <?php  $args = array(
+    'post_type'      => 'page',
+    'posts_per_page' => -1,
+    'post_parent'    => 1711,
+    'order'          => 'ASC',
+    'orderby'        => 'menu_order'
+ );
 
-				?>
+
+$parent = new WP_Query( $args );
+while($parent->have_posts()){
+    $parent->the_post();
+    
+     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). '<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+}
+wp_reset_query();?>
             </ul>
 	</div>
      <?php 

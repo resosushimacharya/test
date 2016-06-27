@@ -26,7 +26,7 @@
 
 </div>
 
-<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo single_cat_title('',false);?> Buying Guides </h3>
+<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo get_the_title();?>  </h3>
 </div>
 </div>
 </div>
@@ -152,3 +152,4 @@ $tax = 'product_cat';
 <?php 
 get_footer();
 ?>
+<!-- dsahfl -->

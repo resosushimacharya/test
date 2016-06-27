@@ -1,4 +1,3 @@
-<?php echo 'content-second';?>
  <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
     <?php if(function_exists('bcn_display'))
     {
@@ -56,7 +55,40 @@
 		</div>
 </div>
 </div>
+<?php 
+if($post->post_parent==1725){?>
+	<div class="col-md-9">
+            <div class="cont-panl">
+			<div class="panel-group" id="accordion">
 
+					
+			
+					<?php  $i = 0; foreach($res as $rs){
+                  	$i++;?>
+                      <h3 id="<?php echo "guide_item_".$i; ?>"><?php echo $rs['title'];?></h3>
+                      <p> <?php echo $rs['description'];?></p>
+                  
+					<div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $i;?>">
+          <span class="pull-right glyphicon <?php echo ($i==1)?'glyphicon-chevron-up':'glyphicon glyphicon-chevron-down'?>"></span>
+          <?php echo $rs['title'];?>
+        </a>
+      </h4>
+    </div>
+    <div id="collapse_<?php echo $faqcounter;?>" class="panel-collapse collapse <?php echo ($i==1)?'in':'' ;?> ">
+      <div class="panel-body">
+        <?php echo $rs['description'];?>
+      </div>
+    </div>
+  </div>
+				</div>
+            </div>
+            </div>
+            <?php  } ?>
+<?php }
+?>
 
 	<div class="inerblock_sec_a">
 
