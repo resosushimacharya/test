@@ -5,7 +5,7 @@ function custom_post_type()
 get_arguments('expert','experts','Expert','Experts','Experts','dashicons-admin-post');
 
 get_arguments('FAQ','FAQS','FAQ','FAQS','FAQS','dashicons-editor-help');
-get_arguments('Guide','Guides','Guide','Guides','Guides','dashicons-book');
+get_arguments('Buying Guide','Buying-Guides','Buying Guide','Buying Guides','Buying Guides','dashicons-book');
 get_arguments('Slider','Sliders','Slider','Sliders','Sliders','dashicons-images-alt2');
 
 get_arguments('Product Care','product_cares','Product Care','Product Cares','Product Cares','dashicons-image-filter');
