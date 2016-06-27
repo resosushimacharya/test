@@ -12,6 +12,12 @@ $tax = 'product_care';
 $termname=get_queried_object()->name;
 
 ?>
+<?php
+while(have_posts()):
+      	the_post();
+		the_title();
+		the_content();
+		endwhile;?>
 <div class="body-wrapper inerblock_sec_faq">
 	<div class="container">
 	 	<div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">

@@ -1,8 +1,8 @@
 <?php 
-/*
-**
-**
-*/ get_header();
+/**
+* Template Name: Guide Archive Page
+*/
+get_header();
 /**
   * Template tag for breadcrumbs.
   *
@@ -11,23 +11,33 @@
   * @param bool   $display Whether to display the breadcrumb (true) or return it (false).
   * @return string
   */
- $term_id_sub =  get_queried_object()->term_id;
- $term_name = get_queried_object()->name;
+?>
+<?php
+$tax = 'guide';
+
+$link = rtrim($_SERVER['REQUEST_URI'],'/');
+$link =ltrim($link,'/');
+$linkarr= explode('/',$link);
+$len = count($linkarr);
+$termname= $linkarr[$len-1];
+$guideID = '1167';
+$custompost= get_post($guideID);
+
 
  ?>
  <div class="cbg_blk clearfix">
  <div class="container">
 <div class="inerblock_serc">
 					
- <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
+					
+					 <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
     <?php if(function_exists('bcn_display'))
     {
         bcn_display();
     }?>
 
 </div>
-
-<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo single_cat_title('',false);?> Buying Guides </h3>
+<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo $custompost->post_title;?></h3>
 </div>
 </div>
 </div>
@@ -43,44 +53,7 @@
 		</div>
 		<div class="col-md-9">
 			<div class="cbg_content">
-
-
-<?php $args= array(
-               'post_type'=>'buying-guides',
-               'posts_per_page'=>1,
-               'tax_query' => array(
-												array(
-															'taxonomy' => 'guide',
-															'field'    => 'term_id',
-															'terms'    => $term_id_sub,
-																		),
-																	),
-																
-              
-				);
-			   $loop = new WP_Query($args);
-			   if($loop->have_posts()):
-			   	while($loop->have_posts()){
-			   	$loop->the_post();
-                  the_title();
-                  the_content();
-                  $res = get_field('buying_guide_archive',$loop->post->ID);
-                 
-                  $i=0;
-                  foreach($res as $rs){
-                  	$i++;?>
-                      <h3 id="<?php echo "guide_item_".$i; ?>"><?php echo $rs['title'];?></h3>
-                      <p> <?php echo $rs['description'];?></p>
-                  <?php  } 
-              }
-               wp_reset_query();
-                else:
-                	echo "Post Not Found";
-
-			   	endif;
-
-
-			  ?>
+			 <?php echo  apply_filters('the_content',$custompost->post_content);?>
              </div>
 		</div>
 </div>
@@ -92,7 +65,7 @@
     <div class="container clearfix you_may_link_cntr">
         <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
 
-
+		
 
 <?php
 $tax = 'product_cat';

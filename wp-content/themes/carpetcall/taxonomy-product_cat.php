@@ -31,7 +31,12 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_before_main_content' );
 	?>
-	<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo single_cat_title('',false).' '.$appafter;?></h3>
+	<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo single_cat_title('',false).' '.$appafter;?>
+	<?php 
+while(have_posts()):
+  the_post();
+the_title();
+endwhile;?></h3>
     </div></div>
     
     
