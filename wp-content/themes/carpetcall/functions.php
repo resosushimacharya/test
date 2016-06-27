@@ -148,10 +148,22 @@ include_once TEMPLATEPATH . "/inc/carpetcall-tax-radiometabox.php";
 include_once  TEMPLATEPATH . "/inc/woocommerce-load.php";
 // include script in admin to set State value
 add_action( 'admin_enqueue_scripts', 'aits_wpsl_admin_script', 11 );
-add_action( 'admin_enqueue_scripts', 'aits_wpsl_admin_script', 11 );
+
 function aits_wpsl_admin_script() {
     global $post_type;
+   
     if( 'wpsl_stores' == $post_type )
     wp_enqueue_script( 'aits-wpsl-admin-script', get_stylesheet_directory_uri() . '/js/admin.js' );}
-
+  
+function carpetcall_procare(){
+        
+   if(get_queried_object()!=null){ 
+   
+      if((strcasecmp(get_queried_object()->taxonomy,'product_care')==0)){
+      wp_enqueue_script( 'jquery-accordion', get_template_directory_uri().'/js/accordion.product.js', array(), false, false);
+    }
+  }
+wp_reset_query();
+}
+add_action( 'wp_enqueue_scripts', 'carpetcall_procare');
 ?>

@@ -11,7 +11,7 @@ echo '<div class="row">';
  $cc_term_id = $_POST['catid'];
      
  
-     //do_action('pr',$_POST);
+     
     global $wp_query;
      $counter  = 1;
   
@@ -94,10 +94,6 @@ echo '<div class="row">';
 die();
 
 } 
-// function woo_load(){
-// 	add_action('init','woocommerce_load');
-// }
-
 add_action('wp_ajax_woo_load', 'woo_load');
 add_action('wp_ajax_nopriv_woo_load', 'woo_load');
 
@@ -110,5 +106,4 @@ function wooocommerce_scripts(){
 
 wp_enqueue_script('woo-load-autocomplete');
 wp_localize_script( 'woo-load-autocomplete', 'woo_load_autocomplete', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
-
 }

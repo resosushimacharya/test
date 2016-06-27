@@ -2,13 +2,16 @@
 function custom_post_type()
 	{
 
-get_arguments('expert','experts','Expert','Experts','Experts');
+get_arguments('expert','experts','Expert','Experts','Experts','dashicons-admin-post');
 
-get_arguments('FAQ','FAQS','FAQ','FAQS','FAQS');
-get_arguments('Guide','Guides','Guide','Guides','Guides');
-get_arguments('Slider','Sliders','Slider','Sliders','Sliders');
+get_arguments('FAQ','FAQS','FAQ','FAQS','FAQS','dashicons-editor-help');
+get_arguments('Guide','Guides','Guide','Guides','Guides','dashicons-book');
+get_arguments('Slider','Sliders','Slider','Sliders','Sliders','dashicons-images-alt2');
+
+get_arguments('Product Care','product_cares','Product Care','Product Cares','Product Cares','dashicons-image-filter');
+
 }
-function get_arguments($singular,$plural,$singular_name,$menu_name,$name){
+function get_arguments($singular,$plural,$singular_name,$menu_name,$name,$menu_icon){
 		$labels = array(
 		'name' => _x($name, 'Post Type General Name', 'text_domain') ,
 		'singular_name' => _x($singular_name, 'Post Type Singular Name', 'text_domain') ,
@@ -54,7 +57,7 @@ function get_arguments($singular,$plural,$singular_name,$menu_name,$name){
 		'show_in_nav_menus' => true,
 		'show_in_admin_bar' => true,
 		'menu_position' => 5,
-		'menu_icon' => 'dashicons-id',
+		'menu_icon' => $menu_icon,
 		'can_export' => true,
 		'has_archive' => true,
 		'exclude_from_search' => true,

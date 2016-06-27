@@ -3,9 +3,9 @@ add_action( 'init', 'callCustomTaxonomy', 0 );
 //create a custom taxonomy name it $plural for your posts
 function callCustomTaxonomy()
 {
-
 create_dynamic_hierarchical_taxonomy('profaq','profaqs','faqs','FAQ Category','faq');
 create_dynamic_hierarchical_taxonomy('Guide','Guides','guides','Guide Category','guide');
+create_dynamic_hierarchical_taxonomy('Product Care','Product Cares','product_cares','Product Care Category','product_care');
 }
 function create_dynamic_hierarchical_taxonomy($singular,$plural,$posttype,$cat,$catreg) {
 // Add new taxonomy, make it hierarchical like categories
