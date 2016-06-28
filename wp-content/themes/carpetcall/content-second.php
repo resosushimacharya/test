@@ -21,9 +21,10 @@
 
 
 <?php 
-
-
  $res = get_field('buying_guide_archive', get_the_id());
+  if($post->post_parent!=1725){ ?>
+<?php 
+
         
         $i = 0;
         foreach ($res as $rs) {
@@ -35,6 +36,27 @@
                      
                   <?php
         }
+ }
+ else{
+
+$args = array(
+    'post_type'      => 'page',
+    'posts_per_page' => -1,
+    'post_parent'    => 1725,
+    'order'          => 'ASC',
+    'orderby'        => 'menu_order'
+ );
+
+
+$parent = new WP_Query( $args );
+while($parent->have_posts()){
+    $parent->the_post();
+    
+     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). '<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+}
+wp_reset_query();
+ 	
+ }
  ?>
 </ul>
             </div>
@@ -42,7 +64,7 @@
 		</div>
 		<div class="col-md-9">
 			<div class="cbg_content">
-
+     <?php if($post->post_parent!=1725){ ?>
 
  <?php
 			  $i = 0; foreach($res as $rs){
@@ -50,23 +72,18 @@
                       <h3 id="<?php echo "guide_item_".$i; ?>"><?php echo $rs['title'];?></h3>
                       <p> <?php echo $rs['description'];?></p>
                   <?php  } 
+              }
             ?>
-             </div>
-		</div>
-</div>
-</div>
-<?php 
+            <?php 
 if($post->post_parent==1725){?>
-	<div class="col-md-9">
-            <div class="cont-panl">
+	
 			<div class="panel-group" id="accordion">
 
 					
 			
 					<?php  $i = 0; foreach($res as $rs){
                   	$i++;?>
-                      <h3 id="<?php echo "guide_item_".$i; ?>"><?php echo $rs['title'];?></h3>
-                      <p> <?php echo $rs['description'];?></p>
+                      
                   
 					<div class="panel panel-default">
     <div class="panel-heading">
@@ -77,18 +94,22 @@ if($post->post_parent==1725){?>
         </a>
       </h4>
     </div>
-    <div id="collapse_<?php echo $faqcounter;?>" class="panel-collapse collapse <?php echo ($i==1)?'in':'' ;?> ">
+    <div id="collapse_<?php echo $i;?>" class="panel-collapse collapse <?php echo ($i==1)?'in':'' ;?> ">
       <div class="panel-body">
         <?php echo $rs['description'];?>
       </div>
     </div>
   </div>
 				</div>
-            </div>
-            </div>
+            
             <?php  } ?>
 <?php }
 ?>
+             </div>
+		</div>
+</div>
+</div>
+
 
 	<div class="inerblock_sec_a">
 

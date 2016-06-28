@@ -10,7 +10,7 @@
 <div class="inerblock_serc">
 <?php
 $parent_title = get_the_title($post->post_parent);
-echo $parent_title;
+/*echo $parent_title;*/
 ?>
 <?php if(empty( $post->post_parent)): ?>
 <?php 
