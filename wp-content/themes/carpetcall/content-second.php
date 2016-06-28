@@ -12,7 +12,7 @@
 </div>
 </div>
 </div>
-<!-- fdhsalfklsaf -->
+<!-- fdhsalfklsaf --><div class="faq-cont-blka">
  <div class="container clearfix">
 	<div class="inerblock_sec">
 		<div class="col-md-3 no-pl">
@@ -55,7 +55,7 @@ while($parent->have_posts()){
      echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). '<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
 }
 wp_reset_query();
- 	
+
  }
  ?>
 </ul>
@@ -76,7 +76,7 @@ wp_reset_query();
             ?>
             <?php 
 if($post->post_parent==1725){?>
-	
+	        <div class="cont-panl">
 			<div class="panel-group" id="accordion">
 
 					
@@ -101,6 +101,7 @@ if($post->post_parent==1725){?>
     </div>
   </div>
 				</div>
+				</div>
             
             <?php  } ?>
 <?php }
@@ -109,7 +110,7 @@ if($post->post_parent==1725){?>
 		</div>
 </div>
 </div>
-
+</div>
 
 	<div class="inerblock_sec_a">
 
@@ -199,7 +200,15 @@ $tax = 'product_cat';
         } );
     } );
 } );
+jQuery(window).load(function() {
 
+    $('.collapse').on('shown.bs.collapse', function(){
+$(this).parent().find(".glyphicon-chevron-down").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");
+}).on('hidden.bs.collapse', function(){
+$(this).parent().find(".glyphicon-chevron-up").removeClass("glyphicon-chevron-up").addClass("glyphicon-chevron-down");
+});
+
+});
     </script>
 <?php 
 get_footer();

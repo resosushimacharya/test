@@ -62,13 +62,25 @@
             
             <ul class="guide_list">
             <?php
-                            $tax = 'guide'; 
-						$tax_terms = get_terms($tax);
-						
-						foreach($tax_terms as $tax_term)
-						{
-						echo '<li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp;<a href="'.get_term_link($tax_term).'">'.$tax_term->name.'</li></a>';
-						}
+                            
+$args = array(
+    'post_type'      => 'page',
+    'posts_per_page' => -1,
+    'post_parent'    => 1725,
+    'order'          => 'ASC',
+    'orderby'        => 'menu_order'
+ );
+
+
+$parent = new WP_Query( $args );
+while($parent->have_posts()){
+    $parent->the_post();
+    
+     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). '<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+}
+wp_reset_query();
+
+
 
 				?>
             </ul><div class="clearfix"></div>
@@ -88,13 +100,24 @@
                 <ul class="guide_list">
             
 					<?php
-                            $tax = 'faq'; 
-						$tax_terms = get_terms($tax);
-						
-						foreach($tax_terms as $tax_term)
-						{
-						echo '<li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp;<a href="'.get_term_link($tax_term).'">'.$tax_term->name.'</li></a>';
-						}
+                          
+$args = array(
+    'post_type'      => 'page',
+    'posts_per_page' => -1,
+    'post_parent'    => 1690,
+    'order'          => 'ASC',
+    'orderby'        => 'menu_order'
+ );
+
+
+$parent = new WP_Query( $args );
+while($parent->have_posts()){
+    $parent->the_post();
+    
+     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). '<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+}
+wp_reset_query();
+
 
 				?>
             </ul><div class="clearfix"></div>

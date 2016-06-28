@@ -9,7 +9,7 @@
 <div class="container clearfix">
 <div class="inerblock_serc">
 <?php
-$parent_title = get_the_title($post->post_parent);
+//$parent_title = get_the_title($post->post_parent);
 /*echo $parent_title;*/
 ?>
 <?php if(empty( $post->post_parent)): ?>
