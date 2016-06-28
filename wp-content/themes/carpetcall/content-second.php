@@ -12,7 +12,8 @@
 </div>
 </div>
 </div>
-<!-- fdhsalfklsaf --><div class="faq-cont-blka">
+<!-- content section -->
+<div class="faq-cont-blka">
  <div class="container clearfix">
 	<div class="inerblock_sec">
 		<div class="col-md-3 no-pl">
@@ -59,6 +60,16 @@ wp_reset_query();
  }
  ?>
 </ul>
+
+<?php 
+if($post->ID==1700){
+?>
+<!-- here comes certain contains in future if neaded..  -->
+<div class="nowspe nowsppe"><a href="<?php
+echo (strcasecmp($cat_link, 'halt') != 0) ? $cat_link : 'javascript:void(0)';
+?>"> SHOP NOW </a></div>
+<?php }?>
+
             </div>
             <div class="clearfix"></div>
 		</div>
