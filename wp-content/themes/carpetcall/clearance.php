@@ -7,9 +7,9 @@
 get_header();
 ?>
 
- <div class="cbg_blk clearfix">
+ <div class="cbg_blk cc-clearance-blk clearfix">
  <div class="container">
-<div class="inerblock_serc">
+<div class="inerblock_serc cc-clearance-whole">
 					
  <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
     <?php if(function_exists('bcn_display'))
@@ -81,7 +81,7 @@ src="<?php echo $videolink;?>
                    }
                    ?>
                     <div class="col-md-8 cc-clearance-right">
-                    	<h4><?php echo $row['title'];?></h4>
+                    	<h4 ><?php echo $row['title'];?></h4>
                     	<p><?php echo $row['description'];?></p>
                     	<?php 
                     	$link=null;
@@ -123,6 +123,17 @@ src="<?php echo $videolink;?>
     background:#a9191c;
     z-index:99999;
     color:#ffffff;
+}
+.cc-clearance-right h4{
+	color:#1858b8;
+}
+.cc-clearance-whole h3{
+	text-decoration:none !important;
+	border:none;
+
+}
+.cc-clearance-blk{
+	background:#f0f2f1 !important;
 }
 </style>
 <?php 
