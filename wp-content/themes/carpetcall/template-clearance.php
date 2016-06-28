@@ -123,7 +123,7 @@ src="<?php echo $videolink;?>
     padding:5px;
     cursor: pointer;
     background:#a9191c;
-    z-index:99999;
+    z-index:2;
     color:#ffffff;
 }
 .cc-clearance-right h4{
