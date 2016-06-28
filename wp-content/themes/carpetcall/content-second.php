@@ -100,12 +100,13 @@ if($post->post_parent==1725){?>
       </div>
     </div>
   </div>
-				</div>
-				</div>
+				
+
             
             <?php  } ?>
 <?php }
 ?>
+</div></div>
              </div>
 		</div>
 </div>
