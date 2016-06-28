@@ -45,21 +45,7 @@ get_header();
              	foreach($rows as $row):?>
              	<div class="col-md-12 cc-clearance-row">
              	<?php
-                     
-                   // check whether the video link is enabled or not
-         /*          Array
-(
-    [title] => CARPET CALL MAYHEM
-    [description] => Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus orci augue, vehicula a nisi sit amet, sollicitudin suscipit ante. Etiam sapien ligula, tempus et sem nec, tristique pellentesque onec tristique tortor eget commodo faucibus corbi facilisis convallis
-    [link_title] => Shop Now
-    [link_url] => 
-    [featured_image] => 
-    [featured_video] => VzI3rDLnyMw
-    [window] => No
-    [whether_to_display_video_or_image] => Yes
-    [sticker] => 
-)
-     */              if(strcasecmp($row['whether_to_display_video_or_image'],'yes')!=0){?>
+                      if(strcasecmp($row['ad_type'],'video')!=0){?>
                    	<div class="col-md-4 cc-clearance-left">
                       <img src="<?php echo $row['featured_image']['url'];?>"/ class="img-responsive">
                       <?php if($row['sticker']){?>
@@ -84,17 +70,33 @@ src="<?php echo $videolink;?>
                     	<h4 ><?php echo $row['title'];?></h4>
                     	<p><?php echo $row['description'];?></p>
                     	<?php 
-                    	$link=null;
+                    	$win = $row['window']; 
+                    	if(strcasecmp($row['ad_type'],'doc')!=0){?>
+                    	<?php $link=null;
                         if($row['link_url']){
                         $link = $row['link_url'];	
-                        };
-                    	$win = $row['window']; 
+                        }
                     	?>
                     	
-                    	<div class="nowspe nowsppe pull-right"><a href="<?php
-                         echo ($link!=null)? $link: 'javascript:void(0)';
-							?>"  <?php  echo (strcasecmp($win, 'yes')== 0)?'target="_blank"':null;?>><?php echo $row['link_title'];?> </a></div>
-                    
+                    	<div class="nowspe nowsppe pull-right">
+                    	<a href="<?php echo ($link!=null)? $link: 'javascript:void(0)';?>" 
+						<?php  echo (strcasecmp($win, 'yes')== 0)?'target="_blank"':null;?>>
+                        <?php echo $row['link_title'];?>
+                        </a>
+                        </div>
+                    <?php } else 
+                    {
+                    	?>
+	                    <div class="nowspe nowsppe pull-right">
+	                    <a href="<?php echo ($row['featured_document']['url'])? $row['featured_document']['url']: 'javascript:void(0)';?>"  
+	                     <?php  echo (strcasecmp($win, 'yes')== 0)?'target="_blank"':null;?>>
+	                     <?php echo $row['link_title'];?> 
+	                     </a>
+	                     </div>
+
+                    <?php }
+                    ?>
+
                     </div>
                    
 </div>
