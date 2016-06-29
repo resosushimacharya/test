@@ -7,7 +7,7 @@
 get_header();
 ?>
 
- <div class="cbg_blk cc-clearance-blk clearfix">
+ <div class="cbg_blk cc-wrapper-blk clearfix">
  <div class="container">
 <div class="inerblock_serc cc-clearance-whole">
 					
@@ -134,7 +134,7 @@ src="<?php echo $videolink;?>
 	border:none;
 
 }
-.cc-clearance-blk{
+.cc-wrapper-blk{
 	background:#f0f2f1 !important;
 }
 </style>

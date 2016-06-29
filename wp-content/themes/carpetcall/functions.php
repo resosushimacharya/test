@@ -109,6 +109,7 @@ return $query;
 add_filter('pre_get_posts', 'filter_search');
 include_once TEMPLATEPATH."/inc/carpetcall-walker.php";
 include_once TEMPLATEPATH."/inc/carpetcall-storefinder.php";
+include_once TEMPLATEPATH."/inc/contact-store-autocomplete.php";
 /*
   * filtering WP Store Locator
   * removing fields 'address2' and 'state' from Location

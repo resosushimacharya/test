@@ -182,7 +182,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 
 }
 .srch_pro .col-lg-12 { padding-right:20px; padding-left:20px; }
-input  { background:#15489f; border:0; width:100%; padding:15px 20px; text-align:center; color:#FFF; font:bold 16px 'proxima_nova_rgregular', sans-serif; text-decoration:none; }
+.curlocate input  { background:#15489f; border:0; width:100%; padding:15px 20px; text-align:center; color:#FFF; font:bold 16px 'proxima_nova_rgregular', sans-serif; text-decoration:none; }
 .input-group  { width:100%; border:1px solid #a6a6a6;}
 ul#directory_list_id  {margin:10px 0; list-style:none; background:#fff; color:#000; font-size:16px;}
 ul#directory_list_id li { list-style: none; display:block; float:none; cursor:pointer; padding:0 10px; }
