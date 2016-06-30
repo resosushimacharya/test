@@ -3,7 +3,24 @@
 get_header();
 global $post;
 
+/* ideas and advice child id declaration */
+$url = site_url();
+$url =explode('/',$url);
+do_action('pr',$url);
+if(strcasecmp($url[2],'localhost')==0){
+  $bgID = 1690;
+  $proID = 1711; 
+  $faqID = 1725;
+}
+else{
+  $bgID = 26696;
+  $proID = 26709; 
+  $faqID = 26721;
+}
+
 $feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+
+
 ?>
 <div class="body-wrapper">
 <div class="container">
@@ -55,7 +72,7 @@ foreach($iadata as $iad){?>
       <ul class="cat_list"><?php  $args = array(
     'post_type'      => 'page',
     'posts_per_page' => -1,
-    'post_parent'    => 1690,
+    'post_parent'    => $bgID,
     'order'          => 'ASC',
     'orderby'        => 'menu_order'
  );
@@ -84,7 +101,7 @@ wp_reset_query();?>
             <?php  $args = array(
     'post_type'      => 'page',
     'posts_per_page' => -1,
-    'post_parent'    => 1711,
+    'post_parent'    => $proID,
     'order'          => 'ASC',
     'orderby'        => 'menu_order'
  );
@@ -125,7 +142,7 @@ wp_reset_query();?>
 						$args = array(
     'post_type'      => 'page',
     'posts_per_page' => -1,
-    'post_parent'    => 1725,
+    'post_parent'    => $faqID,
     'order'          => 'ASC',
     'orderby'        => 'menu_order'
  );
