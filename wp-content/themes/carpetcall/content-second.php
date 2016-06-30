@@ -44,11 +44,13 @@ else{
 
 <?php 
  $res = get_field('buying_guide_archive', get_the_id());
+
   if($post->post_parent!=$faqID){ ?>
 <?php 
 
         
         $i = 0;
+        if($res){
         foreach ($res as $rs) {
             $i++;
 ?>
@@ -58,6 +60,7 @@ else{
                      
                   <?php
         }
+      }
  }
  else{
 
@@ -99,12 +102,15 @@ echo (strcasecmp($cat_link, 'halt') != 0) ? $cat_link : 'javascript:void(0)';
      <?php if($post->post_parent!=$faqID){ ?>
 
  <?php
-			  $i = 0; foreach($res as $rs){
+			  $i = 0;
+        if($res){
+         foreach($res as $rs){
                   	$i++;?>
                       <h3 id="<?php echo "guide_item_".$i; ?>"><?php echo $rs['title'];?></h3>
                       <p> <?php echo $rs['description'];?></p>
                   <?php  } 
               }
+            }
             ?>
             <?php 
 if($post->post_parent==$faqID){?>
@@ -113,7 +119,9 @@ if($post->post_parent==$faqID){?>
 
 					
 			
-					<?php  $i = 0; foreach($res as $rs){
+					<?php  $i = 0;
+           if($res){
+           foreach($res as $rs){
                   	$i++;?>
                       
                   
@@ -135,7 +143,9 @@ if($post->post_parent==$faqID){?>
 				
 
             
-            <?php  } ?>
+            <?php  } 
+            }
+            ?>
 <?php }
 ?>
 </div></div>
@@ -161,7 +171,7 @@ $tax = 'product_cat';
 					'post_type' => 'product',
 					
 					'post_status' => 'publish',
-					'posts_per_page' => -1,
+					'posts_per_page' => '3',
 					'ignore_sticky_posts'=> 1
 					);
 					//echo $tax_term->slug;
@@ -182,12 +192,11 @@ $tax = 'product_cat';
 					$prounit=$prounits['size']['value'];
 				}
                ?>
-                     <?php  if($woo['_featured'][0]=='yes'){ ?>
+                   
                    <div class="col-md-4">
                   		<div class="pro_secone">
                   		<div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div>
                   
-                    <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
                     <div class="mero_itemss">
                       		<div class="proabtxt">
 					<h4><?php
@@ -208,7 +217,7 @@ $tax = 'product_cat';
                       </div>
                       </div>
                       </div>
-                      <?php }?>
+                    
 					
                <?php
 

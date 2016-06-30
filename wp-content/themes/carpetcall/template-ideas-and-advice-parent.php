@@ -75,7 +75,7 @@ $tax = 'product_cat';
 					'post_type' => 'product',
 					
 					'post_status' => 'publish',
-					'posts_per_page' => -1,
+					'posts_per_page' => 3,
 					'ignore_sticky_posts'=> 1
 					);
 					//echo $tax_term->slug;
@@ -96,7 +96,7 @@ $tax = 'product_cat';
 					$prounit=$prounits['size']['value'];
 				}
                ?>
-                     <?php  if($woo['_featured'][0]=='yes'){ ?>
+                    
                    <div class="col-md-4">
                   		<div class="pro_secone">
                   		<div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div>
@@ -122,7 +122,7 @@ $tax = 'product_cat';
                       </div>
                       </div>
                       </div>
-                      <?php }?>
+                      
 					
                <?php
 
