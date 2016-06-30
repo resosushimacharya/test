@@ -9,8 +9,8 @@
 
 $oldlink = null;
 if(empty($_SERVER['HTTP_REFERER'] )) {
-    wp_redirect (site_url() );
-    exit;
+   /* wp_redirect (site_url() );
+    exit;*/
 }
 else{
 	$oldlink = $_SERVER['HTTP_REFERER'];
@@ -35,9 +35,11 @@ get_header();
 	    			 <h1 class="error-title"><?php echo $error_title;?></h1>
 			 <h3 class="error-info"><?php echo $error_info;?></h3>	
 			 <h4 class="error-prob"><?php echo $error_prob;?></h4>
+			 <?php if($oldlink!=null){?>
              <div class="col-md-12">
 			<button class="error-red-link" ><a href="<?php echo $oldlink; ?>">GO BACK</a></button>
 		</div>
+		<?php }?>
 		</div>
 		
 		
