@@ -7,6 +7,8 @@ wp_reset_query();
 $args = array(
 				'post_type' =>'wpsl_stores',
 				 'posts_per_page'=>'-1',
+				 'orderby' => 'title',
+                 'order' => 'ASC',
 				'tax_query' => array(
 										array(
 												'taxonomy' => 'wpsl_store_category',

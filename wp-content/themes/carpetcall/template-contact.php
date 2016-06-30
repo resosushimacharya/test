@@ -106,7 +106,7 @@ get_header();
                      <label for="cc-store-name">STORE*</label>
                 	<select class="selectpicker col-md-6 form-control" name="cc_store_name" id="cc-store-name">
                      <option class="col-md-12" value="default">Please Select</option>
-                         <?php  get_template_part('content', 'contact-store');
+                         <?php  //get_template_part('content', 'contact-store');
                      ?>
 
                      </select>

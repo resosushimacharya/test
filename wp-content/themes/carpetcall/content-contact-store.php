@@ -15,10 +15,14 @@ $args = array(
 												'taxonomy' => 'wpsl_store_category',
 												'field'    => 'slug',
 												'terms'    => $slug,
+												'orderby' => 'title',
+                                                'order' => 'ASC'
 											)
 										)
 				 );
 $loop = new WP_Query($args);
+ 
+
 if($loop->have_posts()){
 	while($loop->have_posts()){
 		$loop->the_post();

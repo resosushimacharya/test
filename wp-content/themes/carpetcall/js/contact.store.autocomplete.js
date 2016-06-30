@@ -1,5 +1,13 @@
 jQuery(document).ready(function($){
+
 jQuery("#cc-state-type").change(function(e) {
+jQuery('#cc-store-name')
+    .find('option')
+    .remove()
+    .end()
+    .append('<option class="col-md-12" value="default">PLease Select</option>')
+    
+;
 
 var state = jQuery("#cc-state-type").val();
 
