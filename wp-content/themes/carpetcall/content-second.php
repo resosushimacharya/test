@@ -14,7 +14,7 @@ else{
   $proID = 26709; 
   $faqID = 26721;
   $rugID = 26701;
-  $hardID = 26703
+  $hardID = 26703;
 }
 
 
