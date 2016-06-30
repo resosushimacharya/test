@@ -28,7 +28,7 @@ $data=$_POST['form_data'];
 				   }else{
 				   
 				   $user_email=	sanitize_email($data['send_email_address']);
-				  
+				 
 				   	ob_start();
 					?>
                     Firstname:<?php echo sanitize_text_field($data['first_name']); ?><br>
@@ -47,7 +47,9 @@ $data=$_POST['form_data'];
 							//$headers[]  = 'Cc: nabin.maharjan@agileitsolutios.net'; // note you can just use a simple email address
 							$email_subject = "Contact Us";
 							
-							$sendmail = wp_mail($user_email, $email_subject, $email_message,$headers);
+							$sent_mail= wp_mail($user_email, $email_subject, $email_message,$headers);
+							
+							$message['sent_mail']=$sent_mail;
 							$message['success']="Your message has been sent";
 							}
 			} else {
@@ -71,5 +73,4 @@ $data=$_POST['form_data'];
 } 
 add_action('wp_ajax_contact_action', 'contact_action');
 add_action('wp_ajax_nopriv_contact_action', 'contact_action');
-
 
