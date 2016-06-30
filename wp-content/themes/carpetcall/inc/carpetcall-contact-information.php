@@ -28,6 +28,7 @@ $data=$_POST['form_data'];
 				   }else{
 				   
 				   $user_email=	sanitize_email($data['send_email_address']);
+				  
 				   	ob_start();
 					?>
                     Firstname:<?php echo sanitize_text_field($data['first_name']); ?><br>
@@ -38,7 +39,10 @@ $data=$_POST['form_data'];
 					<?php 
 							$email_message = ob_get_contents();
 							ob_end_clean();	
+							if(!sanitize_email($data['send_email_address'])){
+							
 							$user_email =get_option('admin_email');
+							 }
 							$headers[]  = 'From: Carpetcall ';
 							//$headers[]  = 'Cc: nabin.maharjan@agileitsolutios.net'; // note you can just use a simple email address
 							$email_subject = "Contact Us";
