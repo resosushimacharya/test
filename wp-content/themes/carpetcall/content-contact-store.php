@@ -10,13 +10,13 @@ wp_reset_query();
 $args = array(
 				'post_type' =>'wpsl_stores',
 				 'posts_per_page'=>'-1',
-				/* 'tax_query' => array(
+				'tax_query' => array(
 										array(
 												'taxonomy' => 'wpsl_store_category',
 												'field'    => 'slug',
 												'terms'    => $slug,
 											)
-										)*/
+										)
 				 );
 $loop = new WP_Query($args);
 if($loop->have_posts()){

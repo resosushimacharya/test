@@ -110,6 +110,7 @@ add_filter('pre_get_posts', 'filter_search');
 include_once TEMPLATEPATH."/inc/carpetcall-walker.php";
 include_once TEMPLATEPATH."/inc/carpetcall-storefinder.php";
 include_once TEMPLATEPATH."/inc/contact-store-autocomplete.php";
+include_once TEMPLATEPATH."/inc/carpetcall-store-details.php";
 /*
   * filtering WP Store Locator
   * removing fields 'address2' and 'state' from Location
@@ -122,8 +123,8 @@ function custom_meta_box_fields( $meta_fields ) {
   if( isset( $meta_fields['Location']['address2'] ))
       unset($meta_fields['Location']['address2']);
 
-    if( isset( $meta_fields['Additional Information']['email'] ) ) 
-      unset($meta_fields['Additional Information']['email']);
+    /*if( isset( $meta_fields['Additional Information']['email'] ) ) 
+      unset($meta_fields['Additional Information']['email']);*/
       
     if( isset( $meta_fields['Additional Information']['url'] ) ) 
       unset($meta_fields['Additional Information']['url']);  

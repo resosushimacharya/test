@@ -32,6 +32,7 @@ wp_enqueue_script( 'lightbox-script', get_template_directory_uri().'/js/jquery.l
 wp_enqueue_script( 'auda', get_template_directory_uri().'/js/slick.js', array(), false, false);
 wp_enqueue_script( 'responsiveTabs', get_template_directory_uri().'/js/jquery.responsiveTabs.min.js', array(), false, false);
 wp_enqueue_script( 'bootstrap-script', get_template_directory_uri().'/js/bootstrap.min.js', array(), false, true);
+wp_enqueue_script( 'validator-script', get_template_directory_uri().'/js/jquery.validate.min.js', array(), false, true);
 //wp_enqueue_script( 'search-script', get_template_directory_uri().'/js/carpetcall-script.js', array(), false, false);
 
 	if((strcasecmp(get_post_type(),'product')==0)){

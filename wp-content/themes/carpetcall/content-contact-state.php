@@ -1,5 +1,4 @@
 <?php 
-echo "hello";
 /* quering the store locator data
 */
 $slug = 'nsw';

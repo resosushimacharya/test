@@ -93,12 +93,13 @@ get_header();
                 <div class="form-group col-sm-4">
 
                 <label for="cc-state-type">STATE*</label>
-                	<select class="selectpicker col-md-6 form-control"  name="cc-state-type" id="cc-state-type">
+                	<select class="selectpicker col-md-6 form-control"  name="cc_state_type" id="cc-state-type">
                 	<option class="col-md-12" value="default">Please Select</option>
                       <?php  get_template_part('content', 'contact-state');
                      ?>
 
                      </select>
+                     <div class="error_label"></div>
                 </div>
                 <div class="form-group col-sm-8">
               
@@ -109,9 +110,12 @@ get_header();
                      ?>
 
                      </select>
+                     <div class="error_label"></div>
                 </div>
                 
                 </div>
+
+                <input type="hidden" value="" class="btn-dn" id="send_email_address" name="send_email_address">
                  <div class="form-group col-sm-12">
                 	
                 		<h3>Message</h3>
@@ -148,6 +152,10 @@ background:#f0f2f1 !important;
 .cc-form-wrapper{
 	padding:5px;
 }
+select#cc-state-type , select#cc-store-name{
+	text-transform:uppercase !important;
+}
+
 /* .cc-store-form-section{
 	display:block;
 } */
@@ -187,3 +195,66 @@ $(document).ready(function() {
 get_footer();
 
 ?>
+<script type="text/javascript">
+jQuery.validator.setDefaults({ 
+ignore: ":hidden:not(.chosen, #product_code)",
+ submitHandler: function() {
+		 var form_data= jQuery("#contact_form").serializeArray();
+		  var json = {};
+		jQuery.each(form_data, function() {
+			json[this.name] = this.value || '';
+		});
+		alert('hi');
+		 
+	},
+}) 
+	$.validator.addMethod("valueNotEquals", function(value, element, arg){
+  			 return arg != value;
+ }, "Value must not equal arg.");
+
+
+
+	jQuery("#contact_form").validate({
+	rules: {
+			first_name: "required",
+			last_name: "required",
+			email_address: {
+				required: true,
+				email: true
+			},
+			
+			cc_state_type: { 
+								valueNotEquals: "default" 
+							},
+			
+			information:"required",
+			product_code : "required",
+			mobile_phone_no : "required",
+			faulty_items :{
+						  number: true,
+						  required: true,
+						}
+	},
+	messages: {
+			first_name: "Please enter your first name.",
+			last_name: "Please enter you last name.",
+			email_address: "Please enter valid email address.",
+			c_email_address: "Email and conform email does not match.",
+			information: " Please enter your message.",
+			product_code : "Please select product properly. Product code is empty ",
+			mobile_phone_no : " Please enter mobile number.", 
+			faulty_items : "Please enter numeric value.",
+			cc_state_type:{ valueNotEquals: "Please select an item!" }
+	},
+	errorPlacement: function(error, element){
+		var err_cntr=element.parent("div").find(".error_label");
+			err_cntr.show(); 
+			error.appendTo(err_cntr);
+	}
+	
+	
+	});
+
+
+
+</script>
