@@ -11,6 +11,7 @@
     + Front-Page Sections
     + Miscellaneous
 */
+    require_once('recaptchalib.php');
   acf_add_options_sub_page('Labeling');
   acf_add_options_sub_page('Front-Page Sections');
   acf_add_options_sub_page('Miscellaneous');
@@ -107,10 +108,18 @@ $query->set('post_type', array('backgrounds','product','workflows','visualiser',
 return $query;
 }
 add_filter('pre_get_posts', 'filter_search');
-include_once TEMPLATEPATH."/inc/carpetcall-walker.php";
-include_once TEMPLATEPATH."/inc/carpetcall-storefinder.php";
-include_once TEMPLATEPATH."/inc/contact-store-autocomplete.php";
-include_once TEMPLATEPATH."/inc/carpetcall-store-details.php";
+
+add_action('init','include_files');
+function include_files(){
+  include_once TEMPLATEPATH."/inc/carpetcall-walker.php";
+  include_once TEMPLATEPATH."/inc/carpetcall-storefinder.php";
+  include_once TEMPLATEPATH."/inc/contact-store-autocomplete.php";
+  include_once TEMPLATEPATH."/inc/carpetcall-store-details.php";
+  include_once TEMPLATEPATH."/inc/carpetcall-contact-information.php";
+  }
+
+
+
 /*
   * filtering WP Store Locator
   * removing fields 'address2' and 'state' from Location

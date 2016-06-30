@@ -51,7 +51,7 @@ get_header();
                 	What Does your query relate to?
                 </div>
                 <div class="form-group col-sm-6">
-                	<select class="selectpicker col-md-6" name="cc-enquiry-type" id="cc-enquiry-type">
+                	<select class="selectpicker col-md-6" name="cc_enquiry_type" id="cc-enquiry-type">
             
                        <option class="col-md-12" value="sales enquiry">
                          Sales Enquiry
@@ -104,7 +104,7 @@ get_header();
                 <div class="form-group col-sm-8">
               
                      <label for="cc-store-name">STORE*</label>
-                	<select class="selectpicker col-md-6 form-control" name="cc-store-name" id="cc-store-name">
+                	<select class="selectpicker col-md-6 form-control" name="cc_store_name" id="cc-store-name">
                      <option class="col-md-12" value="default">Please Select</option>
                          <?php  get_template_part('content', 'contact-store');
                      ?>
@@ -127,9 +127,16 @@ get_header();
                 
                  <textarea class="form-control" rows="5" id="cc_message" name="cc_message">ENTER YOUR MESSAGE HERE</textarea>
                 </div>
+                 <div class="form-group col-sm-12">
+					   <script src='https://www.google.com/recaptcha/api.js'></script>
+                      <div class="g-recaptcha" data-sitekey="6LdfuCMTAAAAAGhFRMwboqar9gIW_yfmWVjT7OMj"></div>
+                   </div>
                 <div class="form-group col-sm-12">
                  <input type="submit" value="Submit" class="btn-dn" id="cc_contact_submit">
                 </div> 
+                  <div class="form-group col-sm-12 success_message">
+
+                  </div>
 
             </div>
 
@@ -197,17 +204,49 @@ get_footer();
 ?>
 <script type="text/javascript">
 jQuery.validator.setDefaults({ 
-ignore: ":hidden:not(.chosen, #product_code)",
+ignore: ":hidden:not(.chosen, #send_email_address)",
  submitHandler: function() {
 		 var form_data= jQuery("#contact_form").serializeArray();
 		  var json = {};
+
 		jQuery.each(form_data, function() {
 			json[this.name] = this.value || '';
 		});
-		alert('hi');
-		 
-	},
+		
+	jQuery.ajax({
+         type : "post",
+         dataType : "json",
+         url : "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+         data : {
+         	 action: "contact_action",
+         	 form_data : json
+         	},
+         success: function(response) {
+           if(typeof(response.success) != "undefined" && response.success !== null) {
+               //jQuery("#vote_counter").html(response.vote_count)
+			   jQuery('#first_name').val('');
+			   jQuery('#last_name').val('');
+			   jQuery('#email_address').val('');
+			   jQuery('#mobile_phone_no').val('');
+			   jQuery('#cc-state-type').val('dafault');
+			   jQuery('#cc-store-name').val('deafault');
+			   jQuery('#cc_message').val('');
+			   jQuery('.success_message').html(response.success).show();
+			   grecaptcha.reset();
+            }else{
+              	if(typeof(response.captcha_error) != "undefined" && response.captcha_error !== null){
+					grecaptcha.reset();
+					jQuery('.error_message').html(response.captcha_error).show();
+				}else if(typeof(response.error) != "undefined" && response.error !== null){
+					jQuery('.error_message').html(response.error).show();
+					
+				}
+            }
+         }
+      }) 
+}
 }) 
+
 	$.validator.addMethod("valueNotEquals", function(value, element, arg){
   			 return arg != value;
  }, "Value must not equal arg.");
@@ -226,6 +265,10 @@ ignore: ":hidden:not(.chosen, #product_code)",
 			cc_state_type: { 
 								valueNotEquals: "default" 
 							},
+			cc_store_name: { 
+								valueNotEquals: "default" 
+							},
+							
 			
 			information:"required",
 			product_code : "required",
@@ -244,7 +287,10 @@ ignore: ":hidden:not(.chosen, #product_code)",
 			product_code : "Please select product properly. Product code is empty ",
 			mobile_phone_no : " Please enter mobile number.", 
 			faulty_items : "Please enter numeric value.",
-			cc_state_type:{ valueNotEquals: "Please select an item!" }
+			cc_state_type:{ valueNotEquals: "Please select a state!" },
+			cc_store_name: { 
+								valueNotEquals: "Please select a store!" 
+							}
 	},
 	errorPlacement: function(error, element){
 		var err_cntr=element.parent("div").find(".error_label");
