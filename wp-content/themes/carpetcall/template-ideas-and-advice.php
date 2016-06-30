@@ -6,7 +6,7 @@ global $post;
 /* ideas and advice child id declaration */
 $url = site_url();
 $url =explode('/',$url);
-do_action('pr',$url);
+
 if(strcasecmp($url[2],'localhost')==0){
   $bgID = 1690;
   $proID = 1711; 

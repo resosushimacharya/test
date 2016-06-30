@@ -1,10 +1,31 @@
- <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
+ <?php 
+$url = site_url();
+$url =explode('/',$url);
+
+if(strcasecmp($url[2],'localhost')==0){
+  $bgID = 1690;
+  $proID = 1711; 
+  $faqID = 1725;
+  $rugID = 1700;
+  $hardID = 1234;
+}
+else{
+  $bgID = 26696;
+  $proID = 26709; 
+  $faqID = 26721;
+  $rugID = 26701;
+  $hardID = 26703
+}
+
+
+ ?><div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
     <?php if(function_exists('bcn_display'))
     {
         bcn_display();
     }?>
 
 </div>
+
 
 <h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo get_the_title();?> <?php echo get_the_title($post->post_parent);?> </h3>
   
@@ -23,7 +44,7 @@
 
 <?php 
  $res = get_field('buying_guide_archive', get_the_id());
-  if($post->post_parent!=1725){ ?>
+  if($post->post_parent!=$faqID){ ?>
 <?php 
 
         
@@ -43,7 +64,7 @@
 $args = array(
     'post_type'      => 'page',
     'posts_per_page' => -1,
-    'post_parent'    => 1725,
+    'post_parent'    => $faqID,
     'order'          => 'ASC',
     'orderby'        => 'menu_order'
  );
@@ -62,7 +83,7 @@ wp_reset_query();
 </ul>
 
 <?php 
-if($post->ID==1700){
+if($post->ID==$rugID || $post->ID==$hardID){
 ?>
 <!-- here comes certain contains in future if neaded..  -->
 <div class="nowspe nowsppe"><a href="<?php
@@ -75,7 +96,7 @@ echo (strcasecmp($cat_link, 'halt') != 0) ? $cat_link : 'javascript:void(0)';
 		</div>
 		<div class="col-md-9">
 			<div class="cbg_content">
-     <?php if($post->post_parent!=1725){ ?>
+     <?php if($post->post_parent!=$faqID){ ?>
 
  <?php
 			  $i = 0; foreach($res as $rs){
@@ -86,7 +107,7 @@ echo (strcasecmp($cat_link, 'halt') != 0) ? $cat_link : 'javascript:void(0)';
               }
             ?>
             <?php 
-if($post->post_parent==1725){?>
+if($post->post_parent==$faqID){?>
 	        <div class="cont-panl">
 			<div class="panel-group" id="accordion">
 
