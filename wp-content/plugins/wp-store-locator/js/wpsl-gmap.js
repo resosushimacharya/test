@@ -1418,6 +1418,11 @@ function collectAjaxData( startLatLng, resetMap, autoLoad ) {
 		}
 	}
 	
+	// If the collection of statistics is enabled, then we include the searched value.
+	if ( typeof wpslSettings.collectStatistics !== "undefined" && autoLoad == 0 ) {
+		ajaxData.search = $( "#wpsl-search-input" ).val();
+	}
+	
 	return ajaxData;
 }
 

@@ -33,8 +33,12 @@ wp_head();
     <![endif]-->
     
 
-<!-- custom css --><script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+<!-- custom css -->
+<?php if(is_home())
+{?><script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+<?php  } ?>
     <script type="text/javascript">
+ 
       var lat;
      var long;
      rs = [];

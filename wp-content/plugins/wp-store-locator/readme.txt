@@ -4,8 +4,8 @@ Contributors: tijmensmit
 Donate link: https://www.paypal.me/tijmensmit
 Tags: google maps, store locator, business locations, geocoding, stores, geo, zipcode locator, dealer locater, geocode, gmaps, google map, google map plugin, location finder, map tools, shop locator, wp google map
 Requires at least: 3.7
-Tested up to: 4.5
-Stable tag: 2.2.1
+Tested up to: 4.5.2
+Stable tag: 2.2.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -69,6 +69,7 @@ Generate a directory based on the store locations.
 
 1. Upload the `wp-store-locator` folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Create a [server](https://developers.google.com/maps/documentation/geocoding/get-api-key#get-an-api-key) and [browser](https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key) key and set them on the [settings](https://wpstorelocator.co/document/configure-wp-store-locator/#google-maps-api) page.
 1. Add your stores under 'Store Locator' -> Add Store
 1. Add the map to a page with this shortcode: [wpsl]
 
@@ -77,6 +78,10 @@ Generate a directory based on the store locations.
 = How do I add the store locator to a page? =
 
 Add this shortcode [wpsl] to the page where you want to display the store locator.
+
+= Oops! Something went wrong =
+
+You can fix this by setting the [browser](https://wpstorelocator.co/document/configure-wp-store-locator/#google-maps-api) key on the settings page.
 
 = There are weird characters in the search results, how do I remove them? =
 
@@ -120,6 +125,15 @@ If you find a plugin or theme that causes a conflict, please report it on the [s
 4. The plugin settings
 
 == Changelog ==
+
+= 2.2.3, June 27, 2016 =
+* Fixed: Included the browser key in requests made to the Google Maps JavaScript API in the admin area. This is now [required](http://googlegeodevelopers.blogspot.nl/2016/06/building-for-scale-updates-to-google.html).
+* Changed: Include the language code in the AJAX request if WPML is active.
+* New: Spanish translations (es_ES). Via [Jaime Smeke](http://untaljai.me/).
+* New: Added support for the upcoming statistics add-on.
+
+= 2.2.2, May 18, 2016 =
+* Fixed: Corrected the [path](https://github.com/googlemaps/js-marker-clusterer/pull/61) for the cluster marker images.
 
 = 2.2.1, March 24, 2016 =
 * Fixed: A JS bug that sometimes resulted in duplicate results showing up in the search results.

@@ -43,6 +43,7 @@ function wpsl_get_gmap_api_params( $api_key_type, $geocode_params = false ) {
     }
     
     // Do we need to include the autocomplete library? This is only necessary on the front-end.
+    // @todo backend option check toevoegen...
     if ( $wpsl_settings['autocomplete'] && $api_key_type == 'browser_key' ) {
         $api_params .= '&libraries=places';
     }

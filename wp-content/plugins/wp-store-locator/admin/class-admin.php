@@ -50,7 +50,7 @@ if ( !class_exists( 'WPSL_Admin' ) ) {
 
             add_action( 'init',                                 array( $this, 'init' ) );
             add_action( 'admin_menu',                           array( $this, 'create_admin_menu' ) );
-			add_action( 'admin_init',                           array( $this, 'admin_init' ) );
+			add_action( 'admin_init',                           array( $this, 'setting_warnings' ) );
             add_action( 'delete_post',                          array( $this, 'maybe_delete_autoload_transient' ) );
             add_action( 'wp_trash_post',                        array( $this, 'maybe_delete_autoload_transient' ) );
             add_action( 'untrash_post',                         array( $this, 'maybe_delete_autoload_transient' ) );
@@ -58,6 +58,7 @@ if ( !class_exists( 'WPSL_Admin' ) ) {
             add_filter( 'plugin_row_meta',                      array( $this, 'add_plugin_meta_row' ), 10, 2 );
             add_filter( 'plugin_action_links_' . WPSL_BASENAME, array( $this, 'add_action_links' ), 10, 2 );
             add_filter( 'admin_footer_text',                    array( $this, 'admin_footer_text' ), 1 );
+            add_action( 'wp_loaded',                            array( $this, 'disable_setting_notices' ) );
 		}
 
         /**
@@ -89,54 +90,76 @@ if ( !class_exists( 'WPSL_Admin' ) ) {
 		}
                 
         /**
-         * Check if we need to show the "missing start point" warning.
+         * Check if we need to show warnings after 
+         * the user installed the plugin.
          *
          * @since 1.0.0
+         * @todo move to class-notices?
          * @return void
          */
-		public function admin_init() {
+		public function setting_warnings() {
             
             global $current_user, $wpsl_settings;
-                                    
+            
+            $this->setting_warning = array();
+                         
+            // The fields settings field to check for data.
+            $warnings = array(
+                'start_latlng'    => 'location',
+                'api_browser_key' => 'key'
+            );
+            
             if ( ( current_user_can( 'install_plugins' ) ) && is_admin() ) {
-                if ( ( empty( $wpsl_settings['start_latlng'] ) && !get_user_meta( $current_user->ID, 'wpsl_disable_location_warning' ) ) ) {
-                    add_action( 'wp_ajax_disable_location_warning', array( $this, 'disable_location_warning_ajax' ) );
-                    add_action( 'admin_notices',                    array( $this, 'show_location_warning' ) );
+                foreach ( $warnings as $setting_name => $warning ) {
+                    if ( empty( $wpsl_settings[$setting_name] ) && !get_user_meta( $current_user->ID, 'wpsl_disable_' . $warning . '_warning' ) ) {
+                        if ( $warning == 'location' ) {
+                           $this->setting_warning[$warning] = sprintf( __( "Before adding the [wpsl] shortcode to a page, please don't forget to define a start point on the %ssettings%s page. %sDismiss%s", "wpsl" ), "<a href='" . admin_url( 'edit.php?post_type=wpsl_stores&page=wpsl_settings' ) . "'>", "</a>", "<a href='" . esc_url( wp_nonce_url( add_query_arg( 'wpsl-notice', 'location' ), 'wpsl_notices_nonce', '_wpsl_notice_nonce' ) ) . "'>", "</a>" ); 
+                        } else {
+                           $this->setting_warning[$warning] = sprintf( __( "As of %sJune 22, 2016%s Google Maps no longer allows request for new projects that doesn't include an %sAPI key%s. %sDismiss%s", "wpsl" ), '<a href="https://googlegeodevelopers.blogspot.nl/2016/06/building-for-scale-updates-to-google.html">', "</a>", '<a href="https://wpstorelocator.co/document/configure-wp-store-locator/#google-maps-api">', "</a>", "<a href='" . esc_url( wp_nonce_url( add_query_arg( 'wpsl-notice', 'key' ), 'wpsl_notices_nonce', '_wpsl_notice_nonce' ) ) . "'>", "</a>" );
+                        }
+                    }
+                }
+                
+                if ( $this->setting_warning ) {
+                    add_action( 'admin_notices', array( $this, 'show_warning' ) );
                 }
             }
 		}
 
        /**
-        * Display an error message when no start location is defined.
+        * Show the admin warnings
         * 
         * @since 1.2.0
         * @return void
         */
-        public function show_location_warning() {
-            
-            if ( isset( $_GET['page'] ) && ( $_GET['page'] !== 'wpsl_settings' ) ) {
-                echo "<div id='message' class='error'><p>" . sprintf( __( "Before adding the [wpsl] shortcode to a page, please don't forget to define a start point on the %ssettings%s page. %sDismiss%s", "wpsl" ), "<a href='" . admin_url( 'edit.php?post_type=wpsl_stores&page=wpsl_settings' ) . "'>", "</a>", "<a class='wpsl-dismiss' data-nonce='" . wp_create_nonce( 'wpsl-dismiss' ) . "' href='#'>", "</a>" ). "</p></div>";   
+        public function show_warning() {
+            foreach ( $this->setting_warning as $k => $warning ) {
+                echo "<div id='message' class='error'><p>" . $warning .  "</p></div>";
             }
         }
-       
-       /**
-        * Disable the missing start location warning.
-        * 
-        * @since 1.2.0
-        * @return void
-        */
-        public function disable_location_warning_ajax() {
-           
+        
+        /**
+         * Disable notices about the plugin settings.
+         * 
+         * @todo move to class-notices?
+         * @since 2.2.3
+         * @return void
+         */
+        public function disable_setting_notices() {
+            
             global $current_user;
+            
+            if ( isset( $_GET['wpsl-notice'] ) && isset( $_GET['_wpsl_notice_nonce'] ) ) {
 
-            if ( !current_user_can( 'manage_wpsl_settings' ) )
-                die( '-1' );
-            check_ajax_referer( 'wpsl-dismiss' );
-
-            add_user_meta( $current_user->ID, 'wpsl_disable_location_warning', 'true', true );
-                                     
-            die();
-       }
+                if ( !wp_verify_nonce( $_GET['_wpsl_notice_nonce'], 'wpsl_notices_nonce' ) ) {
+                    wp_die( __( 'Security check failed. Please reload the page and try again.', 'wpsl' ) );
+                }
+                
+                $notice = sanitize_text_field( $_GET['wpsl-notice'] );
+                
+                add_user_meta( $current_user->ID, 'wpsl_disable_' . $notice . '_warning', 'true', true );
+            }
+        }
         
         /**
          * Add the admin menu pages.
@@ -328,9 +351,7 @@ if ( !class_exists( 'WPSL_Admin' ) ) {
          * @since 1.0.0
          * @return void
          */
-		public function admin_scripts() {	
-                        
-            global $wpsl_settings;
+		public function admin_scripts() {
             
             $min = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min'; 
             
@@ -351,7 +372,8 @@ if ( !class_exists( 'WPSL_Admin' ) ) {
                 
                 wp_enqueue_media();
                 wp_enqueue_script( 'jquery-ui-dialog' );
-                wp_enqueue_script( 'wpsl-gmap', ( '//maps.google.com/maps/api/js?libraries=places&language=' . $wpsl_settings['api_language'] ), false, '', true );
+                wp_enqueue_script( 'wpsl-gmap', ( '//maps.google.com/maps/api/js' . wpsl_get_gmap_api_params( 'browser_key' ) . '&libraries=places' ), false, WPSL_VERSION_NUM, true );
+
                 wp_enqueue_script( 'wpsl-queue', plugins_url( '/js/ajax-queue'. $min .'.js', __FILE__ ), array( 'jquery' ), WPSL_VERSION_NUM, true ); 
                 wp_enqueue_script( 'wpsl-retina', plugins_url( '/js/retina'. $min .'.js', __FILE__ ), array( 'jquery' ), WPSL_VERSION_NUM, true ); 
                                 

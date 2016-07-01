@@ -108,6 +108,8 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                 $store_data = $this->find_nearby_locations();
             }
             
+            do_action( 'wpsl_store_search' );
+            
             wp_send_json( $store_data );
             
             exit();
@@ -1505,6 +1507,27 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
             
             return $draggable;
         }
+        
+        /**
+         * Get the URL to the admin-ajax.php
+         * 
+         * @since 2.2.3
+         * @return string $ajax_url URL to the admin-ajax.php possibly with the WPML lang param included.
+         */
+        public function get_ajax_url() {
+            
+            global $wpsl;
+            
+            $param = '';
+            
+            if ( $wpsl->i18n->wpml_exists() ) {
+                $param = '?lang=' . ICL_LANGUAGE_CODE;
+            }
+            
+            $ajax_url = admin_url( 'admin-ajax.php' . $param );
+            
+            return $ajax_url;
+        }
 
         /**
          * Load the required JS scripts.
@@ -1567,7 +1590,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                 'searchRadius'      => $dropdown_defaults['search_radius'],
 				'distanceUnit'      => $wpsl_settings['distance_unit'],
                 'geoLocationTimout' => apply_filters( 'wpsl_geolocation_timeout', 5000 ),
-				'ajaxurl'           => admin_url( 'admin-ajax.php' ),
+				'ajaxurl'           => $this->get_ajax_url(),
                 'mapControls'       => $this->get_map_controls()
 			);
             
@@ -1649,7 +1672,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                 }
             }
             
-			wp_localize_script( 'wpsl-js', 'wpslSettings', $settings );             
+			wp_localize_script( 'wpsl-js', 'wpslSettings', apply_filters( 'wpsl_js_settings', $settings ) );            
 
             wpsl_create_underscore_templates( $template );
 

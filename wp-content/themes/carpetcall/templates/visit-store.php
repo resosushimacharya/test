@@ -1,3 +1,8 @@
+<?php
+/* 
+** Template Name: Visit Store
+*/
+?>
 <?php get_header();?>
 
 
@@ -18,9 +23,9 @@
      	the_post();
         $feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>  
- 	<h3><?php echo get_the_title();?></h3>
+ 	<h3><?php echo  get_the_title();?></h3>
              
-	<p><?php echo  get_the_content();?></p>
+	<?php  the_content();?>
              	
 <?php
 	 }
