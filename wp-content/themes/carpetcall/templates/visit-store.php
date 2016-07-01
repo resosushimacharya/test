@@ -17,23 +17,26 @@
     }?>
 
 </div>
+<h3><?php echo  get_the_title();?></h3>
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#find_your_nearest_store">FIND YOUR NEAREST STORE</a></li>
+  <li><a data-toggle="tab" href="#head_offices">HEAD OFFICES</a></li>
+  
+</ul>
 
-<?php 
- 	while(have_posts()){
-     	the_post();
-        $feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-?>  
- 	<h3><?php echo  get_the_title();?></h3>
-             
-	<?php  the_content();?>
-             	
-<?php
-	 }
-     wp_reset_query();
-?>
+<div class="tab-content">
+  <div id="find_your_nearest_store" class="tab-pane fade in active">
+    <h3>HOME</h3>
+    <p><?php echo do_shortcode('[wpsl]');?></p>
+  </div>
+  <div id="head_offices" class="tab-pane fade">
+    <h3>Menu 1</h3>
+    <p>Some content in menu 1.</p>
+  </div>
+  
 </div>
-<div class="cc-contact-side col-md-6">
-<img src="<?php echo $feat_image ;?>" class="img-responsive">
+
+
 </div>
 
 </div>
