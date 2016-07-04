@@ -11,6 +11,10 @@
     + Front-Page Sections
     + Miscellaneous
 */
+    /*
+      * global variable for store listing counter
+      * used on file: inc/carpetcall-contact-information.php
+    */
     require_once('recaptchalib.php');
   acf_add_options_sub_page('Labeling');
   acf_add_options_sub_page('Front-Page Sections');
@@ -141,10 +145,30 @@ function custom_meta_box_fields( $meta_fields ) {
 }
 /*
   * customizing WP Store Locator
+  * load custom template
   * remove State column from Store listing
   * convert State category checkboxes to radio
   * on selecting State category , populate State field
 */
+// load custom Store Locator template
+add_filter( 'wpsl_templates', 'custom_templates' );
+
+function custom_templates( $templates ) {
+
+    /**
+     * The 'id' is for internal use and must be unique ( since 2.0 ).
+     * The 'name' is used in the template dropdown on the settings page.
+     * The 'path' points to the location of the custom template,
+     * in this case the folder of your active theme.
+     */
+    $templates[] = array (
+        'id'   => 'custom',
+        'name' => 'Custom template',
+        'path' => get_stylesheet_directory() . '/' . 'templates/custom-wpsl-template.php',
+    );
+
+    return $templates;
+}
 // remove State column from listing to avoid duplicate entries
 function aits_wpsl_columns_filter( $columns ) {
   unset( $columns['state'] );

@@ -5,12 +5,12 @@
 ?>
 <?php get_header();?>
 
-
+<?php  ?>
 
 <div class="cbg_blk cc-clearance-blk clearfix">
  <div class="container ">
 <div class="inerblock_serc cc-wrapper-whole">
-<div class="col-md-6">					
+<div class="col-md-12">					
  <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
 <?php if(function_exists('bcn_display')){
         bcn_display();
@@ -42,6 +42,7 @@
 </div>
 </div>
 </div>
+
 <style>
 .cc-wrapper-blk{
 background:#f0f2f1 !important;
@@ -55,9 +56,36 @@ background:#f0f2f1 !important;
 	
 }
 .cc-form-wrapper{
-	padding:5px;
+	padding:5px;}
+#wpsl-stores{
+	overflow:visible !important;
+}
+.fcnt-orr-map a {
+	background:#fff;
+	border:1px solid #1858b8;
+	color:#1858b8;
+} 
+.fcnt-orr-map a:hover{
+background:#fff;
 }
 </style>
+<script>
+   $(document).ready(function(){
+    $("#wpsl-search-btn-one").click(function(){
+    	//alert(checkGeolocation( settings.startLatLng, infoWindow ));
+      //showlocation();
+      alert("hello");
+     /*if(wpslSettings.autoLoad==0){
+     	alert("hello");
+     }*/
+
+    });
+
+
+   });
+
+</script>
+
 <?php 
 get_footer();
 
