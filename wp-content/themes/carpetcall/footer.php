@@ -182,6 +182,7 @@ $tabs.responsiveTabs('activate', $(this).val());
 
 
 </script>
+
 <?php wp_footer();?>
 </body>
 </html>

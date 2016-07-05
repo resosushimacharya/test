@@ -46,7 +46,7 @@ $output .= "\t\t\t\t" . '<div class="wpsl-search-btn-wrap check_wpsl"><input id=
 
 $output .= "\t\t" . '</form>' . "\r\n";
 $output .="\t\t\t\t" . '<div id="wpsl-auto-locate">' . "\r\n";
-    $output .= "\t\t\t\t\t" .'<div class="wpsl-search-btn-wrap"><input type="submit" value="Current Location" id="wpsl-search-btn-one"/></div> '. "\r\n";
+    $output .= "\t\t\t\t\t" .'<div class="wpsl-search-btn-wrap"><input type="submit" value="Current Location " class="cc-map-control" id="wpsl-search-btn-one"/></div> '. "\r\n";
     $output .= "\t\t\t\t" . '</div>' . "\r\n";
 $output .= "\t\t" . '</div>' . "\r\n";
 

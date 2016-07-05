@@ -19,7 +19,10 @@ echo bloginfo('description');
 
 
 <?php
+
+
 wp_head();
+
 ?>
 
 <!-- Bootstrap -->

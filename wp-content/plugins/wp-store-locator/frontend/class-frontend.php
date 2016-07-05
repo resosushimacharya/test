@@ -47,7 +47,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
         /**
          * Class constructor
          */
-		public function __construct() {
+        public function __construct() {
             
             $this->includes();
             
@@ -62,7 +62,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
             add_shortcode( 'wpsl_address',             array( $this, 'show_store_address' ) );
             add_shortcode( 'wpsl_hours',               array( $this, 'show_opening_hours' ) );
             add_shortcode( 'wpsl_map',                 array( $this, 'show_store_map' ) );
-		}
+        }
         
         /**
          * Include the required front-end files.
@@ -107,8 +107,6 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
             } else {
                 $store_data = $this->find_nearby_locations();
             }
-            
-            do_action( 'wpsl_store_search' );
             
             wp_send_json( $store_data );
             
@@ -567,7 +565,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
        
             global $wpsl_settings, $post;
 
-			if ( isset( $post->post_type ) && $post->post_type == 'wpsl_stores' && is_single() && in_the_loop() ) {
+            if ( isset( $post->post_type ) && $post->post_type == 'wpsl_stores' && is_single() && in_the_loop() ) {
                 array_push( $this->load_scripts, 'wpsl_base' );
                
                 $content .= '[wpsl_map]';
@@ -647,7 +645,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
          * @param  array  $atts   Shortcode attributes
          * @return string $output The wpsl template
          */
-		public function show_store_locator( $atts ) {
+        public function show_store_locator( $atts ) {
             
             global $wpsl_settings;
             
@@ -683,7 +681,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
             $output = include( $template_path );    
             
             return $output;
-		}
+        }
         
         /**
          * Handle the [wpsl_address] shortcode.
@@ -1094,9 +1092,9 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                    $response = filter_var( $list_value, FILTER_SANITIZE_NUMBER_INT );
                    break;
                }
-           }	
+           }    
 
-           return $response;		
+           return $response;        
        }
         
         /**
@@ -1121,13 +1119,13 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
          * @since 1.0.0
          * @return string $css The custom css rules
          */
-		public function get_custom_css() {
+        public function get_custom_css() {
 
             global $wpsl_settings;
 
             $thumb_size = $this->get_store_thumb_size();
 
-			$css = '<style>' . "\r\n";
+            $css = '<style>' . "\r\n";
 
             if ( isset( $thumb_size[0] ) && is_numeric( $thumb_size[0] ) && isset( $thumb_size[1] ) && is_numeric( $thumb_size[1] ) ) {
                 $css .= "\t" . "#wpsl-stores .wpsl-store-thumb {height:" . esc_attr( $thumb_size[0] ) . "px !important; width:" . esc_attr( $thumb_size[1] ) . "px !important;}" . "\r\n";
@@ -1155,8 +1153,8 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
             $css .= "\t" . "#wpsl-search-input " . $cat_elem . " {width:" . esc_attr( $wpsl_settings['search_width'] ) . "px;}" . "\r\n";
             $css .= '</style>' . "\r\n";
 
-			return $css;
-		}
+            return $css;
+        }
         
         /**
          * Collect the CSS classes that are placed on the outer store locator div.
@@ -1208,7 +1206,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
             global $wpsl_settings;
             
             $dropdown_list = '';
-			$settings      = explode( ',', $wpsl_settings[$list_type] );
+            $settings      = explode( ',', $wpsl_settings[$list_type] );
             
             // Only show the distance unit if we are dealing with the search radius.
             if ( $list_type == 'search_radius' ) {
@@ -1217,21 +1215,21 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                 $distance_unit = '';
             }
 
-			foreach ( $settings as $index => $setting_value ) {
+            foreach ( $settings as $index => $setting_value ) {
 
-				// The default radius has a [] wrapped around it, so we check for that and filter out the [].
-				if ( strpos( $setting_value, '[' ) !== false ) {
-					$setting_value = filter_var( $setting_value, FILTER_SANITIZE_NUMBER_INT );
-					$selected = 'selected="selected" ';
-				} else {
-					$selected = '';
-				}	
+                // The default radius has a [] wrapped around it, so we check for that and filter out the [].
+                if ( strpos( $setting_value, '[' ) !== false ) {
+                    $setting_value = filter_var( $setting_value, FILTER_SANITIZE_NUMBER_INT );
+                    $selected = 'selected="selected" ';
+                } else {
+                    $selected = '';
+                }   
 
-				$dropdown_list .= '<option ' . $selected . 'value="'. absint( $setting_value ) .'">'. absint( $setting_value ) . $distance_unit .'</option>';
-			}	
+                $dropdown_list .= '<option ' . $selected . 'value="'. absint( $setting_value ) .'">'. absint( $setting_value ) . $distance_unit .'</option>';
+            }   
 
-			return $dropdown_list;		
-		}
+            return $dropdown_list;      
+        }
 
         /**
          * Create the category filter. 
@@ -1392,7 +1390,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
          * @since 2.0.0
          * @return void
          */
-		public function add_frontend_styles() {
+        public function add_frontend_styles() {
             
             $min = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
             
@@ -1507,27 +1505,6 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
             
             return $draggable;
         }
-        
-        /**
-         * Get the URL to the admin-ajax.php
-         * 
-         * @since 2.2.3
-         * @return string $ajax_url URL to the admin-ajax.php possibly with the WPML lang param included.
-         */
-        public function get_ajax_url() {
-            
-            global $wpsl;
-            
-            $param = '';
-            
-            if ( $wpsl->i18n->wpml_exists() ) {
-                $param = '?lang=' . ICL_LANGUAGE_CODE;
-            }
-            
-            $ajax_url = admin_url( 'admin-ajax.php' . $param );
-            
-            return $ajax_url;
-        }
 
         /**
          * Load the required JS scripts.
@@ -1535,7 +1512,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
          * @since 1.0.0
          * @return void
          */
-		public function add_frontend_scripts() {
+        public function add_frontend_scripts() {
             
             global $wpsl_settings, $wpsl;
             
@@ -1558,7 +1535,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                 'startLatlng'           => $wpsl_settings['start_latlng'],
                 'autoZoomLevel'         => $wpsl_settings['auto_zoom_level'],
                 'scrollWheel'           => $wpsl_settings['scrollwheel'],
-				'controlPosition'       => $wpsl_settings['control_position'],
+                'controlPosition'       => $wpsl_settings['control_position'],
                 'url'                   => WPSL_URL,
                 'markerIconProps'       => $this->get_marker_props(),
                 'draggable'             => $this->maybe_draggable(),
@@ -1569,14 +1546,14 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                 'mapTabAnchorReturn'    => apply_filters( 'wpsl_map_tab_anchor_return', false )
             );
 
-			$locator_map_settings = array(
+            $locator_map_settings = array(
                 'startMarker'       => $this->create_retina_filename( $wpsl_settings['start_marker'] ),
                 'markerClusters'    => $wpsl_settings['marker_clusters'],
                 'streetView'        => $wpsl_settings['streetview'],
                 'autoComplete'      => $wpsl_settings['autocomplete'],
-				'autoLocate'        => $wpsl_settings['auto_locate'],
+                'autoLocate'        => $wpsl_settings['auto_locate'],
                 'autoLoad'          => $wpsl_settings['autoload'],
-				'markerEffect'      => $wpsl_settings['marker_effect'],
+                'markerEffect'      => $wpsl_settings['marker_effect'],
                 'markerStreetView'  => $wpsl_settings['marker_streetview'],
                 'markerZoomTo'      => $wpsl_settings['marker_zoom_to'],
                 'newWindow'         => $wpsl_settings['new_window'],
@@ -1588,11 +1565,11 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                 'templateId'        => $wpsl_settings['template_id'],
                 'maxResults'        => $dropdown_defaults['max_results'],
                 'searchRadius'      => $dropdown_defaults['search_radius'],
-				'distanceUnit'      => $wpsl_settings['distance_unit'],
+                'distanceUnit'      => $wpsl_settings['distance_unit'],
                 'geoLocationTimout' => apply_filters( 'wpsl_geolocation_timeout', 5000 ),
-				'ajaxurl'           => $this->get_ajax_url(),
+                'ajaxurl'           => admin_url( 'admin-ajax.php' ),
                 'mapControls'       => $this->get_map_controls()
-			);
+            );
             
             /*
              * If no results are found then by default it will just show the
@@ -1672,7 +1649,8 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                 }
             }
             
-			wp_localize_script( 'wpsl-js', 'wpslSettings', apply_filters( 'wpsl_js_settings', $settings ) );            
+           
+            wp_localize_script( 'wpsl-js', 'wpslSettings', $settings );             
 
             wpsl_create_underscore_templates( $template );
 
@@ -1685,7 +1663,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                     $i++;
                 } 
             }
-		}
+        }
         
         /**
          * Get the infobox settings.

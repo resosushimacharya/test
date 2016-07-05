@@ -28,6 +28,19 @@ echo '<pre>';
        print_r($arg);
   echo '</pre>';
 }
+
+add_action('wp_head','destroy_autoLoc');
+function destroy_autoLoc(){
+  if(!is_page_template( 'templates/visit-store.php')){
+    if (!session_id()){
+          session_start();
+      }
+      $_SESSION['use_curr_loc']="0";
+  }
+
+}
+
+
 include_once TEMPLATEPATH."/inc/carpetcall-script.php";
 remove_filter ('acf_the_content', 'wpautop');
 add_theme_support( 'post-thumbnails' );
@@ -120,6 +133,7 @@ function include_files(){
   include_once TEMPLATEPATH."/inc/contact-store-autocomplete.php";
   include_once TEMPLATEPATH."/inc/carpetcall-store-details.php";
   include_once TEMPLATEPATH."/inc/carpetcall-contact-information.php";
+  include_once TEMPLATEPATH."/inc/carpetcall-map-control.php";
   }
 
 

@@ -28,6 +28,8 @@ _.templateSettings = {
 	escape: /\<\%-(.+?)\%\>/g
 };
 
+
+
 // Only continue if a map is present.
 if ( $( ".wpsl-gmap-canvas" ).length ) {
 	$( "<img />" ).attr( "src", wpslSettings.url + "img/ajax-loader.gif" );
