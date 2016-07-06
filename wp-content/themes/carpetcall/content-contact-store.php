@@ -10,7 +10,7 @@ if(isset($_GET['id'])){
     $cstate = $field['wpsl_state'][0];
 
 	$terms = get_terms('wpsl_store_category');
-	do_action('pr', $terms);
+
 	wp_reset_query();
 	$slug = strtolower( $cstate);
 	wp_reset_query();
