@@ -28,6 +28,7 @@ echo '<a href="'.get_category_link($catid).'"><' ;?>
 </div>
 <div class="col-md-4 wpsl-single-left">
 <div class="wpsl-address-sec">
+<h4>Address</h4>
 	<?php echo do_shortcode('[wpsl_address id="'.$post->ID.'" name="true" address="true" address2="false" 
        city="true" state="false" zip="true" country="false" phone="false" title="false"
        fax="false" email="false" url="true"]');

@@ -28,6 +28,29 @@
   <div id="find_your_nearest_store" class="tab-pane fade in active">
     <h3>HOME</h3>
     <p><?php echo do_shortcode('[wpsl]');?></p>
+    <?php 
+      $tax = 'wpsl_store_category';
+      $tax_terms = get_terms($tax, array('hide_empty' => true));
+     
+      $regions = array(
+        'QLD' => 'Queensland',
+        'NSW' =>'New South Wales',
+        'SA' =>'South Australia',
+        'TAS'=>'Tasmania',
+        'VIC'=>'Victoria',
+        'WA'=>'Western Australia',
+        'ACT'=>'Australia Capital Territory',
+        'NT'=>'Northern Territory'
+        );
+      foreach($tax_terms as $term):
+       
+        echo '<div class="cc-state-link"><a href="'.get_category_link($term->term_id).'" >'.$regions[$term->name].'</a></div>';
+        endforeach;
+
+
+
+    ?>
+
   </div>
   <div id="head_offices" class="tab-pane fade">
     <h3>Menu 1</h3>
@@ -68,23 +91,9 @@ background:#f0f2f1 !important;
 .fcnt-orr-map a:hover{
 background:#fff;
 }
+
 </style>
-<script>
-   $(document).ready(function(){
-    $("#wpsl-search-btn-one").click(function(){
-    	//alert(checkGeolocation( settings.startLatLng, infoWindow ));
-      //showlocation();
-      alert("hello");
-     /*if(wpslSettings.autoLoad==0){
-     	alert("hello");
-     }*/
 
-    });
-
-
-   });
-
-</script>
 
 <?php 
 get_footer();

@@ -106,7 +106,8 @@ get_header();
                      <label for="cc-store-name">STORE*</label>
                 	<select class="selectpicker col-md-6 form-control" name="cc_store_name" id="cc-store-name">
                      <option class="col-md-12" value="default">Please Select</option>
-                         <?php  //get_template_part('content', 'contact-store');
+
+                         <?php  get_template_part('content', 'contact-store');
                      ?>
 
                      </select>
@@ -114,8 +115,20 @@ get_header();
                 </div>
                 
                 </div>
+                <?php 
+                $myemail = "";
+if(isset($_GET['id'])){
 
-                <input type="hidden" value="" class="btn-dn" id="send_email_address" name="send_email_address">
+  $contactstoID = $_GET['id'];
+
+    $field = get_post_meta($contactstoID);
+    
+    if(isset($field['wpsl_email'][0])){
+      $myemail = $field['wpsl_email'][0];
+    }
+  }
+?>
+                <input type="text" value="<?php echo $myemail;?>" class="btn-dn" id="send_email_address" name="send_email_address">
                  <div class="form-group col-sm-12">
                 	
                 		<h3>Message</h3>

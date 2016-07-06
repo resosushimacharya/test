@@ -11,6 +11,7 @@ jQuery(".cc-map-control").click(function(e) {
 			},
 			success:function(data){				
 				//jQuery('.woo-added').html(data);
+				
 				location.reload();
 				  
 

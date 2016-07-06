@@ -18,6 +18,13 @@ $term =  get_queried_object();
 </div>
 </div><div class="clearfix"></div>
 
+<style>
 
+
+#wpsl-stores{
+	overflow:visible !important;
+}
+
+</style>
 
 <?php get_footer();?>

@@ -29,17 +29,28 @@ echo '<pre>';
   echo '</pre>';
 }
 
+
 add_action('wp_head','destroy_autoLoc');
 function destroy_autoLoc(){
-  if(!is_page_template( 'templates/visit-store.php')){
+  global $post;
+  if(!is_page_template( 'templates/visit-store.php') || get_post_type( $post->ID )=='wpsl_stores'){
     if (!session_id()){
           session_start();
+
       }
+       
       $_SESSION['use_curr_loc']="0";
+
+
+  }
+  else{
+     if (!session_id()){
+          session_start();
+
+      }
   }
 
 }
-
 
 include_once TEMPLATEPATH."/inc/carpetcall-script.php";
 remove_filter ('acf_the_content', 'wpautop');

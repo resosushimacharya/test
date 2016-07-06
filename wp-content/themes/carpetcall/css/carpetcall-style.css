@@ -728,3 +728,7 @@ section#main { margin:18px 0 19px 0;}
 a.pull-right { font:normal 10px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-transform:uppercase; text-decoration:underline; margin-top:4px; }
 a.pull-right:hover { color:#000; text-decoration:none;}
 .panel-group .panel-heading+.panel-collapse>.panel-body { border:0; }
+.cc-store-icon-label img{
+     display: inline-block;
+    margin-right: 5px;
+}
