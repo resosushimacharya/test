@@ -172,8 +172,7 @@ function custom_listing_templates() {
   /* if ( !$wpsl_settings['hide_distance'] ) {
         $listing_template .= "\t\t" . '<%= distance %> ' . esc_html( $wpsl_settings['distance_unit'] ) . '' . "\r\n";
     }*/
-        
-    /*$listing_template .= "\t\t" . '<%= createDirectionUrl() %>' . "\r\n"; */
+    $listing_template .= "\t\t" . '<%= createDirectionUrl() %>' . "\r\n";
    
     $listing_template .= "\t" . '</li>' . "\r\n";
 

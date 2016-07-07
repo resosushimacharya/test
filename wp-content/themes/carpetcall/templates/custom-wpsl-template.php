@@ -1,6 +1,18 @@
 <?php 
+$url = site_url();
+$url =explode('/',$url);
+
+if(strcasecmp($url[2],'localhost')==0){
+  $locsermapID = '1770';
+}
+else{
+  $locsermapID ='26771'; }
+
+
+ ?><?php 
 global $wpsl_settings, $wpsl;
 global $post;
+
 
 $output         = $this->get_custom_css(); 
 $autoload_class = ( !$wpsl_settings['autoload'] ) ? 'class="wpsl-not-loaded"' : '';
@@ -47,12 +59,17 @@ $output .= "\t\t\t\t" . '<div class="wpsl-search-btn-wrap check_wpsl"><input id=
 
 $output .= "\t\t" . '</form>' . "\r\n";
 $output .="\t\t\t\t" . '<div id="wpsl-auto-locate">' . "\r\n";
-    $output .= "\t\t\t\t\t" .'<div class="wpsl-search-btn-wrap"><input type="submit" value="Current Location " class="cc-map-control" id="cc_control_map"/></div> '. "\r\n";
+if($post->ID!=$locsermapID){
+
+    $output .= "\t\t\t\t\t" .'<div class="wpsl-search-btn-wrap"><input type="submit" value="Current Location " class="cc-map-control" id="cc_control_map"/></div> '. "\r\n";}
+    else{
+       $output .= "\t\t\t\t\t" .'<div class="wpsl-search-btn-wrap"><input type="submit" value="Current Location " class="cc-map-control-finder" id="cc_control_map"/></div> '. "\r\n"; 
+    }
     $output .= "\t\t\t\t" . '</div>' . "\r\n";
 $output .= "\t\t" . '</div>' . "\r\n";
 
 $output .= "\t" . '</div>' . "\r\n";
-    
+ if($post->ID!=$locsermapID){
 if ( $wpsl_settings['reset_map'] ) { 
     $output .= "\t" . '<div class="wpsl-gmap-wrap">' . "\r\n";
     $output .= "\t\t" . '<div id="wpsl-gmap" class="wpsl-gmap-canvas"></div>' . "\r\n";
@@ -60,8 +77,8 @@ if ( $wpsl_settings['reset_map'] ) {
 } else {
     $output .= "\t" . '<div id="wpsl-gmap" class="wpsl-gmap-canvas"></div>' . "\r\n";
 }
-
-/*if($post->ID!='878'){*/
+}
+if($post->ID!=$locsermapID){
 
 $output .= "\t" . '<div id="wpsl-result-list">' . "\r\n";
 $output .= "\t\t" . '<div id="wpsl-stores" '. $autoload_class .'>' . "\r\n";
@@ -71,8 +88,7 @@ $output .= "\t\t" . '<div id="wpsl-direction-details">' . "\r\n";
 $output .= "\t\t\t" . '<ul></ul>' . "\r\n";
 $output .= "\t\t" . '</div>' . "\r\n";
 $output .= "\t" . '</div>' . "\r\n";
-/*}
-*/
+}
 if ( $wpsl_settings['show_credits'] ) { 
     $output .= "\t" . '<div class="wpsl-provided-by">'. sprintf( __( "Search provided by %sWP Store Locator%s", "wpsl" ), "<a target='_blank' href='https://wpstorelocator.co'>", "</a>" ) .'</div>' . "\r\n";
 }

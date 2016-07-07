@@ -84,7 +84,10 @@ wp_head();
      }
        </script>
 
+<script type="text/javascript">
+    var site_url="<?php echo site_url();?>";
 
+</script>
 
 
 
