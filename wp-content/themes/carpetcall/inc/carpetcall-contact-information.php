@@ -1,4 +1,6 @@
 <?php 
+
+
 function contact_action(){
 $data=$_POST['form_data'];
   /* if ( !wp_verify_nonce( $data['wp-nonce'], "user_review_nonce")) {
@@ -97,8 +99,23 @@ function customize_module( $meta_fields ) {
 
     return $meta_fields;
 }
+/*to select the local data or server data
+*/
 
-add_filter( 'wpsl_listing_template', 'custom_listing_templates' );
+$url = site_url();
+$url =explode('/',$url);
+
+if(strcasecmp($url[2],'localhost')==0){
+ add_filter( 'wpsl_listing_template', 'custom_listing_templates' );
+}
+else{
+  
+add_filter( 'wpsl_listing_template', 'custom_listing_templates_server');
+}
+
+
+ 
+/*add_filter( 'wpsl_listing_template', 'custom_listing_templates' );*/
 add_filter( 'wpsl_meta_box_fields', 'custom_meta_box_appointment' );
 
 function custom_meta_box_appointment( $meta_fields ) {
@@ -186,7 +203,76 @@ function custom_listing_templates() {
 }
 /*add_action( 'wpsl_store_search','cc_store_search',10,1 );
 function cc_store_search($){
-
+|| id!=26783 ||id!=26797|| id!=26793 || id!=26789 || id!=26791 id!=26789 || id!=26785 || id!=26787 ||  
 
 
 }*/
+function custom_listing_templates_server() {
+    
+
+    global $wpsl_settings;
+   
+   
+ 
+   $y = '1787';
+   $x = '<%=id %>';
+   
+    $listing_template = '<%=id %>';
+    
+   
+
+    $listing_template = '<% if (  id!=26801 ) { %>' .
+    '<% if (  id!=26783 ) { %>'.
+        '<% if (  id!=26797 ) { %>'.
+            '<% if (  id!=26793 ) { %>'.
+                '<% if (  id!=26789 ) { %>'.
+                    '<% if (  id!=26791 ) { %>'.
+                        
+                            '<% if (  id!=26785 ) { %>'.
+                                '<% if (  id!=26787 ) { %><li data-store-id="<%= id %>" class="col-md-4">' . "\r\n";
+    $listing_template .= "\t\t" . '<div>' . "\r\n";
+   
+    $listing_template .= "\t\t\t" . '<p><%= thumb %>' . "\r\n";
+    $listing_template .= "\t\t\t\t" .'<span class="cc-store-icon-label"><img src ="'.get_template_directory_uri().'/images/blue.png"/>'.wpsl_store_header_template( 'listing' ).'</span><div class="clearfix"></div>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address %></span>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% if ( address2 ) { %>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address2 %></span>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span>' . "\r\n";
+   $listing_template .= "\t\t\t\t" . '<% if ( phone ) { %>' . "\r\n";
+                $listing_template .= "\t\t\t\t" . '<span><strong>' .'P' .'</strong>: <%= formatPhoneNumber( phone ) %></span><br/>' . "\r\n";
+                $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+                $listing_template .= "\t\t\t\t" . '<% if ( fax ) { %>' . "\r\n";
+                $listing_template .= "\t\t\t\t" . '<span><strong>' .'F' .'</strong>: <%= fax %></span>' . "\r\n";
+                $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+               $listing_template .='<div class="fcnt-or fcnt-orr clearfix"><a href="<%= permalink %>">View Store Page</a></div>';
+                $listing_template .='<div class="fcnt-or fcnt-orr fcnt-orr-map clearfix"><a href="http://localhost/carpetcall/contact-us/?id=<%= id %>" class="cc-contact-link  ">Contact Store</a></div>';
+    $listing_template .= "\t\t\t" . '</p>' . "\r\n";
+     
+ 
+    
+
+   /* $listing_template .= "\t\t\t" . '<% if ( point_list ) { %>' . "\r\n";
+    $listing_template .= "\t\t\t" . '<p><%= point_list %></p>' . "\r\n";
+    $listing_template .= "\t\t\t" . '<% } %>' . "\r\n";*/
+     // Check if the 'appointment_url' contains data before including it.
+
+   /* $listing_template .= "\t\t\t" . '<% if ( appointment_url ) { %>' . "\r\n";
+    $listing_template .= "\t\t\t" . '<p><a href="<%= appointment_url %>">' . __( 'Make an Appointment', 'wpsl' ) . '</a></p>' . "\r\n";
+    $listing_template .= "\t\t\t" . '<% } %>' . "\r\n";*/
+    
+    $listing_template .= "\t\t" . '</div>' . "\r\n";
+    
+   if ( !$wpsl_settings['hide_distance'] ) {
+        $listing_template .= "\t\t" . '<%= distance %> ' . esc_html( $wpsl_settings['distance_unit'] ) . '' . "\r\n";
+    }
+    $listing_template .= "\t\t" . '<%= createDirectionUrl() %>' . "\r\n";
+   
+    $listing_template .= "\t" . '</li>' . "\r\n";
+
+    $listing_template .= "\t\t\t\t" . '<% } %><% } %><% } %><% } %><% } %><% } %><% } %><% } %>' . "\r\n";
+
+
+    return $listing_template;
+}

@@ -3,7 +3,7 @@
 * @package carpetcall
 * @subpackage carpetcall
 */
-//show_admin_bar(false );
+show_admin_bar(true);
 /*
   * register multiple ACF pages
   * Option pages :

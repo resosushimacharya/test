@@ -75,7 +75,7 @@ $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=qld&posts_per_page
 
 <script>
  stoLLPTL=[];
- urlstore = <?php echo json_encode(site_url().'/store-category/');?>;
+ urlstore = <?php echo json_encode(site_url().'/find-a-store/');?>;
  //alert(urlstore);
 function getLocation() {
     if (navigator.geolocation) {
@@ -459,6 +459,7 @@ function deg2rad(deg) {
                             address: address,
                             
                         })
+                        title = title-1;
                         var strdis = Number(title)>1?"stores":"store";
                       
                         if((asl.toUpperCase() === tempvar[0].toUpperCase())){
