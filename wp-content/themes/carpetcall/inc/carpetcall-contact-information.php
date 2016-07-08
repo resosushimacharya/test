@@ -131,11 +131,14 @@ function custom_listing_templates() {
    
    
  
+   $y = '1787';
+   $x = '<%=id %>';
    
-  
+    $listing_template = '<%=id %>';
     
-    
-    $listing_template = '<li data-store-id="<%= id %>" class="col-md-4">' . "\r\n";
+   
+
+    $listing_template = '<% if ( id!=1787 ) { %>' .'<li data-store-id="<%= id %>" class="col-md-4">' . "\r\n";
     $listing_template .= "\t\t" . '<div>' . "\r\n";
    
     $listing_template .= "\t\t\t" . '<p><%= thumb %>' . "\r\n";
@@ -155,6 +158,7 @@ function custom_listing_templates() {
                $listing_template .='<div class="fcnt-or fcnt-orr clearfix"><a href="<%= permalink %>">View Store Page</a></div>';
                 $listing_template .='<div class="fcnt-or fcnt-orr fcnt-orr-map clearfix"><a href="http://localhost/carpetcall/contact-us/?id=<%= id %>" class="cc-contact-link  ">Contact Store</a></div>';
     $listing_template .= "\t\t\t" . '</p>' . "\r\n";
+     
  
     
 
@@ -176,7 +180,7 @@ function custom_listing_templates() {
    
     $listing_template .= "\t" . '</li>' . "\r\n";
 
-    
+    $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
 
     return $listing_template;
 }

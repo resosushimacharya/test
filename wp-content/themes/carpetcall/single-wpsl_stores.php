@@ -9,6 +9,7 @@ global $post;
 
 
 ?>
+
 <div class="container clearfix">
 <div class="inerblock_serc">
  <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
@@ -19,16 +20,46 @@ global $post;
 </div>
 <div class="col-md-12">
 <div class="col-md-6 pull-left">
+<?php 
+$url = site_url();
+$url =explode('/',$url);
+
+$stateID ="";
+if(strcasecmp($url[2],'localhost')==0){
+  $stateID = '1770';
+}
+else{
+  $stateID ='26771'; }
+
+
+
+ ?>
+ 
 <h3><?php echo get_the_title();?></h3>
 </div>
 <div class="col-md-6 pull-right"><?php 
 echo '<a href="'.get_category_link($catid).'"><' ;?>
  VIEW ALL STORE</a>
 </div>
-</div>
+</div><?php 
+ $state_post_parent = $post->post_parent;
+$cat_names = wp_get_post_terms($post->ID, 'wpsl_store_category', array("fields" => "names"));
+$cat_name = $cat_names[0];
+
+
+ 
+
+ if($state_post_parent==0){
+  echo do_shortcode('[wpsl  category="'.$cat_name.'"] ');
+  
+
+ }
+else{?>
+
 <div class="col-md-4 wpsl-single-left">
 <div class="wpsl-address-sec">
 <h4>Address</h4>
+
 	<?php echo do_shortcode('[wpsl_address id="'.$post->ID.'" name="true" address="true" address2="false" 
        city="true" state="false" zip="true" country="false" phone="false" title="false"
        fax="false" email="false" url="true"]');
@@ -52,15 +83,41 @@ echo '<a href="'.get_category_link($catid).'"><' ;?>
        </div>
 </div>
 <div class="col-md-8 wpsl-single-right">
-
+   
 	<?php echo do_shortcode('[wpsl_map id="'.$post->ID.'" width="500" height="350" zoom="5" map_type="roadmap" 
 map_type_control="true" map_style="default" street_view="false" 
 scrollwheel="true" control_position="left"]'); 
 ?>
-</div>
+</div><?php } ?>
 </div>
 </div><div class="clearfix"></div>
+<style>
+.cc-wrapper-blk{
+background:#f0f2f1 !important;
+}
+.cc-wrapper-whole h3{
+  text-decoration:none !important;
+  border:none;
 
+}
+.cc-contact-side{
+  
+}
+.cc-form-wrapper{
+  padding:5px;}
+#wpsl-stores{
+  overflow:visible !important;
+}
+.fcnt-orr-map a {
+  background:#fff;
+  border:1px solid #1858b8;
+  color:#1858b8;
+} 
+.fcnt-orr-map a:hover{
+background:#fff;
+}
+
+</style>
 <?php
 get_footer();
 ?>

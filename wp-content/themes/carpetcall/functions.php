@@ -51,6 +51,83 @@ function destroy_autoLoc(){
   }
 
 }
+function check(){
+$args = array(
+  'supports' => array(
+      'title',
+      'editor',
+      
+      
+      'thumbnail',
+    
+      // 'permalink',
+'excerpt' ,
+    
+      'revisions',
+    
+      'page-attributes',
+      'post-formats',
+      'tag',
+      'category'
+      
+    ) ,
+'taxonomies'          => array(  'post_tag' ),
+'hierarchical' => true,
+    'public' => true,
+    /*'show_ui' => true,
+    'show_in_menu' => true,
+    'show_in_nav_menus' => true,
+    'show_in_admin_bar' => true,
+    'menu_position' => 5,
+    
+    'can_export' => true,
+    'has_archive' => true,
+    'exclude_from_search' => true,
+    'publicly_queryable' => true,
+    'capability_type' => 'post',
+    'query_var' => true,*/
+    'rewrite'            => array( 'slug' => 'find-a-store')
+  );
+
+register_post_type('wpsl_stores', $args);
+/*flush_rewrite_rules();*/}
+add_action('init','check');
+/*add_post_type_support('post', array('page-attributes')) ;*/
+function change_post_object_label() {
+    global $wp_post_types;
+  $labels = &$wp_post_types['wpsl_stores']->labels;
+  
+   $labels->parent_item_colon = 'parent Page:' ; 
+    
+    $labels->name = "Store Locator";
+    $labels->singular_name = "Store";
+    $labels->add_new = "Add New";
+    $labels->add_new_item = "Add New Store";
+    $labels->edit_item = "Edit Store";
+    $labels->new_item = "New Store";
+    $labels->view_item = "View Store";
+    $labels->search_items = "Search Stores";
+    $labels->not_found = "No stores found.";
+    $labels->not_found_in_trash = "No stores found in Trash.";
+    $labels->parent_item_colon = "parent Store:";
+    $labels->all_items = "All Stores";
+    $labels->archives= "Store Archives";
+    $labels->insert_into_item = "Insert into store";
+    $labels->uploaded_to_this_item ="Uploaded to this store";
+    $labels->featured_image ="Featured Image";
+    $labels->set_featured_image ="Set featured image";
+    $labels->remove_featured_image ="Remove featured image";
+    $labels->use_featured_image = "Use as featured image";
+    $labels->filter_items_list = "Filter stores list";
+    $labels->items_list_navigation ="Stores list navigation";
+    $labels->items_list ="Stores list";
+    $labels->menu_name ="Stores";
+    $labels->name_admin_bar ="wpsl_stores";
+      $labels->parent_item_colon = "parent Store:";
+}
+add_action( 'init', 'change_post_object_label', 999 );
+
+
 
 include_once TEMPLATEPATH."/inc/carpetcall-script.php";
 remove_filter ('acf_the_content', 'wpautop');
