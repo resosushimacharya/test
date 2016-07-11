@@ -23,14 +23,14 @@ $feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 
 ?>
 <div class="body-wrapper">
+<div class="ia-block clearfix">
 <div class="container">
-	<div class="ideas-advice-section row">
-        <div class="col-md-6 cc-ia-content">
+        <div class="col-md-6 no-pl cc-ia-content">
         <h4><?php the_title();?></h4>
         <h1><?php the_title();?> </h1>
         <p><?php echo $post->post_content;?> </p>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 ia-img">
          <div class="cc-ia-banner">
           <img src="<?php echo $feat_image;?>" class="img-responsive">
 
@@ -39,8 +39,11 @@ $feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
          	
          </div>
         </div>
-	</div>
 </div>
+</div><!-- uppper section end here -->
+
+
+<div class="gpf-block clearfix">
 <div class="container">
 <div class="row cc-ia-item-cover">
 <?php
@@ -67,6 +70,7 @@ foreach($iadata as $iad){?>
     
     ?><?php elseif(strcasecmp($iad['category'],'Buying Guides')==0):?>
        <div class="col-md-6 cc-ia-item">
+       <div class="all-items-blk">
     <h3><?php echo $iad['title'];?></h3>
     <p><?php echo $iad['description'];?></p>
       <ul class="cat_list"><?php  $args = array(
@@ -85,7 +89,8 @@ while($parent->have_posts()){
      echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). '<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
 }
 wp_reset_query();?>
-</ul>
+</ul><div class="clearfix"></div>
+</div>
 </div>
     <?php elseif(strcasecmp($iad['category'],'Product Care')==0):
       $tax = 'product_care';
@@ -168,9 +173,10 @@ endif;
 </div>
 </div>
 </div>
+</div>
 <style>
 .body-wrapper{
-		margin:150px 0 38px 0;
+		margin:145px 0 38px 0;
 }
 ul.cat_list{
 	text-decoration:none;
@@ -179,6 +185,7 @@ ul.cat_list{
 }
 .cc-ia-item ul{
 	list-style:none;
+	display:block;
 }
 .cc-ia-more ul,.cc-ia-more ul li{
 	text-decoration:none;

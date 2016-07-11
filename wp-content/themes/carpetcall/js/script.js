@@ -91,3 +91,16 @@ jQuery(window).load(function() {
      $('#tag-description').remove();
 
 });
+
+
+jQuery(document).ready(function(){
+	window.addEventListener('resize', ia_right_offset);
+	ia_right_offset();
+	function ia_right_offset(){
+		var left_offset = jQuery('.ia-block .container').offset().left;
+		var parent_width = jQuery('.cc-ia-banner').parents('.ia-img').outerWidth();
+		jQuery('.cc-ia-banner').width( parent_width + left_offset - 15);
+
+	}
+
+});

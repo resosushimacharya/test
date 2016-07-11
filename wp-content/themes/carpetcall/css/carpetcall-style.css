@@ -68,7 +68,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 
 
 
-.wrapper, .banner, .tstore, .cartblk, .calus, .wellblk, .crpchoose, .rtfloblk, .crptslide, .pont, .mystor, .expert, .footer_c, .sor_blk, .againlt, .fot_cpy, .limblk, .rugpro_blk, .rugspro_blk, .rug_size, .carpetcall_slide, .parcel_blk, .feature_pro, .trade, .cbg_blk, .mmrugm { padding:0; }
+.wrapper, .banner, .tstore, .cartblk, .calus, .wellblk, .crpchoose, .rtfloblk, .crptslide, .pont, .mystor, .expert, .footer_c, .sor_blk, .againlt, .fot_cpy, .limblk, .rugpro_blk, .rugspro_blk, .rug_size, .carpetcall_slide, .parcel_blk, .feature_pro, .trade, .cbg_blk, .mmrugm, .page-sorry { padding:0; }
 
 
 
@@ -732,3 +732,16 @@ a.pull-right:hover { color:#000; text-decoration:none;}
      display: inline-block;
     margin-right: 5px;
 }
+
+/*............... 404 page not found start here ...............*/
+.page-sorry { background-repeat:no-repeat; background-position:center top;}
+
+/*............. ideas and advices start here .....................*/
+.ia-block { background-color:#f0f2f1;}
+.cc-ia-content h4 {font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#666666; text-transform:uppercase; margin-top:22px;}
+.cc-ia-content h1 {font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:7px; margin-bottom:22px;}
+.cc-ia-content p {font:normal 16px/22px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 80px 55px 0;}
+.gpf-block { margin-top:43px;}
+.all-items-blk { background-color:#e7edf8; padding:37px 36px;}
+.all-items-blk h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:-5px; margin-bottom:20px;}
+.all-items-blk p {font:normal 16px/22px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 0 20px 0;}

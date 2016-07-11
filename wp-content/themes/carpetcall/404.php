@@ -28,9 +28,10 @@ get_header();
  	   $error_wrapper = get_field('background_image','option');
  	   //do_action('pr',$error_wrapper);
   ?><div class="body-wrapper">
+
+<div class="page-sorry clearfix" style="background-image:url(<?php echo $error_wrapper['url'];?>);">
 <div class="container">
-	<div class="error-section row">
-	    <div class="error-wrapper " style="background-image:url(<?php echo $error_wrapper['url'];?>);">   
+	    <div class="error-wrapper">   
 	    
 	    			 <h1 class="error-title"><?php echo $error_title;?></h1>
 			 <h3 class="error-info"><?php echo $error_info;?></h3>	
@@ -42,13 +43,13 @@ get_header();
 		<?php }?>
 		</div>
 		
-		
-	</div>
 </div>
+</div>
+
 </div>
  <style>
  .body-wrapper{
- 	margin:150px 0 38px 0;
+ 	margin:145px 0 38px 0;
 
  }
  .error-wrapper{
@@ -67,25 +68,42 @@ get_header();
  	color:#000000;
  }
  .error-wrapper h1{
- 	font-size:50px;
+	 font:bold 72px 'proxima_nova_ltsemibold', sans-serif;
+	 color:#15489f;
  	text-transform: uppercase;
+	margin-top:75px;
+	margin-left:24px;
  }
  .error-wrapper h3{
- 	color:#0000ff;
- 	font-size:32px;
+ 	font:normal 24px 'proxima_nova_ltsemibold', sans-serif;
+	 color:#15489f;
  	text-transform: uppercase;
- 	text-decoration: none;
- 	border:none;
-
+	margin-top:-8px;
+	margin-left:24px;
  }
  .error-wrapper  h4{
- 	font-size:28px;
+ 	font:normal 18px 'proxima_nova_ltsemibold', sans-serif;
+	 color:#0099ff;
  	text-transform: uppercase;
-
+	margin-top:3px;
+	margin-left:24px;
+	margin-bottom:48px;
  }
- .error-red-link{
- 	text-align:center;
+ .page-sorry .error-wrapper button { background-color:#FFF; padding:0; margin-left:9px; margin-bottom:101px; }
+.page-sorry .error-wrapper button a{
+	display:inline-block;
+ 	background-color:#FFF;
+	border:1px solid #15489f;
+	padding:11px 128px;
+	border-radius:0;
+	outline:0;
+	text-transform:uppercase;
+	font-size:18px;
+	text-align:center;
+	color:#15489f;
+	text-decoration:none;
  }
+ .page-sorry .error-wrapper button a:hover { background-color:#15489f; color:#FFF;}
 
 
 
