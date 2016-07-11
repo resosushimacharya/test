@@ -30,7 +30,7 @@ function showPosition(position) {
     myx = [-33.811721, 151.192396];
     setTimeout(function(){ loadmap(); }, 2000);
    sll.push(myx);
-   alert(sll);
+   /*alert(sll);*/
     
 }
     var locations = [
@@ -283,7 +283,7 @@ function deg2rad(deg) {
 
 
             geocodeAddress(locations, i);
-            alert()
+           
            
         }
 
@@ -311,11 +311,11 @@ function deg2rad(deg) {
                          dis = getDistanceFromLatLonInKm(res.lat(), res.lng(), -33.837864, 151.02846769999996)
                              //if()
 
-                            alert(dis+'km');
+                            /*alert(dis+'km');*/
                           //alert(res.lng());
                              
                              rs.push([res.lat(),res.lng()]);
-                             alert(rs);
+                           /*  alert(rs);*/
                            
                             console.log(rs);
 
