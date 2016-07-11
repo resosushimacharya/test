@@ -153,9 +153,11 @@ function custom_listing_templates() {
    
     $listing_template = '<%=id %>';
     
+     
    
+   if($y!=$listing_template){
 
-    $listing_template = '<% if ( id!=1787 ) { %>' .'<li data-store-id="<%= id %>" class="col-md-4">' . "\r\n";
+    $listing_template = '<% if ( id!=1787 ) { %><li data-store-id="<%= id %>" class="col-md-4">' . "\r\n";
     $listing_template .= "\t\t" . '<div>' . "\r\n";
    
     $listing_template .= "\t\t\t" . '<p><%= thumb %>' . "\r\n";
@@ -199,7 +201,7 @@ function custom_listing_templates() {
 
     $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
 
-    return $listing_template;
+    return $listing_template;}
 }
 /*add_action( 'wpsl_store_search','cc_store_search',10,1 );
 function cc_store_search($){
@@ -218,8 +220,7 @@ function custom_listing_templates_server() {
    $x = '<%=id %>';
    
     $listing_template = '<%=id %>';
-    
-   
+  
 
     $listing_template = '<% if (  id!=26801 ) { %>' .
     '<% if (  id!=26783 ) { %>'.
@@ -276,3 +277,4 @@ function custom_listing_templates_server() {
 
     return $listing_template;
 }
+//add_filter('wpsl_store_header_template','filter_store_count');

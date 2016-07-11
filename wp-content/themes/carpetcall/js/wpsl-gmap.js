@@ -86,7 +86,7 @@ function initializeGmap( mapId, mapIndex ) {
 	markerSettings = getMarkerSettings();
 
 	map = new google.maps.Map( document.getElementById( mapId ), mapOptions );
-
+	
 
 	// Do we need to disable the dragging of the map?
 	maybeDisableMapDrag( map );
@@ -97,15 +97,17 @@ function initializeGmap( mapId, mapIndex ) {
 	if ( ( typeof window[ "wpslMap_" + mapIndex ] !== "undefined" ) && ( typeof window[ "wpslMap_" + mapIndex ].locations !== "undefined" ) ) {
 		bounds		  = new google.maps.LatLngBounds(),
 		mapData       = window[ "wpslMap_" + mapIndex ].locations,
-		locationCount = mapData.length;
 
+		locationCount = mapData.length;
+ 
 
 		// Loop over the map data, create the infowindow object and add each marker.
 		$.each( mapData, function( index ) {
 			latLng = new google.maps.LatLng( mapData[index].lat, mapData[index].lng );
 			addMarker( latLng, mapData[index].id, mapData[index], false, infoWindow );
 			bounds.extend( latLng );
-			
+			alert("hello");
+
 		});
 
 		// Make all the markers fit on the map.
@@ -123,7 +125,7 @@ function initializeGmap( mapId, mapIndex ) {
 
 	// Only run this part if the store locator exist and we don't just have a basic map.
 	if ( $( "#wpsl-gmap" ).length ) {
-		
+		      
 		if ( wpslSettings.autoComplete == 1 ) {
 			activateAutocomplete();
 		}

@@ -615,8 +615,10 @@ InfoBox.prototype.setContent = function (content) {
       this.div_.style.width = this.div_.offsetWidth + "px";
       if (typeof content.nodeType === "undefined") {
         this.div_.innerHTML = this.getCloseBoxImg_() + content;
+       
       } else {
         this.div_.innerHTML = this.getCloseBoxImg_();
+
         this.div_.appendChild(content);
       }
     }

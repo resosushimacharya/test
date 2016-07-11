@@ -7,11 +7,6 @@ $state_post_parent = $post->post_parent;
 $cat_names = wp_get_post_terms($post->ID, 'wpsl_store_category', array("fields" => "names"));
 $cat_name = $cat_names[0];
 
- $xterm = get_the_terms($post->ID, 'wpsl_store_category' );
- foreach($xterm as $x){
- 	$catid = $x->term_id;
- }
-
 
 ?>
 
@@ -19,16 +14,21 @@ $cat_name = $cat_names[0];
 <div class="inerblock_serc cc-locator-sec">
 <div class="cc-locator-title-sec">
 <?php 
-if($state_post_parent==0){
-  echo '<h4><span class="cc-locator-current"><a href="'.get_the_permalink().'">'. get_the_title().'</a></span></h4>';
+ 
+   
+  
 
 
-}
-else{
 
-  echo '<h4><span class="cc-locator-parent"><a href="'.get_the_permalink($state_post_parent).'">'. get_the_title($state_post_parent).'</a></pan>'.
-  '<'.'<span class="cc-locator-current"><a href="'.get_the_permalink().'">'. get_the_title().'</a></span></h4>';
-  }?>
+
+  echo '<h4><span class="cc-locator-sub"><a href="'.site_url().'/find-a-store/">'. 'find a store'.'</a></span>'.'>'.'<span class="cc-locator-root"><a href="'.site_url().'/find-a-store/'.$cat_name.'">'. $cat_name.'</a></span>'.'>'.'
+  <span class="cc-locator-current"><a href="'.get_the_permalink().'">'. get_the_title().'</a></span></h4>';
+
+
+
+
+ ?>
+
 </div>
 <div class="col-md-12">
 <div class="col-md-6 pull-left">
@@ -57,7 +57,8 @@ echo '<a href="'.get_the_permalink($stateID).'"><' ;?>
 </div>
 </div><?php 
  if($state_post_parent==0){
-  echo do_shortcode('[wpsl  category="'.$cat_name.'"] ');
+
+  echo do_shortcode('[wpsl template="custom" category="'.$cat_name.'"] ');
   
 
  }

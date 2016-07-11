@@ -420,7 +420,7 @@ function wpsl_labels() {
  */
 function wpsl_sanitize_multi_array( &$item, $key ) {
     $item = sanitize_text_field( $item );
-}
+   }
         
 /**
  * Check whether the array is multidimensional.

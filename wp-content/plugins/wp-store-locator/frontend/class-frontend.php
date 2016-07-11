@@ -107,6 +107,8 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
             } else {
                 $store_data = $this->find_nearby_locations();
             }
+
+
             
             wp_send_json( $store_data );
             
@@ -740,6 +742,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                         
             $address_format = explode( '_', $wpsl_settings['address_format'] );
             $count = count( $address_format );
+
             $i = 1;
 
             // Loop over the address parts to make sure they are shown in the right order.
@@ -856,6 +859,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
 
             global $wpsl_settings, $post;
 
+
             $atts = shortcode_atts( apply_filters( 'wpsl_map_shortcode_defaults', array(
                 'id'               => '',
                 'category'         => '',
@@ -898,10 +902,12 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                     ),
                     'fields'      => 'ids'
                 ) );
+
             } else {
                 $store_ids = array_map( 'absint', explode( ',', $atts['id'] ) );
                 $id_count  = count( $store_ids );
             }
+
             
             /*
              * The location url is included if:

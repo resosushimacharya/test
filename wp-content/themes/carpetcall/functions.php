@@ -91,7 +91,7 @@ $args = array(
 
 register_post_type('wpsl_stores', $args);
 /*flush_rewrite_rules();*/}
-add_action('init','check');
+//add_action('init','check');
 /*add_post_type_support('post', array('page-attributes')) ;*/
 function change_post_object_label() {
     global $wp_post_types;
@@ -125,7 +125,7 @@ function change_post_object_label() {
     $labels->name_admin_bar ="wpsl_stores";
       $labels->parent_item_colon = "parent Store:";
 }
-add_action( 'init', 'change_post_object_label', 999 );
+//add_action( 'init', 'change_post_object_label', 999 );
 
 
 
@@ -305,4 +305,19 @@ wp_reset_query();
 }
 }
 add_action( 'wp_enqueue_scripts', 'carpetcall_procare');
+
+
+
+add_filter('post_type_link', 'events_permalink_structure', 10, 4);
+function events_permalink_structure($post_link, $post, $leavename, $sample)
+{
+    if ( false !== strpos( $post_link, '%wpsl_store_category%' ) ) {
+        $event_type_term = get_the_terms( $post->ID, 'wpsl_store_category' );
+        $post_link = str_replace( '%wpsl_store_category%', array_pop( $event_type_term )->slug, $post_link );
+    }
+    return $post_link;
+}
+
+// flush_rewrite_rules( true);
+add_rewrite_rule('^find-a-store/([^/]*)/([^/]*)/?','index.php?&wpsl_stores=$matches[2]','top');
 ?>

@@ -34,7 +34,7 @@ wp_enqueue_script( 'responsiveTabs', get_template_directory_uri().'/js/jquery.re
 wp_enqueue_script( 'bootstrap-script', get_template_directory_uri().'/js/bootstrap.min.js', array(), false, true);
 wp_enqueue_script( 'validator-script', get_template_directory_uri().'/js/jquery.validate.min.js', array(), false, true);
 
-wp_enqueue_script( 'trouble-script', get_template_directory_uri().'/js/trouble.cc.map.js', array('wpsl-js'), false, false);
+wp_enqueue_script( 'trouble-script', get_template_directory_uri().'/js/trouble.cc.map.js', array('wpsl-gmap',), false, false);
 
 
 if (!session_id()){
@@ -54,4 +54,7 @@ $autoCurrentLoc=array('curr_loc'=>$curr_loc);
 }
 
 add_action( 'wp_enqueue_scripts', 'carpetcall_scripts' );
+
+
+
     
