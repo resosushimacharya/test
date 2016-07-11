@@ -459,7 +459,7 @@ function deg2rad(deg) {
                             address: address,
                             
                         })
-                        title = title-1;
+                     
                         var strdis = Number(title)>1?"stores":"store";
                       
                         if((asl.toUpperCase() === tempvar[0].toUpperCase())){

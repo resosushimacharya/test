@@ -27,7 +27,7 @@
 <div class="tab-content">
   <div id="find_your_nearest_store" class="tab-pane fade in active">
     <h3>HOME</h3>
-    <p><?php echo do_shortcode('[wpsl]');?></p>
+    <p><?php echo do_shortcode('[wpsl template="default"]');?></p>
     <?php 
       $tax = 'wpsl_store_category';
       $tax_terms = get_terms($tax, array('hide_empty' => true));
