@@ -27,7 +27,7 @@
 
 <div class="tab-content">
   <div id="find_your_nearest_store" class="tab-pane fade in active">
-    <h3>HOME</h3>
+    
     <p><?php echo do_shortcode('[wpsl]');?></p>
 
     <?php 
