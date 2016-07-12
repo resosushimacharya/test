@@ -17,7 +17,7 @@
     }?>
 
 </div>
-<?php var_dump($_POST); ?>
+
 <h3><?php echo  get_the_title();?></h3>
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#find_your_nearest_store">FIND YOUR NEAREST STORE</a></li>
@@ -244,7 +244,7 @@ background:#fff;
       
    
     get_template_part('content','main-store-map');}
-    
+
 
 ?>
 
