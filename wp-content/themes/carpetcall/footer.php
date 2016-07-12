@@ -128,38 +128,39 @@
 <script>
 // Initiate Lightbox
 $(function() {
-$('.ourgallery a').lightbox();
+    if($('.ourgallery').length>0)
+        $('.ourgallery a').lightbox();
 });
 </script>
 <script type="text/javascript">
 $(document).ready(function () {
 var $tabs = $('#horizontalTab');
-$tabs.responsiveTabs({
-rotate: false,
-startCollapsed: 'accordion',
-collapsible: 'accordion',
-setHash: true,
-activate: function(e, tab) {
-$('.info').html('Tab <strong>' + tab.id + '</strong> activated!');
-console.log(tab);
-var slider_cnt=$(tab.selector).find('.regular-slider');
-// alert('hji');
-if($(slider_cnt).length){
-$(slider_cnt).slick({
-dots: true,
-infinite: true,
-slidesToShow: 3,
-slidesToScroll: 3
-});
-}
+// $tabs.responsiveTabs({
+// rotate: false,
+// startCollapsed: 'accordion',
+// collapsible: 'accordion',
+// setHash: true,
+// activate: function(e, tab) {
+// $('.info').html('Tab <strong>' + tab.id + '</strong> activated!');
+// console.log(tab);
+// var slider_cnt=$(tab.selector).find('.regular-slider');
+// // alert('hji');
+// if($(slider_cnt).length){
+// $(slider_cnt).slick({
+// dots: true,
+// infinite: true,
+// slidesToShow: 3,
+// slidesToScroll: 3
+// });
+// }
 
-},
-activateState: function(e, state) {
-//console.log(state);
-$('.info').html('Switched from <strong>' + state.oldState + '</strong> state to <strong>' + state.newState + '</strong> state!');
+// },
+// activateState: function(e, state) {
+// //console.log(state);
+// $('.info').html('Switched from <strong>' + state.oldState + '</strong> state to <strong>' + state.newState + '</strong> state!');
 
-}
-});
+// }
+// });
 $('#start-rotation').on('click', function() {
 $tabs.responsiveTabs('startRotation', 1000);
 });

@@ -33,7 +33,7 @@ echo '<pre>';
 add_action('wp_head','destroy_autoLoc');
 function destroy_autoLoc(){
   global $post;
-  if(!is_page_template( 'templates/visit-store.php') || get_post_type( $post->ID )=='wpsl_stores'){
+  if(!is_page_template( 'templates/find-a-store.php') || get_post_type( $post->ID )=='wpsl_stores'){
     if (!session_id()){
           session_start();
 

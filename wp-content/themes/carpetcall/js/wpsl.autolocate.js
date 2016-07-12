@@ -32,7 +32,7 @@ jQuery(".cc-map-control-finder").click(function(e) {
 			success:function(data){				
 				//jQuery('.woo-added').html(data);
 				
-				window.location.href=site_url+'/carpet-call-stores/';
+				window.location.href=site_url+'/find-a-store/';
 				  
 
 			}

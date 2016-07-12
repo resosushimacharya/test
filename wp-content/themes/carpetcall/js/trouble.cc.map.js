@@ -1,9 +1,11 @@
-$( ".wpsl-gmap-canvas" ).each( function( mapIndex ) {
+ $( ".wpsl-gmap-canvas" ).each( function( mapIndex ) {
 		var mapId = $( this ).attr( "id" );
-console.log(mapIndex);
+		console.log(mapIndex);
 		//initializeGmap( mapId, mapIndex );
 	});
-wpslSettings.autoLocate=autoCurrentLoc.curr_loc;
+ console.log(wpslSettings);
+if(typeof(wpslSettings)!="undefined")
+	wpslSettings.autoLocate=autoCurrentLoc.curr_loc;
+alert(wpslSettings.autoLocate);
 
-console.log(wpslSettings);
-alert($( "#wpsl-gmap" ).length );
+//alert($( "#wpsl-gmap" ).length );

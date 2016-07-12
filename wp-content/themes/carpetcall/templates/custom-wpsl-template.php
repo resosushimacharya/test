@@ -59,12 +59,10 @@ $output .= "\t\t\t\t" . '<div class="wpsl-search-btn-wrap check_wpsl"><input id=
 
 $output .= "\t\t" . '</form>' . "\r\n";
 $output .="\t\t\t\t" . '<div id="wpsl-auto-locate">' . "\r\n";
-if($post->ID!=$locsermapID){
 
-    $output .= "\t\t\t\t\t" .'<div class="wpsl-search-btn-wrap"><input type="submit" value="Current Location " class="cc-map-control" id="cc_control_map"/></div> '. "\r\n";}
-    else{
-       $output .= "\t\t\t\t\t" .'<div class="wpsl-search-btn-wrap"><input type="submit" value="Current Location " class="cc-map-control-finder" id="cc_control_map"/></div> '. "\r\n"; 
-    }
+
+    $output .= "\t\t\t\t\t" .'<div class="wpsl-search-btn-wrap"><input type="submit" value="Current Location " class="cc-map-control-finder" id="cc_control_map"/></div> '. "\r\n"; 
+
     $output .= "\t\t\t\t" . '</div>' . "\r\n";
 $output .= "\t\t" . '</div>' . "\r\n";
 

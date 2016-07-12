@@ -94,6 +94,7 @@ jQuery(window).load(function() {
 
 
 jQuery(document).ready(function(){
+    if(jQuery('.ia-block').length){
 	window.addEventListener('resize', ia_right_offset);
 	ia_right_offset();
 	function ia_right_offset(){
@@ -102,5 +103,5 @@ jQuery(document).ready(function(){
 		jQuery('.cc-ia-banner').width( parent_width + left_offset - 15);
 
 	}
-
+}
 });
