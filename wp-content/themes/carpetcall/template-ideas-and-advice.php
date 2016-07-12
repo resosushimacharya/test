@@ -57,8 +57,10 @@ usort($iadata, 'order_of_ideas_and_advice_function');
 foreach($iadata as $iad){?>
     <?php if(strcasecmp($iad['category'],'More')==0):?>
 	<div class="col-md-6 cc-ia-item cc-ia-more">
+    <div class="more-blk-b">
 		<h3><?php echo $iad['title'];?></h3>
 		<?php echo $iad['description'];?>
+        </div>
 	</div>
     <?php 
     /**
@@ -86,7 +88,7 @@ $parent = new WP_Query( $args );
 while($parent->have_posts()){
     $parent->the_post();
     
-     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). '<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+     echo '<li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp; <a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). '</a></li>';
 }
 wp_reset_query();?>
 </ul><div class="clearfix"></div>
@@ -99,6 +101,7 @@ wp_reset_query();?>
     $res_tax=strtolower($tax);
      $tax_terms = get_terms($res_tax);?>
      <div class="col-md-6 cc-ia-item">
+     <div class="all-items-blk">
 		<h3><?php echo $iad['title'];?></h3>
 		<p><?php echo $iad['description'];?></p>
 
@@ -116,11 +119,12 @@ $parent = new WP_Query( $args );
 while($parent->have_posts()){
     $parent->the_post();
     
-     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). '<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+     echo '<li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp;<a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). '</a></li>';
 }
 wp_reset_query();?>
             </ul>
 	</div>
+  </div>  
      <?php 
     
     else:
@@ -135,6 +139,7 @@ wp_reset_query();?>
     ?>
    
     <div class="col-md-6 cc-ia-item">
+    <div class="fq-blk-a">
 		<h3><?php echo $iad['title'];?></h3>
 		<p><?php echo $iad['description'];?></p>
 		  
@@ -157,12 +162,13 @@ $parent = new WP_Query( $args );
 while($parent->have_posts()){
     $parent->the_post();
     
-     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). '<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+     echo '<li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp;<a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). '</a></li>';
 }
 wp_reset_query();
 				?>
             </ul>
             
+            </div>
             </div>
 	
 <?php 
@@ -178,11 +184,18 @@ endif;
 .body-wrapper{
 		margin:145px 0 38px 0;
 }
-ul.cat_list{
-	text-decoration:none;
-	list-style:none;
+ul.cat_list { margin:0 0 29px 0; padding:0;}
+ul.cat_list li {list-style:none; display:block;}
+ul.cat_list li .fa { color:#c32327;}
+ul.cat_list li a {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:none;}
+ul.cat_list li a:hover {color:#000;}
 
-}
+.cc-ia-more ul { margin:0 0 29px 0; padding:0;}
+.cc-ia-more ul li {list-style:none; display:block;}
+.cc-ia-more ul li .fa { color:#c32327; margin-right:12px; margin-top:3px;}
+.cc-ia-more ul li a {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:none;}
+.cc-ia-more ul li a:hover {color:#000;}
+
 .cc-ia-item ul{
 	list-style:none;
 	display:block;
@@ -190,9 +203,12 @@ ul.cat_list{
 .cc-ia-more ul,.cc-ia-more ul li{
 	text-decoration:none;
 }
+
 .cc-ia-more ul li i{
 	float:left;
 }
+
+
 </style>
 <script>
   $(".cc-ia-more ul li ").append('<i class="fa fa-caret-right" aria-hidden="true"></i>');

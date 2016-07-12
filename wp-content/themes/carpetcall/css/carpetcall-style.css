@@ -743,5 +743,6 @@ a.pull-right:hover { color:#000; text-decoration:none;}
 .cc-ia-content p {font:normal 16px/22px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 80px 55px 0;}
 .gpf-block { margin-top:43px;}
 .all-items-blk { background-color:#e7edf8; padding:37px 36px;}
-.all-items-blk h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:-5px; margin-bottom:20px;}
-.all-items-blk p {font:normal 16px/22px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 0 20px 0;}
+.all-items-blk h3, .fq-blk-a h3, .more-blk-b h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:-5px; margin-bottom:20px;}
+.all-items-blk p, .fq-blk-a p {font:normal 16px/22px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 0 20px 0;}
+.fq-blk-a, .more-blk-b { margin:23px 0 0 0; background-color:#e7edf8; padding:37px 36px; }
