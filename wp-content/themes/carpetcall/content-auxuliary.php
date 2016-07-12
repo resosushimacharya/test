@@ -7,12 +7,12 @@ $sll = array();
 $args = array(
     'post_type'=>'wpsl_stores',
     'posts_per_page'=>'-1',
-      /*'meta_query' => array (
+     'meta_query' => array (
             array (
               'key' => 'store_type',
               'value' => 'head_office',
             )
-          )*/
+          )
 
  
 
