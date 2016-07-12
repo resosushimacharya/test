@@ -48,6 +48,7 @@ function destroy_autoLoc(){
           session_start();
 
       }
+      $_SESSION['use_curr_loc']="1";
   }
 
 }
