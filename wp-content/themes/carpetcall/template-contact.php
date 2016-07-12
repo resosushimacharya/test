@@ -7,7 +7,7 @@ get_header();
 ?>
 <div class="cbg_blk cc-clearance-blk clearfix">
  <div class="container ">
-<div class="inerblock_serc cc-wrapper-whole">
+<div class="inerblock_contblk cc-wrapper-whole">
 <div class="col-md-6">					
  <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
 <?php if(function_exists('bcn_display')){
@@ -22,8 +22,8 @@ get_header();
         $feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>  
  	<h3><?php echo get_the_title();?></h3>
-             
-	<p><?php echo  get_the_content();?></p>
+    <?php         
+	the_content();?>
              	
 <?php
 	 }

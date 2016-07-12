@@ -9,7 +9,7 @@ get_header();
 
  <div class="cbg_blk cc-wrapper-blk clearfix">
  <div class="container">
-<div class="inerblock_serc cc-clearance-whole">
+<div class="inerblock_clearn cc-clearance-whole">
 					
  <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
     <?php if(function_exists('bcn_display'))
@@ -35,7 +35,7 @@ get_header();
 
 
  <div class="container clearfix">
-	<div class="inerblock_sec">
+	<div class="inerblock_clernn">
 		
 		
 			<div class="cbg_content cc-clearance-wrapper">
@@ -126,9 +126,7 @@ src="<?php echo $videolink;?>
     z-index:2;
     color:#ffffff;
 }
-.cc-clearance-right h4{
-	color:#1858b8;
-}
+
 .cc-clearance-whole h3{
 	text-decoration:none !important;
 	border:none;
