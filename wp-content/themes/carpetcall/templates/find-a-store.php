@@ -17,6 +17,7 @@
     }?>
 
 </div>
+
 <h3><?php echo  get_the_title();?></h3>
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#find_your_nearest_store">FIND YOUR NEAREST STORE</a></li>
@@ -28,6 +29,12 @@
   <div id="find_your_nearest_store" class="tab-pane fade in active">
     <h3>HOME</h3>
     <p><?php echo do_shortcode('[wpsl]');?></p>
+
+    <?php 
+    if(!isset($_POST["cc-current-location-store"]) && !isset($_POST["wpsl-search-input"]) ){?>
+   <div class="cc-main-map-store" style="background:url(<?php echo get_template_directory_uri().'/images/stomap.jpg';?>)">
+       <?php get_template_part('content','map');?>
+   </div>
     <?php 
       $tax = 'wpsl_store_category';
       $tax_terms = get_terms($tax, array('hide_empty' => true));
@@ -44,10 +51,10 @@
         );
       foreach($tax_terms as $term):
        
-        echo '<div class="cc-state-link"><a href="'.get_category_link($term->term_id).'" >'.$regions[$term->name].'</a></div>';
+        echo '<div class="cc-state-link"><a href="'.site_url().'/find-a-store/'.strtolower($term->name).'" >'.$regions[$term->name].'</a></div>';
         endforeach;
 
-
+}
 
     ?>
 
@@ -173,6 +180,10 @@ background:#f0f2f1 !important;
 } 
 .fcnt-orr-map a:hover{
 background:#fff;
+}
+.cc-main-map-store{
+    width:100%;
+    height:465px;
 }
 
 </style>

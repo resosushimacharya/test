@@ -6,6 +6,6 @@
  console.log(wpslSettings);
 if(typeof(wpslSettings)!="undefined")
 	wpslSettings.autoLocate=autoCurrentLoc.curr_loc;
-alert(wpslSettings.autoLocate);
+
 
 //alert($( "#wpsl-gmap" ).length );
