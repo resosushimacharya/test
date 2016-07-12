@@ -77,7 +77,7 @@ wp_reset_query();
         iterator = 0;
         areaiterator = 0;
         /*region = new google.maps.LatLng(-28.86944,153.04453);*/
-        region = new google.maps.LatLng(-28,134);
+    /*    region = new google.maps.LatLng(-28,134);
         map = new google.maps.Map(document.getElementById("Map"), { 
             zoom: 20,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -87,7 +87,7 @@ wp_reset_query();
             
         });
         drop();
-    }
+    }*/
     
  
 </script>

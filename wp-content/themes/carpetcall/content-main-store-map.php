@@ -1,11 +1,3 @@
-<div style="">
-    <div class="map_img"  style=""></div>
-<div id="gmap" style="position:relative;height: 500px; width:100%;top:-120px;background-color: transparent;"></div>
-</div>
-
-
-
-
 <?php 
 $locState = array();
 $args= array('post_type'=>'wpsl_stores');
@@ -135,7 +127,7 @@ function deg2rad(deg) {
 
         map = new google.maps.Map(document.getElementById("gmap"), {
 
-            center: new google.maps.LatLng(42, -97),
+            center: new google.maps.LatLng(-28,134),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             scrollwheel: false,
             navigationControl: false,
@@ -239,7 +231,7 @@ function deg2rad(deg) {
                             
                         })
                      
-                        var strdis = Number(title)>1?"stores":"store";
+                        var strdis = "";
                       
                         if((asl.toUpperCase() === tempvar[0].toUpperCase())){
                             var class__= "";
