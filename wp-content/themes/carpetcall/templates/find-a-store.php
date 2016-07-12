@@ -41,46 +41,6 @@
 
 
 
-
-
-<script type="text/javascript">
-  /*  var contentstring = [];
-    var regionlocation = [];
-    var markers = [];
-    var iterator = 0;
-    var areaiterator = 0;
-    var map;
-    var infowindow = [];
-    var locations = [];
-
-    geocoder = new google.maps.Geocoder();
-    
-    $(document).ready(function () {
-        setTimeout(function() { initialize(); }, 400);
-    });
-    
-    function initialize() {   
-    sll = [];        
-        infowindow = [];
-        markers = [];
-   
-        iterator = 0;
-        areaiterator = 0;
-        /*region = new google.maps.LatLng(-28.86944,153.04453);*/
-     /*   region = new google.maps.LatLng(-28,134);
-        map = new google.maps.Map(document.getElementById("Map"), { 
-            zoom: 20,
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            center: region,
-            disableDefaultUI: true
-           
-            
-        });*/
-       
-    
- 
-</script>
-
     <?php 
       $tax = 'wpsl_store_category';
       $tax_terms = get_terms($tax, array('hide_empty' => true));

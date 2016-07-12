@@ -56,8 +56,14 @@ wp_reset_query();
     
   
     $('.google-map-load').click(function(e){
-
-     setTimeout(function() { initialize1(); }, 1000);
+        if ($(".hareram")[0]){
+                 console.log("ok");
+} else {
+    $('.google-map-load').addClass('hareram');
+      setTimeout(function() { initialize1(); }, 1000);
+}
+     
+   
     })
     
     function initialize1() {   
