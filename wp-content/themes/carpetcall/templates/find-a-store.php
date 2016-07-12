@@ -57,7 +57,7 @@
 <div class="container ">
 <div class="col-md-12">
 <div id="<?php echo the_ID();  ?>">
-<div id="Map" style="width: 100%; height: 450px;"></div>
+ <div id="Map" style="width: 100%; height: 450px;"></div>
 
 </div>
 </div>
