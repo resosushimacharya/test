@@ -12,35 +12,9 @@
 
 }
       
-/*
-margin: 5px;
-    position: relative;
-    left: -21px;
-    height: 50px;
-    padding: 5px;
-    top: 68px;
-    width: 70px;
-    background: red;
-    .infobox:before, .infobox:after {
-  border-color: transparent transparent transparent #212121;
-  border-style: solid;
-  border-width: 20px 20px 0;
-  bottom: -1px;
-  content: "";
-  display: none;
-  height: 0;
-  left: -1px;
-  position: absolute;
-
-  width: 0;
-  z-index:2
+div.cc-state-link a {
+  cursor:pointer;
 }
-.infobox:after {
-  border-color: transparent transparent transparent #FFFFFF;
-  border-width:24px 24px 0;
-  z-index:1
-}
-*/
 .contents h5 {font:700 13px 'proxima_nova_ltsemibold', sans-serif; color:#c32327; line-height:1;}
 .contents h6 {font:normal 11px 'proxima_nova_rgregular', sans-serif; color:#666666; line-height:16px;}
 

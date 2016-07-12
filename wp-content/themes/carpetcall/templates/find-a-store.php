@@ -32,13 +32,12 @@
 
     <?php 
     if(!isset($_POST["cc-current-location-store"]) && !isset($_POST["wpsl-search-input"]) ){?>
-   <div class="container ">
-<div class="col-md-12">
-<div id="<?php echo the_ID();  ?>">
+   
+
 
 <div id="gmap" style="height: 500px; width:100%;"></div>
 
-</div>
+
 
 
 
@@ -81,9 +80,7 @@
     
  
 </script>
-</div>
 
-</div>
     <?php 
       $tax = 'wpsl_store_category';
       $tax_terms = get_terms($tax, array('hide_empty' => true));

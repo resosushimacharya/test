@@ -134,6 +134,7 @@ function deg2rad(deg) {
             mapTypeControl: false,
             scaleControl: false,
             draggable: false,
+            disableDefaultUI: true,
             
             disableDoubleClickZoom: true,
             zoom:20,
