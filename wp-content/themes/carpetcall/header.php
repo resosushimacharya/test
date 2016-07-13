@@ -11,10 +11,28 @@
 echo get_template_directory_uri();
 ?>/images/favicon.ico"/>
 <title><?php
-bloginfo('title');
-?> | <?php
-echo bloginfo('description');
-?></title>
+if(is_home()){ ?>
+<?php  bloginfo('title'); ?>
+
+<?php
+}
+ else{
+    $urltitle = $_SERVER['REQUEST_URI'];
+    $urltitle = rtrim($urltitle,'/');
+    $urltitle = explode('/',$urltitle);
+    $key = count($urltitle);
+    $key = $key-1;
+
+    $wintitle = ucfirst($urltitle[$key]);
+    echo $wintitle;
+ }
+?>
+<?php  echo " | ";?>
+<?php  bloginfo('description');
+wp_title(""); ?>
+
+
+</title>
 <meta http-equiv="Cache-Control" content="no-cache"/>
 
 
@@ -185,7 +203,9 @@ wp_nav_menu($defaults);
                 <!-- store finder begin -->
                 <div class="col-md-3 no-lr">
                 <div class="sfind">
+
                   <?php
+                  
 get_template_part('content', 'store');
 ?>
                 
