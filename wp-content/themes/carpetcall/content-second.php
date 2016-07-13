@@ -8,6 +8,8 @@ if(strcasecmp($url[2],'localhost')==0){
   $faqID = 1725;
   $rugID = 1700;
   $hardID = 1234;
+  $rootID=1639;
+
 }
 else{
   $bgID = 26696;
@@ -15,18 +17,17 @@ else{
   $faqID = 26721;
   $rugID = 26701;
   $hardID = 26703;
+  $rootID=26690;
 }
 
 
- ?><div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
-    <?php if(function_exists('bcn_display'))
-    {
-        bcn_display();
-    }?>
+ ?>
 
+<div class="cc-breadcrumb">
+<span class="cc-bread-root"><a href="<?php echo get_the_permalink($rootID);?>"><?php echo get_the_title($rootID);?> </a></span><?php 
+echo '>' ; ?><span class="cc-bread-parent"><a href="<?php echo get_the_permalink($post->post_parent);?>"><?php echo get_the_title($post->post_parent);?> </a></span><?php 
+echo '>' ; ?><span class="cc-bread-current"><?php echo get_the_title().' '.get_the_title($post->post_parent);?> </span>
 </div>
-
-
 <h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo get_the_title();?> <?php echo get_the_title($post->post_parent);?> </h3>
   
            
