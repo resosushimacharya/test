@@ -50,10 +50,21 @@
                             <div class="curlocate input" id="after_location">
                             <input type="button" class="userlocation" onclick="showlocation();rs='';" value="USE CURRENT LOCATION"/>
                             </div><div class="clearfix"></div>
-                            
+                             <?php 
+$url = site_url();
+$url =explode('/',$url);
+
+if(strcasecmp($url[2],'localhost')==0){
+  $locsermapID = '1770';
+}
+else{
+  $locsermapID ='26771'; }
+
+
+ ?>
                             <?php
-                              $store_page_id = 1765;
-                              $store_page_url = get_permalink( $store_page_id );
+                             
+                              $store_page_url = get_the_permalink($locsermapID);
                             ?>
                             
                             <div class="curnloc curnloca" id="after_browse">
