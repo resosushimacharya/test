@@ -11,25 +11,8 @@
 echo get_template_directory_uri();
 ?>/images/favicon.ico"/>
 <title><?php
-if(is_home()){ ?>
-<?php  bloginfo('title'); ?>
+wp_title("");?>
 
-<?php
-}
- else{
-    $urltitle = $_SERVER['REQUEST_URI'];
-    $urltitle = rtrim($urltitle,'/');
-    $urltitle = explode('/',$urltitle);
-    $key = count($urltitle);
-    $key = $key-1;
-
-    $wintitle = ucfirst($urltitle[$key]);
-    echo $wintitle;
- }
-?>
-<?php  echo " | ";?>
-<?php  bloginfo('description');
-wp_title(""); ?>
 
 
 </title>
