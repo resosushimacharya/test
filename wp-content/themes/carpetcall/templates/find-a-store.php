@@ -11,21 +11,19 @@
  <div class="container ">
 <div class="inerblock_serc cc-wrapper-whole">
 <div class="col-md-12">					
- <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
-<?php if(function_exists('bcn_display')){
-        bcn_display();
-    }?>
-
+ <div class="cc-bread-crumb">
+ <span class="cc-bread-store">CARPET CALL STORES</span>
+ </div>
+<div class="cc-finder-title">
+<h3>STORE FINDER</h3>
 </div>
-
-<h3><?php echo  get_the_title();?></h3>
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#find_your_nearest_store">FIND YOUR NEAREST STORE</a></li>
-  <li class="google-map-load"><a data-toggle="tab" href="#head_offices">HEAD OFFICES</a></li>
+<ul class="nav nav-tabs cc-tab-store-section">
+  <li class="active cc-tab-store"><a data-toggle="tab" href="#find_your_nearest_store">FIND YOUR NEAREST STORE</a></li>
+  <li class="google-map-load cc-tab-store"><a data-toggle="tab" href="#head_offices">HEAD OFFICES</a></li>
   
 </ul>
 
-<div class="tab-content">
+<div class="tab-content ">
   <div id="find_your_nearest_store" class="tab-pane fade in active">
     
     <p><?php echo do_shortcode('[wpsl]');?></p>
@@ -33,13 +31,13 @@
     <?php 
     if(!isset($_POST["cc-current-location-store"]) && !isset($_POST["wpsl-search-input"]) ){?>
    
-
+ 
 
 <div id="gmap" style="height: 500px; width:100%;"></div>
 
+<div class="cc-store-list-section">
 
-
-
+<h4>SHOWING STORES AUSTRALIA WIDE </h4>
 
     <?php 
       $tax = 'wpsl_store_category';
@@ -63,7 +61,7 @@
 }
 
     ?>
-
+  </div>
   </div>
   <div id="head_offices" class="tab-pane fade">
     <div class="body-wrapper">
@@ -191,7 +189,40 @@ background:#fff;
     width:100%;
     height:465px;
 }
+.cc-store-list-section{
+  margin:10px 0px;
+}
+.cc-store-list-section h4{
+  padding:10px 0px;
+  color:#15489f;
 
+}
+.cc-finder-title{
+  margin:5px 0px;
+}
+.cc-finder-title h3{
+   padding:10px 0px;
+}
+.cc-bread-crumb{
+margin:5px 0px;
+}
+.cc-bread-crumb h3{
+    padding:10px 0px;
+}
+.cc-tab-store{
+  background:#ffffff;
+  padding:5px;
+}
+.nav-tabs>li>a:hover>li.active>a, .nav-tabs>li>a:hover>li.active>a:focus, ..nav-tabs>li>a:hover>li.active>a:hover{
+    border:none !important;
+}
+c-state-link{
+  margin:5px 0px;
+}
+.cc-state-link a{
+ padding:10px 0px;
+ text-decoration:none;
+}
 </style>
 
 
