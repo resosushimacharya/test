@@ -37,20 +37,10 @@ wp_enqueue_script( 'responsiveTabs', get_template_directory_uri().'/js/jquery.re
 wp_enqueue_script( 'bootstrap-script', get_template_directory_uri().'/js/bootstrap.min.js', array(), false, true);
 wp_enqueue_script( 'validator-script', get_template_directory_uri().'/js/jquery.validate.min.js', array(), false, true);
 
-wp_enqueue_script( 'trouble-script', get_template_directory_uri().'/js/trouble.cc.map.js', array('wpsl-js','wpsl-gmap'), false, false);
+wp_enqueue_script( 'trouble-script', get_template_directory_uri().'/js/trouble.cc.map.js', array('wpsl-js'), false, false);
 
 
-if (!session_id()){
-	    session_start();
-	}
-	if(isset($_SESSION['use_curr_loc'])){
-		$curr_loc=$_SESSION['use_curr_loc'];
-	}else{
-		$curr_loc=0;
-	}
-$autoCurrentLoc=array('curr_loc'=>$curr_loc);
 
- wp_localize_script( 'trouble-script', 'autoCurrentLoc',$autoCurrentLoc );
 	if((strcasecmp(get_post_type(),'product')==0)){
 		 wp_enqueue_script( 'jquery-accordion', get_template_directory_uri().'/js/accordion.product.js', array(), false, false);
 	}

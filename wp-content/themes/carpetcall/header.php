@@ -87,6 +87,7 @@ wp_head();
 
 <script type="text/javascript">
     var site_url="<?php echo site_url();?>";
+    var latlang_string="";
 
 </script>
 

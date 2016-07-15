@@ -166,7 +166,14 @@ else:?>
                             </address>
                             </div><div class="clearfix"></div>
   <?php endif;?>
-	<div class="morepl"><a href="#"> See more nearby stores </a></div>
+
+  <form method="get" action="<?php echo site_url('find-a-store');?>">
+  <input type="hidden" value="<?php echo $keyArray[0];?>" name="store-unique-key">
+  <div class="morepl"><input type="submit" value=" See more nearby stores" id="store_unique_key_id"/></div>
+
+  </form>
+  <!-- <form autocomplete="off" method="post">
+  </form> -->
    
 	<?php die();
 	wp_reset_query();

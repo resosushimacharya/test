@@ -66,14 +66,8 @@ else{
 echo '<a href="'.get_the_permalink($stateID).'"><' ;?>
  VIEW ALL STORE</a>
 </div>
-</div><?php 
- if($state_post_parent!=0){
+</div>
 
-  echo do_shortcode('[wpsl category="'.$cat_name.'"] ');
-  
-
- }
-else{?>
 
 <div class="col-md-4 wpsl-single-left">
 <div class="wpsl-address-sec">
@@ -107,7 +101,7 @@ else{?>
 map_type_control="true" map_style="default" street_view="false" 
 scrollwheel="true" control_position="left"]'); 
 ?>
-</div><?php } ?>
+</div>
 </div>
 </div><div class="clearfix"></div>
 <style>

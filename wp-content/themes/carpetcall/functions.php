@@ -28,30 +28,56 @@ echo '<pre>';
        print_r($arg);
   echo '</pre>';
 }
+add_action('init','ses_set');
+function ses_set(){
+ if (!session_id()){
+          session_start();
+
+      }
+}
 
 
 add_action('wp_head','destroy_autoLoc');
 function destroy_autoLoc(){
   global $post;
-  if(!is_page_template( 'templates/find-a-store.php') || get_post_type( $post->ID )=='wpsl_stores'){
-    if (!session_id()){
+ 
+  $saveID =1;
+  $urls = explode('/',site_url());
+  if($urls[2]=="localhost"){
+    $saveID = 1770;
+  }
+  else{
+    $saveID = 26771 ;
+  }
+
+  if($post->ID==$saveID && isset($_POST["cc-current-location-store"])){
+    
+    /*if (!session_id()){
           session_start();
 
-      }
+      }*/
        
-      $_SESSION['use_curr_loc']="0";
+     $_SESSION['use_curr_loc']="1";
 
 
   }
   else{
-     if (!session_id()){
+   /*  if (!session_id()){
           session_start();
 
-      }
-      $_SESSION['use_curr_loc']="1";
+      }*/
+      $_SESSION['use_curr_loc']="0";
   }
+/*if (!session_id()){
+      session_start();
+  }*/
+$curr_loc=$_SESSION['use_curr_loc'];
+$autoCurrentLoc=array('curr_loc'=>$curr_loc,'check'=>'123');
 
+ wp_localize_script( 'trouble-script', 'autoCurrentLoc',$autoCurrentLoc );
 }
+
+
 function check(){
 $args = array(
   'supports' => array(
@@ -340,4 +366,20 @@ function wpdocs_hack_wp_title_for_home( $title )
   }
   return $title;
 }
+
+//add_filter( 'wpsl_geolocation_timeout', 'custom_admin_js_settings',999 );
+
+function custom_admin_js_settings( $js_settings ) {
+
+ if(isset($_POST["wpsl-search-input"])) {
+     
+   
+    $js_settings ="1000000";
+
+   }
+
+     return  $js_settings;
+
+}
 ?>
+

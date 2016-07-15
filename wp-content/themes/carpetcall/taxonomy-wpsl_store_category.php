@@ -31,7 +31,7 @@ $term =  get_queried_object();
   echo '<h4><span class="cc-locator-sub"><a href="'.site_url().'/find-a-store/">'. 'find a store'.'</a></span>'.'>'.'<span class="cc-locator-root"><a href="'.site_url().'/find-a-store/'.$term->slug.'">'. $statename.'</a></span></h4>';?>
 
 </div>
-<?php echo do_shortcode('[wpsl category="'.$term->slug.'" 
+<?php echo do_shortcode('[wpsl template="custom" category="'.$term->slug.'" 
 ]'); ?>
 
 
@@ -43,7 +43,7 @@ $term =  get_queried_object();
 
 
 #wpsl-stores{
-	overflow:visible !important;
+  overflow:visible !important;
 }
 
 </style>

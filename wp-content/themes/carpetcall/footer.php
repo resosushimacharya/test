@@ -184,6 +184,63 @@ $tabs.responsiveTabs('activate', $(this).val());
 
 </script>
 
+
+
 <?php wp_footer();?>
 </body>
 </html>
+<?php  
+if(isset($_POST["wpsl-search-input"]) && isset($_POST["cc-control-map"]) ){?>
+  <script>
+  $(window).load(function(){
+
+ jQuery(".cc-map-control-finder").click(function(e) {
+  var  a = '<?php echo json_encode($_POST["wpsl-search-input"]);?>';
+
+
+$('#wpsl-search-input').val(a);
+$('#wpsl-search-btn').trigger('click');
+
+  });
+  </script>
+<?php }?>
+<script type="text/javascript">
+
+if(latlang_string!=""){
+    wpslSettings.geoLocationTimout = "1000000";
+}
+
+    if(latlang_string!=""){
+
+    var latlang_code="";
+        var geocoder = new google.maps.Geocoder();
+        var address = latlang_string;
+
+        geocoder.geocode( { 'address':address}, function(results, status) {
+
+            console.log(results);
+
+            if (status == google.maps.GeocoderStatus.OK) {
+                var latitude = results[0].geometry.location.lat();
+                var longitude = results[0].geometry.location.lng();
+                console.log("latitude" +latitude); 
+                console.log("longitude" +longitude);
+                
+
+
+                latlang_code=latitude+","+longitude;
+
+                  delete(wpslSettings.startLatlng);
+                    console.log("latlog :" + latlang_code);
+                    wpslSettings.startLatlng = latlang_code;
+                  
+            }
+
+        }); 
+       
+    
+    }
+
+
+
+</script>
