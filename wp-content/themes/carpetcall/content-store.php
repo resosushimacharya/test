@@ -86,6 +86,8 @@ else{
        var options = { types: ['geocode'],componentRestrictions: {country: "AU"} };
         var types = document.getElementById('type');
       var check = input.value;
+       
+      
         e.which = e.which || e.keyCode;
     if(e.which == 13) {
        document.addEventListener("keydown", KeyCheck); 
@@ -142,7 +144,7 @@ function KeyCheck(event)
    {
       case 8:
       setTimeout(function(){
-        ocument.addEventListener("keydown", KeyCheck); 
+        document.addEventListener("keydown", KeyCheck); 
           google.maps.event.clearListeners(input, "focus");
         google.maps.event.clearListeners(input, "blur");
         google.maps.event.clearListeners(input, "keydown");

@@ -167,11 +167,25 @@ else:?>
                             </div><div class="clearfix"></div>
   <?php endif;?>
 
-  <form method="get" action="<?php echo site_url('find-a-store');?>">
-  <input type="hidden" value="<?php echo $keyArray[0];?>" name="store-unique-key">
-  <div class="morepl"><input type="submit" value=" See more nearby stores" id="store_unique_key_id"/></div>
+ <?php if(!isset($_POST['latitude'])){ ?>
+  <form autocomplete="off" method="post" action="<?php echo site_url().'/find-a-store/';?>">
+      <div class="wpsl-input">
+       
+        <input type="hidden" name="cc-control-map" value="cc-control-map">   
 
-  </form>
+             <input id="wpsl-search-input" type="hidden" value="<?php echo  $keyword ;?>"  name="wpsl-search-input" placeholder="" aria-required="true" >
+      </div>
+        <div class="wpsl-search-btn-wrap check_wpsl">
+<input id="xyz" type="submit" value="Search1"></div>
+    </form>
+    <?php } 
+    else {
+      ?>
+    <form method="post" action="<?php echo site_url().'/find-a-store/';?>" >
+    <input type="hidden" name="cc-current-location-store" value="cc-current-location-store"><input type="submit" value="Current Location " class="cc-map-control-finder" id="cc_control_map">
+    </form>
+    <?php }
+    ?>
   <!-- <form autocomplete="off" method="post">
   </form> -->
    

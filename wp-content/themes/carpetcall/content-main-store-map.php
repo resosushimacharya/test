@@ -87,14 +87,8 @@ function showPosition(position) {
    //alert(sll);
     
 }
- var locations = [
-<?php
 
- foreach ($locState as $lst): ?>
-                ['<?php echo $lst[1]; ?>', "<?php echo $lst[0]; ?>"],
-    <?php endforeach; ?>
-
- ];
+ var locations = [<?php foreach ($locState as $lst): ?>['<?php echo $lst[1]; ?>', "<?php echo $lst[0]; ?>"],<?php endforeach; ?>];
   //alert(locations.length);
    /* console.log(locations);*/
    /*locations.push('url',urlstore);*/
@@ -119,7 +113,7 @@ function showPosition(position) {
 }
 
 function deg2rad(deg) {
-  return deg * (Math.PI/180)
+  return deg * (Math.PI/180);
 }
     function initialize() {
 

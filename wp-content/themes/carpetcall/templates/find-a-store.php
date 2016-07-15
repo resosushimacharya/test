@@ -4,21 +4,7 @@
 */
 ?>
 <?php get_header();?>
-<?php  
-if(isset($_POST["wpsl-search-input"]) && isset($_POST["cc-control-map"]) ){?>
-  <script>
-  $(window).load(function(){
 
- jQuery(".cc-map-control-finder").click(function(e) {
-  var  a = '<?php echo json_encode($_POST["wpsl-search-input"]);?>';
-
-
-$('#wpsl-search-input').val(a);
-$('#wpsl-search-btn').trigger('click');
-
-  });
-  </script>
-<?php }?>
 
 
 
@@ -43,12 +29,7 @@ $('#wpsl-search-btn').trigger('click');
                       </form>
                   </div> 
                   <?php  
-                  if(isset($_POST["wpsl-search-input"])) { ?>
-                  <script type="text/javascript">
-                        latlang_string="<?php echo $_POST["wpsl-search-input"];?>";
-                  </script>
-                  <?php
-                }
+                
                     echo  do_shortcode('[wpsl template="custom" ]');
             
                     ?>
@@ -88,6 +69,7 @@ $('#wpsl-search-btn').trigger('click');
                        <div id="Map" style="width: 100%; height: 450px;"></div>
                           
                       <?php  echo "hellos"; } 
+                    
                       else {?>
                        
                      <div id="gmap" style="height: 500px; width:100%;"></div>
@@ -197,10 +179,11 @@ c-state-link{
                                            get_template_part('content','main-store-map');
                                   }
                                   elseif(isset($_POST["check-head-id"])){
-                                    echo "hell";
+                                    
                                     
                                       get_template_part('content','auxuliary');
                                   }
+                                 
                                   else{
                                     get_template_part('content','main-store-map');
                                   }

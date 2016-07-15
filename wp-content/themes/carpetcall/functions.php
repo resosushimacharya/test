@@ -49,32 +49,23 @@ function destroy_autoLoc(){
   else{
     $saveID = 26771 ;
   }
-
+    if($post->ID==$saveID){
   if($post->ID==$saveID && isset($_POST["cc-current-location-store"])){
-    
-    /*if (!session_id()){
-          session_start();
-
-      }*/
        
      $_SESSION['use_curr_loc']="1";
 
 
   }
   else{
-   /*  if (!session_id()){
-          session_start();
 
-      }*/
       $_SESSION['use_curr_loc']="0";
   }
-/*if (!session_id()){
-      session_start();
-  }*/
+
 $curr_loc=$_SESSION['use_curr_loc'];
 $autoCurrentLoc=array('curr_loc'=>$curr_loc,'check'=>'123');
 
  wp_localize_script( 'trouble-script', 'autoCurrentLoc',$autoCurrentLoc );
+}
 }
 
 
@@ -366,20 +357,39 @@ function wpdocs_hack_wp_title_for_home( $title )
   }
   return $title;
 }
-
-//add_filter( 'wpsl_geolocation_timeout', 'custom_admin_js_settings',999 );
-
-function custom_admin_js_settings( $js_settings ) {
-
- if(isset($_POST["wpsl-search-input"])) {
-     
-   
-    $js_settings ="1000000";
-
-   }
-
-     return  $js_settings;
-
+add_action('wp_footer','footer_caller');
+function footer_caller(){
+  add_filter( 'wpsl_geolocation_timeout', 'custom_admin_js_settings',999 );
 }
+
+function getLatLong($address){
+    if(!empty($address)){
+        //Formatted address
+        $formattedAddr = str_replace(' ','+',$address);
+        //Send request and receive json data by address
+        $geocodeFromAddr = file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?address='.$formattedAddr.'&sensor=false'); 
+        $output = json_decode($geocodeFromAddr);
+        //Get latitude and longitute from json data
+        $data['latitude']  = $output->results[0]->geometry->location->lat; 
+        $data['longitude'] = $output->results[0]->geometry->location->lng;
+        //Return latitude and longitude of the given address
+        if(!empty($data)){
+            return $data;
+        }else{
+            return false;
+        }
+    }else{
+        return false;   
+    }
+}
+if(isset($_POST["wpsl-search-input"]) ){
+ /* var_dump($_POST );*/
+ $latlong = getLatLong($_POST["wpsl-search-input"]);
+
+ ?>
+  <script> var startLatlng  = "<?php echo $latlong['latitude'].",".$latlong['longitude'] ;?>"</script>
+<?php
+}
+
 ?>
 

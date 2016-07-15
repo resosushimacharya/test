@@ -23,10 +23,14 @@ $output .= "\t\t" . '<div id="wpsl-search-wrap">' . "\r\n";
 $output .= "\t\t\t" . '<form autocomplete="off" method="post">' . "\r\n";
 $output .= "\t\t\t" . '<div class="wpsl-input">' . "\r\n";
 $output .= "\t\t\t\t" . '<div><label for="wpsl-search-input">' . esc_html( $wpsl->i18n->get_translation( 'search_label', __( 'Your location', 'wpsl' ) ) ) . '</label></div>' . "\r\n";
-if(!isset($_POST["wpsl-search-input"])){
-$output .= "\t\t\t\t" .'<input type="hidden" name="cc-control-map"  value="cc-control-map" />';}
-$output .= "\t\t\t\t" . '<input id="wpsl-search-input" type="text" value="' . apply_filters( 'wpsl_search_input', '' ) . '" name="wpsl-search-input" placeholder="" aria-required="true" onkeyup="mymapwpsl(event);"/>' . "\r\n";
 
+$output .= "\t\t\t\t" .'<input type="hidden" name="cc-control-map"  value="cc-control-map" />';
+if(isset($_POST["wpsl-search-input"])){
+$output .= "\t\t\t\t" . '<input id="wpsl-search-input" type="text" value="" name="wpsl-search-input" placeholder="'.$_POST["wpsl-search-input"] .'" aria-required="true" />' . "\r\n";
+}
+else{
+    $output .= "\t\t\t\t" . '<input id="wpsl-search-input" type="text" value="" name="wpsl-search-input" placeholder="" aria-required="true" onkeyup="mymapwpsl(event);"/>' . "\r\n";
+}
 $output .= "\t\t\t" . '</div>' . "\r\n";
 
 if ( $wpsl_settings['radius_dropdown'] || $wpsl_settings['results_dropdown']  ) {
@@ -73,7 +77,7 @@ $output .="\t\t\t\t" . '<div id="wpsl-auto-locate">' . "\r\n";
 $output .= "\t\t" . '</div>' . "\r\n";
 
 $output .= "\t" . '</div>' . "\r\n";
- if($post->ID!=$locsermapID || isset($_POST["cc-current-location-store"]) || isset($_POST["wpsl-search-input"]) ){
+ if($post->ID!=$locsermapID || isset($_POST["cc-current-location-store"]) || isset($_POST["wpsl-search-input"]) || isset($_POST["store-unique-key"]) ){
     if ( $wpsl_settings['reset_map'] ) { 
         $output .= "\t" . '<div class="wpsl-gmap-wrap">' . "\r\n";
         $output .= "\t\t" . '<div id="wpsl-gmap" class="wpsl-gmap-canvas"></div>' . "\r\n";
@@ -82,7 +86,7 @@ $output .= "\t" . '</div>' . "\r\n";
         $output .= "\t" . '<div id="wpsl-gmap" class="wpsl-gmap-canvas"></div>' . "\r\n";
     }
 }
-if($post->ID!=$locsermapID || isset($_POST["cc-current-location-store"]) || isset($_POST["wpsl-search-input"]) ){
+if($post->ID!=$locsermapID || isset($_POST["cc-current-location-store"]) || isset($_POST["wpsl-search-input"]) || isset($_POST["store-unique-key"]) ){
 
 $output .= "\t" . '<div id="wpsl-result-list">' . "\r\n";
 $output .= "\t\t" . '<div id="wpsl-stores" '. $autoload_class .'>' . "\r\n";
