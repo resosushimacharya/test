@@ -184,6 +184,23 @@ $tabs.responsiveTabs('activate', $(this).val());
 
 </script>
 
+
+
 <?php wp_footer();?>
 </body>
 </html>
+<?php  
+if(isset($_POST["wpsl-search-input"]) && isset($_POST["cc-control-map"]) ){?>
+  <script>
+ 
+
+ jQuery(".cc-map-control-finder").click(function(e) {
+  var  a = '<?php echo json_encode($_POST["wpsl-search-input"]);?>';
+
+
+$('#wpsl-search-input').val(a);
+$('#wpsl-search-btn').trigger('click');
+
+  });
+  </script>
+<?php }?>

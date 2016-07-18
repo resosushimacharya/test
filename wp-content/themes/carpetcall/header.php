@@ -11,10 +11,11 @@
 echo get_template_directory_uri();
 ?>/images/favicon.ico"/>
 <title><?php
-bloginfo('title');
-?> | <?php
-echo bloginfo('description');
-?></title>
+wp_title("");?>
+
+
+
+</title>
 <meta http-equiv="Cache-Control" content="no-cache"/>
 
 
@@ -86,6 +87,7 @@ wp_head();
 
 <script type="text/javascript">
     var site_url="<?php echo site_url();?>";
+    var latlang_string="";
 
 </script>
 
@@ -185,7 +187,9 @@ wp_nav_menu($defaults);
                 <!-- store finder begin -->
                 <div class="col-md-3 no-lr">
                 <div class="sfind">
+
                   <?php
+                  
 get_template_part('content', 'store');
 ?>
                 

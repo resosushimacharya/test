@@ -9,25 +9,36 @@ $cat_name = $cat_names[0];
 
 
 ?>
+ <?php 
+      
+     $statename = "";
+      $regions = array(
+        'QLD' => 'Queensland',
+        'NSW' =>'New South Wales',
+        'SA' =>'South Australia',
+        'TAS'=>'Tasmania',
+        'VIC'=>'Victoria',
+        'WA'=>'Western Australia',
+        'ACT'=>'Australia Capital Territory',
+        'NT'=>'Northern Territory'
+        );
+      foreach($regions as $key =>$value):
+                if(strcasecmp($key,$cat_name)==0){
+                  $statename = strtoupper($value); 
+
+                }
+
+        endforeach;
+     ?>
 
 <div class="container clearfix">
 <div class="inerblock_serc cc-locator-sec">
 <div class="cc-locator-title-sec">
 <?php 
- 
-   
-  
+ echo '<h4><span class="cc-locator-sub"><a href="'.site_url().'/find-a-store/">'. 'STORE FINDER'.'</a></span>'.'>'.'<span class="cc-locator-root"><a href="'.site_url().'/find-a-store/'.strtolower($cat_name).'">'. $statename .'</a></span>'.'>'.'
+  <span class="cc-locator-current"><a href="'.get_the_permalink().'">'. strtoupper(get_the_title()).'</a></span></h4>';
 
-
-
-
-  echo '<h4><span class="cc-locator-sub"><a href="'.site_url().'/find-a-store/">'. 'find a store'.'</a></span>'.'>'.'<span class="cc-locator-root"><a href="'.site_url().'/find-a-store/'.$cat_name.'">'. $cat_name.'</a></span>'.'>'.'
-  <span class="cc-locator-current"><a href="'.get_the_permalink().'">'. get_the_title().'</a></span></h4>';
-
-
-
-
- ?>
+?>
 
 </div>
 <div class="col-md-12">
@@ -55,18 +66,12 @@ else{
 echo '<a href="'.get_the_permalink($stateID).'"><' ;?>
  VIEW ALL STORE</a>
 </div>
-</div><?php 
- if($state_post_parent==0){
+</div>
 
-  echo do_shortcode('[wpsl template="custom" category="'.$cat_name.'"] ');
-  
-
- }
-else{?>
 
 <div class="col-md-4 wpsl-single-left">
 <div class="wpsl-address-sec">
-<h4>Address</h4>
+<h4>ADDRESS</h4>
 
 	<?php echo do_shortcode('[wpsl_address id="'.$post->ID.'" name="true" address="true" address2="false" 
        city="true" state="false" zip="true" country="false" phone="false" title="false"
@@ -76,14 +81,14 @@ else{?>
 
 
         ?>
-       <a href="https://maps.google.com/maps?saddr=balcatta,australia&daddr=<?php echo $url['wpsl_address'][0].' '.$url['wpsl_city'][0];?>" target="_blank">Direction</a>
+       <a href="https://maps.google.com/maps?saddr=balcatta,australia&daddr=<?php echo $url['wpsl_address'][0].' '.$url['wpsl_city'][0];?>" target="_blank">GET DIRECTION</a>
        </div>
        <div class="wpsl-phone-sec">
 	<?php echo do_shortcode('[wpsl_address id="'.$post->ID.'" name="false" address="false" address2="false" 
        city="false" state="false" zip="false" country="false" phone="true" 
        fax="true" email="false" url="false"]');
        ?>
-       <div class="fcnt-or fcnt-orr fcnt-orr-map clearfix"><a href="http://staging.carpetcall.com.au/contact-us/?id=<?php echo $post->ID;?>" class="cc-contact-link">Contact Store</a></div>
+       <div class="fcnt-or fcnt-orr fcnt-orr-map clearfix"><a href="http://staging.carpetcall.com.au/contact-us/?id=<?php echo $post->ID;?>" class="cc-contact-link">CONTACT STORE</a></div>
        </div>
        <div class="wpsl-hour-sec">
        <span><strong>Opening Hours</strong></span>
@@ -96,7 +101,7 @@ else{?>
 map_type_control="true" map_style="default" street_view="false" 
 scrollwheel="true" control_position="left"]'); 
 ?>
-</div><?php } ?>
+</div>
 </div>
 </div><div class="clearfix"></div>
 <style>

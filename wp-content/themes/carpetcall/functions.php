@@ -28,30 +28,47 @@ echo '<pre>';
        print_r($arg);
   echo '</pre>';
 }
+add_action('init','ses_set');
+function ses_set(){
+ if (!session_id()){
+          session_start();
+
+      }
+}
 
 
 add_action('wp_head','destroy_autoLoc');
 function destroy_autoLoc(){
   global $post;
-  if(!is_page_template( 'templates/find-a-store.php') || get_post_type( $post->ID )=='wpsl_stores'){
-    if (!session_id()){
-          session_start();
-
-      }
+ 
+  $saveID =1;
+  $urls = explode('/',site_url());
+  if($urls[2]=="localhost"){
+    $saveID = 1770;
+  }
+  else{
+    $saveID = 26771 ;
+  }
+    if($post->ID==$saveID){
+  if($post->ID==$saveID && isset($_POST["cc-current-location-store"])){
        
-      $_SESSION['use_curr_loc']="0";
+     $_SESSION['use_curr_loc']="1";
 
 
   }
   else{
-     if (!session_id()){
-          session_start();
 
-      }
-      $_SESSION['use_curr_loc']="1";
+      $_SESSION['use_curr_loc']="0";
   }
 
+$curr_loc=$_SESSION['use_curr_loc'];
+$autoCurrentLoc=array('curr_loc'=>$curr_loc,'check'=>'123');
+
+ wp_localize_script( 'trouble-script', 'autoCurrentLoc',$autoCurrentLoc );
 }
+}
+
+
 function check(){
 $args = array(
   'supports' => array(
@@ -321,4 +338,58 @@ function events_permalink_structure($post_link, $post, $leavename, $sample)
 
 // flush_rewrite_rules( true);
 add_rewrite_rule('^find-a-store/([^/]*)/([^/]*)/?','index.php?&wpsl_stores=$matches[2]','top');
+add_filter( 'wp_title', 'wpdocs_hack_wp_title_for_home' );
+ 
+/**
+ * Customize the title for the home page, if one is not set.
+ *
+ * @param string $title The original title.
+ * @return string The title to use.
+ */
+function wpdocs_hack_wp_title_for_home( $title )
+{
+  if ( empty( $title ) && ( is_home() || is_front_page() ) ) {
+    $title = get_bloginfo('title'). ' | ' . get_bloginfo( 'description' );
+  }
+  
+  if(strpos($title, 'Store State') !== false){
+    $title =   str_replace('Store State', "", $title);
+  }
+  return $title;
+}
+add_action('wp_footer','footer_caller');
+function footer_caller(){
+  add_filter( 'wpsl_geolocation_timeout', 'custom_admin_js_settings',999 );
+}
+
+function getLatLong($address){
+    if(!empty($address)){
+        //Formatted address
+        $formattedAddr = str_replace(' ','+',$address);
+        //Send request and receive json data by address
+        $geocodeFromAddr = file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?address='.$formattedAddr.'&sensor=false'); 
+        $output = json_decode($geocodeFromAddr);
+        //Get latitude and longitute from json data
+        $data['latitude']  = $output->results[0]->geometry->location->lat; 
+        $data['longitude'] = $output->results[0]->geometry->location->lng;
+        //Return latitude and longitude of the given address
+        if(!empty($data)){
+            return $data;
+        }else{
+            return false;
+        }
+    }else{
+        return false;   
+    }
+}
+if(isset($_POST["wpsl-search-input"]) ){
+ /* var_dump($_POST );*/
+ $latlong = getLatLong($_POST["wpsl-search-input"]);
+
+ ?>
+  <script> var startLatlng  = "<?php echo $latlong['latitude'].",".$latlong['longitude'] ;?>"</script>
+<?php
+}
+
 ?>
+

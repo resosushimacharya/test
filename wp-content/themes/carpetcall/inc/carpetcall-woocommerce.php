@@ -12,7 +12,7 @@ add_action( 'after_setup_theme', 'woocommerce_support' );
 function woocommerce_support() {
 add_theme_support( 'woocommerce' );
 }
-add_action('customize_register','carpetcall_sociallinks');
+
 function extrafeature()
 {
 $ben=get_field('benefits',get_the_id());

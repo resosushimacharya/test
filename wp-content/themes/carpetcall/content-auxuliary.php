@@ -55,16 +55,8 @@ wp_reset_query();
     geocoder = new google.maps.Geocoder();
     
   
-    $('.google-map-load').click(function(e){
-        if ($(".hareram")[0]){
-                 console.log("ok");
-} else {
-    $('.google-map-load').addClass('hareram');
-      setTimeout(function() { initialize1(); }, 1000);
-}
-     
    
-    })
+     setTimeout(function() { initialize1(); }, 1000);
     
     function initialize1() {   
     sll = [];        
