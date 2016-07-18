@@ -16,9 +16,12 @@ if($loop->have_posts()){
 		if(strcasecmp(get_the_title(),$storeName)==0){
 		/*$res = get_post_meta($post->ID ,'w',true);*/	
 	   $res = get_post_meta($loop->post->ID);
+	   
 	   do_action($res);
-	   $html .= $res['wpsl_email'][0];}
+	   $html .= $res['wpsl_email'][0];
 	   break;
+	}
+	   
 
 	}
 
