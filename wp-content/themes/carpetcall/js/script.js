@@ -100,7 +100,20 @@ jQuery(document).ready(function(){
 	function ia_right_offset(){
 		var left_offset = jQuery('.ia-block .container').offset().left;
 		var parent_width = jQuery('.cc-ia-banner').parents('.ia-img').outerWidth();
-		jQuery('.cc-ia-banner').width( parent_width + left_offset - 15);
+		jQuery('.cc-ia-banner').width( parent_width + left_offset + 20);
+
+	}
+}
+});
+
+jQuery(document).ready(function(){
+    if(jQuery('.cc-clearance-blk').length){
+	window.addEventListener('resize', ia_right_offset);
+	ia_right_offset();
+	function ia_right_offset(){
+		var left_offset = jQuery('.cc-clearance-blk .container').offset().left;
+		var parent_width = jQuery('.cc-ia-banner-a').parents('.ia-imgg').outerWidth();
+		jQuery('.cc-ia-banner-a').width( parent_width + left_offset + 20);
 
 	}
 }

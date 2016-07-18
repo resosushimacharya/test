@@ -190,7 +190,7 @@ ul.cat_list li .fa { color:#c32327;}
 ul.cat_list li a {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:none;}
 ul.cat_list li a:hover {color:#000;}
 
-.cc-ia-more ul { margin:0 0 29px 0; padding:0;}
+.cc-ia-more ul { margin:0 0 93px 0; padding:0;}
 .cc-ia-more ul li {list-style:none; display:block;}
 .cc-ia-more ul li .fa { color:#c32327; margin-right:12px; margin-top:3px;}
 .cc-ia-more ul li a {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:none;}

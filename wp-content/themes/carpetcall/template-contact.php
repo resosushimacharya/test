@@ -30,15 +30,17 @@ get_header();
      wp_reset_query();
 ?>
 </div>
-<div class="cc-contact-side col-md-6">
+<div class="col-md-6 ia-imgg">
+<div class="cc-ia-banner-a">
 <img src="<?php echo $feat_image ;?>" class="img-responsive">
+</div>
 </div>
 
 </div>
 </div>
 </div>
 <div class="container clearfix">
-<div class="inerblock_sec cc-form-wrapper ">
+<div class="inerblock_sec-bb cc-form-wrapper ">
 
 <div class="clearfix"></div>
   <div class="contact_form_cntr col-md-12">
@@ -47,6 +49,9 @@ get_header();
                 <div class="form-group cc-enquiry-section  col-sm-12">
                 	<h3> Enquiry Type</h3>
                 </div>
+                
+                <div class="col-sm-12 query-rlblk no-lr">
+                
                 <div class="form-group col-sm-6">
                 	What Does your query relate to?
                 </div>
@@ -62,26 +67,46 @@ get_header();
       
                      </select>
                 </div>
+                
+                </div>
+                
+                <div class="details-us">
+                	
+                <h3>YOUR  DETAILS</h3>
+                		
+                </div>
+                
+                <div class="fl-blk">
                 <div class="form-group col-sm-6"> <label for="first_name">First Name</label>
                     <input type="text" name="first_name" class="form-control" value="" size="40"  id="first_name"  placeholder="First name *">
                     <div class="error_label"></div> 
                 </div>
                
-
-                
                 <div class="form-group col-sm-6"><label for="first_name">Last Name </label>
                     <input type="text" name="last_name" class="form-control" value="" size="40" id="last_name"  placeholder="Last name *">
                     <div class="error_label"></div>
                 </div>
+                
+                </div>
+                
+                <div class="mero-blkk">
 	            <div class="form-group col-sm-12"><label for="email_address">Email</label>
 	                   <input type="email" name="email_address" class="form-control" value="" size="40"  id="email_address" placeholder="Your email *">
 	                    <div class="error_label"></div>
 	            </div>
+                </div>
+                
+                <div class="tel-blk">
 	            <div class="form-group col-sm-6">
 	            	<label for="mobile_phone_no">Phone</label>
                     <input type="tel" name="mobile_phone_no" class="form-control"  value="" size="40" id="mobile_phone_no" placeholder="Mobile no. *">
                     <div class="error_label"></div>
                 </div>
+                </div>
+                
+                
+                
+                
                 <div class="cc-store-form-section" id="cc-store-form-section">
                 <div class="form-group col-sm-12">
                 	
@@ -92,7 +117,6 @@ get_header();
                 </div>
                 <div class="form-group col-sm-4">
 
-                <label for="cc-state-type">STATE*</label>
                 	<select class="selectpicker col-md-6 form-control"  name="cc_state_type" id="cc-state-type">
                 	<option class="col-md-12" value="default">Please Select</option>
                       <?php  get_template_part('content', 'contact-state');
@@ -103,7 +127,6 @@ get_header();
                 </div>
                 <div class="form-group col-sm-8">
               
-                     <label for="cc-store-name">STORE*</label>
                 	<select class="selectpicker col-md-6 form-control" name="cc_store_name" id="cc-store-name">
                      <option class="col-md-12" value="default">Please Select</option>
 
@@ -129,13 +152,13 @@ if(isset($_GET['id'])){
   }
 ?>
                 <input type="hidden" value="<?php echo $myemail;?>" class="btn-dn" id="send_email_address" name="send_email_address">
+                
+                <div class="ur-msg-title">
                  <div class="form-group col-sm-12">
                 	
                 		<h3>Message</h3>
-                	
+                </div></div>
                 
-
-                </div>
                 <div class="form-group col-sm-12">
                 
                  <textarea class="form-control" rows="5" id="cc_message" name="cc_message">ENTER YOUR MESSAGE HERE</textarea>
@@ -169,9 +192,7 @@ background:#f0f2f1 !important;
 .cc-contact-side{
 	
 }
-.cc-form-wrapper{
-	padding:5px;
-}
+
 select#cc-state-type , select#cc-store-name{
 	text-transform:uppercase !important;
 }
