@@ -16,7 +16,7 @@ wp_enqueue_style('map-store-style',get_template_directory_uri().'/css/map-store-
 if(is_page_template('templates/find-a-store.php')){
 wp_enqueue_style('main-store-map-style',get_template_directory_uri().'/css/main-store-map-style.css');
 }
-
+wp_enqueue_style('responsive-design',get_template_directory_uri().'/css/responsive-design.css');
 }
 add_action( 'wp_enqueue_scripts', 'header_script' );
 	
