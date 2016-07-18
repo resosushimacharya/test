@@ -10,15 +10,18 @@ get_header();
 <div class="inerblock_contblk cc-wrapper-whole">
 <div class="col-md-6">					
  <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
-<?php if(function_exists('bcn_display')){
-        bcn_display();
-    }?>
+<?php
+ if(function_exists('bcn_display'))
+ {
+    bcn_display();
+ }
+ ?>
 
 </div>
 
 <?php 
  	while(have_posts()){
-     	the_post();
+     	  the_post();
         $feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 ?>  
  	<h3><?php echo get_the_title();?></h3>
@@ -139,18 +142,70 @@ get_header();
                 
                 </div>
                 <?php 
-                $myemail = "";
-if(isset($_GET['id'])){
+                  $myemail = "";
+                  if(isset($_GET['id']))
+                  {
 
-  $contactstoID = $_GET['id'];
+                      $contactstoID = $_GET['id'];
 
-    $field = get_post_meta($contactstoID);
-    
-    if(isset($field['wpsl_email'][0])){
-      $myemail = $field['wpsl_email'][0];
-    }
-  }
-?>
+                      $field = get_post_meta($contactstoID);
+                    
+                  if(isset($field['wpsl_email'][0]))
+                  {
+                      $myemail = $field['wpsl_email'][0];
+                  }
+                  else
+                  {
+                      $stateemailpair = array();
+
+
+                      $args = array(
+                                      'post_type' =>'wpsl_stores',
+                                      'posts_per_page'=>'-1',
+                                      'meta_query' => array(
+                                                              array(
+                                                                  'key' => 'store_type',
+                                                                  'value' => 'head_office'
+                                                                  
+                                                              )
+                                                            )
+                                    );
+                      $loop = new WP_Query($args);
+                      $html = '';
+                      if($loop->have_posts())
+                      {
+                          while($loop->have_posts())
+                          {
+                              $loop->the_post();
+                                    /* 
+                                    **state head office  state and 
+                                    ***email address pair 
+                                    
+                                    */
+                                    
+                              $res = get_post_meta($loop->post->ID);
+                                     
+                              if(!isset($res['wpsl_email'][0]))
+                              {
+                                  $stateemailpair[$res['wpsl_state'][0]]  = get_option('admin_email');
+                              }   
+                              else
+                              {
+                                  $stateemailpair[$res['wpsl_state'][0]] = $res['wpsl_email'][0];
+                              }   
+                               
+                          
+                             
+
+                          }
+                          wp_reset_query();
+
+
+                      }
+                      $myemail =$stateemailpair[$field['wpsl_state'][0]];
+                  }
+                }
+              ?>
                 <input type="hidden" value="<?php echo $myemail;?>" class="btn-dn" id="send_email_address" name="send_email_address">
                 
                 <div class="ur-msg-title">
