@@ -129,8 +129,11 @@ $currentcat = get_queried_object();
 									 $pch = 1;
 								$filloop = new WP_Query($filargs);
 									$hold = 1;
+                                    ?>
+                                       <?php 
 
 								if($filloop->have_posts()){
+									$slidercounter = 1;
 									while($filloop->have_posts()):
 										$filloop->the_post();
  										 $feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
@@ -141,7 +144,36 @@ $currentcat = get_queried_object();
                                              echo '<div class="col-md-6">From A$'.$res.'</div></div> <div class="row">';
 
                                              $pch++;
+                                             
                                           }
+                                          if($slidercounter<=5){
+                                          	if($slidercounter==1){
+                                          		echo '<div class="cat_slider">';
+
+                                          	}
+                                            echo '<div class="cat_slider_item " > <img src="'.$feat_image.'" class="img-responsive" /></div>';
+                                              echo $slidercounter;
+                                             if($slidercounter==5){
+                                             	echo '</div>';
+                                             }
+                                                $slidercounter++;
+
+                                          }
+                                          endwhile;
+                                          wp_reset_query();
+                                      }
+                                      
+									?>
+                                    <?php 
+
+								if($filloop->have_posts()){
+									$slidercounter = 1;
+									while($filloop->have_posts()):
+										$filloop->the_post();
+ 										 $feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
+											/*var_dump($filloop->post->ID);*/
+
+                                        
 
 									?><div class="col-md-4 cc-other-term-pro">
 									<div class="cc-img-wrapper">

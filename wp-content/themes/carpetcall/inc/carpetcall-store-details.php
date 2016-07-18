@@ -1,29 +1,78 @@
 <?php function email_address(){
 
 $storeName = sanitize_text_field($_POST['store']);
-
+$stateemailpair = array();
 wp_reset_query();
 
 $args = array(
 				'post_type' =>'wpsl_stores',
-				 'posts_per_page'=>'-1'
+				 'posts_per_page'=>'-1',
+				   'meta_query' => array(
+        array(
+            'key' => 'store_type',
+            'value' => 'head_office'
+            
+        )
+    )
 				);
 $loop = new WP_Query($args);
 $html = '';
 if($loop->have_posts()){
 	while($loop->have_posts()){
 		$loop->the_post();
-		if(strcasecmp(get_the_title(),$storeName)==0){
-		/*$res = get_post_meta($post->ID ,'w',true);*/	
-	   $res = get_post_meta($loop->post->ID);
+          /* 
+          **state head office  state and 
+          ***email address pair 
+          
+          */
+          
+             $res = get_post_meta($loop->post->ID);
+           
+          $stateemailpair[$res['wpsl_state'][0]] = $res['wpsl_email'][0];
+         
 	   
-	   do_action($res);
-	   $html .= $res['wpsl_email'][0];
+	
+	   
+
+	}
+	wp_reset_query();
+/*	do_action('pr',$stateemailpair);*/
+
+}
+$args = array(
+				'post_type' =>'wpsl_stores',
+				 'posts_per_page'=>'-1'
+				  
+     			);
+$loop = new WP_Query($args);
+if($loop->have_posts()){
+	while($loop->have_posts()){
+		$loop->the_post();
+          /* 
+          **check  whether the email address is present or not 
+          ***es then  set as it is as reciever email address
+          ****then filter the state form wpsl_state 
+          ***** set the email address as of state head office email address
+          */
+		if(strcasecmp(get_the_title(),$storeName)==0){
+			
+	   $res = get_post_meta($loop->post->ID);
+	  
+	   
+	   if(!$res['wpsl_email'][0]){
+            $html.=$stateemailpair[$res['wpsl_state'][0]];
+        
+	   }
+	   else{
+	   	 $html.=$res['wpsl_email'][0];
+	   }
+	  
 	   break;
 	}
 	   
 
 	}
+	wp_reset_query();
 
 }
 echo $html;

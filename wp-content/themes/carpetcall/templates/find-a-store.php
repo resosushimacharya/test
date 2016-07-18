@@ -19,7 +19,7 @@
                       <h3>STORE FINDER</h3>
                   </div>
                   <div class="cc-options-wrapper">
-                      <form method="post">
+                      <form method="post" >
                           <input type="hidden" name="check-near-id" value="check near value"/>
                           <input type="submit" id="cc-but-near" class="cc-but-near-con" value="FIND YOUR NEAREST STORE" name="cc-but-near-name"/>
                       </form >
