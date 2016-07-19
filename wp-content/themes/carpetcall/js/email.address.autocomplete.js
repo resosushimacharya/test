@@ -2,7 +2,7 @@ jQuery(document).ready(function($){
 jQuery("#cc-store-name").change(function(e) {
 
 var store= jQuery("#cc-store-name").val();
- alert(store);
+ 
 
 
 	jQuery.ajax({
@@ -28,7 +28,7 @@ jQuery("#cc-state-type-only").change(function(e) {
 
 var staterel= jQuery("#cc-state-type-only").val();
  
-alert(staterel);
+
 
 	jQuery.ajax({
 			url: wp_email_address_state_autocomplete.ajax_url,

@@ -129,7 +129,7 @@ function email_address_state(){
 			$res = get_post_meta($loop->post->ID);
 
 
-			if(!isset($res['wpsl_email'][0]))
+			if(!$res['wpsl_email'][0])
 			{
 			$stateemailpairs[$res['wpsl_state'][0]]  = get_option('admin_email');
 			}
@@ -144,9 +144,11 @@ function email_address_state(){
 		wp_reset_query();
 		
 	}
-
+    
    $html.=$stateemailpairs[$stateName];
-  
+     if($html==""){
+     	$html.=get_option('admin_email');
+     }
    echo $html;
    die;
 }
