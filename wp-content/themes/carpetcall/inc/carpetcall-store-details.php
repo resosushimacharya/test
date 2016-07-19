@@ -97,3 +97,65 @@ function email_address_scripts()
 	wp_enqueue_script('email_address-autocomplete');
 	wp_localize_script( 'email_address-autocomplete', 'wp_email_address_autocomplete', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 }
+function email_address_state(){
+	$stateName =  $_POST['staterel'];
+	$stateName = strtoupper($stateName);
+	$stateemailpairs = array();
+	wp_reset_query();
+	$args = array(
+	              'post_type' =>'wpsl_stores',
+	              'posts_per_page'=>'-1',
+	              'meta_query' => array(
+	                                      array(
+	                                          'key' => 'store_type',
+	                                          'value' => 'head_office'
+	                                          
+	                                      )
+	                                    )
+	            );
+	$loop = new WP_Query($args);
+	$html = '';
+	if($loop->have_posts())
+	{
+		while($loop->have_posts())
+		{
+			$loop->the_post();
+			/*
+			**state head office  state and
+			***email address pair
+
+			*/
+
+			$res = get_post_meta($loop->post->ID);
+
+
+			if(!isset($res['wpsl_email'][0]))
+			{
+			$stateemailpairs[$res['wpsl_state'][0]]  = get_option('admin_email');
+			}
+			else
+			{
+			$stateemailpairs[$res['wpsl_state'][0]] = $res['wpsl_email'][0];
+			}
+		
+		
+		
+		}
+		wp_reset_query();
+		
+	}
+
+   $html.=$stateemailpairs[$stateName];
+  
+   echo $html;
+   die;
+}
+add_action('wp_ajax_email_address_state', 'email_address_state');
+add_action('wp_ajax_nopriv_email_address_state', 'email_address_state');
+add_action( 'wp_enqueue_scripts', 'email_address_state_scripts' );
+function email_address_state_scripts()
+{
+	wp_register_script('email_address-state-autocomplete', get_template_directory_uri(). '/js/email.address.autocomplete.js', '',true);
+	wp_enqueue_script('email_address-state-autocomplete');
+	wp_localize_script( 'email_address-state-autocomplete', 'wp_email_address_state_autocomplete', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+}

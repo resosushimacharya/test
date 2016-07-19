@@ -394,6 +394,10 @@ function getLatLong($address){
     <script> var startLatlng  = "<?php echo $latlong['latitude'].",".$latlong['longitude'] ;?>"</script>
   <?php
   }
+   function sortByName($a, $b){
+    return strcmp($a->slug,$b->slug);
+}
+
   
    ?>
   

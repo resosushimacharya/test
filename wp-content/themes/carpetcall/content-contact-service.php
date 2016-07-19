@@ -6,9 +6,6 @@ $terms = get_terms('wpsl_store_category');
 //do_action('pr', $terms);
 
 wp_reset_query();
-/* function sortByName($a, $b){
-    return strcmp($a->slug,$b->slug);
-}*/
 
 usort($terms, 'sortByName');
 

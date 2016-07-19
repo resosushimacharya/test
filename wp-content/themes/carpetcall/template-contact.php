@@ -81,12 +81,12 @@ get_header();
                 
                 <div class="fl-blk">
                 <div class="form-group col-sm-6"> <label for="first_name">First Name</label>
-                    <input type="text" name="first_name" class="form-control" value="" size="40"  id="first_name"  placeholder="First name *">
+                    <input type="text" name="first_name" class="form-control" value="" size="40"  id="first_name"  placeholder="E.G. JOHN">
                     <div class="error_label"></div> 
                 </div>
                
                 <div class="form-group col-sm-6"><label for="first_name">Last Name </label>
-                    <input type="text" name="last_name" class="form-control" value="" size="40" id="last_name"  placeholder="Last name *">
+                    <input type="text" name="last_name" class="form-control" value="" size="40" id="last_name"  placeholder="E.G. SMITH ">
                     <div class="error_label"></div>
                 </div>
                 
@@ -94,7 +94,7 @@ get_header();
                 
                 <div class="mero-blkk">
 	            <div class="form-group col-sm-12"><label for="email_address">Email</label>
-	                   <input type="email" name="email_address" class="form-control" value="" size="40"  id="email_address" placeholder="Your email *">
+	                   <input type="email" name="email_address" class="form-control" value="" size="40"  id="email_address" placeholder="E.G. JOHN.SMITH@EMAIL>COM *">
 	                    <div class="error_label"></div>
 	            </div>
                 </div>
@@ -102,13 +102,27 @@ get_header();
                 <div class="tel-blk">
 	            <div class="form-group col-sm-6">
 	            	<label for="mobile_phone_no">Phone</label>
-                    <input type="tel" name="mobile_phone_no" class="form-control"  value="" size="40" id="mobile_phone_no" placeholder="Mobile no. *">
+                    <input type="tel" name="mobile_phone_no" class="form-control"  value="" size="40" id="mobile_phone_no" placeholder="E.G. 02 1234 5678">
                     <div class="error_label"></div>
                 </div>
                 </div>
                 
                 
-                
+                <div class="cc-state-form-section" id="cc-state-form-section">
+                <div class="form-group col-sm-12">
+                <h3>SELECT A STATE</h3>
+                 <div class="form-group col-sm-4">
+
+                  <select class="selectpicker col-md-6 form-control"  name="cc_state_type_only" id="cc-state-type-only">
+                    <option class="col-md-12" value="default">STATE</option>
+                      
+                     <?php  get_template_part('content', 'contact-state');
+                     ?>
+                 </select>
+                     <div class="error_label"></div>
+                </div>
+                </div>
+                </div>
                 
                 <div class="cc-store-form-section" id="cc-store-form-section">
                 <div class="form-group col-sm-12">
@@ -121,7 +135,7 @@ get_header();
                 <div class="form-group col-sm-4">
 
                 	<select class="selectpicker col-md-6 form-control"  name="cc_state_type" id="cc-state-type">
-                	<option class="col-md-12" value="default">Please Select</option>
+                	<option class="col-md-12" value="STATE">STATE</option>
                       <?php  get_template_part('content', 'contact-state');
                      ?>
 
@@ -131,7 +145,7 @@ get_header();
                 <div class="form-group col-sm-8">
               
                 	<select class="selectpicker col-md-6 form-control" name="cc_store_name" id="cc-store-name">
-                     <option class="col-md-12" value="default">Please Select</option>
+                     <option class="col-md-12" value="Select a Store">Select a Store</option>
 
                          <?php  get_template_part('content', 'contact-store');
                      ?>
@@ -202,6 +216,7 @@ get_header();
 
 
                       }
+                   
                       $myemail =$stateemailpair[$field['wpsl_state'][0]];
                   }
                 }
@@ -248,8 +263,11 @@ background:#f0f2f1 !important;
 	
 }
 
-select#cc-state-type , select#cc-store-name{
+select#cc-state-type , select#cc-store-name,select#cc-state-type-only{
 	text-transform:uppercase !important;
+}
+#cc-state-form-section{
+  display:none;
 }
 
 /* .cc-store-form-section{
@@ -257,14 +275,15 @@ select#cc-state-type , select#cc-store-name{
 } */
 </style>
 <script>
+
 $ = jQuery.noConflict();
-
+ 
 $(document).ready(function() {
-
+       
        $(document).on('change','#cc-enquiry-type',function(){
        		$res = $('#cc-enquiry-type').val(); 
        		$res = $res.toUpperCase();    
-       		
+       		 
        		var salesEnquiry = "sales enquiry";
        		salesEnquiry = salesEnquiry.toUpperCase();
        		var serviceEnquiry = "Service Enquiry";
@@ -273,11 +292,13 @@ $(document).ready(function() {
        		if(serviceEnquiry===$res){
        			
        			$('#cc-store-form-section').hide();
+            $('#cc-state-form-section').show();
        		}
        		if(salesEnquiry===$res){
-       			
+       			$('#cc-state-form-section').hide();
        			
        			$('#cc-store-form-section').show();
+            
        		}
        		
 
@@ -335,7 +356,25 @@ ignore: ":hidden:not(.chosen, #send_email_address)",
       }) 
 }
 }) 
+  $.validator.addMethod("phoneValidation",function(value,element){
+      
+      str= value;
+       value =value.replace(/[a-z]/gi, '');
+       realLength = str.length;
+       tempLength =  value.length;
+      
+      if(realLength==tempLength){
+        return true;
+      }
+      else{
+        return false;
+      }
+     
+     
+     
+      
 
+  },'please enter valid phone number');
 	$.validator.addMethod("valueNotEquals", function(value, element, arg){
   			 return arg != value;
  }, "Value must not equal arg.");
@@ -352,16 +391,20 @@ ignore: ":hidden:not(.chosen, #send_email_address)",
 			},
 			
 			cc_state_type: { 
-								valueNotEquals: "default" 
+								valueNotEquals: "State" 
 							},
 			cc_store_name: { 
-								valueNotEquals: "default" 
+								valueNotEquals: "Select a Store" 
 							},
 							
 			
 			information:"required",
 			product_code : "required",
-			mobile_phone_no : "required",
+			mobile_phone_no :{
+      phoneValidation:"[0-9\-\(\)\s]+",
+      
+     /* required:true*/}
+      ,
 			faulty_items :{
 						  number: true,
 						  required: true,
@@ -374,7 +417,7 @@ ignore: ":hidden:not(.chosen, #send_email_address)",
 			c_email_address: "Email and conform email does not match.",
 			information: " Please enter your message.",
 			product_code : "Please select product properly. Product code is empty ",
-			mobile_phone_no : " Please enter mobile number.", 
+			/*mobile_phone_no : " Please enter mobile number.", */
 			faulty_items : "Please enter numeric value.",
 			cc_state_type:{ valueNotEquals: "Please select a state!" },
 			cc_store_name: { 
