@@ -94,7 +94,7 @@ get_header();
                 
                 <div class="mero-blkk">
 	            <div class="form-group col-sm-12"><label for="email_address">Email</label>
-	                   <input type="email" name="email_address" class="form-control" value="" size="40"  id="email_address" placeholder="E.G. JOHN.SMITH@EMAIL>COM *">
+	                   <input type="email" name="email_address" class="form-control" value="" size="40"  id="email_address" placeholder="E.G. JOHN.SMITH@EMAIL.COM">
 	                    <div class="error_label"></div>
 	            </div>
                 </div>
