@@ -98,7 +98,7 @@ if ( ! defined( 'ABSPATH' ) ) {
        *here we show the related products image and links
       */ ?>
       <div class="cc-related-product-design-section">
-
+        
       <h3>SELECT A DESIGN</h3>
       <div class="cc-select-design-pro-all col-md-12">
       <?php 
@@ -369,5 +369,10 @@ wrapper close start */?>
 					
                     
     </div>
-    </div><!-- step three end here --------->
+    </div><!-- step three end here -->
 
+<script>
+$("document").ready(function(){
+    $(".woocommerce-main-image").removeAttr("data-rel");
+});
+</script>
