@@ -36,12 +36,13 @@ $data=$_POST['form_data'];
                    }
                    else
                  {
-                  $hold = "State       :".$data['cc_state_type'].'<br>';
+                  $hold = "<b>State</b>       :".$data['cc_state_type_only'].'<br>';
                  }
                     ob_start();
                     ?>
-                    Dear Admin :
-                    We have an enquiry with the following information -<br>
+                    Dear Admin,
+                    <br><br>
+                    We have an enquiry with the following information -<br><br>
 
                     <b>Enquiry Type</b> : <?php echo sanitize_text_field($data['cc_enquiry_type'] ); ?> <br>
                     <b>First Name</b>   : <?php echo sanitize_text_field($data['first_name']); ?><br>
@@ -49,8 +50,8 @@ $data=$_POST['form_data'];
                     <b>Email</b>        : <?php echo sanitize_email($data['email_address']); ?><br>
                     <b>Phone</b>        : <?php echo sanitize_text_field($data['mobile_phone_no']); ?><br>
                     
-                    <?php echo $hold;?>
-                    <b>Message</b>      : <?php echo sanitize_text_field($data['cc_message'] ); ?><br>
+                    <?php echo $hold;?><br><br>
+                    <b>Message</b>      :<br> <?php echo sanitize_text_field($data['cc_message'] ); ?><br><br>
                     Thanks .
                  
                     
@@ -76,7 +77,7 @@ $data=$_POST['form_data'];
                             }
                             
                             $message['sent_mail']=$sent_mail;
-                            $message['success']="Your message has been sent";
+                            $message['success']="Your message has been sent.";
                             }
             } else {
               if($response->errorCodes=="missing-input-secret"){

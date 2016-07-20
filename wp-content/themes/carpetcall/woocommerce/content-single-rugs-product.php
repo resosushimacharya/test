@@ -117,15 +117,17 @@ if ( ! defined( 'ABSPATH' ) ) {
               if(count($has_sub_cat)==0){
 						$current_post_term_id = $cat->term_id;
 						wp_reset_query();
-						$args = array('post_type'=>'product','posts_per_page'=>'10',
+						$args = array('post_type'=>'product','posts_per_page'=>'-1',
 							'taxonomy'=>'product_cat','term'=>$cat->slug);
 						$loop = new WP_Query($args);
 						$i=0;
 						while($loop->have_posts())
 						{  $loop->the_post();
-								
+							
+								$stockcheck = get_post_meta($loop->post->ID);
 
-							?><div class="select-design-product-image <?php echo ($pro_cur_id==$loop->post->ID)?'pro-active':null;?>">
+							?>
+							<?php if(strcasecmp($stockcheck['_stock_status'][0],'instock')==0){?><div class="select-design-product-image <?php echo ($pro_cur_id==$loop->post->ID)?'pro-active':null;?>">
                          <?php   
 							
 							//echo '<br>';$post->ID;?>
@@ -141,7 +143,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							
 							
 							</a>
-							</div>
+							</div> 
 						<?php 
 						$productsize = get_post_meta($post->ID);
 						
@@ -152,6 +154,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	                     $productsize   = $length.'CM X '. $length.'CM - $'.$price;  
 	                     $strsizes[$i] =array($productsize,get_the_permalink(),$post->ID);
 	                      $i++;
+	                       } 
 					}
 					wp_reset_query();
 

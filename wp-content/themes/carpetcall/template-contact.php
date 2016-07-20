@@ -114,7 +114,7 @@ get_header();
                  <div class="form-group col-sm-4">
 
                   <select class="selectpicker col-md-6 form-control"  name="cc_state_type_only" id="cc-state-type-only">
-                    <option class="col-md-12" value="STATE">STATE</option>
+                    <option class="col-md-12" value="default">STATE</option>
                       
                      <?php  get_template_part('content', 'contact-state');
                      ?>
@@ -135,7 +135,7 @@ get_header();
                 <div class="form-group col-sm-4">
 
                 	<select class="selectpicker col-md-6 form-control"  name="cc_state_type" id="cc-state-type">
-                	<option class="col-md-12" value="STATE">STATE</option>
+                	<option class="col-md-12" value="default">STATE</option>
                       <?php  get_template_part('content', 'contact-state');
                      ?>
 
@@ -145,7 +145,7 @@ get_header();
                 <div class="form-group col-sm-8">
               
                 	<select class="selectpicker col-md-6 form-control" name="cc_store_name" id="cc-store-name">
-                     <option class="col-md-12" value="Select a Store">Select a Store</option>
+                     <option class="col-md-12" value="default">Select a Store</option>
 
                          <?php  get_template_part('content', 'contact-store');
                      ?>
@@ -232,6 +232,7 @@ get_header();
                 <div class="form-group col-sm-12">
                 
                  <textarea class="form-control" rows="5" id="cc_message" name="cc_message" placeholder="ENTER YOUR MESSAGE HERE"></textarea>
+                  <div class="error_label"></div>
                 </div>
                  <div class="form-group col-sm-12">
 					   <script src='https://www.google.com/recaptcha/api.js'></script>
@@ -340,9 +341,11 @@ ignore: ":hidden:not(.chosen, #send_email_address)",
 			   jQuery('#mobile_phone_no').val('');
 			   jQuery('#cc-state-type').val('STATE');
 			   jQuery('#cc-store-name').val('Select a Store');
-			  /* jQuery('#cc_message').val('');*/
-         jQuery('#cc_state_type_only').val('STATE');
-			   jQuery('.success_message').html(response.success).show();
+			   jQuery('#cc_message').val('');
+          jQuery('#cc_message').attr("placeholder", "ENTER YOUR MESSAGE HERE");
+         jQuery('#cc-state-type-only').val('STATE');
+			   jQuery('.success_message').html(response.success).show(0).delay(5000).hide(0);;
+        
 			   grecaptcha.reset();
             }else{
               	if(typeof(response.captcha_error) != "undefined" && response.captcha_error !== null){
@@ -376,6 +379,43 @@ ignore: ":hidden:not(.chosen, #send_email_address)",
       
 
   },'please enter valid phone number');
+   $.validator.addMethod("default",function(value,element){
+      
+      
+      
+      if(value.toLowerCase()==="default"){
+        return false;
+      }
+      else{
+        return true;
+      }
+     
+     
+     
+      
+
+  },'please select');
+
+
+ $.validator.addMethod("texareaValidate",function(value,element){
+      
+     
+      
+      if(value.trim()===""){
+        return false;
+
+      }
+      else{
+        return true;
+      }
+     
+     
+     
+      
+
+  },'please select');
+
+  
 	$.validator.addMethod("valueNotEquals", function(value, element, arg){
   			 return arg != value;
  }, "Value must not equal arg.");
@@ -384,21 +424,29 @@ ignore: ":hidden:not(.chosen, #send_email_address)",
 
 	jQuery("#contact_form").validate({
 	rules: {
+      
 			first_name: "required",
 			last_name: "required",
+      cc_message:{
+
+        texareaValidate:true
+      },
 			email_address: {
 				required: true,
 				email: true
 			},
 			
-			cc_state_type: { 
-								required: true,
+		cc_state_type: { 
+      default:true
+
+								
 							},
 			cc_store_name: { 
-								required: true,
+								default: true,
+
 							},
       cc_state_type_only: {
-        required: true,
+        default: true,
       },
 
 							
@@ -406,7 +454,8 @@ ignore: ":hidden:not(.chosen, #send_email_address)",
 			information:"required",
 			
 			mobile_phone_no :{
-      phoneValidation:"[0-9\-\(\)\s]+",
+             phoneValidation:true,
+             required: true
       
      /* required:true*/}
       ,
@@ -421,13 +470,17 @@ ignore: ":hidden:not(.chosen, #send_email_address)",
 			email_address: "Please enter valid email address.",
 			c_email_address: "Email and conform email does not match.",
 			information: " Please enter your message.",
+			 mobile_phone_no: {
+            required :"Please enter your phone number",
+            phoneValidation: "Please enter valid phone number",
+          },
+
 			
-			
-			
-			cc_state_type:{ valueNotEquals: "Please select a state!" },
-      cc_state_type_only:{ valueNotEquals: "Please select a state!" },
+			cc_message: "Plese say something.",
+			cc_state_type:{ default: "Please select a state!" },
+      cc_state_type_only:{ default: "Please select a state!" },
 			cc_store_name: { 
-								valueNotEquals: "Please select a store!" 
+								default: "Please select a store!" 
 							}
 	},
 	errorPlacement: function(error, element){
