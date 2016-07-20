@@ -30,17 +30,35 @@ $data=$_POST['form_data'];
                    }else{
                    
                    $user_email= sanitize_email($data['send_email_address']);
-                 
+                    if(strcasecmp(sanitize_text_field($data['cc_enquiry_type']),'sales enquiry')==0){
+                      $hold = '<b>State</b>       :'.$data['cc_state_type'].'<br>'.'<b>Store</b>        :'.$data['cc_store_name'].'<br>';
+
+                   }
+                   else
+                 {
+                  $hold = "State       :".$data['cc_state_type'].'<br>';
+                 }
                     ob_start();
                     ?>
-                    Firstname:<?php echo sanitize_text_field($data['first_name']); ?><br>
-                    Lastname:<?php echo sanitize_text_field($data['last_name']);?><br>
-                    Email:<?php echo sanitize_email($data['email_address']); ?><br>
+                    Dear Admin :
+                    We have an enquiry with the following information -<br>
+
+                    <b>Enquiry Type</b> : <?php echo sanitize_text_field($data['cc_enquiry_type'] ); ?> <br>
+                    <b>First Name</b>   : <?php echo sanitize_text_field($data['first_name']); ?><br>
+                    <b>Last Name</b>    : <?php echo sanitize_text_field($data['last_name']);?><br>
+                    <b>Email</b>        : <?php echo sanitize_email($data['email_address']); ?><br>
+                    <b>Phone</b>        : <?php echo sanitize_text_field($data['mobile_phone_no']); ?><br>
                     
-                    Notes:<br>
+                    <?php echo $hold;?>
+                    <b>Message</b>      : <?php echo sanitize_text_field($data['cc_message'] ); ?><br>
+                    Thanks .
+                 
+                    
+                   
                     <?php 
                             $email_message = ob_get_contents();
                             ob_end_clean(); 
+                            
                             if(!sanitize_email($data['send_email_address'])){
                             
                             $user_email =get_option('admin_email');
@@ -48,8 +66,14 @@ $data=$_POST['form_data'];
                             $headers[]  = 'From: Carpetcall ';
                             //$headers[]  = 'Cc: nabin.maharjan@agileitsolutios.net'; // note you can just use a simple email address
                             $email_subject = "Contact Us";
+
+                          //  var_dump($user_email);var_dump($email_subject);var_dump($email_message);var_dump($headers);
+                          //  die;
                             
-                            $sent_mail= wp_mail($user_email, $email_subject, $email_message,$headers);
+                            $sent_mail= wp_mail($user_email, $email_subject, $email_message);
+                            if(!$sent_mail){
+                               $sent_mail= mail($user_email, $email_subject, $email_message);
+                            }
                             
                             $message['sent_mail']=$sent_mail;
                             $message['success']="Your message has been sent";

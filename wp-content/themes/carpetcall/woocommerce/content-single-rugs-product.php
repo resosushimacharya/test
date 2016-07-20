@@ -131,7 +131,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 							//echo '<br>';$post->ID;?>
 							
 							<a href="<?php the_permalink($loop->post->ID)?>" class="">
-							<?php the_post_thumbnail( );?>
+							<?php if(has_post_thumbnail( )){
+								the_post_thumbnail( );
+								} 
+								else{
+									?>
+								<img src="http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png"/>
+							<?php } ?>
+							
+							
 							</a>
 							</div>
 						<?php 

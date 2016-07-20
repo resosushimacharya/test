@@ -56,7 +56,7 @@ get_header();
                 <div class="col-sm-12 query-rlblk no-lr">
                 
                 <div class="form-group col-sm-6">
-                	What Does your query relate to?
+                	What does your query relate to?
                 </div>
                 <div class="form-group col-sm-6">
                 	<select class="selectpicker col-md-6" name="cc_enquiry_type" id="cc-enquiry-type">
@@ -114,7 +114,7 @@ get_header();
                  <div class="form-group col-sm-4">
 
                   <select class="selectpicker col-md-6 form-control"  name="cc_state_type_only" id="cc-state-type-only">
-                    <option class="col-md-12" value="default">STATE</option>
+                    <option class="col-md-12" value="STATE">STATE</option>
                       
                      <?php  get_template_part('content', 'contact-state');
                      ?>
@@ -231,7 +231,7 @@ get_header();
                 
                 <div class="form-group col-sm-12">
                 
-                 <textarea class="form-control" rows="5" id="cc_message" name="cc_message">ENTER YOUR MESSAGE HERE</textarea>
+                 <textarea class="form-control" rows="5" id="cc_message" name="cc_message" placeholder="ENTER YOUR MESSAGE HERE"></textarea>
                 </div>
                  <div class="form-group col-sm-12">
 					   <script src='https://www.google.com/recaptcha/api.js'></script>
@@ -338,9 +338,10 @@ ignore: ":hidden:not(.chosen, #send_email_address)",
 			   jQuery('#last_name').val('');
 			   jQuery('#email_address').val('');
 			   jQuery('#mobile_phone_no').val('');
-			   jQuery('#cc-state-type').val('dafault');
-			   jQuery('#cc-store-name').val('deafault');
-			   jQuery('#cc_message').val('');
+			   jQuery('#cc-state-type').val('STATE');
+			   jQuery('#cc-store-name').val('Select a Store');
+			  /* jQuery('#cc_message').val('');*/
+         jQuery('#cc_state_type_only').val('STATE');
 			   jQuery('.success_message').html(response.success).show();
 			   grecaptcha.reset();
             }else{
@@ -391,15 +392,19 @@ ignore: ":hidden:not(.chosen, #send_email_address)",
 			},
 			
 			cc_state_type: { 
-								valueNotEquals: "State" 
+								required: true,
 							},
 			cc_store_name: { 
-								valueNotEquals: "Select a Store" 
+								required: true,
 							},
+      cc_state_type_only: {
+        required: true,
+      },
+
 							
 			
 			information:"required",
-			product_code : "required",
+			
 			mobile_phone_no :{
       phoneValidation:"[0-9\-\(\)\s]+",
       
@@ -416,10 +421,11 @@ ignore: ":hidden:not(.chosen, #send_email_address)",
 			email_address: "Please enter valid email address.",
 			c_email_address: "Email and conform email does not match.",
 			information: " Please enter your message.",
-			product_code : "Please select product properly. Product code is empty ",
-			/*mobile_phone_no : " Please enter mobile number.", */
-			faulty_items : "Please enter numeric value.",
+			
+			
+			
 			cc_state_type:{ valueNotEquals: "Please select a state!" },
+      cc_state_type_only:{ valueNotEquals: "Please select a state!" },
 			cc_store_name: { 
 								valueNotEquals: "Please select a store!" 
 							}
