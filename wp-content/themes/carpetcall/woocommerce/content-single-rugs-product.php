@@ -226,14 +226,72 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title">PICK UP LOCATIONS</h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        	<h2 class="fyns-blk"> FIND YOUR NEAREST STORE </h2>
+            
+            <div class="frm-blk clearfix">
+            		<form class="form-inline">
+                    
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="SUBURB OR POSTCODE">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><img src="<?php echo get_template_directory_uri().'/images/icon2.jpg';?>" style="float:right;"></button>
+                      </span>
+                    </div>
+                         
+                         <span class="midlt"> OR </span>
+                          
+                          <button type="submit" class="btn btn-default">USE CURRENT LOCATIONS</button>
+                        </form>
+            </div>
+            
+            
+            <div class="nearstore">
+            	<h3 class="clostor-blk">Closest stores to “2015” </h3>
+                
+                <div class="col-md-12">
+                	<div class="col-md-4 no-lr">
+                    <div class="str-one">
+                    	<h4> ALEXANDRIA </h4>
+                        <p>Lvl 1 Shop 13, Style at</p>
+                        <p>Home Centre 45</p>
+                        <p>O'Riordan cnr Doody</p>
+                        <p>Street, Alexandria NSW</p>
+                        <p>2015</p>
+                    </div><div class="clearfix"></div>
+                    </div> <!-- store one end -->
+                    
+                    <div class="col-md-4 no-lr">
+                    <div class="str-one">
+                    	<h4> ALEXANDRIA </h4>
+                        <p>Lvl 1 Shop 13, Style at</p>
+                        <p>Home Centre 45</p>
+                        <p>O'Riordan cnr Doody</p>
+                        <p>Street, Alexandria NSW</p>
+                        <p>2015</p>
+                    </div><div class="clearfix"></div>
+                    </div> <!-- store two end -->
+                    
+                    <div class="col-md-4 no-lr">
+                    <div class="str-one">
+                    	<h4> ALEXANDRIA </h4>
+                        <p>Lvl 1 Shop 13, Style at</p>
+                        <p>Home Centre 45</p>
+                        <p>O'Riordan cnr Doody</p>
+                        <p>Street, Alexandria NSW</p>
+                        <p>2015</p>
+                    </div><div class="clearfix"></div>
+                    </div> <!-- store three end -->
+                    
+                </div><div class="clearfix"></div>
+                
+                
+            </div><div class="clearfix"></div>
+            
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+      
     </div>
 
   </div>

@@ -594,11 +594,45 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .woocommerce-page div.product div.summary { width:40.6%; margin-top:43px; }
 .cc-price-control .cc-sale-price-title {font:bold 30px 'proxima_nova_ltsemibold',sans-serif; color:#0099ff; text-decoration:none; text-transform:uppercase; }
 .cc-price-control .cc-line-through{font:normal 14px 'proxima_nova_rgregular', sans-serif; color:#c32327; text-decoration:line-through; text-transform:uppercase;}
-.summary.entry-summary h3{font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase;}
+.summary.entry-summary h3{font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#144a9f; text-transform:uppercase;}
 .summary.entry-summary .product_title.entry-title {font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase;}
 .summary.entry-summary .cc-related-product-design-section h3{font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin:18px 0 3px 0;}
 .cc-select-design-pro-all.col-md-12 { padding:0; font-size:0;margin: 0 -5px;}
 .cc-size-section.col-md-12, .cc-quantiy-section.col-md-12, .quantity.col-md-12, .cc-product-enquiry.col-md-12, .cc-product-ship-free-section.col-md-12, .cc-product-ship.col-md-6, .cc-product-free.col-md-6, .cc-product-pick-location-section.col-md-12, .cc-product-pick.col-md-6, .cc-product-location.col-md-6 { padding:0;}
+.modal-dialog{ margin-top:200px; width:817px;}
+.modal-content { border-radius:0; border-color:#e7edf8;}
+.modal-title {font:bold 30px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase;}
+.modal-header { padding:18px 29px 24px 32px; border:none;}
+.modal-body { padding:0 29px 0 24px;}
+.fyns-blk {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-left:15px;}
+.frm-blk { padding:9px 0 36px 0;}
+.modal-body .frm-blk .input-group .btn { width:45%;}
+.frm-blk .input-group { width:62.9%; border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0;}
+.frm-blk .input-group .form-control { width:100%; height:45px; border:0; border-radius:0; outline:0; background-color:#e7edf8;}
+.frm-blk .input-group .btn { float:right; height:45px; border:0; border-radius:0; outline:0; background-color:#e7edf8; } 
+.midlt {font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; text-transform:uppercase; text-align:center; padding:0 16px;}
+.frm-blk .btn { font:bold 14px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-transform:uppercase; text-align:center; background-color:#c32428; border-radius:0; border:0; height:45px; width:29.6%;  }
+.nearstore {padding:0 0 35px 0;}
+.clostor-blk {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding-bottom:10px;}
+.nearstore .col-md-12{ padding:0;}
+.nearstore .col-md-12 .col-md-4:nth-child(1) { width:31.2%;}
+.nearstore .col-md-4:nth-child(2) { width:31.2%; margin:0 26px 0 22px; }
+.nearstore .col-md-4:nth-child(3) { width:31.2%; }
+.str-one { border:1px solid #e7edf8; padding:33px 25px 30px 26px;}
+.str-one h4 {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; margin-bottom:10px;}
+.str-one p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; line-height:24px; margin:0;}
+.modal-dialog button.close{position: absolute; top: -1px; right: -1px;height: 44px;width: 44px;background: #15489f;opacity: 1;border-radius: 0;margin: 0;color: #fff;}
+
+
+
+
+
+
+
+
+
+
+
 
 /*.summary.entry-summary .col-md-12 .select-design-product-image:nth-child(1) { width:18%; margin:0 10px 10px 0; float:left;text-decoration:none;}
 .summary.entry-summary .col-md-12 .select-design-product-image:nth-child(4) { width:18%; margin:0 10px 10px 0; float:left; text-decoration:none;}
@@ -796,7 +830,7 @@ a.pull-right:hover { color:#000; text-decoration:none;}
 .form-group.col-sm-6 { padding:0;}
 .query-rlblk { background-color:#d1ddf1; padding:17px 33px 12px 31px; width:817px; }
 .query-rlblk .form-group {margin:0; font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; line-height:45px; width:310px;}
-select#cc-enquiry-type { width:442px; background-color:#e7edf8; border:1px solid #acc1e6; height:45px; text-transform:uppercase; color:#144a9f; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; background-image:url(../images/icon1.jpg); background-repeat:no-repeat; background-position:right; -webkit-appearance: none;}
+select#cc-enquiry-type { width:442px; background-color:#e7edf8; border:1px solid #acc1e6; height:45px; text-transform:uppercase; color:#144a9f; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; background-image:url(../images/icon1.jpg); background-repeat:no-repeat; background-position:right; -webkit-appearance: none; -moz-appearance:none; appearance:none;}
 .details-us h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#144a9f; margin:0; clear:both; padding:40px 0 34px; clear:both; }
 .fl-blk, .mero-blkk, .tel-blk, #cc-store-form-section { clear:both; }
 .fl-blk .col-sm-6:nth-child(1) { padding:0; width:28%; margin-bottom:18px;}
@@ -812,7 +846,7 @@ select#cc-enquiry-type { width:442px; background-color:#e7edf8; border:1px solid
 #cc-store-form-section .form-group.col-sm-12 p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 0 7px;}
 #cc-store-form-section .form-group.col-sm-4 { padding-left:0;}
 select#cc-state-type { border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; outline:0; height:35px;}
-select#cc-store-name {border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; outline:0; height:35px; -webkit-appearance:none; background-image:url(../images/icon1.jpg); background-repeat:no-repeat; background-position:right;}
+select#cc-store-name {border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; outline:0; height:35px; -webkit-appearance:none; background-image:url(../images/icon1.jpg); background-repeat:no-repeat; background-position:right;  -webkit-appearance: none; -moz-appearance:none; appearance:none;}
 #cc-store-form-section .form-group.col-sm-4 { width:17%; padding:0;}
 #cc-store-form-section .form-group.col-sm-8 { width:35.1%; padding:0 0 0 8px;}
 .ur-msg-title .form-group.col-sm-12 h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; padding:40px 0 2px 0; text-transform:uppercase;}
@@ -822,3 +856,4 @@ textarea.form-control {border:1px solid #d1ddf1; background-color:#e7edf8; borde
 .g-recaptcha { margin:9px 0 10px 0; }
 #cc-state-form-section .form-group.col-sm-4{ padding:0; margin:0;}
 #cc-state-form-section select#cc-state-type-only {border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; outline:0; height:35px; width:270px;}
+
