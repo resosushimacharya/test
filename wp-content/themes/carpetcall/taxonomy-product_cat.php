@@ -48,7 +48,7 @@ endwhile;?></h3>
 <div class="tophead_sec col-md-12 no-lr">
 <?php $term_id =  get_queried_object()->term_id;
 $currentcat = get_queried_object();
- do_action('pr',get_queried_object());
+ 
 ?>
 <div class="rugm-blk col-md-6 no-pl">
 	<p>
@@ -93,7 +93,7 @@ $currentcat = get_queried_object();
 
 			 
 			 $discats=get_terms(array('parent'=>$term_id,'taxonomy'=>'product_cat'));
-                do_action('pr',$discats);           
+                        
 				$loopcounter = 0;?> <?php 
                             foreach($discats as $discat){
                             	if($loopcounter==2){
