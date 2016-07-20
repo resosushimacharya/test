@@ -795,7 +795,7 @@ a.pull-right:hover { color:#000; text-decoration:none;}
 .inerblock_sec-bb { margin:0;}
 .form-group.col-sm-6 { padding:0;}
 .query-rlblk { background-color:#d1ddf1; padding:17px 33px 12px 31px; width:817px; }
-.query-rlblk .form-group {margin:0; font:bold 16px 'proxima_nova_rgregular', sans-serif; color:#000; line-height:45px; width:310px;}
+.query-rlblk .form-group {margin:0; font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; line-height:45px; width:310px;}
 select#cc-enquiry-type { width:442px; background-color:#e7edf8; border:1px solid #acc1e6; height:45px; text-transform:uppercase; color:#144a9f; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; background-image:url(../images/icon1.jpg); background-repeat:no-repeat; background-position:right; -webkit-appearance: none;}
 .details-us h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#144a9f; margin:0; clear:both; padding:40px 0 34px; clear:both; }
 .fl-blk, .mero-blkk, .tel-blk, #cc-store-form-section { clear:both; }
