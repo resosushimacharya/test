@@ -123,9 +123,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 						$i=0;
 						while($loop->have_posts())
 						{  $loop->the_post();
-								
+							
+								$stockcheck = get_post_meta($loop->post->ID);
 
-							?><div class="select-design-product-image <?php echo ($pro_cur_id==$loop->post->ID)?'pro-active':null;?>">
+							?>
+							<?php if(strcasecmp($stockcheck['_stock_status'][0],'instock')==0){?><div class="select-design-product-image <?php echo ($pro_cur_id==$loop->post->ID)?'pro-active':null;?>">
                          <?php   
 							
 							//echo '<br>';$post->ID;?>
@@ -141,7 +143,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							
 							
 							</a>
-							</div>
+							</div> 
 						<?php 
 						$productsize = get_post_meta($post->ID);
 						
@@ -152,6 +154,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	                     $productsize   = $length.'CM X '. $length.'CM - $'.$price;  
 	                     $strsizes[$i] =array($productsize,get_the_permalink(),$post->ID);
 	                      $i++;
+	                       } 
 					}
 					wp_reset_query();
 

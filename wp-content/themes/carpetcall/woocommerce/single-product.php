@@ -20,6 +20,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?> 
+<?php 
+/*to blog the out of stock product display
+*/
+global $post;
+$rootcheck = get_post_meta($post->ID);
+ if(strcasecmp($rootcheck['_stock_status'][0],'instock')==0){ 
+ 	?>
 <div class="contaniner clearfix">
 	<div class="inerblock-sec-prod-a">
 		<div class="container">
@@ -80,4 +87,17 @@ get_header( 'shop' ); ?>
 		//do_action( 'woocommerce_sidebar' );
 	?>
 </div></div>
+<?php } //end of blockage
+else{ ?>
+	<div class="contaniner clearfix">
+	<div class="inerblock-sec-prod-a">
+		<div class="container">
+			<div class="col-md-12 no-pl">
+		The product is out of stock.
+	</div>
+	</div>
+	</div>
+	<?php 
+}
+?>
 <?php get_footer( 'shop' ); ?>
