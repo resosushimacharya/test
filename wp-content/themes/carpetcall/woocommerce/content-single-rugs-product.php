@@ -210,16 +210,206 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="clearfix"></div>
      
       <div class="cc-product-enquiry col-md-12">
-      	<button type="button" class="btn btn-default col-md-12"> Enquiry NOW</button>
+      	<button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal2">ENQUIRY NOW</button>
       </div>
       <div class="cc-product-ship-free-section col-md-12">
       <div class="cc-product-ship col-md-6"><span>SHIPPING<i class="fa fa-info-circle" aria-hidden="true"></i></span></div><div class="cc-product-free col-md-6"> FREE DELIVERY</div>
       </div>
       <div class="cc-product-pick-location-section col-md-12">
       <div class="cc-product-pick col-md-6">
-      <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal1">PICK UP</button></div><div class="cc-product-location col-md-6">
-      <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal">PICK UP LOCATION</button></div>
+      <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal1">PICK UP</button>
+      </div>
+      <div class="cc-product-location col-md-6">
+      <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal">PICK UP LOCATION</button>       </div>
       <!-- Trigger the modal with a button -->
+      
+<!-- Enquiry Now -->
+<div id="myModal2" class="modal fade" role="dialog">
+<div class="querynow">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">ENQUIRE NOW</h4>
+      </div>
+      <div class="modal-body">
+			<div class="review-form">
+            <form action="" method="post" id="contact_form" role="form">
+            <div class="contact_block_cntr">
+            
+                <div class="yd-title"> 	
+                <h3>YOUR  DETAILS</h3> 		
+                </div>
+                
+                <div class="flsm-blk">
+                <div class="form-group col-sm-6"> <label for="first_name">First Name</label>
+                    <input type="text" name="first_name" class="form-control" value="" size="40"  id="first_name"  placeholder="E.G. JOHN">
+                    <div class="error_label"></div> 
+                </div>
+               
+                <div class="form-group col-sm-6"><label for="first_name">Last Name </label>
+                    <input type="text" name="last_name" class="form-control" value="" size="40" id="last_name"  placeholder="E.G. SMITH ">
+                    <div class="error_label"></div>
+                </div>
+                
+                </div>
+                
+                <div class="meroi-blka">
+	            <div class="form-group col-sm-12"><label for="email_address">Email</label>
+	                   <input type="email" name="email_address" class="form-control" value="" size="40"  id="email_address" placeholder="E.G. JOHN.SMITH@EMAIL.COM">
+	                    <div class="error_label"></div>
+	            </div>
+                </div>
+                
+                <div class="tela-blkb">
+	            <div class="form-group col-sm-6">
+	            	<label for="mobile_phone_no">Phone</label>
+                    <input type="tel" name="mobile_phone_no" class="form-control"  value="" size="40" id="mobile_phone_no" placeholder="E.G. 02 1234 5678">
+                    <div class="error_label"></div>
+                </div>
+                </div>
+                
+                
+                
+                
+                <div class="cc-store-form-section" id="cc-store-form-section">
+                <div class="form-group col-sm-12">	
+                		<h3>SELECT A STORE</h3>
+                		<p> Choose a store that is close to you so we can best respond to your query.</p>
+                </div>
+                
+                <div class="provision-section col-sm-12 clearfix">
+                <div class="form-group col-sm-4">
+
+                	<select class="selectpicker col-md-6 form-control"  name="cc_state_type" id="cc-state-type">
+                	<option class="col-md-12" value="default">STATE</option>
+                      <?php  get_template_part('content', 'contact-state');
+                     ?>
+
+                     </select>
+                     <div class="error_label"></div>
+                </div>
+                
+                <div class="form-group col-sm-8">
+              
+                	<select class="selectpicker col-md-6 form-control" name="cc_store_name" id="cc-store-name">
+                     <option class="col-md-12" value="default">Select a Store</option>
+
+                         <?php  get_template_part('content', 'contact-store');
+                     ?>
+
+                     </select>
+                     <div class="error_label"></div>
+                </div>
+                
+                </div>
+                
+                </div>
+                
+                
+                <?php 
+                  $myemail = "";
+                  if(isset($_GET['id']))
+                  {
+
+                      $contactstoID = $_GET['id'];
+
+                      $field = get_post_meta($contactstoID);
+                    
+                  if(isset($field['wpsl_email'][0]))
+                  {
+                      $myemail = $field['wpsl_email'][0];
+                  }
+                  else
+                  {
+                      $stateemailpair = array();
+
+
+                      $args = array(
+                                      'post_type' =>'wpsl_stores',
+                                      'posts_per_page'=>'-1',
+                                      'meta_query' => array(
+                                                              array(
+                                                                  'key' => 'store_type',
+                                                                  'value' => 'head_office'
+                                                                  
+                                                              )
+                                                            )
+                                    );
+                      $loop = new WP_Query($args);
+                      $html = '';
+                      if($loop->have_posts())
+                      {
+                          while($loop->have_posts())
+                          {
+                              $loop->the_post();
+                                    /* 
+                                    **state head office  state and 
+                                    ***email address pair 
+                                    
+                                    */
+                                    
+                              $res = get_post_meta($loop->post->ID);
+                                     
+                              if(!isset($res['wpsl_email'][0]))
+                              {
+                                  $stateemailpair[$res['wpsl_state'][0]]  = get_option('admin_email');
+                              }   
+                              else
+                              {
+                                  $stateemailpair[$res['wpsl_state'][0]] = $res['wpsl_email'][0];
+                              }   
+                               
+                          
+                             
+
+                          }
+                          wp_reset_query();
+
+
+                      }
+                   
+                      $myemail =$stateemailpair[$field['wpsl_state'][0]];
+                  }
+                }
+              ?>
+                <input type="hidden" value="<?php echo $myemail;?>" class="btn-dn" id="send_email_address" name="send_email_address">
+                
+                <div class="ur-msg-title">
+                 <div class="form-group col-sm-12">
+                	
+                		<h3>Message</h3>
+                </div></div>
+                
+                <div class="form-group col-sm-12">
+                
+                 <textarea class="form-control" rows="5" id="cc_message" name="cc_message" placeholder="ENTER YOUR MESSAGE HERE"></textarea>
+                  <div class="error_label"></div>
+                </div>
+                 <div class="form-group col-sm-12">
+					   <script src='https://www.google.com/recaptcha/api.js'></script>
+                      <div class="g-recaptcha" data-sitekey="6LdfuCMTAAAAAGhFRMwboqar9gIW_yfmWVjT7OMj"></div>
+                   </div>
+                <div class="form-group col-sm-12">
+                 <input type="submit" value="Submit" class="btn-dn" id="cc_contact_submit">
+                </div> 
+                  <div class="form-group col-sm-12 success_message">
+
+                  </div>
+
+            </div>
+
+        </form>
+            </div><div class="clearfix"></div>            
+      </div>
+      
+    </div>
+
+  </div>
+  </div>
+</div><!-- query end here -->
 
 <!-- modal1 PICK UP -->
 <div id="myModal1" class="modal fade" role="dialog">
@@ -239,42 +429,71 @@ if ( ! defined( 'ABSPATH' ) ) {
             	
                 <div class="col-md-12">
                 	<div class="col-md-4 no-lr">
-                    <div class="str-one">
-                    	<h4> ALEXANDRIA </h4>
-                        <p>Lvl 1 Shop 13, Style at</p>
-                        <p>Home Centre 45</p>
-                        <p>O'Riordan cnr Doody</p>
-                        <p>Street, Alexandria NSW</p>
-                        <p>2015</p>
+                    <div class="str-two">
+                    	<h4> NSW </h4>
+                        <p>Seven Hills Head Office  </p>
+                        <p> Unit 3/6 Boden Road, </p>
+                        <p> Seven Hills NSW 2147 </p>
+                        <h5> <span class="pclt">P :</span> 02 9007 9294 </h5>
                     </div><div class="clearfix"></div>
                     </div> <!-- store one end -->
                     
                     <div class="col-md-4 no-lr">
-                    <div class="str-one">
-                    	<h4> ALEXANDRIA </h4>
-                        <p>Lvl 1 Shop 13, Style at</p>
-                        <p>Home Centre 45</p>
-                        <p>O'Riordan cnr Doody</p>
-                        <p>Street, Alexandria NSW</p>
-                        <p>2015</p>
+                    <div class="str-two">
+                    	<h4> QLD </h4>
+                        <p> QLD Builders Division </p>
+                        <p> 24 Jutland Street, </p>
+                        <p> Builders Division </p>
+                        <p> Logenlea QLD 4131 </p>
+                        <h5> <span class="pclt">P :</span> 07 3895 6501 </h5>
                     </div><div class="clearfix"></div>
                     </div> <!-- store two end -->
                     
                     <div class="col-md-4 no-lr">
-                    <div class="str-one">
-                    	<h4> ALEXANDRIA </h4>
-                        <p>Lvl 1 Shop 13, Style at</p>
-                        <p>Home Centre 45</p>
-                        <p>O'Riordan cnr Doody</p>
-                        <p>Street, Alexandria NSW</p>
-                        <p>2015</p>
+                    <div class="str-two">
+                    	<h4> SA </h4>
+                        <p> Wingfield (Head Office) </p>
+                        <p> 26-28 Rosberg Rd </p>
+                        <p> Builders Division </p>
+                        <p> Wingfield SA 5013 </p>
+                        <h5> <span class="pclt">P :</span> 08 8122 0080 </h5>
                     </div><div class="clearfix"></div>
                     </div> <!-- store three end -->
                     
                 </div><div class="clearfix"></div>
                 
                 
-            </div><div class="clearfix"></div>
+            </div><div class="clearfix"></div><!-- first phase end -->
+            
+            <div class="nearstore-a">
+            	
+                <div class="col-md-12">
+                	<div class="col-md-4 no-lr">
+                    <div class="str-two">
+                    	<h4> VIC </h4>
+                        <p> Mulgrave Store </p>
+                        <p> 2 Village Court </p>
+                        <p> Mulgrave VIC 3170 </p>
+                        <h5> <span class="pclt">P :</span> 03 9912 0595 </h5>
+                    </div><div class="clearfix"></div>
+                    </div> <!-- store one end -->
+                    
+                    <div class="col-md-4 no-lr">
+                    <div class="str-two">
+                    	<h4> WA  </h4>
+                        <p> Stirling ( Head Office ) </p>
+                        <p>40 Bryan Place  </p>
+                        <p> Stirling WA 6021 </p>
+                        <h5> <span class="pclt">P :</span> 08 9241 1222 </h5>
+                    </div><div class="clearfix"></div>
+                    </div> <!-- store two end -->
+                    
+                    <div class="col-md-4 no-lr"></div> <!-- store three end -->
+                    
+                </div><div class="clearfix"></div>
+                
+                
+            </div><div class="clearfix"></div><!-- second phase end -->
             
       </div>
       
@@ -283,7 +502,7 @@ if ( ! defined( 'ABSPATH' ) ) {
   </div>
 </div>
 
-<!-- Modal -->
+<!-- PICK UP LOCATIONS -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -531,3 +750,4 @@ $("document").ready(function(){
     $(".woocommerce-main-image").removeAttr("data-rel");
 });
 </script>
+

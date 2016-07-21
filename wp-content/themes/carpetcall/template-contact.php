@@ -34,9 +34,7 @@ get_header();
 ?>
 </div>
 <div class="col-md-6 ia-imgg">
-<div class="cc-ia-banner-a">
-<img src="<?php echo $feat_image ;?>" class="img-responsive">
-</div>
+<div class="cc-ia-banner-a" style="background-image: url(<?php echo $feat_image ;?>);"></div>
 </div>
 
 </div>
