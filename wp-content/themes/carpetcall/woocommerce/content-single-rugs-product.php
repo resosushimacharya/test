@@ -213,10 +213,72 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="cc-product-ship col-md-6"><span>SHIPPING<i class="fa fa-info-circle" aria-hidden="true"></i></span></div><div class="cc-product-free col-md-6"> FREE DELIVERY</div>
       </div>
       <div class="cc-product-pick-location-section col-md-12">
-      <div class="cc-product-pick col-md-6">PICK UP</div><div class="cc-product-location col-md-6">
+      <div class="cc-product-pick col-md-6">
+      <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal1">PICK UP</button></div><div class="cc-product-location col-md-6">
       <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal">PICK UP LOCATION</button></div>
       <!-- Trigger the modal with a button -->
 
+<!-- modal1 PICK UP -->
+<div id="myModal1" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">PICK UP LOCATIONS </h4>
+      </div>
+      <div class="modal-body">
+        	
+            
+            
+            <div class="nearstore">
+            	
+                <div class="col-md-12">
+                	<div class="col-md-4 no-lr">
+                    <div class="str-one">
+                    	<h4> ALEXANDRIA </h4>
+                        <p>Lvl 1 Shop 13, Style at</p>
+                        <p>Home Centre 45</p>
+                        <p>O'Riordan cnr Doody</p>
+                        <p>Street, Alexandria NSW</p>
+                        <p>2015</p>
+                    </div><div class="clearfix"></div>
+                    </div> <!-- store one end -->
+                    
+                    <div class="col-md-4 no-lr">
+                    <div class="str-one">
+                    	<h4> ALEXANDRIA </h4>
+                        <p>Lvl 1 Shop 13, Style at</p>
+                        <p>Home Centre 45</p>
+                        <p>O'Riordan cnr Doody</p>
+                        <p>Street, Alexandria NSW</p>
+                        <p>2015</p>
+                    </div><div class="clearfix"></div>
+                    </div> <!-- store two end -->
+                    
+                    <div class="col-md-4 no-lr">
+                    <div class="str-one">
+                    	<h4> ALEXANDRIA </h4>
+                        <p>Lvl 1 Shop 13, Style at</p>
+                        <p>Home Centre 45</p>
+                        <p>O'Riordan cnr Doody</p>
+                        <p>Street, Alexandria NSW</p>
+                        <p>2015</p>
+                    </div><div class="clearfix"></div>
+                    </div> <!-- store three end -->
+                    
+                </div><div class="clearfix"></div>
+                
+                
+            </div><div class="clearfix"></div>
+            
+      </div>
+      
+    </div>
+
+  </div>
+</div>
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">

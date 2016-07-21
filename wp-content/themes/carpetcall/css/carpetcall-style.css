@@ -623,6 +623,11 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .str-one p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; line-height:24px; margin:0;}
 .modal-dialog button.close{position: absolute; top: -1px; right: -1px;height: 44px;width: 44px;background: #15489f;opacity: 1;border-radius: 0;margin: 0;color: #fff;}
 
+.str-two { border:1px solid #e7edf8; padding:33px 25px 30px 26px;}
+.str-two h4 {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; margin-bottom:10px;}
+.str-two p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; line-height:24px; margin:0;}
+
+
 
 
 
@@ -665,8 +670,9 @@ select#cc-size { height:45px; border:1px solid #d1ddf1; background:#e7edf8; font
 .cc-product-ship:hover { color:#000; cursor:pointer;}
 .cc-product-free {font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#3aaa35; text-transform:uppercase; line-height:34px; }
 .cc-product-free:hover { color:#060; cursor:pointer;}
-.cc-product-pick {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase;}
-.cc-product-pick:hover { color:#000; cursor:pointer;}
+.cc-product-pick .btn{font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase; text-align:left; border:0; border-radius:0; -webkit-box-shadow:none; box-shadow:none; outline:0; padding-left:0;}
+.cc-product-pick .btn:hover { color:#000; cursor:pointer; background-color:transparent; -webkit-box-shadow:none; box-shadow:none; outline:0;}
+.cc-product-pick .btn-default:focus { background-color:transparent; }
 .cc-product-location  {width:33.3%; height:29px; background:#FFF;}
 .cc-product-location .btn-default {color:#15489f; border-color:inherit; border-radius:0; border:1px solid #15489f; font-size:12px; font-weight:700;}
 .cc-product-location .btn-default:hover {background:#15489f; color:#FFF;}
@@ -856,4 +862,5 @@ textarea.form-control {border:1px solid #d1ddf1; background-color:#e7edf8; borde
 .g-recaptcha { margin:9px 0 10px 0; }
 #cc-state-form-section .form-group.col-sm-4{ padding:0; margin:0;}
 #cc-state-form-section select#cc-state-type-only {border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; outline:0; height:35px; width:270px;}
+.error_label label { color:#F00 !important;  font-size:14px; }
 
