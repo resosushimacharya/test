@@ -18,21 +18,25 @@ $tax = 'product_cat';
 					
 					$price=$woo['_regular_price'][0];
 					
-					
+				
 					$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-					
+				
+				
 					/*if(!empty(unserialize($woo['_product_attributes'][0])))
 				$prounits=unserialize($woo['_product_attributes'][0]);*/
-				
+
 				if(isset($prounits['size']['value'])){
 					$prounit=$prounits['size']['value'];
 				}
                ?>
                      <?php  if($woo['_featured'][0]=='yes'){ ?>
                    <div class="pro_for">
-                  
+                  <?php if($feat_image!=''){?>
                   <div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div>
-                  
+                  <?php }
+                  else{ ?>
+                  <div class="img_cntr cc-featured_no_image" style="background-image:url('http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png');"></div>
+                  <?php }?>
                     <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
                     <div class="sublk_prom">
                       		<div class="ptxt">

@@ -142,7 +142,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								} 
 								else{
 									?>
-								<img src="http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png"/>
+								<img class="cc-product_no_image" src="http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png"/>
 							<?php } ?>
 							
 							
