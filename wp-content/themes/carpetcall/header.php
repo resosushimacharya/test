@@ -224,6 +224,7 @@ get_template_part('content', 'navwoo');
             type: 'POST',
             url: "<?php echo admin_url('admin-ajax.php'); ?>",
             data: {
+
                 keyword: '123',
                 action: 'woocommerce_cc',
 
@@ -232,6 +233,7 @@ get_template_part('content', 'navwoo');
 
                 jQuery('#woo_control').html(data);
                 ajax_count++;
+
             }
         });
 
@@ -253,12 +255,13 @@ get_template_part('content', 'navwoo');
 
         ajax_count = 1;
     });
-
     jQuery(document).ajaxSuccess(function() {
 
         if (ajax_count == 1) {
             load_minicart();
+            
         }
+
 
 
     });

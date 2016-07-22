@@ -180,21 +180,33 @@ function  csv_import_rugs($csv)
 		update_post_meta( $new_post_id, '_featured', 'no' );
 	    update_post_meta($new_post_id,'discount',$csv[17]);
 		$url= 'http://www.carpetcall.com.au/downloads/Image/products/large/';
-		$swatch = $url.$csv[19].'.jpg';
-		$side = $url.$csv[20].'.jpg';
+		$swatch = $url.$csv[20].'.jpg';
 		$life = $url.$csv[21].'.jpg';
+		$side = $url.$csv[19].'.jpg';
+		
 		require_once(ABSPATH . 'wp-admin/includes/file.php');
 		require_once(ABSPATH . 'wp-admin/includes/media.php');
 		require_once(ABSPATH . "wp-admin" . '/includes/image.php');
-		$tmp = download_url( $swatch );
+		$tmp = download_url($life);
+		$x=4;
+		if ( is_wp_error( $tmp ) )
+	 	{ $tmp = download_url($side);
+	 		if ( is_wp_error( $tmp ) ){
+	 			$tmp = download_url($swatch);
+	 			
+	 		}
+	      $x=5;
+	 	}
 		$image_id=array();
-		preg_match('/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/', $swatch, $matches);
+		preg_match('/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/', $life, $matches);
 		$file_array['name'] = basename($matches[0]);
 		$file_array['tmp_name'] = $tmp;
 		if ( is_wp_error( $tmp ) )
-	 	{
+	 	{ 
 	
 			@unlink($file_array['tmp_name']);
+
+			
 			$file_array['tmp_name'] = '';
 		}
 					
@@ -203,18 +215,20 @@ function  csv_import_rugs($csv)
 					
 		if ( is_wp_error($thumbid) ) 
 		{
+		
 			@unlink($file_array['tmp_name']);
 					
 		}
 					
 		$set = set_post_thumbnail($new_post_id, $thumbid);
-		if(!is_wp_error($thumbid))
+		if(!is_wp_error($thumbid) && ($x!=5))
 		{
 			$image_id[]=$thumbid;
 		}
 
 
 		$tmp = download_url( $side );
+	
 
 		preg_match('/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/',  $side , $matches);
 		$file_array['name'] = basename($matches[0]);
@@ -241,9 +255,9 @@ function  csv_import_rugs($csv)
 		}
 
 
-		$tmp = download_url( $life );
-
-		preg_match('/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/', $life , $matches);
+		$tmp = download_url( $swatch );
+	
+		preg_match('/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/', $swatch , $matches);
 		$file_array['name'] = basename($matches[0]);
 		$file_array['tmp_name'] = $tmp;
 					
@@ -266,7 +280,7 @@ function  csv_import_rugs($csv)
 		{
 			$image_id[]=$thumbid;
 		}
-					
+	   			
 		update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id));
 		echo 'Rugs Product '.$csv[1].' imported</br>';
 	}

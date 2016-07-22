@@ -118,6 +118,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 						$current_post_term_id = $cat->term_id;
 						wp_reset_query();
 						$args = array('post_type'=>'product','posts_per_page'=>'10',
+                          'meta_key'=>'_sale_price',
+                          'orderby' => 'meta_value_num',
+                           'order'     => 'ASC',
+
 							'taxonomy'=>'product_cat','term'=>$cat->slug);
 						$loop = new WP_Query($args);
 						$i=0;
@@ -151,7 +155,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	                     $width= get_post_meta( $post->ID, '_width', TRUE );
 	                     $height= get_post_meta( $post->ID, '_height', TRUE );
 	                     $price = get_post_meta($post->ID,'_sale_price',TRUE);
-	                     $productsize   = $length.'CM X '. $length.'CM - $'.$price;  
+	                     $productsize   = $length.'CM X '. $width.'CM - $'.$price;  
 	                     $strsizes[$i] =array($productsize,get_the_permalink(),$post->ID);
 	                      $i++;
 	                       } 
@@ -204,6 +208,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       	 <div class="cc-quantiy-section-inner">
       	 <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $post->ID;?>" data-product_sku="<?php
       	  echo $pro['_sku'][0] ; ?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart col-md-12" id="store-count-quantity" >ADD TO CART</a>
+          <a  class="col-md-12" id="store-count-default">ADD TO CART</a>
       	  </div>
       	  </div>
       </div>

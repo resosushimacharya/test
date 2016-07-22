@@ -50,7 +50,7 @@ $data=$_POST['form_data'];
                     <b>Email</b>        : <?php echo sanitize_email($data['email_address']); ?><br>
                     <b>Phone</b>        : <?php echo sanitize_text_field($data['mobile_phone_no']); ?><br>
                     
-                    <?php echo $hold;?><br><br>
+                    <?php echo $hold;?><br>
                     <b>Message</b>      :<br> <?php echo sanitize_text_field($data['cc_message'] ); ?><br><br>
                     Thanks .
                  

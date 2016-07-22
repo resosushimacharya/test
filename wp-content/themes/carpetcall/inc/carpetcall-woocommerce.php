@@ -297,11 +297,21 @@ function woo_new_product_tab_ret( $tabs ) {
 function woo_new_product_tab_content_ret() {?>
 <?php global $product;
 global $post;
-/*$rets = get_field('care_instructions',$post->ID);
-if(!empty($rets)){
-	echo $rets;
-}*/
-echo " ";
+
+$url = site_url();
+$url =explode('/',$url);
+
+if(strcasecmp($url[2],'localhost')==0){
+  $retID = 31856;
+ 
+
+}
+else{
+  $retID = 31856;
+}
+$retinfo = get_field('return_policy',$retID);
+echo '<p>'.$retinfo.'</p>';
+
 ?>
 
 <?php }?><?php 

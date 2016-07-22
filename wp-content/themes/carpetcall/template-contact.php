@@ -236,7 +236,9 @@ get_header();
                 </div>
                  <div class="form-group col-sm-12">
 					   <script src='https://www.google.com/recaptcha/api.js'></script>
-                      <div class="g-recaptcha" data-sitekey="6LdfuCMTAAAAAGhFRMwboqar9gIW_yfmWVjT7OMj"></div>
+                      <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LdfuCMTAAAAAGhFRMwboqar9gIW_yfmWVjT7OMj"></div>
+                      <input type="hidden" value="" id="check_captcha" name="check_captcha">
+                      <div class="error_label"></div>
                    </div>
                 <div class="form-group col-sm-12">
                  <input type="submit" value="Submit" class="btn-dn" id="cc_contact_submit">
@@ -276,9 +278,15 @@ select#cc-state-type , select#cc-store-name,select#cc-state-type-only{
 } */
 </style>
 <script>
+function recaptchaCallback(){
+   jQuery('#check_captcha').val('1');
+};
 
 $ = jQuery.noConflict();
  
+ 
+
+
 $(document).ready(function() {
        
        $(document).on('change','#cc-enquiry-type',function(){
@@ -315,7 +323,7 @@ get_footer();
 ?>
 <script type="text/javascript">
 jQuery.validator.setDefaults({ 
-ignore: ":hidden:not(.chosen, #send_email_address)",
+ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
  submitHandler: function() {
 		 var form_data= jQuery("#contact_form").serializeArray();
 		  var json = {};
@@ -339,12 +347,13 @@ ignore: ":hidden:not(.chosen, #send_email_address)",
 			   jQuery('#last_name').val('');
 			   jQuery('#email_address').val('');
 			   jQuery('#mobile_phone_no').val('');
-			   jQuery('#cc-state-type').val('STATE');
-			   jQuery('#cc-store-name').val('Select a Store');
+			   jQuery('#cc-state-type').val('default');
+			   jQuery('#cc-store-name').val('default');
+         
 			   jQuery('#cc_message').val('');
           jQuery('#cc_message').attr("placeholder", "ENTER YOUR MESSAGE HERE");
-         jQuery('#cc-state-type-only').val('STATE');
-			   jQuery('.success_message').html(response.success).show(0).delay(5000).hide(0);;
+         jQuery('#cc-state-type-only').val('default');
+			   jQuery('.success_message').html(response.success).show(0).delay(10000).hide(0);;
         
 			   grecaptcha.reset();
             }else{
@@ -417,6 +426,7 @@ ignore: ":hidden:not(.chosen, #send_email_address)",
 
   
 	$.validator.addMethod("valueNotEquals", function(value, element, arg){
+
   			 return arg != value;
  }, "Value must not equal arg.");
 
@@ -462,26 +472,28 @@ ignore: ":hidden:not(.chosen, #send_email_address)",
 			faulty_items :{
 						  number: true,
 						  required: true,
-						}
+						},
+      check_captcha : "required"     
 	},
 	messages: {
-			first_name: "Please enter your first name.",
-			last_name: "Please enter you last name.",
-			email_address: "Please enter valid email address.",
-			c_email_address: "Email and conform email does not match.",
-			information: " Please enter your message.",
+			first_name: "Please enter your first name!",
+			last_name: "Please enter your last name!",
+			email_address: "Please enter valid email address!",
+			
+			information: " Please enter your message!",
 			 mobile_phone_no: {
-            required :"Please enter your phone number",
-            phoneValidation: "Please enter valid phone number",
+            required :"Please enter your phone number!",
+            phoneValidation: "Please enter valid phone number!",
           },
 
 			
-			cc_message: "Plese say something.",
+			cc_message: " Please enter your message!",
 			cc_state_type:{ default: "Please select a state!" },
       cc_state_type_only:{ default: "Please select a state!" },
 			cc_store_name: { 
 								default: "Please select a store!" 
-							}
+							},
+      check_captcha :"Please  select captcha!",        
 	},
 	errorPlacement: function(error, element){
 		var err_cntr=element.parent("div").find(".error_label");
