@@ -31,12 +31,7 @@ $feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
         <p><?php echo $post->post_content;?> </p>
         </div>
         <div class="col-md-6 ia-img">
-         <div class="cc-ia-banner">
-          <img src="<?php echo $feat_image;?>" class="img-responsive">
-
-
-      
-         	
+         <div class="cc-ia-banner" style="background-image: url(<?php echo $feat_image ;?>);">	
          </div>
         </div>
 </div>
