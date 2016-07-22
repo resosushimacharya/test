@@ -29,7 +29,7 @@ $tax = 'product_cat';
 					$prounit=$prounits['size']['value'];
 				}
                ?>
-                     <?php  if($woo['_featured'][0]=='yes'){ ?>
+                     <?php  if(($woo['_featured'][0]=='yes') && (strcasecmp($woo['_stock_status'][0],'instock')==0)){ ?>
                    <div class="pro_for">
                   <?php if($feat_image!=''){?>
                   <div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div>

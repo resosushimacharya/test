@@ -208,14 +208,14 @@ if ( ! defined( 'ABSPATH' ) ) {
       	 <div class="cc-quantiy-section-inner">
       	 <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $post->ID;?>" data-product_sku="<?php
       	  echo $pro['_sku'][0] ; ?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart col-md-12" id="store-count-quantity" >ADD TO CART</a>
-          <a  class="col-md-12" id="store-count-default">ADD TO CART</a>
+
       	  </div>
       	  </div>
       </div>
       <div class="clearfix"></div>
      
       <div class="cc-product-enquiry col-md-12">
-      	<button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal2">ENQUIRY NOW</button>
+      	<button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal2">ENQUIRE NOW</button>
       </div>
       <div class="cc-product-ship-free-section col-md-12">
       <div class="cc-product-ship col-md-6"><span>SHIPPING<i class="fa fa-info-circle" aria-hidden="true"></i></span></div><div class="cc-product-free col-md-6"> FREE DELIVERY</div>
@@ -229,8 +229,8 @@ if ( ! defined( 'ABSPATH' ) ) {
       <!-- Trigger the modal with a button -->
       
 <!-- Enquiry Now -->
-<div id="myModal2" class="modal fade" role="dialog">
-<div class="querynow">
+<div id="myModal2" class="modal fade querynow" role="dialog">
+
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -413,7 +413,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     </div>
 
   </div>
-  </div>
+ 
 </div><!-- query end here -->
 
 <!-- modal1 PICK UP -->
