@@ -681,26 +681,27 @@ select#cc-size { height:45px; border:1px solid #d1ddf1; background:#e7edf8; font
 .summary.entry-summary .cc-product-pick-location-section { margin:1px 0 0 0;}
 .woocommerce div.product .woocommerce-tabs ul.tabs:before{display: none;}
 .woocommerce div.product .woocommerce-tabs ul.tabs{overflow: visible;border-bottom: 1px solid #d3ced2;padding: 0;font-size: 0}
-.woocommerce div.product .woocommerce-tabs ul.tabs li {border-radius:0; background-color:#FFF; position: relative; border: 0;margin: 0;font-size: 16px; padding:0 9px;}
+.woocommerce div.product .woocommerce-tabs ul.tabs li {border-radius:0; background-color:#FFF; position: relative; border: 0;margin: 0;font-size: 16px; padding:0 30px;}
 .woocommerce div.product .woocommerce-tabs ul.tabs li:before { display:none;}
 .woocommerce div.product .woocommerce-tabs ul.tabs li:after {     
 	content: '';
     border: 0;
     box-shadow: none;
-    width: 100%;
-    left: 0;
+    width: 85%;
+    left: 50%;
 	bottom: auto;
     background: #0099ff;
     height: 6px;
     right: auto;
 	border-radius:0;
 	display:none;
+	transform:translateX(-50%);
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active a { color:#15479c;}
 .woocommerce div.product .woocommerce-tabs ul.tabs li a { color:#15479c; }
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active:after{display: block}
 .woocommerce div.product .woocommerce-tabs ul.tabs li:hover:after{display: block}
-.woocommerce div.product .woocommerce-tabs .panel { margin:0;}
+.woocommerce div.product .woocommerce-tabs .panel { margin:0 125px 0 0;}
 .panel { border:0; border-radius:0; -webkit-box-shadow:none; box-shadow:none; outline:none;}
 .detail-heading-item {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15479c; text-transform:uppercase; margin:20px 0 0 0;}
 .panel.entry-content.wc-tab p { font:normal 16px/21px 'proxima_nova_rgregular', sans-serif; color:#333333; margin:13px 0;}
@@ -844,12 +845,12 @@ select#cc-enquiry-type { width:442px; background-color:#e7edf8; border:1px solid
 .fl-blk .col-sm-6:nth-child(1) { padding:0; width:28%; margin-bottom:18px;}
 .fl-blk .col-sm-6:nth-child(2) { padding:0 0 0 10px; width:28%; margin-bottom:18px;}
 .fl-blk label { color:#666666; font-size:16px; margin-bottom:9px; }
-.fl-blk .form-control{ border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; outline:0; height:35px; width:270px;}
+.fl-blk .form-control{ border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; outline:0; height:35px; width:270px; -webkit-box-shadow:none; box-shadow:none; outline:0;}
 .form-group.col-sm-12 { padding:0;}
 .mero-blkk .form-group.col-sm-12 label { color:#666666; font-size:16px; margin-bottom:9px;}
-.mero-blkk .form-group.col-sm-12 .form-control {border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; outline:0; height:35px; width:56.5%; }
+.mero-blkk .form-group.col-sm-12 .form-control {border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; outline:0; height:35px; width:56.5%; -webkit-box-shadow:none; box-shadow:none; outline:0; }
 .tel-blk .form-group.col-sm-6 label { color:#666666; font-size:16px; margin-bottom:9px;}
-.tel-blk .form-group.col-sm-6 .form-control {border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; outline:0; height:35px; width:55%; }
+.tel-blk .form-group.col-sm-6 .form-control {border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; outline:0; height:35px; width:55%; -webkit-box-shadow:none; box-shadow:none; outline:0; }
 #cc-store-form-section .form-group.col-sm-12 h3, #cc-state-form-section .form-group.col-sm-12 h3{font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding:32px 0 10px 0;}
 #cc-store-form-section .form-group.col-sm-12 p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 0 7px;}
 #cc-store-form-section .form-group.col-sm-4 { padding-left:0;}
@@ -864,7 +865,7 @@ textarea.form-control {border:1px solid #d1ddf1; background-color:#e7edf8; borde
 .g-recaptcha { margin:9px 0 10px 0; }
 #cc-state-form-section .form-group.col-sm-4{ padding:0; margin:0;}
 #cc-state-form-section select#cc-state-type-only {border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; outline:0; height:35px; width:270px;}
-.error_label label { color:#F00 !important;  font-size:14px; }
+.error_label label { color:#F00 !important;  font-size:14px !important; }
 .form-group.col-sm-12.success_message { color: #0fab12; }
 .querynow .modal-dialog { width:634px;} 
 .querynow .modal-header { padding:18px 29px 24px 22px; border:0; }
