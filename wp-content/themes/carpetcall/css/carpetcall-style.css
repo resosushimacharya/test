@@ -567,6 +567,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 		font-size:24px;
 		color: #15489f;
 		font-weight:normal;
+		padding-right:45px;
 		}
 .faq-cont-blka .glyphicon-chevron-up:before{
 		content: '\f106';
@@ -574,6 +575,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 		font-size:24px;
 		color: #15489f;
 		font-weight:normal;
+		padding-right:45px;
 		}
 /*................ Inner Featured Product start here ...................*/
 .inerblock-sec-prod-a { margin:145px 0 0px 0; }
@@ -583,9 +585,13 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .woocommerce-breadcrumb a.breadcrum-link-2, .woocommerce-breadcrumb a.breadcrum-link-3, .woocommerce-breadcrumb a.breadcrum-link-4:hover { cursor:pointer;}
 .images .cc-category-show { font:bold 30px 'proxima_nova_ltsemibold',sans-serif; color:#15489f; text-transform:uppercase; margin-bottom:11px; }
 .woocommerce-page div.product div.images { width:56%; }
-.images > a.woocommerce-main-image, .images > a.woocommerce-main-image img{ max-height:330px; display:block;}
+.images .main-image-wrapper > a.woocommerce-main-image, .images .main-image-wrappe > a.woocommerce-main-image img{ max-height:373px; display:block; }
+.images .main-image-wrapper {position:relative;}
+ .main-image-wrapper {min-height:373px;}
+.main-image-wrapper a img {min-height:373px;}
+.main-image-over-wrapper { position:absolute; right:0; bottom:36px;}
 .woocommerce div.product div.images div.thumbnails { padding-top:0.75em;}
-.thumbnails.columns-3 > a.first img, a.zoom img, a.zoom last img{ min-width:175px; max-height:115px; }
+.thumbnails.columns-3 > a.first img,  a.zoom img{ min-width:175px; max-height:115px; }
 .woocommerce-page div.product div.thumbnails a { margin-right:3.4%; margin-bottom:30px; }
 .mod-social { display:inline-block; padding:0;}
 .mod-social .cc-share-title{ float:left; font:bold 16px/25px 'proxima_nova_ltsemibold',sans-serif; color:#666666; margin-right:5px;}
@@ -702,9 +708,11 @@ select#cc-size { height:45px; border:1px solid #d1ddf1; background:#e7edf8; font
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active:after{display: block}
 .woocommerce div.product .woocommerce-tabs ul.tabs li:hover:after{display: block}
 .woocommerce div.product .woocommerce-tabs .panel { margin:0 125px 0 0;}
+div#tab-additional_information p { margin:13px 0; }
 .panel { border:0; border-radius:0; -webkit-box-shadow:none; box-shadow:none; outline:none;}
 .detail-heading-item {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15479c; text-transform:uppercase; margin:20px 0 0 0;}
 .panel.entry-content.wc-tab p { font:normal 16px/21px 'proxima_nova_rgregular', sans-serif; color:#333333; margin:13px 0;}
+div.panel-collapse.collapse.in p { margin:0 45px 0 25px; }
 ul.specific-list { margin:0; padding:0;}
 ul.specific-list li { list-style:none; display:block; font:normal 16px/26px 'proxima_nova_rgregular', sans-serif; color:#333333;}
 ul.specific-list li span { font-weight:700; color:#333333;}
@@ -727,6 +735,7 @@ ul.specific-list li span { font-weight:700; color:#333333;}
 		font-size:24px;
 		color: #15489f;
 		font-weight:normal;
+		padding-right:45px;
 		}
 .panel.entry-content.wc-tab .glyphicon-chevron-up:before{
 		content: '\f106';
@@ -734,8 +743,10 @@ ul.specific-list li span { font-weight:700; color:#333333;}
 		font-size:24px;
 		color: #15489f;
 		font-weight:normal;
+		padding-right:45px;
 		}
 .panel.entry-content.wc-tab .panel-group .panel-heading+.panel-collapse>.panel-body { border:0; }
+.main-image-over { position:relative; bottom:-37px;  z-index:9999; }
 
 /*....... Modern Rugs start here ..................*/
 .inerblock_seC_mrugss{ margin:145px 0 20px 0;}
@@ -765,7 +776,7 @@ section#main { margin:18px 0 19px 0;}
 		font-weight:normal;
 
 }
-.panel-title>a {font:bold 16px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none; margin-left:16px;}
+.panel-title>a {font:bold 16px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none; margin-left:25px;}
 a.pull-right { font:normal 10px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-transform:uppercase; text-decoration:underline; margin-top:4px; }
 a.pull-right:hover { color:#000; text-decoration:none;}
 .panel-group .panel-heading+.panel-collapse>.panel-body { border:0; }
