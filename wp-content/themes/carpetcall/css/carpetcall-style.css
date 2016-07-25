@@ -712,7 +712,7 @@ div#tab-additional_information p { margin:13px 0; }
 .panel { border:0; border-radius:0; -webkit-box-shadow:none; box-shadow:none; outline:none;}
 .detail-heading-item {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15479c; text-transform:uppercase; margin:20px 0 0 0;}
 .panel.entry-content.wc-tab p { font:normal 16px/21px 'proxima_nova_rgregular', sans-serif; color:#333333; margin:13px 0;}
-.panel-body-faq { margin:0 45px 0 0; }
+
 ul.specific-list { margin:0; padding:0;}
 ul.specific-list li { list-style:none; display:block; font:normal 16px/26px 'proxima_nova_rgregular', sans-serif; color:#333333;}
 ul.specific-list li span { font-weight:700; color:#333333;}
@@ -728,7 +728,7 @@ ul.specific-list li span { font-weight:700; color:#333333;}
     color: #0099ff;
     font: bold 18px 'proxima_nova_ltsemibold',sans-serif;
     text-transform: uppercase;}
-.panel.entry-content.wc-tab .panel-default>.panel-heading+.panel-collapse>.panel-body{ padding:0 15px 15px 15px;}
+.panel.entry-content.wc-tab .panel-default>.panel-heading+.panel-collapse>.panel-body{ padding:0 23px 15px 38px;}
 .panel.entry-content.wc-tab .glyphicon-chevron-down:before{
 		content: '\f107';
 		font-family: FontAwesome;
@@ -898,3 +898,4 @@ textarea.form-control {border:1px solid #d1ddf1; background-color:#e7edf8; borde
 #cc-store-form-section .provision-section .form-group.col-sm-8 { width:58.3%; padding:0; margin:0;}
 .form-group.col-sm-12 textarea.form-control{ width:96%; height:139px; -webkit-box-shadow:none; outline:0; box-shadow:none;}
 .form-control:focus { border-color:#cdd9ed;}
+.panel-body-faq { margin:0 45px 0 0 !important; }
