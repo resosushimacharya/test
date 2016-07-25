@@ -589,7 +589,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .images .main-image-wrapper {position:relative;}
  .main-image-wrapper {min-height:373px;}
 .main-image-wrapper a img {min-height:373px;}
-.main-image-over-wrapper { position:absolute; right:0; bottom:36px;}
+.main-image-over-wrapper { position:absolute; right:0; bottom:36px; pointer-events: none;}
 .woocommerce div.product div.images div.thumbnails { padding-top:0.75em;}
 .thumbnails.columns-3 > a.first img,  a.zoom img{ min-width:175px; max-height:115px; }
 .woocommerce-page div.product div.thumbnails a { margin-right:3.4%; margin-bottom:30px; }
