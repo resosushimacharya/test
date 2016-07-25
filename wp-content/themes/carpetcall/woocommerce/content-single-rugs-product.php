@@ -136,36 +136,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 $titlepro[$post->ID] = get_the_title();
 
 							?>
-							<?php if(strcasecmp($stockcheck['_stock_status'][0],'instock')==0){?><div class="select-design-product-image <?php echo ($pro_cur_id==$loop->post->ID)?'pro-active':null;?>">
-                         <?php   
-
-							
-							//echo '<br>';$post->ID;?>
-							
-							<a href="<?php the_permalink($loop->post->ID)?>" class="">
-							<?php if(has_post_thumbnail( )){
-								the_post_thumbnail( );
-								} 
-								else{
-									?>
-								<img class="cc-product_no_image" src="http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png"/>
-							<?php } ?>
-							
-							
-							</a>
-							</div> 
 						<?php 
-						$productsize = get_post_meta($post->ID);
-            
-						
-                       $length= get_post_meta( $post->ID, '_length', TRUE );
-	                     $width= get_post_meta( $post->ID, '_width', TRUE );
-	                     $height= get_post_meta( $post->ID, '_height', TRUE );
-	                     $price = get_post_meta($post->ID,'_sale_price',TRUE);
-	                     $productsize   = $length.'CM X '. $width.'CM - $'.$price;  
-	                     $strsizes[$i] =array($productsize,get_the_permalink(),$post->ID);
-	                      $i++;
-	                       } 
 					}
 					wp_reset_query();
 
@@ -186,40 +157,55 @@ if ( ! defined( 'ABSPATH' ) ) {
             preg_match('/([A-Z]*)\.([0-9]*)\.([0-9]*)\.([0-9]*)/',$value,$match);
   
            if($secondVar!=$match[2]){
-             do_action('pr',$value);
-             do_action('pr',$key);
+             /*do_action('pr',$value);
+             do_action('pr',$key);*/
              $uniqueId = $key;
 
              $secondVar = $match[2];
              $resList[$uniqueId][]=$key;
             }
-         /*else{
+         else{
           $resList[$uniqueId][]=$key;
 
-            }*/
+            }
             
   
 }
-do_action('pr',$resList);
+
+
 foreach($resList as $mainId):
- /* global $post;
-      do_action('pr',$post->ID);*/
+  global $post;
+  
+     
+     
+     
+                $displayCounter = 1 ; 
+    
     foreach($mainId as $val):
-         $displayCounter = 1 ; 
+
+           if($post->ID == $val){
+          
+            $res =apply_filters('woocommerce_product_bundle',$mainId);
+          
+           }
         $proGal = get_post_meta( $val, '_product_image_gallery', TRUE );
         $proGalId = explode(',',$proGal);
         $flag= 0;
+
         foreach($proGalId as $pgi):
-          do_action('pr',$pgi);
+            
             $proImageName =  wp_get_attachment_url($pgi);
              
             if(preg_match("/\_V\-/i", $proImageName) && $displayCounter==1)
             {
                 $reqProImageId = $pgi;
-                do_action('pr',$proImageName);
+               
                 $flag=1;
-                ?>
-                <div class="select-design-product-image ">
+               
+                 $stockcheck = get_post_meta($post->ID);
+                if(strcasecmp($stockcheck['_stock_status'][0],'instock')==0){
+                  ?>
+                <div class="select-design-product-image <?php echo ($pro_cur_id==$loop->post->ID)?'pro-active':null;?>">
                          <?php   
 
               
@@ -243,13 +229,14 @@ foreach($resList as $mainId):
                 <?php 
 
             }
+          }
 
-            
-
+            $displayCounter++;
         endforeach;
        
-        $displayCounter++;
-      endforeach;
+       
+      endforeach; 
+ 
 
 endforeach;
                  ?>
@@ -268,7 +255,7 @@ endforeach;
       <div class="cc-size-section col-md-12">
       <h3>AVAILABLE SIZES</h3> 
       <select class="selectpicker col-md-10" name="cc-size" id="cc-size" onchange="location = this.value;" >
-      <?php foreach($strsizes as $ss):?>
+      <?php foreach($res as $ss):?>
       
        <option <?php echo ($ss[2]==$post->ID?'selected="selected"':'');?> class="col-md-12" value="<?php echo $ss[1];?>"><?php echo $ss[0];?></option>
      
