@@ -712,7 +712,7 @@ div#tab-additional_information p { margin:13px 0; }
 .panel { border:0; border-radius:0; -webkit-box-shadow:none; box-shadow:none; outline:none;}
 .detail-heading-item {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15479c; text-transform:uppercase; margin:20px 0 0 0;}
 .panel.entry-content.wc-tab p { font:normal 16px/21px 'proxima_nova_rgregular', sans-serif; color:#333333; margin:13px 0;}
-div.panel-collapse.collapse.in p { margin:0 45px 0 25px; }
+.panel-body-faq { margin:0 45px 0 0; }
 ul.specific-list { margin:0; padding:0;}
 ul.specific-list li { list-style:none; display:block; font:normal 16px/26px 'proxima_nova_rgregular', sans-serif; color:#333333;}
 ul.specific-list li span { font-weight:700; color:#333333;}
