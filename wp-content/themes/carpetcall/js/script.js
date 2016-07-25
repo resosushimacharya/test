@@ -118,9 +118,11 @@ jQuery(document).ready(function(){
 	}
 }
 
-     if(jQuery('.woocommerce-main-image').length){
+
+
+});
+jQuery(window).load(function() {
+    if(jQuery('.woocommerce-main-image').length){
         $( '<div><img src="images/magnify.png" class="main-image-over" /></div>' ).insertAfter( ".woocommerce-main-image" );
      }
-
-
 });
