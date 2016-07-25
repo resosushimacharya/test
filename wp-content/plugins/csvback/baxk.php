@@ -191,8 +191,10 @@ function  csv_import_rugs($csv)
 		$x=4;
 		if ( is_wp_error( $tmp ) )
 	 	{ $tmp = download_url($side);
+	 		$life = $side;
 	 		if ( is_wp_error( $tmp ) ){
 	 			$tmp = download_url($swatch);
+	 			$life = $swatch;
 	 			
 	 		}
 	      $x=5;

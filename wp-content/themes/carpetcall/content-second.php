@@ -137,7 +137,9 @@ if($post->post_parent==$faqID){?>
     </div>
     <div id="collapse_<?php echo $i;?>" class="panel-collapse collapse <?php echo ($i==1)?'in':'' ;?> ">
       <div class="panel-body">
+      <p>
         <?php echo $rs['description'];?>
+        </p>
       </div>
     </div>
   </div>

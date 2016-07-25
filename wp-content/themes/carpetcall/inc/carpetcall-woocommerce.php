@@ -182,67 +182,98 @@ function woo_new_product_tab( $tabs ) {
 }
 function woo_new_product_tab_content() {?>
 
+<?php $prourl = site_url();
+      $prourl =explode('/',$prourl);
+      if(strcasecmp($prourl[2], 'localhost')==0){
+      	$profaqid = '1725';
+      }
+      else{
+      	$profaqid = '26721';
 
+      }
+      ?>
+      
 
      <div class="cont-panl">
 			<div class="panel-group" id="accordion">
+<?php
+global $post;
+$listcat=get_the_terms($post->ID,'product_cat');
 
+foreach($listcat as $cat){
+	if($cat->parent==0){
+		//echo "that's the correct answer";
+		$root = $cat->slug;
+		$rootname = $cat->name;
+	}
+	else{
+		//echo "that's the bullshit answer";
+	}
+}
+$args = array(
+    'post_type'      => 'page',
+    'posts_per_page' => -1,
+    'post_parent'    => $profaqid,
+    'order'          => 'ASC',
+    'orderby'        => 'menu_order',
+    'name' => $root
+
+ );
+
+
+$parent = new WP_Query( $args );
+while($parent->have_posts()){
+    $parent->the_post();
+    $faqid =$post->ID;
+
+}
+wp_reset_query();
+
+$list = get_field('buying_guide_archive',$faqid );
+
+?>
 					
 					<?php
-					global $post;
-				$procats=get_the_terms($post->ID,'product_cat');
-						/*$tax_terms = get_terms($tax);
-*/                     foreach($procats as $pc){
-						if($pc->parent==0){
-							$cat_name = $pc->slug;
-
-						}
-					}
-					$args = array('post_type'=>'faqs','posts_per_page'=>'10',
-							'taxonomy'=>'faq','term'=>$cat_name);
 					
-					//echo $tax_term->slug;
 					 $faqcounter = 1;
-					$my_query = null;
-					$my_query = new WP_Query($args);
-					while ($my_query->have_posts()) : $my_query->the_post();
+					foreach($list as $listitem):
+					
+
+					
 					
 					?>
 
-                   
-                    
-					<?php 
-
-					//$reqTempTerms=get_the_terms($post->ID,$tax);
-					      ?>
 					      
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $faqcounter;?>">
           <span class="pull-right glyphicon <?php echo ($faqcounter==1)?'glyphicon-chevron-up':'glyphicon glyphicon-chevron-down'?>"></span>
-          <?php echo the_title();?>
+          <?php echo $listitem['title'];?>
         </a>
       </h4>
     </div>
     <div id="collapse_<?php echo $faqcounter;?>" class="panel-collapse collapse <?php echo ($faqcounter==1)?'in':'' ;?> ">
       <div class="panel-body">
-        <?php the_content();?>
+        <?php echo $listitem['description']?>
       </div>
     </div>
   </div>
 		
-				
+			<?php 
+			$faqcounter++;
+						if($faqcounter==6){
+				break;
+			}
+
+			endforeach;
+			?>	
 					
-               <?php
-                       $faqcounter++;
-					endwhile;
-					wp_reset_query();
-					?>
+               
 					
 				</div></div>
   <div class="">
-  	<p>For more answers to your questions,please refer to our <a href="">RUGS FAQ page</a></p>
+  	<p>For more answers to your questions, please refer to our <a href="<?php echo get_the_permalink($faqid ); ?>"><?php echo $rootname; ?> FAQ page</a></p>
   </div>
 <?php	
 }

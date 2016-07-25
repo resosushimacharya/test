@@ -102,6 +102,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       <h3>SELECT A DESIGN</h3>
       <div class="cc-select-design-pro-all col-md-12">
       <?php 
+
        $strsizes= array();
        global $post;
        $pro_cur_id = $post->ID;
@@ -117,22 +118,27 @@ if ( ! defined( 'ABSPATH' ) ) {
               if(count($has_sub_cat)==0){
 						$current_post_term_id = $cat->term_id;
 						wp_reset_query();
-						$args = array('post_type'=>'product','posts_per_page'=>'10',
-                          'meta_key'=>'_sale_price',
+						$args = array('post_type'=>'product','posts_per_page'=>'-1',
+                          /*'meta_key'=>'_sale_price',
                           'orderby' => 'meta_value_num',
-                           'order'     => 'ASC',
+                           'order'     => 'ASC',*/
 
 							'taxonomy'=>'product_cat','term'=>$cat->slug);
+
 						$loop = new WP_Query($args);
 						$i=0;
+          $starter = 1;
+          $titlepro = array();
 						while($loop->have_posts())
 						{  $loop->the_post();
-							
+							   
 								$stockcheck = get_post_meta($loop->post->ID);
+                $titlepro[$post->ID] = get_the_title();
 
 							?>
 							<?php if(strcasecmp($stockcheck['_stock_status'][0],'instock')==0){?><div class="select-design-product-image <?php echo ($pro_cur_id==$loop->post->ID)?'pro-active':null;?>">
                          <?php   
+
 							
 							//echo '<br>';$post->ID;?>
 							
@@ -150,8 +156,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</div> 
 						<?php 
 						$productsize = get_post_meta($post->ID);
+            
 						
-                         $length= get_post_meta( $post->ID, '_length', TRUE );
+                       $length= get_post_meta( $post->ID, '_length', TRUE );
 	                     $width= get_post_meta( $post->ID, '_width', TRUE );
 	                     $height= get_post_meta( $post->ID, '_height', TRUE );
 	                     $price = get_post_meta($post->ID,'_sale_price',TRUE);
@@ -168,7 +175,83 @@ if ( ! defined( 'ABSPATH' ) ) {
                    
                    }
                }
+              //do_action('pr',$titlepro);
+                  $secondVar = '';
+                  unset($titlepro[1826]);
+                  echo '<div class="cc-size-quantity-section">
+      <div class="cc-size-section col-md-12">hello</div></div>';
+      $resList = array();
+        foreach($titlepro as $key => $value){
+
+            preg_match('/([A-Z]*)\.([0-9]*)\.([0-9]*)\.([0-9]*)/',$value,$match);
+  
+           if($secondVar!=$match[2]){
+             do_action('pr',$value);
+             do_action('pr',$key);
+             $uniqueId = $key;
+
+             $secondVar = $match[2];
+             $resList[$uniqueId][]=$key;
+            }
+         /*else{
+          $resList[$uniqueId][]=$key;
+
+            }*/
+            
+  
+}
+do_action('pr',$resList);
+foreach($resList as $mainId):
+ /* global $post;
+      do_action('pr',$post->ID);*/
+    foreach($mainId as $val):
+         $displayCounter = 1 ; 
+        $proGal = get_post_meta( $val, '_product_image_gallery', TRUE );
+        $proGalId = explode(',',$proGal);
+        $flag= 0;
+        foreach($proGalId as $pgi):
+          do_action('pr',$pgi);
+            $proImageName =  wp_get_attachment_url($pgi);
+             
+            if(preg_match("/\_V\-/i", $proImageName) && $displayCounter==1)
+            {
+                $reqProImageId = $pgi;
+                do_action('pr',$proImageName);
+                $flag=1;
+                ?>
+                <div class="select-design-product-image ">
+                         <?php   
+
               
+              //echo '<br>';$post->ID;?>
+              
+              <a href="<?php echo get_the_permalink($val)?>" class="">
+              <?php if($flag==1){
+                     $proImageName =  wp_get_attachment_url($reqProImageId);
+                     ?>
+                      <img class="cc-product_no_image" src="<?php echo $proImageName ;?>"/>
+                     <?php 
+                } 
+                else{
+                  ?>
+                <img class="cc-product_no_image" src="http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png"/>
+              <?php } ?>
+              
+              
+              </a>
+              </div> 
+                <?php 
+
+            }
+
+            
+
+        endforeach;
+       
+        $displayCounter++;
+      endforeach;
+
+endforeach;
                  ?>
                  </div>
       </div>
@@ -178,11 +261,12 @@ if ( ! defined( 'ABSPATH' ) ) {
        ?>
       <?php if(strcasecmp($pro['_stock_status'][0],'instock')!=0){?><div>
       <h3> OUT OF STOCK</h3>
+
       <?php do_action('cc_after_select_design_start');  do_action( 'woocommerce_single_product_summary' ); ?>
       </div><?php }?>
       <div class="cc-size-quantity-section">
       <div class="cc-size-section col-md-12">
-      <h3>AVAILABLE SIZES</h3>
+      <h3>AVAILABLE SIZES</h3> 
       <select class="selectpicker col-md-10" name="cc-size" id="cc-size" onchange="location = this.value;" >
       <?php foreach($strsizes as $ss):?>
       
@@ -199,6 +283,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       </div>
       <div class="cc-quantiy-section col-md-12">
       <h3>QUANTITY</h3>
+
 
       	<?php do_action('cc_size_quantity');
       	 
@@ -532,7 +617,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                          
                          <span class="midlt"> OR </span>
                           
-                          <button type="submit" class="btn btn-default">USE CURRENT LOCATIONS</button>
+                          <button type="submit" class="btn btn-default">USE CURRENT LOCATION</button>
                         </form>
             </div>
             
