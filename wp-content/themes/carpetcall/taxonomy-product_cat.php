@@ -290,6 +290,7 @@ $tax = 'product_cat';
     <div class="inerblock_sec_a">
 
     <div class="container clearfix you_may_link_cntr">
+    <h3 style="">Modern Rugs</h3>
     <p>
     	Inspired by the world renowned street art of Berlin; this range is modern vibrant and eye catching. If you want to brighten up your loungeroom this rug centre piece will be your hero.
 
