@@ -58,7 +58,7 @@ global $post, $woocommerce, $product;
 				$gallery = '';
 			}
 
-			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '">%s<div class="main-image-over-wrapper"><img src="%s" class="main-image-over" /></div></a>', $image_link, $image_caption, $image,$imgurl ), $post->ID );
+			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<div class="main-image-wrapper"><a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '">%s</a><div class="main-image-over-wrapper"><img src="%s" class="main-image-over" /></div></div>', $image_link, $image_caption, $image,$imgurl ), $post->ID );
 
 		} else {
 
