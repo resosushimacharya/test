@@ -149,8 +149,7 @@ if ( ! defined( 'ABSPATH' ) ) {
               //do_action('pr',$titlepro);
                   $secondVar = '';
                   unset($titlepro[1826]);
-                  echo '<div class="cc-size-quantity-section">
-      <div class="cc-size-section col-md-12">hello</div></div>';
+                
       $resList = array();
         foreach($titlepro as $key => $value){
 
