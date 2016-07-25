@@ -538,3 +538,23 @@ function patricks_woocommerce_catalog_orderby( $orderby ) {
 }
 add_filter( "woocommerce_catalog_orderby", "patricks_woocommerce_catalog_orderby", 20 );
 
+add_filter( 'woocommerce_product_bundle', 'woocommerce_product_bundle_action', 10, 1);
+function woocommerce_product_bundle_action($res){
+	
+	$data = array();
+	$i =0 ;
+	foreach($res as $res){
+
+	                   $length= get_post_meta( $res, '_length', TRUE );
+                       $width= get_post_meta( $res, '_width', TRUE );
+                       $height= get_post_meta( $res, '_height', TRUE );
+                       $price = get_post_meta($res,'_sale_price',TRUE);
+                       $productsize   = $length.'CM X '. $width.'CM - $'.$price;  
+                       $data[$i] =array($productsize,get_the_permalink($res),$res);
+                       $i++;
+	}
+	return $data;
+
+}
+
+
