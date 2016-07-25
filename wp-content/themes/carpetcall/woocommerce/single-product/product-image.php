@@ -42,7 +42,7 @@ global $post, $woocommerce, $product;
               	}
               	}?>
 	<?php
-	$imgurl =get_template_directory_uri().'images/magnify1.png';
+	$imgurl =get_template_directory_uri().'/images/magnify1.png';
 		if ( has_post_thumbnail() ) {
 			$image_caption = get_post( get_post_thumbnail_id() )->post_excerpt;
 			$image_link    = wp_get_attachment_url( get_post_thumbnail_id() );
@@ -58,7 +58,7 @@ global $post, $woocommerce, $product;
 				$gallery = '';
 			}
 
-			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '">%s<div><img src="%s" class="main-image-over" /></div></a>', $image_link, $image_caption, $image,$imgurl ), $post->ID );
+			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '">%s<div class="main-image-over-wrapper"><img src="%s" class="main-image-over" /></div></a>', $image_link, $image_caption, $image,$imgurl ), $post->ID );
 
 		} else {
 
