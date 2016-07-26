@@ -274,8 +274,8 @@ $list = get_field('buying_guide_archive',$faqid );
                
 					
 				</div></div>
-  <div class="">
-  	<p>For more answers to your questions, please refer to our <a href="<?php echo get_the_permalink($faqid ); ?>"><?php echo $rootname; ?> FAQ page</a></p>
+  <div class="cc-tab-faq-read-more">
+  	<p>For more answers to your questions, please refer to our <a href="<?php echo get_the_permalink($faqid ); ?>"><?php echo $rootname; ?> FAQ </a> page.</p>
   </div>
 <?php	
 }
@@ -539,18 +539,19 @@ function patricks_woocommerce_catalog_orderby( $orderby ) {
 add_filter( "woocommerce_catalog_orderby", "patricks_woocommerce_catalog_orderby", 20 );
 
 add_filter( 'woocommerce_product_bundle', 'woocommerce_product_bundle_action', 10, 1);
-function woocommerce_product_bundle_action($res){
+function woocommerce_product_bundle_action($results){
 	
 	$data = array();
 	$i =0 ;
-	foreach($res as $res){
 
-	                   $length= get_post_meta( $res, '_length', TRUE );
-                       $width= get_post_meta( $res, '_width', TRUE );
-                       $height= get_post_meta( $res, '_height', TRUE );
-                       $price = get_post_meta($res,'_sale_price',TRUE);
+	foreach($results as $key => $value){
+
+	                   $length= get_post_meta( $key, '_length', TRUE );
+                       $width= get_post_meta( $key, '_width', TRUE );
+                       $height= get_post_meta( $key, '_height', TRUE );
+                       $price = get_post_meta($key,'_sale_price',TRUE);
                        $productsize   = $length.'CM X '. $width.'CM - $'.$price;  
-                       $data[$i] =array($productsize,get_the_permalink($res),$res,$price);
+                       $data[$i] =array($productsize,get_the_permalink($key),$key,$price);
 
                        $i++;
 	}
