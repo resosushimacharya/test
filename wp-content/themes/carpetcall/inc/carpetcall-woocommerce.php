@@ -550,11 +550,79 @@ function woocommerce_product_bundle_action($res){
                        $height= get_post_meta( $res, '_height', TRUE );
                        $price = get_post_meta($res,'_sale_price',TRUE);
                        $productsize   = $length.'CM X '. $width.'CM - $'.$price;  
-                       $data[$i] =array($productsize,get_the_permalink($res),$res);
+                       $data[$i] =array($productsize,get_the_permalink($res),$res,$price);
+
                        $i++;
 	}
+	
+	function sortByOrder($a, $b) {
+    
+    	return $a[3] - $b[3];
+   	}
+
+  usort($data, 'sortByOrder');
 	return $data;
 
 }
+ /**
+ * List best selling products on sale
+ *
+ * @access public
+ * @param array $atts
+ * @return string
+ */
+function woocommerce_best_selling_products( $atts ){
+    global $woocommerce_loop;
+    extract( shortcode_atts( array(
+        'per_page'      => '12',
+        'columns'       => '4',
+        'category'		=> 'amore'
+        ), $atts ) );
+    $args = array(
+        'post_type' => 'product',
+        'post_status' => 'publish',
+        'ignore_sticky_posts'   => 1,
+        'posts_per_page' => $per_page,
+        'meta_key'     => 'total_sales',
+      'orderby'      => 'meta_value',
+        'meta_query' => array(
+            array(
+                'key' => '_visibility',
+                'value' => array( 'catalog', 'visible' ),
+                'compare' => 'IN'
+            )
+        ),
+       'tax_query' => array(
+	    	array(
+		    	'taxonomy' => 'product_cat',
+				'terms' => array( esc_attr($category) ),
+				'field' => 'slug',
+				'compare' => 'IN'
+			)
+	    )
+
+    );
+    ob_start();
+    
+  $products = new WP_Query( $args );
+  
+  $woocommerce_loop['columns'] = $columns;
+  if ( $products->have_posts() ) : ?>
+
+    <ul class="products">
+
+      <?php while ( $products->have_posts() ) : $products->the_post(); ?>
+
+        <?php woocommerce_get_template_part( 'content', 'product' ); ?>
+
+      <?php endwhile; // end of the loop. ?>
+
+    </ul>
+
+  <?php endif;
+  wp_reset_postdata();
+  return ob_get_clean();
+}
+add_shortcode('best_selling_products', 'woocommerce_best_selling_products');
 
 

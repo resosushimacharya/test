@@ -204,7 +204,7 @@ foreach($resList as $mainId):
                  $stockcheck = get_post_meta($post->ID);
                 if(strcasecmp($stockcheck['_stock_status'][0],'instock')==0){
                   ?>
-                <div class="select-design-product-image <?php echo ($pro_cur_id==$loop->post->ID)?'pro-active':null;?>">
+                <div class="select-design-product-image <?php echo ($post->ID == $val)?'pro-active':null;?>">
                          <?php   
 
               
@@ -467,6 +467,8 @@ endforeach;
                  <div class="form-group col-sm-12">
 					   <script src='https://www.google.com/recaptcha/api.js'></script>
                       <div class="g-recaptcha" data-sitekey="6LdfuCMTAAAAAGhFRMwboqar9gIW_yfmWVjT7OMj"></div>
+                       <input type="hidden" value="" id="check_captcha" name="check_captcha">
+                      <div class="error_label"></div>
                    </div>
                 <div class="form-group col-sm-12">
                  <input type="submit" value="Submit" class="btn-dn" id="cc_contact_submit">
@@ -690,6 +692,16 @@ wrapper close start */?>
  <div class="inerblock_sec_a">
 
     <div class="container clearfix you_may_link_cntr">
+    <?php 
+    foreach($reqTempTerms as $cat){
+          $has_sub_cat=get_terms(array('parent'=>$cat->term_id,'taxonomy'=>'product_cat'));
+         
+          if(count($has_sub_cat)==0){
+            $docatname = $cat->slug;
+          }
+        }
+     echo do_shortcode('[best_selling_products per_page="6" columns="12" category="'.$docatname.'"]');
+    ?>
         <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
 
 		<?php               wp_reset_query();
@@ -701,7 +713,7 @@ wrapper close start */?>
 
                     
 					$reqTempTerms=get_the_terms($post->ID,'product_cat');
-					//do_action('pr',$reqTempTerms);
+					
 					foreach($reqTempTerms as $cat){
 						//echo $cat->parent;
 						if($cat->parent==0){
@@ -713,20 +725,25 @@ wrapper close start */?>
        'child_of'           => $cat->term_id
       );
       $terms = get_terms( 'product_cat', $args );
-                           // do_action('pr',$terms);
+                      
                             
 						}
 					}
 					shuffle($terms);
                         $i=1;
+
 					foreach($terms as $term){
 
-
+                
+                 
 						if($current_post_term_id!=$term->term_id){
+                   
 							
 							$has_sub_cat=get_terms(array('parent'=>$term->term_id,'taxonomy'=>'product_cat'));
+                
 								if(count($has_sub_cat)==0){
-                                        
+                    
+                                      
 									//do_action('pr',$term);
                                         	
 									$filargs = array(

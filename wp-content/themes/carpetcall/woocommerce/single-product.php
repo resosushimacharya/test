@@ -101,3 +101,189 @@ else{ ?>
 }
 ?>
 <?php get_footer( 'shop' ); ?>
+<script type="text/javascript">
+jQuery.validator.setDefaults({ 
+ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
+ submitHandler: function() {
+		 var form_data= jQuery("#contact_form").serializeArray();
+		  var json = {};
+
+		jQuery.each(form_data, function() {
+			json[this.name] = this.value || '';
+		});
+		
+	jQuery.ajax({
+         type : "post",
+         dataType : "json",
+         url : "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+         data : {
+         	 action: "contact_action",
+         	 form_data : json
+         	},
+         success: function(response) {
+           if(typeof(response.success) != "undefined" && response.success !== null) {
+               //jQuery("#vote_counter").html(response.vote_count)
+			   jQuery('#first_name').val('');
+			   jQuery('#last_name').val('');
+			   jQuery('#email_address').val('');
+			   jQuery('#mobile_phone_no').val('');
+			   jQuery('#cc-state-type').val('default');
+			   jQuery('#cc-store-name').val('default');
+         
+			   jQuery('#cc_message').val('');
+          jQuery('#cc_message').attr("placeholder", "ENTER YOUR MESSAGE HERE");
+         jQuery('#cc-state-type-only').val('default');
+			   jQuery('.success_message').html(response.success).show(0).delay(10000).hide(0);;
+        
+			   grecaptcha.reset();
+            }else{
+              	if(typeof(response.captcha_error) != "undefined" && response.captcha_error !== null){
+					grecaptcha.reset();
+					jQuery('.error_message').html(response.captcha_error).show();
+				}else if(typeof(response.error) != "undefined" && response.error !== null){
+					jQuery('.error_message').html(response.error).show();
+					
+				}
+            }
+         }
+      }) 
+}
+}) 
+  $.validator.addMethod("phoneValidation",function(value,element){
+      
+      str= value;
+       value =value.replace(/[a-z]/gi, '');
+       realLength = str.length;
+       tempLength =  value.length;
+      
+      if(realLength==tempLength){
+        return true;
+      }
+      else{
+        return false;
+      }
+     
+     
+     
+      
+
+  },'please enter valid phone number');
+   $.validator.addMethod("default",function(value,element){
+      
+      
+      
+      if(value.toLowerCase()==="default"){
+        return false;
+      }
+      else{
+        return true;
+      }
+     
+     
+     
+      
+
+  },'please select');
+
+
+ $.validator.addMethod("texareaValidate",function(value,element){
+      
+     
+      
+      if(value.trim()===""){
+        return false;
+
+      }
+      else{
+        return true;
+      }
+     
+     
+     
+      
+
+  },'please select');
+
+  
+	$.validator.addMethod("valueNotEquals", function(value, element, arg){
+
+  			 return arg != value;
+ }, "Value must not equal arg.");
+
+
+
+	jQuery("#contact_form").validate({
+	rules: {
+      
+			first_name: "required",
+			last_name: "required",
+      cc_message:{
+
+        texareaValidate:true
+      },
+			email_address: {
+				required: true,
+				email: true
+			},
+			
+		cc_state_type: { 
+      default:true
+
+								
+							},
+			cc_store_name: { 
+								default: true,
+
+							},
+      cc_state_type_only: {
+        default: true,
+      },
+
+							
+			
+			information:"required",
+			
+			mobile_phone_no :{
+             phoneValidation:true,
+             required: true
+      
+     /* required:true*/}
+      ,
+			faulty_items :{
+						  number: true,
+						  required: true,
+						},
+      check_captcha : "required"     
+	},
+	messages: {
+			first_name: "Please enter your first name!",
+			last_name: "Please enter your last name!",
+			email_address: "Please enter valid email address!",
+			
+			information: " Please enter your message!",
+			 mobile_phone_no: {
+            required :"Please enter your phone number!",
+            phoneValidation: "Please enter valid phone number!",
+          },
+
+			
+			cc_message: " Please enter your message!",
+			cc_state_type:{ default: "Please select a state!" },
+      cc_state_type_only:{ default: "Please select a state!" },
+			cc_store_name: { 
+								default: "Please select a store!" 
+							},
+      check_captcha :"Please  select captcha!",        
+	},
+	errorPlacement: function(error, element){
+		var err_cntr=element.parent("div").find(".error_label");
+			err_cntr.show(); 
+			error.appendTo(err_cntr);
+	}
+	
+	
+	});
+
+
+
+</script>

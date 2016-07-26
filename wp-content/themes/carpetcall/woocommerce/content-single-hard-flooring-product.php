@@ -257,8 +257,9 @@ wrapper close start */?>
 					}
 					shuffle($terms);
                         $i=1;
+                        
 					foreach($terms as $term){
-
+             
 
 						if($current_post_term_id!=$term->term_id){
 							
