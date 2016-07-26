@@ -556,9 +556,9 @@ ul.guide_list_cfaq li .fa { float:right; margin-top:8px; color:#c32327;}
 ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsemibold',sans-serif; color:#15489f; text-decoration:none; text-transform:uppercase; margin-bottom:10px;}
 .faq-cont-blka .col-md-9 { padding-left:5px;}
 .cont-panl { border-top:1px solid #efefef;}
-.panel-group .panel{ border-radius:0; border-left:0; border-right:0; border-top:0; border-bottom:1px solid #efefef; box-shadow:none; -webkit-box-shadow:none; padding-bottom:10px;}
+.panel-group .panel{ border-radius:0; border-left:0; border-right:0; border-top:0; border-bottom:1px solid #efefef; box-shadow:none; -webkit-box-shadow:none; padding-bottom:19px;}
 .faq-cont-blka .panel-default>.panel-heading, .faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body { background:none; border:none; border-radius:0; padding: 0}
-.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body{padding:0 35px 15px 40px;}
+.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body{padding:0 35px 15px 40px; font-size:18px;}
 .faq-cont-blka .panel-default>.panel-heading a{position: relative;width: 100%;display: block;padding: 15px; text-decoration:none; color:#0099ff; font:bold 18px 'proxima_nova_ltsemibold',sans-serif; text-transform:uppercase; }
 .faq-cont-blka .panel-body p {font:normal 18px/21px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-right:30px;}
 .faq-cont-blka .glyphicon-chevron-down:before{
@@ -798,7 +798,7 @@ a.pull-right:hover { color:#000; text-decoration:none;}
 .all-items-blk h3, .fq-blk-a h3, .more-blk-b h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:-5px; margin-bottom:20px;}
 .all-items-blk p, .fq-blk-a p {font:normal 16px/22px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 0 20px 0;}
 .fq-blk-a, .more-blk-b { margin:23px 0 0 0; background-color:#e7edf8; padding:37px 36px; }
-.inerblock_sec .cbg_content p {font:normal 16px/22px 'proxima_nova_rgregular', sans-serif; color:#666666;}
+.inerblock_sec .cbg_content p {font:normal 18px/22px 'proxima_nova_rgregular', sans-serif; color:#666666;}
 .ia-img { padding:0;}
 .cc-ia-banner img { width:100%; height:275px;}
 
@@ -920,8 +920,9 @@ list-style:none;
     display:none;
 }
 .cc-color-var-item li { float:left; text-align:center; width:25%; padding-right:25px;}
-
-
+.cc-price-var-sec .panel-default>.panel-heading{ background-color:transparent; border-color:transparent; padding:1px 0 0 0; }
+.cc-price-var-items .checkbox{margin:9px 0 13px 0;}
+.panel.entry-content.wc-tab .cc-tab-faq-read-more p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-left:22px;}
 
 
 
