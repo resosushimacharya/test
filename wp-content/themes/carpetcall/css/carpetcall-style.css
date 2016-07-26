@@ -665,7 +665,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 select#cc-size { height:45px; border:1px solid #d1ddf1; background:#e7edf8; font-size:16px; color:#1858b8; font-weight:700; width:84.7%; -webkit-appearance:none; -moz-appearance:none; appearance:none; background-image:url(../images/icon.jpg); background-repeat:no-repeat; background-position:100% 0%;}
 .cc-size-quantity-section .cc-quantiy-section h3 {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin:10px 0 0 0;}
 #quantity-control { width:56.1% !important; height:45px; border:1px solid #d1ddf1; background:#e7edf8; font-size:16px; color:#666666; font-weight:700; padding-left:15px; -webkit-appearance:none; -moz-appearance:none; appearance:none; background-image:url(../images/icon.jpg); background-repeat:no-repeat; background-position:100% 0%;}
-.woocommerce a.button { background:#e19193; text-align:center; padding:.618em 1em !important; color:#FFF; text-transform:uppercase; width:83.7%; height:45px; line-height:24px; margin:16px 0; border-radius:0; font-size:18px; font-weight:700; letter-spacing:1px;}
+.woocommerce a.button { background:#e19193; text-align:center; padding:.618em 1em !important; color:#FFF; text-transform:uppercase; width:83.7%; height:45px; line-height:24px; margin:16px 0; border-radius:0; font-family:'proxima_nova_ltsemibold', sans-serif;; font-size:18px; font-weight:700; letter-spacing:1px;}
 .woocommerce a.button:hover { background:#df8a8c; color:#fff;}
 .cc-product-enquiry .btn-default{ width:83.9%; height:45px; border-radius:0; border:1px solid #15489f; text-align:center; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin:0 0 16px 0;}
 .cc-product-enquiry .btn-default:hover { background:#15489f; color:#FFF;}
@@ -680,7 +680,7 @@ select#cc-size { height:45px; border:1px solid #d1ddf1; background:#e7edf8; font
 .cc-product-pick .btn:hover { color:#000; cursor:pointer; background-color:transparent; -webkit-box-shadow:none; box-shadow:none; outline:0;}
 .cc-product-pick .btn-default:focus { background-color:transparent; }
 .cc-product-location  {width:33.3%; height:29px; background:#FFF;}
-.cc-product-location .btn-default {color:#15489f; border-color:inherit; border-radius:0; border:1px solid #15489f; font-size:12px; font-weight:700;}
+.cc-product-location .btn-default {color:#15489f; border-color:inherit; border-radius:0; border:1px solid #15489f; font-family:'proxima_nova_ltsemibold', sans-serif;; font-size:12px; font-weight:700;}
 .cc-product-location .btn-default:hover {background:#15489f; color:#FFF;}
 .cc-quantiy-section .quantity { margin:4px 0 5px 0;}
 .summary.entry-summary .cc-product-ship-free-section { margin:11px 0 0 0;}
