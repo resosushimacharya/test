@@ -556,7 +556,7 @@ ul.guide_list_cfaq li .fa { float:right; margin-top:8px; color:#c32327;}
 ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsemibold',sans-serif; color:#15489f; text-decoration:none; text-transform:uppercase; margin-bottom:10px;}
 .faq-cont-blka .col-md-9 { padding-left:5px;}
 .cont-panl { border-top:1px solid #efefef;}
-.panel-group .panel{ border-radius:0; border-left:0; border-right:0; border-top:0; border-bottom:1px solid #efefef; box-shadow:none; -webkit-box-shadow:none;}
+.panel-group .panel{ border-radius:0; border-left:0; border-right:0; border-top:0; border-bottom:1px solid #efefef; box-shadow:none; -webkit-box-shadow:none; padding-bottom:10px;}
 .faq-cont-blka .panel-default>.panel-heading, .faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body { background:none; border:none; border-radius:0; padding: 0}
 .faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body{padding:0 35px 15px 40px;}
 .faq-cont-blka .panel-default>.panel-heading a{position: relative;width: 100%;display: block;padding: 15px; text-decoration:none; color:#0099ff; font:bold 18px 'proxima_nova_ltsemibold',sans-serif; text-transform:uppercase; }
@@ -704,7 +704,7 @@ select#cc-size { height:45px; border:1px solid #d1ddf1; background:#e7edf8; font
 	transform:translateX(-50%);
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active a { color:#15479c;}
-.woocommerce div.product .woocommerce-tabs ul.tabs li a { color:#15479c; }
+.woocommerce div.product .woocommerce-tabs ul.tabs li a { color:#15479c; font-size:18px; }
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active:after{display: block}
 .woocommerce div.product .woocommerce-tabs ul.tabs li:hover:after{display: block}
 .woocommerce div.product .woocommerce-tabs .panel { margin:0 125px 0 0;}
@@ -755,7 +755,7 @@ ul.specific-list li span { font-weight:700; color:#333333;}
 .cc-product-term:hover {color:#000; cursor:pointer;}
 section#main { margin:18px 0 19px 0;}
 .inerblock_seC_mrugss h3 {margin-top:3px;}
-.tophead_sec { margin:20px 0 8px 0; border-bottom:1px solid #efefef; padding-bottom:4px;}
+.tophead_sec { margin:20px 0 10px 0; border-bottom:1px solid #efefef; padding-bottom:12px;}
 .rugm-blk p { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase;}
 .cc-count-clear a {font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; text-decoration:underline;}
 .cc-count-clear a:hover { color:#333; text-decoration:none;}
@@ -766,7 +766,7 @@ section#main { margin:18px 0 19px 0;}
 .cc-product-sort li a:hover {border-bottom:3px solid #15489f; cursor:pointer;}
 .cc-cat-pro-section-left.col-md-3.no-lr { width:23.5%;}
 .cc-pro-sub-cat-ul.guide_list_cbg h3 {font:bold 16px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; border:0;}
-.cc-color-var-section h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-decoration:none; border-bottom:1px solid #efefef; padding-bottom:10px; margin:0 0 6px 0; width:100%; text-transform:none;}
+.cc-color-var-section h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-decoration:none; border-bottom:1px solid #efefef; padding-bottom:3px; margin:14px 0 4px 0; width:100%; text-transform:none;}
 .panel-group.cc-color-var .panel-default>.panel-heading { background-color:#FFF; padding:10px 0; }
 .glyphicon-chevron-up:before {
 	content:'\f106';
@@ -779,7 +779,7 @@ section#main { margin:18px 0 19px 0;}
 .panel-title>a {font:bold 16px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none; margin-left:25px;}
 a.pull-right { font:normal 10px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-transform:uppercase; text-decoration:underline; margin-top:4px; }
 a.pull-right:hover { color:#000; text-decoration:none;}
-.panel-group .panel-heading+.panel-collapse>.panel-body { border:0; }
+.panel-group .panel-heading+.panel-collapse>.panel-body { border:0; padding:0; }
 .cc-store-icon-label img{
      display: inline-block;
     margin-right: 5px;
@@ -899,3 +899,43 @@ textarea.form-control {border:1px solid #d1ddf1; background-color:#e7edf8; borde
 .form-group.col-sm-12 textarea.form-control{ width:96%; height:139px; -webkit-box-shadow:none; outline:0; box-shadow:none;}
 .form-control:focus { border-color:#cdd9ed;}
 .panel-body-faq { margin:0 45px 0 0 !important; }
+
+/*...... Rugs Sub Category section start here ...............*/
+.cc-cat-title-count {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase;}
+.cc-count-clear {font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase;}
+div#collapse_color .panel-body { margin-top:6px;}
+.cc-color-var-item #purple { margin:0 21px 0 0; border:0; border-radius:3px;}
+.cc-color-var-item label { font-size:10px; color:#666666; text-align:center; margin:0 0 0 4px;}
+.swatch{
+    width: 38px;
+    height: 38px;
+    display: block;
+}
+ul.cc-color-var-item{
+list-style:none;
+
+}
+
+.cc-tick-display{
+    display:none;
+}
+
+
+.cc-color-var-item li { float:left; text-align:center; width:25%; padding-right:25px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.col-md-9.cc-cat-pro-section-right { display:none;}
