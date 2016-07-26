@@ -158,29 +158,6 @@
 
 </div>
 
-
-<style>
-.swatch{
-    width: 38px;
-    height: 38px;
-    border: solid 1px #afafaf;
-    border-radius: 5px;
-    display: block;
-    margin-left: 10px;
-    margin-bottom: 5px;
-}
-ul.cc-color-var-item{
-list-style:none;
-
-}
-.cc-color-var-item li{
-float:left;
-}
-.cc-tick-display{
-    display:none;
-}
-
-</style>
 <script>
 
      $(document).ready(function() {
