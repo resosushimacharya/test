@@ -78,7 +78,7 @@ $parent = new WP_Query( $args );
 while($parent->have_posts()){
     $parent->the_post();
     
-     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). '<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). ' FAQ <i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
 }
 wp_reset_query();
 
@@ -137,9 +137,9 @@ if($post->post_parent==$faqID){?>
     </div>
     <div id="collapse_<?php echo $i;?>" class="panel-collapse collapse <?php echo ($i==1)?'in':'' ;?> ">
       <div class="panel-body">
-      <p>
+     
         <?php echo $rs['description'];?>
-        </p>
+        
       </div>
     </div>
   </div>
