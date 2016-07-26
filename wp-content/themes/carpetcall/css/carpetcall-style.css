@@ -746,7 +746,7 @@ ul.specific-list li span { font-weight:700; color:#333333;}
 		padding-right:45px;
 		}
 .panel.entry-content.wc-tab .panel-group .panel-heading+.panel-collapse>.panel-body { border:0; }
-.main-image-over { position:relative; bottom:-37px;  z-index:9999; }
+.main-image-over { position:relative; bottom:-37px; }
 
 /*....... Modern Rugs start here ..................*/
 .inerblock_seC_mrugss{ margin:145px 0 20px 0;}
@@ -919,8 +919,6 @@ list-style:none;
 .cc-tick-display{
     display:none;
 }
-
-
 .cc-color-var-item li { float:left; text-align:center; width:25%; padding-right:25px;}
 
 
