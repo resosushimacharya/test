@@ -153,7 +153,7 @@ $currentcat = get_queried_object();
 
                                           	}
                                             echo '<div class="cat_slider_item " > <img src="'.$feat_image.'" class="img-responsive" /></div>';
-                                              echo $slidercounter;
+                                             
                                              if($slidercounter==5){
                                              	echo '</div>';
                                              }
@@ -287,7 +287,7 @@ $tax = 'product_cat';
                     
     </div>
     </div>
-    <div class="inerblock_sec_a">
+    <div class="cc_background_image">
 
     <div class="container clearfix you_may_link_cntr">
     <h3 style="">Modern Rugs</h3>
