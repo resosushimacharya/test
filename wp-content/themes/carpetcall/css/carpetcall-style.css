@@ -57,7 +57,7 @@ focus {outline:none;}
 img { display:block; border:0; }
 ul, li { padding:0; margin:0; }
 h1, h2, h3, h4, h5, h6 {margin:0;}
-a { color:#15489f; text-decoration:underline;}
+
 p {margin: 2px 0; font:normal 0.875em/150% 'proxima_nova_rgregular', sans-serif; color:#333333;  }
 html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-size: 100%; background:#fff; color:#000; line-height:150%; }
 .no-pr{padding-right: 0}
@@ -585,6 +585,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 /*................ Inner Featured Product start here ...................*/
 .inerblock-sec-prod-a { margin:145px 0 0px 0; }
 .woocommerce-breadcrumb a.breadcrum-link-2, .woocommerce-breadcrumb a.breadcrum-link-3, .woocommerce-breadcrumb a.breadcrum-link-4, .woocommerce-breadcrumb a.breadcrum-link-5 { font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:none; text-transform:uppercase;}
+.woocommerce-breadcrumb a.breadcrum-link-4 { color:#666; }
 .woocommerce .woocommerce-breadcrumb { margin:16px 0 9px 0;}
 .woocommerce-breadcrumb a.breadcrum-link-5 { color:#666; }
 .woocommerce-breadcrumb a.breadcrum-link-2, .woocommerce-breadcrumb a.breadcrum-link-3, .woocommerce-breadcrumb a.breadcrum-link-4:hover { cursor:pointer;}
@@ -970,4 +971,6 @@ list-style:none;
 }
 
 .pac-container {z-index:9999;}
-.woocommerce-breadcrumb a.breadcrum-link-4 { color:#666666; }
+
+.cc-tab-faq-read-more p a {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:underline;}
+.cc-tab-faq-read-more p a:hover { text-decoration:none;}
