@@ -608,6 +608,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .modal-dialog{ margin-top:200px; width:817px;}
 .modal-content { border-radius:0; border-color:#e7edf8;}
 .modal-title {font:bold 30px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase;}
+.modal-a-title {font:bold 30px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:9px;}
 .modal-header { padding:18px 29px 24px 32px; border:none;}
 .modal-body { padding:0 29px 0 24px;}
 .fyns-blk {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-left:15px;}
@@ -862,32 +863,33 @@ select#cc-enquiry-type { width:442px; background-color:#e7edf8; border:1px solid
 .mero-blkk .form-group.col-sm-12 .form-control { font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; outline:0; height:35px; width:56.5%; -webkit-box-shadow:none; box-shadow:none; outline:0; }
 .tel-blk .form-group.col-sm-6 label { color:#666666; font-size:16px; margin-bottom:9px;}
 .tel-blk .form-group.col-sm-6 .form-control { font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; outline:0; height:35px; width:55%; -webkit-box-shadow:none; box-shadow:none; outline:0; }
-#cc-store-form-section .form-group.col-sm-12 h3, #cc-state-form-section .form-group.col-sm-12 h3{font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding:32px 0 10px 0;}
+#cc-store-form-section .form-group.col-sm-12 h3, #cc-state-form-section .form-group.col-sm-12 h3{font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding:27px 0 10px 0;}
 #cc-store-form-section .form-group.col-sm-12 p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 0 7px;}
 #cc-store-form-section .form-group.col-sm-4 { padding-left:0;}
 select#cc-state-type { font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; outline:0; height:35px; outline:0; box-shadow:none; text-transform:uppercase; -webkit-appearance:none; background-image:url(../images/icon1.jpg); background-repeat:no-repeat; background-position:right;  -webkit-appearance: none; -moz-appearance:none; appearance:none; text-transform:uppercase;}
 select#cc-store-name { font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; outline:0; height:35px outline:0; box-shadow:none;; -webkit-appearance:none; background-image:url(../images/icon1.jpg); background-repeat:no-repeat; background-position:right;  -webkit-appearance: none; -moz-appearance:none; appearance:none; text-transform:uppercase;}
 #cc-store-form-section .form-group.col-sm-4 { width:17%; padding:0;}
 #cc-store-form-section .form-group.col-sm-8 { width:35.1%; padding:0 0 0 8px;}
-.ur-msg-title .form-group.col-sm-12 h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; padding:40px 0 2px 0; text-transform:uppercase;}
+.ur-msg-title .form-group.col-sm-12 h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; padding:29px 0 2px 0; text-transform:uppercase;}
 textarea.form-control {border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; width:56.5%; height:139px; }
-.btn-dn { display:inline-block; background-color:#c32428; padding:8px 18px; border:0; text-align:center; text-decoration:none; width:220px; height:45px; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-transform:uppercase; letter-spacing:1px; margin-bottom:15px;}
+.btn-dn { display:inline-block; background-color:#c32428; padding:8px 18px; border:0; text-align:center; text-decoration:none; width:220px; height:45px; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;}
 .btn-dn:hover { background-color:#bc2024;}
-.g-recaptcha { margin:9px 0 10px 0; }
+.g-recaptcha { margin:4px 0 10px 0; }
 #cc-state-form-section .form-group.col-sm-4{ padding:0; margin:0;}
 #cc-state-form-section select#cc-state-type-only {border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; outline:0; height:35px; width:270px;}
-.error_label label { color:#F00 !important;  font-size:14px !important; }
+.error_label label { color:#F00 !important;  font-size:14px !important; font-weight:normal; }
+label#email_address-error { margin:0;}
 .form-group.col-sm-12.success_message { color: #0fab12; }
 .querynow .modal-dialog { width:634px;} 
 .querynow .modal-header { padding:18px 29px 24px 22px; border:0; }
-.querynow .yd-title h3{font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f;}
+.querynow .yd-title h3{font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin-top:-3px;}
 .flsm-blk, .meroi-blka, .tela-blkb { padding:0; margin:0;}
 .flsm-blk .form-group.col-sm-6 label, .meroi-blka .form-group.col-sm-12 label, .tela-blkb .form-group.col-sm-6 label {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-bottom:10px;}
 
 .flsm-blk .col-sm-6:nth-child(1) { width:46.7%; padding:0; margin:17px 15px 0 0;}
 .flsm-blk .col-sm-6:nth-child(2) { width:46.7%; padding:0; margin:17px 15px 0 0;}
 .meroi-blka .col-sm-12:nth-child(1) { width:96%; padding:0; margin:0;}
-.tela-blkb .col-sm-6:nth-child(1) { width:46.7%; padding:0; margin:17px 0 0 0;}
+.tela-blkb .col-sm-6:nth-child(1) { width:46.7%; padding:0; margin:15px 0 0 0;}
 
 .flsm-blk .form-group.col-sm-6 .form-control{ font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; border:1px solid #cdd9ed; background-color:#e7edf8; border-radius:0; outline:0; -webkit-box-shadow:none; width:270px; height:35px; }
 .meroi-blka .form-group.col-sm-12 label { margin-top:20px;}
