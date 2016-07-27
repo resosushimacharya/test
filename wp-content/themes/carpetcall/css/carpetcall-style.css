@@ -705,7 +705,7 @@ select#cc-size { height:45px; border:1px solid #d1ddf1; background:#e7edf8; font
 	transform:translateX(-50%);
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active a { color:#15479c;}
-.woocommerce div.product .woocommerce-tabs ul.tabs li a { color:#15479c; font-size:18px; }
+.woocommerce div.product .woocommerce-tabs ul.tabs li a { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15479c; }
 .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover { color:#15479c; }
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active:after{display: block}
 .woocommerce div.product .woocommerce-tabs ul.tabs li:hover:after{display: block}
@@ -927,31 +927,7 @@ list-style:none;
 .cc-price-var-items .checkbox{margin:9px 0 13px 0;}
 .panel.entry-content.wc-tab .cc-tab-faq-read-more p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-left:22px;}
 
-fieldset.form-wrapper .form-type-checkbox label {
-  display: inline-block;
-  text-transform: none;
-  padding-left: 45px;
-  vertical-align: -5px;
-  margin: 0;
-}
-fieldset.form-wrapper .form-type-checkbox input[type="checkbox"] {
-  display: none;
-}
-fieldset.form-wrapper .form-type-checkbox label::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 32px;
-  width: 32px;
-  background: transparent;
-  border: 1px solid #e2e6e9;
-}
-fieldset.form-wrapper .form-type-checkbox input[type="checkbox"]:checked + label::before {
-  background-image: url(../images/institute-check.png);
-  background-position: center center;
-  background-repeat: no-repeat;
-}
+
 
 
 
