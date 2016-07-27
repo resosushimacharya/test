@@ -352,7 +352,7 @@ endforeach;
       </div>
       <div class="cc-product-pick-location-section col-md-12">
       <div class="cc-product-pick col-md-6">
-      <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal1">PICK UP</button>
+      <button type="button" class="btn btn-default col-md-12" >PICK UP</button>
       </div>
       <div class="cc-product-location col-md-6">
       <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal">PICK UP LOCATION</button>       </div>
@@ -549,95 +549,7 @@ endforeach;
 </div><!-- query end here -->
 
 <!-- modal1 PICK UP -->
-<div id="myModal1" class="modal fade" role="dialog">
-  <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">PICK UP LOCATIONS </h4>
-      </div>
-      <div class="modal-body">
-        	
-            
-            
-            <div class="nearstore">
-            	
-                <div class="col-md-12">
-                	<div class="col-md-4 no-lr">
-                    <div class="str-two">
-                    	<h4> NSW </h4>
-                        <p>Seven Hills Head Office  </p>
-                        <p> Unit 3/6 Boden Road, </p>
-                        <p> Seven Hills NSW 2147 </p>
-                        <h5> <span class="pclt">P :</span> 02 9007 9294 </h5>
-                    </div><div class="clearfix"></div>
-                    </div> <!-- store one end -->
-                    
-                    <div class="col-md-4 no-lr">
-                    <div class="str-two">
-                    	<h4> QLD </h4>
-                        <p> QLD Builders Division </p>
-                        <p> 24 Jutland Street, </p>
-                        <p> Builders Division </p>
-                        <p> Logenlea QLD 4131 </p>
-                        <h5> <span class="pclt">P :</span> 07 3895 6501 </h5>
-                    </div><div class="clearfix"></div>
-                    </div> <!-- store two end -->
-                    
-                    <div class="col-md-4 no-lr">
-                    <div class="str-two">
-                    	<h4> SA </h4>
-                        <p> Wingfield (Head Office) </p>
-                        <p> 26-28 Rosberg Rd </p>
-                        <p> Builders Division </p>
-                        <p> Wingfield SA 5013 </p>
-                        <h5> <span class="pclt">P :</span> 08 8122 0080 </h5>
-                    </div><div class="clearfix"></div>
-                    </div> <!-- store three end -->
-                    
-                </div><div class="clearfix"></div>
-                
-                
-            </div><div class="clearfix"></div><!-- first phase end -->
-            
-            <div class="nearstore-a">
-            	
-                <div class="col-md-12">
-                	<div class="col-md-4 no-lr">
-                    <div class="str-two">
-                    	<h4> VIC </h4>
-                        <p> Mulgrave Store </p>
-                        <p> 2 Village Court </p>
-                        <p> Mulgrave VIC 3170 </p>
-                        <h5> <span class="pclt">P :</span> 03 9912 0595 </h5>
-                    </div><div class="clearfix"></div>
-                    </div> <!-- store one end -->
-                    
-                    <div class="col-md-4 no-lr">
-                    <div class="str-two">
-                    	<h4> WA  </h4>
-                        <p> Stirling ( Head Office ) </p>
-                        <p>40 Bryan Place  </p>
-                        <p> Stirling WA 6021 </p>
-                        <h5> <span class="pclt">P :</span> 08 9241 1222 </h5>
-                    </div><div class="clearfix"></div>
-                    </div> <!-- store two end -->
-                    
-                    <div class="col-md-4 no-lr"></div> <!-- store three end -->
-                    
-                </div><div class="clearfix"></div>
-                
-                
-            </div><div class="clearfix"></div><!-- second phase end -->
-            
-      </div>
-      
-    </div>
-
-  </div>
-</div>
 
 <!-- PICK UP LOCATIONS -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -656,20 +568,20 @@ endforeach;
             		<form class="form-inline">
                     
                     <div class="input-group">
-                      <input type="text" class="form-control" placeholder="SUBURB OR POSTCODE">
+                      <input type="text"  placeholder="SUBURB OR POSTCODE" id="edit_dialog_keyword" name="edit_dialog_keyword" type="text" class="form-control controls"  onkeyup="customDialog(event);">
                       <span class="input-group-btn">
-                        <button class="btn btn-default" type="button"><img src="<?php echo get_template_directory_uri().'/images/icon2.jpg';?>" style="float:right;"></button>
+                        <button class="btn btn-default" type="button" onclick="rs='';autocomplet();" id="check_control"><img src="<?php echo get_template_directory_uri().'/images/icon2.jpg';?>" style="float:right;"></button>
                       </span>
                     </div>
                          
                          <span class="midlt"> OR </span>
-                          
-                          <button type="submit" class="btn btn-default">USE CURRENT LOCATION</button>
+                         
+                          <button type="button" class="btn btn-default" onclick="showlocation();rs='';" >USE CURRENT LOCATION</button>
                         </form>
             </div>
+            <div id="directory_list_id_s"></div>
             
-            
-            <div class="nearstore">
+            <div class="nearstore"> 
             	<h3 class="clostor-blk">Closest stores to “2015” </h3>
                 
                 <div class="col-md-12">

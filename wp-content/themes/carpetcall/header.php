@@ -71,7 +71,7 @@ wp_head();
     
 
 <!-- custom css -->
-<?php if(is_home())
+<?php if(is_home() || (is_single() && get_post_type()=='product'))
 {?><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCN3lkABBKjsMdIzAyI1Rwy_6Z8cT8IEWc&libraries=places"></script>
 <?php  } ?>
     <script type="text/javascript">

@@ -30,7 +30,7 @@
       onkeypress="handle(event)"> -->
       <input id="edit_dir_keyword" name="edit_dir_keyword" type="text" class="form-control controls" placeholder="suburb or postcode" onkeyup="mymap(event);">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button" onclick="rs='';autocomplet();" id="check_control">
+        <button class="btn btn-default" type="button" onclick="rs='';autocomplet();" id="check_control_dialog">
         <img src="<?php  echo get_template_directory_uri();?>/images/magnify.png"/>
         </button>
       </span>
@@ -157,6 +157,61 @@ function KeyCheck(event)
       break;
    }
 }
+function customDialog(e) {
+        var input = document.getElementById('edit_dialog_keyword');
+       var options = { types: ['geocode'],componentRestrictions: {country: "AU"} };
+        var types = document.getElementById('type');
+      var check = input.value;
+       
+      
+        e.which = e.which || e.keyCode;
+    if(e.which == 13) {
+       document.addEventListener("keydown", KeyCheck); 
+          google.maps.event.clearListeners(input, "focus");
+        google.maps.event.clearListeners(input, "blur");
+        google.maps.event.clearListeners(input, "keydown");
+
+    $(".pac-container").hide();
+       autocomplet();
+    }
+        if(check.length>3){
+        $("#check_control_dialog").addClass("store-key-control");
+        var autocomplete = new google.maps.places.Autocomplete(input,options);
+      //  console.log(autocomplete);
+      
+
+        
+        autocomplete.addListener('place_changed', function() {
+         
+          var place = autocomplete.getPlace();
+           stoLocation.push(place);
+          stoLocation = [place.geometry.location.lat(),place.geometry.location.lng()];
+          //input.value="";
+
+         
+          if (!place.geometry) {
+            window.alert("Autocomplete's returned place contains no geometry");
+            return;
+          }
+
+          
+          
+
+         
+        });
+      document.addEventListener("keydown", KeyCheck); }
+        else{
+          document.addEventListener("keydown", KeyCheck); 
+          google.maps.event.clearListeners(input, "focus");
+        google.maps.event.clearListeners(input, "blur");
+        google.maps.event.clearListeners(input, "keydown");
+
+    $(".pac-container").hide();
+        }
+
+
+       
+      }
     </script>
     <script>
       function storekeycheck(e) {
