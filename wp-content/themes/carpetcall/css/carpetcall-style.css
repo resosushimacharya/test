@@ -74,7 +74,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 
 
 /* banner section start here ---*/
-.banner { background:#15489f; padding:17px 0 0 0; position:fixed; z-index:99999; width:100%;}
+.banner { background:#15489f; padding:17px 0 0 0; position:fixed; z-index:1000; width:100%;}
 .banner .col-md-12 {padding:0 20px;}
 .banner .col-md-4 { width:28.2%}
 .banner .col-md-12 .col-md-4:nth-child(2) { width:30.1%; margin:0 61px 0 21px; padding:0; }
@@ -770,7 +770,8 @@ section#main { margin:18px 0 19px 0;}
 .cc-product-sort li { list-style:none; display:inline-block;}
 .cc-product-sort li a {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-decoration:none; border-bottom:3px solid #0099ff;}
 .cc-product-sort li a:hover {border-bottom:3px solid #15489f; cursor:pointer;}
-.cc-cat-pro-section-left.col-md-3.no-lr { width:23.5%;}
+.cc-cat-pro-section-left.col-md-3 { width:23.5%; padding-left:0; padding-right:10px;}
+.col-md-9.cc-cat-pro-section-right { padding-right:0; padding-left:10px; }
 .cc-pro-sub-cat-ul.guide_list_cbg h3 {font:bold 16px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; border:0;}
 .cc-color-var-section h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-decoration:none; border-bottom:1px solid #efefef; padding-bottom:3px; margin:14px 0 4px 0; width:100%; text-transform:none;}
 .panel-group.cc-color-var .panel-default>.panel-heading { background-color:#FFF; padding:10px 0; }
@@ -927,25 +928,44 @@ list-style:none;
     display:none;
 }
 .cc-color-var-item li { float:left; text-align:center; width:25%; padding-right:25px;}
-.cc-price-var-sec .panel-default>.panel-heading{ background-color:transparent; border-color:transparent; padding:1px 0 0 0; }
+.cc-price-var-sec .panel-default>.panel-heading, .cc-size-var-sec .panel-default>.panel-heading{ background-color:transparent; border-color:transparent; padding:1px 0 0 0; }
 .cc-price-var-items .checkbox{margin:9px 0 13px 0;}
 .panel.entry-content.wc-tab .cc-tab-faq-read-more p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-left:22px;}
 .cc-alternate-cat-link{ margin-left: 0px;}
 
+.cc-price-var-items form .checkbox label {
+  display: inline-block;
+  text-transform: none;
+  padding-left: 31px;
+  vertical-align:0;
+  margin: 0;
+  font:normal 14px 'proxima_nova_rgregular', sans-serif; color:#666666;
+}
+.cc-price-var-items form .checkbox input[type="checkbox"] {
+  opacity:0;
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 17px;
+  width: 17px;
+  margin: 0;
+  z-index:1;
+}
+.cc-price-var-items form .checkbox label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 3px;
+  height: 17px;
+  width: 17px;
+  background-color:#e7edf8;
+  border: 1px solid #d1ddf1;
+}
+.cc-price-var-items form .checkbox input[type="checkbox"]:checked + label::before {
+  background:url(../images/icon3.png) no-repeat;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
 
+.pac-container {z-index:9999}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.col-md-9.cc-cat-pro-section-right { display:none;}
