@@ -556,11 +556,12 @@ ul.guide_list_cfaq li .fa { float:right; margin-top:8px; color:#c32327;}
 ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsemibold',sans-serif; color:#15489f; text-decoration:none; text-transform:uppercase; margin-bottom:10px;}
 .faq-cont-blka .col-md-9 { padding-left:5px;}
 .cont-panl { border-top:1px solid #efefef;}
-.panel-group .panel{ border-radius:0; border-left:0; border-right:0; border-top:0; border-bottom:1px solid #efefef; box-shadow:none; -webkit-box-shadow:none; padding-bottom:19px;}
+.panel-group .panel{ border-radius:0; border-left:0; border-right:0; border-top:0; border-bottom:1px solid #efefef; box-shadow:none; -webkit-box-shadow:none; padding-bottom:11px;}
 .faq-cont-blka .panel-default>.panel-heading, .faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body { background:none; border:none; border-radius:0; padding: 0}
-.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body{padding:0 35px 15px 40px; font-size:18px;}
-.faq-cont-blka .panel-default>.panel-heading a{position: relative;width: 100%;display: block;padding: 15px; text-decoration:none; color:#0099ff; font:bold 18px 'proxima_nova_ltsemibold',sans-serif; text-transform:uppercase; }
+.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body{padding:0 35px 0 40px; font-size:18px; line-height:21px;}
+.faq-cont-blka .panel-default>.panel-heading a{position: relative;width: 100%;display: block;padding:15px; text-decoration:none; color:#0099ff; font:bold 18px 'proxima_nova_ltsemibold',sans-serif; text-transform:uppercase; }
 .faq-cont-blka .panel-body p {font:normal 18px/21px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-right:30px;}
+.panel-group .panel+.panel { margin:0;}
 .faq-cont-blka .glyphicon-chevron-down:before{
 		content: '\f107';
 		font-family: FontAwesome;
@@ -577,6 +578,9 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 		font-weight:normal;
 		padding-right:45px;
 		}
+		
+.cbg_content .cont-panl #accordion .panel.panel-default:nth-child(1) .panel-heading { margin:12px 0 0 0;}
+
 /*................ Inner Featured Product start here ...................*/
 .inerblock-sec-prod-a { margin:145px 0 0px 0; }
 .woocommerce-breadcrumb a.breadcrum-link-2, .woocommerce-breadcrumb a.breadcrum-link-3, .woocommerce-breadcrumb a.breadcrum-link-4, .woocommerce-breadcrumb a.breadcrum-link-5 { font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:none; text-transform:uppercase;}
@@ -687,8 +691,8 @@ select#cc-size { height:45px; border:1px solid #d1ddf1; background:#e7edf8; font
 .summary.entry-summary .cc-product-ship-free-section { margin:11px 0 0 0;}
 .summary.entry-summary .cc-product-pick-location-section { margin:1px 0 0 0;}
 .woocommerce div.product .woocommerce-tabs ul.tabs:before{display: none;}
-.woocommerce div.product .woocommerce-tabs ul.tabs{overflow: visible;border-bottom: 1px solid #d3ced2;padding: 0;font-size: 0}
-.woocommerce div.product .woocommerce-tabs ul.tabs li {border-radius:0; background-color:#FFF; position: relative; border: 0;margin: 0;font-size: 16px; padding:0 30px;}
+.woocommerce div.product .woocommerce-tabs ul.tabs{overflow: visible;border-bottom: 1px solid #d3ced2;padding: 0;font-size: 0; height:23px;}
+.woocommerce div.product .woocommerce-tabs ul.tabs li {border-radius:0; background-color:#FFF; position: relative; border: 0;margin: 0;font-size: 16px; padding:0 30px; line-height:18px;}
 .woocommerce div.product .woocommerce-tabs ul.tabs li:before { display:none;}
 .woocommerce div.product .woocommerce-tabs ul.tabs li:after {     
 	content: '';
@@ -696,7 +700,7 @@ select#cc-size { height:45px; border:1px solid #d1ddf1; background:#e7edf8; font
     box-shadow: none;
     width: 85%;
     left: 50%;
-	bottom: auto;
+	bottom: -7px;
     background: #0099ff;
     height: 6px;
     right: auto;
@@ -705,7 +709,7 @@ select#cc-size { height:45px; border:1px solid #d1ddf1; background:#e7edf8; font
 	transform:translateX(-50%);
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active a { color:#15479c;}
-.woocommerce div.product .woocommerce-tabs ul.tabs li a { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15479c; }
+.woocommerce div.product .woocommerce-tabs ul.tabs li a { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15479c; padding:0;  }
 .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover { color:#15479c; }
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active:after{display: block}
 .woocommerce div.product .woocommerce-tabs ul.tabs li:hover:after{display: block}
@@ -730,7 +734,7 @@ ul.specific-list li span { font-weight:700; color:#333333;}
     color: #0099ff;
     font: bold 18px 'proxima_nova_ltsemibold',sans-serif;
     text-transform: uppercase;}
-.panel.entry-content.wc-tab .panel-default>.panel-heading+.panel-collapse>.panel-body{ padding:0 23px 15px 38px; font-size:18px;}
+.panel.entry-content.wc-tab .panel-default>.panel-heading+.panel-collapse>.panel-body{ padding:0 23px 15px 38px; font-size:18px; line-height:21px;}
 .panel.entry-content.wc-tab .glyphicon-chevron-down:before{
 		content: '\f107';
 		font-family: FontAwesome;
