@@ -759,7 +759,7 @@ wrapper close start */?>
             $docatname = $cat->slug;
           }
         }
-     echo do_shortcode('[best_selling_products per_page="6" columns="12" category="'.$docatname.'"]');
+     //echo do_shortcode('[best_selling_products per_page="6" columns="12" category="'.$docatname.'"]');
     ?>
         <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
 
@@ -866,10 +866,12 @@ wrapper close start */?>
 						echo '<h5> FROM A$'.$price.'</h5>';
 						
 						}?></div>
+           <div class="nowsp nowspp cc-alternate-cat-link"><a href="<?php the_permalink();?>" tabindex="0"> 
+  SHOP NOW </a></div>
 					<div class="clearfix"></div>
                            
                       </div>
-                      </div>
+                      </div></a>
                       </div>
 
 
