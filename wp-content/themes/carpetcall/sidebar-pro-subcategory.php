@@ -84,22 +84,22 @@
       
          <form role="form">
     <div class="checkbox">
-      <label><input type="checkbox" value="">$0 - $200</label>
+      <input type="checkbox" value=""><label>$0 - $200</label>
     </div>
     <div class="checkbox">
-      <label><input type="checkbox" value="">$201 - $400</label>
+      <input type="checkbox" value=""><label>$201 - $400</label>
     </div>
     <div class="checkbox">
-      <label><input type="checkbox" value="">$401 - $600</label>
+      <input type="checkbox" value=""><label>$401 - $600</label>
     </div>
     <div class="checkbox">
-      <label><input type="checkbox" value="">$601 - $800</label>
+      <input type="checkbox" value=""><label>$601 - $800</label>
     </div>
     <div class="checkbox">
-      <label><input type="checkbox" value="">$801 - $1000</label>
+      <input type="checkbox" value=""><label>$801 - $1000</label>
     </div>
      <div class="checkbox">
-      <label><input type="checkbox" value="">$1000+</label>
+      <input type="checkbox" value=""><label>$1000+</label>
     </div>
   </form>
 
@@ -130,20 +130,20 @@
       
          <form role="form">
     <div class="checkbox">
-      <label><input type="checkbox" value="">Set Length Runners</label>
+      <input type="checkbox" value=""><label>Set Length Runners</label>
     </div>
     <div class="checkbox">
-      <label><input type="checkbox" value="">Small</label>
+      <input type="checkbox" value=""><label>Small</label>
     </div>
      <div class="checkbox">
-      <label><input type="checkbox" value="">Medium</label>
+     <input type="checkbox" value=""><label>Medium</label>
     </div>
     <div class="checkbox">
-      <label><input type="checkbox" value="" disabled>Large</label>
+      <input type="checkbox" value=""><label>Large</label>
     </div>
    
     <div class="checkbox">
-      <label><input type="checkbox" value="">Very Large</label>
+      <input type="checkbox" value=""><label>Very Large</label>
     </div>
      
   </form>

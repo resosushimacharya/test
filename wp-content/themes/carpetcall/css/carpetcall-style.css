@@ -682,7 +682,7 @@ select#cc-size { height:45px; border:1px solid #d1ddf1; background:#e7edf8; font
 .cc-product-free {font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#3aaa35; text-transform:uppercase; line-height:34px; }
 .cc-product-free:hover { color:#060; cursor:pointer;}
 .cc-product-pick .btn{font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase; text-align:left; border:0; border-radius:0; -webkit-box-shadow:none; box-shadow:none; outline:0; padding-left:0;}
-.cc-product-pick .btn:hover { color:#000; cursor:pointer; background-color:transparent; -webkit-box-shadow:none; box-shadow:none; outline:0;}
+.cc-product-pick .btn:hover { color:#666666; cursor:text; background-color:transparent; -webkit-box-shadow:none; box-shadow:none; outline:0;}
 .cc-product-pick .btn-default:focus { background-color:transparent; }
 .cc-product-location  {width:33.3%; height:29px; background:#FFF;}
 .cc-product-location .btn-default {color:#15489f; border-color:inherit; border-radius:0; border:1px solid #15489f; font-family:'proxima_nova_ltsemibold', sans-serif;; font-size:12px; font-weight:700;}
@@ -753,6 +753,7 @@ ul.specific-list li span { font-weight:700; color:#333333;}
 		}
 .panel.entry-content.wc-tab .panel-group .panel-heading+.panel-collapse>.panel-body { border:0; }
 .main-image-over { position:relative; bottom:-37px; }
+#tab-faq_tab .cont-panl .panel.panel-default:nth-child(1) .panel-heading { margin-top:32px; }
 
 /*....... Modern Rugs start here ..................*/
 .inerblock_seC_mrugss{ margin:145px 0 20px 0;}
