@@ -706,6 +706,7 @@ select#cc-size { height:45px; border:1px solid #d1ddf1; background:#e7edf8; font
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active a { color:#15479c;}
 .woocommerce div.product .woocommerce-tabs ul.tabs li a { color:#15479c; font-size:18px; }
+.woocommerce div.product .woocommerce-tabs ul.tabs li a:hover { color:#15479c; }
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active:after{display: block}
 .woocommerce div.product .woocommerce-tabs ul.tabs li:hover:after{display: block}
 .woocommerce div.product .woocommerce-tabs .panel { margin:0 125px 0 0;}
@@ -926,62 +927,31 @@ list-style:none;
 .cc-price-var-items .checkbox{margin:9px 0 13px 0;}
 .panel.entry-content.wc-tab .cc-tab-faq-read-more p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-left:22px;}
 
-/* Base for label styling */
-[type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
-  position: absolute;
+fieldset.form-wrapper .form-type-checkbox label {
+  display: inline-block;
+  text-transform: none;
+  padding-left: 45px;
+  vertical-align: -5px;
+  margin: 0;
 }
-[type="checkbox"]:not(:checked) + label,
-[type="checkbox"]:checked + label {
-  position: relative;
-  padding-left: 25px;
-  cursor: pointer;
+fieldset.form-wrapper .form-type-checkbox input[type="checkbox"] {
+  display: none;
 }
-
-/* checkbox aspect */
-[type="checkbox"]:not(:checked) + label:before,
-[type="checkbox"]:checked + label:before {
+fieldset.form-wrapper .form-type-checkbox label::before {
   content: '';
   position: absolute;
-  left:0; top: 2px;
-  width: 17px; height: 17px;
-  border: 1px solid #aaa;
-  background: #f8f8f8;
-  border-radius: 3px;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,.3)
+  left: 0;
+  top: 0;
+  height: 32px;
+  width: 32px;
+  background: transparent;
+  border: 1px solid #e2e6e9;
 }
-/* checked mark aspect */
-[type="checkbox"]:not(:checked) + label:after,
-[type="checkbox"]:checked + label:after {
-  content: '✔';
-  position: absolute;
-  top: 3px; left: 4px;
-  font-size: 18px;
-  line-height: 0.8;
-  color: #09ad7e;
-  transition: all .2s;
+fieldset.form-wrapper .form-type-checkbox input[type="checkbox"]:checked + label::before {
+  background-image: url(../images/institute-check.png);
+  background-position: center center;
+  background-repeat: no-repeat;
 }
-/* checked mark aspect changes */
-[type="checkbox"]:not(:checked) + label:after {
-  opacity: 0;
-  transform: scale(0);
-}
-[type="checkbox"]:checked + label:after {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* accessibility */
-[type="checkbox"]:checked:focus + label:before,
-[type="checkbox"]:not(:checked):focus + label:before {
-  border: 1px dotted blue;
-}
-
-/* hover style just for information */
-label:hover:before {
-  border: 1px solid #4778d9!important;
-}
-
 
 
 
