@@ -278,6 +278,7 @@ select#cc-state-type , select#cc-store-name,select#cc-state-type-only{
 <script>
 function recaptchaCallback(){
    jQuery('#check_captcha').val('1');
+    
 };
 
 $ = jQuery.noConflict();

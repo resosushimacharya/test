@@ -103,6 +103,7 @@ else{ ?>
 <script>
 	function recaptchaCallback(){
    jQuery('#myModal2 #check_captcha').val('1');
+
 };
 </script>
 <?php get_footer( 'shop' ); ?>
