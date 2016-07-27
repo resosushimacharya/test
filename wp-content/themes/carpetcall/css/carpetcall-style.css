@@ -57,6 +57,7 @@ focus {outline:none;}
 img { display:block; border:0; }
 ul, li { padding:0; margin:0; }
 h1, h2, h3, h4, h5, h6 {margin:0;}
+a { color:#15489f; text-decoration:underline;}
 p {margin: 2px 0; font:normal 0.875em/150% 'proxima_nova_rgregular', sans-serif; color:#333333;  }
 html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-size: 100%; background:#fff; color:#000; line-height:150%; }
 .no-pr{padding-right: 0}
@@ -509,7 +510,7 @@ li.clblk_a::before {content: '';}
 .inerblock_serc { margin:155px 0 20px 0;}
 
 /*.............. carpet buying guide start here ..................*/
-.cbg_blk { background:#e6e6e6; margin-top:8px; }
+.cbg_blk { margin-top:8px; }
 .breadcrumbs .home { font-size:12px; text-transform:uppercase; text-decoration:none; color:#15489f;}
 .breadcrumbs .post.post-guides-archive {font-size:12px; text-transform:uppercase; text-decoration:none; color:#15489f;}
 .breadcrumbs {font-size:12px; text-transform:uppercase; text-decoration:none; color:#000;}
@@ -811,12 +812,12 @@ a.pull-right:hover { color:#000; text-decoration:none;}
 .cc-ia-banner img { width:100%; height:275px;}
 
 /*..................... inner child section start here .....................*/
-.child-innerpg { background-color:#e6e6e6;}
+
 .inerblock_serc_child { margin:145px 0 20px 0;}
 .inerblock_serc_child .cc-breadcrumb { padding-top:20px; padding-bottom:11px;}
-.inerblock_serc_child .cc-breadcrumb > span.cc-bread-root a, .inerblock_serc_child .cc-breadcrumb > span.cc-bread-parent a { font-size:12px; color:#000; text-transform:uppercase; text-decoration:none; }
+.inerblock_serc_child .cc-breadcrumb > span.cc-bread-root a, .inerblock_serc_child .cc-breadcrumb > span.cc-bread-parent a { font-size:12px; color:#15489f; text-transform:uppercase; text-decoration:none; margin:0 2px; }
 .inerblock_serc_child .cc-breadcrumb > span.cc-bread-root a:hover, .inerblock_serc_child .cc-breadcrumb > span.cc-bread-parent a:hover { cursor:pointer;}
-.inerblock_serc_child .cc-breadcrumb > span.cc-bread-current { font-size:12px; text-transform:uppercase; color:#0a71cf; text-decoration:none; }
+.inerblock_serc_child .cc-breadcrumb > span.cc-bread-current { font-size:12px; text-transform:uppercase; color:#666666; text-decoration:none; margin:0 2px; }
 .inerblock_serc_child h3 {font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; border-bottom:1px solid #6383b9; display:inline-block; margin-bottom:12px; line-height:26px;}
 .cbg_content #guide_item_1, .cbg_content #guide_item_2, .cbg_content #guide_item_3 { font-weight:700; color:#0099ff; text-transform:uppercase; font-size:18px; letter-spacing:1px;}
 
@@ -969,4 +970,4 @@ list-style:none;
 }
 
 .pac-container {z-index:9999;}
-
+.woocommerce-breadcrumb a.breadcrum-link-4 { color:#666666; }
