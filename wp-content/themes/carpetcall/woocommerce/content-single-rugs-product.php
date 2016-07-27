@@ -114,7 +114,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             	
            foreach($reqTempTerms as $cat){
            	$has_sub_cat=get_terms(array('parent'=>$cat->term_id,'taxonomy'=>'product_cat'));
-           	
+           	 
               if(count($has_sub_cat)==0){
 						$current_post_term_id = $cat->term_id;
 						wp_reset_query();
@@ -123,7 +123,14 @@ if ( ! defined( 'ABSPATH' ) ) {
                           'orderby' => 'meta_value_num',
                            'order'     => 'ASC',*/
 
-							'taxonomy'=>'product_cat','term'=>$cat->slug);
+							 'tax_query' => array(
+        array(
+          'taxonomy' => 'product_cat',
+        'terms' => $cat->slug,
+        'field' => 'slug',
+        'compare' => 'IN'
+      )
+      ));
 
 						$loop = new WP_Query($args);
 						$i=0;
@@ -148,46 +155,68 @@ if ( ! defined( 'ABSPATH' ) ) {
                }
               //do_action('pr',$titlepro);
                   $secondVar = '';
-                  unset($titlepro[1826]);
+                 $fsecondVar = '';
                 
-      $resList = array();
+     
+     $proGroup = array();
+    
         foreach($titlepro as $key => $value){
 
             preg_match('/([A-Z]*)\.([0-9]*)\.([0-9]*)\.([0-9]*)/',$value,$match);
-  
+            
+             $proGroup[] = array($value,$match[2],$key);
+             
            if($secondVar!=$match[2]){
-             /*do_action('pr',$value);
-             do_action('pr',$key);*/
+            
              $uniqueId = $key;
 
              $secondVar = $match[2];
              $resList[$uniqueId][]=$key;
+             
             }
          else{
           $resList[$uniqueId][]=$key;
 
             }
-            
+
+  
+}
+$stoKey = array();
+$xyz = array();
+foreach($proGroup as $pgg){
+  
+   $xyz[] =$pgg[1];
+  if(in_array($pgg[1],$stoKey)){
+
+  }
+  else
+  {
+     $stoKey[] =$pgg[1];
+  }
+   
+
   
 }
 
 
-foreach($resList as $mainId):
-  global $post;
-  
-     
-     
-     
-                $displayCounter = 1 ; 
-    
-    foreach($mainId as $val):
+$filterproGroup = array();
 
-           if($post->ID == $val){
-          
-            $res =apply_filters('woocommerce_product_bundle',$mainId);
-          
-           }
-        $proGal = get_post_meta( $val, '_product_image_gallery', TRUE );
+foreach($proGroup as $item ){
+  foreach($stoKey as $myval){
+    if($myval == $item[1] ){
+      $filterproGroup[$myval][$item[2]] = $item[0];
+
+    }
+  }
+}
+
+
+global $post;
+
+foreach($filterproGroup as $bundle){
+  $i=1;  $displayCounter = 1 ; 
+  foreach($bundle as $key => $value){
+      $proGal = get_post_meta( $key, '_product_image_gallery', TRUE );
         $proGalId = explode(',',$proGal);
         $flag= 0;
 
@@ -204,13 +233,13 @@ foreach($resList as $mainId):
                  $stockcheck = get_post_meta($post->ID);
                 if(strcasecmp($stockcheck['_stock_status'][0],'instock')==0){
                   ?>
-                <div class="select-design-product-image <?php echo ($post->ID == $val)?'pro-active':null;?>">
+                <div class="select-design-product-image <?php echo (array_key_exists($post->ID,$bundle))?'pro-active':null;?>">
                          <?php   
 
               
               //echo '<br>';$post->ID;?>
               
-              <a href="<?php echo get_the_permalink($val)?>" class="">
+              <a href="<?php echo get_the_permalink($key)?>" class="">
               <?php if($flag==1){
                      $proImageName =  wp_get_attachment_url($reqProImageId);
                      ?>
@@ -228,10 +257,40 @@ foreach($resList as $mainId):
                 <?php 
 
             }
-          }
 
             $displayCounter++;
+          }
+
         endforeach;
+
+    if($key == $post->ID){
+          
+            $res =apply_filters('woocommerce_product_bundle',$bundle);
+        
+           }
+
+    
+    }
+  
+
+}
+
+foreach($resList as $mainId):
+  global $post;
+  
+     
+     
+     
+                $displayCounter = 1 ; 
+    
+    foreach($mainId as $val):
+
+           if($post->ID == $val){
+          
+           // $res =apply_filters('woocommerce_product_bundle',$mainId);
+          
+           }
+       
        
        
       endforeach; 
@@ -467,7 +526,7 @@ endforeach;
                  <div class="form-group col-sm-12">
 					   <script src='https://www.google.com/recaptcha/api.js'></script>
                       <div class="g-recaptcha" data-sitekey="6LdfuCMTAAAAAGhFRMwboqar9gIW_yfmWVjT7OMj"></div>
-                       <input type="hidden" value="" id="check_captcha" name="check_captcha">
+                       <input type="hidden" value="" id="check_captcha" name="check_captcha_one">
                       <div class="error_label"></div>
                    </div>
                 <div class="form-group col-sm-12">

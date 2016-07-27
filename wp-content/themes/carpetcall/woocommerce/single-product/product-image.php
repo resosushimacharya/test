@@ -70,7 +70,7 @@ global $post, $woocommerce, $product;
 	<?php do_action( 'woocommerce_product_thumbnails' ); ?>
 		<div class="mod-social">
 		<div class="cc-share-title">SHARE: </div>
-		<a href="http://www.facebook.com/sharer.php?u=<?php echo get_permalink($post->ID);?>" target="_blank">
+		<a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink($post->ID);?>" target="_blank">
           <i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i>
          </a>
          <a href="https://twitter.com/share?url=<?php echo get_the_permalink($post->ID);?> " target="_blank">      

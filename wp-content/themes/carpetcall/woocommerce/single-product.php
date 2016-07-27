@@ -100,8 +100,14 @@ else{ ?>
 	<?php 
 }
 ?>
+<script>
+	function recaptchaCallback(){
+   jQuery('#myModal2 #check_captcha').val('1');
+};
+</script>
 <?php get_footer( 'shop' ); ?>
 <script type="text/javascript">
+
 jQuery.validator.setDefaults({ 
 ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
  submitHandler: function() {

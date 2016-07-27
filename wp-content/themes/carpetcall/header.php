@@ -16,8 +16,41 @@ wp_title("");?>
 
 
 </title>
+<?php if(is_single() && get_post_type()=='product'){
+    global $post;
+   
+  
+    $image =  wp_get_attachment_url(get_post_thumbnail_id($post->ID));
+   
+    ?>
 <meta http-equiv="Cache-Control" content="no-cache"/>
+<!-- facebook share   -->
+<meta name="twitter:card" content="summary_large_image">
+                <!-- <meta name="twitter:title" content="<?php //echo get_the_title(); ?>"> -->
+<meta name="twitter:description" content="<?php echo get_the_title(); ?>">
+<meta name="twitter:image" content="<?php echo  $image; ?>">             
+<meta name="twitter:site" content="@carpetcall" />
+<meta name="twitter:creator" content="@carpetcall">
 
+<meta property="og:url" content="<?php echo get_permalink(); ?>" />
+<meta property="og:site_name" content="Carpetcall" />
+<meta property="og:title" content="<?php echo get_the_title(); ?> " />
+
+<meta property="fb:app_id" content="312823042383349" />
+
+<meta property="og:type" content="article" />
+<meta itemprop="og:headline" content="<?php echo get_the_title(); ?> " />
+<meta itemprop="og:description" content="<?php echo get_the_title(); ?>" />
+
+<meta property="og:description" content="<?php echo get_the_title(); ?>" />
+
+<meta property="og:image" content="<?php echo  $image; ?>" />
+<link rel="image_src" href="<?php echo  $image; ?>"/>
+
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+                <?php }
+                ?>
 
 <?php
 
