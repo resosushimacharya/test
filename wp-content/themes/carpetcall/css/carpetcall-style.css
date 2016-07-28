@@ -528,10 +528,9 @@ li.clblk_a::before {content: '';}
 .inerblock_sec_a { background:#e7edf8; margin-top:52px; padding-bottom:61px; }
 .inerblock_sec_a h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin:33px 0 26px 0; text-transform:uppercase;}
 .you_may_link_cntr{padding: 0 20px;}
+.you_may_like-content{margin: 0 -10px;}
+.inerblock_sec_a .you_may_link_cntr .col-md-4{padding:0 10px;}
 
-.inerblock_sec_a .you_may_link_cntr:nth-child(1) .col-md-4{padding:0; width:32.2%;}
-.inerblock_sec_a .you_may_link_cntr:nth-child(2) .col-md-4{padding: 0 19px; width:32.2%;}
-.inerblock_sec_a .you_may_link_cntr:nth-child(3) .col-md-4{padding:0; width:32.2%;}
 
 a.cc-product-item-image-link .img_cntr { min-height:183px;}
 .proabtxt a:hover { text-decoration:none; cursor:pointer;}

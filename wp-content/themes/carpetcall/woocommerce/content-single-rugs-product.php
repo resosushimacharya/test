@@ -692,7 +692,7 @@ wrapper close start */?>
      //echo do_shortcode('[best_selling_products per_page="6" columns="12" category="'.$docatname.'"]');
     ?>
         <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
-
+<div class="you_may_like-content">
 		<?php               wp_reset_query();
 
 
@@ -801,6 +801,7 @@ wrapper close start */?>
                       </div>
                       </div></a>
                       </div>
+                      
 
 
 								<?php endwhile;?>
@@ -820,7 +821,7 @@ wrapper close start */?>
 					}
 			
 
- ?>
+ ?></div>
 <div class="clearfix"></div>
 					
                     
