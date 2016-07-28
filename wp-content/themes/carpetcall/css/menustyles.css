@@ -295,7 +295,7 @@
 #cssmenu > ul#menu-main  li.menu-item-depth-0:nth-child(2) ul.sub-menu { height:auto;}
 #cssmenu > ul#menu-main  li.menu-item-depth-0:nth-child(2) ul.sub-menu li.menu-item-depth-1 ul.sub-menu{ height:auto; left:98.5%; width:75%;}
 
-@media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+/*@media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
   #cssmenu > ul {
     max-height: 0;
     overflow: hidden;
@@ -424,4 +424,4 @@
 #cssmenu ul li ul li a span i {
   padding-right:5px;
   color:#0099ff;
-}
+}*/
