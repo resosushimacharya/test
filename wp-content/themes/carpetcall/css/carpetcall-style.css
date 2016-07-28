@@ -974,5 +974,5 @@ list-style:none;
 
 .pac-container {z-index:9999;}
 
-.cc-tab-faq-read-more p a {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:underline;}
-.cc-tab-faq-read-more p a:hover { text-decoration:none;}
+.cc-tab-faq-read-more p a, .panel.entry-content wc-tab p a {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:underline;}
+.cc-tab-faq-read-more p a:hover, .panel.entry-content wc-tab p a:hover { text-decoration:none;}
