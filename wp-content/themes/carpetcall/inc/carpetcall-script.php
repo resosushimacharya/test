@@ -43,6 +43,7 @@ wp_enqueue_script( 'trouble-script', get_template_directory_uri().'/js/trouble.c
 
 	if((strcasecmp(get_post_type(),'product')==0)){
 		 wp_enqueue_script( 'jquery-accordion', get_template_directory_uri().'/js/accordion.product.js', array(), false, false);
+		 
 	}
 }
 

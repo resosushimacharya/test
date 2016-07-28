@@ -88,6 +88,9 @@ wp_head();
 
 
      }
+     function showlocationdialog(){
+        navigator.geolocation.getCurrentPosition(dialogcallback, errorHandler);
+     }
 
      function errorHandler(error) {
          switch (error.code) {
@@ -111,10 +114,21 @@ wp_head();
          lat = position.coords.latitude;
          lon = position.coords.longitude;
          rs = [lat, lon];
+       
 
 
+       autocomplet();
+     }
 
-         autocomplet();
+     function dialogcallback(position) {
+
+         lat = position.coords.latitude;
+         lon = position.coords.longitude;
+         rs = [lat, lon];
+       
+
+
+     autocomplet_dialog();
      }
        </script>
 

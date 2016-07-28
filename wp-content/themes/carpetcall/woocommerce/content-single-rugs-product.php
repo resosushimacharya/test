@@ -377,7 +377,16 @@ endforeach;
                 <div class="yd-title"> 	
                 <h3>YOUR  DETAILS</h3> 		
                 </div>
-                
+                <select class="selectpicker col-md-6 valid" name="cc_enquiry_type" id="cc-enquiry-type" aria-invalid="false">
+            
+                       <option class="col-md-12" value="sales enquiry">
+                         Sales Enquiry
+                       </option>
+                       <option class="col-md-12" value="Service Enquiry">
+                         Service Enquiry
+                       </option>
+      
+                     </select>
                 <div class="flsm-blk">
                 <div class="form-group col-sm-6"> <label for="first_name">First Name</label>
                     <input type="text" name="first_name" class="form-control" value="" size="40"  id="first_name"  placeholder="E.G. JOHN">
@@ -401,7 +410,7 @@ endforeach;
                 <div class="tela-blkb">
 	            <div class="form-group col-sm-6">
 	            	<label for="mobile_phone_no">Phone</label>
-                    <input type="tel" name="mobile_phone_no" class="form-control"  value="" size="40" id="mobile_phone_no" placeholder="E.G. 02 1234 5678">
+                    <input type="tel" name="mobile_phone_no" class="form-control"  value="" size="40" id="mobile_phone_no" placeholder="E.G. 0212345678">
                     <div class="error_label"></div>
                 </div>
                 </div>
@@ -570,57 +579,66 @@ endforeach;
                     <div class="input-group">
                       <input type="text"  placeholder="SUBURB OR POSTCODE" id="edit_dialog_keyword" name="edit_dialog_keyword" type="text" class="form-control controls"  onkeyup="customDialog(event);">
                       <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" onclick="rs='';autocomplet();" id="check_control"><img src="<?php echo get_template_directory_uri().'/images/icon2.jpg';?>" style="float:right;"></button>
+                        <button class="btn btn-default" type="button" onclick="rs='';autocomplet_dialog();" id="check_control_dialog"><img src="<?php echo get_template_directory_uri().'/images/icon2.jpg';?>" style="float:right;"></button>
                       </span>
                     </div>
                          
                          <span class="midlt"> OR </span>
                          
-                          <button type="button" class="btn btn-default" onclick="showlocation();rs='';" >USE CURRENT LOCATION</button>
+                          <button type="button" class="btn btn-default" onclick="showlocationdialog();rs='';" >USE CURRENT LOCATION</button>
                         </form>
             </div>
-            <div id="directory_list_id_s"></div>
+            <!-- <div id="dialog_list_id_s"></div> -->
             
-            <div class="nearstore"> 
-            	<h3 class="clostor-blk">Closest stores to “2015” </h3>
-                
-                <div class="col-md-12">
-                	<div class="col-md-4 no-lr">
+            <div class="nearstore " id="dialog_list_id_s"> 
+            <div class="col-md-12">
+            	<?php
+              $args = array(
+                'post_type' => 'wpsl_stores',
+                'posts_per_page'=>'3',
+                'orderby' => 'rand'
+
+                     
+              );
+              $loop = new WP_Query($args);
+              if($loop->have_posts()):
+                while($loop->have_posts()):
+                  $loop->the_post();
+                 $temp = get_post_meta($loop->post->ID);
+                 ?>
+                  <div class="col-md-4 no-lr">
                     <div class="str-one">
-                    	<h4> ALEXANDRIA </h4>
-                        <p>Lvl 1 Shop 13, Style at</p>
-                        <p>Home Centre 45</p>
-                        <p>O'Riordan cnr Doody</p>
-                        <p>Street, Alexandria NSW</p>
-                        <p>2015</p>
+                      <h4><?php 
+                      
+                      echo get_the_title();?> </h4>
+                      <?php if(!empty($temp['wpsl_address'][0])){ ?>
+                        <p><?php echo $temp['wpsl_address'][0] ;?></p>
+                        <?php } ?>
+                        <?php 
+                        $citystate ="" ;
+                        if(!empty($temp['wpsl_city'][0])){
+                          $citystate.=  $temp['wpsl_city'][0]." ";
+                        }
+                        if(!empty($temp['wpsl_state'][0])){
+                          $citystate.=  $temp['wpsl_state'][0];
+                        }
+                        ?>
+                        <p><?php echo $citystate ;?></p>
+                        <?php
+                         if(!empty($temp['wpsl_zip'][0])){ 
+                          ?>
+                        <p><?php echo $temp['wpsl_zip'][0]; ?></p>
+                        <?php } ?>
+                   
                     </div><div class="clearfix"></div>
-                    </div> <!-- store one end -->
-                    
-                    <div class="col-md-4 no-lr">
-                    <div class="str-one">
-                    	<h4> ALEXANDRIA </h4>
-                        <p>Lvl 1 Shop 13, Style at</p>
-                        <p>Home Centre 45</p>
-                        <p>O'Riordan cnr Doody</p>
-                        <p>Street, Alexandria NSW</p>
-                        <p>2015</p>
-                    </div><div class="clearfix"></div>
-                    </div> <!-- store two end -->
-                    
-                    <div class="col-md-4 no-lr">
-                    <div class="str-one">
-                    	<h4> ALEXANDRIA </h4>
-                        <p>Lvl 1 Shop 13, Style at</p>
-                        <p>Home Centre 45</p>
-                        <p>O'Riordan cnr Doody</p>
-                        <p>Street, Alexandria NSW</p>
-                        <p>2015</p>
-                    </div><div class="clearfix"></div>
-                    </div> <!-- store three end -->
-                    
-                </div><div class="clearfix"></div>
+                    </div>
+                 <?php  
+                 endwhile; 
+                 wp_reset_query();
+                endif;
+              ?>
                 
-                
+              </div> <div class="clearfix"></div> 
             </div><div class="clearfix"></div>
             
       </div>
@@ -759,14 +777,14 @@ wrapper close start */?>
 
 									?> <div class="col-md-4">
                   		<div class="pro_secone">
-                  		<div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div>
+                  		<a href="<?php the_permalink();?>" class="cc-product-item-image-link"><div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
                   
                     <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
                     <div class="mero_itemss">
                       		<div class="proabtxt">
-					<h4>
+					 <a href="<?php the_permalink();?>" class="cc-product-item-title-link"><h4>
 					<?php echo $term->name;?>
-					</h4><?php 
+					</h4></a><?php 
 
 					$reqTempTerms=get_the_terms($post->ID,'product_cat');
 					
@@ -778,8 +796,6 @@ wrapper close start */?>
 						echo '<h5> FROM A$'.$price.'</h5>';
 						
 						}?></div>
-           <div class="nowsp nowspp cc-alternate-cat-link"><a href="<?php the_permalink();?>" tabindex="0"> 
-  SHOP NOW </a></div>
 					<div class="clearfix"></div>
                            
                       </div>
@@ -816,4 +832,7 @@ $("document").ready(function(){
     $(".woocommerce-main-image").removeAttr("data-rel");
 });
 </script>
+<style>
+  #cc-enquiry-type{display:none;}
+</style>
 

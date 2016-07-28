@@ -4,27 +4,27 @@ function autocomplet_dialog() {
 	jQuery('#alert_msg').remove();
 	var keyword = jQuery('#edit_dialog_keyword').val().trim();
 	
-     if((typeof stoLocation[0] == 'undefined')){
+     if((typeof diaLocation[0] == 'undefined' && rs[0]==null)){
      	jQuery("#edit_dialog_keyword").parent().parent().prepend('<h5 id="alert_msg">Please select the keywords</h5>');
-
+         
      }
-      if(keyword!="" && keyword!=null && keyword.length>3 && (typeof stoLocation[0] != 'undefined')||rs[0]!=null)
+      if(keyword!="" && keyword!=null && keyword.length>3 && (typeof diaLocation[0] != 'undefined')||rs[0]!=null)
 	    {
 		jQuery.ajax({
-			url: wp_autocomplete.ajax_url,
+			url: dialog_autocomplete_one.ajax_url,
 			type: 'POST',
 			data: {
 				keyword:keyword,
 				latitude:rs[0],
 				longitude:rs[1],
-				prelat:stoLocation[0],
-				prelong:stoLocation[1],
-				action: 'dir_autocmp'
+				prelat:diaLocation[0],
+				prelong:diaLocation[1],
+				action: 'dialog_autocmp'
 				
 			},
 			success:function(data){
 				
-				jQuery("#edit_dir_keyword").val('');
+				jQuery("#edit_dialog_keyword").val('');
 				
 				jQuery("#after_heading").css("color","#1858b8");
 				jQuery("#after_dropdown").css("background-color"," #e7edf8");
@@ -32,10 +32,10 @@ function autocomplet_dialog() {
 				jQuery('#after_browse').hide();
 				jQuery('#before_heading').hide();
 				jQuery('#after_heading').show();
-				jQuery('#directory_list_id').show();
-				jQuery('#directory_list_id_s').show();
-				jQuery('#directory_list_id_s').html(data);
-				jQuery("#edit_dir_keyword").focus();
+				/*jQuery('#dialog_list_id').show();*/
+				jQuery('#dialog_list_id_s').show();
+				jQuery('#dialog_list_id_s').html(data);
+				jQuery("#edit_dialog_keyword").focus();
              rs= null;
              stoLocation = [];
 				  

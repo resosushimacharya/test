@@ -205,6 +205,180 @@ wp_localize_script( 'autocomplete', 'wp_autocomplete', array( 'ajax_url' => admi
 }
 add_action( 'wp_enqueue_scripts', 'test_scripts' );
 
+/* this is for dialog function*/
+  function dialog_autocomplete()
+{
+
+  global $wpdb;
+
+  $keyword = $_POST['keyword'];
+  $lat=$_POST['latitude'];
+  $long=$_POST['longitude'];
+
+  $prelat = $_POST['prelat'];
+  $prelong = $_POST['prelong'];
+
+$a=array();
+$controlzip=1;?>
+
+<?php
+
+   $keyArray=explode(",",$keyword);
+  
+  
+  $len=strlen($keyword);
+  
+  $fi==0;
+  $li=0;
+     $break=0;
+     $myArrays= array();
+  $backarg=array('post_type'=>'wpsl_stores',
+    'posts_per_page'=>'-1'
+    );
+
+
+  $loop= new WP_Query(
+    $backarg);
+  while($loop->have_posts()):
+  $loop->the_post();?>
+    <?php $strpart=str_split(get_the_title(),$len);
+    
+  
+   $loc = get_post_meta(get_the_ID());
+
+
+      
+
+    
+    $latitude2=$loc['wpsl_lat'][0];
+      $longitude2=$loc['wpsl_lng'][0];
+  ?>
+ 
+       <?PHP if($controlzip==1){?>
+
+        <?php if(!$lat){?>
+         <h3 class="clostor-blk">Closest stores to “<?php echo $keyArray[0]; ?>” </h3>
+        <?php }
+        else {?>
+        <h3 class="clostor-blk">Stores Near From You</h3>
+        <?php } ?>
+       
+       <?php $controlzip++; }?>
+       
+         
+        <?php if(!empty($lat)){?>
+
+       <?php 
+        $latlongloc = getDistanceBetweenPointsNew($lat, $long, $latitude2, $longitude2,'Km');
+          
+        $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0],$latlongloc,get_the_title()); ?>
+        <?php }
+        else{?>
+         <?php
+          $latlongloc = getDistanceBetweenPointsNew($prelat, $prelong, $latitude2, $longitude2,'Km');
+
+
+
+      $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0],$latlongloc,get_the_title()); 
+         }?>         
+              
+
+ 
+ <?php  
+ 
+  endwhile;
+
+
+
+   ?>
+  <?php function sortByOrder($a, $b) {
+    return $a[4] - $b[4];
+}
+
+usort($myArrays, 'sortByOrder');
+
+
+?>
+  <div class="col-md-12">
+      <?php  if(count($myArrays)!=0):?>
+      <?php $zloop=1; if($lat):?>
+  <?php foreach($myArrays as $ma):?>
+    <?php if($zloop==4){
+
+      break;
+      } 
+      $zloop++;?>
+    <div class="col-md-4 no-lr">
+                    <div class="str-one">
+                      <h4><?php echo $ma[5];?> </h4>
+                        <p><?php echo $ma[0] ;?></p>
+                        
+                        <p><?php echo $ma[1].' '.$ma[2] ;?></p>
+                        <p><?php echo $ma[3]; ?></p>
+                   
+                    </div><div class="clearfix"></div>
+                    </div>
+  <?php endforeach;?>
+
+<?php else:?>
+  <?php foreach($myArrays as $ma):?>
+    <?php if($zloop==4){
+
+      break;
+      } 
+      $zloop++;
+
+      ?>
+    <div class="col-md-4 no-lr">
+                    <div class="str-one">
+                      <h4><?php echo $ma[5];?> </h4>
+                        <p><?php echo $ma[0] ;?></p>
+                        
+                        <p><?php echo $ma[1].' '.$ma[2] ;?></p>
+                        <p><?php echo $ma[3]; ?></p>
+                   
+                    </div><div class="clearfix"></div>
+                    </div>
+
+  <?php endforeach;?>
+<?php endif;
+else:?>
+    
+           <div class="col-md-8">
+
+                            <address>
+                              
+                               <?php echo "no stores found" ;
+                              echo  count($myarrays);?>
+                               
+                              
+                            </address>
+                            </div><div class="clearfix"></div>
+  <?php endif;?>
+</div>
+ <div class="clearfix"></div>
+  <!-- <form autocomplete="off" method="post">
+  </form> -->
+   
+  <?php
+   die();
+  wp_reset_query();
+}
+/* this is for dialog hook */
+add_action('wp_ajax_dialog_autocmp', 'dialog_autocomplete');
+add_action('wp_ajax_nopriv_dialog_autocmp', 'dialog_autocomplete');
+/* this is for dialog */
+function dialog_scripts(){
+  wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', '',true);
+    wp_enqueue_script('jquery');
+  wp_register_script('autocomplete-dialog', get_template_directory_uri(). '/js/dialog.autocomplete.js', '',true);
+
+wp_enqueue_script('autocomplete-dialog');
+wp_localize_script( 'autocomplete-dialog', 'dialog_autocomplete_one', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+
+}
+add_action( 'wp_enqueue_scripts', 'dialog_scripts' );
+
 function  directory_autocomplete_store()
 {
 global $wpdb;

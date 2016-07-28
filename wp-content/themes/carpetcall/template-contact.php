@@ -100,7 +100,7 @@ get_header();
                 <div class="tel-blk">
 	            <div class="form-group col-sm-6">
 	            	<label for="mobile_phone_no">Phone</label>
-                    <input type="tel" name="mobile_phone_no" class="form-control"  value="" size="40" id="mobile_phone_no" placeholder="E.G. 02 1234 5678">
+                    <input type="tel" name="mobile_phone_no" class="form-control"  value="" size="40" id="mobile_phone_no" placeholder="E.G. 0212345678">
                     <div class="error_label"></div>
                 </div>
                 </div>

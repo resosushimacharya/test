@@ -390,7 +390,7 @@ if(!empty($d3)){
 if(!empty($d4)){
 echo '<p>'.$d4.'</p>';
 }
-		echo '<h3 class="detail-heading-item">SPECIFICATIONS</h3>';?>
+		echo '<h3 class="detail-heading-item-spec">SPECIFICATIONS</h3>';?>
 
 		<ul class="specific-list">
 		<?php if(!empty($yarn)){?>

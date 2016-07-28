@@ -30,7 +30,7 @@
       onkeypress="handle(event)"> -->
       <input id="edit_dir_keyword" name="edit_dir_keyword" type="text" class="form-control controls" placeholder="suburb or postcode" onkeyup="mymap(event);">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button" onclick="rs='';autocomplet();" id="check_control_dialog">
+        <button class="btn btn-default" type="button" onclick="rs='';autocomplet();" id="check_control">
         <img src="<?php  echo get_template_directory_uri();?>/images/magnify.png"/>
         </button>
       </span>
@@ -81,6 +81,7 @@ else{
  <script>
 
   var stoLocation= [];
+  var diaLocation = [];
       function mymap(e) {
         var input = document.getElementById('edit_dir_keyword');
        var options = { types: ['geocode'],componentRestrictions: {country: "AU"} };
@@ -172,7 +173,7 @@ function customDialog(e) {
         google.maps.event.clearListeners(input, "keydown");
 
     $(".pac-container").hide();
-       autocomplet();
+       autocomplet_dialog();
     }
         if(check.length>3){
         $("#check_control_dialog").addClass("store-key-control");
@@ -184,8 +185,8 @@ function customDialog(e) {
         autocomplete.addListener('place_changed', function() {
          
           var place = autocomplete.getPlace();
-           stoLocation.push(place);
-          stoLocation = [place.geometry.location.lat(),place.geometry.location.lng()];
+           diaLocation.push(place);
+          diaLocation = [place.geometry.location.lat(),place.geometry.location.lng()];
           //input.value="";
 
          

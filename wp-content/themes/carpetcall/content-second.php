@@ -25,10 +25,10 @@ else{
 
 <div class="cc-breadcrumb">
 <span class="cc-bread-root"><a href="<?php echo get_the_permalink($rootID);?>"><?php echo get_the_title($rootID);?> </a></span><?php 
-echo '>' ; ?><span class="cc-bread-parent"><a href="<?php echo get_the_permalink($post->post_parent);?>"><?php echo get_the_title($post->post_parent);?> </a></span><?php 
-echo '>' ; ?><span class="cc-bread-current"><?php echo get_the_title().' '.get_the_title($post->post_parent);?> </span>
+echo ' > ' ; ?><span class="cc-bread-parent"><a href="<?php echo get_the_permalink($post->post_parent);?>"><?php echo get_the_title($post->post_parent);?></a></span><?php 
+echo ' > ' ; ?><span class="cc-bread-current"><?php echo get_the_title().' '.get_the_title($post->post_parent);?></span>
 </div>
-<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo get_the_title();?> <?php echo get_the_title($post->post_parent);?> </h3>
+<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span> <?php echo get_the_title();?> <?php echo get_the_title($post->post_parent);?> </h3>
   
            
 </div>
