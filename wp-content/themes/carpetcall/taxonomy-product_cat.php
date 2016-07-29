@@ -152,8 +152,10 @@ $currentcat = get_queried_object();
                                           		echo '<div class="cat_slider">';
 
                                           	}
-                                            echo '<div class="cat_slider_item " > <img src="'.$feat_image.'" class="img-responsive" /></div>';
-                                             
+                                          ?> <div class="cat_slider_item ">
+                                          	<div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image ;?>)"></div>
+                                          </div>
+                                             <?php 
                                              if($slidercounter==5){
                                              	echo '</div>';
                                              }
