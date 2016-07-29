@@ -167,6 +167,7 @@ $currentcat = get_queried_object();
                                       }
                                       
 									?>
+									<div class="col-md-12 cc-cat-sub-group-item">
                                     <?php 
 
 								if($filloop->have_posts()){
@@ -199,6 +200,7 @@ $currentcat = get_queried_object();
 								<?php endwhile;?>
                      		<?php 
                      		wp_reset_query(); }?>
+                     		</div><!--end of cc-cat-sub-group-item-->
                      		
                      		</div>
                      		<?php 
