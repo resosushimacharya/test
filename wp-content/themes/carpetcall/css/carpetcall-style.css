@@ -979,3 +979,53 @@ list-style:none;
 .cc-subcat-rug-productblk.col-md-12{ padding:0;}
 .proabtxt a {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#1853bb; text-decoration:none;}
 .proabtxt a:hover { cursor:pointer;}
+.row.cc-cat-sub-title-price-cover { margin:0; border-bottom:1px solid #144a9f; padding-bottom:7px;}
+.col-md-6.cc-cat-sub-title { padding-left:0;}
+.cc-cat-sub-title h4 {font:bold 16px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-decoration:none; text-transform:uppercase; margin:17px 0 0px 0;}
+.cc-cat-sub-title h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-decoration:none; text-transform:uppercase; margin:0; border:0; padding:0;}
+.col-md-6.cc-cat-sub-price { padding-right:0; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-align:right; text-decoration:none; text-transform:uppercase; margin:34px 0 0px 0;}
+.col-md-6.cc-cat-sub-price span { font-size:28px;}
+
+.row.cc-cat-sub-carousal-a { margin:12px 0;}
+.cat_slider_item_image {  background-repeat:no-repeat; background-size:cover; background-position:center center; height:330px; }
+.cc-cat-sub-carousal-a .slick-dotted.slick-slider{ margin-bottom:15px;}
+.cc-cat-sub-carousal-a .slick-dots{ bottom:17px;}
+.cc-cat-sub-carousal-a .slick-dots li button{ color:#FFF;}
+.cc-cat-sub-group-item { font-size:0; margin:0 -10px;} 
+.cc-cat-sub-group-item .cc-other-term-pro { font-size:14px; width:20%; display:inline-block; vertical-align:top; padding:5px 10px; }
+.cc-img-wrapper { position:relative;}
+.cc-img-wrapper:after{content: ''; position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: rgba(255,255,255,0.7);z-index: 9; opacity:0;}
+.cc-img-wrapper a.cc-pro-view {
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	z-index: 10;
+	cursor:pointer;
+	background-color:#0099ff;
+	padding:9px 16px;
+	text-align:center;
+	font:normal 13px 'proxima_nova_rgregular', sans-serif; color:#FFFFFF;
+	text-decoration:none;
+	opacity:0;
+}
+.cc-img-wrapper:hover:after, .cc-img-wrapper:hover a.cc-pro-view{ opacity:1;}
+.cc-img-wrapper a.cc-pro-view:hover { text-decoration:none;}
+/* a.cc-pro-view:hover{
+	display:block;
+}
+ */
+.cc-product-sort ul{
+	list-style:none;
+
+}
+.cc-product-sort li{
+	float:left;
+	padding:5px 10px;
+}
+.cc-cat-sub-carousal-a .slick-dots li.slick-active button:before{ opacity:1; background:#144a9f; }
+.cc-cat-sub-carousal-a .slick-dots li button:before{ font-family:none; font-size:0; opacity:1; background:#FFF; border-radius:50%;}
+.cc-cat-pro-section-right input{ width:220px; height:45px; background:#c32428; padding:10px 20px; border:0; margin:46px auto 55px; display:block; text-align:center; color:#FFF; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; text-transform:uppercase;}
+.cc-cat-pro-section-right input:hover { background-color:#b61a1e;}
+.cc_background_image { background-color:#FFF; margin:72px 0 92px 0; }
+

@@ -167,7 +167,7 @@ $currentcat = get_queried_object();
                                       }
                                       
 									?>
-									<div class="col-md-12 cc-cat-sub-group-item">
+									<div class=" cc-cat-sub-group-item">
                                     <?php 
 
 								if($filloop->have_posts()){
@@ -179,7 +179,7 @@ $currentcat = get_queried_object();
 
                                         
 
-									?><div class="col-md-4 cc-other-term-pro">
+									?><div class=" cc-other-term-pro">
 									<div class="cc-img-wrapper">
 									<img src="<?php echo $feat_image;?>"/>
 										<?php
@@ -315,25 +315,6 @@ Non-shedding; highly stain resistant; durable; tight weave; soft under foot; vib
     </div>
 
 <style>
-.cc-img-wrapper a.cc-pro-view {
-	position:absolute;
-	top:50%;
-	left:50%;
-	/* transform:translate(-50%,-50%); */
-	cursor:pointer;
 
-}
-/* a.cc-pro-view:hover{
-	display:block;
-}
- */
-.cc-product-sort ul{
-	list-style:none;
-
-}
-.cc-product-sort li{
-	float:left;
-	padding:5px 10px;
-}
 </style>
 <?php get_footer();?>
