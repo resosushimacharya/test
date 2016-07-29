@@ -241,7 +241,14 @@ get_header();
                 <div class="form-group col-sm-12">
                  <input type="submit" value="Submit" class="btn-dn" id="cc_contact_submit">
                 </div> 
-                  <div class="form-group col-sm-12 success_message">
+                  <div class="form-group col-sm-12 success_message_wrapper ">
+                     
+                     <div class="success_message"></div><div class="close_box">X</div>
+
+                  </div>
+                   <div class="form-group col-sm-12 success_message_wrapper ">
+                     
+                     <div class="error_message"></div><div class="close_box">X</div>
 
                   </div>
 
@@ -263,6 +270,7 @@ background:#f0f2f1 !important;
 .cc-contact-side{
   
 }
+.success_message_wrapper{display:none;}
 
 select#cc-state-type , select#cc-store-name,select#cc-state-type-only{
   text-transform:uppercase !important;
@@ -282,7 +290,11 @@ function recaptchaCallback(){
 };
 
 $ = jQuery.noConflict();
- 
+ $(document).on('click','.close_box',function(){
+    $(this).parent().fadeTo(300,0,function(){
+          $(this).remove();
+    });
+});
  
 
 
@@ -352,14 +364,18 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
          jQuery('#cc_message').val('');
           jQuery('#cc_message').attr("placeholder", "ENTER YOUR MESSAGE HERE");
          jQuery('#cc-state-type-only').val('default');
-         jQuery('.success_message').html(response.success).show(0).delay(10000).hide(0);;
+         $('.success_message').parent().show();
+         jQuery('.success_message').html(response.success).show();
         
          grecaptcha.reset();
             }else{
                 if(typeof(response.captcha_error) != "undefined" && response.captcha_error !== null){
           grecaptcha.reset();
+           $('.error_message').parent().show();
           jQuery('.error_message').html(response.captcha_error).show();
         }else if(typeof(response.error) != "undefined" && response.error !== null){
+            grecaptcha.reset();
+           $('.error_message').parent().show();
           jQuery('.error_message').html(response.error).show();
           
         }
@@ -498,8 +514,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
       mobile_phone_no :{
              phoneValidation:true,
              required: true,
-              minlength:10,
-              maxlength:10
+              
       
      /* required:true*/}
       ,

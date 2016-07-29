@@ -23,7 +23,7 @@ $data=$_POST['form_data'];
         
         if ($response != null && $response->success) {
         //if (1) {
-                     do_action('pr',$data);
+                     
                     
                      $flag = 0 ;
                      /*if(strlen($data['first_name'])==0){
@@ -165,7 +165,10 @@ $data=$_POST['form_data'];
                             }
                             
                             $message['sent_mail']=$sent_mail;
-                            $message['success']="Your message has been sent.";
+                            
+                            $textmessage=get_field('success_message_content',89);
+                           
+                            $message['success']=$textmessage;
                             }
             } else {
               if($response->errorCodes=="missing-input-secret"){

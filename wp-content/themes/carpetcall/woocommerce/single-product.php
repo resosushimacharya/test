@@ -103,7 +103,12 @@ else{ ?>
 
 <?php get_footer( 'shop' ); ?>
 <script type="text/javascript">
-
+$ = jQuery.noConflict();
+ $(document).on('click','.close_box',function(){
+    $(this).parent().fadeTo(300,0,function(){
+          $(this).remove();
+    });
+});
 jQuery.validator.setDefaults({ 
 ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
  submitHandler: function() {
@@ -135,15 +140,20 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
 			   jQuery('#cc_message').val('');
           jQuery('#cc_message').attr("placeholder", "ENTER YOUR MESSAGE HERE");
          jQuery('#cc-state-type-only').val('default');
-			   jQuery('.success_message').html(response.success).show(0).delay(10000).hide(0);;
+			   jQuery('.success_message').parent().show();
+             jQuery('.success_message').html(response.success).show();
         
 			   grecaptcha.reset();
             }else{
               	if(typeof(response.captcha_error) != "undefined" && response.captcha_error !== null){
 					grecaptcha.reset();
+					jQuery('.error_message').parent().show();
+             
 					jQuery('.error_message').html(response.captcha_error).show();
 				}else if(typeof(response.error) != "undefined" && response.error !== null){
-					jQuery('.error_message').html(response.error).show();
+					
+						jQuery('.error_message').parent().show();
+						jQuery('.error_message').html(response.error).show();
 					
 				}
             }
@@ -151,7 +161,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
       }) 
 }
 }) 
-  $.validator.addMethod("phoneValidation",function(value,element){
+   $.validator.addMethod("phoneValidation",function(value,element){
       
       str= value;
        value =value.replace(/[a-z]/gi, '');
@@ -186,6 +196,29 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
       
 
   },'please select');
+  function getWordCount(wordString) {
+      var words = wordString.split(" ");
+      words = words.filter(function(words) { 
+        return words.length > 0
+      }).length;
+      return words;
+}
+
+//add the custom validation method
+    jQuery.validator.addMethod("wordCount",
+       function(value, element, params) {
+          var count = getWordCount(value);
+          if(count >= params[0]) {
+             return false;
+          }
+          else{
+            return true;
+          }
+       },
+      "A minimum of {0} words is required here."
+    );
+
+//call the validator
 
 
  $.validator.addMethod("texareaValidate",function(value,element){
@@ -207,85 +240,100 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
   },'please select');
 
   
-	$.validator.addMethod("valueNotEquals", function(value, element, arg){
+  $.validator.addMethod("valueNotEquals", function(value, element, arg){
 
-  			 return arg != value;
+         return arg != value;
  }, "Value must not equal arg.");
 
 
 
-	jQuery("#contact_form").validate({
-	rules: {
+  jQuery("#contact_form").validate({
+  rules: {
       
-			first_name: "required",
-			last_name: "required",
+      /*first_name: "required",*/
+      first_name:{
+        required:true,
+        maxlength:32
+      },
+
+      last_name:{
+        required:true,
+        maxlength:32
+      },
       cc_message:{
 
-        texareaValidate:true
+       
+        required:true,
+        wordCount: ['50']
       },
-			email_address: {
-				required: true,
-				email: true
-			},
-			
-		cc_state_type: { 
+      email_address: {
+        required: true,
+        email: true
+      },
+      
+    cc_state_type: { 
       default:true
 
-								
-							},
-			cc_store_name: { 
-								default: true,
+                
+              },
+      cc_store_name: { 
+                default: true,
 
-							},
+              },
       cc_state_type_only: {
         default: true,
       },
 
-							
-			
-			information:"required",
-			
-			mobile_phone_no :{
+              
+      
+      information:"required",
+      
+      mobile_phone_no :{
              phoneValidation:true,
-             required: true
+             required: true,
+              minlength:10,
+              maxlength:10
       
      /* required:true*/}
       ,
-			faulty_items :{
-						  number: true,
-						  required: true,
-						},
+      faulty_items :{
+              number: true,
+              required: true,
+            },
       check_captcha_one : "required"     
-	},
-	messages: {
-			first_name: "Please enter your first name!",
-			last_name: "Please enter your last name!",
-			email_address: "Please enter valid email address!",
-			
-			information: " Please enter your message!",
-			 mobile_phone_no: {
+  },
+  messages: {
+      first_name:{required: "Please enter your first name!"
+    },
+      last_name: "Please enter your last name!",
+      email_address: "Please enter valid email address!",
+      
+      information: " Please enter your message!",
+       mobile_phone_no: {
             required :"Please enter your phone number!",
             phoneValidation: "Please enter valid phone number!",
           },
 
-			
-			cc_message: " Please enter your message!",
-			cc_state_type:{ default: "Please select a state!" },
+      
+      cc_message:{  required:"Field must be filled up!",
+                    wordCount:"you may write 50 words at most!"
+                 
+    },
+      cc_state_type:{ default: "Please select a state!" },
       cc_state_type_only:{ default: "Please select a state!" },
-			cc_store_name: { 
-								default: "Please select a store!" 
-							},
+      cc_store_name: { 
+                default: "Please select a store!" 
+              },
       check_captcha_one :"Please  select captcha!",        
-	},
-	errorPlacement: function(error, element){
-		var err_cntr=element.parent("div").find(".error_label");
-			err_cntr.show(); 
-			error.appendTo(err_cntr);
-	}
-	
-	
-	});
-
-
+  },
+  errorPlacement: function(error, element){
+    var err_cntr=element.parent("div").find(".error_label");
+      err_cntr.show(); 
+      error.appendTo(err_cntr);
+  }
+  
+  
+  });
+//hello 
 
 </script>

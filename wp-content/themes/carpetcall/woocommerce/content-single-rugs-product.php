@@ -543,13 +543,26 @@ endforeach;
                 <div class="form-group col-sm-12">
                  <input type="submit" value="Submit" class="btn-dn" id="cc_contact_submit">
                 </div> 
-                  <div class="form-group col-sm-12 success_message">
+                  <div class="form-group col-sm-12 success_message_wrapper ">
+                     
+                     <div class="success_message"></div><div class="close_box">X</div>
+
+                  </div>
+                   <div class="form-group col-sm-12 success_message_wrapper ">
+                     
+                     <div class="error_message"></div><div class="close_box">X</div>
 
                   </div>
 
             </div>
 
         </form> <script>
+         $(document).on('click','.close_box',function(){
+    $(this).parent().fadeTo(300,0,function(){
+          $(this).remove();
+    });
+});
+ 
   function recaptchaCallbackone(){
    jQuery('#check_captcha_one').val('1');
 
@@ -842,5 +855,6 @@ $("document").ready(function(){
 </script>
 <style>
   #cc-enquiry-type{display:none;}
+  .success_message_wrapper{display:none;}
 </style>
 

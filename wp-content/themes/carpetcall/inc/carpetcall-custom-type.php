@@ -3,6 +3,7 @@ function custom_post_type()
 	{
 
 get_arguments('expert','experts','Expert','Experts','Experts','dashicons-admin-post');
+get_arguments('message','messages','Message','Messages','Messages','dashicons-admin-post');
 
 
 get_arguments('Slider','Sliders','Slider','Sliders','Sliders','dashicons-images-alt2');
