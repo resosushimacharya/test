@@ -142,7 +142,7 @@ $currentcat = get_queried_object();
 
                                           if($pch==1){
                                              $res = get_post_meta($post->ID ,'_sale_price',true);
-                                             echo '<div class="col-md-6 cc-cat-sub-price">From A$'.$res.'</div></div> <div class="row cc-cat-sub-carousal-a">';
+                                             echo '<div class="col-md-6 cc-cat-sub-price">From <span>A$'.$res.'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
 
                                              $pch++;
                                              
