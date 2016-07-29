@@ -181,6 +181,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
   
 }
+do_action('pr',$resList);
 
 $stoKey = array();
 $xyz = array();
@@ -198,7 +199,7 @@ foreach($proGroup as $pgg){
 
   
 }
-
+do_action('pr',$stoKey);
 
 $filterproGroup = array();
 
@@ -210,6 +211,7 @@ foreach($proGroup as $item ){
     }
   }
 }
+do_action('pr',$filterproGroup);
 
 
 global $post;

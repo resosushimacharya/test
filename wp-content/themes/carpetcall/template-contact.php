@@ -291,8 +291,11 @@ function recaptchaCallback(){
 
 $ = jQuery.noConflict();
  $(document).on('click','.close_box',function(){
+  var that=this;
     $(this).parent().fadeTo(300,0,function(){
-          $(this).remove();
+          $(that).parent().hide();
+          $(that).parent().fadeTo(300,1);
+           $(that).parent().hide();
     });
 });
  
@@ -514,6 +517,8 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
       mobile_phone_no :{
              phoneValidation:true,
              required: true,
+             maxlength:10,
+             minlength:10
               
       
      /* required:true*/}

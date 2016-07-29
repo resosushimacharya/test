@@ -104,9 +104,12 @@ else{ ?>
 <?php get_footer( 'shop' ); ?>
 <script type="text/javascript">
 $ = jQuery.noConflict();
- $(document).on('click','.close_box',function(){
+$(document).on('click','.close_box',function(){
+  var that=this;
     $(this).parent().fadeTo(300,0,function(){
-          $(this).remove();
+          $(that).parent().hide();
+          $(that).parent().fadeTo(300,1);
+           $(that).parent().hide();
     });
 });
 jQuery.validator.setDefaults({ 
@@ -337,3 +340,4 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
 //hello 
 
 </script>
+
