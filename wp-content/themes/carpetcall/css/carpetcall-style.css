@@ -397,7 +397,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 		color: #15489f;
 		font-weight:normal;
 		}
-.img_cntr {background-position:center center; background-size:cover; min-height:127px;  }
+.img_cntr {background-position:center center; background-size:cover; min-height:183px;  }
 
 .responsive .featured_overlay{position:absolute; top: 0; left: 0; right: 0; bottom: 0;z-index: 7;background: #fff}
 .responsive .featured_overlay img{ position:absolute; top:50%; left:50%; background:#fff; z-index: 10; transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); }
@@ -526,13 +526,13 @@ li.clblk_a::before {content: '';}
 .cbg_content p {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 0 24px 0;}
 .inerblock_sec_a { background:#e7edf8; margin-top:52px; padding-bottom:61px; }
 .inerblock_sec_a h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin:33px 0 26px 0; text-transform:uppercase;}
-.you_may_link_cntr{padding: 0 10px;}
+.you_may_like-content { margin:0 -10px; }
 .you_may_link_cntr .col-md-4{padding: 0 10px;}
 .pro_secone { background:#FFF; padding:16px 20px; }
-.mero_itemss { margin:24px 0 18px 0;}
-.proabtxt { min-height:50px; clear:both; }
+.mero_itemss { margin:20px 0 0 0;}
+.proabtxt { min-height:49px; clear:both; }
 .proabtxt h4{font:bolder 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-left:3px;}
-.proabtxt h5{font:normal 12px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase; margin-left:3px;}
+.proabtxt h5{font:normal 12px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase; margin-left:3px; margin-top:-1px;}
 
 ul.guide_list_cbg { background:#e7edf8; padding:28px; margin-bottom:21px;}
 ul.guide_list_cbg li {list-style:none;}
@@ -613,7 +613,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .cc-size-section.col-md-12, .cc-quantiy-section.col-md-12, .quantity.col-md-12, .cc-product-enquiry.col-md-12, .cc-product-ship-free-section.col-md-12, .cc-product-ship.col-md-6, .cc-product-free.col-md-6, .cc-product-pick-location-section.col-md-12, .cc-product-pick.col-md-6, .cc-product-location.col-md-6 { padding:0;}
 .modal-dialog{ margin-top:200px; width:817px;}
 .modal-content { border-radius:0; border-color:#e7edf8;}
-.modal-title {font:bold 30px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase;}
+.modal-title {font:bold 30px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:9px;}
 .modal-a-title {font:bold 30px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:9px;}
 .modal-header { padding:18px 29px 24px 32px; border:none;}
 .modal-body { padding:0 29px 0 24px;}
@@ -621,7 +621,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .frm-blk { padding:9px 0 36px 0;}
 .modal-body .frm-blk .input-group .btn { width:45%;}
 .frm-blk .input-group { width:62.9%; border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0;}
-.frm-blk .input-group .form-control { width:100%; height:45px; border:0; border-radius:0; outline:0; background-color:#e7edf8;}
+.frm-blk .input-group .form-control { font:normal 12px 'proxima_nova_ltsemibold', sans-serif; color:#666666; width:100%; height:45px; border:0; border-radius:0; outline:0; background-color:#e7edf8; box-shadow:none; outline:0; -webkit-box-shadow:none;}
 .frm-blk .input-group .btn { float:right; height:45px; border:0; border-radius:0; outline:0; background-color:#e7edf8; } 
 .midlt {font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; text-transform:uppercase; text-align:center; padding:0 16px;}
 .frm-blk .btn { font:bold 14px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-transform:uppercase; text-align:center; background-color:#c32428; border-radius:0; border:0; height:45px; width:29.6%;  }
@@ -631,7 +631,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .nearstore .col-md-12 .col-md-4:nth-child(1), .nearstore-a .col-md-12 .col-md-4:nth-child(1) { width:31.2%;}
 .nearstore .col-md-4:nth-child(2), .nearstore-a .col-md-4:nth-child(2) { width:31.2%; margin:0 26px 0 22px; }
 .nearstore .col-md-4:nth-child(3), .nearstore-a .col-md-4:nth-child(3) { width:31.2%; }
-.str-one { border:1px solid #e7edf8; padding:33px 25px 30px 26px;}
+.str-one { border:1px solid #e7edf8; padding:33px 25px 30px 26px; min-height:250px;}
 .str-one h4 {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; margin-bottom:10px;}
 .str-one p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; line-height:24px; margin:0;}
 .modal-dialog button.close{position: absolute; top: -1px; right: -1px;height: 44px;width: 44px;background: #15489f;opacity: 1;border-radius: 0;margin: 0;color: #fff;}
@@ -776,7 +776,7 @@ section#main { margin:18px 0 19px 0;}
 .cc-product-sort li a {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-decoration:none; border-bottom:3px solid #0099ff;}
 .cc-product-sort li a:hover {border-bottom:3px solid #15489f; cursor:pointer;}
 .cc-cat-pro-section-left.col-md-3 { width:23.5%; padding-left:0; padding-right:10px;}
-.col-md-9.cc-cat-pro-section-right { padding-right:0; padding-left:10px; }
+.col-md-9.cc-cat-pro-section-right { padding-right:0; padding-left:11px; width:76.5%; }
 .cc-pro-sub-cat-ul.guide_list_cbg h3 {font:bold 16px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; border:0;}
 .cc-color-var-section h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-decoration:none; border-bottom:1px solid #efefef; padding-bottom:3px; margin:14px 0 4px 0; width:100%; text-transform:none;}
 .panel-group.cc-color-var .panel-default>.panel-heading { background-color:#FFF; padding:10px 0; }
@@ -976,3 +976,6 @@ list-style:none;
 
 .cc-tab-faq-read-more p a, .panel.entry-content.wc-tab p a {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:underline;}
 .cc-tab-faq-read-more p a:hover, .panel.entry-content.wc-tab p a:hover { text-decoration:none;}
+.cc-subcat-rug-productblk.col-md-12{ padding:0;}
+.proabtxt a {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#1853bb; text-decoration:none;}
+.proabtxt a:hover { cursor:pointer;}
