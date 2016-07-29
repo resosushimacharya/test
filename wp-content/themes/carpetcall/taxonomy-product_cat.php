@@ -101,7 +101,7 @@ $currentcat = get_queried_object();
                             	}
                             	$loopcounter++;
                             	?>
-                          <div class="row ">
+                          <div class="row cc-cat-sub-title-price-cover">
                             		<div class="col-md-6 cc-cat-sub-title"><h3><?php woocommerce_page_title();?></h3><br />
                             		<?php
                             	echo '<h3>'.$discat->name.'</h3><br/>';
