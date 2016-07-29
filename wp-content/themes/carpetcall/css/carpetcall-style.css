@@ -585,7 +585,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 /*................ Inner Featured Product start here ...................*/
 .inerblock-sec-prod-a { margin:145px 0 0px 0; }
 .woocommerce-breadcrumb a.breadcrum-link-2, .woocommerce-breadcrumb a.breadcrum-link-3, .woocommerce-breadcrumb a.breadcrum-link-4, .woocommerce-breadcrumb a.breadcrum-link-5 { font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:none; text-transform:uppercase;}
-.woocommerce-breadcrumb a.breadcrum-link-4 { color:#666; }
+.woocommerce-breadcrumb a.breadcrum-link-4 { color:#15489f; }
 .woocommerce .woocommerce-breadcrumb { margin:16px 0 9px 0;}
 .woocommerce-breadcrumb a.breadcrum-link-5 { color:#666; }
 .woocommerce-breadcrumb a.breadcrum-link-2, .woocommerce-breadcrumb a.breadcrum-link-3, .woocommerce-breadcrumb a.breadcrum-link-4:hover { cursor:pointer;}
@@ -606,7 +606,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .woocommerce-page div.product div.summary { width:40.6%; margin-top:43px; }
 .cc-price-control .cc-sale-price-title {font:bold 30px 'proxima_nova_ltsemibold',sans-serif; color:#0099ff; text-decoration:none; text-transform:uppercase; }
 .cc-price-control .cc-line-through{font:normal 14px 'proxima_nova_rgregular', sans-serif; color:#c32327; text-decoration:line-through; text-transform:uppercase;}
-.summary.entry-summary h3{font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase;}
+.summary.entry-summary h3{font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase;}
 .summary.entry-summary .product_title.entry-title {font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase;}
 .summary.entry-summary .cc-related-product-design-section h3{font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin:18px 0 3px 0;}
 .cc-select-design-pro-all.col-md-12 { padding:0; font-size:0;margin: 0 -5px;}
@@ -626,7 +626,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .midlt {font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; text-transform:uppercase; text-align:center; padding:0 16px;}
 .frm-blk .btn { font:bold 14px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-transform:uppercase; text-align:center; background-color:#c32428; border-radius:0; border:0; height:45px; width:29.6%;  }
 .nearstore, .nearstore-a {padding:0 0 35px 0;}
-.clostor-blk {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding-bottom:10px;}
+.clostor-blk {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding-bottom:10px; margin-bottom:2px;}
 .nearstore .col-md-12, .nearstore-a .col-md-12{ padding:0;}
 .nearstore .col-md-12 .col-md-4:nth-child(1), .nearstore-a .col-md-12 .col-md-4:nth-child(1) { width:31.2%;}
 .nearstore .col-md-4:nth-child(2), .nearstore-a .col-md-4:nth-child(2) { width:31.2%; margin:0 26px 0 22px; }
@@ -780,7 +780,7 @@ section#main { margin:18px 0 19px 0;}
 .cc-pro-sub-cat-ul.guide_list_cbg h3 {font:bold 16px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; border:0;}
 .cc-color-var-section h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-decoration:none; border-bottom:1px solid #efefef; padding-bottom:3px; margin:14px 0 4px 0; width:100%; text-transform:none;}
 .panel-group.cc-color-var .panel-default>.panel-heading { background-color:#FFF; padding:10px 0; }
-.glyphicon-chevron-up:before {
+.cc-cat-pro-section-left .glyphicon-chevron-up:before {
 	content:'\f106';
 		font-family: FontAwesome;
 		font-size:16px;
@@ -788,9 +788,17 @@ section#main { margin:18px 0 19px 0;}
 		font-weight:normal;
 
 }
+.cc-cat-pro-section-left .glyphicon-chevron-down:before {
+	content:'\f107';
+		font-family: FontAwesome;
+		font-size:16px;
+		color: #0099ff;
+		font-weight:normal;
+
+}
 .panel-title>a {font:bold 16px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none; margin-left:25px;}
-a.pull-right { font:normal 10px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-transform:uppercase; text-decoration:underline; margin-top:4px; }
-a.pull-right:hover { color:#000; text-decoration:none;}
+a.pull-right { font:bold 10px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; text-decoration:underline; margin-top:4px; }
+a.pull-right:hover { color:#000; text-decoration:none; cursor:pointer;}
 .panel-group .panel-heading+.panel-collapse>.panel-body { border:0; padding:0; }
 .cc-store-icon-label img{
      display: inline-block;
@@ -917,8 +925,9 @@ label#email_address-error { margin:0;}
 .cc-cat-title-count {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase;}
 .cc-count-clear {font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase;}
 div#collapse_color .panel-body { margin-top:6px;}
-.cc-color-var-item #purple { margin:0 21px 0 0; border:0; border-radius:3px;}
-.cc-color-var-item label { font-size:10px; color:#666666; text-align:center; margin:0 0 0 4px;}
+.cc-color-var-item #purple { margin:0 21px -3px 0; border:0; border-radius:3px;}
+.cc-color-var-item #red { margin:0 21px -3px 0; border:0; border-radius:3px;}
+.cc-color-var-item label { font-size:10px; color:#666666; text-align:center; margin:0 0 8px 4px;}
 .swatch{
     width: 38px;
     height: 38px;
@@ -966,10 +975,23 @@ list-style:none;
   background-color:#e7edf8;
   border: 1px solid #d1ddf1;
 }
+.cc-price-var-items form .checkbox label::after{
+	content: '';
+    position: absolute;
+    background-image: url(../images/icon3.png);
+    background-position: 0px 1px;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    width: 23px;
+    height: 19px;
+	opacity: 0;
+}
 .cc-price-var-items form .checkbox input[type="checkbox"]:checked + label::before {
-  background:url(../images/icon3.png) no-repeat;
-  background-position: center center;
-  background-repeat: no-repeat;
+  background: #FFF;  
+}
+.cc-price-var-items form .checkbox input[type="checkbox"]:checked + label::after{
+	opacity:1;
 }
 
 .pac-container {z-index:9999;}
