@@ -100,17 +100,12 @@ else{ ?>
 	<?php 
 }
 ?>
-<script>
-	function recaptchaCallback(){
-   jQuery('#myModal2 #check_captcha').val('1');
 
-};
-</script>
 <?php get_footer( 'shop' ); ?>
 <script type="text/javascript">
 
 jQuery.validator.setDefaults({ 
-ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
+ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
  submitHandler: function() {
 		 var form_data= jQuery("#contact_form").serializeArray();
 		  var json = {};
@@ -260,7 +255,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
 						  number: true,
 						  required: true,
 						},
-      check_captcha : "required"     
+      check_captcha_one : "required"     
 	},
 	messages: {
 			first_name: "Please enter your first name!",
@@ -280,7 +275,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
 			cc_store_name: { 
 								default: "Please select a store!" 
 							},
-      check_captcha :"Please  select captcha!",        
+      check_captcha_one :"Please  select captcha!",        
 	},
 	errorPlacement: function(error, element){
 		var err_cntr=element.parent("div").find(".error_label");

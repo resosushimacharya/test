@@ -23,12 +23,100 @@ $data=$_POST['form_data'];
         
         if ($response != null && $response->success) {
         //if (1) {
-            
-                   if($data['first_name']==""  && $data['last_name']=="" && $data['email_address']=="" ){
-                       $message['error']="Please Fill Form properly";
+                     do_action('pr',$data);
+                    
+                     $flag = 0 ;
+                     /*if(strlen($data['first_name'])==0){
+                      echo strlen($data['first_name']);
 
-                   }else{
-                   
+                     }*/$terms = get_terms('wpsl_store_category');
+                     $state_error=false;
+                     if(strcasecmp(sanitize_text_field($data['cc_enquiry_type']),'sales enquiry')==0){
+                    
+                     foreach($terms as $term){
+                        $selected="";
+                       
+                        if(strcasecmp($term->slug,$data['cc_state_type'])==0){
+                          $flag=1;
+                        
+                          break;
+                        }
+
+                     }
+                     if($flag==0){
+                        $state_error=true;
+                     }
+
+                    $flag=0;
+                    $store_name_error=false;
+
+                     $args =array('post_type'=>'wpsl_stores','posts_per_page'=>'-1');
+                     $loop = new WP_Query($args);
+                     while($loop->have_posts()):
+                            $loop->the_post();
+                          if(strcasecmp(get_the_title(),$data['cc_store_name'])==0){
+                          $flag=1;
+                         
+                          break;
+                        
+                       }
+
+                      endwhile;
+                      wp_reset_query();
+                         if($flag==0){
+                        $store_name_error=true;
+                     }
+                    
+                   }
+                   else
+                 {
+                     $flag=0;
+                     $state_error=false;
+                     $store_name_error=false;
+                   foreach($terms as $term){
+                        $selected="";
+                       
+                        if(strcasecmp($term->slug,$data['cc_state_type_only'])==0){
+                          $flag=1;
+                        }
+
+                     }
+                      if($flag==0){
+                        $state_error=true;
+                     }
+
+
+                 }
+                     $phono = sanitize_text_field($data['mobile_phone_no']);
+                      $messagecheck = sanitize_text_field($data['cc_message'] );
+
+                     
+                     $emailcheck =sanitize_email($data['email_address']);
+                    if($data['first_name']==""){
+                      $message['error'] ='Error:Empty Firstname!';
+                    }elseif(strlen($data['first_name'])>32){
+                      $message['error'] ='Error:First name exceeds the length(32)!';
+                    }elseif($data['last_name']==""){
+                      $message['error'] ='Error:Empty Last name!';
+                    }elseif(strlen($data['last_name'])>32){
+                      $message['error'] ='Error:Last name exceeds the length(32)';
+                    }elseif(filter_var($emailcheck, FILTER_VALIDATE_EMAIL) === false){
+                     $message['error'] ='Email Format is Invalid!';
+                    }elseif(!ctype_digit($phono)){
+                      $message['error'] ='Phone number must be number!';
+                    }elseif(strlen($phono)!=10){
+                     $message['error'] = 'phone length must be of 10!';
+                   }
+                    elseif(str_word_count($messagecheck)>100){
+                      $message['error'] ='Message words count exceeds(100)!';
+                    }elseif($state_error){
+                        $message['error'] ="You haven't choosen the state  correctly yet!";
+                    }elseif($store_name_error){
+                      $message['error'] ="You haven't choosen the store  correctly yet!";
+                    }
+                   else{
+
+                  
                    $user_email= sanitize_email($data['send_email_address']);
                     if(strcasecmp(sanitize_text_field($data['cc_enquiry_type']),'sales enquiry')==0){
                       $hold = '<b>State</b>       :'.$data['cc_state_type'].'<br>'.'<b>Store</b>        :'.$data['cc_store_name'].'<br>';

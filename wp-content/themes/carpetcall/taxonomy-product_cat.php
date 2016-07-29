@@ -102,7 +102,7 @@ $currentcat = get_queried_object();
                             	$loopcounter++;
                             	?>
                           <div class="row ">
-                            		<div class="col-md-6"><h3><?php woocommerce_page_title();?></h3><br />
+                            		<div class="col-md-6 cc-cat-sub-title"><h3><?php woocommerce_page_title();?></h3><br />
                             		<?php
                             	echo '<h3>'.$discat->name.'</h3><br/>';
                             	 ?>
@@ -142,7 +142,7 @@ $currentcat = get_queried_object();
 
                                           if($pch==1){
                                              $res = get_post_meta($post->ID ,'_sale_price',true);
-                                             echo '<div class="col-md-6">From A$'.$res.'</div></div> <div class="row">';
+                                             echo '<div class="col-md-6 cc-cat-sub-price">From A$'.$res.'</div></div> <div class="row cc-cat-sub-carousal-a">';
 
                                              $pch++;
                                              
@@ -216,73 +216,81 @@ $currentcat = get_queried_object();
 	<div class="inerblock_sec_a">
 
     <div class="container clearfix you_may_link_cntr">
-        <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
+        <h3 style="text-align:center">IDEAS & ADVICE</h3>
+<?php 
+$prourl = site_url();
+$prourl =explode('/',$prourl);
+if(strcasecmp($prourl[2], 'localhost')==0){
+$profaqid = '1700';
+$probuyid ='1827';
+$procareid ='1719';
+}
+else{
+$profaqid = '26729';
+$probuyid ='26701';
+$procareid ='26713';
+}
+?>
 
 
+                   <?php $feat_image = wp_get_attachment_url( get_post_thumbnail_id($profaqid) );?>
+					
+				 <div class="col-md-4">
+                  		<div class="pro_secone">
+                  		      <a href="<?php echo get_the_permalink($probuyid);?>"> <div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
+                  
+                    
+                               <div class="mero_itemss">
+                      		       <div class="proabtxt">
+                      		       
+					                  <a href="<?php echo get_the_permalink($probuyid);?>">  <h4>BUYING GUIDE<span><?php echo '<br>'.get_the_title($probuyid) ;?>
+					                  </span></h4></a>
+					
+                                   </div>
+					              <div class="clearfix"></div>
+                                 
+                                </div>
+                                <div class="clearfix"></div>
+                             </div>
 
-<?php
-$tax = 'product_cat';
- ?><?php
-						$tax_terms = get_terms($tax);
-
-					 $args=array(
-					'post_type' => 'product',
-					
-					'post_status' => 'publish',
-					'posts_per_page' => -1,
-					'ignore_sticky_posts'=> 1
-					);
-					//echo $tax_term->slug;
-					$my_query = null;
-					$my_query = new WP_Query($args);
-					while ($my_query->have_posts()) : $my_query->the_post();
-					$woo=get_post_meta($post->ID);
-					
-					$price=$woo['_regular_price'][0];
-					
-					
-					$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-					
-					/*if(!empty(unserialize($woo['_product_attributes'][0])))
-				$prounits=unserialize($woo['_product_attributes'][0]);*/
-				
-				if(isset($prounits['size']['value'])){
-					$prounit=$prounits['size']['value'];
-				}
-               ?>
-                     <?php  if($woo['_featured'][0]=='yes'){ ?>
+                 </div>
+                    <?php $feat_image = wp_get_attachment_url( get_post_thumbnail_id($probuyid) );?>
                    <div class="col-md-4">
                   		<div class="pro_secone">
-                  		<div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div>
+                  		       <a href="<?php echo get_the_permalink($profaqid);?>"><div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
                   
-                    <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
-                    <div class="mero_itemss">
-                      		<div class="proabtxt">
-					<h4><?php
-					the_title();?></h4><?php 
-
-					$reqTempTerms=get_the_terms($post->ID,'product_cat');
+                    
+                               <div class="mero_itemss">
+                      		       <div class="proabtxt">
+                      		         
+					                  <a href="<?php echo get_the_permalink($profaqid);?>"><h4>FAQ'S<span><?php echo '<br>'.get_the_title($profaqid) ;?></span></h4></a>
 					
+                                   </div>
+					              <div class="clearfix"></div>
+                                 
+                        </div>
+                        <div class="clearfix"></div>
+                         </div>
+                 </div>
+                <?php $feat_image = wp_get_attachment_url( get_post_thumbnail_id($procareid) );?>
+                 <div class="col-md-4">
+                  		<div class="pro_secone">
+                  		     <a href=" <?php echo get_the_permalink($procareid);?>"> <div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
+                  
+                    
+                               <div class="mero_itemss">
+                      		       <div class="proabtxt">
+                      		       
 
+					                 <a href=" <?php echo get_the_permalink($procareid);?>"> <span> <h4>PRODUCT CARE<?php echo '<br>'.get_the_title($procareid) ;?></span></h4></a>
 					
-
-					
-					if(!empty($price)){
-						echo '<h5> FROM A$'.$price.'</h5>';
-						
-						}?></div>
-					<div class="clearfix"></div>
-                        <a href="<?php the_permalink();?>" class="" /> Read More</a>
-                      </div>
-                      </div>
-                      </div>
-                      <?php }?>
-					
-               <?php
-
-					endwhile;
-					wp_reset_query();
-					?><div class="clearfix"></div>
+                                   </div>
+					              <div class="clearfix"></div>
+                                 
+                        </div>
+                        <div class="clearfix"></div>
+                         </div>
+                 </div>
 					
                     
     </div>

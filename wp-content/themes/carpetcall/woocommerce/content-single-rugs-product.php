@@ -181,6 +181,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
   
 }
+
 $stoKey = array();
 $xyz = array();
 foreach($proGroup as $pgg){
@@ -215,6 +216,7 @@ global $post;
 
 foreach($filterproGroup as $bundle){
   $i=1;  $displayCounter = 1 ; 
+  
   foreach($bundle as $key => $value){
       $proGal = get_post_meta( $key, '_product_image_gallery', TRUE );
         $proGalId = explode(',',$proGal);
@@ -224,7 +226,7 @@ foreach($filterproGroup as $bundle){
             
             $proImageName =  wp_get_attachment_url($pgi);
              
-            if(preg_match("/\_V\-/i", $proImageName) && $displayCounter==1)
+            if(preg_match("/\_V/i", $proImageName) && $displayCounter==1)
             {
                 $reqProImageId = $pgi;
                
@@ -534,8 +536,8 @@ endforeach;
                 </div>
                  <div class="form-group col-sm-12">
 					   <script src='https://www.google.com/recaptcha/api.js'></script>
-                      <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LdfuCMTAAAAAGhFRMwboqar9gIW_yfmWVjT7OMj"></div>
-                       <input type="hidden" value="" id="check_captcha" name="check_captcha_one">
+                      <div class="g-recaptcha" data-callback="recaptchaCallbackone" data-sitekey="6LdfuCMTAAAAAGhFRMwboqar9gIW_yfmWVjT7OMj"></div>
+                       <input type="hidden" value="" id="check_captcha_one" name="check_captcha_one">
                       <div class="error_label"></div>
                    </div>
                 <div class="form-group col-sm-12">
@@ -547,7 +549,12 @@ endforeach;
 
             </div>
 
-        </form>
+        </form> <script>
+  function recaptchaCallbackone(){
+   jQuery('#check_captcha_one').val('1');
+
+};
+</script>
             </div><div class="clearfix"></div>            
       </div>
       
