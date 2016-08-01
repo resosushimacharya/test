@@ -618,7 +618,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .modal-header { padding:18px 29px 24px 32px; border:none;}
 .modal-body { padding:0 29px 0 24px;}
 .fyns-blk {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-left:15px;}
-.frm-blk { padding:9px 0 36px 0;}
+.frm-blk { padding:9px 0 32px 0;}
 .modal-body .frm-blk .input-group .btn { width:45%;}
 .frm-blk .input-group { width:62.9%; border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0;}
 .frm-blk .input-group .form-control { font:normal 12px 'proxima_nova_ltsemibold', sans-serif; color:#666666; width:100%; height:45px; border:0; border-radius:0; outline:0; background-color:#e7edf8; box-shadow:none; outline:0; -webkit-box-shadow:none;}
@@ -1054,3 +1054,4 @@ list-style:none;
 .cc_background_image { background-color:#FFF; margin:68px 0 68px 0; }
 .cc-cat-sub-desc-sec h3 {font:bold 20px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-bottom:22px;}
 .cc-cat-sub-desc-sec p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-bottom:20px; margin-top:0;}
+.cat-item-group-image { height:105px; background-size:cover; background-position:center center;}
