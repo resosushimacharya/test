@@ -180,8 +180,8 @@ $currentcat = get_queried_object();
                                         
 
 									?><div class=" cc-other-term-pro">
-									<div class="cc-img-wrapper">
-									<img src="<?php echo $feat_image;?>"/>
+									<div class="cc-img-wrapper"><div class="cat-item-group-image" style="background-image:url(<?php echo $feat_image;?>)">
+									
 										<?php
 										
 										
@@ -194,7 +194,7 @@ $currentcat = get_queried_object();
 										?>
 										<a href ="<?php the_permalink();?>" class="cc-pro-view">VIEW</a>
 										</div>
-										</div>
+										</div></div>
 
 
 								<?php endwhile;?>
