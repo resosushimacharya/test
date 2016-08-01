@@ -1063,3 +1063,4 @@ list-style:none;
 .success_message_wrapper .close_box{ position:absolute; right:0; top:0; background-color:#e7edf8; padding:2px;}
 .success_message_wrapper .close_box:hover { background:#c32428; color:#FFF; cursor:pointer;}
 h3.cc-idea-ad-title { margin:46px 0 34px 0; }
+.sub_page_title {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; }
