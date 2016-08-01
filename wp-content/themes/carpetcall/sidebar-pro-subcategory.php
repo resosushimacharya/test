@@ -51,13 +51,74 @@
         <a href="javascript:void(0);" class="swatch" style="background:url('<?php echo get_template_directory_uri().'/images/purple.jpg';?>');" id="purple">
         <img src="<?php echo get_template_directory_uri().'/images/swatch_checked.png';?>" class="cc-tick-display" /></a>
         <label for="colour_purple">Purple</label>
-
         </li>
+        
           <li>
         <a href="javascript:void(0);" class="swatch" style="background:url('<?php echo get_template_directory_uri().'/images/red.jpg';?>');" id="red"> <img src="<?php echo get_template_directory_uri().'/images/swatch_checked.png';?>" class="cc-tick-display" /></a>
       <label for="colour_red">Red</label>
-
         </li>
+        
+         <li id="cc-color-tick-id-<?php echo $c; ?>">
+        <a href="javascript:void(0);" class="swatch" style="background:url('<?php echo get_template_directory_uri().'/images/yellow.jpg';?>');" id="purple">
+        <img src="<?php echo get_template_directory_uri().'/images/swatch_checked.png';?>" class="cc-tick-display" /></a>
+        <label for="colour_purple">Yellow</label>
+        </li>
+        
+          <li>
+        <a href="javascript:void(0);" class="swatch" style="background:url('<?php echo get_template_directory_uri().'/images/blue-a.jpg';?>');" id="red"> <img src="<?php echo get_template_directory_uri().'/images/swatch_checked.png';?>" class="cc-tick-display" /></a>
+      <label for="colour_red">Blue</label>
+        </li>
+        
+         <li id="cc-color-tick-id-<?php echo $c; ?>">
+        <a href="javascript:void(0);" class="swatch" style="background:url('<?php echo get_template_directory_uri().'/images/green.jpg';?>');" id="purple">
+        <img src="<?php echo get_template_directory_uri().'/images/swatch_checked.png';?>" class="cc-tick-display" /></a>
+        <label for="colour_purple">Green</label>
+        </li>
+        
+          <li>
+        <a href="javascript:void(0);" class="swatch" style="background:url('<?php echo get_template_directory_uri().'/images/white.jpg';?>');" id="red"> <img src="<?php echo get_template_directory_uri().'/images/swatch_checked.png';?>" class="cc-tick-display" /></a>
+      <label for="colour_red">White</label>
+        </li>
+        
+         <li id="cc-color-tick-id-<?php echo $c; ?>">
+        <a href="javascript:void(0);" class="swatch" style="background:url('<?php echo get_template_directory_uri().'/images/beige.jpg';?>');" id="purple">
+        <img src="<?php echo get_template_directory_uri().'/images/swatch_checked.png';?>" class="cc-tick-display" /></a>
+        <label for="colour_purple">Beige</label>
+        </li>
+        
+          <li>
+        <a href="javascript:void(0);" class="swatch" style="background:url('<?php echo get_template_directory_uri().'/images/brown.jpg';?>');" id="red"> <img src="<?php echo get_template_directory_uri().'/images/swatch_checked.png';?>" class="cc-tick-display" /></a>
+      <label for="colour_red">Brown</label>
+        </li>
+        
+        <li id="cc-color-tick-id-<?php echo $c; ?>">
+        <a href="javascript:void(0);" class="swatch" style="background:url('<?php echo get_template_directory_uri().'/images/grey.jpg';?>');" id="purple">
+        <img src="<?php echo get_template_directory_uri().'/images/swatch_checked.png';?>" class="cc-tick-display" /></a>
+        <label for="colour_purple">Grey</label>
+        </li>
+        
+          <li>
+        <a href="javascript:void(0);" class="swatch" style="background:url('<?php echo get_template_directory_uri().'/images/pink.jpg';?>');" id="red"> <img src="<?php echo get_template_directory_uri().'/images/swatch_checked.png';?>" class="cc-tick-display" /></a>
+      <label for="colour_red">Pink</label>
+        </li>
+        
+         <li id="cc-color-tick-id-<?php echo $c; ?>">
+        <a href="javascript:void(0);" class="swatch" style="background:url('<?php echo get_template_directory_uri().'/images/orange.jpg';?>');" id="purple">
+        <img src="<?php echo get_template_directory_uri().'/images/swatch_checked.png';?>" class="cc-tick-display" /></a>
+        <label for="colour_purple">Orange</label>
+        </li>
+        
+          <li>
+        <a href="javascript:void(0);" class="swatch" style="background:url('<?php echo get_template_directory_uri().'/images/black.jpg';?>');" id="red"> <img src="<?php echo get_template_directory_uri().'/images/swatch_checked.png';?>" class="cc-tick-display" /></a>
+      <label for="colour_red">Black</label>
+        </li>
+        
+         <li id="cc-color-tick-id-<?php echo $c; ?>">
+        <a href="javascript:void(0);" class="swatch" style="background:url('<?php echo get_template_directory_uri().'/images/multiple.jpg';?>');" id="purple">
+        <img src="<?php echo get_template_directory_uri().'/images/swatch_checked.png';?>" class="cc-tick-display" /></a>
+        <label for="colour_purple">Multiple</label>
+        </li>
+        
         
         </ul>
       </div>
