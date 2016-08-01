@@ -813,9 +813,9 @@ a.pull-right:hover { color:#000; text-decoration:none; cursor:pointer;}
 
 /*............. ideas and advices start here .....................*/
 .ia-block { background-color:#f0f2f1;}
-.cc-ia-content h4 {font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#666666; text-transform:uppercase; margin-top:22px;}
+.cc-ia-content h4 {font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#666666; text-transform:uppercase; margin-top:23px;}
 .cc-ia-content h1 {font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:7px; margin-bottom:22px;}
-.cc-ia-content p {font:normal 16px/22px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 80px 55px 0;}
+.cc-ia-content p {font:normal 16px/22px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 80px 58px 0;}
 .gpf-block { margin-top:43px;}
 .all-items-blk { background-color:#e7edf8; padding:37px 36px;}
 .all-items-blk h3, .fq-blk-a h3, .more-blk-b h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:-5px; margin-bottom:20px;}
@@ -865,7 +865,7 @@ a.pull-right:hover { color:#000; text-decoration:none; cursor:pointer;}
 .inerblock_contblk p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 67px 19px 0;}
 .cc-ia-banner-a img { width:100%; height:269px;}
 .cc-ia-banner-a { background-repeat:no-repeat; background-size:cover; background-position:center center; height:269px; }
-.cc-ia-banner {background-repeat:no-repeat; background-size:cover; background-position:center center; height:274px;}
+.cc-ia-banner {background-repeat:no-repeat; background-size:cover; background-position:center center; height:278px;}
 .cc-form-wrapper { padding:0;}
 .contact_form_cntr.col-md-12 { padding:0; margin:0;}
 .form-group.cc-enquiry-section.col-sm-12 { padding:40px 0 14px; margin:0;}
@@ -1063,3 +1063,5 @@ list-style:none;
 .success_message_wrapper .close_box{ position:absolute; right:0; top:0; background-color:#e7edf8; padding:2px;}
 .success_message_wrapper .close_box:hover { background:#c32428; color:#FFF; cursor:pointer;}
 h3.cc-idea-ad-title { margin:46px 0 34px 0; }
+.sub_page_title {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; margin-bottom:24px; }
+div#right_col p {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666; }
