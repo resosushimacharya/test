@@ -921,7 +921,7 @@ label#email_address-error { margin:0;}
 .form-group.col-sm-12 textarea.form-control{ font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; width:96%; height:139px; -webkit-box-shadow:none; outline:0; box-shadow:none;}
 .form-control:focus { border-color:#cdd9ed;}
 .panel-body-faq { margin:0 45px 0 0 !important; }
-#alert_msg { font:normal 15px 'proxima_nova_rgregular', sans-serif; color:#FF0000; }
+#alert_msg { font:normal 14px 'proxima_nova_rgregular', sans-serif; color:#FF0000; margin-bottom:2px; }
 
 /*...... Rugs Sub Category section start here ...............*/
 .cc-cat-title-count {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase;}
