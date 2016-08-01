@@ -833,7 +833,10 @@ a.pull-right:hover { color:#000; text-decoration:none; cursor:pointer;}
 .inerblock_serc_child .cc-breadcrumb > span.cc-bread-root a:hover, .inerblock_serc_child .cc-breadcrumb > span.cc-bread-parent a:hover { cursor:pointer;}
 .inerblock_serc_child .cc-breadcrumb > span.cc-bread-current { font-size:12px; text-transform:uppercase; color:#666666; text-decoration:none; margin:0 2px; }
 .inerblock_serc_child h3 {font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; border-bottom:1px solid #6383b9; display:inline-block; margin-bottom:12px; line-height:26px;}
-.cbg_content #guide_item_1, .cbg_content #guide_item_2, .cbg_content #guide_item_3 { font-weight:700; color:#0099ff; text-transform:uppercase; font-size:18px; letter-spacing:1px;}
+.cbg_content #guide_item_1, .cbg_content #guide_item_2, .cbg_content #guide_item_3 { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:24px;}
+.cbg_content p {font-family:'proxima_nova_rgregular', sans-serif; font-size:16px !important; line-height:24px !important; color:#666666;}
+.cbg_content p a {font-family:'proxima_nova_rgregular', sans-serif; font-size:16px !important; line-height:24px !important; color:#15489f; text-decoration:none;}
+.cbg_content p a:hover { text-decoration:underline; cursor:pointer;}
 
 /*........... clearance start here ...............*/
 .inerblock_clearn { margin:137px 0 20px 0; }
@@ -1065,3 +1068,7 @@ list-style:none;
 h3.cc-idea-ad-title { margin:46px 0 34px 0; }
 .sub_page_title {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; margin-bottom:24px; }
 div#right_col p {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666; }
+div#right_col ul { margin-left:17px; padding:0; }
+div#right_col ul li { list-style:disc; font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666;}
+div#right_col p a {font:bold 16px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:none;}
+div#right_col p a:hover { text-decoration:underline; cursor:pointer;}
