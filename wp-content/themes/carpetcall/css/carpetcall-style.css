@@ -1055,3 +1055,6 @@ list-style:none;
 .cc-cat-sub-desc-sec h3 {font:bold 20px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-bottom:22px;}
 .cc-cat-sub-desc-sec p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-bottom:20px; margin-top:0;}
 .cat-item-group-image { height:105px; background-size:cover; background-position:center center;}
+.success_message_wrapper { position:relative; background-color:#f9f9f9; padding:15px !important;}
+.success_message_wrapper .success_message { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#009900;  }
+.success_message_wrapper .close_box{ position:absolute; right:0; top:0;}
