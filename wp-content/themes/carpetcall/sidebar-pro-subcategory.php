@@ -46,7 +46,7 @@
     <div id="collapse_color" class="panel-collapse collapse in">
       <div class="panel-body">
         <ul class="cc-color-var-item">
-        <?php for($c=0;$c<=5;$c++){?>
+        
         <li id="cc-color-tick-id-<?php echo $c; ?>">
         <a href="javascript:void(0);" class="swatch" style="background:url('<?php echo get_template_directory_uri().'/images/purple.jpg';?>');" id="purple">
         <img src="<?php echo get_template_directory_uri().'/images/swatch_checked.png';?>" class="cc-tick-display" /></a>
@@ -58,7 +58,7 @@
       <label for="colour_red">Red</label>
 
         </li>
-        <?php } ?>
+        
         </ul>
       </div>
     </div>

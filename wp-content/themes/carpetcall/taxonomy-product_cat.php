@@ -180,8 +180,8 @@ $currentcat = get_queried_object();
                                         
 
 									?><div class=" cc-other-term-pro">
-									<div class="cc-img-wrapper">
-									<img src="<?php echo $feat_image;?>"/>
+									<div class="cc-img-wrapper"><div class="cat-item-group-image" style="background-image:url(<?php echo $feat_image;?>)">
+									
 										<?php
 										
 										
@@ -194,7 +194,7 @@ $currentcat = get_queried_object();
 										?>
 										<a href ="<?php the_permalink();?>" class="cc-pro-view">VIEW</a>
 										</div>
-										</div>
+										</div></div>
 
 
 								<?php endwhile;?>
@@ -220,7 +220,7 @@ $currentcat = get_queried_object();
 	<div class="inerblock_sec_a">
 
     <div class="container clearfix you_may_link_cntr">
-        <h3 style="text-align:center">IDEAS & ADVICE</h3>
+        <h3 class="cc-idea-ad-title" style="text-align:center">IDEAS & ADVICE</h3>
 <?php 
 $prourl = site_url();
 $prourl =explode('/',$prourl);
@@ -238,63 +238,65 @@ $procareid ='26713';
 
 
                    <?php $feat_image = wp_get_attachment_url( get_post_thumbnail_id($profaqid) );?>
-					
+                   
+					<div class="you_may_like-content">
 				 <div class="col-md-4">
-                  		<div class="pro_secone">
-                  		      <a href="<?php echo get_the_permalink($probuyid);?>"> <div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
+                  		<div class="pro_secone_a">
+                  		      <a href="<?php echo get_the_permalink($probuyid);?>"> <div class="img_cntr_a" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
                   
                     
                                <div class="mero_itemss">
                       		       <div class="proabtxt">
                       		       
-					                  <a href="<?php echo get_the_permalink($probuyid);?>">  <h4>BUYING GUIDE<span><?php echo '<br>'.get_the_title($probuyid) ;?>
-					                  </span></h4></a>
+					                  <a href="<?php echo get_the_permalink($probuyid);?>">  <h4>BUYING GUIDE</h4><span><?php echo get_the_title($probuyid) ;?>
+					                  </span></a>
 					
-                                   </div>
-					              <div class="clearfix"></div>
+                                   </div> <div class="clearfix"></div>
                                  
-                                </div>
-                                <div class="clearfix"></div>
+                                </div> <div class="clearfix"></div>
                              </div>
 
                  </div>
+                 
+                 
                     <?php $feat_image = wp_get_attachment_url( get_post_thumbnail_id($probuyid) );?>
+                    
                    <div class="col-md-4">
-                  		<div class="pro_secone">
-                  		       <a href="<?php echo get_the_permalink($profaqid);?>"><div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
+                  		<div class="pro_secone_a">
+                  		       <a href="<?php echo get_the_permalink($profaqid);?>"><div class="img_cntr_a" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
                   
                     
                                <div class="mero_itemss">
                       		       <div class="proabtxt">
                       		         
-					                  <a href="<?php echo get_the_permalink($profaqid);?>"><h4>FAQ'S<span><?php echo '<br>'.get_the_title($profaqid) ;?></span></h4></a>
+					                  <a href="<?php echo get_the_permalink($profaqid);?>"><h4>FAQ'S</h4><span><?php echo get_the_title($profaqid) ;?></span></a>
 					
-                                   </div>
-					              <div class="clearfix"></div>
+                                   </div><div class="clearfix"></div>
                                  
-                        </div>
-                        <div class="clearfix"></div>
+                        </div><div class="clearfix"></div>
+                        
                          </div>
                  </div>
                 <?php $feat_image = wp_get_attachment_url( get_post_thumbnail_id($procareid) );?>
+                
                  <div class="col-md-4">
-                  		<div class="pro_secone">
-                  		     <a href=" <?php echo get_the_permalink($procareid);?>"> <div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
+                  		<div class="pro_secone_a">
+                  		     <a href=" <?php echo get_the_permalink($procareid);?>"> <div class="img_cntr_a" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
                   
                     
                                <div class="mero_itemss">
                       		       <div class="proabtxt">
-                      		       
-
-					                 <a href=" <?php echo get_the_permalink($procareid);?>"> <span> <h4>PRODUCT CARE<?php echo '<br>'.get_the_title($procareid) ;?></span></h4></a>
+                      		         
+					                  <a href="<?php echo get_the_permalink($profaqid);?>"><h4>PRODUCT CARE</h4><span><?php echo get_the_title($profaqid) ;?></span></a>
 					
-                                   </div>
-					              <div class="clearfix"></div>
+                                   </div><div class="clearfix"></div>
                                  
-                        </div>
-                        <div class="clearfix"></div>
+                        </div><div class="clearfix"></div>
+                        
                          </div>
                  </div>
+                </div><div class="clearfix"></div> 
+                 
 					
                     
     </div>

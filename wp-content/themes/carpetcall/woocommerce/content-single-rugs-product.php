@@ -451,7 +451,24 @@ endforeach;
                      </select>
                      <div class="error_label"></div>
                 </div>
-                
+
+                 <div class="cc-product-page-info">
+                 <?php global $post;
+                     /*   $resHeight= get_post_meta($post->ID,'_height',true);
+                        $resLength = get_post_meta( $post->ID,'_length', true);
+                        $resWidth = get_post_meta( $post->ID,'_width', true);
+                        $resSKU   = gwt_post_meta($post->ID,'_sku',true);
+                        $resSize ='Size: '.$resLength.'cm'.' '.$resWidth.' '.'cm'.' '.$resHeight;
+                        $resCode = 'Rug Code: '.$resSKU;*/
+                        /*$resProduct =' Prouct: '.$reserve; */
+                        /*var_dump($reserve);*/
+ 
+                          
+
+
+                 ?>
+                   
+                 </div>
                 </div>
                 
                 </div>
@@ -530,6 +547,7 @@ endforeach;
                 	
                 		<h3>Message</h3>
                 </div></div>
+
                 
                 <div class="form-group col-sm-12">
                 
@@ -555,6 +573,7 @@ endforeach;
                      <div class="error_message"></div><div class="close_box">X</div>
 
                   </div>
+
 
             </div>
 
