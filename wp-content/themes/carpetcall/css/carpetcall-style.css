@@ -398,6 +398,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 		font-weight:normal;
 		}
 .img_cntr {background-position:center center; background-size:cover; min-height:183px;  }
+.img_cntr_a {background-position:center center; background-size:cover; min-height:148px;}
+.proabtxt span {font:normal 14px 'proxima_nova_rgregular', sans-serif; color:#087bda; margin-left:3px; text-transform:uppercase; }
 
 .responsive .featured_overlay{position:absolute; top: 0; left: 0; right: 0; bottom: 0;z-index: 7;background: #fff}
 .responsive .featured_overlay img{ position:absolute; top:50%; left:50%; background:#fff; z-index: 10; transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); }
@@ -529,9 +531,10 @@ li.clblk_a::before {content: '';}
 .you_may_like-content { margin:0 -10px; }
 .you_may_link_cntr .col-md-4{padding: 0 10px;}
 .pro_secone { background:#FFF; padding:16px 20px; }
+.pro_secone_a { background:#FFF; padding:14px; margin-bottom:14px; }
 .mero_itemss { margin:20px 0 0 0;}
-.proabtxt { min-height:49px; clear:both; }
-.proabtxt h4{font:bolder 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-left:3px;}
+.proabtxt { min-height:37px; clear:both; }
+.proabtxt h4{font:bolder 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-left:3px; margin-bottom:-6px;}
 .proabtxt h5{font:normal 12px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase; margin-left:3px; margin-top:-1px;}
 
 ul.guide_list_cbg { background:#e7edf8; padding:28px; margin-bottom:21px;}
@@ -618,7 +621,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .modal-header { padding:18px 29px 24px 32px; border:none;}
 .modal-body { padding:0 29px 0 24px;}
 .fyns-blk {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-left:15px;}
-.frm-blk { padding:9px 0 36px 0;}
+.frm-blk { padding:9px 0 32px 0;}
 .modal-body .frm-blk .input-group .btn { width:45%;}
 .frm-blk .input-group { width:62.9%; border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0;}
 .frm-blk .input-group .form-control { font:normal 12px 'proxima_nova_ltsemibold', sans-serif; color:#666666; width:100%; height:45px; border:0; border-radius:0; outline:0; background-color:#e7edf8; box-shadow:none; outline:0; -webkit-box-shadow:none;}
@@ -763,7 +766,7 @@ ul.specific-list li { list-style:none; display:block; font:normal 16px/24px 'pro
 .inerblock_seC_mrugss{ margin:145px 0 20px 0;}
 .mmrugm { background:#e6e6e6; }
 .cc-product-term { font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#666666; text-transform:uppercase; text-decoration:none;}
-.cc-product-term:hover {color:#000; cursor:pointer;}
+
 section#main { margin:18px 0 19px 0;}
 .inerblock_seC_mrugss h3 {margin-top:3px;}
 .tophead_sec { margin:20px 0 10px 0; border-bottom:1px solid #efefef; padding-bottom:12px;}
@@ -797,7 +800,7 @@ section#main { margin:18px 0 19px 0;}
 
 }
 .panel-title>a {font:bold 16px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none; margin-left:25px;}
-a.pull-right { font:bold 10px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; text-decoration:underline; margin-top:4px; }
+a.pull-right { font:bold 10px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; text-decoration:underline; margin-top:4px; margin-right:19px; }
 a.pull-right:hover { color:#000; text-decoration:none; cursor:pointer;}
 .panel-group .panel-heading+.panel-collapse>.panel-body { border:0; padding:0; }
 .cc-store-icon-label img{
@@ -853,6 +856,7 @@ a.pull-right:hover { color:#000; text-decoration:none; cursor:pointer;}
 .cc-clearance-left iframe { min-height:260px; outline:0; border:0;}
 
 /*.............. contact us page start here ..................*/
+.cbg_blk.cc-clearance-blk { background-color:#f0f2f1; }
 .inerblock_contblk { margin:137px 0 20px 0;}
 .inerblock_contblk.cc-wrapper-whole .col-md-6 { padding-left:0;}
 .inerblock_contblk .breadcrumbs { padding:18px 0 2px 0; margin:0;}
@@ -920,6 +924,7 @@ label#email_address-error { margin:0;}
 .form-group.col-sm-12 textarea.form-control{ font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; width:96%; height:139px; -webkit-box-shadow:none; outline:0; box-shadow:none;}
 .form-control:focus { border-color:#cdd9ed;}
 .panel-body-faq { margin:0 45px 0 0 !important; }
+#alert_msg { font:normal 14px 'proxima_nova_rgregular', sans-serif; color:#FF0000; margin-bottom:2px; }
 
 /*...... Rugs Sub Category section start here ...............*/
 .cc-cat-title-count {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase;}
@@ -943,7 +948,7 @@ list-style:none;
 }
 .cc-color-var-item li { float:left; text-align:center; width:25%; padding-right:25px;}
 .cc-price-var-sec .panel-default>.panel-heading, .cc-size-var-sec .panel-default>.panel-heading{ background-color:transparent; border-color:transparent; padding:1px 0 0 0; }
-.cc-price-var-items .checkbox{margin:9px 0 13px 0;}
+.cc-price-var-items .checkbox{margin:9px 0 10px 0;}
 .panel.entry-content.wc-tab .cc-tab-faq-read-more p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-left:22px;}
 .cc-alternate-cat-link{ margin-left: 0px;}
 
@@ -1010,8 +1015,8 @@ list-style:none;
 
 .row.cc-cat-sub-carousal-a { margin:12px 0;}
 .cat_slider_item_image {  background-repeat:no-repeat; background-size:cover; background-position:center center; height:330px; }
-.cc-cat-sub-carousal-a .slick-dotted.slick-slider{ margin-bottom:15px;}
-.cc-cat-sub-carousal-a .slick-dots{ bottom:17px;}
+.cc-cat-sub-carousal-a .slick-dotted.slick-slider{ margin-bottom:10px;}
+.cc-cat-sub-carousal-a .slick-dots{ bottom:19px;}
 .cc-cat-sub-carousal-a .slick-dots li button{ color:#FFF;}
 .cc-cat-sub-group-item { font-size:0; margin:0 -10px;} 
 .cc-cat-sub-group-item .cc-other-term-pro { font-size:14px; width:20%; display:inline-block; vertical-align:top; padding:5px 10px; }
@@ -1052,3 +1057,9 @@ list-style:none;
 .cc_background_image { background-color:#FFF; margin:68px 0 68px 0; }
 .cc-cat-sub-desc-sec h3 {font:bold 20px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-bottom:22px;}
 .cc-cat-sub-desc-sec p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-bottom:20px; margin-top:0;}
+.cat-item-group-image { height:103px; background-size:cover; background-position:center center;}
+.success_message_wrapper { position:relative; padding:15px !important; width:86%; border:1px solid #ececea;}
+.success_message_wrapper .success_message { font:normal 16px 'proxima_nova_ltsemibold', sans-serif; color:#009900;  }
+.success_message_wrapper .close_box{ position:absolute; right:0; top:0; background-color:#e7edf8; padding:2px;}
+.success_message_wrapper .close_box:hover { background:#c32428; color:#FFF; cursor:pointer;}
+h3.cc-idea-ad-title { margin:46px 0 34px 0; }
