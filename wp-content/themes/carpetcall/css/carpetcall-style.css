@@ -763,7 +763,7 @@ ul.specific-list li { list-style:none; display:block; font:normal 16px/24px 'pro
 .inerblock_seC_mrugss{ margin:145px 0 20px 0;}
 .mmrugm { background:#e6e6e6; }
 .cc-product-term { font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#666666; text-transform:uppercase; text-decoration:none;}
-.cc-product-term:hover {color:#000; cursor:pointer;}
+
 section#main { margin:18px 0 19px 0;}
 .inerblock_seC_mrugss h3 {margin-top:3px;}
 .tophead_sec { margin:20px 0 10px 0; border-bottom:1px solid #efefef; padding-bottom:12px;}
@@ -1054,7 +1054,9 @@ list-style:none;
 .cc_background_image { background-color:#FFF; margin:68px 0 68px 0; }
 .cc-cat-sub-desc-sec h3 {font:bold 20px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-bottom:22px;}
 .cc-cat-sub-desc-sec p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-bottom:20px; margin-top:0;}
-.cat-item-group-image { height:105px; background-size:cover; background-position:center center;}
-.success_message_wrapper { position:relative; background-color:#f9f9f9; padding:15px !important;}
+.cat-item-group-image { height:103px; background-size:cover; background-position:center center;}
+.success_message_wrapper { position:relative; background-color:#fff9d7; padding:15px !important; width:86%; border:1px solid #e7d453;}
 .success_message_wrapper .success_message { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#009900;  }
-.success_message_wrapper .close_box{ position:absolute; right:0; top:0;}
+.success_message_wrapper .close_box{ position:absolute; right:0; top:0; background-color:#e7edf8; padding:2px;}
+.success_message_wrapper .close_box:hover { background:#c32428; color:#FFF; cursor:pointer;}
+h3.cc-idea-ad-title { margin:46px 0 34px 0; }
