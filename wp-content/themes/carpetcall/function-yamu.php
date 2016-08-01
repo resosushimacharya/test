@@ -12,3 +12,8 @@ function get_category_depth($catid){
             return get_depth($catid, $depth, $i);
 	
 	}
+
+function show_group_category_slider(){
+	
+	
+	}
