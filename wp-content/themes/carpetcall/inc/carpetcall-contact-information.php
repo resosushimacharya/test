@@ -128,13 +128,20 @@ $data=$_POST['form_data'];
                  {
                   $hold = "<b>State</b>       :".strtoupper($data['cc_state_type_only']).'<br>';
                  }
+                 if(isset($data['product_page_cat'])){
+                     $hold_enquiry_type =  "Prduct Enquiry";     
+
+                 }
+                 else{
+                   $hold_enquiry_type =  sanitize_text_field(ucfirst($data['cc_enquiry_type'] ));
+                 }
                     ob_start();
                     ?>
                     Dear Admin,
                     <br><br>
                     We have an enquiry with the following information -<br><br>
 
-                    <b>Enquiry Type</b> : <?php echo sanitize_text_field(ucfirst($data['cc_enquiry_type'] )); ?> <br>
+                    <b>Enquiry Type</b> : <?php echo $hold_enquiry_type;?> <br>
                     <b>First Name</b>   : <?php echo sanitize_text_field(ucfirst($data['first_name'])); ?><br>
                     <b>Last Name</b>    : <?php echo sanitize_text_field(ucfirst($data['last_name']));?><br>
                     <b>Email</b>        : <?php echo sanitize_email($data['email_address']); ?><br>
@@ -203,7 +210,7 @@ $data=$_POST['form_data'];
                        
                             update_post_meta($user_id,'email',$data['email_address']);
                            
-                            update_post_meta($user_id,'enquiry_type',ucwords($data['cc_enquiry_type']));
+                            update_post_meta($user_id,'enquiry_type',ucwords($hold_enquiry_type));
                             update_post_meta($user_id,'phone',$data['mobile_phone_no']);
                             update_post_meta($user_id,'admin_email',$user_email);
                             
@@ -341,10 +348,10 @@ function custom_listing_templates() {
     $listing_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span>' . "\r\n";
    $listing_template .= "\t\t\t\t" . '<% if ( phone ) { %>' . "\r\n";
-                $listing_template .= "\t\t\t\t" . '<span><strong>' .'P' .'</strong>: <%= formatPhoneNumber( phone ) %></span>' . "\r\n";
+                $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P' .'</strong>: <%= formatPhoneNumber( phone ) %></span>' . "\r\n";
                 $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
                 $listing_template .= "\t\t\t\t" . '<% if ( fax ) { %>' . "\r\n";
-                $listing_template .= "\t\t\t\t" . '<span><strong>' .'F' .'</strong>: <%= fax %></span>' . "\r\n";
+                $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-fax"><strong>' .'F' .'</strong>: <%= fax %></span>' . "\r\n";
                 $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
                $listing_template .='</div><div class="fcnt-or fcnt-orr clearfix"><a href="<%= permalink %>">View Store Page</a></div>';
                 $listing_template .='<div class="fcnt-or fcnt-orr fcnt-orr-map clearfix"><a href="http://localhost/carpetcall/contact-us/?id=<%= id %>" class="cc-contact-link  ">Contact Store</a></div>';
@@ -414,10 +421,10 @@ function custom_listing_templates_server() {
     $listing_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span>' . "\r\n";
    $listing_template .= "\t\t\t\t" . '<% if ( phone ) { %>' . "\r\n";
-                $listing_template .= "\t\t\t\t" . '<span><strong>' .'P' .'</strong>: <%= formatPhoneNumber( phone ) %></span>' . "\r\n";
+                 $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P' .'</strong>: <%= formatPhoneNumber( phone ) %></span>' . "\r\n";
                 $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
                 $listing_template .= "\t\t\t\t" . '<% if ( fax ) { %>' . "\r\n";
-                $listing_template .= "\t\t\t\t" . '<span><strong>' .'F' .'</strong>: <%= fax %></span>' . "\r\n";
+                $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-fax"><strong>' .'F' .'</strong>: <%= fax %></span>' . "\r\n";
                 $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
                $listing_template .='</div><div class="fcnt-or fcnt-orr clearfix"><a href="<%= permalink %>">View Store Page</a></div>';
                 $listing_template .='<div class="fcnt-or fcnt-orr fcnt-orr-map clearfix"><a href="http://staging.carpetcall.com.au/contact-us/?id=<%= id %>" class="cc-contact-link  ">Contact Store</a></div>';

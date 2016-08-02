@@ -68,8 +68,78 @@
                     <?php    }
                         elseif(isset($_POST["check-head-id"])){?>
                        <div id="Map" style="width: 100%; height: 450px;"></div>
-                          
-                      <?php  echo "hellos"; } 
+                          <div id="wpsl-result-list">
+        <div id="wpsl-stores">
+        <?php 
+
+            $args = array(
+                'post_type'=>'wpsl_stores',
+                'posts_per_page'=>'-1',
+                'meta_query' => array (
+                array (
+                'key' => 'store_type',
+                'value' => 'head_office',
+                )
+            ) 
+          );
+
+            $loop = new WP_Query($args);
+        ?>
+         <ul>
+
+        <?php   
+
+          while($loop->have_posts()):
+                $loop->the_post();
+
+              $getinfo  = get_post_meta($post->ID);
+
+                  $lat = $getinfo['wpsl_lat'];
+                  $long = $getinfo['wpsl_lng'];
+                  $stoLatLong=array($lat,$long);
+                  $add = $getinfo['wpsl_address'][0];
+                  $title = get_the_title();
+                  $sll[] = array($title,$add,$stoLatLong);
+
+           
+    
+
+        ?>
+       
+        <li class="col-md-4">
+         <div>
+            <p>
+                <span class="cc-store-icon-label">
+                    <img src="http://localhost/carpetcall/wp-content/themes/carpetcall/images/blue.png">
+                    <strong>
+                    <a href="http://localhost/carpetcall/find-a-store/wa//midland/"><?php echo get_the_title();?></a>
+                    </strong>
+                </span>
+            </p>
+            <div class="clearfix"></div>
+            <span class="wpsl-street"><?php echo get_post_meta($post->ID,'wpsl_address',true );?></span>
+                
+            <span class="wpsl-street-a"> Midland WA</span>
+            <span class="wpsl-country"><?php echo get_post_meta($post->ID,'wpsl_country',true );?></span>
+            <span class="wpsl-street-b"><strong>P</strong>: <?php echo get_post_meta($post->ID,'wpsl_phone',true );?></span>
+            <span class="wpsl-street-c"> <strong>F</strong>: <?php echo get_post_meta($post->ID,'wpsl_fax',true );?></span>
+                
+                
+            <div class="fcnt-or fcnt-orr clearfix">
+                <a href="<?php echo get_the_permalink();?>">View Store Page</a>
+            </div>
+            <div class="fcnt-or fcnt-orr fcnt-orr-map clearfix">
+                <a href="http://localhost/carpetcall/contact-us/?id=<?php echo $post->ID ; ?>" class="cc-contact-link  ">Contact Store</a>
+            </div>         
+        </div>
+       
+        </li>
+    <?php endwhile;
+    wp_reset_query(); ?>
+        </ul>
+        </div>
+    </div> 
+                      <?php } 
                     
                       else {?>
                        
@@ -101,7 +171,7 @@
                     }
                       ?>
     </div>
-</div><div class="clearfix"></div><!-- main conternt end here ------------->
+</div><div class="clearfix"></div><!-- main conternt end here -->
 
 
 
