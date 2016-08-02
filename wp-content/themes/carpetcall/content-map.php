@@ -478,7 +478,7 @@ function deg2rad(deg) {
                                     var class__= "hide_info";
                             }
                             
-                           var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  nsw_modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "&nbsp;" + strdis +" </h6><div class='custom_icon_nsw'></div></div></div></a>";
+                           var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  nsw_modify'><h5>" + asl +'</h5>'+ "<h6 >" + title  + "&nbsp;" + strdis +" </h6><div class='custom_icon_nsw'></div></div></div></a>";
                            
                             var right_=4;
 
@@ -488,7 +488,7 @@ function deg2rad(deg) {
                             if(Number(title)<=0){
                                     var class__= "hide_info";
                             }
-                         var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  +"&nbsp;" + strdis+" </h6><div class='custom_icon_down'></div></div></div></a>";
+                         var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6>" + title  +"&nbsp;" + strdis+" </h6><div class='custom_icon_down'></div></div></div></a>";
                            
                             var right_=2;
 
@@ -498,7 +498,7 @@ function deg2rad(deg) {
                             if(Number(title)<=0){
                                     var class__= "hide_info";
                             }
-                        var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  act_modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  +"&nbsp;" + strdis +"</h6><div class='custom_icon_act'></div></div></div></a>";
+                        var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  act_modify'><h5>" + asl +'</h5>'+ "<h6 >" + title  +"&nbsp;" + strdis +"</h6><div class='custom_icon_act'></div></div></div></a>";
                            
                             var right_=3;
 
@@ -509,7 +509,7 @@ function deg2rad(deg) {
                             if(Number(title)<=0){
                                     var class__= "hide_info";
                             }
-                            var html = "<a href="+urlstore+asll+"><div class='map_info  "+class__+"' ><div class='contents'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "&nbsp" +strdis + " </h6><div class='custom_icon'></div></div></div></a>";
+                            var html = "<a href="+urlstore+asll+"><div class='map_info  "+class__+"' ><div class='contents'><h5>" + asl +'</h5>'+ "<h6 >" + title  + "&nbsp" +strdis + " </h6><div class='custom_icon'></div></div></div></a>";
                            
                            var right_=0;
                         }
