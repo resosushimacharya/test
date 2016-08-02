@@ -115,11 +115,15 @@ $arrayCsv[] = array('Name','Email Address','Phone','Admin Email','Enquiry Type',
 
                         $enquirytype = get_post_meta($loop->post->ID,'enquiry_type',true);
                         $enquirydatecontact = get_post_meta($loop->post->ID,'enquiry_date_contact',true);
-                        $state =get_post_meta($loop->post->ID,'enquiry_date_contact',true);
+                        $enquirydatecontact = preg_replace('/[.,]/', ' ', $enquirydatecontact);
+                        $state =get_post_meta($loop->post->ID,'state',true);
                         $store = get_post_meta($loop->post->ID,'store',true);
                         $message= strip_tags(get_the_content()," ");
+                        $message = preg_replace('/[.,]/', ' ', $message);
+
+
                       
-                      //$message = apply_filters('custom_csv_escape_tag',$message);
+                      
                    $arrayCsv[] = array( $title,
                                         $useremail,
                                        

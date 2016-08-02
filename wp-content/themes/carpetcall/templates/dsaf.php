@@ -148,10 +148,10 @@
             <div class="clearfix"></div>
             <span class="wpsl-street"><?php echo get_post_meta($post->ID,'wpsl_address',true );?></span>
                 
-            <span> Midland WA</span>
+            <span class="wpsl-street-a"> Midland WA</span>
             <span class="wpsl-country"><?php echo get_post_meta($post->ID,'wpsl_country',true );?></span>
-            <span><strong>P</strong>: <?php echo get_post_meta($post->ID,'wpsl_phone',true );?></span>
-            <span><strong>F</strong>: <?php echo get_post_meta($post->ID,'wpsl_fax',true );?></span>
+            <span class="wpsl-street-b"><strong>P</strong>: <?php echo get_post_meta($post->ID,'wpsl_phone',true );?></span>
+            <span class="wpsl-street-c"> <strong>F</strong>: <?php echo get_post_meta($post->ID,'wpsl_fax',true );?></span>
                 
                 
             <div class="fcnt-or fcnt-orr clearfix">

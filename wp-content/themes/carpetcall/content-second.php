@@ -101,12 +101,33 @@ echo (strcasecmp($cat_link, 'halt') != 0) ? $cat_link : 'javascript:void(0)';
 		<div class="col-md-9">
 			<div class="cbg_content">
      <?php if($post->post_parent!=$faqID){ ?>
+        <?php 
+if(have_posts()):
+
+    while(have_posts()):
+      the_post();
+
+     
+
+       the_content();
+
+    endwhile;
+
+
+  else:
+    echo "not found";
+
+
+  endif;
+
+?>
 
  <?php
 			  $i = 0;
         if($res){
          foreach($res as $rs){
                   	$i++;?>
+
                       <h3 id="<?php echo "guide_item_".$i; ?>"><?php echo $rs['title'];?></h3>
                       <p> <?php echo $rs['description'];?></p>
                   <?php  } 
