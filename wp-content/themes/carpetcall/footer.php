@@ -208,8 +208,7 @@ $('#wpsl-search-btn').trigger('click');
 <?php }?>
  <script>
   $(document).ready(function(){
-    
-    $('.cat_slider').slick({
+   /* $('.cat_slider').slick({
           dots: true,
           infinite: false,
           speed: 300,
@@ -244,7 +243,6 @@ $('#wpsl-search-btn').trigger('click');
             // settings: "unslick"
             // instead of a settings object
           ]
-        });
-
+        });*/
   });
   </script>

@@ -103,20 +103,27 @@ $currentcat = get_queried_object();
 <div class="col-md-9 cc-cat-pro-section-right">
 	
 
-<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-
+<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) {
+	$args = array(
+		'cat_id' =>$current_cat->term_id,
+		'offset'=>0,
+		'perpage'=>4,
+		'sort_by'	=>'price',
+		'sort_order'=>'ASC',
+		'depth'	=>$depth,
+		'child_cat_count'=>1
+	);
+	 ?>
+<div id="category_slider_block_wrapper">
+	<?php echo show_category_slider_block($args);?>
+</div>
 			
 			
 			<?php 
-			
+			/*
 			 global $wp_query;
-		
 			 $term_id_sub =  get_queried_object()->term_id;
 			 $term_name = get_queried_object()->name;
-			
-
-
-			 
 			 $discats=get_terms(array('parent'=>$term_id,'taxonomy'=>'product_cat'));
                         
 				$loopcounter = 0;?> <?php 
@@ -163,7 +170,7 @@ $currentcat = get_queried_object();
 									while($filloop->have_posts()):
 										$filloop->the_post();
  										 $feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
-											/*var_dump($filloop->post->ID);*/
+											
 
                                           if($pch==1){
                                              $res = get_post_meta($post->ID ,'_sale_price',true);
@@ -200,7 +207,7 @@ $currentcat = get_queried_object();
 									while($filloop->have_posts()):
 										$filloop->the_post();
  										 $feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
-											/*var_dump($filloop->post->ID);*/
+											
 
                                         
 
@@ -211,9 +218,9 @@ $currentcat = get_queried_object();
 										
 										
 										$woo=get_post_meta($filloop->post->ID);
-										/*
-										echo '<h3>'.$discat->name.'</h3>';
-										echo "<h5>FROM A$".$woo['_sale_price'][0].'</h5>';*/
+//										
+//										echo '<h3>'.$discat->name.'</h3>';
+//										echo "<h5>FROM A$".$woo['_sale_price'][0].'</h5>';
 
 
 										?>
@@ -230,15 +237,25 @@ $currentcat = get_queried_object();
                      		</div>
                      		<?php 
                      	}
+						
+						*/
 			  ?>
+              
 		<div class="woo-added"></div>
 		<input type="button" name="cc_load_more" id ="cc_load_more" value="load more"/>
-		<input type="hidden" id="cc_count" value="<?php echo $loopcounter ;?>"></div>
-		<input type="hidden" id="category_name" value="<?php echo $term_name ;?>">
-		<input type="hidden" id="category_id" value="<?php echo $term_id_sub ;?>"></div>
-		
+		<input type="hidden" name="ajax_cat_id" id="ajax_cat_id" value="<?php echo $current_cat->term_id?>">
+		<input type="hidden" name="ajax_offset" id="ajax_offset" value="0">
+		<input type="hidden" name="ajax_sort_by" id="ajax_sort_by" value="price">
+		<input type="hidden" name="ajax_sort_order" id="ajax_sort_order" value="ASC">
+		<input type="hidden" name="cat_depth" id="cat_depth" value="<?php echo $depth ?>">
+        <input type="hidden" name="child_cat_count" id="child_cat_count" value="1">
+        <input type="hidden" name="selected_colors" id="selected_colors" value="">
+        <input type="hidden" name="selected_sizes" id="selected_sizes" value="">
+        <input type="hidden" name="selected_price_ranges" id="selected_price_ranges" value="">
 </div>
-		<?php endif; 
+		<?php 
+		
+		} 
 		?>
 		</div></div></div>
 
