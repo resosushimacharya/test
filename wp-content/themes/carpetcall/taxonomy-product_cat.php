@@ -20,6 +20,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?>
+ <?php 
+	$current_cat = get_term_by('slug',get_query_var('product_cat'),'product_cat');
+	$ancestors = get_ancestors( $current_cat->term_id, 'product_cat' );
+	$depth = count($ancestors) ; 
+	if($depth == 2 ){
+		//We will only have template for depth level 0 and 1, third level category won't be listed here
+		return ;
+		}
+	?>
+    
+
 <div class="contaniner clearfix">	<div class="inerblock_seC_mrugss">
 <div class="container-fluid mmrugm"><div class="container">
 <?php
@@ -31,19 +42,32 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_before_main_content' );
 	?>
-	<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo single_cat_title('',false).' '.$appafter;?>
+	<h3>
+    <?php if($depth > 0){?>
+    <span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+    <?php } ?>
+    
+	<?php echo single_cat_title('',false).' '.$appafter;?>
 	<?php 
+	/*
 while(have_posts()):
   the_post();
 the_title();
-endwhile;?></h3>
+endwhile;
+*/
+?>
+</h3>
+<?php if(get_field('product_category_description',$current_cat) && $depth == 0){
+	?>
+	<p class="category_description"><?php echo get_field('product_category_description',$current_cat);?></p>
+	<?php }?>
     </div></div>
     
     
     
 <div class="container">
 
-    
+       
     
 <div class="tophead_sec col-md-12 no-lr">
 <?php $term_id =  get_queried_object()->term_id;
@@ -71,6 +95,7 @@ $currentcat = get_queried_object();
 
 
 <div class="cc-cat-pro-section-left col-md-3 no-lr">
+
 <?php get_sidebar('pro-subcategory');?>
 
 
@@ -116,7 +141,7 @@ $currentcat = get_queried_object();
 													'posts_per_page'=>'10',
 													'meta_key'=>'_sale_price',
 													'orderby' => 'meta_value_num',
-													 'order'     => 'ASC',
+													'order'     => 'ASC',
 													'tax_query' => array(
 																		array(
 																			'taxonomy' => 'product_cat',
