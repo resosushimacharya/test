@@ -38,6 +38,7 @@ global $post, $woocommerce, $product;
                   $parent_term = get_term( $cat->parent, 'product_cat');
                   
                  echo '<h4 class="cc-category-show">'.$cat->name.' '.$parent_term->name.'</h4>';
+                
               	}
               	}
               	}?>

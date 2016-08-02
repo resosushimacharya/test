@@ -68,7 +68,7 @@ foreach($iadata as $iad){?>
     ?><?php elseif(strcasecmp($iad['category'],'Buying Guides')==0):?>
        <div class="col-md-6 cc-ia-item">
        <div class="all-items-blk">
-    <h3><?php echo $iad['title'];?></h3>
+    <a href="<?php echo get_the_permalink($bgID);?>"><h3><?php echo $iad['title'];?></h3></a>
     <p><?php echo $iad['description'];?></p>
       <ul class="cat_list"><?php  $args = array(
     'post_type'      => 'page',
@@ -97,7 +97,7 @@ wp_reset_query();?>
      $tax_terms = get_terms($res_tax);?>
      <div class="col-md-6 cc-ia-item">
      <div class="all-items-blk">
-		<h3><?php echo $iad['title'];?></h3>
+		<a href="<?php echo get_the_permalink($proID);?>"><h3><?php echo $iad['title'];?></h3></a>
 		<p><?php echo $iad['description'];?></p>
 
             <ul class="cat_list">
@@ -135,7 +135,7 @@ wp_reset_query();?>
    
     <div class="col-md-6 cc-ia-item">
     <div class="fq-blk-a">
-		<h3><?php echo $iad['title'];?></h3>
+		<a href="<?php echo get_the_permalink($faqID);?>"><h3><?php echo $iad['title'];?></h3></a>
 		<p><?php echo $iad['description'];?></p>
 		  
             
