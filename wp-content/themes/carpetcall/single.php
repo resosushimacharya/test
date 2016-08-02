@@ -4,7 +4,7 @@
  <div class="container clearfix">
 <div class="inerblock_serc">
  <?php
-
+global $post;
 if(have_posts()):
 
     while(have_posts()):
@@ -29,7 +29,7 @@ if(have_posts()):
 
   <?php 
 
-
+do_action('pr',get_post_meta($post->ID));
 
  get_footer();
 

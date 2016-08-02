@@ -452,24 +452,45 @@ endforeach;
                      <div class="error_label"></div>
                 </div>
 
+                </div>
+                  <div class="form-group col-sm-8">
                  <div class="cc-product-page-info">
-                 <?php global $post;
-                     /*   $resHeight= get_post_meta($post->ID,'_height',true);
-                        $resLength = get_post_meta( $post->ID,'_length', true);
-                        $resWidth = get_post_meta( $post->ID,'_width', true);
-                        $resSKU   = gwt_post_meta($post->ID,'_sku',true);
-                        $resSize ='Size: '.$resLength.'cm'.' '.$resWidth.' '.'cm'.' '.$resHeight;
-                        $resCode = 'Rug Code: '.$resSKU;*/
-                        /*$resProduct =' Prouct: '.$reserve; */
-                        /*var_dump($reserve);*/
- 
-                          
+                 <?php  
+                        global $post;
+                        $reqTempTerms=get_the_terms($post->ID,'product_cat');
+
+
+                        if($reqTempTerms){
+
+                        foreach($reqTempTerms as $cat){
+                        $has_sub_cat=get_terms(array('parent'=>$cat->term_id,'taxonomy'=>'product_cat'));
+
+                        if(count($has_sub_cat)==0){
+                          $reserve = $cat->name ;
+
+                        }
+                        }
+                        }
+
+                         
+                        $resproHeight= get_post_meta($post->ID,'_height',true);
+                        $resproLength = get_post_meta( $post->ID,'_length', true);
+                        $resproWidth = get_post_meta( $post->ID,'_width', true);
+                        $resproSKU   = get_post_meta($post->ID,'_sku',true);
+                        $resproSize ='Size: '.$resproLength.'cm'.' '.$resproWidth.' '.'cm'.' '.$resproHeight;
+                        $resproCode = 'Rug Code: '.$resproSKU;
+                        $resproProduct =' Prouct: '.$reserve; 
+                        
+                        echo '<input type="hidden" value="'.$resproProduct.'" name="product_page_cat"/>';
+                        echo '<input type="hidden" value="'.$resproCode.'" name="product_page_code"/>';
+                        echo '<input type="hidden" value="'.$resproSize.'" name="product_page_size"/>';
+                        
 
 
                  ?>
                    
                  </div>
-                </div>
+                 </div>
                 
                 </div>
                 

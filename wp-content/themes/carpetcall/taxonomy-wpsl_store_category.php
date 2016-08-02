@@ -25,7 +25,7 @@ $term =  get_queried_object();
         endforeach;
      ?>
 <div class="container clearfix">
-<div class="inerblock_serc">
+<div class="inerblock_serc cc-store-nsw-blk">
 <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
 <?php 
   echo '<h4><span class="cc-locator-sub"><a href="'.site_url().'/find-a-store/">'. 'find a store'.'</a></span>'.'>'.'<span class="cc-locator-root"><a href="'.site_url().'/find-a-store/'.$term->slug.'">'. $statename.'</a></span></h4>';?>

@@ -3,7 +3,7 @@ function custom_post_type()
 	{
 
 get_arguments('expert','experts','Expert','Experts','Experts','dashicons-admin-post');
-get_arguments('message','messages','Message','Messages','Messages','dashicons-admin-post');
+get_arguments('enquiry','enquiries','Enquiries','Enquiries','Enquiries','dashicons-admin-post');
 
 
 get_arguments('Slider','Sliders','Slider','Sliders','Sliders','dashicons-images-alt2');
@@ -69,4 +69,3 @@ function get_arguments($singular,$plural,$singular_name,$menu_name,$name,$menu_i
 	flush_rewrite_rules();
 }
 	add_action('init', 'custom_post_type',0);
-	

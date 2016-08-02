@@ -31,8 +31,9 @@ $data=$_POST['form_data'];
 
                      }*/$terms = get_terms('wpsl_store_category');
                      $state_error=false;
+                     $conenq = 1;
                      if(strcasecmp(sanitize_text_field($data['cc_enquiry_type']),'sales enquiry')==0){
-                    
+                            $conenq =0;
                      foreach($terms as $term){
                         $selected="";
                        
@@ -69,7 +70,8 @@ $data=$_POST['form_data'];
                     
                    }
                    else
-                 {
+                 {    
+
                      $flag=0;
                      $state_error=false;
                      $store_name_error=false;
@@ -119,12 +121,19 @@ $data=$_POST['form_data'];
                   
                    $user_email= sanitize_email($data['send_email_address']);
                     if(strcasecmp(sanitize_text_field($data['cc_enquiry_type']),'sales enquiry')==0){
-                      $hold = '<b>State</b>       :'.$data['cc_state_type'].'<br>'.'<b>Store</b>        :'.$data['cc_store_name'].'<br>';
+                      $hold = '<b>State</b>       :'.strtoupper($data['cc_state_type']).'<br>'.'<b>Store</b>        :'.ucwords($data['cc_store_name']).'<br>';
 
                    }
                    else
                  {
-                  $hold = "<b>State</b>       :".$data['cc_state_type_only'].'<br>';
+                  $hold = "<b>State</b>       :".strtoupper($data['cc_state_type_only']).'<br>';
+                 }
+                 if(isset($data['product_page_cat'])){
+                     $hold_enquiry_type =  "Prduct Enquiry";     
+
+                 }
+                 else{
+                   $hold_enquiry_type =  sanitize_text_field(ucfirst($data['cc_enquiry_type'] ));
                  }
                     ob_start();
                     ?>
@@ -132,9 +141,9 @@ $data=$_POST['form_data'];
                     <br><br>
                     We have an enquiry with the following information -<br><br>
 
-                    <b>Enquiry Type</b> : <?php echo sanitize_text_field($data['cc_enquiry_type'] ); ?> <br>
-                    <b>First Name</b>   : <?php echo sanitize_text_field($data['first_name']); ?><br>
-                    <b>Last Name</b>    : <?php echo sanitize_text_field($data['last_name']);?><br>
+                    <b>Enquiry Type</b> : <?php echo $hold_enquiry_type;?> <br>
+                    <b>First Name</b>   : <?php echo sanitize_text_field(ucfirst($data['first_name'])); ?><br>
+                    <b>Last Name</b>    : <?php echo sanitize_text_field(ucfirst($data['last_name']));?><br>
                     <b>Email</b>        : <?php echo sanitize_email($data['email_address']); ?><br>
                     <b>Phone</b>        : <?php echo sanitize_text_field($data['mobile_phone_no']); ?><br>
                     
@@ -147,10 +156,24 @@ $data=$_POST['form_data'];
                     <?php 
                             $email_message = ob_get_contents();
                             ob_end_clean(); 
+                            function get_administrator_email(){
+                               $blogusers = get_users('role=Administrator');
+          
+                               $i=1;
+                                 foreach ($blogusers as $user) {
+                                  if($i==1){
+                                              
+                                             return $user->data->user_email;
+                                             $i++;}
+                                                     }  
+                                                 }
+                           $adminEmailAdd = get_administrator_email();   
+
                             
-                            if(!sanitize_email($data['send_email_address'])){
+                            if(sanitize_email($data['send_email_address'])==''){
+
                             
-                            $user_email =get_option('admin_email');
+                            $user_email =$adminEmailAdd;
                              }
                             $headers[]  = 'From: Carpetcall ';
                             //$headers[]  = 'Cc: nabin.maharjan@agileitsolutios.net'; // note you can just use a simple email address
@@ -158,12 +181,52 @@ $data=$_POST['form_data'];
 
                           //  var_dump($user_email);var_dump($email_subject);var_dump($email_message);var_dump($headers);
                           //  die;
-                            
+                            if(isset($data['product_page_cat'])){
+
+                              $netMessage = $data['product_page_cat'].'<br>'.$data['product_page_code'].'<br>'.$data['product_page_size'].'<br>';
+                              $email_message = $netMessage.$email_message; 
+                            }
                             $sent_mail= wp_mail($user_email, $email_subject, $email_message);
                             if(!$sent_mail){
                                $sent_mail= mail($user_email, $email_subject, $email_message);
                             }
+                         if(isset($data['product_page_cat'])){
+
+                              $netMessage = $data['product_page_cat'].'<br>'.$data['product_page_code'].'<br>'.$data['product_page_size'].'<br><br>';
+                              $email_message = "From".'<br'>$netMessage.' <br>'.$email_message; 
+                              $messagecheck = "From".'<br>'.$netMessage.' <br>'.$messagecheck;
+                            }
+                            $namesave=ucfirst($data['first_name']).' '.ucfirst($data['last_name']);
+                            $message_post = array(
+                                    'post_title'    => wp_strip_all_tags($namesave),
+                                    'post_content'  => $messagecheck,
+                                    'post_status'   => 'publish',
+                                    'post_author'   => $post->post_author,
+                                    'post_type' => 'enquiries'
+
+                                );
                             
+                            $user_id=wp_insert_post( $message_post );
+                       
+                            update_post_meta($user_id,'email',$data['email_address']);
+                           
+                            update_post_meta($user_id,'enquiry_type',ucwords($hold_enquiry_type));
+                            update_post_meta($user_id,'phone',$data['mobile_phone_no']);
+                            update_post_meta($user_id,'admin_email',$user_email);
+                            
+                                                   
+                           // do_action('manage_enquiries_posts_custom_column','names',$email_subject,$user_id);
+                             $time =   esc_attr( get_the_date('F j, Y',$user_id)).' at '.esc_attr(get_the_time('g:i a',$user_id));
+                             update_post_meta($user_id,'enquiry_date_contact',$time );
+                            if($conenq==0){
+
+                            update_post_meta($user_id,'state',strtoupper($data['cc_state_type']));
+                            update_post_meta($user_id,'store',ucwords(strtolower($data['cc_store_name'])));
+                            }
+                            else{
+                             update_post_meta($user_id,'state',strtoupper($data['cc_state_type_only']));
+                            }
+
                             $message['sent_mail']=$sent_mail;
                             
                             $textmessage=get_field('success_message_content',89);
@@ -274,10 +337,10 @@ function custom_listing_templates() {
    
 
     $listing_template = '<li data-store-id="<%= id %>" class="col-md-4">' . "\r\n";
-    $listing_template .= "\t\t" . '<div>' . "\r\n";
+    $listing_template .= "\t\t" . '<div class="cc-cat-store-section">' . "\r\n";
    
     $listing_template .= "\t\t\t" . '<p><%= thumb %>' . "\r\n";
-    $listing_template .= "\t\t\t\t" .'<span class="cc-store-icon-label"><img src ="'.get_template_directory_uri().'/images/blue.png"/>'.wpsl_store_header_template( 'listing' ).'</span><div class="clearfix"></div>' . "\r\n";
+    $listing_template .= "\t\t\t\t" .'<div class="cc-cat-store-item"><span class="cc-store-icon-label"><img src ="'.get_template_directory_uri().'/images/blue.png"/>'.wpsl_store_header_template( 'listing' ).'</span><div class="clearfix"></div>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address %></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% if ( address2 ) { %>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address2 %></span>' . "\r\n";
@@ -285,12 +348,12 @@ function custom_listing_templates() {
     $listing_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span>' . "\r\n";
    $listing_template .= "\t\t\t\t" . '<% if ( phone ) { %>' . "\r\n";
-                $listing_template .= "\t\t\t\t" . '<span><strong>' .'P' .'</strong>: <%= formatPhoneNumber( phone ) %></span><br/>' . "\r\n";
+                $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P' .'</strong>: <%= formatPhoneNumber( phone ) %></span>' . "\r\n";
                 $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
                 $listing_template .= "\t\t\t\t" . '<% if ( fax ) { %>' . "\r\n";
-                $listing_template .= "\t\t\t\t" . '<span><strong>' .'F' .'</strong>: <%= fax %></span>' . "\r\n";
+                $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-fax"><strong>' .'F' .'</strong>: <%= fax %></span>' . "\r\n";
                 $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
-               $listing_template .='<div class="fcnt-or fcnt-orr clearfix"><a href="<%= permalink %>">View Store Page</a></div>';
+               $listing_template .='</div><div class="fcnt-or fcnt-orr clearfix"><a href="<%= permalink %>">View Store Page</a></div>';
                 $listing_template .='<div class="fcnt-or fcnt-orr fcnt-orr-map clearfix"><a href="http://localhost/carpetcall/contact-us/?id=<%= id %>" class="cc-contact-link  ">Contact Store</a></div>';
     $listing_template .= "\t\t\t" . '</p>' . "\r\n";
      
@@ -347,10 +410,10 @@ function custom_listing_templates_server() {
                         
                             '<% if (  id!=26785 ) { %>'.
                                 '<% if (  id!=26787 ) { %><li data-store-id="<%= id %>" class="col-md-4">' . "\r\n";
-    $listing_template .= "\t\t" . '<div>' . "\r\n";
+    $listing_template .= "\t\t" . '<div class="cc-cat-store-section">' . "\r\n";
    
     $listing_template .= "\t\t\t" . '<p><%= thumb %>' . "\r\n";
-    $listing_template .= "\t\t\t\t" .'<span class="cc-store-icon-label"><img src ="'.get_template_directory_uri().'/images/blue.png"/>'.wpsl_store_header_template( 'listing' ).'</span><div class="clearfix"></div>' . "\r\n";
+    $listing_template .= "\t\t\t\t" .'<div class="cc-cat-store-item"><span class="cc-store-icon-label"><img src ="'.get_template_directory_uri().'/images/blue.png"/>'.wpsl_store_header_template( 'listing' ).'</span><div class="clearfix"></div>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address %></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% if ( address2 ) { %>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address2 %></span>' . "\r\n";
@@ -358,12 +421,12 @@ function custom_listing_templates_server() {
     $listing_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span>' . "\r\n";
    $listing_template .= "\t\t\t\t" . '<% if ( phone ) { %>' . "\r\n";
-                $listing_template .= "\t\t\t\t" . '<span><strong>' .'P' .'</strong>: <%= formatPhoneNumber( phone ) %></span><br/>' . "\r\n";
+                 $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P' .'</strong>: <%= formatPhoneNumber( phone ) %></span>' . "\r\n";
                 $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
                 $listing_template .= "\t\t\t\t" . '<% if ( fax ) { %>' . "\r\n";
-                $listing_template .= "\t\t\t\t" . '<span><strong>' .'F' .'</strong>: <%= fax %></span>' . "\r\n";
+                $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-fax"><strong>' .'F' .'</strong>: <%= fax %></span>' . "\r\n";
                 $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
-               $listing_template .='<div class="fcnt-or fcnt-orr clearfix"><a href="<%= permalink %>">View Store Page</a></div>';
+               $listing_template .='</div><div class="fcnt-or fcnt-orr clearfix"><a href="<%= permalink %>">View Store Page</a></div>';
                 $listing_template .='<div class="fcnt-or fcnt-orr fcnt-orr-map clearfix"><a href="http://staging.carpetcall.com.au/contact-us/?id=<%= id %>" class="cc-contact-link  ">Contact Store</a></div>';
     $listing_template .= "\t\t\t" . '</p>' . "\r\n";
      
@@ -394,3 +457,63 @@ function custom_listing_templates_server() {
     return $listing_template;
 }
 //add_filter('wpsl_store_header_template','filter_store_count');
+  add_filter('manage_edit-enquiries_columns', 'my_columns');
+
+function my_columns($columns) {
+   /*$columns['name'] = __('Name');*/
+     
+    
+    $columns['email'] =  __('Email Address');
+    $columns['phone'] = __('Phone Number');
+    $columns['enquirytype'] = __('Enquiry Type');
+   
+    $columns['adminemail'] = __("Admin Email");
+     $columns['enquirydate'] = __("Enquiry Date");
+ 
+    return $columns;
+}
+add_action('manage_enquiries_posts_custom_column', 'manage_gallery_columns', 10, 2);
+ 
+function manage_gallery_columns($column_name, $xyz) {
+    global $wpdb;
+    
+     $x= get_post_meta($xyz);
+      /*do_action('pr', $x);
+      die;*/
+    switch ($column_name) {
+   /* case 'name':
+        echo $x['name'][0];
+            break;*/
+
+     case 'email':
+        echo $x['email'][0];
+            break;
+    case 'phone':
+        echo $x['phone'][0];
+            break;
+     case 'enquirytype':
+        echo $x['enquiry_type'][0];
+            break; 
+        
+      case 'adminemail' :
+        echo $x['admin_email'][0] ;   
+        break;   
+        case 'enquirydate' :
+        echo $x['enquiry_date_contact'][0] ;  
+        break; 
+                           
+    default:
+        break;
+    } // end switch
+
+} 
+add_filter('manage_posts_columns', 'thumbnail_column');
+function thumbnail_column($columns) {
+  $new = array();
+  foreach($columns as $key => $title) {
+    if ($key=='author') // Put the Thumbnail column before the Author column
+      $new['thumbnail'] = 'Thumbnail';
+    $new[$key] = $title;
+  }
+  return $new;
+}

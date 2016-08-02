@@ -17,19 +17,19 @@ global $post;
 $output         = $this->get_custom_css(); 
 $autoload_class = ( !$wpsl_settings['autoload'] ) ? 'class="wpsl-not-loaded"' : '';
 
-$output .= '<div id="wpsl-wrap" class="wpsl-store-below">' . "\r\n";
+$output .= '<div id="wpsl-wrap" class="wpsl-store-below store-finder-page-form">' . "\r\n";
 $output .= "\t" . '<div class="wpsl-search wpsl-clearfix ' . $this->get_css_classes() . '">' . "\r\n";
-$output .= "\t\t" . '<div id="wpsl-search-wrap">' . "\r\n";
+$output .= "\t\t" . '<div id="wpsl-search-wrap"  class="store-finder-form-cntr">' . "\r\n";
 $output .= "\t\t\t" . '<form autocomplete="off" method="post">' . "\r\n";
 $output .= "\t\t\t" . '<div class="wpsl-input">' . "\r\n";
-$output .= "\t\t\t\t" . '<div><label for="wpsl-search-input">' . esc_html( $wpsl->i18n->get_translation( 'search_label', __( 'Your location', 'wpsl' ) ) ) . '</label></div>' . "\r\n";
+
 
 $output .= "\t\t\t\t" .'<input type="hidden" name="cc-control-map"  value="cc-control-map" />';
 if(isset($_POST["wpsl-search-input"])){
 $output .= "\t\t\t\t" . '<input id="wpsl-search-input" type="text" value="" name="wpsl-search-input" placeholder="'.$_POST["wpsl-search-input"] .'" aria-required="true" />' . "\r\n";
 }
 else{
-    $output .= "\t\t\t\t" . '<input id="wpsl-search-input" type="text" value="" name="wpsl-search-input" placeholder="" aria-required="true" onkeyup="mymapwpsl(event);"/>' . "\r\n";
+    $output .= "\t\t\t\t" . '<input id="wpsl-search-input" type="text" value="" name="wpsl-search-input" placeholder="SUBURB OR POSTCODE" aria-required="true" onkeyup="mymapwpsl(event);"/>' . "\r\n";
 }
 $output .= "\t\t\t" . '</div>' . "\r\n";
 
@@ -62,10 +62,13 @@ if ( $wpsl_settings['category_filter'] ) {
 }
  
 $output .= "\t\t\t\t" . '<div class="wpsl-search-btn-wrap check_wpsl">
-<input id="wpsl-search-btn" type="submit"  value="' . esc_attr( $wpsl->i18n->get_translation( 'search_btn_label', __( 'Search', 'wpsl' ) ) ) . '"></div>' . "\r\n";
+<input id="wpsl-search-btn" type="submit"  value=""></div>' . "\r\n";
 
-$output .= "\t\t" . '</form>' . "\r\n";
+$output .= "\t\t" . '</form> <span> OR </span>' . "\r\n";
+
+
 $output .="\t\t\t\t" . '<div id="wpsl-auto-locate">' . "\r\n";
+
 
 
     $output .= "\t\t\t\t\t" .'<div class="wpsl-search-btn-wrap">

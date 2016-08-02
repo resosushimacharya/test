@@ -407,3 +407,14 @@ function getLatLong($address){
     return "text/html";
 }
 add_filter( 'wp_mail_content_type','wpse27856_set_content_type' );
+// Enable sortable dates column
+
+add_filter( 'manage_edit-enquiries_columns', 'hide_cpt_columns_so_14257172' );
+
+function hide_cpt_columns_so_14257172( $columns )
+{
+    // Change categories for your custom taxonomy
+    unset($columns['date']);
+    unset($columns['tags']);
+    return $columns;
+}
