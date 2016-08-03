@@ -4,12 +4,13 @@ function autocomplet_dialog() {
 	jQuery('#alert_msg').remove();
 	var keyword = jQuery('#edit_dialog_keyword').val().trim();
 	
-     if((typeof diaLocation[0] == 'undefined' && rs[0]==null)){
+     if((typeof diaLocation[0] == 'undefined' || rs[0]==null)){
      	jQuery("#edit_dialog_keyword").parent().parent().prepend('<h5 id="alert_msg">Please select the keywords</h5>');
          
      }
       if(keyword!="" && keyword!=null && keyword.length>3 && (typeof diaLocation[0] != 'undefined')||rs[0]!=null)
 	    {
+	    	jQuery("#alert_msg").remove();
 		jQuery.ajax({
 			url: dialog_autocomplete_one.ajax_url,
 			type: 'POST',

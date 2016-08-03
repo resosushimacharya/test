@@ -129,7 +129,7 @@ $data=$_POST['form_data'];
                   $hold = "<b>State</b>       :".strtoupper($data['cc_state_type_only']).'<br>';
                  }
                  if(isset($data['product_page_cat'])){
-                     $hold_enquiry_type =  "Prduct Enquiry";     
+                     $hold_enquiry_type =  "Product Enquiry";     
 
                  }
                  else{
@@ -353,8 +353,8 @@ function custom_listing_templates() {
                 $listing_template .= "\t\t\t\t" . '<% if ( fax ) { %>' . "\r\n";
                 $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-fax"><strong>' .'F' .'</strong>: <%= fax %></span>' . "\r\n";
                 $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
-               $listing_template .='</div><div class="fcnt-or fcnt-orr clearfix"><a href="<%= permalink %>">View Store Page</a></div>';
-                $listing_template .='<div class="fcnt-or fcnt-orr fcnt-orr-map clearfix"><a href="http://localhost/carpetcall/contact-us/?id=<%= id %>" class="cc-contact-link  ">Contact Store</a></div>';
+               $listing_template .='</div><div class="cc-cats-vsp cc-cats-vsp-a clearfix"><a href="<%= permalink %>">View Store Page</a></div>';
+                $listing_template .='<div class="cc-cats-or cc-cas-orr cc-cats-orr-map clearfix"><a href="http://localhost/carpetcall/contact-us/?id=<%= id %>" class="cc-contact-link  ">Contact Store</a></div>';
     $listing_template .= "\t\t\t" . '</p>' . "\r\n";
      
  
@@ -426,8 +426,8 @@ function custom_listing_templates_server() {
                 $listing_template .= "\t\t\t\t" . '<% if ( fax ) { %>' . "\r\n";
                 $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-fax"><strong>' .'F' .'</strong>: <%= fax %></span>' . "\r\n";
                 $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
-               $listing_template .='</div><div class="fcnt-or fcnt-orr clearfix"><a href="<%= permalink %>">View Store Page</a></div>';
-                $listing_template .='<div class="fcnt-or fcnt-orr fcnt-orr-map clearfix"><a href="http://staging.carpetcall.com.au/contact-us/?id=<%= id %>" class="cc-contact-link  ">Contact Store</a></div>';
+               $listing_template .='</div><div class="cc-cats-vsp cc-cats-vsp-a  clearfix"><a href="<%= permalink %>">View Store Page</a></div>';
+                $listing_template .='<div class="cc-cats-or cc-cas-orr cc-cats-orr-map clearfix"><a href="http://staging.carpetcall.com.au/contact-us/?id=<%= id %>" class="cc-contact-link  ">Contact Store</a></div>';
     $listing_template .= "\t\t\t" . '</p>' . "\r\n";
      
  

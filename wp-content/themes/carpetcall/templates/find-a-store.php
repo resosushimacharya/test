@@ -68,8 +68,7 @@
                     <?php    }
                         elseif(isset($_POST["check-head-id"])){?>
                        <div id="Map" style="width: 100%; height: 450px;"></div>
-                          <div id="wpsl-result-list">
-        <div id="wpsl-stores">
+                      
         <?php 
 
             $args = array(
@@ -85,7 +84,7 @@
 
             $loop = new WP_Query($args);
         ?>
-         <ul>
+         <ul class="col-md-12">
 
         <?php   
 
@@ -137,9 +136,7 @@
     <?php endwhile;
     wp_reset_query(); ?>
         </ul>
-        </div>
-    </div> 
-                      <?php } 
+               <?php } 
                     
                       else {?>
                        
