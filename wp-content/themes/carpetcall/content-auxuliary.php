@@ -91,10 +91,10 @@ wp_reset_query();
             }, 800);
         }
     }
- 
     function addMarkers1() {
         var address = locations1[areaiterator][1];
-        var icons = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+
+        var icons = 'http://localhost/carpetcall/wp-content/themes/carpetcall/images/blue.png';
         var templat = locations1[areaiterator][2].split(',')[0];
         var templong = locations1[areaiterator][2].split(',')[1];
         var temp_latLng = new google.maps.LatLng(templat, templong);
