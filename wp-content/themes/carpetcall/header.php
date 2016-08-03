@@ -169,18 +169,18 @@ get_search_form();
                 <div class="col-md-4 no-lr">
                 <div class="callinfo">
                   <h2 class="calme callmea"><a href="tel:<?php
-                        echo get_field('telephone_link', '89');
+                        echo get_field('telephone_link', '89',false);
                                 ?>"><?php
-echo get_field('telephone', '89');
+echo get_field('telephone', '89',false);
 ?> </a></h2>
                     <h3 class="subcl"><?php
-echo get_field('contact_label', '89');
+echo get_field('contact_label', '89',false);
 ?> </h3>
                      <div class="contblk"><a href="<?php
-echo get_field('contact_url', '89');
+echo get_field('contact_url', '89',false);
 ?>">
                      <?php
-echo get_field('contact_link_title', '89');
+echo get_field('contact_link_title', '89',false);
 ?></a></div>
                 </div>
                 </div><!-- call info end -->
