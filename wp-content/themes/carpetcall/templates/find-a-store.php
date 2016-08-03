@@ -130,7 +130,7 @@
             <div class="hf-fcnt-or hf-fcnt-orr clearfix">
                 <a href="<?php echo get_the_permalink();?>">View Store Page</a>
             </div>
-            <div class="hf-fcnt-or hf-fcnt-orr hf-fcnt-orr-map clearfix">
+            <div class="hfc-fcnt-or hfc-fcnt-orr hfc-fcnt-orr-map clearfix">
                 <a href="http://localhost/carpetcall/contact-us/?id=<?php echo $post->ID ; ?>" class="cc-contact-link  ">Contact Store</a>
             </div>         
         </div>
