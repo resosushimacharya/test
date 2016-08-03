@@ -2,16 +2,16 @@
 function custom_post_type()
 	{
 
-get_arguments('expert','experts','Expert','Experts','Experts','dashicons-admin-post');
-get_arguments('enquiry','enquiries','Enquiries','Enquiries','Enquiries','dashicons-admin-post');
+get_arguments('expert','experts','Expert','Experts','Experts','dashicons-admin-post',5);
+get_arguments('enquiry','enquiries','Enquiries','Enquiries','Enquiries','dashicons-visibility',80);
 
 
-get_arguments('Slider','Sliders','Slider','Sliders','Sliders','dashicons-images-alt2');
+get_arguments('Slider','Sliders','Slider','Sliders','Sliders','dashicons-images-alt2',5);
 
 
 
 }
-function get_arguments($singular,$plural,$singular_name,$menu_name,$name,$menu_icon){
+function get_arguments($singular,$plural,$singular_name,$menu_name,$name,$menu_icon,$menu_position){
 		$labels = array(
 		'name' => _x($name, 'Post Type General Name', 'text_domain') ,
 		'singular_name' => _x($singular_name, 'Post Type Singular Name', 'text_domain') ,
@@ -56,7 +56,7 @@ function get_arguments($singular,$plural,$singular_name,$menu_name,$name,$menu_i
 		'show_in_menu' => true,
 		'show_in_nav_menus' => true,
 		'show_in_admin_bar' => true,
-		'menu_position' => 5,
+		'menu_position' => $menu_position,
 		'menu_icon' => $menu_icon,
 		'can_export' => true,
 		'has_archive' => true,
