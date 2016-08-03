@@ -85,13 +85,6 @@ $args = wp_parse_args( $args, $defaults);
 	foreach($cats_slice as $discat){
 		ob_start();
 	?>
-	<div class="row cc-cat-sub-title-price-cover">
-	<div class="col-md-6 cc-cat-sub-title"><h4><?php _e($current_cat->name,'carpetcall')?></h4>
-	<?php
-	echo '<h3>'.$discat->name.'</h3><br/>';
-	?>
-	</div>
-	
 	
 	<?php 
 	$filargs = array(
@@ -155,7 +148,18 @@ $args = wp_parse_args( $args, $defaults);
 	$hold = 1;
 	?>
 	<?php 
+	if($filloop->post_count > 0){
+		ob_start()?>
+        	<div class="row cc-cat-sub-title-price-cover">
+	<div class="col-md-6 cc-cat-sub-title"><h4><?php _e($current_cat->name,'carpetcall')?></h4>
+	<?php
+	echo '<h3>'.$discat->name.'</h3><br/>';
+	?>
+	</div>
 	
+
+        <?php
+		
 	if($filloop->have_posts()){
 	$slidercounter = 1;
 	while($filloop->have_posts()):
@@ -189,12 +193,10 @@ $args = wp_parse_args( $args, $defaults);
 	endwhile;
 	wp_reset_query();
 	}
-	
-	?>
-	<div class=" cc-cat-sub-group-item">
-	<?php 
-	
-	if($filloop->have_posts()){
+
+	if($filloop->have_posts()){?>
+		<div class=" cc-cat-sub-group-item">
+		<?php 
 	$slidercounter = 1;
 	while($filloop->have_posts()):
 	$filloop->the_post();
@@ -223,10 +225,15 @@ $args = wp_parse_args( $args, $defaults);
 	
 	<?php endwhile;?>
 	<?php 
-	wp_reset_query(); }?>
-	</div><!--end of cc-cat-sub-group-item-->
+	wp_reset_query(); ?>
+		</div>
+	<?php }
+		?>
+        </div>
+		<?php }
 	
-	</div>
+	
+	?>
 	<?php 
 	}
 		$html = ob_get_clean();

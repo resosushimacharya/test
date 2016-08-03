@@ -5,7 +5,10 @@ jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=chec
 	$("#ajax_offset").val(0);
 	var trig_ele = event.target;
 	//console.log(trig_ele);
-	if(jQuery(trig_ele).hasClass('swatch')){
+	if(jQuery(trig_ele).hasClass('swatch') || jQuery(trig_ele).parent().hasClass('swatch')){
+		if( jQuery(trig_ele).parent().hasClass('swatch')){
+			trig_ele = jQuery(trig_ele).parent();
+		}
 		jQuery('#selected_colors').val('');
 		jQuery(trig_ele).find('img.cc-tick-display').toggle();
 		var color_comma_text ='';
@@ -21,7 +24,7 @@ jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=chec
 		jQuery('#category_slider_block_wrapper').html(output.html);
 		jQuery('.cat_slider.slick-slider').slick('unslick');
 		init_slick_slider();
-		jQuery("#child_cat_count").val(1);
+		//jQuery("#child_cat_count").val(1);
 	
 	});
 	 //console.log(jQuery('.cc-tick-display:visible'));
@@ -40,7 +43,7 @@ jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=chec
 	jQuery('#category_slider_block_wrapper').html(output.html);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
 	init_slick_slider();
-	jQuery("#child_cat_count").val(1);
+	//jQuery("#child_cat_count").val(1);
 	});
 }else if(jQuery(trig_ele).hasClass('size_option')){
 			//alert('size');
