@@ -1132,7 +1132,7 @@ input#cc_control_map { background:#c32428; width:267px; height:45px; font:bold 1
 #wpsl-result-list li p { margin:0;}
 .cc-cat-store-section { border:1px solid #e7edf8; padding:10px;  min-height:380px;}
 .cc-store-icon-label strong a  { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none; margin-left:3px;}
-.cc-store-icon-label strong a:hover { color:#144a9f;}
+.cc-store-icon-label strong a:hover { color:#144a9f; cursor:pointer;}
 .cc-cat-store-item span.cc-store-icon-label { margin:0; }
 .cc-cat-store-item { margin-top:11px; }
 .cc-cat-store-item span { margin-left:32px; font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666; display:block;  }
@@ -1147,3 +1147,16 @@ span.cc-cat-store-item-phone strong, span.cc-cat-store-item-fax strong { color:#
 .cc-cas-orr a {background:#FFFFFF; padding:12px 75px; text-align:center; font:700 14px 'proxima_nova_ltsemibold', sans-serif; text-transform:uppercase; color:#144a9f; text-decoration:none; display:inline-block; border:1px solid #144a9f;} 
 .cc-cas-orr a:hover {background:#144a9f; color:#FFF;}
 .page-template-find-a-store #wpsl-result-list#wpsl-stores { height:0 !important; overflow:visible;}
+.cc-head-office-wrap { margin:25px 0 0 0; }
+.cc-head-office-secn .col-md-12 { padding:0; margin:0 -10px;}
+.cc-head-office-list li { list-style:none; margin:0; padding:10px;}
+.cc-head-office-list-item { border:1px solid #e7edf8; padding:10px; min-height:380px; }
+.cc-head-office-label { margin-top:10px; }
+.cc-head-office-list-item span { margin-left: 36px; font: normal 16px/24px 'proxima_nova_rgregular', sans-serif; color: #666666; display: block;
+}
+.cc-head-office-label span.cc-store-icon-label { margin:0;}
+span.wpsl-hf-street-b strong, span.wpsl-hf-street-c strong { color:#0099ff; }
+
+.hf-fcnt-or {  margin:35px 0 0px 0; text-align:center; }
+.hf-fcnt-orr a {background:#c32327; padding:12px 55px; text-align:center; font:700 18px 'proxima_nova_ltsemibold', sans-serif; text-transform:uppercase; color:#fff; text-decoration:none; display:inline-block;}
+.hf-fcnt-orr a:hover {background:#b51a1d;}
