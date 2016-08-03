@@ -85,7 +85,7 @@
             $loop = new WP_Query($args);
         ?>
         <div class="cc-head-office-wrap">
-        <div class="cc-head-office-secn"> <ul class="col-md-12 cc-head-office-list">
+        <div class="cc-head-office-secn"> <ul class="cc-head-office-list">
 
         <?php   
 
