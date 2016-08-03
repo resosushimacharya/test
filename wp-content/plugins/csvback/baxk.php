@@ -157,9 +157,11 @@ function  csv_import_rugs($csv)
 	    $length = str_replace("cm","","$hh[0]");
 	    $width  =  str_replace("cm","","$hh[2]");
 	    $height =  $hh[10];
-	  
+	  	
+		$sku_arr = explode('.',$csv[1]);
 	    update_post_meta($new_post_id,'state',$csv[0]);
 		update_post_meta( $new_post_id, '_sku', $csv[1]);
+		update_post_meta( $new_post_id, 'color', $sku_arr[2]);
 		update_post_meta($new_post_id,'description_1',$csv[4]);
 		update_post_meta($new_post_id,'description_2',$csv[5]);
 		update_post_meta($new_post_id,'description_3',$csv[6]);

@@ -48,53 +48,30 @@
         <ul class="cc-color-var-item">
         <?php 
 		$colors = array(
-				'4'=>'purple',
-				'5'=>'red',
-				'6'=>'red-cream',
-				'30'=>'rust',
-				'8'=>'yellow',
-				'10'=>'blue',
-				'15'=>'navy',
-				'16'=>'navy-cream',
-				'17'=>'lt-blue',
-				'53'=>'ivory-blue',
-				'19'=>'khaki',
-				'20'=>'green',
-				'21'=>'green-cream',
-				'41'=>'ivory-green',
-				'40'=>'ivory',
-				'44'=>'cream',
-				'63'=>'white',
-				'45'=>'beige',
-				'95'=>'caramel',
-				'14'=>'chocolate',
-				'54'=>'brown',
-				'58'=>'coffee',
-				'81'=>'cappuccino',
-				''=>'flame',
-				'14'=>'coke-brown',
-				'54'=>'dk-grey',
-				'58'=>'grey',
-				'81'=>'silver-grey',
-				'95'=>'desert',
-				'14'=>'pink',
-				'54'=>'pink-cream',
-				'58'=>'terracotta',
-				'81'=>'orange',
-				'81'=>'black',
-				'81'=>'bl-wh_red',
-				'81'=>'bl_white',
-				
-		);
+						'4'=>'purple',
+						'5'=>'red',
+						'8'=>'yellow',
+						'10'=>'blue',
+						'20'=>'green',
+						'40'=>'ivory',
+						'44'=>'cream',
+						'63'=>'white',
+						'45'=>'beige',
+						'54'=>'brown',
+						'55'=>'grey',
+						'50'=>'pink',
+						'28'=>'orange',
+						'65'=>'black',
+					);
 		
 		foreach($colors as $key=>$color){
 			if(file_exists(get_template_directory().'/images/'.$color.'.jpg')){
 			?>
 			<li>
-    <a href="javascript:void(0);" class="swatch" style="background:url('<?php echo get_template_directory_uri().'/images/'.$color.'.jpg';?>');" id="<?php echo $key?>"> 
+    <a href="javascript:void(0);" class="swatch" style="background:url('<?php echo get_template_directory_uri().'/images/'.$color.'.jpg';?>');" id="<?php echo $color?>"> 
         <img src="<?php echo get_template_directory_uri().'/images/swatch_checked.png';?>" class="cc-tick-display" />
         </a>
-      <label for="colour_red"><?php echo str_replace(array('-','_'),array('/','&amp;'),$color) ?></label>
+      <label for="colour_red"><?php echo ucfirst($color) ?></label>
         </li>
 			<?php
 			}

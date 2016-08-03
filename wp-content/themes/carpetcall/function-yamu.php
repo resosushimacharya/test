@@ -113,9 +113,22 @@ $args = wp_parse_args( $args, $defaults);
 	$color_meta_query = '';
 	$price_range_query = '';
 	if($color !='' && !empty($color)){
+		$color_arr = array();
+		$color_arr_names = array();
+		foreach($color as $color_name){
+			if(get_field($color_name.'_colours','options')){
+				$available_colors = get_field($color_name.'_colours','options');
+				if(!empty($available_colors)){
+					foreach($available_colors as $color_codes){
+						$color_arr[] = $color_codes['colour_code'];
+						//$color_arr_names[] = $color_codes['colour_name'];
+						}
+					}
+				}
+			}
 		$color_meta_query = array(
 									 'key' => 'color', 
-									 'value' => $color,
+									 'value' => $color_arr,
 									 'compare' => 'IN',
 									  );
 									  
