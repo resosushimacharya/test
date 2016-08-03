@@ -163,7 +163,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         foreach($titlepro as $key => $value){
 
             preg_match('/([A-Z]*)\.([0-9]*)\.([0-9]*)\.([0-9]*)/',$value,$match);
-            
+              do_action('pr',$match);
              $proGroup[] = array($value,$match[2],$key);
              
            if($secondVar!=$match[2]){
@@ -477,9 +477,9 @@ endforeach;
                         $resproLength = get_post_meta( $post->ID,'_length', true);
                         $resproWidth = get_post_meta( $post->ID,'_width', true);
                         $resproSKU   = get_post_meta($post->ID,'_sku',true);
-                        $resproSize ='Size: '.$resproLength.'cm'.' '.$resproWidth.' '.'cm'.' '.$resproHeight;
-                        $resproCode = 'Rug Code: '.$resproSKU;
-                        $resproProduct =' Prouct: '.$reserve; 
+                        $resproSize ='Size : '.$resproLength.'cm'.' '.$resproWidth.' '.'cm'.' '.$resproHeight;
+                        $resproCode = 'Rug Code : '.$resproSKU;
+                        $resproProduct ='Product : '.$reserve; 
                         
                         echo '<input type="hidden" value="'.$resproProduct.'" name="product_page_cat"/>';
                         echo '<input type="hidden" value="'.$resproCode.'" name="product_page_code"/>';

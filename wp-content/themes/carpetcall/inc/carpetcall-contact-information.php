@@ -148,8 +148,8 @@ $data=$_POST['form_data'];
                     <b>Phone</b>        : <?php echo sanitize_text_field($data['mobile_phone_no']); ?><br>
                     
                     <?php echo $hold;?><br>
-                    <b>Message</b>      :<br> <?php echo sanitize_text_field($data['cc_message'] ); ?><br><br>
-                    Thanks .
+                    <b>Message</b>      :<br> <?php echo sanitize_text_field($data['cc_message'] ); ?>
+                   
                  
                     
                    
@@ -183,8 +183,11 @@ $data=$_POST['form_data'];
                           //  die;
                             if(isset($data['product_page_cat'])){
 
-                              $netMessage = $data['product_page_cat'].'<br>'.$data['product_page_code'].'<br>'.$data['product_page_size'].'<br>';
-                              $email_message = $netMessage.$email_message; 
+                              $netMessage = $data['product_page_cat'].'<br>'.$data['product_page_code'].'<br>'.$data['product_page_size'].'<br><br>Thanks .';
+                              $email_message = $email_message.'<br>'.$netMessage; 
+                            }
+                            else{
+                              $email_message .='<br><br>Thanks .' ;
                             }
                             $sent_mail= wp_mail($user_email, $email_subject, $email_message);
                             if(!$sent_mail){
@@ -192,9 +195,12 @@ $data=$_POST['form_data'];
                             }
                          if(isset($data['product_page_cat'])){
 
-                              $netMessage = $data['product_page_cat'].'<br>'.$data['product_page_code'].'<br>'.$data['product_page_size'].'<br><br>';
-                              $email_message = "From".'<br'>$netMessage.' <br>'.$email_message; 
-                              $messagecheck = "From".'<br>'.$netMessage.' <br>'.$messagecheck;
+                              $netMessage = $data['product_page_cat'].'<br>'.$data['product_page_code'].'<br>'.$data['product_page_size'].'<br>';
+                             
+                              $messagecheck = $netMessage.'<br>'.$messagecheck;
+                            }
+                            else{
+                               $messagecheck = $messagecheck;
                             }
                             $namesave=ucfirst($data['first_name']).' '.ucfirst($data['last_name']);
                             $message_post = array(

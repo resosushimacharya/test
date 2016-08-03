@@ -26,14 +26,6 @@ function autocomplet_dialog() {
 			success:function(data){
 				
 				jQuery("#edit_dialog_keyword").val('');
-				
-				jQuery("#after_heading").css("color","#1858b8");
-				jQuery("#after_dropdown").css("background-color"," #e7edf8");
-				jQuery('#after_location').hide();
-				jQuery('#after_browse').hide();
-				jQuery('#before_heading').hide();
-				jQuery('#after_heading').show();
-				/*jQuery('#dialog_list_id').show();*/
 				jQuery('#dialog_list_id_s').show();
 				jQuery('#dialog_list_id_s').html(data);
 				jQuery("#edit_dialog_keyword").focus();
