@@ -107,7 +107,7 @@ $currentcat = get_queried_object();
 	$args = array(
 		'cat_id' =>$current_cat->term_id,
 		'offset'=>0,
-		'perpage'=>4,
+		'perpage'=>1,
 		'sort_by'	=>'price',
 		'sort_order'=>'ASC',
 		'depth'	=>$depth,
@@ -115,7 +115,9 @@ $currentcat = get_queried_object();
 	);
 	 ?>
 <div id="category_slider_block_wrapper">
-	<?php echo show_category_slider_block($args);?>
+	<?php $ret = show_category_slider_block($args);
+	echo $ret['html'];
+	?>
 </div>
 			
 			
@@ -248,7 +250,7 @@ $currentcat = get_queried_object();
 		<input type="hidden" name="ajax_sort_by" id="ajax_sort_by" value="price">
 		<input type="hidden" name="ajax_sort_order" id="ajax_sort_order" value="ASC">
 		<input type="hidden" name="cat_depth" id="cat_depth" value="<?php echo $depth ?>">
-        <input type="hidden" name="child_cat_count" id="child_cat_count" value="1">
+        <input type="hidden" name="child_cat_count" id="child_cat_count" value="<?php echo ($ret['child_cat_count'])?$ret['child_cat_count']:1?>">
         <input type="hidden" name="selected_colors" id="selected_colors" value="">
         <input type="hidden" name="selected_sizes" id="selected_sizes" value="">
         <input type="hidden" name="selected_price_ranges" id="selected_price_ranges" value="">

@@ -17,9 +17,11 @@ jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=chec
 		  
         });
 	cc_trigger_ajax_load(function(output){
-		jQuery('#category_slider_block_wrapper').html(output);
+		output = jQuery.parseJSON(output);
+		jQuery('#category_slider_block_wrapper').html(output.html);
 		jQuery('.cat_slider.slick-slider').slick('unslick');
 		init_slick_slider();
+		jQuery("#child_cat_count").val(1);
 	
 	});
 	 //console.log(jQuery('.cc-tick-display:visible'));
@@ -34,35 +36,34 @@ jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=chec
 		   jQuery('#selected_price_ranges').val(price_range_comma_text);
 		});
 	cc_trigger_ajax_load(function(output){
-	jQuery('#category_slider_block_wrapper').html(output);
+	output = jQuery.parseJSON(output);
+	jQuery('#category_slider_block_wrapper').html(output.html);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
 	init_slick_slider();
+	jQuery("#child_cat_count").val(1);
 	});
 }else if(jQuery(trig_ele).hasClass('size_option')){
 			//alert('size');
 	}
 
 	//cc_trigger_ajax_load();
-jQuery('#category_slider_block_wrapper').html(data);
-jQuery('.cat_slider.slick-slider').slick('unslick');
-init_slick_slider();
 
 	});
 jQuery("#cc_load_more").click(function(e) {
 //$("#ajax_offset").val(parseInt($("#ajax_offset").val())+1);
-var perpage  = 4;
+var perpage  = 1;
 $("#ajax_offset").val(parseInt($("#ajax_offset").val())+perpage);
-	
-
 cc_trigger_ajax_load(function(output){
-jQuery('#category_slider_block_wrapper').append(output);
+output = jQuery.parseJSON(output);
+jQuery('#category_slider_block_wrapper').append(output.html);
+jQuery("#child_cat_count").val(output.child_cat_count);
 jQuery('.cat_slider.slick-slider').slick('unslick');
 init_slick_slider();
 	});
 
 });
 function cc_trigger_ajax_load(handleData){
-	var perpage  = 4;
+	var perpage  = 1;
 	var cat_id = $("#ajax_cat_id").val();
 	var offset = $("#ajax_offset").val();
 	var sort_by  = $("#ajax_sort_by").val();
@@ -71,7 +72,26 @@ function cc_trigger_ajax_load(handleData){
 	var selected_colors  = $("#selected_colors").val();
 	var selected_sizes  = $("#selected_sizes").val();
 	var selected_price_ranges  = $("#selected_price_ranges").val();
-	jQuery.ajax({
+	
+	var data = {
+				'action': 'show_category_slider_block' , 
+				'perpage':perpage,
+				'cat_id':cat_id,
+				'offset':offset,
+				'sort_by':sort_by,
+				'sort_order':sort_order,
+				'depth':depth,
+				'color':selected_colors,
+				'size':selected_sizes,
+				'price':selected_price_ranges,
+		};
+		//alert(ajaxurl);
+		jQuery.post(woo_load_autocomplete.ajax_url, data, function(response) {
+			handleData(response);
+		});
+		
+		
+	/*jQuery.ajax({
 			url: woo_load_autocomplete.ajax_url,
 			type: 'POST',
 			data: {
@@ -88,9 +108,9 @@ function cc_trigger_ajax_load(handleData){
 				
 			},
 			success:function(data){
-				handleData(data);
+				
 			}
-		});
+		});*/
 	
 	}
 });

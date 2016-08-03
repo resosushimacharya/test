@@ -56,6 +56,9 @@ $args = wp_parse_args( $args, $defaults);
 		if(isset($_POST['price']) && ($_POST['price'] !='')){
 			$args['price'] = explode(',',sanitize_text_field($_POST['price']));
 		}
+		if(isset($_POST['child_cat_count']) && ($_POST['child_cat_count'] !='')){
+			$args['child_cat_count'] = sanitize_text_field($_POST['child_cat_count']);
+		}
 	}
 	extract($args);
 	global $wp_query;
@@ -64,7 +67,7 @@ $args = wp_parse_args( $args, $defaults);
 	//$term_name = get_queried_object()->name;
 	$discats = get_terms(array('parent'=>$cat_id,'taxonomy'=>'product_cat'));
 	if($depth == 0 ){
-		if($offset == count($discats)){
+		if($offset == count($discats) || $perpage > count($discats)){
 			$child_cat_count++;
 			$offset = 0;
 		}
@@ -226,10 +229,13 @@ $args = wp_parse_args( $args, $defaults);
 	</div>
 	<?php 
 	}
-$html = ob_get_clean();
+		$html = ob_get_clean();
+		$ret['html'] = $html;
+		$ret['child_cat_count'] = $child_cat_count;
 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-die($html);
+		echo json_encode($ret);
+		die;
 	}else{
-		return $html;
+		return $ret;
 		}
 }
