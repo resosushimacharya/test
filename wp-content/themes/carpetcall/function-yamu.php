@@ -2,6 +2,9 @@
 if ( ! is_admin() ) {
     include ABSPATH . 'wp-admin/includes/template.php';
 }
+/*
+/* Function to get the depth of the category to know whether if it's top level or chid category.
+*/
 function get_category_depth($catid){
 	global $wpdb;
 	if($catid == '') {
@@ -12,6 +15,10 @@ function get_category_depth($catid){
             return get_depth($catid, $depth, $i);
 	
 	}
+
+/*
+/* Function to show block with slider in category page and also used for ajax load more
+*/
 add_action('wp_ajax_show_category_slider_block','show_category_slider_block');
 add_action('wp_ajax_nopriv_show_category_slider_block','show_category_slider_block');
 function show_category_slider_block($args){
@@ -259,3 +266,48 @@ $args = wp_parse_args( $args, $defaults);
 		return $ret;
 		}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+/*Function to add the category description text field to rugs category
+*/
+add_action('product_cat_edit_form_fields','add_top_lvl_cat_description_field');
+function add_top_lvl_cat_description_field($tag){
+global $wpdb;
+$parent = $wpdb->get_var("SELECT parent FROM $wpdb->term_taxonomy WHERE term_id = '".$tag->term_id."'");
+if($parent=='0'){
+$cat_top_description =get_term_meta($tag->term_id,'cat_top_description',true) ;
+?>	
+<tr class="form-field">
+<th scope="row" valign="top"><label for="cat_top_description"><?php _e('Cateogry Top Description'); ?></label></th>
+<td>
+        <textarea rows="10" name="cat_top_description" id="cat_top_description" style="width:60%;"><?php echo $cat_top_description ? $cat_top_description : ''; ?></textarea><br />
+        <span class="description"><?php _e('Description that appears below title in top level categories'); ?></span>
+    </td>
+</tr>
+<?php	
+}
+return $tag;	  
+}
+add_action( 'edited_product_cat', 'saveCategoryFields', 10, 1 );
+function saveCategoryFields($term_id) {
+    if ( isset( $_POST['cat_top_description'] ) ) {
+		$exist = get_term_meta($term_id,'cat_top_description',true);
+		if($exist){
+			update_term_meta($term_id, 'cat_top_description', $_POST['cat_top_description'],$exist);
+			}else{
+				add_term_meta($term_id, 'cat_top_description', $_POST['cat_top_description'], true);
+				}
+    }
+}
+add_action ( 'edited_category', 'saveCategoryFields');
