@@ -163,7 +163,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         foreach($titlepro as $key => $value){
 
             preg_match('/([A-Z]*)\.([0-9]*)\.([0-9]*)\.([0-9]*)/',$value,$match);
-              do_action('pr',$match);
+              
              $proGroup[] = array($value,$match[2],$key);
              
            if($secondVar!=$match[2]){
