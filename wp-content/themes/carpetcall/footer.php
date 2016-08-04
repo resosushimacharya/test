@@ -79,6 +79,17 @@
                 
                 
             </div><!-- left footer end -->
+            <?php $holdValue = site_url();
+			       $askanexpert =''; // intialisation of variable for handling the meta field in server and local
+			      $holdValue = explode('/',$holdValue);
+				
+				   if($holdValue[2]==='localhost'){
+					   $askanexpert = 'ask_an_expert';
+				   }
+				   else{
+					   $askanexpert = '_ask_an_expert';
+				   }  
+				   ?>
 
             <div class="col-md-4 idea-right">
 
@@ -93,7 +104,7 @@
                         <?php
                             foreach($booklink as $singlelink){
 
-                                 echo '<li><a href="'.$singlelink['contact_url'].'"'.'target="_blank">'.$singlelink['ask_an_expert'].'</a></li>';
+                                 echo '<li><a href="'.$singlelink['contact_url'].'"'.'target="_blank">'.$singlelink["{$askanexpert}"].'</a></li>';
                             }
                         ?>
                     </ul>
