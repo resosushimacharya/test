@@ -380,7 +380,7 @@ function custom_listing_templates() {
  if ( !$wpsl_settings['hide_distance'] ) {
         $listing_template .= "\t\t" . '<%= distance %> ' . esc_html( $wpsl_settings['distance_unit'] ) . '' . "\r\n";
     }
- /*   $listing_template .= "\t\t" . '<%= createDirectionUrl() %>' . "\r\n";*/
+  $listing_template .= "\t\t" . '<div id="cc-custom-dir-wrap"><%= createDirectionUrl() %></div>' . "\r\n";
    
     $listing_template .= "\t" . '</li>' . "\r\n";
 
@@ -453,7 +453,7 @@ function custom_listing_templates_server() {
    /*if ( !$wpsl_settings['hide_distance'] ) {
         $listing_template .= "\t\t" . '<%= distance %> ' . esc_html( $wpsl_settings['distance_unit'] ) . '' . "\r\n";
     }*/
-    /*$listing_template .= "\t\t" . '<%= createDirectionUrl() %>' . "\r\n";*/
+   $listing_template .= "\t\t" . '<div id="cc-custom-dir-wrap"><%= createDirectionUrl() %></div>' . "\r\n";
    
     $listing_template .= "\t" . '</li>' . "\r\n";
 

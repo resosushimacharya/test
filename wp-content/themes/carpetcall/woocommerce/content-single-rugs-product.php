@@ -855,7 +855,7 @@ wrapper close start */?>
 
 					
 					if(!empty($price)){
-						echo '<h5> FROM A$'.$price.'</h5>';
+						echo '<h6> FROM A$'.$price.'</h6>';
 						
 						}?></div>
 					<div class="clearfix"></div>

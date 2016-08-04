@@ -5,7 +5,7 @@ function autocomplet() {
 	var keyword = jQuery('#edit_dir_keyword').val().trim();
 	
      if((typeof stoLocation[0] == 'undefined' || rs[0]==null)){
-     	jQuery("#edit_dir_keyword").parent().parent().prepend('<h5 id="alert_msg">Please select the keywords</h5>');
+     	jQuery("#edit_dir_keyword").parent().parent().prepend('<h5 id="alert_msg">Please select the keywords.</h5>');
 
      }
       if(keyword!="" && keyword!=null && keyword.length>3 && (typeof stoLocation[0] != 'undefined')||rs[0]!=null)

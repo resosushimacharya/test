@@ -12,7 +12,23 @@ else{
  ?><?php 
 global $wpsl_settings, $wpsl;
 global $post;
+$categoryName ='';
+$categoryCount = '';
+$categoryDisdplay ='';
+$cat = get_queried_object();
 
+if($cat->taxonomy){
+    
+    $categoryName = $cat->name;
+    $categoryCount = $cat->count; 
+    if($categoryCount>1){
+        $categoryStore = 'STORES';
+    }
+    else{
+        $categoryStore = 'STORE';
+    }
+   $categoryDisdplay ='<div class="cc-store-cat-page-heading">SHOWING '.$cat->count.' '.$categoryStore.'  IN '.$categoryName.' </div>' ;
+}
 
 $output         = $this->get_custom_css(); 
 $autoload_class = ( !$wpsl_settings['autoload'] ) ? 'class="wpsl-not-loaded"' : '';
@@ -91,8 +107,8 @@ $output .= "\t" . '</div>' . "\r\n";
 }
 if($post->ID!=$locsermapID || isset($_POST["cc-current-location-store"]) || isset($_POST["wpsl-search-input"]) || isset($_POST["store-unique-key"]) ){
 
-$output .= "\t" . '<div id="wpsl-result-list">' . "\r\n";
-$output .= "\t\t" . '<div id="wpsl-stores" '. $autoload_class .'>' . "\r\n";
+$output .= "\t" . '<div id="wpsl-result-list">'. $categoryDisdplay . "\r\n";
+$output .= "\t\t" . '<div id="wpsl-stores" '. $autoload_class .'>' . "\r\n";  
 $output .= "\t\t\t" . '<ul class="test"></ul>' . "\r\n";
 $output .= "\t\t" . '</div>' . "\r\n";
 $output .= "\t\t" . '<div id="wpsl-direction-details">' . "\r\n";
