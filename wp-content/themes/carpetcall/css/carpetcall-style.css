@@ -1174,6 +1174,9 @@ span.cc-locator-root a:hover {text-decoration: none; color: #333; cursor: pointe
 span.cc-locator-current a {font: normal 12px 'proxima_nova_rgregular', sans-serif; color: #333; text-decoration: none; margin-left:1px; cursor:text;}
 .inerblock_serc_cde.cc-locator-sec .col-md-12, .col-md-6.pull-left, .col-md-5.wpsl-single-left { padding:0; clear:both;}
 .col-md-6.pull-left h3 {font:700 30px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-bottom:18px;}
+.col-md-6.pull-right { padding-right:0; text-align:right;}
+.col-md-6.pull-right a{ width:196px; height:45px; background:#0099ff; padding:12px 22px; text-align:center; font:700 18px/45px 'proxima_nova_ltsemibold', sans-serif; color:#FFF; text-decoration:none; }
+.col-md-6.pull-right a:hover { background:#028ce8;}
 .cc-info-store { background:#d1ddf1; padding:27px; }
 .wpsl-address-sec h4 {font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin:5px 0 2px 0;}
 .wpsl-locations-details span strong, .wpsl-location-address {font: normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-bottom:5px;}
@@ -1185,3 +1188,7 @@ span.cc-locator-current a {font: normal 12px 'proxima_nova_rgregular', sans-seri
 .cc-str-cntblk { margin:10px 0 5px 0;}
 .cc-str-cntblk-a a {display:inline-block; background:#c32428; text-align:center; padding:0; font:700 18px/45px 'proxima_nova_ltsemibold', sans-serif; color:#FFFFFF; text-decoration:none; text-transform:uppercase; width:196px; height:45px;}
 .cc-str-cntblk-a a:hover { background:#db2a2f; cursor:pointer;}
+.wpsl-hour-sec.clearfix { padding:40px 28px 15px 28px; }
+.wpsl-hour-sec span strong {font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase;}
+.col-md-7.wpsl-single-right { padding-right:0; }
+.col-md-7.wpsl-single-right #wpsl-base-gmap_0 { width:100%; height:600px;}
