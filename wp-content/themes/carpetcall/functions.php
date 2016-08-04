@@ -362,7 +362,7 @@ function wpdocs_hack_wp_title_for_home( $title )
   return $title;
 }
 
-add_action('wp_footer','footer_caller');
+//add_action('wp_footer','footer_caller');
   function footer_caller(){
     add_filter( 'wpsl_geolocation_timeout', 'custom_admin_js_settings',999 );
   }
@@ -423,3 +423,15 @@ add_action('init','cc_remove_tag');
 function cc_remove_tag(){
 remove_filter('acf_the_content', 'wpautop');
 }
+
+
+
+add_filter( 'wpsl_admin_marker_dir', 'custom_admin_marker_dir' );
+
+function custom_admin_marker_dir() {
+
+    $admin_marker_dir = get_stylesheet_directory() . '/images/markers/';
+    
+    return $admin_marker_dir;
+}
+define( 'WPSL_MARKER_URI', dirname( get_bloginfo( 'stylesheet_url') ) . '/images/markers/' );
