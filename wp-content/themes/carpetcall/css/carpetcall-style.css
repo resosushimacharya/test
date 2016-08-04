@@ -535,7 +535,8 @@ li.clblk_a::before {content: '';}
 .mero_itemss { margin:20px 0 0 0;}
 .proabtxt { min-height:37px; clear:both; }
 .proabtxt h4{font:bolder 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-left:3px; margin-bottom:-6px;}
-.proabtxt h5{font:normal 12px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase; margin-left:3px; margin-top:-1px;}
+
+.proabtxt h6{font:normal 12px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase; margin-left:3px; margin-top:5px;}
 
 ul.guide_list_cbg { background:#e7edf8; padding:28px; margin-bottom:21px;}
 ul.guide_list_cbg li {list-style:none;}
@@ -898,9 +899,9 @@ select#cc-store-name { font:bold 12px 'proxima_nova_ltsemibold', sans-serif; col
 #cc-store-form-section .form-group.col-sm-8 { width:35.1%; padding:0 0 0 8px;}
 .ur-msg-title .form-group.col-sm-12 h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; padding:29px 0 2px 0; text-transform:uppercase;}
 textarea.form-control {border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; width:56.5%; height:139px; }
-.btn-dn { display:inline-block; background-color:#c32428; padding:8px 18px; border:0; text-align:center; text-decoration:none; width:220px; height:45px; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;}
+.btn-dn { display:inline-block; background-color:#c32428; padding:8px 18px; border:0; text-align:center; text-decoration:none; width:220px; height:45px; font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-transform:uppercase; letter-spacing:1px; margin-bottom:3px; margin-top:10px;}
 .btn-dn:hover { background-color:#bc2024;}
-.g-recaptcha { margin:4px 0 10px 0; }
+.g-recaptcha { margin:4px 0 0 0; }
 #cc-state-form-section .form-group.col-sm-4{ padding:0; margin:0;}
 #cc-state-form-section select#cc-state-type-only {border:1px solid #d1ddf1; background-color:#e7edf8; border-radius:0; outline:0; height:35px; width:270px;}
 .error_label label { color:#F00 !important;  font-size:14px !important; font-weight:normal; }
@@ -1126,9 +1127,9 @@ input#cc_control_map { background:#c32428; width:267px; height:45px; font:bold 1
 .tax-wpsl_store_category .wpsl-search { padding:0; background:none; }
 #wpsl-stores { height:0; overflow:visible;}
 
-#wpsl-stores .test { margin:0 -10px;}
+#wpsl-stores .test { margin:0 -10px; font-size:0;}
 #wpsl-wrap #wpsl-result-list li { border-bottom:none; }
-#wpsl-wrap.wpsl-store-below #wpsl-result-list li { padding:10px; min-height:380px;}
+#wpsl-wrap.wpsl-store-below #wpsl-result-list li { padding:10px; min-height:380px; float:none; display:inline-block; vertical-align:top;}
 #wpsl-result-list li p { margin:0;}
 .cc-cat-store-section { border:1px solid #e7edf8; padding:10px;  min-height:380px;}
 .cc-store-icon-label strong a  { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none; margin-left:3px;}
@@ -1192,6 +1193,11 @@ span.cc-locator-current a {font: normal 12px 'proxima_nova_rgregular', sans-seri
 .wpsl-hour-sec span strong {font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase;}
 .col-md-7.wpsl-single-right { padding-right:0; }
 .col-md-7.wpsl-single-right #wpsl-base-gmap_0 { width:100%; height:600px;}
+<<<<<<< HEAD
 #cc-custom-dir-wrap {
 	display:none;
+=======
+#wpsl-result-list div#wpsl-stores {
+    height: auto !important;
+>>>>>>> aa8a119641b085ceed73eb1935ae092178803018
 }
