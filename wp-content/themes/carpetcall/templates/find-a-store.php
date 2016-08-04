@@ -126,10 +126,7 @@
             <span class="wpsl-hf-street-b"><strong>P: </strong> <?php echo get_post_meta($post->ID,'wpsl_phone',true );?></span>
             <span class="wpsl-hf-street-c"><strong>F: </strong> <?php echo get_post_meta($post->ID,'wpsl_fax',true );?></span>
                 
-                
-            <div class="hf-fcnt-or hf-fcnt-orr clearfix">
-                <a href="<?php echo get_the_permalink();?>">View Store Page</a>
-            </div>
+
             <div class="hfc-fcnt-or hfc-fcnt-orr hfc-fcnt-orr-map clearfix">
                 <a href="http://localhost/carpetcall/contact-us/?id=<?php echo $post->ID ; ?>" class="cc-contact-link  ">Contact Store</a>
             </div>         

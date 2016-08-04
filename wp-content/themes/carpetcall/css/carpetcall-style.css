@@ -936,7 +936,7 @@ label#email_address-error { margin:0;}
 div#collapse_color .panel-body { margin-top:6px;}
 .cc-color-var-item #purple { margin:0 21px -3px 0; border:0; border-radius:3px;}
 .cc-color-var-item #red { margin:0 21px -3px 0; border:0; border-radius:3px;}
-.cc-color-var-item label { font-size:10px; color:#666666; text-align:center; margin:0 0 8px 4px;}
+.cc-color-var-item label {font:bold 10px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-align:center; margin:0 0 8px 4px;}
 .swatch{
     width: 38px;
     height: 38px;
@@ -1137,7 +1137,9 @@ input#cc_control_map { background:#c32428; width:267px; height:45px; font:bold 1
 .cc-cat-store-item span.cc-store-icon-label { margin:0; }
 .cc-cat-store-item { margin-top:11px; }
 .cc-cat-store-item span { margin-left:32px; font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666; display:block;  }
-span.cc-cat-store-item-phone, span.wpsl-hf-street-b {font:normal 16px/45px 'proxima_nova_rgregular', sans-serif; color:#1858b8; margin:0; padding-left:32px; width:100%; margin-top:13px; }
+span.cc-cat-store-item-phone, span.wpsl-hf-street-b {font:normal 16px/45px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0; padding-left:32px; width:100%; margin-top:13px; text-decoration:none; }
+span.cc-cat-store-item-phone:hover, span.wpsl-hf-street-b:hover { color:#1858b8; cursor:pointer;}
+span.wpsl-hf-street-b {font:normal 16px/45px 'proxima_nova_rgregular', sans-serif; color:#1858b8; margin:0; padding-left:32px; width:100%; margin-top:13px; }
 span.wpsl-hf-street-b { width:auto; padding:0; }
 span.cc-cat-store-item-fax{ color:#666666; line-height:none; margin-top:-14px;}
 span.wpsl-hf-street-c { color:#666666; line-height:none; margin-top:-3px;}
@@ -1152,8 +1154,8 @@ span.cc-cat-store-item-phone strong, span.cc-cat-store-item-fax strong { color:#
 .page-template-find-a-store #wpsl-result-list#wpsl-stores { height:0 !important; overflow:visible;}
 .cc-head-office-wrap { margin:25px 0 0 0; }
 .cc-head-office-secn { padding:0; margin:0 -10px;}
-.cc-head-office-list li { list-style:none; margin:0; padding:10px; min-height:380px;}
-.cc-head-office-list-item { border:1px solid #e7edf8; padding:10px; min-height:380px; }
+.cc-head-office-list li { list-style:none; margin:0; padding:10px; min-height:275px;}
+.cc-head-office-list-item { border:1px solid #e7edf8; padding:10px; min-height:275px; }
 .cc-head-office-label { margin-top:10px; }
 .cc-head-office-list-item span { margin-left: 36px; font: normal 16px/24px 'proxima_nova_rgregular', sans-serif; color: #666666; display: block;
 }
@@ -1164,7 +1166,7 @@ span.wpsl-hf-street-b strong, span.wpsl-hf-street-c strong { color:#0099ff; }
 .hf-fcnt-orr a {background:#c32327; padding:12px 55px; text-align:center; font:700 18px 'proxima_nova_ltsemibold', sans-serif; text-transform:uppercase; color:#fff; text-decoration:none; display:inline-block;}
 .hf-fcnt-orr a:hover {background:#b51a1d;}
 
-.hfc-fcnt-or {margin:8px 0 0 0; text-align:center;}
+.hfc-fcnt-or {margin:19px 0 0 0; text-align:center;}
 .hfc-fcnt-orr a{background:#FFFFFF; padding:12px 75px; text-align:center; font:700 14px 'proxima_nova_ltsemibold', sans-serif; text-transform:uppercase; color:#144a9f; text-decoration:none; display:inline-block; border:1px solid #144a9f;}
 .hfc-fcnt-orr a:hover{background:#144a9f; color:#FFF;}
 
@@ -1196,3 +1198,6 @@ span.cc-locator-current a {font: normal 12px 'proxima_nova_rgregular', sans-seri
 #wpsl-result-list div#wpsl-stores {
     height: auto !important;
 }
+.wpsl-opening-hours > tbody > tr {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666;}
+.wpsl-opening-hours > tbody > tr > td > time {font:700 14px/24px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff;}
+.page-template-find-a-store .cc-store-bdy-contr .wpsl-search { margin-bottom:20px;}
