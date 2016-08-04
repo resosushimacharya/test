@@ -418,3 +418,8 @@ function hide_cpt_columns_so_14257172( $columns )
     unset($columns['tags']);
     return $columns;
 }
+// to remove the automatic P insertion 
+add_action('init','cc_remove_tag');
+function cc_remove_tag(){
+remove_filter('acf_the_content', 'wpautop');
+}

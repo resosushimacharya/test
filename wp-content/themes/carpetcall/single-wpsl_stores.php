@@ -32,8 +32,8 @@ $cat_name = $cat_names[0];
      ?>
 
 <div class="container clearfix">
-<div class="inerblock_serc cc-locator-sec">
-<div class="cc-locator-title-sec">
+<div class="inerblock_serc_cde cc-locator-sec">
+<div class="cc-locator-title-sec-z">
 <?php 
  echo '<h4><span class="cc-locator-sub"><a href="'.site_url().'/find-a-store/">'. 'STORE FINDER'.'</a></span>'.'>'.'<span class="cc-locator-root"><a href="'.site_url().'/find-a-store/'.strtolower($cat_name).'">'. $statename .'</a></span>'.'>'.'
   <span class="cc-locator-current"><a href="'.get_the_permalink().'">'. strtoupper(get_the_title()).'</a></span></h4>';
@@ -41,7 +41,7 @@ $cat_name = $cat_names[0];
 ?>
 
 </div>
-<div class="col-md-12">
+<div class="col-md-12 clearfix">
 <div class="col-md-6 pull-left">
 <?php 
 $url = site_url();
@@ -68,8 +68,10 @@ echo '<a href="'.get_the_permalink($stateID).'"><' ;?>
 </div>
 </div>
 
+<div class="cc-ad-map-strn col-md-12 clearfix">
+<div class="col-md-5 wpsl-single-left">
 
-<div class="col-md-4 wpsl-single-left">
+<div class="cc-info-store clearfix">
 <div class="wpsl-address-sec">
 <h4>ADDRESS</h4>
 
@@ -88,20 +90,28 @@ echo '<a href="'.get_the_permalink($stateID).'"><' ;?>
        city="false" state="false" zip="false" country="false" phone="true" 
        fax="true" email="false" url="false"]');
        ?>
-       <div class="fcnt-or fcnt-orr fcnt-orr-map clearfix"><a href="http://staging.carpetcall.com.au/contact-us/?id=<?php echo $post->ID;?>" class="cc-contact-link">CONTACT STORE</a></div>
+       <div class="cc-str-cntblk cc-str-cntblk-a cc-str-cntblk-a-map clearfix"><a href="http://staging.carpetcall.com.au/contact-us/?id=<?php echo $post->ID;?>" class="cc-contact-link">CONTACT STORE</a></div>
        </div>
-       <div class="wpsl-hour-sec">
+       
+</div>
+
+<div class="wpsl-hour-sec clearfix">
        <span><strong>Opening Hours</strong></span>
        	<?php echo do_shortcode('[wpsl_hours id="'.$post->ID.'" hide_closed="true"]') ;?>
        </div>
+
 </div>
-<div class="col-md-8 wpsl-single-right">
+
+<div class="col-md-7 wpsl-single-right">
    
 	<?php echo do_shortcode('[wpsl_map id="'.$post->ID.'" width="500" height="350" zoom="5" map_type="roadmap" 
 map_type_control="true" map_style="default" street_view="false" 
 scrollwheel="true" control_position="left"]'); 
 ?>
 </div>
+
+</div>
+
 </div>
 </div><div class="clearfix"></div>
 <style>

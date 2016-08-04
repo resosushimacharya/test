@@ -523,3 +523,18 @@ function thumbnail_column($columns) {
   }
   return $new;
 }
+function carpetcall_sort_column( $wp_query ) {
+  if (is_admin()) {
+
+    // Get the post type from the query
+    $post_type = $wp_query->query['post_type'];
+
+    if ( $post_type == 'enquiries') {
+
+      $wp_query->set('orderby', 'date');
+
+      $wp_query->set('order', 'DESC');
+    }
+  }
+}
+add_filter('pre_get_posts', 'carpetcall_sort_column');
