@@ -1212,3 +1212,4 @@ span.cc-locator-current a {font: normal 12px 'proxima_nova_rgregular', sans-seri
 .gmnoprint[title~=Start]{
 display:none;
 }
+.cc-store-cat-page-heading {font:700 24px/35px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin:36px 0 8px 0; }
