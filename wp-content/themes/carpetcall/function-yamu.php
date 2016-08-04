@@ -72,25 +72,55 @@ $args = wp_parse_args( $args, $defaults);
 	$current_cat = get_term( $cat_id, 'product_cat');
 	//$term_id_sub =  get_queried_object()->term_id;
 	//$term_name = get_queried_object()->name;
-	$discats = get_terms(array('parent'=>$cat_id,'taxonomy'=>'product_cat'));
+	$discats_org = get_terms(array('parent'=>$cat_id,'taxonomy'=>'product_cat'));
+	
+	
 	if($depth == 0 ){
-		if($offset == count($discats) || $perpage > count($discats)){
-			$child_cat_count++;
-			$offset = 0;
-		}
-		$discats_temp = array_slice($discats, $child_cat_count-1, $child_cat_count);
+		$discats_temp = array_slice($discats_org, $child_cat_count-1, 1);
 		$discats=get_terms(array('parent'=>$discats_temp[0]->term_id,'taxonomy'=>'product_cat'));
-		$current_cat = $discats_temp[0];
-		}
+		$discats = array_slice($discats,$offset,$perpage);
+		if($perpage > count($discats)){
+			$offset = $perpage - count($discats);
+			$child_cat_count++;
+			$discats_temp = array_slice($discats_org, $child_cat_count-1, 1);
+			$discats_next = get_terms(array('parent'=>$discats_temp[0]->term_id,'taxonomy'=>'product_cat'));
+			$discats_next = array_slice($discats_next,0,$offset);
+			foreach($discats_next as $cat_next){
+				array_push($discats,$cat_next);
+				}
+			}else{
+				$offset = $perpage+$offset;
+				}
 		
-	$cats_slice = array_slice($discats, $offset, $perpage);
+		
+		//$current_cat = $discats_temp[0];
+		
+		$cats_slice = $discats;//array_slice($discats, $offset, $perpage);
+		
+		}else{
+			$cats_slice = array_slice($discats_org, $offset, $perpage);
+		}
 	if(empty($cats_slice)){
+		$ret['html'] = '';
+		$ret['child_cat_count'] = $child_cat_count+1;
+		$ret['offset'] = 0;
 		//No more products found
 		}
 	$loopcounter = 0;?> 
-	<?php 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<?php
+	do_action('pr',$cats_slice); 
+	ob_start();
 	foreach($cats_slice as $discat){
-		ob_start();
+		
 	?>
 	
 	<?php 
@@ -169,6 +199,7 @@ $args = wp_parse_args( $args, $defaults);
 	?>
 	<?php 
 	if($filloop->post_count > 0){
+		$current_cat = get_term_by('id',$discat->parent,'product_cat');
 		ob_start()?>
         	<div class="row cc-cat-sub-title-price-cover">
 	<div class="col-md-6 cc-cat-sub-title"><h4><?php _e($current_cat->name,'carpetcall')?></h4>
@@ -186,7 +217,6 @@ $args = wp_parse_args( $args, $defaults);
 	$post = $filloop->the_post();
 	
 	$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
-	/*var_dump($filloop->post->ID);*/
 	
 	if($pch==1){
 	$res = get_post_meta($filloop->post->ID ,'_sale_price',true);
@@ -259,6 +289,7 @@ $args = wp_parse_args( $args, $defaults);
 		$html = ob_get_clean();
 		$ret['html'] = $html;
 		$ret['child_cat_count'] = $child_cat_count;
+		$ret['offset'] = $offset;
 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 		echo json_encode($ret);
 		die;
@@ -267,19 +298,8 @@ $args = wp_parse_args( $args, $defaults);
 		}
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /*
-/*Function to add the category description text field to rugs category
+/*Function to add the category description text field to rugs category and other top level product categories
 */
 add_action('product_cat_edit_form_fields','add_top_lvl_cat_description_field');
 function add_top_lvl_cat_description_field($tag){
@@ -299,6 +319,9 @@ $cat_top_description =get_term_meta($tag->term_id,'cat_top_description',true) ;
 }
 return $tag;	  
 }
+/*
+/*Function to save the category description text field to rugs category and other top level product categories
+*/
 add_action( 'edited_product_cat', 'saveCategoryFields', 10, 1 );
 function saveCategoryFields($term_id) {
     if ( isset( $_POST['cat_top_description'] ) ) {
@@ -310,4 +333,3 @@ function saveCategoryFields($term_id) {
 				}
     }
 }
-add_action ( 'edited_category', 'saveCategoryFields');
