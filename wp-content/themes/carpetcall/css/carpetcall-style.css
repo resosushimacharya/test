@@ -1193,11 +1193,14 @@ span.cc-locator-current a {font: normal 12px 'proxima_nova_rgregular', sans-seri
 .wpsl-hour-sec span strong {font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase;}
 .col-md-7.wpsl-single-right { padding-right:0; }
 .col-md-7.wpsl-single-right #wpsl-base-gmap_0 { width:100%; height:600px;}
-<<<<<<< HEAD
+
 #cc-custom-dir-wrap {
 	display:none;
-=======
+}
 #wpsl-result-list div#wpsl-stores {
     height: auto !important;
->>>>>>> aa8a119641b085ceed73eb1935ae092178803018
+
+}
+.gmnoprint[title~=Start]{
+display:none;
 }
