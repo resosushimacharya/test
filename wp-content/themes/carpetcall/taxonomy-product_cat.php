@@ -57,9 +57,10 @@ endwhile;
 */
 ?>
 </h3>
-<?php if(get_field('product_category_description',$current_cat) && $depth == 0){
+<?php 
+if(get_term_meta($current_cat->term_id,'cat_top_description',true) && $depth == 0){
 	?>
-	<p class="category_description"><?php echo get_field('product_category_description',$current_cat);?></p>
+	<p class="category_description"><?php echo get_term_meta($current_cat->term_id,'cat_top_description',true)?></p>
 	<?php }?>
     </div></div>
     
@@ -107,7 +108,7 @@ $currentcat = get_queried_object();
 	$args = array(
 		'cat_id' =>$current_cat->term_id,
 		'offset'=>0,
-		'perpage'=>1,
+		'perpage'=>4,
 		'sort_by'	=>'price',
 		'sort_order'=>'ASC',
 		'depth'	=>$depth,
@@ -246,7 +247,7 @@ $currentcat = get_queried_object();
 		<div class="woo-added"></div>
 		<input type="button" name="cc_load_more" id ="cc_load_more" value="load more"/>
 		<input type="hidden" name="ajax_cat_id" id="ajax_cat_id" value="<?php echo $current_cat->term_id?>">
-		<input type="hidden" name="ajax_offset" id="ajax_offset" value="0">
+		<input type="hidden" name="ajax_offset" id="ajax_offset" value="<?php echo ($ret['offset'])?$ret['offset']:0?>">
 		<input type="hidden" name="ajax_sort_by" id="ajax_sort_by" value="price">
 		<input type="hidden" name="ajax_sort_order" id="ajax_sort_order" value="ASC">
 		<input type="hidden" name="cat_depth" id="cat_depth" value="<?php echo $depth ?>">
@@ -348,16 +349,18 @@ $procareid ='26713';
     <div class="cc_background_image">
 
     <div class="container clearfix cc-cat-sub-desc-sec">
-    <h3 style="">Modern Rugs</h3>
+   <?php echo get_field('product_category_description',$current_cat);?>
+<!--    <h3 style="">Modern Rugs</h3>
     <p>
    Transform your tired looking home or commercial space into a contemporary retreat with a stunning, high quality rug from Carpet Call’s modern rugs range. From vibrant floral patterns that will really make a statement, to simple neutral shades that will blend seamlessly with your existing décor, it couldn’t be any simpler for you to update your living or working space with one of our designer modern rugs.
 </p>
- <p>
-Our beautiful rug collections are added to and updated frequently, so make sure you check back often for our large range of contemporary carpet rugs at fantastic prices. Our modern rugs are available both in-store and online for your convenience, with free shipping Australia wide.
-</p>
- <p>
-Find a Carpet Call store near you, or buy rugs online today! For more information about choosing and buying the perfect new rug for your home, check out our detailed Rugs Buying Guide or get in touch with one of our dedicated flooring specialists.
-</p>
+     <p>
+    Our beautiful rug collections are added to and updated frequently, so make sure you check back often for our large range of contemporary carpet rugs at fantastic prices. Our modern rugs are available both in-store and online for your convenience, with free shipping Australia wide.
+    </p>
+     <p>
+    Find a Carpet Call store near you, or buy rugs online today! For more information about choosing and buying the perfect new rug for your home, check out our detailed Rugs Buying Guide or get in touch with one of our dedicated flooring specialists.
+    </p>
+-->    
     </div>
     </div>
 

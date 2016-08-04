@@ -70,7 +70,8 @@ echo '<a href="'.get_the_permalink($stateID).'"><' ;?>
 
 <div class="cc-ad-map-strn col-md-12 clearfix">
 <div class="col-md-5 wpsl-single-left">
-<div class="cc-info-store">
+
+<div class="cc-info-store clearfix">
 <div class="wpsl-address-sec">
 <h4>ADDRESS</h4>
 
@@ -91,11 +92,14 @@ echo '<a href="'.get_the_permalink($stateID).'"><' ;?>
        ?>
        <div class="cc-str-cntblk cc-str-cntblk-a cc-str-cntblk-a-map clearfix"><a href="http://staging.carpetcall.com.au/contact-us/?id=<?php echo $post->ID;?>" class="cc-contact-link">CONTACT STORE</a></div>
        </div>
-       <div class="wpsl-hour-sec">
+       
+</div>
+
+<div class="wpsl-hour-sec clearfix">
        <span><strong>Opening Hours</strong></span>
        	<?php echo do_shortcode('[wpsl_hours id="'.$post->ID.'" hide_closed="true"]') ;?>
        </div>
-</div>
+
 </div>
 
 <div class="col-md-7 wpsl-single-right">

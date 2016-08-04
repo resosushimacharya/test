@@ -24,7 +24,8 @@ jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=chec
 		jQuery('#category_slider_block_wrapper').html(output.html);
 		jQuery('.cat_slider.slick-slider').slick('unslick');
 		init_slick_slider();
-		//jQuery("#child_cat_count").val(1);
+		jQuery("#child_cat_count").val(output.offset);
+		jQuery("#child_cat_count").val(output.child_cat_count);
 	
 	});
 	 //console.log(jQuery('.cc-tick-display:visible'));
@@ -43,7 +44,8 @@ jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=chec
 	jQuery('#category_slider_block_wrapper').html(output.html);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
 	init_slick_slider();
-	//jQuery("#child_cat_count").val(1);
+	jQuery("#child_cat_count").val(output.child_cat_count);
+	jQuery("#child_cat_count").val(output.offset);
 	});
 }else if(jQuery(trig_ele).hasClass('size_option')){
 			//alert('size');
@@ -54,7 +56,7 @@ jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=chec
 	});
 jQuery("#cc_load_more").click(function(e) {
 //$("#ajax_offset").val(parseInt($("#ajax_offset").val())+1);
-var perpage  = 1;
+var perpage  = 4;
 $("#ajax_offset").val(parseInt($("#ajax_offset").val())+perpage);
 cc_trigger_ajax_load(function(output){
 output = jQuery.parseJSON(output);
@@ -66,7 +68,7 @@ init_slick_slider();
 
 });
 function cc_trigger_ajax_load(handleData){
-	var perpage  = 1;
+	var perpage  = 4;
 	var cat_id = $("#ajax_cat_id").val();
 	var offset = $("#ajax_offset").val();
 	var sort_by  = $("#ajax_sort_by").val();
