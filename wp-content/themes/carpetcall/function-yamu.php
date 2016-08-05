@@ -310,7 +310,17 @@ $args = wp_parse_args( $args, $defaults);
 	$grp_prod_args = array(
 		'post_type'	=>'product',
    		 'post__in' => $product_ids,
-		);		
+		);	
+		
+	if($sort_by == 'price'){
+		$grp_prod_args['meta_key'] = '_sale_price';
+	}elseif($sort_by == 'popular'){
+		$grp_prod_args['meta_key'] = 'total_sales';
+		}
+	$grp_prod_args['orderby'] = 'meta_value_num';
+	$grp_prod_args['order'] = $sort_order;
+		
+			
 	$filloop = new WP_Query($grp_prod_args);
 		}else{
 			$filloop = '';

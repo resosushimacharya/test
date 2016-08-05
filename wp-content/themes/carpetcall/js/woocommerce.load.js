@@ -113,6 +113,7 @@ else if(jQuery(trig_ele).parent().hasClass('sort_key')){
 	jQuery('#ajax_sort_order').val('ASC');
 	if(sort_key == 'popular'){
 		jQuery('#ajax_sort_by').val('popular');
+		jQuery('#ajax_sort_order').val('DESC');
 		}else if(sort_key == 'price_low'){
 			jQuery('#ajax_sort_by').val('price');
 			}else if(sort_key == 'price_high'){
