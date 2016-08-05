@@ -32,6 +32,7 @@ jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=chec
 	//var data = '';
 		jQuery("#ajax_offset").val(0);
 		jQuery("#child_cat_count").val(1);
+		jQuery('#cc_load_more').attr('first','yes');
 
 	var trig_ele = event.target;
 	//console.log(trig_ele);
@@ -57,6 +58,12 @@ jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=chec
 	});
 	 //console.log(jQuery('.cc-tick-display:visible'));
 	}else if(jQuery(trig_ele).hasClass('price_range')){
+		jQuery('.price_range').each(function(index, element) {
+            jQuery(this).prop('checked','');
+        });
+		jQuery(trig_ele).prop('checked','checked');
+		jQuery('#selected_price_ranges').val(jQuery(trig_ele).val());
+		/*
 		jQuery('#selected_price_ranges').val('');
 		var price_range_comma_text ='';
 		var prepend = '';
@@ -66,6 +73,10 @@ jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=chec
            price_range_comma_text +=prepend+jQuery(element).val(); 
 		   jQuery('#selected_price_ranges').val(price_range_comma_text);
 		});
+		
+		*/
+		
+		
 	cc_trigger_ajax_load(function(output){
 	output = jQuery.parseJSON(output);
 	jQuery('#category_slider_block_wrapper').html(output.html);
@@ -102,6 +113,7 @@ else if(jQuery(trig_ele).parent().hasClass('sort_key')){
 	jQuery('#ajax_sort_order').val('ASC');
 	if(sort_key == 'popular'){
 		jQuery('#ajax_sort_by').val('popular');
+		jQuery('#ajax_sort_order').val('DESC');
 		}else if(sort_key == 'price_low'){
 			jQuery('#ajax_sort_by').val('price');
 			}else if(sort_key == 'price_high'){
@@ -125,7 +137,14 @@ jQuery("#cc_load_more").click(function(e) {
 //$("#ajax_offset").val(parseInt($("#ajax_offset").val())+perpage);
 cc_trigger_ajax_load(function(output){
 output = jQuery.parseJSON(output);
-jQuery('#category_slider_block_wrapper').append(output.html);
+var is_first = jQuery("#cc_load_more").attr('first');
+if(is_first == 'yes'){
+	jQuery('#category_slider_block_wrapper').html(output.html);
+	}else{
+	jQuery('#category_slider_block_wrapper').append(output.html);
+	}
+jQuery("#cc_load_more").attr('first','no');	
+
 jQuery("#child_cat_count").val(output.child_cat_count);
 jQuery("#ajax_offset").val(output.offset);
 jQuery('.cat_slider.slick-slider').slick('unslick');
