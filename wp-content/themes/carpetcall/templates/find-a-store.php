@@ -23,12 +23,16 @@
                   </div>
                   <div class="cc-options-wrapper-nh">
                       <form method="post" >
+                      <div class="cc-find-store-au <?php if($nearest) echo ' store-finder-active-tab'; ?>">
                           <input type="hidden" name="check-near-id" value="check near value"/>
-                          <input type="submit" id="cc-but-near" class="cc-but-near-con<?php if($nearest) echo ' store-finder-active-tab'; ?>" value="FIND YOUR NEAREST STORE" name="cc-but-near-name"/>
+                          <input type="submit" id="cc-but-near" class="cc-but-near-con" value="FIND YOUR NEAREST STORE" name="cc-but-near-name"/>
+                          </div>
                       </form >
                       <form method="post">
+                      <div class="cc-find-store-au hf <?php if(!$nearest) echo ' store-finder-active-tab'; ?>">
                           <input type="hidden" name="check-head-id" value="check head value"/>
-                          <input type="submit" id="cc-but-head" class="cc-but-head-con<?php if(!$nearest) echo ' store-finder-active-tab'; ?>" value="HEAD OFFICES" name="cc-but-head-name"/>
+                          <input type="submit" id="cc-but-head" class="cc-but-head-con" value="HEAD OFFICES" name="cc-but-head-name"/>
+                          </div>
                       </form>
                   </div>
     </div>

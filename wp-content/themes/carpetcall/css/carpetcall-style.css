@@ -164,7 +164,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 /* Links inside the dropdown */
 .dropdown-content a {
     color:#15489f;
-    padding: 12px 0;
+    padding: 13px 0 3px 0;
     text-decoration: none;
     display: block;
 	font:normal 12px 'proxima_nova_rgregular', sans-serif;	
@@ -1085,12 +1085,21 @@ div#right_col p a:hover { text-decoration:underline; cursor:pointer;}
 .cc-finder-title {font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-bottom:21px;}
 .cc-options-wrapper-nh { display:block; }
 .cc-options-wrapper-nh form { display:inline-block; }
-.cc-options-wrapper-nh form input#cc-but-near { border: 0; background: white; padding:18px 43px 17px 41px; border-top: 4px solid #0099ff; font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase;}
-.cc-options-wrapper-nh form input#cc-but-head { border: 0; background: white; padding:23px 34px 17px 32px;  font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-left:16px;}
+.cc-options-wrapper-nh form .cc-find-store-au.hf { margin-left:16px;}
+.cc-options-wrapper-nh form input#cc-but-near { border: 0; background: white;     padding: 23px 34px 17px 32px; font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase;}
+.cc-options-wrapper-nh form input#cc-but-head { border: 0; background: white; padding:23px 34px 17px 32px;  font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-left:0px;}
 .cc-store-bdy-contr { margin-bottom:59px;}
 .cc-store-bdy-contr .wpsl-search{ background:none; padding:0; margin:23px 0 0 0;}
 .store-finder-page-form #wpsl-search-wrap.store-finder-form-cntr > form{ border:1px solid #d1ddf1; float:left; }
 .store-finder-page-form .store-finder-form-cntr #wpsl-auto-locate{float: right;}
+
+.cc-find-store-au{position: relative;}
+.cc-find-store-au.store-finder-active-tab:before{content: ''; position:absolute;top: 0px;left: 0; height: 4px;width: 100%;background: #0099ff;z-index: 888;}
+.cc-find-store-au.store-finder-active-tab:hover:before{height: 100%;transition: all 0.3s ease;}
+.cc-find-store-au:hover input#cc-but-near, .cc-find-store-au:hover input#cc-but-head{color: #fff;background: transparent;position: relative; z-index:999;transition: all 0.2s ease;}
+
+.cc-find-store-au:before{content: ''; position:absolute;top: 0px;left: 0; height: 0px;width: 100%;background: #0099ff;z-index: 888;}
+.cc-find-store-au:hover:before{height: 100%;transition: all 0.3s ease;}
 
 .store-finder-page-form .store-finder-form-cntr > form input { float:left; background:#e7edf8; }
 input#wpsl-search-input { width:618px; height:45px; font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; text-transform:uppercase; }
