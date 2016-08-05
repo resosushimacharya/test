@@ -80,8 +80,9 @@ $currentcat = get_queried_object();
 		<span class="cc-cat-title-count">
 			<?php echo $currentcat->count;?>
 			<?php echo single_cat_title('',false).' '.$appafter;?>
-			Products 
+			
 		</span>
+		<span class="cc-cat-title-pro">Products</span>
 		<span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span>
 	</p>
 	

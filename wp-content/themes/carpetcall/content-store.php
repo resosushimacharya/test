@@ -99,7 +99,7 @@ else{
     $(".pac-container").hide();
        autocomplet();
     }
-        if(check.length>3){
+       /* if(check.length>3){*/
         $("#check_control").addClass("store-key-control");
         var autocomplete = new google.maps.places.Autocomplete(input,options);
       //  console.log(autocomplete);
@@ -123,8 +123,8 @@ else{
           
 
          
-        });
-      document.addEventListener("keydown", KeyCheck); }
+        });document.addEventListener("keydown", KeyCheck);
+ /*     document.addEventListener("keydown", KeyCheck); }
         else{
           document.addEventListener("keydown", KeyCheck); 
           google.maps.event.clearListeners(input, "focus");
@@ -132,7 +132,7 @@ else{
         google.maps.event.clearListeners(input, "keydown");
 
     $(".pac-container").hide();
-        }
+        }*/
 
 
        
@@ -175,7 +175,7 @@ function customDialog(e) {
     $(".pac-container").hide();
        autocomplet_dialog();
     }
-        if(check.length>3){
+        /*if(check.length>3){*/
         $("#check_control_dialog").addClass("store-key-control");
         var autocomplete = new google.maps.places.Autocomplete(input,options);
       //  console.log(autocomplete);
@@ -200,7 +200,9 @@ function customDialog(e) {
 
          
         });
-      document.addEventListener("keydown", KeyCheck); }
+      document.addEventListener("keydown", KeyCheck);
+        /*
+         }
         else{
           document.addEventListener("keydown", KeyCheck); 
           google.maps.event.clearListeners(input, "focus");
@@ -208,7 +210,7 @@ function customDialog(e) {
         google.maps.event.clearListeners(input, "keydown");
 
     $(".pac-container").hide();
-        }
+        }*/
 
 
        
