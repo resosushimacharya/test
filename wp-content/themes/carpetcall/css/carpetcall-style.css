@@ -1095,11 +1095,11 @@ div#right_col p a:hover { text-decoration:underline; cursor:pointer;}
 
 .cc-find-store-au{position: relative;}
 .cc-find-store-au.store-finder-active-tab:before{content: ''; position:absolute;top: 0px;left: 0; height: 4px;width: 100%;background: #0099ff;z-index: 888;}
-.cc-find-store-au.store-finder-active-tab:hover:before{height: 100%;transition: all 0.3s ease;}
-.cc-find-store-au:hover input#cc-but-near, .cc-find-store-au:hover input#cc-but-head{color: #fff;background: transparent;position: relative; z-index:999;transition: all 0.2s ease;}
+
+
 
 .cc-find-store-au:before{content: ''; position:absolute;top: 0px;left: 0; height: 0px;width: 100%;background: #0099ff;z-index: 888;}
-.cc-find-store-au:hover:before{height: 100%;transition: all 0.3s ease;}
+
 
 .store-finder-page-form .store-finder-form-cntr > form input { float:left; background:#e7edf8; }
 input#wpsl-search-input { width:618px; height:45px; font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; text-transform:uppercase; }
