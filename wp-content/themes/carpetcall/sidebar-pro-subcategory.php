@@ -228,20 +228,20 @@
       
          <form role="form">
     <div class="checkbox">
-      <input type="checkbox" class="size_option" value=""><label>Set Length Runners</label>
+      <input type="checkbox" class="size_option" value="set_length_runners"><label>Set Length Runners</label>
     </div>
     <div class="checkbox">
-      <input type="checkbox" class="size_option" value=""><label>Small</label>
+      <input type="checkbox" class="size_option" value="small"><label>Small</label>
     </div>
      <div class="checkbox">
-     <input type="checkbox" class="size_option" value=""><label>Medium</label>
+     <input type="checkbox" class="size_option" value="medium"><label>Medium</label>
     </div>
     <div class="checkbox">
-      <input type="checkbox" class="size_option" value=""><label>Large</label>
+      <input type="checkbox" class="size_option" value="large"><label>Large</label>
     </div>
    
     <div class="checkbox">
-      <input type="checkbox" class="size_option" value=""><label>Very Large</label>
+      <input type="checkbox" class="size_option" value="very_large"><label>Very Large</label>
     </div>
      
   </form>

@@ -27,7 +27,7 @@ jQuery('.cc-count-clear').on('click',function(){
 	});
 	
 	
-jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=checkbox], .cc-size-var-sec .checkbox input[type=checkbox], .cc-product-sort a').on('click',function(event){
+jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=checkbox], .cc-size-var-sec .checkbox input[type=checkbox], .cc-product-sort a, .cc-price-var-items .checkbox input[type=checkbox]').on('click',function(event){
 	jQuery('.cc-count-clear').show();
 	//var data = '';
 		jQuery("#ajax_offset").val(0);
@@ -73,7 +73,26 @@ jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=chec
 	init_slick_slider();
 	});
 }else if(jQuery(trig_ele).hasClass('size_option')){
-			//alert('size');
+		jQuery('#selected_sizes').val('');
+		var size_comma_text ='';
+		var prepend = '';
+		jQuery('.size_option:checked').each(function(index, element) {
+			//console.log(jQuery(element).val());
+			prepend = (size_comma_text == '')?'':',';
+           size_comma_text +=prepend+jQuery(element).val(); 
+		   jQuery('#selected_sizes').val(size_comma_text);
+		});
+	cc_trigger_ajax_load(function(output){
+	output = jQuery.parseJSON(output);
+	jQuery('#category_slider_block_wrapper').html(output.html);
+	jQuery('.cat_slider.slick-slider').slick('unslick');
+	init_slick_slider();
+	});
+	
+	
+	
+	
+	
 	}
 else if(jQuery(trig_ele).parent().hasClass('sort_key')){
 	jQuery('.sort_key').removeClass('active');

@@ -22,9 +22,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header( 'shop' ); ?>
 <?php 
 
-$sizes = get_field('set_length_runners','option');
-do_action('pr',$sizes);
-echo count($sizes);
+//$sizes = get_field('set_length_runners','option');
+//do_action('pr',$sizes);
+//echo count($sizes);
 
  	$perpage_var = 4;
 	$current_cat = get_term_by('slug',get_query_var('product_cat'),'product_cat');
@@ -318,7 +318,7 @@ $procareid ='26713';
   </div>
 </div>
 <div class="cc_background_image">
-  <div class="container clearfix cc-cat-sub-desc-sec"> <?php echo get_field('product_category_description',$current_cat);?> 
+  <div class="container clearfix cc-cat-sub-desc-sec"> <?php echo  apply_filters('the_content', get_field('product_category_description',$current_cat));?> 
     <!--    <h3 style="">Modern Rugs</h3>
     <p>
    Transform your tired looking home or commercial space into a contemporary retreat with a stunning, high quality rug from Carpet Call’s modern rugs range. From vibrant floral patterns that will really make a statement, to simple neutral shades that will blend seamlessly with your existing décor, it couldn’t be any simpler for you to update your living or working space with one of our designer modern rugs.

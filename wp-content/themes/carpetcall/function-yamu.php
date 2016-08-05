@@ -181,11 +181,11 @@ $args = wp_parse_args( $args, $defaults);
 		),
 	'meta_query' => array(
 		'relation' => 'OR',
-		array(
+/*		array(
                 'key' => '_stock_status',
                 'value' => 'instock'
             ),
-		),
+*/		),
 	);
 	
 	if($sort_by == 'price'){
@@ -230,17 +230,21 @@ $args = wp_parse_args( $args, $defaults);
 	
 	
 	
-	
 	if($size !='' && !empty($size)){
+		
 		$size_arr = array();
 		//$size_arr_names = array();
 		foreach($size as $size_name){
-			if(get_field($size,'options')){
+		
+		//do_action('pr',get_field($size_name,'options'));
+		
+			if(get_field($size_name,'options')){
 				$available_sizes = get_field($size_name,'options');
+				
 				if(!empty($available_sizes)){
 					//do_action('pr',$available_colors);
 					foreach($available_sizes as $size_codes){
-						//do_action('pr',$color_codes);
+						
 						$size_arr[] = $size_codes['code'];
 						//$color_arr_names[] = $color_codes['colour_name'];
 						}
@@ -281,15 +285,19 @@ $args = wp_parse_args( $args, $defaults);
 	if($color_meta_query !=''){
 		$filargs['meta_query'][]=$color_meta_query;
 		}
+	if($size_meta_query !=''){
+		$filargs['meta_query'][]=$size_meta_query;
+		}
 	if($price_range_query !=''){
 		foreach($price_range_query as $range_query){
 			$filargs['meta_query'][]=$range_query;
 			}
 		
 		}
+
 	wp_reset_postdata();
 	$pch = 1;
-	//do_action('pr',$filargs['meta_query']);
+	do_action('pr',$filargs['meta_query']);
 	$all_products = new WP_Query($filargs);
 		$grp_prods = array();
 		while($all_products->have_posts())
