@@ -145,7 +145,7 @@ wp_reset_query();
  
     function infos(i) {
         infowindow1[i] = new google.maps.InfoWindow({
-            content:'<div class="cc-head-infobox">'+locations1[i-1][0]+locations1[i-1][1]+locations1[i-1][5]+locations1[i-1][3]+locations1[i-1][4]+locations1[i-1][6]+'</div>',
+            content:'<div class="cc-head-infobox"><ul class="cc-head-infobox-list">'+locations1[i-1][0]+locations1[i-1][1]+locations1[i-1][5]+locations1[i-1][3]+locations1[i-1][4]+locations1[i-1][6]+'</ul></div>'
          
         });
         infowindow1[i].content = locations1[i-1][1];
