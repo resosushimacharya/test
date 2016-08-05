@@ -47,7 +47,7 @@
                                 </div><!-- /.row -->
                             </div><div class="clearfix"></div>
                             
-                            <div class="curlocate input" id="after_location">
+                          <div class="curlocate input" id="after_location">
                             <input type="button" class="userlocation" onclick="showlocation();rs='';" value="USE CURRENT LOCATION"/>
                             </div><div class="clearfix"></div>
                              <?php 
@@ -68,8 +68,9 @@ else{
                             ?>
                             
                             <div class="curnloc curnloca" id="after_browse">
-                            <a href="<?php echo $store_page_url; ?>">BROWSE ALL STORES</a>
-                            </div><div class="clearfix"></div>
+                              <a href="<?php echo $store_page_url; ?>">BROWSE ALL STORES</a>
+                            </div>
+                            <div class="clearfix"></div>
                             
                             
                             

@@ -5,23 +5,24 @@ function autocomplet() {
 	var keyword = jQuery('#edit_dir_keyword').val().trim();
 	
      if((typeof stoLocation[0] == 'undefined' || rs[0]==null)){
-     	jQuery("#edit_dir_keyword").parent().parent().prepend('<h5 id="alert_msg">Please select the keywords.</h5>');
+     	jQuery("#edit_dir_keyword").parent().parent().prepend('<h5 id="alert_msg">Please enter a Suburb or Postcode.</h5>');
 
      }
       if(keyword!="" && keyword!=null && keyword.length>3 && (typeof stoLocation[0] != 'undefined')||rs[0]!=null)
 	    {
-	    	jQuery("#alert_msg").remove();
-		jQuery.ajax({
-			url: wp_autocomplete.ajax_url,
-			type: 'POST',
-			data: {
-				keyword:keyword,
-				latitude:rs[0],
-				longitude:rs[1],
-				prelat:stoLocation[0],
-				prelong:stoLocation[1],
-				action: 'dir_autocmp'
-				
+	    	if( jQuery("#alert_msg").length )
+	    		jQuery("#alert_msg").remove();
+
+			jQuery.ajax({
+				url: wp_autocomplete.ajax_url,
+				type: 'POST',
+				data: {
+					keyword:keyword,
+					latitude:rs[0],
+					longitude:rs[1],
+					prelat:stoLocation[0],
+					prelong:stoLocation[1],
+					action: 'dir_autocmp'				
 			},
 			success:function(data){
 				
