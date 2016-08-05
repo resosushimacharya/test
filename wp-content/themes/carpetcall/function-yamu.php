@@ -2,6 +2,23 @@
 if ( ! is_admin() ) {
     include ABSPATH . 'wp-admin/includes/template.php';
 }
+
+
+/*
+* Hook to get the color code from the product title and save that code as color meta data in product's metadata.
+*
+* Run only once when we need to update the old existing products
+*/
+//add_action('wp_head','set_colour_metadata');
+function set_colour_metadata(){
+	$args = array( 'post_type' => 'product', 'posts_per_page' => -1,);
+	$products = get_posts($args);
+	foreach($products as $product){
+		$title = explode('.',$product->post_title);
+		$colour_code = $title[2];
+		update_post_meta($product->ID, 'color', $colour_code); 
+		}
+	}
 /*
 /* Function to get the depth of the category to know whether if it's top level or chid category.
 */
@@ -22,6 +39,8 @@ function get_category_depth($catid){
 add_action('wp_ajax_show_category_slider_block','show_category_slider_block');
 add_action('wp_ajax_nopriv_show_category_slider_block','show_category_slider_block');
 function show_category_slider_block($args){
+
+ob_start();
 	$defaults = array(
 		'cat_id' =>0,
 		'offset'=>0,
@@ -72,6 +91,7 @@ $args = wp_parse_args( $args, $defaults);
 	$current_cat = get_term( $cat_id, 'product_cat');
 	//$term_id_sub =  get_queried_object()->term_id;
 	//$term_name = get_queried_object()->name;
+<<<<<<< HEAD
 	$discats = get_terms(array('parent'=>$cat_id,'taxonomy'=>'product_cat'));
 	if($depth == 0 ){
 		if($offset == count($discats) || $perpage > count($discats)){
@@ -84,19 +104,79 @@ $args = wp_parse_args( $args, $defaults);
 		}
 		
 	$cats_slice = array_slice($discats, $offset, $perpage);
+=======
+	$discats_org = get_terms(array('parent'=>$cat_id,'taxonomy'=>'product_cat'));
+	if(!empty($discats_org)){
+	if($depth == 0 ){
+		if(count($discats_org) > $child_cat_count){
+			
+		$discats_temp = array_slice($discats_org, $child_cat_count-1, 1);
+		$discats=get_terms(array('parent'=>$discats_temp[0]->term_id,'taxonomy'=>'product_cat'));
+		$discats = array_slice($discats,$offset,$perpage);
+		if(!empty($discats)){
+		if($perpage > count($discats)){
+			$offset = min($perpage - count($discats),count($discats));
+			$child_cat_count++;
+			$discats_temp = array_slice($discats_org, $child_cat_count-1, 1);
+			$discats_next = get_terms(array('parent'=>$discats_temp[0]->term_id,'taxonomy'=>'product_cat'));
+			$discats_next = array_slice($discats_next,0,$offset);
+			if($offset == count($discats)){
+				$offset = 0;
+				$child_cat_count++;
+				}
+			foreach($discats_next as $cat_next){
+				array_push($discats,$cat_next);
+				}
+			}else{
+				$offset = $perpage+$offset;
+				}
+		$cats_slice = $discats;
+			}else{
+				$cats_slice = '';
+				}
+		//$current_cat = $discats_temp[0];
+		
+		//array_slice($discats, $offset, $perpage);
+		
+		
+			}else{
+				$cats_slice = '';
+				}
+		
+		}else{
+			
+			//do_action('pr',$discats_org);
+			$cats_slice = array_slice($discats_org, $offset, $perpage);
+			//do_action('pr',$cats_slice);
+			$offset = $offset+$perpage;
+		}
+		}else{
+			$ret['html'] = '';
+			$ret['child_cat_count'] = $child_cat_count+1;
+			$ret['offset'] = 0;
+			}
+>>>>>>> 3476d82fbb0c3c80bd06754821bed31e7dff4b46
 	if(empty($cats_slice)){
 		//No more products found
+<<<<<<< HEAD
 		}
 	$loopcounter = 0;?> 
 	<?php 
 	foreach($cats_slice as $discat){
 		ob_start();
+=======
+		}else{
+	$loopcounter = 0;
+	//do_action('pr',$cats_slice); 
+	foreach($cats_slice as $discat){
+>>>>>>> 3476d82fbb0c3c80bd06754821bed31e7dff4b46
 	?>
-	
-	<?php 
+
+<div>
+  <?php 
 	$filargs = array(
 	'post_type'=>'product',
-	'posts_per_page'=>'10',
+	'posts_per_page'=>-1,
 	'tax_query' => array(
 		array(
 			'taxonomy' => 'product_cat',
@@ -126,9 +206,11 @@ $args = wp_parse_args( $args, $defaults);
 			if(get_field($color_name.'_colours','options')){
 				$available_colors = get_field($color_name.'_colours','options');
 				if(!empty($available_colors)){
+					//do_action('pr',$available_colors);
 					foreach($available_colors as $color_codes){
+						//do_action('pr',$color_codes);
 						$color_arr[] = $color_codes['colour_code'];
-						//$color_arr_names[] = $color_codes['colour_name'];
+						$color_arr_names[] = $color_codes['colour_name'];
 						}
 					}
 				}
@@ -163,26 +245,62 @@ $args = wp_parse_args( $args, $defaults);
 		}
 	wp_reset_postdata();
 	$pch = 1;
-	//do_action('pr',$filargs);
-	$filloop = new WP_Query($filargs);
+	//do_action('pr',$filargs['meta_query']);
+	$all_products = new WP_Query($filargs);
+		$grp_prods = array();
+		while($all_products->have_posts())
+		{ 
+		 $all_products->the_post();
+		
+		//$stockcheck = get_post_meta($loop->post->ID);
+		$title = get_the_title();
+		$grp_code_arr = explode('.',$title);
+		$grp_prods[get_the_ID()] = $grp_code_arr[1];
+		?>
+		<?php 
+		}
+	wp_reset_postdata();
+	
+	$product_ids = array_keys(array_unique($grp_prods));	
+
+			
+	$grp_prod_args = array(
+		'post_type'	=>'product',
+   		 'post__in' => $product_ids
+		);		
+	
+	$filloop = new WP_Query($grp_prod_args);
+	//$filloop = get_posts($grp_prod_args);
+	//do_action('pr',$filloop);	
+	
+	
 	$hold = 1;
 	?>
-	<?php 
+  <?php 
 	if($filloop->post_count > 0){
+<<<<<<< HEAD
 		ob_start()?>
         	<div class="row cc-cat-sub-title-price-cover">
 	<div class="col-md-6 cc-cat-sub-title"><h4><?php _e($current_cat->name,'carpetcall')?></h4>
 	<?php
+=======
+		$current_cat = get_term_by('id',$discat->parent,'product_cat');
+		?>
+  <div class="row cc-cat-sub-title-price-cover">
+    <div class="col-md-6 cc-cat-sub-title">
+      <h4>
+        <?php _e($current_cat->name,'carpetcall')?>
+      </h4>
+      <?php
+>>>>>>> 3476d82fbb0c3c80bd06754821bed31e7dff4b46
 	echo '<h3>'.$discat->name.'</h3><br/>';
 	?>
-	</div>
-	
-
-        <?php
+    </div>
+    <?php
 		
 	if($filloop->have_posts()){
 	$slidercounter = 1;
-	while($filloop->have_posts()):
+	while($filloop->have_posts()){
 	$post = $filloop->the_post();
 	
 	$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
@@ -200,23 +318,24 @@ $args = wp_parse_args( $args, $defaults);
 	echo '<div class="cat_slider">';
 	
 	}
-	?> <div class="cat_slider_item ">
-	<div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image ;?>)"></div>
-	</div>
-	<?php 
-	if($slidercounter==5){
+	?>
+    <div class="cat_slider_item ">
+      <div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image ;?>)"></div>
+    </div>
+    <?php 
+	if($slidercounter==5 || $slidercounter==$filloop->post_count){
 	echo '</div>';
 	}
 	$slidercounter++;
 	
 	}
-	endwhile;
+	}
 	wp_reset_query();
 	}
 
 	if($filloop->have_posts()){?>
-		<div class=" cc-cat-sub-group-item">
-		<?php 
+    <div class=" cc-cat-sub-group-item">
+      <?php 
 	$slidercounter = 1;
 	while($filloop->have_posts()):
 	$filloop->the_post();
@@ -225,10 +344,11 @@ $args = wp_parse_args( $args, $defaults);
 	
 	
 	
-	?><div class=" cc-other-term-pro">
-	<div class="cc-img-wrapper"><div class="cat-item-group-image" style="background-image:url(<?php echo $feat_image;?>)">
-	
-	<?php
+	?>
+      <div class=" cc-other-term-pro">
+        <div class="cc-img-wrapper">
+          <div class="cat-item-group-image" style="background-image:url(<?php echo $feat_image;?>)">
+            <?php
 	
 	
 	$woo=get_post_meta($filloop->post->ID);
@@ -238,27 +358,33 @@ $args = wp_parse_args( $args, $defaults);
 	
 	
 	?>
-	<a href ="<?php the_permalink();?>" class="cc-pro-view">VIEW</a>
-	</div>
-	</div></div>
-	
-	
-	<?php endwhile;?>
-	<?php 
-	wp_reset_query(); ?>
-		</div>
-	<?php }
-		?>
+            <a href ="<?php the_permalink();?>" class="cc-pro-view">VIEW</a> </div>
         </div>
-		<?php }
+      </div>
+      <?php endwhile;?>
+      <?php 
+	wp_reset_query(); ?>
+    </div>
+    <?php }
+		?>
+  </div>
+  <?php }
 	
 	
 	?>
-	<?php 
+</div>
+<?php 
 	}
-		$html = ob_get_clean();
+		$html = ob_get_contents();
+		ob_end_clean();
 		$ret['html'] = $html;
 		$ret['child_cat_count'] = $child_cat_count;
+<<<<<<< HEAD
+=======
+		$ret['offset'] = $offset;
+		//do_action('pr',$ret);
+	}
+>>>>>>> 3476d82fbb0c3c80bd06754821bed31e7dff4b46
 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 		echo json_encode($ret);
 		die;
@@ -287,13 +413,16 @@ global $wpdb;
 $parent = $wpdb->get_var("SELECT parent FROM $wpdb->term_taxonomy WHERE term_id = '".$tag->term_id."'");
 if($parent=='0'){
 $cat_top_description =get_term_meta($tag->term_id,'cat_top_description',true) ;
-?>	
+?>
 <tr class="form-field">
-<th scope="row" valign="top"><label for="cat_top_description"><?php _e('Cateogry Top Description'); ?></label></th>
-<td>
-        <textarea rows="10" name="cat_top_description" id="cat_top_description" style="width:60%;"><?php echo $cat_top_description ? $cat_top_description : ''; ?></textarea><br />
-        <span class="description"><?php _e('Description that appears below title in top level categories'); ?></span>
-    </td>
+  <th scope="row" valign="top"><label for="cat_top_description">
+      <?php _e('Cateogry Top Description'); ?>
+    </label></th>
+  <td><textarea rows="10" name="cat_top_description" id="cat_top_description" style="width:60%;"><?php echo $cat_top_description ? $cat_top_description : ''; ?></textarea>
+    <br />
+    <span class="description">
+    <?php _e('Description that appears below title in top level categories'); ?>
+    </span></td>
 </tr>
 <?php	
 }
@@ -310,4 +439,8 @@ function saveCategoryFields($term_id) {
 				}
     }
 }
+<<<<<<< HEAD
 add_action ( 'edited_category', 'saveCategoryFields');
+=======
+
+>>>>>>> 3476d82fbb0c3c80bd06754821bed31e7dff4b46

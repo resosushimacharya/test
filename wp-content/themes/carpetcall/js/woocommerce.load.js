@@ -1,8 +1,38 @@
 jQuery(document).ready(function($){
+
+jQuery('.cc-product-sort a').on('click',function(){
+		jQuery("#ajax_offset").val(0);
+		jQuery("#child_cat_count").val(1);
+		
+
+	});
+jQuery('.cc-count-clear').on('click',function(){
+	jQuery('img.cc-tick-display').hide();
+	jQuery('#selected_colors').val('');
+	jQuery('input.price_range').removeAttr('checked');
+	jQuery('#selected_price_ranges').val('');
+	jQuery('input.size_option').removeAttr('checked');
+	jQuery('#selected_sizes').val('');
+	jQuery(this).hide();
+	cc_trigger_ajax_load(function(output){
+	output = jQuery.parseJSON(output);
+	jQuery('#category_slider_block_wrapper').html(output.html);
+	jQuery('.cat_slider.slick-slider').slick('unslick');
+	init_slick_slider();
+	});
+
+	jQuery("#ajax_offset").val(0);
+	jQuery("#child_cat_count").val(1);
+
+	});
 	
-jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=checkbox], .cc-size-var-sec .checkbox input[type=checkbox]').on('click',function(event){
-	var data = '';
-	$("#ajax_offset").val(0);
+	
+jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=checkbox], .cc-size-var-sec .checkbox input[type=checkbox], .cc-product-sort a').on('click',function(event){
+	jQuery('.cc-count-clear').show();
+	//var data = '';
+		jQuery("#ajax_offset").val(0);
+		jQuery("#child_cat_count").val(1);
+
 	var trig_ele = event.target;
 	//console.log(trig_ele);
 	if(jQuery(trig_ele).hasClass('swatch') || jQuery(trig_ele).parent().hasClass('swatch')){
@@ -24,9 +54,6 @@ jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=chec
 		jQuery('#category_slider_block_wrapper').html(output.html);
 		jQuery('.cat_slider.slick-slider').slick('unslick');
 		init_slick_slider();
-		jQuery("#child_cat_count").val(output.offset);
-		jQuery("#child_cat_count").val(output.child_cat_count);
-	
 	});
 	 //console.log(jQuery('.cc-tick-display:visible'));
 	}else if(jQuery(trig_ele).hasClass('price_range')){
@@ -44,11 +71,30 @@ jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=chec
 	jQuery('#category_slider_block_wrapper').html(output.html);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
 	init_slick_slider();
-	jQuery("#child_cat_count").val(output.child_cat_count);
-	jQuery("#child_cat_count").val(output.offset);
 	});
 }else if(jQuery(trig_ele).hasClass('size_option')){
 			//alert('size');
+	}
+else if(jQuery(trig_ele).parent().hasClass('sort_key')){
+	jQuery('.sort_key').removeClass('active');
+	jQuery(trig_ele).parent('li').addClass('active');
+	
+	var sort_key = jQuery(this).attr('sort');
+	jQuery('#ajax_sort_order').val('ASC');
+	if(sort_key == 'popular'){
+		jQuery('#ajax_sort_by').val('popular');
+		}else if(sort_key == 'price_low'){
+			jQuery('#ajax_sort_by').val('price');
+			}else if(sort_key == 'price_high'){
+				jQuery('#ajax_sort_by').val('price');
+				jQuery('#ajax_sort_order').val('DESC');
+				}
+		cc_trigger_ajax_load(function(output){
+	output = jQuery.parseJSON(output);
+	jQuery('#category_slider_block_wrapper').html(output.html);
+	jQuery('.cat_slider.slick-slider').slick('unslick');
+	init_slick_slider();
+	});	
 	}
 
 	//cc_trigger_ajax_load();
@@ -56,20 +102,22 @@ jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=chec
 	});
 jQuery("#cc_load_more").click(function(e) {
 //$("#ajax_offset").val(parseInt($("#ajax_offset").val())+1);
-var perpage  = 4;
-$("#ajax_offset").val(parseInt($("#ajax_offset").val())+perpage);
+	var perpage  = jQuery('#perpage_var').val();
+//$("#ajax_offset").val(parseInt($("#ajax_offset").val())+perpage);
 cc_trigger_ajax_load(function(output){
 output = jQuery.parseJSON(output);
 jQuery('#category_slider_block_wrapper').append(output.html);
 jQuery("#child_cat_count").val(output.child_cat_count);
+jQuery("#ajax_offset").val(output.offset);
 jQuery('.cat_slider.slick-slider').slick('unslick');
 init_slick_slider();
 	});
 
 });
 function cc_trigger_ajax_load(handleData){
-	var perpage  = 4;
+	var perpage  = jQuery('#perpage_var').val();
 	var cat_id = $("#ajax_cat_id").val();
+	var child_cat_count = $('#child_cat_count').val();
 	var offset = $("#ajax_offset").val();
 	var sort_by  = $("#ajax_sort_by").val();
 	var sort_order  = $("#ajax_sort_order").val();
@@ -82,6 +130,7 @@ function cc_trigger_ajax_load(handleData){
 				'action': 'show_category_slider_block' , 
 				'perpage':perpage,
 				'cat_id':cat_id,
+				'child_cat_count':child_cat_count,
 				'offset':offset,
 				'sort_by':sort_by,
 				'sort_order':sort_order,

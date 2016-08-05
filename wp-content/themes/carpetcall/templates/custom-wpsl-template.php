@@ -18,7 +18,7 @@ $categoryDisdplay ='';
 $cat = get_queried_object();
 
 if($cat->taxonomy){
-    echo "hello";
+    
     $categoryName = $cat->name;
     $categoryCount = $cat->count; 
     if($categoryCount>1){

@@ -53,8 +53,8 @@
 						'8'=>'yellow',
 						'10'=>'blue',
 						'20'=>'green',
-						'40'=>'ivory',
-						'44'=>'cream',
+						//'40'=>'ivory',
+						//'44'=>'cream',
 						'63'=>'white',
 						'45'=>'beige',
 						'54'=>'brown',
@@ -76,6 +76,12 @@
 			<?php
 			}
 		}?>
+        <li>
+    <a href="javascript:void(0);" class="swatch" style="background:url('<?php echo get_template_directory_uri().'/images/multiple.jpg';?>');" id="multi"> 
+        <img src="<?php echo get_template_directory_uri().'/images/swatch_checked.png';?>" class="cc-tick-display" />
+        </a>
+      <label for="colour_multi"><?php _e('Multiple') ?></label>
+        </li>
         
 <?php /*?>        
         <li id="cc-color-tick-id-<?php echo $c; ?>">
