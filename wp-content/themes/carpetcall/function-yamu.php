@@ -106,20 +106,6 @@ $args = wp_parse_args( $args, $defaults);
 	$current_cat = get_term( $cat_id, 'product_cat');
 	//$term_id_sub =  get_queried_object()->term_id;
 	//$term_name = get_queried_object()->name;
-<<<<<<< HEAD
-	$discats = get_terms(array('parent'=>$cat_id,'taxonomy'=>'product_cat'));
-	if($depth == 0 ){
-		if($offset == count($discats) || $perpage > count($discats)){
-			$child_cat_count++;
-			$offset = 0;
-		}
-		$discats_temp = array_slice($discats, $child_cat_count-1, $child_cat_count);
-		$discats=get_terms(array('parent'=>$discats_temp[0]->term_id,'taxonomy'=>'product_cat'));
-		$current_cat = $discats_temp[0];
-		}
-		
-	$cats_slice = array_slice($discats, $offset, $perpage);
-=======
 	$discats_org = get_terms(array('parent'=>$cat_id,'taxonomy'=>'product_cat'));
 	if(!empty($discats_org)){
 	if($depth == 0 ){
@@ -170,21 +156,15 @@ $args = wp_parse_args( $args, $defaults);
 			$ret['child_cat_count'] = $child_cat_count+1;
 			$ret['offset'] = 0;
 			}
->>>>>>> 3476d82fbb0c3c80bd06754821bed31e7dff4b46
 	if(empty($cats_slice)){
+		$ret['html'] = '';
+		$ret['child_cat_count'] = $child_cat_count+1;
+		$ret['offset'] = 0;
 		//No more products found
-<<<<<<< HEAD
-		}
-	$loopcounter = 0;?> 
-	<?php 
-	foreach($cats_slice as $discat){
-		ob_start();
-=======
 		}else{
 	$loopcounter = 0;
 	//do_action('pr',$cats_slice); 
 	foreach($cats_slice as $discat){
->>>>>>> 3476d82fbb0c3c80bd06754821bed31e7dff4b46
 	?>
 
 <div>
@@ -342,12 +322,6 @@ $args = wp_parse_args( $args, $defaults);
 	?>
   <?php 
 	if($filloop->post_count > 0){
-<<<<<<< HEAD
-		ob_start()?>
-        	<div class="row cc-cat-sub-title-price-cover">
-	<div class="col-md-6 cc-cat-sub-title"><h4><?php _e($current_cat->name,'carpetcall')?></h4>
-	<?php
-=======
 		$current_cat = get_term_by('id',$discat->parent,'product_cat');
 		?>
   <div class="row cc-cat-sub-title-price-cover">
@@ -356,7 +330,6 @@ $args = wp_parse_args( $args, $defaults);
         <?php _e($current_cat->name,'carpetcall')?>
       </h4>
       <?php
->>>>>>> 3476d82fbb0c3c80bd06754821bed31e7dff4b46
 	echo '<h3>'.$discat->name.'</h3><br/>';
 	?>
     </div>
@@ -368,7 +341,6 @@ $args = wp_parse_args( $args, $defaults);
 	$post = $filloop->the_post();
 	
 	$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
-<<<<<<< HEAD
 	$proGal = get_post_meta($filloop->post->ID, '_product_image_gallery', TRUE );
 	$proGalId = explode(',',$proGal);
 	$reqProImageId = '';
@@ -381,9 +353,6 @@ $args = wp_parse_args( $args, $defaults);
 	if($feat_image ==''){
 		$feat_image = 'http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png';
 		}
-=======
-	/*var_dump($filloop->post->ID);*/
->>>>>>> b99059fab084461de808d595f8e3ee563373f3af
 	
 	if($pch==1){
 	$res = get_post_meta($filloop->post->ID ,'_sale_price',true);
@@ -472,12 +441,9 @@ $args = wp_parse_args( $args, $defaults);
 		ob_end_clean();
 		$ret['html'] = $html;
 		$ret['child_cat_count'] = $child_cat_count;
-<<<<<<< HEAD
-=======
 		$ret['offset'] = $offset;
 		//do_action('pr',$ret);
 	}
->>>>>>> 3476d82fbb0c3c80bd06754821bed31e7dff4b46
 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 		echo json_encode($ret);
 		die;
@@ -486,19 +452,8 @@ $args = wp_parse_args( $args, $defaults);
 		}
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /*
-/*Function to add the category description text field to rugs category
+/*Function to add the category description text field to rugs category and other top level product categories
 */
 add_action('product_cat_edit_form_fields','add_top_lvl_cat_description_field');
 function add_top_lvl_cat_description_field($tag){
@@ -521,6 +476,9 @@ $cat_top_description =get_term_meta($tag->term_id,'cat_top_description',true) ;
 }
 return $tag;	  
 }
+/*
+/*Function to save the category description text field to rugs category and other top level product categories
+*/
 add_action( 'edited_product_cat', 'saveCategoryFields', 10, 1 );
 function saveCategoryFields($term_id) {
     if ( isset( $_POST['cat_top_description'] ) ) {
@@ -532,8 +490,4 @@ function saveCategoryFields($term_id) {
 				}
     }
 }
-<<<<<<< HEAD
-add_action ( 'edited_category', 'saveCategoryFields');
-=======
 
->>>>>>> 3476d82fbb0c3c80bd06754821bed31e7dff4b46
