@@ -50,10 +50,10 @@ if(array_key_exists('wpsl_zip',$getinfo)){
 }
 $combcsz =$city.' '.$state.' '.$zip;
 $title ='<li class="cc-head-wpsl-title">'.$title .'</li>';
-$add ='<li class="cc-head-wpsl-title">'.$add .'</li>';
+$add ='<li class="cc-head-wpsl-adrs">'.$add .'</li>';
 $combcszsec ='<li class="cc-head-wpsl-csz">'.$combcsz.'</li>';
-$phonesec = '<li class="cc-head-wpsl-phone">P: '.$phone.'</li>';
-$faxsec = '<li class="cc-head-wpsl-fax">F: '.$fax.'</li>';
+$phonesec = '<li class="cc-head-wpsl-phone"><span>P:</span> <a class="phone" href="callto:'.$phone.'">'.$phone.' </a></li>';
+$faxsec = '<li class="cc-head-wpsl-fax"><span>F:</span> '.$fax.'</li>';
 $direction =$combcsz;
 $directionurl ="https://www.google.com/maps?saddr=&daddr=".$direction;
 $directionlink ='<li  class="cc-head-wpsl-dir"><a  href="'.$directionurl .'" target="_blank" >GET DIRECTIONS</li>';

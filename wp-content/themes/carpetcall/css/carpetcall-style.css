@@ -163,10 +163,12 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 
 /* Links inside the dropdown */
 .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
+    color:#15489f;
+    padding: 12px 0;
     text-decoration: none;
-    display: block;	
+    display: block;
+	font:normal 12px 'proxima_nova_rgregular', sans-serif;	
+	
 }
 
 
@@ -225,7 +227,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .srch_pro { margin:8px 0; max-width:100%;}
 .srch_pro .form-control { border:0; border-radius:0; padding: 21px 12px; height:48px; text-transform:uppercase; text-align:left; outline:none; }
 .srch_pro .btn-default { background-color:#FFF; border-color:#FFF; border-radius:0; padding:12px 12px;  outline:none;}
-.srch_pro .input-group-btn { margin:0;}
+.srch_pro .input-group-btn { margin:0; outline:0; box-shadow:none;}
 .curnloc { margin:10px 0; display:block; background:#15489f; }
 .curnloca a { padding:15px 20px; text-align:center; color:#FFF; font:bold 16px 'proxima_nova_rgregular', sans-serif; text-decoration:none; }
 .curnloca a:hover { background:#15489f; }
@@ -532,7 +534,7 @@ li.clblk_a::before {content: '';}
 .you_may_link_cntr .col-md-4{padding: 0 10px;}
 .pro_secone { background:#FFF; padding:16px 20px; }
 .pro_secone_a { background:#FFF; padding:14px; margin-bottom:14px; }
-.mero_itemss { margin:20px 0 0 0;}
+.mero_itemss { margin:20px 0 12px 0;}
 .proabtxt { min-height:37px; clear:both; }
 .proabtxt h4{font:bolder 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-left:3px; margin-bottom:-6px;}
 
@@ -1213,3 +1215,24 @@ span.cc-locator-current a {font: normal 12px 'proxima_nova_rgregular', sans-seri
 display:none;
 }
 .cc-store-cat-page-heading {font:700 24px/35px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin:36px 0 8px 0; }
+
+.tax-wpsl_store_category .wpsl-gmap-canvas .wpsl-infobox { min-width:32%; border:0; border-radius:0; outline:0; }
+.tax-wpsl_store_category #wpsl-gmap .wpsl-info-window { max-width:none !important; }
+#wpsl-gmap .wpsl-info-window, .wpsl-gmap-canvas .wpsl-info-window { max-width:none !important;}
+.wpsl-info-window p strong a, .cc-head-wpsl-title {font:700 18px/35px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none; }
+.wpsl-info-window p strong a:hover { color:#134c9f; cursor:pointer;}
+.wpsl-info-window p span {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666;}
+.cc-head-wpsl-adrs, .cc-head-wpsl-csz, li.cc-head-wpsl-fax {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666; }
+li.cc-head-wpsl-phone span, li.cc-head-wpsl-fax span {font:700 18px/24px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase;}
+li.cc-head-wpsl-phone {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666; text-decoration:none;}
+li.cc-head-wpsl-phone:hover { color:#1858b8;}
+.cc-head-wpsl-dir { margin:10px 0 10px 0; }
+.cc-head-wpsl-dir a { background:#FFF; border:1px solid #134c9f; width:226px; height:38px; padding:0 15px; display:inline-block; color:#15489f; text-align:center; font:700 14px/38px 'proxima_nova_ltsemibold', sans-serif; text-decoration:none;}
+.cc-head-wpsl-dir a:hover { background:#134c9f; color:#FFF;}
+.wpsl-info-window span {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666; text-decoration:none;}
+
+.wpsl-info-window span strong {font:700 18px/24px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase;}
+.wpsl-info-actions a {background:#FFF; border:1px solid #134c9f !important; width:226px; height:38px; padding:0 15px; display:inline-block; color:#15489f; text-align:center; font:700 14px/38px 'proxima_nova_ltsemibold', sans-serif; text-decoration:none; text-transform:uppercase;}
+.wpsl-info-actions a:hover {background:#134c9f; color:#FFF;}
+li.cc-head-wpsl-phone a {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666; text-decoration:none; }
+li.cc-head-wpsl-phone a:hover { color:#1858b8; }
