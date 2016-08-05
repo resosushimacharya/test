@@ -180,7 +180,9 @@
     </div>
 </div><div class="clearfix"></div><!-- main content end here -->
 
- <?php 
+<?php get_footer(); ?>
+
+<?php 
                             if(!isset($_POST["cc-current-location-store"]) && !isset($_POST["wpsl-search-input"])){
                                   if(isset($_POST["check-near-id"])){
                                            get_template_part('content','main-store-map');
@@ -198,5 +200,3 @@
                              }
      
 ?>
-
-<?php get_footer(); ?>
