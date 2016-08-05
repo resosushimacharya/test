@@ -3,7 +3,15 @@
 ** Template Name: Store Main page
 */
 ?>
-<?php get_header();?>
+<?php 
+  get_header();
+
+  //head-selected
+  $nearest = true;
+
+  if(isset($_POST["check-head-id"])) $nearest = false;
+
+?>
 
 <div class="cc-store-hd-title">
 	<div class="container">
@@ -16,11 +24,11 @@
                   <div class="cc-options-wrapper-nh">
                       <form method="post" >
                           <input type="hidden" name="check-near-id" value="check near value"/>
-                          <input type="submit" id="cc-but-near" class="cc-but-near-con" value="FIND YOUR NEAREST STORE" name="cc-but-near-name"/>
+                          <input type="submit" id="cc-but-near" class="cc-but-near-con<?php if($nearest) echo ' store-finder-active-tab'; ?>" value="FIND YOUR NEAREST STORE" name="cc-but-near-name"/>
                       </form >
                       <form method="post">
                           <input type="hidden" name="check-head-id" value="check head value"/>
-                          <input type="submit" id="cc-but-head" class="cc-but-head-con" value="HEAD OFFICES" name="cc-but-head-name"/>
+                          <input type="submit" id="cc-but-head" class="cc-but-head-con<?php if(!$nearest) echo ' store-finder-active-tab'; ?>" value="HEAD OFFICES" name="cc-but-head-name"/>
                       </form>
                   </div>
     </div>
@@ -170,16 +178,9 @@
                     }
                       ?>
     </div>
-</div><div class="clearfix"></div><!-- main conternt end here -->
+</div><div class="clearfix"></div><!-- main content end here -->
 
-
-
-
-<?php get_footer(); ?>
-
-
-
-                         <?php 
+ <?php 
                             if(!isset($_POST["cc-current-location-store"]) && !isset($_POST["wpsl-search-input"])){
                                   if(isset($_POST["check-near-id"])){
                                            get_template_part('content','main-store-map');
@@ -197,3 +198,5 @@
                              }
      
 ?>
+
+<?php get_footer(); ?>
