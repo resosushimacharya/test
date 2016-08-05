@@ -91,7 +91,7 @@ $args = wp_parse_args( $args, $defaults);
 		if(isset($_POST['color']) && ($_POST['color'] !='')){
 			$args['color'] = explode(',',sanitize_text_field($_POST['color']));
 		}
-		if(isset($_POST['size'])){
+		if(isset($_POST['size']) && ($_POST['size'] !='')){
 			$args['size'] = explode(',',sanitize_text_field($_POST['size']));
 		}
 		if(isset($_POST['price']) && ($_POST['price'] !='')){
@@ -172,6 +172,7 @@ $args = wp_parse_args( $args, $defaults);
 	$filargs = array(
 	'post_type'=>'product',
 	'posts_per_page'=>-1,
+	'post_stauts' =>'publish',
 	'tax_query' => array(
 		array(
 			'taxonomy' => 'product_cat',
@@ -179,15 +180,15 @@ $args = wp_parse_args( $args, $defaults);
 			'terms'    => $discat->term_id,
 			),
 		),
-	'meta_query' => array(
+/*	'meta_query' => array(
 		'relation' => 'OR',
-/*		array(
+		array(
                 'key' => '_stock_status',
                 'value' => 'instock'
             ),
-*/		),
-	);
-	
+	),
+*/	);
+
 	if($sort_by == 'price'){
 		$filargs['meta_key'] = '_sale_price';
 	}elseif($sort_by == 'popular'){
@@ -223,12 +224,6 @@ $args = wp_parse_args( $args, $defaults);
 									  );
 									  
 	}
-	
-	
-	
-	
-	
-	
 	
 	if($size !='' && !empty($size)){
 		
@@ -297,39 +292,33 @@ $args = wp_parse_args( $args, $defaults);
 
 	wp_reset_postdata();
 	$pch = 1;
-	do_action('pr',$filargs['meta_query']);
+	
 	$all_products = new WP_Query($filargs);
+	if($all_products->post_count > 0){
 		$grp_prods = array();
 		while($all_products->have_posts())
 		{ 
 		 $all_products->the_post();
-		
-		//$stockcheck = get_post_meta($loop->post->ID);
-		$title = get_the_title();
-		$grp_code_arr = explode('.',$title);
-		$grp_prods[get_the_ID()] = $grp_code_arr[1];
-		?>
-		<?php 
+		if(get_post_meta(get_the_ID(),'_stock_status',true) =='instock'){
+			$title = get_the_title();
+			$grp_code_arr = explode('.',$title);
+			$grp_prods[get_the_ID()] = $grp_code_arr[1];
+			}
 		}
 	wp_reset_postdata();
-	
 	$product_ids = array_keys(array_unique($grp_prods));	
-
-			
 	$grp_prod_args = array(
 		'post_type'	=>'product',
-   		 'post__in' => $product_ids
+   		 'post__in' => $product_ids,
 		);		
-	
 	$filloop = new WP_Query($grp_prod_args);
-	//$filloop = get_posts($grp_prod_args);
-	//do_action('pr',$filloop);	
-	
-	
+		}else{
+			$filloop = '';
+			}
 	$hold = 1;
 	?>
   <?php 
-	if($filloop->post_count > 0){
+	if($filloop !='' && $filloop->post_count > 0){
 		$current_cat = get_term_by('id',$discat->parent,'product_cat');
 		?>
   <div class="row cc-cat-sub-title-price-cover">

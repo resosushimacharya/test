@@ -234,7 +234,7 @@ $currentcat = get_queried_object();
 						*/
 			  ?>
         <div class="woo-added"></div>
-        <input type="button" name="cc_load_more" id ="cc_load_more" value="load more"/>
+        <input type="button" name="cc_load_more" id ="cc_load_more" value="load more" first='yes'/>
         <input type="hidden" name="perpage_var" id="perpage_var" value="<?php echo $perpage_var;?>">
         <input type="hidden" name="ajax_cat_id" id="ajax_cat_id" value="<?php echo $current_cat->term_id?>">
         <input type="hidden" name="ajax_offset" id="ajax_offset" value="<?php echo ($ret['offset'])?$ret['offset']:0?>">
