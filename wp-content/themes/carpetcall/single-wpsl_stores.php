@@ -83,7 +83,7 @@ echo '<a href="'.get_the_permalink($stateID).'"><' ;?>
 
 
         ?>
-       <a href="https://maps.google.com/maps?saddr=balcatta,australia&daddr=<?php echo $url['wpsl_address'][0].' '.$url['wpsl_city'][0];?>" target="_blank">GET DIRECTION</a>
+       <a href="https://maps.google.com/maps?saddr=&daddr=<?php echo $url['wpsl_address'][0].' '.$url['wpsl_city'][0];?>" target="_blank">GET DIRECTION</a>
        </div>
        <div class="wpsl-phone-sec">
 	<?php echo do_shortcode('[wpsl_address id="'.$post->ID.'" name="false" address="false" address2="false" 
