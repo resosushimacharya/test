@@ -129,7 +129,7 @@ wp_reset_query();
          <div>
             <p>
                 <span class="cc-store-icon-label">
-                    <img src="http://localhost/carpetcall/wp-content/themes/carpetcall/images/blue.png">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/markers/location.png">
                     <strong>
                     <a href="http://localhost/carpetcall/find-a-store/wa//midland/"><?php echo get_the_title();?></a>
                     </strong>

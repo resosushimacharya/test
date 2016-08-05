@@ -124,7 +124,7 @@
 
             <p><div class="cc-head-office-label">
                 <span class="cc-store-icon-label">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/blue.png">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/markers/location.png">
                     <strong>
                     <a href="http://localhost/carpetcall/find-a-store/wa/midland/"><?php echo get_the_title();?></a>
                     </strong>
