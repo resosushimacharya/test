@@ -156,7 +156,7 @@ $args = wp_parse_args( $args, $defaults);
   <?php 
 	$filargs = array(
 	'post_type'=>'product',
-	'posts_per_page'=>'10',
+	'posts_per_page'=>-1,
 	'tax_query' => array(
 		array(
 			'taxonomy' => 'product_cat',
@@ -179,7 +179,6 @@ $args = wp_parse_args( $args, $defaults);
 	
 	$color_meta_query = '';
 	$price_range_query = '';
-	
 	if($color !='' && !empty($color)){
 		$color_arr = array();
 		$color_arr_names = array();
@@ -227,7 +226,34 @@ $args = wp_parse_args( $args, $defaults);
 	wp_reset_postdata();
 	$pch = 1;
 	//do_action('pr',$filargs['meta_query']);
-	$filloop = new WP_Query($filargs);
+	$all_products = new WP_Query($filargs);
+		$grp_prods = array();
+		while($all_products->have_posts())
+		{ 
+		 $all_products->the_post();
+		
+		//$stockcheck = get_post_meta($loop->post->ID);
+		$title = get_the_title();
+		$grp_code_arr = explode('.',$title);
+		$grp_prods[get_the_ID()] = $grp_code_arr[1];
+		?>
+		<?php 
+		}
+	wp_reset_postdata();
+	
+	$product_ids = array_keys(array_unique($grp_prods));	
+
+			
+	$grp_prod_args = array(
+		'post_type'	=>'product',
+   		 'post__in' => $product_ids
+		);		
+	
+	$filloop = new WP_Query($grp_prod_args);
+	//$filloop = get_posts($grp_prod_args);
+	//do_action('pr',$filloop);	
+	
+	
 	$hold = 1;
 	?>
   <?php 
