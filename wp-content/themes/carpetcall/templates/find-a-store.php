@@ -93,7 +93,8 @@
                 $loop->the_post();
 
               $getinfo  = get_post_meta($post->ID);
-
+              
+     
                   $lat = $getinfo['wpsl_lat'];
                   $long = $getinfo['wpsl_lng'];
                   $stoLatLong=array($lat,$long);

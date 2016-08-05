@@ -76,6 +76,39 @@ if(get_term_meta($current_cat->term_id,'cat_top_description',true) && $depth == 
 $currentcat = get_queried_object();
  
 ?>
+<<<<<<< HEAD
+<div class="rugm-blk col-md-6 no-pl">
+	<p>
+		<span class="cc-cat-title-count">
+			<?php echo $currentcat->count;?>
+			<?php echo single_cat_title('',false).' '.$appafter;?>
+			
+		</span>
+		<span class="cc-cat-title-pro">Products</span>
+		<span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span>
+	</p>
+	
+</div>
+
+<div class="col-md-6 no-pr">
+<div class="pull-right cc-product-sort">
+	<?php do_action( 'woocommerce_before_shop_loop' ); ?>
+	 </div>
+</div>
+</div>
+
+
+<div class="cc-cat-pro-section-left col-md-3 no-lr">
+
+<?php get_sidebar('pro-subcategory');?>
+
+
+</div>
+<div class="col-md-9 cc-cat-pro-section-right">
+	
+
+<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) {
+=======
         <div class="rugm-blk col-md-6 no-pl">
           <p> <span class="cc-cat-title-count"> <?php echo $currentcat->count;?> <?php echo single_cat_title('',false).' '.$appafter;?> Products </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
         </div>
@@ -96,6 +129,7 @@ $currentcat = get_queried_object();
       </div>
       <div class="col-md-9 cc-cat-pro-section-right">
         <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) {
+>>>>>>> 3476d82fbb0c3c80bd06754821bed31e7dff4b46
 	$args = array(
 		'cat_id' =>$current_cat->term_id,
 		'offset'=>0,

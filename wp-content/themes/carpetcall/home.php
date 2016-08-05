@@ -2,6 +2,7 @@
 <?php
 /* Template Name: design */
 get_header();
+
 ?>
     
         <?php

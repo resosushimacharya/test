@@ -27,7 +27,35 @@ $long = $getinfo['wpsl_lng'];
 $stoLatLong=array($lat,$long);
 $add = $getinfo['wpsl_address'][0];
 $title = get_the_title();
+$phone = '-';
+$fax = '-';
+$zip ='';
+$state = '';
+$city = '';
+$direction = '';
+if(array_key_exists('wpsl_phone',$getinfo)){
+ $phone = $getinfo['wpsl_phone'][0];
+}
+if(array_key_exists('wpsl_phone',$getinfo)){
+ $fax = $getinfo['wpsl_fax'][0];
+}
+if(array_key_exists('wpsl_city',$getinfo)){
+  $city  = $getinfo['wpsl_city'][0];
+}
+if(array_key_exists('wpsl_state',$getinfo)){
+ $state = $getinfo['wpsl_state'][0];
+}
+if(array_key_exists('wpsl_zip',$getinfo)){
+ $zip = $getinfo['wpsl_zip'][0];
+}
+$combcsz =$city.' '.$state.' '.$zip;
+$combcszsec ='<span class="cc-head-wpsl-csz">'.$combcsz.'</span>';
+$phonesec = '<span class="cc-head-wpsl-phone">P: '.$phone.'</span>';
+$faxsec = '<span class="cc-head-wpsl-fax">F: '.$fax.'</span>';
+$direction =$combcsz;
+$directionurl ="https://www.google.com/maps?saddr=12102+Princes+Hwy,+Verona+NSW+2550,+Australia&daddr=$direction";
 $sll[] = array($title,$add,$stoLatLong);
+
 
 endwhile;
 wp_reset_query();
@@ -46,7 +74,7 @@ wp_reset_query();
      locations1 = [
  <?php foreach ($sll as $item):
   ?>
-                ['<?php echo $item[0]; ?>', "<?php echo $item[1];?>","<?php echo $item[2][0][0].','.$item[2][1][0] ;?> "],
+                ['<?php echo $item[0]; ?>', "<?php echo $item[1];?>","<?php echo $item[2][0][0].','.$item[2][1][0] ;?> ",'<?php echo $phonesec;?>','<?php echo $faxsec;?>','<?php echo $combcszsec;?>'],
     <?php endforeach; ?>
 
     ];
@@ -114,7 +142,7 @@ wp_reset_query();
  
     function infos(i) {
         infowindow1[i] = new google.maps.InfoWindow({
-            content:locations1[i-1][0]+'<br/>'+locations1[i-1][1],
+            content:'<div class="cc-head-infobox">'+locations1[i-1][0]+locations1[i-1][1]+locations1[i-1][5]+locations1[i-1][3]+locations1[i-1][4]+'</div>',
          
         });
         infowindow1[i].content = locations1[i-1][1];
