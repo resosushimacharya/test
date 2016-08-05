@@ -120,9 +120,9 @@
 
             <p><div class="cc-head-office-label">
                 <span class="cc-store-icon-label">
-                    <img src="http://localhost/carpetcall/wp-content/themes/carpetcall/images/blue.png">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/blue.png">
                     <strong>
-                    <a href="http://localhost/carpetcall/find-a-store/wa//midland/"><?php echo get_the_title();?></a>
+                    <a href="http://localhost/carpetcall/find-a-store/wa/midland/"><?php echo get_the_title();?></a>
                     </strong>
                 </span>
                 </div>
