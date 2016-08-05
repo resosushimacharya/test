@@ -1,5 +1,11 @@
 jQuery(document).ready(function($){
 
+jQuery('.single-product .images .thumbnails img').on('click',function(e){
+	e.preventDefault();
+	var img = jQuery(this).attr('src');
+	jQuery(this).parents('.images').find('.main-image-wrapper .woocommerce-main-image img').attr('srcset',img).attr('src',img);
+	});
+
 jQuery('.cc-product-sort a').on('click',function(){
 		jQuery("#ajax_offset").val(0);
 		jQuery("#child_cat_count").val(1);
