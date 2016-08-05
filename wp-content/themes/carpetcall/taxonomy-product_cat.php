@@ -21,8 +21,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 <?php 
-//$sizes = get_field('small','option');
-//do_action('pr',$sizes);
+
+$sizes = get_field('set_length_runners','option');
+do_action('pr',$sizes);
+echo count($sizes);
 
  	$perpage_var = 4;
 	$current_cat = get_term_by('slug',get_query_var('product_cat'),'product_cat');

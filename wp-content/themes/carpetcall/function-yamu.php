@@ -20,6 +20,21 @@ function set_colour_metadata(){
 		}
 	}
 /*
+* Hook to get the size code from the product title and save that code as size_code meta data in product's metadata.
+*
+* Run only once when we need to update the old existing products
+*/
+//add_action('wp_head','set_sizes_metadata');
+function set_sizes_metadata(){
+	$args = array( 'post_type' => 'product', 'posts_per_page' => -1,);
+	$products = get_posts($args);
+	foreach($products as $product){
+		$title = explode('.',$product->post_title);
+		$colour_code = $title[3];
+		update_post_meta($product->ID, 'size_code', $colour_code); 
+		}
+	}
+/*
 /* Function to get the depth of the category to know whether if it's top level or chid category.
 */
 function get_category_depth($catid){
@@ -77,7 +92,7 @@ $args = wp_parse_args( $args, $defaults);
 			$args['color'] = explode(',',sanitize_text_field($_POST['color']));
 		}
 		if(isset($_POST['size'])){
-			//$args['size'] = explode(',',sanitize_text_field($_POST['size']));
+			$args['size'] = explode(',',sanitize_text_field($_POST['size']));
 		}
 		if(isset($_POST['price']) && ($_POST['price'] !='')){
 			$args['price'] = explode(',',sanitize_text_field($_POST['price']));
@@ -165,7 +180,11 @@ $args = wp_parse_args( $args, $defaults);
 			),
 		),
 	'meta_query' => array(
-		'relation' => 'OR'
+		'relation' => 'OR',
+		array(
+                'key' => '_stock_status',
+                'value' => 'instock'
+            ),
 		),
 	);
 	
@@ -178,7 +197,9 @@ $args = wp_parse_args( $args, $defaults);
 	$filargs['order'] = $sort_order;
 	
 	$color_meta_query = '';
+	$size_meta_query = '';
 	$price_range_query = '';
+	
 	if($color !='' && !empty($color)){
 		$color_arr = array();
 		$color_arr_names = array();
@@ -202,6 +223,49 @@ $args = wp_parse_args( $args, $defaults);
 									  );
 									  
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	if($size !='' && !empty($size)){
+		$size_arr = array();
+		//$size_arr_names = array();
+		foreach($size as $size_name){
+			if(get_field($size,'options')){
+				$available_sizes = get_field($size_name,'options');
+				if(!empty($available_sizes)){
+					//do_action('pr',$available_colors);
+					foreach($available_sizes as $size_codes){
+						//do_action('pr',$color_codes);
+						$size_arr[] = $size_codes['code'];
+						//$color_arr_names[] = $color_codes['colour_name'];
+						}
+					}
+				}
+			}
+		$size_meta_query = array(
+									 'key' => 'size_code', 
+									 'value' => $size_arr,
+									 'compare' => 'IN',
+									  );
+									  
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	if($price !='' && !empty($price)){
 		//$price_range_query = array( 'relation' => 'OR' );
 		foreach($price as $range){
@@ -277,6 +341,18 @@ $args = wp_parse_args( $args, $defaults);
 	$post = $filloop->the_post();
 	
 	$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
+	$proGal = get_post_meta($filloop->post->ID, '_product_image_gallery', TRUE );
+	$proGalId = explode(',',$proGal);
+	$reqProImageId = '';
+	foreach($proGalId as $imgid){
+		$proImageName = wp_get_attachment_url($imgid);
+		if(preg_match("/\_V/i", $proImageName)){
+			$feat_image = wp_get_attachment_url($imgid);
+			}
+		}
+	if($feat_image ==''){
+		$feat_image = 'http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png';
+		}
 	
 	if($pch==1){
 	$res = get_post_meta($filloop->post->ID ,'_sale_price',true);
@@ -311,7 +387,21 @@ $args = wp_parse_args( $args, $defaults);
 	$slidercounter = 1;
 	while($filloop->have_posts()):
 	$filloop->the_post();
+	//$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
 	$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
+	$proGal = get_post_meta($filloop->post->ID, '_product_image_gallery', TRUE );
+	$proGalId = explode(',',$proGal);
+	$reqProImageId = '';
+	foreach($proGalId as $imgid){
+		$proImageName = wp_get_attachment_url($imgid);
+		if(preg_match("/\_V/i", $proImageName)){
+			$feat_image = wp_get_attachment_url($imgid);
+			}
+		}
+		
+	if($feat_image ==''){
+		$feat_image = 'http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png';
+		}
 	/*var_dump($filloop->post->ID);*/
 	
 	

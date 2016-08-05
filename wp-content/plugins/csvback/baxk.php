@@ -162,6 +162,7 @@ function  csv_import_rugs($csv)
 	    update_post_meta($new_post_id,'state',$csv[0]);
 		update_post_meta( $new_post_id, '_sku', $csv[1]);
 		update_post_meta( $new_post_id, 'color', $sku_arr[2]);
+		update_post_meta( $new_post_id, 'size_code', $sku_arr[3]);
 		update_post_meta($new_post_id,'description_1',$csv[4]);
 		update_post_meta($new_post_id,'description_2',$csv[5]);
 		update_post_meta($new_post_id,'description_3',$csv[6]);
