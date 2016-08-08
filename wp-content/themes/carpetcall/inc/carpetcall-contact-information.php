@@ -541,9 +541,8 @@ function carpetcall_sort_column( $wp_query ) {
     }
   }
 }
-
-  add_filter( 'wpsl-info-window-template', 'custom_more_info_template' );
-
+add_filter('pre_get_posts', 'carpetcall_sort_column');
+add_filter( 'wpsl_info_window_template', 'custom_more_info_template' ,10);
 
 function custom_more_info_template() {
     
@@ -559,15 +558,15 @@ function custom_more_info_template() {
         $info_window_template .= "\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n"; // Use the correct address format
         $info_window_template .= "\t\t" . '</p>' . "\r\n";
         $info_window_template .= "\t\t" . '<% if ( phone ) { %>' . "\r\n";
-        $info_window_template .= "\t\t" . '<span><strong>' . ''. '</strong>: <%= formatPhoneNumber( phone ) %></span>' . "\r\n";
+        $info_window_template .= "\t\t" . '<span><strong>' . esc_html( $wpsl->i18n->get_translation( 'phone_label', __( 'Phone', 'wpsl' ) ) ) . '</strong>: <%= formatPhoneNumber( phone ) %></span>' . "\r\n";
         $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
         $info_window_template .= "\t\t" . '<% if ( fax ) { %>' . "\r\n";
-        $info_window_template .= "\t\t" . '<span><strong></strong>: <%= fax %></span>' . "\r\n";
+        $info_window_template .= "\t\t" . '<span><strong>' . esc_html( $wpsl->i18n->get_translation( 'fax_label', __( 'F', 'wpsl' ) ) ) . '</strong>: <%= fax %></span>' . "\r\n";
         $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
         $info_window_template .= "\t\t" . '<% if ( email ) { %>' . "\r\n";
-        $info_window_template .= "\t\t" . '<span><strong>' . esc_html( $wpsl->i18n->get_translation( 'email_label', __( 'E', 'wpsl' ) ) ) . '</strong>: <%= email %></span>' . "\r\n";
+       
         $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
-        
+         $info_window_template .= "\t\t" . '<%= createInfoWindowActions( id ) %>' . "\r\n";
         $info_window_template .= "\t" . '</div>';
 
         return $info_window_template ;

@@ -431,6 +431,10 @@ ul.guide_list .fa { color:#F00;}
 .idea-left{padding-left: 20px;padding-right: 9px}
 .idea-right{padding-right: 20px;padding-left: 9px}
 
+.row.cc-ia-item-cover { font-size:0;}
+.col-md-6.cc-ia-item { vertical-align:top; float:none; font-size:14px; display:inline-block;}
+
+
 /*........... expert trade start here ..............*/
 .trade { background:#e7edf8; }
  .abvist { margin:45px 0 34px 0;}
@@ -820,13 +824,34 @@ a.pull-right:hover { color:#000; text-decoration:none; cursor:pointer;}
 .cc-ia-content h1 {font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:7px; margin-bottom:22px;}
 .cc-ia-content p {font:normal 16px/22px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 80px 58px 0;}
 .gpf-block { margin-top:43px;}
-.all-items-blk { background-color:#e7edf8; padding:37px 36px;}
-.all-items-blk h3, .fq-blk-a h3, .more-blk-b h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:-5px; margin-bottom:20px;}
+.all-items-blk { background-color:#e7edf8; padding:37px 36px; min-height:412px;}
+ .fq-blk-a h3, .more-blk-b h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:-5px; margin-bottom:20px;}
+.all-items-blk a, .fq-blk-a a { font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:-5px; margin-bottom:20px; text-decoration:none; }
+.all-items-blk a:hover, .fq-blk-a a:hover { cursor:pointer;}
 .all-items-blk p, .fq-blk-a p {font:normal 16px/22px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 0 20px 0;}
-.fq-blk-a, .more-blk-b { margin:23px 0 0 0; background-color:#e7edf8; padding:37px 36px; }
+.fq-blk-a, .more-blk-b { margin:23px 0 0 0; background-color:#e7edf8; padding:37px 36px; min-height:412px; }
 .inerblock_sec .cbg_content p {font:normal 18px/22px 'proxima_nova_rgregular', sans-serif; color:#666666;}
 .ia-img { padding:0;}
 .cc-ia-banner img { width:100%; height:275px;}
+
+.body-wrapper{
+		margin:145px 0 38px 0;
+}
+ul.cat_list { margin:0 0 29px 0; padding:0;}
+ul.cat_list li {list-style:none; display:block;}
+ul.cat_list li .fa { color:#c32327;}
+ul.cat_list li a {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:none;}
+ul.cat_list li a:hover {color:#000;}
+
+.cc-ia-more ul { margin:0 0 93px 0; padding:0;}
+.cc-ia-more ul li {list-style:none; display:block;}
+.cc-ia-more ul li .fa { color:#c32327; margin-right:12px; margin-top:3px;}
+.cc-ia-more ul li a {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:none; text-transform:uppercase;}
+.cc-ia-more ul li a:hover {color:#000;}
+
+.cc-ia-more ul li i{
+ float:left;
+}
 
 /*..................... inner child section start here .....................*/
 
