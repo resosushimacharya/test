@@ -145,12 +145,13 @@ $args = wp_parse_args( $args, $defaults);
 				}
 		
 		}else{
-			
-			
-			
+			if($child_cat_count == 1){
 			$cats_slice = array_slice($discats_org, $offset, $perpage);
 			//do_action('pr',$cats_slice);
 			$offset = $offset+$perpage;
+			}else{
+				$cats_slice = '';
+				}
 		}
 		}else{
 			$ret['html'] = '';
