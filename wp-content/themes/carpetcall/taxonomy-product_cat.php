@@ -39,7 +39,9 @@ get_header( 'shop' ); ?>
 <div class="contaniner clearfix">
   <div class="inerblock_seC_mrugss">
     <div class="container-fluid mmrugm">
+     <div class="cc-rugsall-catgr clearfix" style="background-image:url(<?php echo get_template_directory_uri()?>/images/rugs-all.jpg);">
       <div class="container">
+      
         <?php
 		/**
 		 * woocommerce_before_main_content hook.
@@ -69,6 +71,7 @@ if(get_term_meta($current_cat->term_id,'cat_top_description',true) && $depth == 
         <p class="category_description"><?php echo get_term_meta($current_cat->term_id,'cat_top_description',true)?></p>
         <?php }?>
       </div>
+      </div>
     </div>
     <div class="container">
       <div class="tophead_sec col-md-12 no-lr">
@@ -84,7 +87,7 @@ $currentcat = get_queried_object();
             <ul>
               <li class="sort_key"> <span class="cc-count-label">Sort by:</span></li>
               <li class="sort_key"> <a href="javascript:void(0)" sort="popular">Popularity</a> </li>
-              <li class="sort_key" class="cc-count-active"> <a href="javascript:void(0)" sort="price_low">$</a> </li>
+              <li class="sort_key cc-count-active"> <a href="javascript:void(0)" sort="price_low">$</a> </li>
               <li class="sort_key"> <a href="javascript:void(0)" sort="price_high">$$</a> </li>
             </ul>
             <?php //do_action( 'woocommerce_before_shop_loop' ); ?>

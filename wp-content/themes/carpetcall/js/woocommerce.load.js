@@ -1,4 +1,9 @@
 jQuery(document).ready(function($){
+//jQuery(document).on('click','.sort_key a',function(){
+	//jQuery('.sort_key a').removeClass('cc-count-active');
+	//jQuery(this).addClass('cc-count-active');
+	//})
+
 jQuery(document).on('click','.select-design-product-image a.select_design',function(e){
 	e.preventDefault();
 	var url = jQuery(this).attr('href');
@@ -132,8 +137,8 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-price-var-sec .che
 	
 	}
 else if(jQuery(trig_ele).parent().hasClass('sort_key')){
-	jQuery('.sort_key').removeClass('active');
-	jQuery(trig_ele).parent('li').addClass('active');
+	jQuery('.sort_key').removeClass('cc-count-active');
+	jQuery(trig_ele).parent('li').addClass('cc-count-active');
 	
 	var sort_key = jQuery(this).attr('sort');
 	jQuery('#ajax_sort_order').val('ASC');
