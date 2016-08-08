@@ -1,3 +1,4 @@
+<div class="product_single_container">
 <?php
 /**
  * The template for displaying product content in the single-product.php template
@@ -243,7 +244,7 @@ foreach($filterproGroup as $bundle){
               
               //echo '<br>';$post->ID;?>
               
-              <a href="<?php echo get_the_permalink($key)?>" class="">
+              <a href="<?php echo get_the_permalink($key)?>" class="select_design">
               <?php if($flag==1){
                      $proImageName =  wp_get_attachment_url($reqProImageId);
                      ?>
@@ -316,10 +317,10 @@ endforeach;
       <div class="cc-size-quantity-section">
       <div class="cc-size-section col-md-12">
       <h3>AVAILABLE SIZES</h3> 
-      <select class="selectpicker col-md-10" name="cc-size" id="cc-size" onchange="location = this.value;" >
+      <select class="selectpicker col-md-10" name="cc-size" id="cc-size">
       <?php foreach($res as $ss):?>
       
-       <option <?php echo ($ss[2]==$post->ID?'selected="selected"':'');?> class="col-md-12" value="<?php echo $ss[1];?>"><?php echo $ss[0];?></option>
+       <option <?php echo ($ss[2]==$post->ID?'selected="selected"':'');?> class="col-md-12 size_select" value="<?php echo $ss[1];?>"><?php echo $ss[0];?></option>
      
      <?php  endforeach ;?>
    
@@ -598,7 +599,8 @@ endforeach;
 
             </div>
 
-        </form> <script>
+        </form> 
+		<script>
          $(document).on('click','.close_box',function(){
     $(this).parent().fadeTo(300,0,function(){
           $(this).remove();
@@ -610,6 +612,7 @@ endforeach;
 
 };
 </script>
+
             </div><div class="clearfix"></div>            
       </div>
       
@@ -863,26 +866,14 @@ wrapper close start */?>
                       </div>
                       </div></a>
                       </div>
-                      
-
-
 								<?php endwhile;?>
                      		<?php 
                      		wp_reset_query(); }
                      		
 							
 								}
-
-
-							
-                    
-
 						}
-
-
 					}
-			
-
  ?></div>
 <div class="clearfix"></div>
 					
@@ -900,3 +891,4 @@ $("document").ready(function(){
   .success_message_wrapper{display:none;}
 </style>
 
+</div>
