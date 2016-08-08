@@ -384,7 +384,7 @@ function custom_listing_templates() {
  if ( !$wpsl_settings['hide_distance'] ) {
         $listing_template .= "\t\t" . '<%= distance %> ' . esc_html( $wpsl_settings['distance_unit'] ) . '' . "\r\n";
     }
-  $listing_template .= "\t\t" . '<div id="cc-custom-dir-wrap"><%= createDirectionUrl() %></div>' . "\r\n";
+  $listing_template .= "\t\t" . '<div id="cc-custom-dir-wrap"><%= [createDirectionUrl() ]%></div>' . "\r\n";
    
     $listing_template .= "\t" . '</li>' . "\r\n";
 
@@ -566,7 +566,7 @@ function custom_more_info_template() {
         $info_window_template .= "\t\t" . '<% if ( email ) { %>' . "\r\n";
        
         $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
-         $info_window_template .= "\t\t" . '<%= createInfoWindowActions( id ) %>' . "\r\n";
+        $info_window_template .= "\t\t" . '<%= createInfoWindowActions( id ) %>' . "\r\n";
         $info_window_template .= "\t" . '</div>';
 
         return $info_window_template ;

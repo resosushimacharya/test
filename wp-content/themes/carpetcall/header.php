@@ -57,7 +57,9 @@ wp_title("");?>
 
 
 wp_head();
-
+ if(isset($_SESSION['testing'] ) && (time() - $_SESSION['testing'] > 30)){
+     $_SESSION['use_curr_loc']="0";
+  }
 ?>
 
 <!-- Bootstrap -->
