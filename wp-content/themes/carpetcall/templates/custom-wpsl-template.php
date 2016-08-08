@@ -89,7 +89,7 @@ $output .="\t\t\t\t" . '<div id="wpsl-auto-locate">' . "\r\n";
 
     $output .= "\t\t\t\t\t" .'<div class="wpsl-search-btn-wrap">
     <form method="post">
-    <input type="hidden" name="cc-current-location-store" value="cc-current-location-store"/><input type="submit" value="Current Location " class="cc-map-control-finder" id="cc_control_map"/>
+    <input type="hidden" name="cc-current-location-store" value="cc-current-location-store"/><input type="submit" value="Use Current Location " class="cc-map-control-finder" id="cc_control_map"/>
     </form></div> '. "\r\n"; 
 
     $output .= "\t\t\t\t" . '</div>' . "\r\n";

@@ -43,7 +43,7 @@ function destroy_autoLoc(){
   global $post;
  
   $saveID =1;
-if($post){
+
   $urls = explode('/',site_url());
   if($urls[2]=="localhost"){
     $saveID = 1770;
@@ -52,24 +52,24 @@ if($post){
     $saveID = 26771 ;
   }
 
-  if($post->ID==$saveID && isset($_POST["cc-current-location-store"])){
-    
-  
+  if(isset($_POST["cc-current-location-store"])){
+    $_SESSION['testing'] = time(); 
+ 
        
      $_SESSION['use_curr_loc']="1";
 
 
   }
-  else{
- 
-      $_SESSION['use_curr_loc']="0";
-  }
+ if(!isset($_SESSION['testing'])){
+   $_SESSION['use_curr_loc']="0";
 
+ }
+ 
 $curr_loc=$_SESSION['use_curr_loc'];
 $autoCurrentLoc=array('curr_loc'=>$curr_loc,'check'=>'123');
 
  wp_localize_script( 'trouble-script', 'autoCurrentLoc',$autoCurrentLoc );
-}
+
 }
 
 

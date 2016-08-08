@@ -126,7 +126,7 @@
                 <span class="cc-store-icon-label">
                     <img src="<?php echo get_template_directory_uri(); ?>/images/markers/location.png">
                     <strong>
-                    <a href="http://localhost/carpetcall/find-a-store/wa/midland/"><?php echo get_the_title();?></a>
+                    <a href="<?php echo get_permalink();?>"><?php echo get_the_title();?></a>
                     </strong>
                 </span>
                 </div>
@@ -141,7 +141,7 @@
                 
 
             <div class="hfc-fcnt-or hfc-fcnt-orr hfc-fcnt-orr-map clearfix">
-                <a href="http://localhost/carpetcall/contact-us/?id=<?php echo $post->ID ; ?>" class="cc-contact-link  ">Contact Store</a>
+                <a href="<?php echo site_url();?>/contact-us/?id=<?php echo $post->ID ; ?>" class="cc-contact-link  ">Contact Store</a>
             </div>         
         </div>
        
