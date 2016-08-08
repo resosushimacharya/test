@@ -161,3 +161,17 @@ function init_slick_slider(){
         });
 	}
 
+$(document).ready(function(){
+$('#wpsl-search-btn').on('click', function() {
+
+var attr = $('#wpsl-search-input').attr('onkeyup');
+
+
+if (typeof attr !== typeof undefined && attr !== false) {
+$("#wpsl-search-input").removeAttr("onkeyup");
+
+}
+
+});
+
+});
