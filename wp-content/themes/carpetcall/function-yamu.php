@@ -146,7 +146,8 @@ $args = wp_parse_args( $args, $defaults);
 		
 		}else{
 			
-			//do_action('pr',$discats_org);
+			
+			
 			$cats_slice = array_slice($discats_org, $offset, $perpage);
 			//do_action('pr',$cats_slice);
 			$offset = $offset+$perpage;
