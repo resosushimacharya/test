@@ -1,18 +1,40 @@
-jQuery(document).ready(function($){
 
-jQuery('.single-product .images .thumbnails img').on('click',function(e){
+
+jQuery(document).ready(function($){
+jQuery(document).on('click','.select-design-product-image a.select_design',function(e){
+	e.preventDefault();
+	var url = jQuery(this).attr('href');
+	window.history.pushState("object or string", "Title", url);
+	
+	jQuery.get(url,function(response){
+		document.getElementsByTagName('html')[0].innerHTML = response
+		 
+		console.log(response);
+		});
+	});	
+jQuery(document).on('change','select#cc-size',function(e){
+	var url = jQuery(this).val();
+
+	window.history.pushState("object or string", "Title", url);
+	jQuery.get(url,function(response){
+		document.getElementsByTagName('html')[0].innerHTML = response
+		});
+	});	
+	
+jQuery(document).on('click','.single-product .images .thumbnails img',function(e){
 	e.preventDefault();
 	var img = jQuery(this).attr('src');
 	jQuery(this).parents('.images').find('.main-image-wrapper .woocommerce-main-image img').attr('srcset',img).attr('src',img);
 	});
 
-jQuery('.cc-product-sort a').on('click',function(){
+
+jQuery(document).on('click','.cc-product-sort a',function(){
 		jQuery("#ajax_offset").val(0);
 		jQuery("#child_cat_count").val(1);
 		
 
 	});
-jQuery('.cc-count-clear').on('click',function(){
+jQuery(document).on('click','.cc-count-clear',function(){
 	jQuery('img.cc-tick-display').hide();
 	jQuery('#selected_colors').val('');
 	jQuery('input.price_range').removeAttr('checked');
@@ -33,7 +55,7 @@ jQuery('.cc-count-clear').on('click',function(){
 	});
 	
 	
-jQuery('.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=checkbox], .cc-size-var-sec .checkbox input[type=checkbox], .cc-product-sort a, .cc-price-var-items .checkbox input[type=checkbox]').on('click',function(event){
+jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=checkbox], .cc-size-var-sec .checkbox input[type=checkbox], .cc-product-sort a, .cc-price-var-items .checkbox input[type=checkbox]',function(event){
 	jQuery('.cc-count-clear').show();
 	//var data = '';
 		jQuery("#ajax_offset").val(0);

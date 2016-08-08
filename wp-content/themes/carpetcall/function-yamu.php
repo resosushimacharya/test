@@ -146,7 +146,8 @@ $args = wp_parse_args( $args, $defaults);
 		
 		}else{
 			
-			//do_action('pr',$discats_org);
+			
+			
 			$cats_slice = array_slice($discats_org, $offset, $perpage);
 			//do_action('pr',$cats_slice);
 			$offset = $offset+$perpage;
@@ -498,3 +499,22 @@ function saveCategoryFields($term_id) {
     }
 }
 
+add_action('wp_ajax_cc_load_product_ajax','cc_load_product_ajax');
+add_action('wp_ajax_nopriv_cc_load_product_ajax','cc_load_product_ajax');
+function cc_load_product_ajax(){
+	global $post, $product, $woocommerce;
+	$url = sanitize_text_field($_POST['posturl']);
+	$postid = url_to_postid($url);
+	//echo $postid;die;
+	$product = $post = get_post($postid);
+	//do_action('pr',$product);
+	setup_postdata($postid);
+	ob_start();
+	
+	wc_get_template_part( 'content', 'single-rugs-product' );
+	$html =ob_get_clean();
+	wp_reset_postdata();
+	echo json_encode($html);die;
+	
+	
+	}
