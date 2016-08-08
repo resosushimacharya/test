@@ -1,4 +1,37 @@
-<?php get_header();?>
+<?php 
+  get_header();
+
+  //head-selected
+  $nearest = true;
+
+  if(isset($_POST["check-head-id"])) $nearest = false;
+
+?>
+
+<div class="cc-store-hd-title">
+  <div class="container">
+    <div class="cc-bread-crumb-str">
+                      <span>CARPET CALL STORES</span>
+                  </div>
+                  <div class="cc-finder-title">
+                      <h3>STORE FINDER</h3>
+                  </div>
+                  <div class="cc-options-wrapper-nh">
+                      <form method="post" >
+                      <div class="cc-find-store-au <?php if($nearest) echo ' store-finder-active-tab'; ?>">
+                          <input type="hidden" name="check-near-id" value="check near value"/>
+                          <input type="submit" id="cc-but-near" class="cc-but-near-con" value="FIND YOUR NEAREST STORE" name="cc-but-near-name"/>
+                          </div>
+                      </form >
+                      <form method="post">
+                      <div class="cc-find-store-au hf <?php if(!$nearest) echo ' store-finder-active-tab'; ?>">
+                          <input type="hidden" name="check-head-id" value="check head value"/>
+                          <input type="submit" id="cc-but-head" class="cc-but-head-con" value="HEAD OFFICES" name="cc-but-head-name"/>
+                          </div>
+                      </form>
+                  </div>
+    </div>
+</div><div class="clearfix"></div>
 <?php
 $term =  get_queried_object();
 
@@ -24,13 +57,9 @@ $term =  get_queried_object();
 
         endforeach;
      ?>
-<div class="container clearfix">
-<div class="inerblock_serc cc-store-nsw-blk">
-<div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
-<?php 
-  echo '<h4><span class="cc-locator-sub"><a href="'.site_url().'/find-a-store/">'. 'find a store'.'</a></span>'.'>'.'<span class="cc-locator-root"><a href="'.site_url().'/find-a-store/'.$term->slug.'">'. $statename.'</a></span></h4>';?>
+<div class="cc-store-bdy-contr">
+  <div class="container">
 
-</div>
 <?php echo do_shortcode('[wpsl template="custom" category="'.$term->slug.'" 
 ]'); ?>
 
