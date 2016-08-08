@@ -39,7 +39,9 @@ get_header( 'shop' ); ?>
 <div class="contaniner clearfix">
   <div class="inerblock_seC_mrugss">
     <div class="container-fluid mmrugm">
+    <div class="cc-rugsall-catgr clearfix" style="background-image:url(<?php echo get_template_directory_uri()?>/images/rugs-all.jpg);">
       <div class="container">
+      
         <?php
 		/**
 		 * woocommerce_before_main_content hook.
@@ -68,6 +70,7 @@ if(get_term_meta($current_cat->term_id,'cat_top_description',true) && $depth == 
 	?>
         <p class="category_description"><?php echo get_term_meta($current_cat->term_id,'cat_top_description',true)?></p>
         <?php }?>
+      </div>
       </div>
     </div>
     <div class="container">

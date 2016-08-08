@@ -1,5 +1,3 @@
-
-
 jQuery(document).ready(function($){
 jQuery(document).on('click','.select-design-product-image a.select_design',function(e){
 	e.preventDefault();
