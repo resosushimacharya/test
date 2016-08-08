@@ -346,19 +346,23 @@ function custom_listing_templates() {
     $listing_template .= "\t\t" . '<div class="cc-cat-store-section">' . "\r\n";
    
     $listing_template .= "\t\t\t" . '<p><%= thumb %>' . "\r\n";
-    $listing_template .= "\t\t\t\t" .'<div class="cc-cat-store-item"><span class="cc-store-icon-label"><img src ="'.get_template_directory_uri().'/images/blue.png"/>'.wpsl_store_header_template( 'listing' ).'</span><div class="clearfix"></div>' . "\r\n";
+    $listing_template .= "\t\t\t\t" .'<div class="cc-cat-store-item"><span class="cc-store-icon-label"><img src ="'.get_template_directory_uri().'/images/markers/location.png"/>'.wpsl_store_header_template( 'listing' ).'</span><div class="clearfix"></div>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address %></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% if ( address2 ) { %>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address2 %></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span>' . "\r\n";
-   $listing_template .= "\t\t\t\t" . '<% if ( phone ) { %>' . "\r\n";
-                $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P:' .'</strong> <%= formatPhoneNumber( phone ) %></span>' . "\r\n";
-                $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
-                $listing_template .= "\t\t\t\t" . '<% if ( fax ) { %>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% if ( phone ) { %>' . "\r\n";
+            $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P:' .'</strong> <%= formatPhoneNumber( phone ) %></span>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% } else { %>' . "\r\n";
+            $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P: ' . '</strong> -</span>' . "\r\n";
+            $listing_template .= "\t\t\t\t" . '<% } %>';
+    $listing_template .= "\t\t\t\t" . '<% if ( fax ) { %>' . "\r\n";
                 $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-fax"><strong>' .'F:' .'</strong> <%= fax %></span>' . "\r\n";
-                $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% } else { %>' . "\r\n";
+                  $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-fax"><strong>' .'F: ' . '</strong> -</span>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% } %>';
                $listing_template .='</div><div class="cc-cats-vsp cc-cats-vsp-a clearfix"><a href="<%= permalink %>">View Store Page</a></div>';
                 $listing_template .='<div class="cc-cats-or cc-cas-orr cc-cats-orr-map clearfix"><a href="'.$site_url.'/contact-us/?id=<%= id %>" class="cc-contact-link  ">Contact Store</a></div>';
     $listing_template .= "\t\t\t" . '</p>' . "\r\n";
@@ -419,7 +423,7 @@ function custom_listing_templates_server() {
     $listing_template .= "\t\t" . '<div class="cc-cat-store-section">' . "\r\n";
    
     $listing_template .= "\t\t\t" . '<p><%= thumb %>' . "\r\n";
-    $listing_template .= "\t\t\t\t" .'<div class="cc-cat-store-item"><span class="cc-store-icon-label"><img src ="'.get_template_directory_uri().'/images/blue.png"/>'.wpsl_store_header_template( 'listing' ).'</span><div class="clearfix"></div>' . "\r\n";
+    $listing_template .= "\t\t\t\t" .'<div class="cc-cat-store-item"><span class="cc-store-icon-label"><img src ="'.get_template_directory_uri().'/images/markers/location.png"/>'.wpsl_store_header_template( 'listing' ).'</span><div class="clearfix"></div>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address %></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% if ( address2 ) { %>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address2 %></span>' . "\r\n";

@@ -3,7 +3,15 @@
 ** Template Name: Store Main page
 */
 ?>
-<?php get_header();?>
+<?php 
+  get_header();
+
+  //head-selected
+  $nearest = true;
+
+  if(isset($_POST["check-head-id"])) $nearest = false;
+
+?>
 
 <div class="cc-store-hd-title">
 	<div class="container">
@@ -15,12 +23,16 @@
                   </div>
                   <div class="cc-options-wrapper-nh">
                       <form method="post" >
+                      <div class="cc-find-store-au <?php if($nearest) echo ' store-finder-active-tab'; ?>">
                           <input type="hidden" name="check-near-id" value="check near value"/>
                           <input type="submit" id="cc-but-near" class="cc-but-near-con" value="FIND YOUR NEAREST STORE" name="cc-but-near-name"/>
+                          </div>
                       </form >
                       <form method="post">
+                      <div class="cc-find-store-au hf <?php if(!$nearest) echo ' store-finder-active-tab'; ?>">
                           <input type="hidden" name="check-head-id" value="check head value"/>
                           <input type="submit" id="cc-but-head" class="cc-but-head-con" value="HEAD OFFICES" name="cc-but-head-name"/>
+                          </div>
                       </form>
                   </div>
     </div>
@@ -112,9 +124,9 @@
 
             <p><div class="cc-head-office-label">
                 <span class="cc-store-icon-label">
-                    <img src="http://localhost/carpetcall/wp-content/themes/carpetcall/images/blue.png">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/markers/location.png">
                     <strong>
-                    <a href="http://localhost/carpetcall/find-a-store/wa//midland/"><?php echo get_the_title();?></a>
+                    <a href="http://localhost/carpetcall/find-a-store/wa/midland/"><?php echo get_the_title();?></a>
                     </strong>
                 </span>
                 </div>
@@ -170,16 +182,11 @@
                     }
                       ?>
     </div>
-</div><div class="clearfix"></div><!-- main conternt end here -->
-
-
-
+</div><div class="clearfix"></div><!-- main content end here -->
 
 <?php get_footer(); ?>
 
-
-
-                         <?php 
+<?php 
                             if(!isset($_POST["cc-current-location-store"]) && !isset($_POST["wpsl-search-input"])){
                                   if(isset($_POST["check-near-id"])){
                                            get_template_part('content','main-store-map');

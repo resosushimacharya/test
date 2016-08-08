@@ -168,21 +168,19 @@ else:?>
   <?php endif;?>
 
  <?php if(!isset($_POST['latitude'])){ ?>
-  <form autocomplete="off" method="post" action="<?php echo site_url().'/find-a-store/';?>">
       <div class="wpsl-input">
-       
-        <input type="hidden" name="cc-control-map" value="cc-control-map">   
-
-             <input id="wpsl-search-input" type="hidden" value="<?php echo  $keyword ;?>"  name="wpsl-search-input" placeholder="" aria-required="true" >
-      </div>
-        <div class="wpsl-search-btn-wrap check_wpsl">
-<input id="xyz" type="submit" value="Search1"></div>
-    </form>
+        <form autocomplete="off" name="formStoreFinder" method="post" action="<?php echo site_url().'/find-a-store/';?>">
+          <input type="hidden" name="cc-control-map" value="cc-control-map">   
+             <input id="wpsl-search-input" type="hidden" value="<?php echo $keyword ;?>" name="wpsl-search-input" placeholder="" aria-required="true" >
+             <a href="javascript:void(0);" title="See more nearby stores" onclick="document.formStoreFinder.submit();">See more nearby stores</a>
+      </form>
+      </div>        
     <?php } 
     else {
       ?>
-    <form method="post" action="<?php echo site_url().'/find-a-store/';?>" >
-    <input type="hidden" name="cc-current-location-store" value="cc-current-location-store"><input type="submit" value="Current Location " class="cc-map-control-finder" id="cc_control_map">
+    <form method="post" name="formStoreFinder" action="<?php echo site_url().'/find-a-store/';?>" >
+      <input type="hidden" name="cc-current-location-store" value="cc-current-location-store">
+      <a href="javascript:void(0);" title="See more nearby stores" onclick="document.formStoreFinder.submit();">See more nearby stores</a>
     </form>
     <?php }
     ?>

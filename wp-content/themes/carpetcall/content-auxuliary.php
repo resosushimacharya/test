@@ -50,10 +50,10 @@ if(array_key_exists('wpsl_zip',$getinfo)){
 }
 $combcsz =$city.' '.$state.' '.$zip;
 $title ='<li class="cc-head-wpsl-title">'.$title .'</li>';
-$add ='<li class="cc-head-wpsl-title">'.$add .'</li>';
+$add ='<li class="cc-head-wpsl-adrs">'.$add .'</li>';
 $combcszsec ='<li class="cc-head-wpsl-csz">'.$combcsz.'</li>';
-$phonesec = '<li class="cc-head-wpsl-phone">P: '.$phone.'</li>';
-$faxsec = '<li class="cc-head-wpsl-fax">F: '.$fax.'</li>';
+$phonesec = '<li class="cc-head-wpsl-phone"><span>P:</span> <a class="phone" href="callto:'.$phone.'">'.$phone.' </a></li>';
+$faxsec = '<li class="cc-head-wpsl-fax"><span>F:</span> '.$fax.'</li>';
 $direction =$combcsz;
 $directionurl ="https://www.google.com/maps?saddr=&daddr=".$direction;
 $directionlink ='<li  class="cc-head-wpsl-dir"><a  href="'.$directionurl .'" target="_blank" >GET DIRECTIONS</li>';
@@ -125,7 +125,7 @@ wp_reset_query();
     function addMarkers1() {
         var address = locations1[areaiterator][1];
 
-        var icons = 'http://localhost/carpetcall/wp-content/themes/carpetcall/images/blue.png';
+        var icons = '<?php echo get_template_directory_uri(); ?>/images/markers/location@2x.png';
         var templat = locations1[areaiterator][2].split(',')[0];
         var templong = locations1[areaiterator][2].split(',')[1];
         var temp_latLng = new google.maps.LatLng(templat, templong);
