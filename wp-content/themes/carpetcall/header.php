@@ -17,10 +17,13 @@ wp_title("");?>
 
 
 </title>
-<?php if(is_single() && get_post_type()=='product'){
+<?php 
+var_dump($_POST);
+
+ if(is_single() && get_post_type()=='product'){
     global $post;
    
-  
+    
     $image =  wp_get_attachment_url(get_post_thumbnail_id($post->ID));
    
     ?>
@@ -57,7 +60,7 @@ wp_title("");?>
 
 
 wp_head();
- if(isset($_SESSION['testing'] ) && (time() - $_SESSION['testing'] > 30)){
+ if(isset($_SESSION['testing'] ) && (time() - $_SESSION['testing'] > 300)){
      $_SESSION['use_curr_loc']="0";
   }
 ?>
@@ -74,18 +77,20 @@ wp_head();
     
 
 <!-- custom css -->
-<?php if(is_home() || (is_single() && get_post_type()=='product'))
-{?><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCN3lkABBKjsMdIzAyI1Rwy_6Z8cT8IEWc&libraries=places"></script>
-<?php  } ?>
+<?php if(is_home() || (is_single() && get_post_type()=='product')){
+?><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCN3lkABBKjsMdIzAyI1Rwy_6Z8cT8IEWc&libraries=places"></script>
+<?php } ?>
     <script type="text/javascript">
  
       var lat;
      var long;
      rs = [];
      var map = null;
+     var currentplace;
+
 
      function showlocation() {
-
+          
 
          navigator.geolocation.getCurrentPosition(callback, errorHandler);
 
@@ -94,7 +99,9 @@ wp_head();
      function showlocationdialog(){
         navigator.geolocation.getCurrentPosition(dialogcallback, errorHandler);
      }
-
+      function showcurrentlocation(){
+          navigator.geolocation.getCurrentPosition(locationcallback, errorHandler);
+      }
      function errorHandler(error) {
          switch (error.code) {
              case error.PERMISSION_DENIED:
@@ -118,11 +125,53 @@ wp_head();
          lon = position.coords.longitude;
          rs = [lat, lon];
        
-
+      codeLatLng(lat, lon) ;
 
        autocomplet();
+      
      }
+function codeLatLng(lat, lng) {
 
+    var latlng = new google.maps.LatLng(lat, lng);
+
+    if(typeof geocoder=="undefined"){
+        var geocoder= new google.maps.Geocoder();
+    }
+    geocoder.geocode({'latLng': latlng}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+      console.log(results)
+        if (results[1]) {
+         //formatted address
+        currentplace =   results[0].formatted_address;
+       
+        document.getElementById("cc_cuurent_location_name").value = currentplace;
+        alert(currentplace);
+        document.locform.submit();
+       //document.getElementById("cc_control_map").submit();
+        //find country name
+         /*    for (var i=0; i<results[0].address_components.length; i++) {
+            for (var b=0;b<results[0].address_components[i].types.length;b++) {
+
+            //there are different types that might hold a city admin_area_lvl_1 usually does in come cases looking for sublocality type will be more appropriate
+                if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
+                    //this is the object you are looking for
+                    city= results[0].address_components[i];
+                    break;
+                }
+            }
+        }*/
+        //city data
+       /* alert(city.short_name + " " + city.long_name)*/
+
+
+        } else {
+          alert("No results found");
+        }
+      } else {
+        alert("Geocoder failed due to: " + status);
+      }
+    });
+  }
      function dialogcallback(position) {
 
          lat = position.coords.latitude;
@@ -132,6 +181,21 @@ wp_head();
 
 
      autocomplet_dialog();
+     }
+      function locationcallback(position) {
+
+         lat = position.coords.latitude;
+         lon = position.coords.longitude;
+         rs = [lat, lon];
+   
+       codeLatLng(lat, lon) ;
+
+         //document.getElementById("cc-map-control-finder").submit();
+      
+         //autocomplet_location();
+     }
+     function xyz(){
+        alert("hello");
      }
        </script>
 

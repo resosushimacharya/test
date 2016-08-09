@@ -19,7 +19,7 @@ jQuery(".cc-map-control").click(function(e) {
 		});
 
 });
-jQuery(".cc-map-control-finder").click(function(e) {
+/*jQuery(".cc-map-control-finder").click(function(e) {
 
 	jQuery.ajax({
 			url: cc_map_autolocate.ajax_url,
@@ -39,7 +39,7 @@ jQuery(".cc-map-control-finder").click(function(e) {
 			}
 		});
 
-});
+});*/
 });
     function mymapwpsl(e) {
         var input = document.getElementById('wpsl-search-input');
@@ -66,15 +66,6 @@ jQuery(".cc-map-control-finder").click(function(e) {
             window.alert("Autocomplete's returned place contains no geometry");
             return;
           }
-
-          
-          
-
-         
         });
       document.addEventListener("keydown", KeyCheck);
-       
-
-
-       
-      }
+  }
