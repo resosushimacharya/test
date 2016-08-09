@@ -39,7 +39,18 @@ get_header( 'shop' ); ?>
 <div class="contaniner clearfix">
   <div class="inerblock_seC_mrugss">
     <div class="container-fluid mmrugm">
-    <div class="cc-rugsall-catgr clearfix" style="background-image:url(<?php echo get_template_directory_uri()?>/images/rugs-all.jpg);">
+    <?php
+	$url = '';
+	$photos = get_field('product_slider_photos',$current_cat);
+	if(!empty($photos)){
+		$photo_arr = array_values($photos[0]);
+		$url = $photo_arr[0]['url'];
+		}
+	if(!$url){
+		$url = get_template_directory_uri().'/images/rugs-all.jpg';
+		}
+	?>
+     <div class="cc-rugsall-catgr clearfix" style=" <?php echo ($depth == 0)?'background-image:url('. $url:''?>">
       <div class="container">
       
         <?php
@@ -87,7 +98,7 @@ $currentcat = get_queried_object();
             <ul>
               <li class="sort_key"> <span class="cc-count-label">Sort by:</span></li>
               <li class="sort_key"> <a href="javascript:void(0)" sort="popular">Popularity</a> </li>
-              <li class="sort_key" class="cc-count-active"> <a href="javascript:void(0)" sort="price_low">$</a> </li>
+              <li class="sort_key cc-count-active"> <a href="javascript:void(0)" sort="price_low">$</a> </li>
               <li class="sort_key"> <a href="javascript:void(0)" sort="price_high">$$</a> </li>
             </ul>
             <?php //do_action( 'woocommerce_before_shop_loop' ); ?>

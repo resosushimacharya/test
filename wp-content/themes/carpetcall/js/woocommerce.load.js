@@ -1,4 +1,32 @@
 jQuery(document).ready(function($){
+jQuery(document)
+.ajaxStart(function(){
+	 $("body").css("overflow","hidden");
+	jQuery('#loading_overlay_div').show();
+	})
+.ajaxStop(function(){
+		jQuery('#loading_overlay_div').hide();
+		$("body").css("overflow","auto");
+	});
+
+
+$(window).scroll(function() {
+	if(jQuery('#cc_load_more').is(':visible')){
+   	var hT = $('#cc_load_more').offset().top,
+       hH = $('#cc_load_more').outerHeight(),
+       wH = $(window).height(),
+       wS = $(this).scrollTop();
+   if (wS > (hT+hH-wH)){
+	   jQuery('#cc_load_more').hide();
+	   $("body").css("overflow","hidden");
+       jQuery(document).find('#cc_load_more').trigger('click');
+	   
+   }
+		}
+});
+
+
+
 jQuery(document).on('click','.select-design-product-image a.select_design',function(e){
 	e.preventDefault();
 	var url = jQuery(this).attr('href');
@@ -6,8 +34,6 @@ jQuery(document).on('click','.select-design-product-image a.select_design',funct
 	
 	jQuery.get(url,function(response){
 		document.getElementsByTagName('html')[0].innerHTML = response
-		 
-		console.log(response);
 		});
 	});	
 jQuery(document).on('change','select#cc-size',function(e){
@@ -132,8 +158,8 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-price-var-sec .che
 	
 	}
 else if(jQuery(trig_ele).parent().hasClass('sort_key')){
-	jQuery('.sort_key').removeClass('active');
-	jQuery(trig_ele).parent('li').addClass('active');
+	jQuery('.sort_key').removeClass('cc-count-active');
+	jQuery(trig_ele).parent('li').addClass('cc-count-active');
 	
 	var sort_key = jQuery(this).attr('sort');
 	jQuery('#ajax_sort_order').val('ASC');
@@ -205,6 +231,13 @@ function cc_trigger_ajax_load(handleData){
 		};
 		//alert(ajaxurl);
 		jQuery.post(woo_load_autocomplete.ajax_url, data, function(response) {
+			output = jQuery.parseJSON(response);
+			
+			if(output.html == ''){
+				jQuery('#cc_load_more').attr('disabled','disabled').hide();
+				}else{
+					jQuery('#cc_load_more').removeAttr('disabled').show();
+					}
 			handleData(response);
 		});
 		
