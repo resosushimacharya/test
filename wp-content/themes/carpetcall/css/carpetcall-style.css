@@ -1119,16 +1119,16 @@ div#right_col ul li { list-style:disc; font:normal 16px/24px 'proxima_nova_rgreg
 div#right_col p a {font:bold 16px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:none;}
 div#right_col p a:hover { text-decoration:underline; cursor:pointer;}
 .cc-store-hd-title { margin:145px 0 0 0; background:#f0f2f1;}
-.cc-bread-crumb-str {margin:17px 0 8px 0; }
+.cc-bread-crumb-str {margin:17px 0 3px 0; }
 .cc-bread-crumb-str span {font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#666666; text-transform:uppercase; }
-.cc-finder-title {font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-bottom:21px;}
+.cc-finder-title h3 {font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-bottom:16px;}
 .cc-options-wrapper-nh { display:block; }
 .cc-options-wrapper-nh form { display:inline-block; }
 .cc-options-wrapper-nh form .cc-find-store-au.hf { margin-left:16px;}
-.cc-options-wrapper-nh form input#cc-but-near { border: 0; background: white;     padding: 23px 34px 17px 32px; font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase;}
-.cc-options-wrapper-nh form input#cc-but-near:hover {border-top:4px solid #0099ff; padding:19px 34px 17px 32px;}
-.cc-options-wrapper-nh form input#cc-but-head { border: 0; background: white; padding:23px 34px 17px 32px;  font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-left:0px;}
-.cc-options-wrapper-nh form input#cc-but-head:hover { border-top:4px solid #0099ff; padding:19px 34px 17px 32px; }
+.cc-options-wrapper-nh form input#cc-but-near { border: 0; background: white; padding: 13px 40px 7px 40px; font:bold 24px 'proxima_nova_ltsemibold', sans-serif; line-height:35px; color:#15489f; text-transform:uppercase;}
+.cc-options-wrapper-nh form input#cc-but-near:hover {border-top:4px solid #0099ff; padding:9px 40px 7px 40px; }
+.cc-options-wrapper-nh form input#cc-but-head { border: 0; background: white; padding: 13px 40px 7px 40px;  font:bold 24px 'proxima_nova_ltsemibold', sans-serif; line-height:35px; color:#15489f; text-transform:uppercase; margin-left:0px;}
+.cc-options-wrapper-nh form input#cc-but-head:hover { border-top:4px solid #0099ff; padding:9px 40px 7px 40px; }
 .cc-store-bdy-contr { margin-bottom:59px;}
 .cc-store-bdy-contr .wpsl-search{ background:none; padding:0; margin:23px 0 20px 0;}
 .store-finder-page-form #wpsl-search-wrap.store-finder-form-cntr > form{ border:1px solid #d1ddf1; float:left; }
@@ -1268,7 +1268,7 @@ display:none;
 }
 .cc-store-cat-page-heading {font:700 24px/35px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin:36px 0 8px 0; }
 
-.tax-wpsl_store_category .wpsl-gmap-canvas .wpsl-infobox { min-width:32%; border:0; border-radius:0; outline:0; }
+
 .tax-wpsl_store_category #wpsl-gmap .wpsl-info-window { max-width:none !important; }
 #wpsl-gmap .wpsl-info-window, .wpsl-gmap-canvas .wpsl-info-window { max-width:none !important;}
 .wpsl-info-window p strong a, .cc-head-wpsl-title {font:700 18px/35px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none; }
