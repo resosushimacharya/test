@@ -5,12 +5,12 @@ $url =explode('/',$url);
 if(strcasecmp($url[2],'localhost')==0){
   
 $aboutID =317;
-$storeID =1765 ;
+$storeID =1770;
 }
 else{
   
 $aboutID =317;
-$storeID =26768 ;
+$storeID =26771 ;
 }
 
 

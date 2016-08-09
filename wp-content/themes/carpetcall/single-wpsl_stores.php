@@ -1,6 +1,8 @@
-<?php 
+<?php  /*$x= $_SERVER['HTTP_REFERER'];*/
+
 get_header();?>
 <?php 
+
 global $post;
 
 $state_post_parent = $post->post_parent;
@@ -29,6 +31,14 @@ $cat_name = $cat_names[0];
                 }
 
         endforeach;
+
+   if(array_key_exists('HTTP_REFERER',$_SERVER)){
+    $backurl=$_SERVER['HTTP_REFERER'];
+   }
+   else{
+    $backurl=site_url().'/find-a-store/'.strtolower($cat_name);
+   }
+$backurl=site_url().'/find-a-store/'.strtolower($cat_name);
      ?>
 
 <div class="container clearfix">
@@ -63,7 +73,7 @@ else{
 <h3><?php echo get_the_title();?></h3>
 </div>
 <div class="col-md-6 pull-right"><?php 
-echo '<a href="'.get_the_permalink($stateID).'"><' ;?>
+echo '<a href="'. $backurl.'"><' ;?>
  VIEW ALL STORE</a>
 </div>
 </div>
@@ -80,11 +90,13 @@ echo '<a href="'.get_the_permalink($stateID).'"><' ;?>
        fax="false" email="false" url="true"]');
        ?>
        <?php $url = get_post_meta($post->ID);
-
+       $val = "res";
+            $res =  apply_filters('cc_current_location_filter',$val);
+             
 
         ?>
        
-       <a href="https://maps.google.com/maps?saddr=&daddr=<?php echo $url['wpsl_address'][0].' '.$url['wpsl_city'][0];?>" target="_blank">GET DIRECTION</a>
+       <a href="https://maps.google.com/maps?saddr=<?php echo $res;?>&daddr=<?php echo $url['wpsl_address'][0].' '.$url['wpsl_city'][0];?>" target="_blank">GET DIRECTION</a>
        </div>
        <div class="wpsl-phone-sec">
 	<?php echo do_shortcode('[wpsl_address id="'.$post->ID.'" name="false" address="false" address2="false" 
@@ -109,6 +121,12 @@ echo '<a href="'.get_the_permalink($stateID).'"><' ;?>
 map_type_control="true" map_style="default" street_view="false" 
 scrollwheel="true" control_position="left"]'); 
 ?>
+</div>
+
+<div id="wpsl-result-list"><div id="wpsl-stores"><ul class="test">
+</ul>
+</div>
+
 </div>
 
 </div>

@@ -52,18 +52,34 @@ function destroy_autoLoc(){
     $saveID = 26771 ;
   }
 
+ 
   if(isset($_POST["cc-current-location-store"])){
     $_SESSION['testing'] = time(); 
- 
+     $_SESSION['cc_loc_name']  = $_POST['cc-cuurent-location-name'];
        
-     $_SESSION['use_curr_loc']="1";
-
+     $_SESSION['use_curr_loc']="1";?>
+      <?php
 
   }
  if(!isset($_SESSION['testing'])){
    $_SESSION['use_curr_loc']="0";
 
  }
+
+   add_filter('cc_current_location_filter','cc_current_location_func',10,1);
+   function cc_current_location_func($val){
+ if(isset($_SESSION['cc_loc_name'])){
+  $res = $_SESSION['cc_loc_name'];
+
+    return $res;
+  }
+  else{
+    $res = "";
+    return $res;
+   }
+  }
+
+ 
  
 $curr_loc=$_SESSION['use_curr_loc'];
 $autoCurrentLoc=array('curr_loc'=>$curr_loc,'check'=>'123');
@@ -71,6 +87,7 @@ $autoCurrentLoc=array('curr_loc'=>$curr_loc,'check'=>'123');
  wp_localize_script( 'trouble-script', 'autoCurrentLoc',$autoCurrentLoc );
 
 }
+
 
 
 function check(){
@@ -375,6 +392,7 @@ function getLatLong($address){
           $geocodeFromAddr = file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?address='.$formattedAddr.'&sensor=false'); 
          $output = json_decode($geocodeFromAddr);
          //Get latitude and longitute from json data
+
          $data['latitude']  = $output->results[0]->geometry->location->lat; 
          $data['longitude'] = $output->results[0]->geometry->location->lng;
          //Return latitude and longitude of the given address

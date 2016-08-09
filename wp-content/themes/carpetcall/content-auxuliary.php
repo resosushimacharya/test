@@ -27,6 +27,7 @@ $long = $getinfo['wpsl_lng'];
 $stoLatLong=array($lat,$long);
 $add = $getinfo['wpsl_address'][0];
 $title = get_the_title();
+$distitle = $title;
 $phone = '-';
 $fax = '-';
 $zip ='';
@@ -55,9 +56,11 @@ $combcszsec ='<li class="cc-head-wpsl-csz">'.$combcsz.'</li>';
 $phonesec = '<li class="cc-head-wpsl-phone"><span>P:</span> <a class="phone" href="callto:'.$phone.'">'.$phone.' </a></li>';
 $faxsec = '<li class="cc-head-wpsl-fax"><span>F:</span> '.$fax.'</li>';
 $direction =$combcsz;
-$directionurl ="https://www.google.com/maps?saddr=&daddr=".$direction;
+ $val = "res";
+            $res =  apply_filters('cc_current_location_filter',$val);
+$directionurl ="https://www.google.com/maps?saddr=". $res ."&daddr=".$direction;
 $directionlink ='<li  class="cc-head-wpsl-dir"><a  href="'.$directionurl .'" target="_blank" >GET DIRECTIONS</li>';
-$sll[] = array($title,$add,$stoLatLong,$phonesec,$faxsec,$combcszsec,$directionlink);
+$sll[] = array($title,$add,$stoLatLong,$phonesec,$faxsec,$combcszsec,$directionlink,$distitle);
 
 
 endwhile;
@@ -77,7 +80,7 @@ wp_reset_query();
      locations1 = [
  <?php foreach ($sll as $item):
   ?>
-                ['<?php echo $item[0]; ?>', '<?php echo $item[1];?>','<?php echo $item[2][0][0].','.$item[2][1][0] ;?>','<?php echo $item[3];?>','<?php echo $item[4];?>','<?php echo $item[5];?>','<?php echo $item[6];?>'],
+                ['<?php echo $item[0]; ?>', '<?php echo $item[1];?>','<?php echo $item[2][0][0].','.$item[2][1][0] ;?>','<?php echo $item[3];?>','<?php echo $item[4];?>','<?php echo $item[5];?>','<?php echo $item[6];?>','<?php echo $item[7];?>'],
     <?php endforeach; ?>
 
     ];
@@ -129,7 +132,7 @@ wp_reset_query();
         var templat = locations1[areaiterator][2].split(',')[0];
         var templong = locations1[areaiterator][2].split(',')[1];
         var temp_latLng = new google.maps.LatLng(templat, templong);
-        var title = locations1[areaiterator][0];
+        var title = locations1[areaiterator][7];
         markers1.push(new google.maps.Marker(
         {
             position: temp_latLng,

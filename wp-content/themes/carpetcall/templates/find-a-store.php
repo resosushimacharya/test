@@ -9,6 +9,7 @@
   //head-selected
   $nearest = true;
 
+
   if(isset($_POST["check-head-id"])) $nearest = false;
 
 ?>
@@ -86,6 +87,8 @@
             $args = array(
                 'post_type'=>'wpsl_stores',
                 'posts_per_page'=>'-1',
+                'orderby' => 'title',
+                 'order' => 'ASC',
                 'meta_query' => array (
                 array (
                 'key' => 'store_type',
@@ -189,8 +192,11 @@
 <?php 
                             if(!isset($_POST["cc-current-location-store"]) && !isset($_POST["wpsl-search-input"])){
                                   if(isset($_POST["check-near-id"])){
+
                                            get_template_part('content','main-store-map');
+
                                   }
+                                  
                                   elseif(isset($_POST["check-head-id"])){
                                     
                                     
@@ -198,7 +204,9 @@
                                   }
                                  
                                   else{
+
                                     get_template_part('content','main-store-map');
+
                                   }
    
                              }

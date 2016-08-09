@@ -430,12 +430,16 @@ function custom_listing_templates_server() {
     $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span>' . "\r\n";
-   $listing_template .= "\t\t\t\t" . '<% if ( phone ) { %>' . "\r\n";
-                 $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P:' .'</strong> <%= formatPhoneNumber( phone ) %></span>' . "\r\n";
-                $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
-                $listing_template .= "\t\t\t\t" . '<% if ( fax ) { %>' . "\r\n";
+ $listing_template .= "\t\t\t\t" . '<% if ( phone ) { %>' . "\r\n";
+            $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P:' .'</strong> <%= formatPhoneNumber( phone ) %></span>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% } else { %>' . "\r\n";
+            $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P: ' . '</strong> -</span>' . "\r\n";
+            $listing_template .= "\t\t\t\t" . '<% } %>';
+    $listing_template .= "\t\t\t\t" . '<% if ( fax ) { %>' . "\r\n";
                 $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-fax"><strong>' .'F:' .'</strong> <%= fax %></span>' . "\r\n";
-                $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% } else { %>' . "\r\n";
+                  $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-fax"><strong>' .'F: ' . '</strong> -</span>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% } %>';
                $listing_template .='</div><div class="cc-cats-vsp cc-cats-vsp-a  clearfix"><a href="<%= permalink %>">View Store Page</a></div>';
                 $listing_template .='<div class="cc-cats-or cc-cas-orr cc-cats-orr-map clearfix"><a href="'. $site_url.'/contact-us/?id=<%= id %>" class="cc-contact-link  ">Contact Store</a></div>';
     $listing_template .= "\t\t\t" . '</p>' . "\r\n";
@@ -559,15 +563,20 @@ function custom_more_info_template() {
         $info_window_template .= "\t\t" . '</p>' . "\r\n";
         $info_window_template .= "\t\t" . '<% if ( phone ) { %>' . "\r\n";
         $info_window_template .= "\t\t" . '<span><strong>' . esc_html( $wpsl->i18n->get_translation( 'phone_label', __( 'Phone', 'wpsl' ) ) ) . '</strong>: <%= formatPhoneNumber( phone ) %></span>' . "\r\n";
-        $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
+        $info_window_template .= "\t\t" . '<% } else { %>' . "\r\n";
+        $info_window_template .= "\t\t\t\t" . '<span><strong>' .'P: ' . '</strong> -</span>' . "\r\n";
+      $info_window_template .= "\t\t\t\t" . '<% } %>';
         $info_window_template .= "\t\t" . '<% if ( fax ) { %>' . "\r\n";
         $info_window_template .= "\t\t" . '<span><strong>' . esc_html( $wpsl->i18n->get_translation( 'fax_label', __( 'F', 'wpsl' ) ) ) . '</strong>: <%= fax %></span>' . "\r\n";
-        $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
-        $info_window_template .= "\t\t" . '<% if ( email ) { %>' . "\r\n";
-       
-        $info_window_template .= "\t\t" . '<% } %>' . "\r\n";
+        
+        $info_window_template .= "\t\t" . '<% } else { %>' . "\r\n";
+        $info_window_template .= "\t\t\t\t" . '<span><strong>' .'F: ' . '</strong> -</span>' . "\r\n";
+        $info_window_template .= "\t\t\t\t" . '<% } %>';
+        /*$info_window_template .= "\t\t" . '<% if ( email ) { %>' . "\r\n";
+        $info_window_template .= "\t\t\r\n";
+        $info_window_template .= "\t\t" . '<% } %>' . "\r\n";*/
         $info_window_template .= "\t\t" . '<%= createInfoWindowActions( id ) %>' . "\r\n";
         $info_window_template .= "\t" . '</div>';
 
-        return $info_window_template ;
+       return $info_window_template ;
       }
