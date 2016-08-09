@@ -40,6 +40,7 @@ get_header( 'shop' ); ?>
   <div class="inerblock_seC_mrugss">
     <div class="container-fluid mmrugm">
     <?php
+	$url = '';
 	$photos = get_field('product_slider_photos',$current_cat);
 	if(!empty($photos)){
 		$photo_arr = array_values($photos[0]);

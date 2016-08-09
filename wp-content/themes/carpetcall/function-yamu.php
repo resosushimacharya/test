@@ -14,7 +14,7 @@ add_action( 'admin_bar_menu', 'remove_wp_logo', 999 );
 /*
 * Function to hide the edit link in products listing page.
 */
-function remove_row_actions( $actions, $post )
+function remove_product_row_actions( $actions, $post )
 {
   global $current_screen;
     if( $current_screen->post_type != 'product' ) return $actions;
@@ -23,7 +23,20 @@ function remove_row_actions( $actions, $post )
    // $actions['inline hide-if-no-js'] .= __( 'Quick&nbsp;Edit' );
     return $actions;
 }
-add_filter( 'post_row_actions', 'remove_row_actions', 10, 2 );
+//add_filter( 'post_row_actions', 'remove_product_row_actions', 10, 2 );
+
+
+//add_action( 'admin_footer-edit.php', 'wpse65613_remove_a' );
+function wpse65613_remove_a() {
+	global $current_screen;
+if( $current_screen->post_type != 'product' ) return $actions;
+	?>
+	<script type="text/javascript">
+		jQuery('table.wp-list-table a.row-title').contents().unwrap();
+	</script>
+	<?php
+}
+
 
 /*
 * Function to hide/remve the add new product button form product edit screen
@@ -34,13 +47,14 @@ function cc_product_remove_add_button( $hook ) {
         return;
     }
     echo '<style type="text/css">
-    #favorite-actions, h1 .page-title-action, .tablenav { display:none; }
+    h1 .page-title-action{ display:none; }
     </style>'; 
 }
-add_action( 'admin_enqueue_scripts', 'cc_product_remove_add_button' );
+//add_action( 'admin_enqueue_scripts', 'cc_product_remove_add_button' );
 
 /*
-*Function to remove the Add new Product Menu from Products Main menu and to hide Add New Product buttom form products listing pgae
+*Function to remove the Add new Product Menu from Products Main menu 
+*To hide Add New Product buttom form products listing pgae
 */
 function cc_disable_add_product() {
 // Hide sidebar link
@@ -49,31 +63,18 @@ unset($submenu['edit.php?post_type=product'][10]);
 // Hide link on listing page
 if (isset($_GET['post_type']) && $_GET['post_type'] == 'product') {
     echo '<style type="text/css">
-    #favorite-actions, h1 .page-title-action, .tablenav { display:none; }
+    h1 .page-title-action{ display:none; }
     </style>';
 }
 }
-add_action('admin_menu', 'cc_disable_add_product');
-
-
-
-
-
-
-
-
-
-
-
-
-
+//add_action('admin_menu', 'cc_disable_add_product');
 
 /*
 * Hook to get the color code from the product title and save that code as color meta data in product's metadata.
 *
 * Run only once when we need to update the old existing products
 */
-//add_action('wp_head','set_colour_metadata');
+add_action('wp_head','set_colour_metadata');
 function set_colour_metadata(){
 	$args = array( 'post_type' => 'product', 'posts_per_page' => -1,);
 	$products = get_posts($args);
@@ -88,7 +89,7 @@ function set_colour_metadata(){
 *
 * Run only once when we need to update the old existing products
 */
-//add_action('wp_head','set_sizes_metadata');
+add_action('wp_head','set_sizes_metadata');
 function set_sizes_metadata(){
 	$args = array( 'post_type' => 'product', 'posts_per_page' => -1,);
 	$products = get_posts($args);
