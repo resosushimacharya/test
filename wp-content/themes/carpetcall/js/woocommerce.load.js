@@ -151,11 +151,6 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-price-var-sec .che
 	jQuery('.cat_slider.slick-slider').slick('unslick');
 	init_slick_slider();
 	});
-	
-	
-	
-	
-	
 	}
 else if(jQuery(trig_ele).parent().hasClass('sort_key')){
 	jQuery('.sort_key').removeClass('cc-count-active');
@@ -232,8 +227,13 @@ function cc_trigger_ajax_load(handleData){
 		//alert(ajaxurl);
 		jQuery.post(woo_load_autocomplete.ajax_url, data, function(response) {
 			output = jQuery.parseJSON(response);
-			
 			if(output.html == ''){
+				var myObject = new Object();
+				myObject.html = "<div><strong> No results Found !! </strong> </div>";
+				myObject.child_cat_count = output.child_cat_count;
+				myObject.offset = output.offset;
+				myObject = JSON.stringify(myObject);
+				response = myObject;
 				jQuery('#cc_load_more').attr('disabled','disabled').hide();
 				}else{
 					jQuery('#cc_load_more').removeAttr('disabled').show();

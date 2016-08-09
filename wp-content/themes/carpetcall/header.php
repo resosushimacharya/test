@@ -148,7 +148,9 @@ wp_head();
 <body <?php
 body_class();
 ?> >
-<div id="loading_overlay_div"></div>
+<div id="loading_overlay_div">
+
+</div>
 <div class="container-fluid wrapper clearfix">
   
     <div class="container-fluid banner clearfix">

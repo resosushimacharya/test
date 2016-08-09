@@ -9,7 +9,7 @@ if ( ! is_admin() ) {
 function remove_wp_logo( $wp_admin_bar ) {
 	$wp_admin_bar->remove_menu( 'new-product' );
 }
-add_action( 'admin_bar_menu', 'remove_wp_logo', 999 );
+//add_action( 'admin_bar_menu', 'remove_wp_logo', 999 );
 
 /*
 * Function to hide the edit link in products listing page.
@@ -68,6 +68,23 @@ if (isset($_GET['post_type']) && $_GET['post_type'] == 'product') {
 }
 }
 //add_action('admin_menu', 'cc_disable_add_product');
+
+
+/*
+* Function to disable links in product category links if depth is 2 or more
+*/
+add_filter('term_link','testing',10,3);
+function testing($link,$term_obj,$taxonomy){
+	global $wpdb;
+	$catid = $term_obj->term_id;
+	$ancestors = get_ancestors( $term_obj->term_id, 'product_cat' );
+	$depth = count($ancestors) ;
+			
+	if($depth >=2){
+		$link = '';
+		}
+	return $link;
+	}
 
 /*
 * Hook to get the color code from the product title and save that code as color meta data in product's metadata.
