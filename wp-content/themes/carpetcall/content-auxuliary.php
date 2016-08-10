@@ -36,7 +36,11 @@ $city = '';
 $direction = '';
 $storeID = $loop->post->ID;
 if(array_key_exists('wpsl_phone',$getinfo)){
- $phone = $getinfo['wpsl_phone'][0];
+ $phone = $getinfo['wpsl_phone'][0];$phone = $getinfo['wpsl_phone'][0];
+   $x=  $phone;
+   $x = preg_replace('/\s+/', '', $x);
+   $x = '+61'.$x;  
+   $phone = '<a class="phone" href="tel:'.$x.'">'.$phone.' </a>';
 }
 if(array_key_exists('wpsl_phone',$getinfo)){
  $fax = $getinfo['wpsl_fax'][0];
@@ -54,7 +58,7 @@ $combcsz =$city.' '.$state.' '.$zip;
 $title ='<li class="cc-head-wpsl-title">'.$title .'</li>';
 $add ='<li class="cc-head-wpsl-adrs">'.$add .'</li>';
 $combcszsec ='<li class="cc-head-wpsl-csz">'.$combcsz.'</li>';
-$phonesec = '<li class="cc-head-wpsl-phone"><span>P:</span> <a class="phone" href="callto:'.$phone.'">'.$phone.' </a></li>';
+$phonesec = '<li class="cc-head-wpsl-phone"><span>P:</span>'.$phone.'</li>';
 $faxsec = '<li class="cc-head-wpsl-fax"><span>F:</span> '.$fax.'</li>';
 $direction =$combcsz;
  $val = "res";
@@ -152,7 +156,7 @@ wp_reset_query();
     function infos(i,storeID) {
         infowindow1[i] = new google.maps.InfoWindow({
             
-            content:'<div class="cc-head-infobox infobox_'+i+'" id="'+storeID+'"><ul class="cc-head-infobox-list">'+locations1[i-1][0]+locations1[i-1][1]+locations1[i-1][5]+locations1[i-1][3]+locations1[i-1][4]+locations1[i-1][6]+'</ul></div>'
+            content:'<div class="cc-head-infobox infobox_'+i+'" id="'+storeID+'"><ul class="cc-head-infobox-list">'+locations1[i-1][0]+locations1[i-1][1]+locations1[i-1][5]+locations1[i-1][3]+locations1[i-1][4]+'</ul></div>'
          
         });
         infowindow1[i].content = locations1[i-1][1];

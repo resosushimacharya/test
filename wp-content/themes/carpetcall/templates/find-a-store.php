@@ -116,8 +116,36 @@
                   $add = $getinfo['wpsl_address'][0];
                   $title = get_the_title();
                   $sll[] = array($title,$add,$stoLatLong);
-
-           
+                 
+                  $phone = '-';
+                  $fax = '-';
+                  $zip ='';
+                  $state = '';
+                  $city = '';
+                  $direction = '';
+                  $country  = '';
+                  if(array_key_exists('wpsl_phone',$getinfo)){
+                  $phone = $getinfo['wpsl_phone'][0];
+                  $x=  $phone;
+                  $x = preg_replace('/\s+/', '', $x);
+                  $x = '+61'.$x;  
+                  $phone = '<a class="phone" href="tel:'.$x.'">'.$phone.' </a>';
+                  }
+                  if(array_key_exists('wpsl_phone',$getinfo)){
+                  $fax = $getinfo['wpsl_fax'][0];
+                  }
+                  if(array_key_exists('wpsl_city',$getinfo)){
+                  $city  = $getinfo['wpsl_city'][0];
+                  }
+                  if(array_key_exists('wpsl_state',$getinfo)){
+                  $state = $getinfo['wpsl_state'][0];
+                  }
+                  if(array_key_exists('wpsl_zip',$getinfo)){
+                  $zip = $getinfo['wpsl_zip'][0];
+                  }  
+                 if(array_key_exists('wpsl_zip',$getinfo)){
+                  $country = $getinfo['wpsl_country'][0];
+                 } 
     
 
         ?>
@@ -137,9 +165,9 @@
             <div class="clearfix"></div>
             <span class="wpsl-hf-street"><?php echo get_post_meta($post->ID,'wpsl_address',true );?></span>
                 
-            <span class="wpsl-hf-street-a"><?php echo get_post_meta($post->ID,'wpsl_zip',true ).' '.get_post_meta($post->ID,'wpsl_city',true ).' '.get_post_meta($post->ID,'wpsl_state',true );?></span>
-            <span class="wpsl-hf-country"><?php echo get_post_meta($post->ID,'wpsl_country',true );?></span>
-            <span class="wpsl-hf-street-b"><strong>P: </strong> <?php echo get_post_meta($post->ID,'wpsl_phone',true );?></span>
+            <span class="wpsl-hf-street-a"><?php echo $zip.' '.$city.' '.$state;?></span>
+            <span class="wpsl-hf-country"><?php echo $country;?></span>
+            <span class="wpsl-hf-street-b"><strong>P: </strong><?php echo  $phone ;?></span>
             <span class="wpsl-hf-street-c"><strong>F: </strong> <?php echo get_post_meta($post->ID,'wpsl_fax',true );?></span>
                 
 
