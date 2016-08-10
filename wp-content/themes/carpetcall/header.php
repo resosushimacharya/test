@@ -18,8 +18,6 @@ wp_title("");?>
 
 </title>
 <?php 
-var_dump($_POST);
-
  if(is_single() && get_post_type()=='product'){
     global $post;
    
@@ -212,9 +210,14 @@ function codeLatLng(lat, lng) {
 <body <?php
 body_class();
 ?> >
-<div id="loading_overlay_div">
-
+<?php
+if(get_post_type() == 'product'){?>
+	<div id="loading_overlay_div">
 </div>
+	<?php }
+
+?>
+
 <div class="container-fluid wrapper clearfix">
   
     <div class="container-fluid banner clearfix">

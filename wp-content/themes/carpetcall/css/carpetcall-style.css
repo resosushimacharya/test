@@ -1288,10 +1288,11 @@ li.cc-head-wpsl-phone:hover { color:#1858b8;}
 .wpsl-info-actions a:hover {background:#134c9f; color:#FFF;}
 li.cc-head-wpsl-phone a {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666; text-decoration:none; }
 li.cc-head-wpsl-phone a:hover { color:#1858b8; }
+
 #loading_overlay_div{
 display:none; 
 position: fixed;
- height: 100%; 
+height: 100%; 
 width: 100%; 
 background-color: #000;  
 z-index: 2; 
