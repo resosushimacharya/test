@@ -105,7 +105,7 @@ if(array_key_exists('wpsl_phone',$getinfo)){
    $x = '+61'.$x; 
    $phone = '<a href="tel:'.$x.'"> 02 9674 3099</a>'; 
 }
-if(array_key_exists('wpsl_phone',$getinfo)){
+if(array_key_exists('wpsl_fax',$getinfo)){
  $fax = $getinfo['wpsl_fax'][0];
 }
         ?>

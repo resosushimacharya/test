@@ -165,57 +165,51 @@ wp_reset_query();
             for (var j = 1; j < locations1.length + 1; j++) {
                 infowindow1[j].close();
             }
-            infowindow1[i].open(map1, markers1[i - 1]);
+            infowindow1[i].open(map1, markers1[i - 1],function(){
+               
+            });
         });
     }
 
 
-/*    $(document).on('mouseenter','.cc-map-list-control',function(){
-         $x=$(this).attr('id');
-        $x = $x.split("_");
-        for (i = 0; i < locations1.length; ++i) {
-       
-                infowindow1[i+1].close();
-           
- }
-       
-       
+  
+  
+$(document).ready(function(){
 
-        for (i = 0; i < locations1.length; ++i) {
-            if(locations1[i][8] ==$x[2] ){
-                infowindow1[i+1].open(map1, markers1[i]);
-                z= i;
-                break;
-            }
-        }
-
-    }); 
-    */
-/*$(document).ready(function(){
- var z=1;
 $('.cc-map-list-control').hover(
     
     function(){
 
-    $x=$(this).attr('id');
-    $x = $x.split("_");
-   
+     $x=$(this).attr('id');
+        $x = $x.split("_");
+       
 
-    for (i = 0; i < locations1.length; ++i) {
-        if(locations1[i][8] ==$x[2] ){
-            infowindow1[i+1].open(map1, markers1[i]);
-            z= i;
-            break;
+       
+       
+
+        for (i = 0; i < locations1.length; ++i) {
+            
+            if(locations1[i][8] ==$x[2] ){
+              /*  infowindow1[i+1].open(map1, markers1[i]);*/
+             
+            
+             // markers1[i].setAnimation(null);
+         
+         markers1[i].setAnimation(google.maps.Animation.BOUNCE);
+            
+    
+                break;
+            }
         }
-    }
+
     },
     function() {
         
-infowindow1[z].close();
+ markers1[i].setAnimation(null);
 
 
 });
-});*/
+});
 
 
 </script>
