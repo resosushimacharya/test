@@ -1297,3 +1297,6 @@ background-color: #000;
 z-index: 2; 
 opacity: 0.5;
 }
+.cc-cat-sub-desc-sec p span strong {font:700 20px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; }
+.cc-cat-sub-desc-sec ul { margin:0 0 0 17px; }
+.cc-cat-sub-desc-sec ul li {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-bottom:23px;}
