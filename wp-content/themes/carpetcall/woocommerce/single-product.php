@@ -54,11 +54,14 @@ $rootcheck = get_post_meta($post->ID);
                    			
                    			if(strcasecmp($cat->slug, 'rugs')==0){
                    				wc_get_template_part( 'content', 'single-rugs-product' );
+                          var_dump("hello");die;
                    			}
                    		
                    	
                    			if(strcasecmp($cat->slug, 'hard-flooring')==0){
-                   				wc_get_template_part( 'content', 'single-hard-flooring-product' );
+                   				/*wc_get_template_part( 'content', 'single-hard-flooring-product' );*/
+                          var_dump("hello");
+                          die;
                    			}
                    		
                    		}

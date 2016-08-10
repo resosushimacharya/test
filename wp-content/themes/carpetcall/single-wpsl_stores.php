@@ -92,16 +92,19 @@ echo '<a href="'. $backurl.'"><' ;?>
        <?php $url = get_post_meta($post->ID);
        $val = "res";
             $res =  apply_filters('cc_current_location_filter',$val);
-             
+             global $post;
+   $x= get_post_meta($post->ID,'wpsl_phone',true);
+   $x = preg_replace('/\s+/', '', $x);
+   $x = '+61'.$x;  
 
         ?>
        
-       <a href="https://maps.google.com/maps?saddr=<?php echo $res;?>&daddr=<?php echo $url['wpsl_address'][0].' '.$url['wpsl_city'][0];?>" target="_blank">GET DIRECTION</a>
+       <a href="https://maps.google.com/maps?saddr=<?php echo $res;?>&daddr=<?php echo $url['wpsl_address'][0].' '.$url['wpsl_city'][0];?>" target="_blank">GET DIRECTIONS</a>
        </div>
        <div class="wpsl-phone-sec">
-	<?php echo do_shortcode('[wpsl_address id="'.$post->ID.'" name="false" address="false" address2="false" 
+	<?php echo do_shortcode('[wpsl_address template="custom" id="'.$post->ID.'" name="false" address="false" address2="false" 
        city="false" state="false" zip="false" country="false" phone="true" 
-       fax="true" email="false" url="false"]');
+       fax="true" email="false" url="true"]');
        ?>
        <div class="cc-str-cntblk cc-str-cntblk-a cc-str-cntblk-a-map clearfix"><a href="http://staging.carpetcall.com.au/contact-us/?id=<?php echo $post->ID;?>" class="cc-contact-link">CONTACT STORE</a></div>
        </div>

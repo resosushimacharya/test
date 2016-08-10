@@ -122,7 +122,7 @@
 
         ?>
        
-        <li class="col-md-4">
+        <li class="col-md-4 cc-map-list-control" id="cc_list_<?php echo $loop->post->ID ;?>">
          <div class="cc-head-office-list-item">
 
             <p><div class="cc-head-office-label">
@@ -196,7 +196,7 @@
                                            get_template_part('content','main-store-map');
 
                                   }
-                                  
+
                                   elseif(isset($_POST["check-head-id"])){
                                     
                                     

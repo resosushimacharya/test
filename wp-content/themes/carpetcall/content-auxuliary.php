@@ -34,6 +34,7 @@ $zip ='';
 $state = '';
 $city = '';
 $direction = '';
+$storeID = $loop->post->ID;
 if(array_key_exists('wpsl_phone',$getinfo)){
  $phone = $getinfo['wpsl_phone'][0];
 }
@@ -60,7 +61,7 @@ $direction =$combcsz;
             $res =  apply_filters('cc_current_location_filter',$val);
 $directionurl ="https://www.google.com/maps?saddr=". $res ."&daddr=".$direction;
 $directionlink ='<li  class="cc-head-wpsl-dir"><a  href="'.$directionurl .'" target="_blank" >GET DIRECTIONS</li>';
-$sll[] = array($title,$add,$stoLatLong,$phonesec,$faxsec,$combcszsec,$directionlink,$distitle);
+$sll[] = array($title,$add,$stoLatLong,$phonesec,$faxsec,$combcszsec,$directionlink,$distitle,$storeID);
 
 
 endwhile;
@@ -80,7 +81,7 @@ wp_reset_query();
      locations1 = [
  <?php foreach ($sll as $item):
   ?>
-                ['<?php echo $item[0]; ?>', '<?php echo $item[1];?>','<?php echo $item[2][0][0].','.$item[2][1][0] ;?>','<?php echo $item[3];?>','<?php echo $item[4];?>','<?php echo $item[5];?>','<?php echo $item[6];?>','<?php echo $item[7];?>'],
+                ['<?php echo $item[0]; ?>', '<?php echo $item[1];?>','<?php echo $item[2][0][0].','.$item[2][1][0] ;?>','<?php echo $item[3];?>','<?php echo $item[4];?>','<?php echo $item[5];?>','<?php echo $item[6];?>','<?php echo $item[7];?>','<?php echo $item[8];?>'],
     <?php endforeach; ?>
 
     ];
@@ -133,6 +134,7 @@ wp_reset_query();
         var templong = locations1[areaiterator][2].split(',')[1];
         var temp_latLng = new google.maps.LatLng(templat, templong);
         var title = locations1[areaiterator][7];
+        var storeID = locations1[areaiterator][8];
         markers1.push(new google.maps.Marker(
         {
             position: temp_latLng,
@@ -142,13 +144,15 @@ wp_reset_query();
             title:title
         }));            
         iterator++;
-        infos(iterator);
+
+        infos(iterator,storeID);
         areaiterator++;
     }
  
-    function infos(i) {
+    function infos(i,storeID) {
         infowindow1[i] = new google.maps.InfoWindow({
-            content:'<div class="cc-head-infobox"><ul class="cc-head-infobox-list">'+locations1[i-1][0]+locations1[i-1][1]+locations1[i-1][5]+locations1[i-1][3]+locations1[i-1][4]+locations1[i-1][6]+'</ul></div>'
+            
+            content:'<div class="cc-head-infobox infobox_'+i+'" id="'+storeID+'"><ul class="cc-head-infobox-list">'+locations1[i-1][0]+locations1[i-1][1]+locations1[i-1][5]+locations1[i-1][3]+locations1[i-1][4]+locations1[i-1][6]+'</ul></div>'
          
         });
         infowindow1[i].content = locations1[i-1][1];
@@ -160,4 +164,54 @@ wp_reset_query();
             infowindow1[i].open(map1, markers1[i - 1]);
         });
     }
+
+
+    $(document).on('mouseenter','.cc-map-list-control',function(){
+         $x=$(this).attr('id');
+        $x = $x.split("_");
+        for (i = 0; i < locations1.length; ++i) {
+       
+                infowindow1[i+1].close();
+           
+ }
+       
+       
+
+        for (i = 0; i < locations1.length; ++i) {
+            if(locations1[i][8] ==$x[2] ){
+                infowindow1[i+1].open(map1, markers1[i]);
+                z= i;
+                break;
+            }
+        }
+
+    }); 
+    
+/*$(document).ready(function(){
+ var z=1;
+$('.cc-map-list-control').hover(
+    
+    function(){
+
+    $x=$(this).attr('id');
+    $x = $x.split("_");
+   
+
+    for (i = 0; i < locations1.length; ++i) {
+        if(locations1[i][8] ==$x[2] ){
+            infowindow1[i+1].open(map1, markers1[i]);
+            z= i;
+            break;
+        }
+    }
+    },
+    function() {
+        
+infowindow1[z].close();
+
+
+});
+});*/
+
+
 </script>
