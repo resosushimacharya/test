@@ -1252,6 +1252,7 @@ span.cc-locator-current a {font: normal 12px 'proxima_nova_rgregular', sans-seri
 .cc-single-wpsl-ccstore span.cc-cat-store-item-fax {font:700 16px/24px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none;}
 
 p.wpsl-no-margin strong {font:700 18px/35px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; }
+span.cc-cat-store-item-phone { line-height:47px;}
 
 .wpsl-phone-sec span { display:block;}
 .wpsl-contact-details { margin-top:15px; font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; }
