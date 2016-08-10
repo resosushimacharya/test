@@ -241,10 +241,14 @@ get_search_form();
                 
                 <div class="col-md-4 no-lr">
                 <div class="callinfo">
-                  <h2 class="calme callmea"><a href="tel:<?php
-                        echo get_field('telephone_link', '89',false);
-                                ?>"><?php
+                <?php $x=  get_field('telephone', '89',false);
+   $x = preg_replace('/\s+/', '', $x);
+   $x = '+61'.$x;   ?>
+                  <h2 class="calme callmea">
+                  <a href="tel:<?php
+                        echo $x; ?>"><?php
 echo get_field('telephone', '89',false);
+
 ?> </a></h2>
                     <h3 class="subcl"><?php
 echo get_field('contact_label', '89',false);

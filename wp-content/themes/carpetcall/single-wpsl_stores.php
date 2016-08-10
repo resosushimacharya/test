@@ -113,17 +113,19 @@ if(array_key_exists('wpsl_phone',$getinfo)){
        <a href="https://maps.google.com/maps?saddr=<?php echo $res;?>&daddr=<?php echo $url['wpsl_address'][0].' '.$url['wpsl_city'][0];?>" target="_blank">GET DIRECTIONS</a>
        </div>
        <div class="wpsl-phone-sec">
- <span class="cc-cat-store-item-phone"><strong>P:</strong><?php echo $phone ;?></span>
-   <span class="cc-cat-store-item-fax"><strong>F:</strong><?php echo $fax ;?></span>    
+       <span class="cc-cat-store-item-phone"><strong>P:</strong><?php echo $phone ;?></span>
+      <span class="cc-cat-store-item-fax"><strong>F:</strong><?php echo $fax ;?></span>    
        <div class="cc-str-cntblk cc-str-cntblk-a cc-str-cntblk-a-map clearfix"><a href="http://staging.carpetcall.com.au/contact-us/?id=<?php echo $post->ID;?>" class="cc-contact-link">CONTACT STORE</a></div>
        </div>
        
 </div>
-
+<?php $resopen =do_shortcode('[wpsl_hours id="'.$post->ID.'" hide_closed="true"]') ;
+if($resopen!="") {?>
 <div class="wpsl-hour-sec clearfix">
        <span><strong>Opening Hours</strong></span>
-       	<?php echo do_shortcode('[wpsl_hours id="'.$post->ID.'" hide_closed="true"]') ;?>
+       	<?php echo  $resopen;?>
        </div>
+       <?php } ?>
 
 </div>
 

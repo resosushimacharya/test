@@ -170,7 +170,7 @@ wp_reset_query();
     }
 
 
-    $(document).on('mouseenter','.cc-map-list-control',function(){
+/*    $(document).on('mouseenter','.cc-map-list-control',function(){
          $x=$(this).attr('id');
         $x = $x.split("_");
         for (i = 0; i < locations1.length; ++i) {
@@ -190,7 +190,7 @@ wp_reset_query();
         }
 
     }); 
-    
+    */
 /*$(document).ready(function(){
  var z=1;
 $('.cc-map-list-control').hover(
