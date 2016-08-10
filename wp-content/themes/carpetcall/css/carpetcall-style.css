@@ -836,11 +836,11 @@ a.pull-right:hover { color:#000; text-decoration:none; cursor:pointer;}
 .ia-block { background-color:#f0f2f1;}
 .cc-ia-content h4 {font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#666666; text-transform:uppercase; margin-top:23px;}
 .cc-ia-content h1 {font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:7px; margin-bottom:22px;}
-.cc-ia-content p {font:normal 16px/22px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 80px 58px 0;}
+.cc-ia-content p {font:normal 16px/20px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 80px 47px 0;}
 .gpf-block { margin-top:43px;}
 .all-items-blk { background-color:#e7edf8; padding:37px 36px; min-height:412px;}
  .fq-blk-a h3, .more-blk-b h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:-5px; margin-bottom:20px;}
-.all-items-blk a, .fq-blk-a a { font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:-5px; margin-bottom:20px; text-decoration:none; }
+.all-items-blk a, .fq-blk-a a { font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; margin-top:-5px; margin-bottom:20px; text-decoration:none; }
 .all-items-blk a:hover, .fq-blk-a a:hover { cursor:pointer;}
 .all-items-blk p, .fq-blk-a p {font:normal 16px/22px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 0 20px 0;}
 .fq-blk-a, .more-blk-b { margin:23px 0 0 0; background-color:#e7edf8; padding:37px 36px; min-height:412px; }
@@ -860,7 +860,7 @@ ul.cat_list li a:hover {color:#000;}
 .cc-ia-more ul { margin:0 0 93px 0; padding:0;}
 .cc-ia-more ul li {list-style:none; display:block;}
 .cc-ia-more ul li .fa { color:#c32327; margin-right:12px; margin-top:3px;}
-.cc-ia-more ul li a {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:none; text-transform:uppercase;}
+.cc-ia-more ul li a {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:none; }
 .cc-ia-more ul li a:hover {color:#000;}
 
 .cc-ia-more ul li i{
@@ -910,7 +910,7 @@ ul.cat_list li a:hover {color:#000;}
 .inerblock_contblk p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0 67px 19px 0;}
 .cc-ia-banner-a img { width:100%; height:269px;}
 .cc-ia-banner-a { background-repeat:no-repeat; background-size:cover; background-position:center center; height:269px; }
-.cc-ia-banner {background-repeat:no-repeat; background-size:cover; background-position:center center; height:278px;}
+.cc-ia-banner {background-repeat:no-repeat; background-size:cover; background-position:center center; height:267px;}
 .cc-form-wrapper { padding:0;}
 .contact_form_cntr.col-md-12 { padding:0; margin:0;}
 .form-group.cc-enquiry-section.col-sm-12 { padding:40px 0 14px; margin:0;}
@@ -1108,10 +1108,9 @@ list-style:none;
 .success_message_wrapper .close_box{ position:absolute; right:0; top:0; background-color:#e7edf8; padding:2px;}
 .success_message_wrapper .close_box:hover { background:#c32428; color:#FFF; cursor:pointer;}
 h3.cc-idea-ad-title { margin:46px 0 34px 0; }
-<<<<<<< HEAD
-.all-items-blk a {
-	text-decoration:none;}
-=======
+
+.all-items-blk a h3 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-bottom:20px; text-decoration:none; }
+.all-items-blk a h3:hover { cursor:pointer;}
 .sub_page_title {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; margin-bottom:24px; }
 div#right_col p {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666; }
 div#right_col ul { margin-left:17px; padding:0; }
@@ -1190,8 +1189,14 @@ input#cc_control_map { background:#c32428; width:267px; height:45px; font:bold 1
 .cc-cat-store-item { margin-top:11px; }
 .cc-cat-store-item span { margin-left:32px; font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666; display:block;  }
 span.wpsl-hf-street-b {font:normal 16px/45px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0; padding-left:32px; width:100%; margin-top:13px; text-decoration:none; }
-span.cc-cat-store-item-phone {font:normal 16px/45px 'proxima_nova_rgregular', sans-serif; color:#1858b8; margin:0; padding-left:32px; width:100%; margin-top:13px; text-decoration:none;}
-span.cc-cat-store-item-phone:hover, span.wpsl-hf-street-b:hover { color:#666666; cursor:pointer;}
+
+.cc-cat-store-section span.cc-cat-store-item-phone a {font:normal 16px/45px 'proxima_nova_rgregular', sans-serif; color:#1858b8; margin:0; padding-left:32px; width:100%; margin-top:13px; text-decoration:none; margin-left:-32px;}
+.cc-cat-store-section span.cc-cat-store-item-phone a:hover {color:#666666; cursor:pointer;}
+
+span.cc-cat-store-item-phone a {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#1858b8; margin:0; padding-left:32px; width:100%; margin-top:13px; text-decoration:none; margin-left:-32px;}
+
+span.cc-cat-store-item-phone a:hover, span.wpsl-hf-street-b:hover { color:#666666; cursor:pointer;}
+
 span.wpsl-hf-street-b {font:normal 16px/45px 'proxima_nova_rgregular', sans-serif; color:#1858b8; margin:0; padding-left:32px; width:100%; margin-top:13px; }
 span.wpsl-hf-street-b { width:auto; padding:0; }
 span.cc-cat-store-item-fax{ color:#666666; line-height:none; margin-top:-14px;}
@@ -1223,26 +1228,36 @@ span.wpsl-hf-street-b strong, span.wpsl-hf-street-c strong { color:#0099ff; }
 .hfc-fcnt-orr a{background:#FFFFFF; padding:12px 75px; text-align:center; font:700 14px 'proxima_nova_ltsemibold', sans-serif; text-transform:uppercase; color:#144a9f; text-decoration:none; display:inline-block; border:1px solid #144a9f;}
 .hfc-fcnt-orr a:hover{background:#144a9f; color:#FFF;}
 
-.inerblock_serc_cde.cc-locator-sec { margin:151px 0 0 0;}
+.inerblock_serc_cde.cc-locator-sec { margin:145px 0 0 0;}
 .cc-locator-title-sec-z { padding:19px 0 9px 0;}
 span.cc-locator-root a {font: normal 12px 'proxima_nova_rgregular', sans-serif; color: #15489f; text-decoration: none; margin:0 3px; }
 span.cc-locator-root a:hover {text-decoration: none; color: #333; cursor: pointer;}
 span.cc-locator-current a {font: normal 12px 'proxima_nova_rgregular', sans-serif; color: #333; text-decoration: none; margin-left:1px; cursor:text;}
 .inerblock_serc_cde.cc-locator-sec .col-md-12, .col-md-6.pull-left, .col-md-5.wpsl-single-left { padding:0; clear:both;}
-.col-md-6.pull-left h3 {font:700 30px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-bottom:18px;}
+.col-md-6.pull-left h3 {font:700 30px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-bottom:21px;}
 .col-md-6.pull-right { padding-right:0; text-align:right;}
-.col-md-6.pull-right a{ width:196px; height:45px; background:#0099ff; padding:12px 22px; text-align:center; font:700 18px/45px 'proxima_nova_ltsemibold', sans-serif; color:#FFF; text-decoration:none; }
+.col-md-6.pull-right a{ width:196px; height:45px; background:#0099ff; padding:12px 16px; text-align:center; font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#FFF; text-decoration:none; }
 .col-md-6.pull-right a:hover { background:#028ce8;}
 .cc-info-store { background:#d1ddf1; padding:27px; }
 .wpsl-address-sec h4 {font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin:5px 0 2px 0;}
 .wpsl-locations-details span strong, .wpsl-location-address {font: normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-bottom:5px;}
 .wpsl-location-address { line-height:24px;}
-.wpsl-address-sec a { display:inline-block; background:#c32428; text-align:center; padding:0 28px; font:700 18px/45px 'proxima_nova_ltsemibold', sans-serif; color:#FFFFFF; text-decoration:none; text-transform:uppercase; width:196px; height:45px;}
+.wpsl-address-sec a { display:inline-block; background:#c32428; text-align:center; padding:0; font:700 18px/45px 'proxima_nova_ltsemibold', sans-serif; color:#FFFFFF; text-decoration:none; text-transform:uppercase; width:196px; height:45px; margin-top:2px; margin-bottom:20px;}
 .wpsl-address-sec a:hover { background:#db2a2f; cursor:pointer;}
+.cc-single-wpsl-ccstore { line-height:47px; }
+.cc-single-wpsl-ccstore span.cc-cat-store-item-phone strong, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax strong{font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; }
+.cc-single-wpsl-ccstore span.cc-cat-store-item-phone a {font:700 16px/24px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none;}
+.cc-single-wpsl-ccstore span.cc-cat-store-item-phone a:hover { color:#006; cursor:pointer;}
+
+.cc-single-wpsl-ccstore span.cc-cat-store-item-fax {font:700 16px/24px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none;}
+
+p.wpsl-no-margin strong {font:700 18px/35px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; }
+
+.wpsl-phone-sec span { display:block;}
 .wpsl-contact-details { margin-top:15px; font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; }
 .wpsl-contact-details span {font:700 16px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff;}
 .cc-str-cntblk { margin:10px 0 5px 0;}
-.cc-str-cntblk-a a {display:inline-block; background:#c32428; text-align:center; padding:0; font:700 18px/45px 'proxima_nova_ltsemibold', sans-serif; color:#FFFFFF; text-decoration:none; text-transform:uppercase; width:196px; height:45px;}
+.cc-str-cntblk-a a {display:inline-block; background:#c32428; text-align:center; padding:0; font:700 18px/45px 'proxima_nova_ltsemibold', sans-serif; color:#FFFFFF; text-decoration:none; text-transform:uppercase; width:196px; height:45px; margin-top:6px; margin-bottom:14px;}
 .cc-str-cntblk-a a:hover { background:#db2a2f; cursor:pointer;}
 .wpsl-hour-sec.clearfix { padding:40px 28px 15px 28px; }
 .wpsl-hour-sec span strong {font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase;}
@@ -1269,7 +1284,13 @@ display:none;
 .cc-store-cat-page-heading {font:700 24px/35px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin:36px 0 8px 0; }
 
 .tax-wpsl_store_category .gm-style-iw div { padding-bottom:5px; width:auto !important; overflow:visible !important; }
-.gm-style-iw { width:auto !important;}
+
+.tax-wpsl_store_category #wpsl-gmap .wpsl-info-window{max-width:none !important;}
+.page-template-find-a-store .gm-style-iw div { padding-bottom:5px; width:auto !important; overflow:visible !important;}
+
+.page-template-find-a-store .wpsl-info-window span { padding-left:0;}
+
+.page-template-find-a-store #wpsl-gmap .wpsl-info-window{max-width:none !important;}
 .tax-wpsl_store_category #wpsl-gmap .wpsl-info-window { max-width:none !important; }
 #wpsl-gmap .wpsl-info-window, .wpsl-gmap-canvas .wpsl-info-window { max-width:none !important;}
 .wpsl-info-window p strong a, .cc-head-wpsl-title {font:700 18px/35px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none; }
