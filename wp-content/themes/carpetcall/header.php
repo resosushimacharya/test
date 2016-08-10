@@ -18,8 +18,11 @@ wp_title("");?>
 
 </title>
 <?php 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 790bb1cc27ea494cadc66b7f90c066a0b92fbee6
  if(is_single() && get_post_type()=='product'){
     global $post;
    
@@ -213,7 +216,18 @@ function codeLatLng(lat, lng) {
 <body <?php
 body_class();
 ?> >
+<<<<<<< HEAD
 <!-- <div id="loading_overlay_div"></div> -->
+=======
+<?php
+if(get_post_type() == 'product'){?>
+	<div id="loading_overlay_div">
+</div>
+	<?php }
+
+?>
+
+>>>>>>> 790bb1cc27ea494cadc66b7f90c066a0b92fbee6
 <div class="container-fluid wrapper clearfix">
   
     <div class="container-fluid banner clearfix">

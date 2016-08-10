@@ -1288,12 +1288,16 @@ li.cc-head-wpsl-phone:hover { color:#1858b8;}
 .wpsl-info-actions a:hover {background:#134c9f; color:#FFF;}
 li.cc-head-wpsl-phone a {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666; text-decoration:none; }
 li.cc-head-wpsl-phone a:hover { color:#1858b8; }
+
 #loading_overlay_div{
 display:none; 
 position: fixed;
- height: 100%; 
+height: 100%; 
 width: 100%; 
 background-color: #000;  
 z-index: 2; 
 opacity: 0.5;
 }
+.cc-cat-sub-desc-sec p span strong {font:700 20px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; }
+.cc-cat-sub-desc-sec ul { margin:0 0 0 17px; }
+.cc-cat-sub-desc-sec ul li {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-bottom:23px;}
