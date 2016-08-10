@@ -1145,7 +1145,7 @@ div#right_col p a:hover { text-decoration:underline; cursor:pointer;}
 .store-finder-page-form .store-finder-form-cntr > form input { float:left; background:#e7edf8; }
 input#wpsl-search-input { width:618px; height:45px; font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; text-transform:uppercase; }
 .wpsl-search-btn-wrap.check_wpsl #wpsl-search-btn { background:#e7edf8; width:43px; height:45px; box-shadow:none; background-image:url(../images/icon2.jpg); background-repeat:no-repeat; background-position:center center; }
-.store-finder-form-cntr span {font:bold 12px/45px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; margin:0 20px; }
+.store-finder-form-cntr span {font:bold 12px/45px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; margin:0 18px; }
 input#cc_control_map { background:#c32428; width:267px; height:45px; font:bold 14px 'proxima_nova_ltsemibold', sans-serif; color:#FFFFFF; text-align:center; text-transform:uppercase; }
 #wpsl-search-btn, #wpsl-search-wrap div { margin:0;  }
 #wpsl-search-wrap input { border:0;  border-radius:0;  }
@@ -1268,7 +1268,8 @@ display:none;
 }
 .cc-store-cat-page-heading {font:700 24px/35px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin:36px 0 8px 0; }
 
-
+.tax-wpsl_store_category .gm-style-iw div { padding-bottom:5px; width:auto !important; overflow:visible !important; }
+.gm-style-iw { width:auto !important;}
 .tax-wpsl_store_category #wpsl-gmap .wpsl-info-window { max-width:none !important; }
 #wpsl-gmap .wpsl-info-window, .wpsl-gmap-canvas .wpsl-info-window { max-width:none !important;}
 .wpsl-info-window p strong a, .cc-head-wpsl-title {font:700 18px/35px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none; }
