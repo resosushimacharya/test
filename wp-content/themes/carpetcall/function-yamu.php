@@ -129,7 +129,8 @@ function get_category_depth($catid){
             return get_depth($catid, $depth, $i);
 	
 	}
-
+	
+	
 /*
 /* Function to show block with slider in category page and also used for ajax load more
 */

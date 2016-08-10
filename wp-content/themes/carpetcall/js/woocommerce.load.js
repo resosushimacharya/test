@@ -1,12 +1,13 @@
 jQuery(document).ready(function($){
+
 jQuery(document)
 .ajaxStart(function(){
-	 $("body").css("overflow","hidden");
-	jQuery('#loading_overlay_div').show();
+	 $("body").css("overflow","hidden"); // Disabling the Scroll while ajax is loading
+	jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax call
 	})
 .ajaxStop(function(){
-		jQuery('#loading_overlay_div').hide();
-		$("body").css("overflow","auto");
+		jQuery('#loading_overlay_div').hide(); // Hiding the loading gid after ajax call is finished
+		$("body").css("overflow","auto");// re-enabling the scroll after ajax request is complete
 	});
 
 
@@ -26,7 +27,9 @@ $(window).scroll(function() {
 });
 
 
-
+/*
+* Change the main image when thumbnail is clicked in product single page.
+*/
 jQuery(document).on('click','.select-design-product-image a.select_design',function(e){
 	e.preventDefault();
 	var url = jQuery(this).attr('href');
@@ -229,7 +232,7 @@ function cc_trigger_ajax_load(handleData){
 			output = jQuery.parseJSON(response);
 			if(output.html == ''){
 				var myObject = new Object();
-				myObject.html = "<div><strong> No results Found !! </strong> </div>";
+				myObject.html = "<div><strong> No more results found !! </strong> </div>";
 				myObject.child_cat_count = output.child_cat_count;
 				myObject.offset = output.offset;
 				myObject = JSON.stringify(myObject);
