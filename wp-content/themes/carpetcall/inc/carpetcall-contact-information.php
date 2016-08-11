@@ -599,3 +599,48 @@ function custom_more_info_template() {
 
        return $info_window_template ;
       }
+/* 
+*single store display plugin extension
+
+
+*/
+add_filter('wpsl_cpt_info_window_template','custom_wpsl_cpt_info_window_template',10);
+function custom_wpsl_cpt_info_window_template(){
+
+        global $post;
+        $getinfo  = get_post_meta($post->ID);
+        $phone = ' -';
+        $fax = '-';
+
+
+if(array_key_exists('wpsl_phone',$getinfo)){
+        $phone = $getinfo['wpsl_phone'][0];$phone = $getinfo['wpsl_phone'][0];
+        $x=  $phone;
+        $x = preg_replace('/\s+/', '', $x);
+        $x = '+61'.$x;  
+        $phone = ' <a class="phone" href="tel:'.$x.'">'.$phone.' </a>';
+}
+if(array_key_exists('wpsl_phone',$getinfo)){
+        $fax = $getinfo['wpsl_fax'][0];
+}
+
+        $phonesec = '<strong>' .'P:' .'</strong>'.$phone;
+        $faxsec = '<strong>F:</strong> '.$fax; 
+
+
+
+        $cpt_info_window_template = '<div class="wpsl-info-window">' . "\r\n";
+        $cpt_info_window_template .= "\t\t" . '<p class="wpsl-no-margin">' . "\r\n";
+        $cpt_info_window_template .= "\t\t\t" .  wpsl_store_header_template( 'wpsl_map' ) . "\r\n";
+        $cpt_info_window_template .= "\t\t\t" . '<span><%= address %></span>' . "\r\n";
+        $cpt_info_window_template .= "\t\t\t" . '<% if ( address2 ) { %>' . "\r\n";
+        $cpt_info_window_template .= "\t\t\t" . '<span><%= address2 %></span>' . "\r\n";
+        $cpt_info_window_template .= "\t\t\t" . '<% } %>' . "\r\n";
+        $cpt_info_window_template .= "\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n"; 
+        $cpt_info_window_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone">'.$phonesec.'</span>' . "\r\n";
+        $cpt_info_window_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-fax">'.$faxsec .'</span>' . "\r\n";
+        $cpt_info_window_template .= "\t\t" . '</p>' . "\r\n";
+        $cpt_info_window_template .= "\t" . '</div>';
+
+        return $cpt_info_window_template;
+      }
