@@ -20,7 +20,6 @@ else{
   $rootID=26690;
 }
 
-
  ?>
 
 <div class="cc-breadcrumb">
@@ -40,9 +39,7 @@ echo ' > ' ; ?><span class="cc-bread-current"><?php echo get_the_title().' '.get
 	<div class="inerblock_sec">
 		<div class="col-md-3 no-pl">
         <div class="meromm">
-			<ul class="guide_list_cbg">
-
-
+			
 <?php 
  $res = get_field('buying_guide_archive', get_the_id());
 
@@ -52,6 +49,7 @@ echo ' > ' ; ?><span class="cc-bread-current"><?php echo get_the_title().' '.get
         
         $i = 0;
         if($res){
+          echo '<ul class="guide_list_cbg">';
         foreach ($res as $rs) {
             $i++;
 ?>
@@ -61,6 +59,7 @@ echo ' > ' ; ?><span class="cc-bread-current"><?php echo get_the_title().' '.get
                      
                   <?php
         }
+          echo '</ul>';
       }
  }
  else{
@@ -75,11 +74,16 @@ $args = array(
 
 
 $parent = new WP_Query( $args );
-while($parent->have_posts()){
-    $parent->the_post();
-    
-     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). ' FAQ <i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
-}
+
+  if( $parent->have_posts() ) {
+    echo '<ul class="guide_list_cbg">';
+    while($parent->have_posts()){
+        $parent->the_post();
+        
+         echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). ' FAQ <i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+    }# end-while
+    echo '</ul>';
+  }# end-if
 wp_reset_query();
 
  }
@@ -87,14 +91,15 @@ wp_reset_query();
 </ul>
 
 <?php 
-if($post->ID==$rugID || $post->ID==$hardID){
+#if($post->ID==$rugID || $post->ID==$hardID){
+$button_title = get_field( 'button_title' );
+$button_link = get_field( 'button_link' );
+if( '' != $button_title && '' != $button_link ) {
 ?>
-<!-- here comes certain contains in future if neaded..  -->
-<div class="nowspe nowsppe"><a href="<?php
-echo (strcasecmp($cat_link, 'halt') != 0) ? $cat_link : 'javascript:void(0)';
-?>"> SHOP NOW </a></div>
-<?php }?>
-
+<div class="nowspe nowsppe">
+  <a href="<?php echo $button_link; ?>" title="<?php echo $button_title; ?>"><?php echo $button_title; ?></a>
+</div>
+<?php } ?>
             </div>
             <div class="clearfix"></div>
 		</div>
