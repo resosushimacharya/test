@@ -415,14 +415,19 @@ function  csv_import_rugs($csv)
         	update_post_meta( $new_post_id, 'instructional_video',$csv[49]);
        
 		/* end option section */
+
+       /*    */
+       $width  =  str_replace("mm","",$csv[13]);
+       $length  = str_replace("mm","",$csv[12]);
+       $thick = str_replace("mm","",$csv[15]);
 		update_post_meta( $new_post_id, '_regular_price', $csv[44] );
 		/*update_post_meta( $new_post_id, '_sale_price', $csv[44] );*/
 		update_post_meta( $new_post_id, '_price', $csv[44] );
 		update_post_meta($new_post_id,'state',$csv[0]);
 		update_post_meta( $new_post_id, '_visibility', 'visible' );
-		update_post_meta( $new_post_id, '_length', $csv[12]);
-		update_post_meta( $new_post_id, '_width', $csv[13]);
-		update_post_meta( $new_post_id, '_height', $csv[15]);
+		update_post_meta( $new_post_id, '_length', $length);
+		update_post_meta( $new_post_id, '_width', $width );
+		update_post_meta( $new_post_id, '_height', $thick);
 		update_post_meta( $new_post_id, 'product_thickness_veneer', $csv[14]);
 		update_post_meta( $new_post_id, '_featured', 'no' );
 	    update_post_meta($new_post_id,'discount',$csv[17]);
