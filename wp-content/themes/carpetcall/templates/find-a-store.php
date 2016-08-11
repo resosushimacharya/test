@@ -163,7 +163,7 @@
                 </div>
             </p>
             <div class="clearfix"></div>
-            <div class="cc-cat-store-item clearfix"><span class="wpsl-hf-street"><?php echo get_post_meta($post->ID,'wpsl_address',true );?></span>
+            <div class="cc-store-map-last-cover clearfix"><span class="wpsl-hf-street"><?php echo get_post_meta($post->ID,'wpsl_address',true );?></span>
                 
             <span class="wpsl-hf-street-a"><?php echo $zip.' '.$city.' '.$state;?></span>
             <span class="wpsl-hf-country"><?php echo $country;?></span>
