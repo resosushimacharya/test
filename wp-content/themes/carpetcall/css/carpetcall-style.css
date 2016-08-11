@@ -654,7 +654,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .frm-blk .input-group .btn { float:right; height:45px; border:0; border-radius:0; outline:0; background-color:#e7edf8; } 
 .midlt {font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; text-transform:uppercase; text-align:center; padding:0 16px;}
 .frm-blk .btn { font:bold 14px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-transform:uppercase; text-align:center; background-color:#c32428; border-radius:0; border:0; height:45px; width:29.6%;  }
-.nearstore, .nearstore-a {padding:0 0 35px 0;}
+.nearstore, .nearstore-a {padding:0 0 35px 0; display:inline-block; }
 .clostor-blk {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding-bottom:10px; margin-bottom:2px;}
 .nearstore .col-md-12, .nearstore-a .col-md-12{ padding:0;}
 .nearstore .col-md-12 .col-md-4:nth-child(1), .nearstore-a .col-md-12 .col-md-4:nth-child(1) { width:31.2%;}
@@ -1342,7 +1342,13 @@ opacity: 0.5;
 .cc-cat-sub-desc-sec p span strong {font:700 20px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; }
 .cc-cat-sub-desc-sec ul { margin:0 0 0 17px; }
 .cc-cat-sub-desc-sec ul li {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-bottom:23px;}
-.panel-body-table table { width:100%; margin:15px 0; font:normal 15px 'proxima_nova_rgregular', sans-serif; color:#666666; border-spacing:4px; text-align:left; }
+.panel-body-table table { width:100%; margin:15px 0; font:normal 15px 'proxima_nova_rgregular', sans-serif; color:#666666; border-spacing:4px; text-align:left; border-collapse: separate;
+	 -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px; }
 .panel-body-table tr.bg_table { background-color:#d0ebfd; }
 .panel-body-table td { vertical-align:top; line-height:30px; }
-.panel-body-table td strong { font-weight:700; color:#0e0e0e;}
+.panel-body-table td strong { font-weight:700; color:#0e0e0e; padding-left:2px;}
