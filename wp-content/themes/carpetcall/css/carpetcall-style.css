@@ -56,7 +56,11 @@
 focus {outline:none;}
 img { display:block; border:0; }
 ul, li { padding:0; margin:0; }
-h1, h2, h3, h4, h5, h6 {margin:0;}
+h1 {margin:0; font-size:36px; color:#15489f;}
+h2 {margin:0; font-size:24px; color:#0099ff;}
+h3 {margin:0; font-size:18px; color:#0099ff;}
+h4 {margin:0; font-size:16px; color:#0099ff;} 
+h5 {margin:0; font-size:12px; color:#0099ff;}
 
 p {margin: 2px 0; font:normal 0.875em/150% 'proxima_nova_rgregular', sans-serif; color:#333333;  }
 html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-size: 100%; background:#fff; color:#000; line-height:150%; }
@@ -1338,3 +1342,7 @@ opacity: 0.5;
 .cc-cat-sub-desc-sec p span strong {font:700 20px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; }
 .cc-cat-sub-desc-sec ul { margin:0 0 0 17px; }
 .cc-cat-sub-desc-sec ul li {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-bottom:23px;}
+.panel-body-table table { width:100%; margin:15px 0; font:normal 15px 'proxima_nova_rgregular', sans-serif; color:#666666; border-spacing:4px; text-align:left; }
+.panel-body-table tr.bg_table { background-color:#d0ebfd; }
+.panel-body-table td { vertical-align:top; line-height:30px; }
+.panel-body-table td strong { font-weight:700; color:#0e0e0e;}
