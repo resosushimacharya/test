@@ -167,7 +167,7 @@
                 
             <span class="wpsl-hf-street-a"><?php echo $zip.' '.$city.' '.$state;?></span>
             <span class="wpsl-hf-country"><?php echo $country;?></span>
-            </div>>
+            </div>
             <span class="wpsl-hf-street-b"><strong>P: </strong><?php echo  $phone ;?></span>
             <span class="wpsl-hf-street-c"><strong>F: </strong> <?php echo $fax;?></span>
                 
