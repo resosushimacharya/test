@@ -22,6 +22,8 @@ else $aboutID =317;
 */
 $id = get_the_id();
 $ancestors = get_post_ancestors( $id );
+#print_r( $ancestors );
+#exit;
 // reverse array to maintain correct ancestor order
 $ancestors = array_reverse ( $ancestors );
 $size      = count( $ancestors );
@@ -65,13 +67,32 @@ $size      = count( $ancestors );
         <div class="inerblock_sec">
             <div class="col-md-3 no-pl">
             <?php
-                // hide left navigation for sub-sub-pages ( third-level and more )
+                // show top-level navigation for About Us page
                 if( $size == 1 || $aboutID == $id) {
             ?>
                 <div class="meromm">
                     <ul class="guide_list_cbg">
                         <?php
                             $ancestor_id = (!empty( $ancestors )) ? $ancestors[0] : $id;
+                            $all_about_pages = array(
+                                'child_of'  => $ancestor_id ,
+                                'depth'     => 1,
+                                'link_after'=> '<i class="fa fa-caret-right" aria-hidden="true"></i>',
+                                'title_li'  => ''
+                            );
+                            wp_list_pages( $all_about_pages );
+                        ?>                        
+                    </ul><!-- end .guide_list_cbg -->
+                </div><!-- end .meromm -->
+            <?php } #end-if 
+
+                // show inner-page navigation
+                else {
+            ?>
+                <div class="meromm">
+                    <ul class="guide_list_cbg">
+                        <?php
+                            $ancestor_id = (!empty( $ancestors )) ? $ancestors[$size-1] : $id;
                             $all_about_pages = array(
                                 'child_of'  => $ancestor_id ,
                                 'depth'     => 1,
