@@ -655,11 +655,11 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .midlt {font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; text-transform:uppercase; text-align:center; padding:0 16px;}
 .frm-blk .btn { font:bold 14px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-transform:uppercase; text-align:center; background-color:#c32428; border-radius:0; border:0; height:45px; width:29.6%;  }
 .nearstore, .nearstore-a {padding:0 0 35px 0; display:inline-block; }
+.cc-store-pul-block { min-height:125px; }
 .clostor-blk {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding-bottom:10px; margin-bottom:2px;}
 .nearstore .col-md-12, .nearstore-a .col-md-12{ padding:0;}
-.nearstore .col-md-12 .col-md-4:nth-child(1), .nearstore-a .col-md-12 .col-md-4:nth-child(1) { width:31.2%;}
-.nearstore .col-md-4:nth-child(2), .nearstore-a .col-md-4:nth-child(2) { width:31.2%; margin:0 26px 0 22px; }
-.nearstore .col-md-4:nth-child(3), .nearstore-a .col-md-4:nth-child(3) { width:31.2%; }
+.nearstore .col-md-12 .col-md-4 { width:33.33%;}
+
 .str-one { border:1px solid #e7edf8; padding:33px 25px 30px 26px; min-height:250px;}
 .str-one h4 {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; margin-bottom:10px;}
 .str-one p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; line-height:24px; margin:0;}
@@ -670,9 +670,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .str-two p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; line-height:24px; margin:0;}
 .str-two h5 {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#144a9f; line-height:24px; margin:0;}
 .pclt { font-weight:700; color:#0296ff;}
-.nearstore .col-md-4:nth-child(1) .str-two h5 { margin-top:24px;}
-.nearstore-a .col-md-4:nth-child(1) .str-two h5 { margin-top:24px;}
-.nearstore-a .col-md-4:nth-child(2) .str-two h5 { margin-top:24px;}
+
 
 
 
@@ -886,6 +884,7 @@ ul.cat_list li a:hover {color:#000;}
 .inerblock_serc_child .cc-breadcrumb > span.cc-bread-root a, .inerblock_serc_child .cc-breadcrumb > span.cc-bread-parent a { font-size:12px; color:#15489f; text-transform:uppercase; text-decoration:none; margin:0 2px; }
 .inerblock_serc_child .cc-breadcrumb > span.cc-bread-root a:hover, .inerblock_serc_child .cc-breadcrumb > span.cc-bread-parent a:hover { cursor:pointer;}
 .inerblock_serc_child .cc-breadcrumb > span.cc-bread-current { font-size:12px; text-transform:uppercase; color:#666666; text-decoration:none; margin:0 2px; }
+
 .inerblock_serc_child h3 {font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; border-bottom:1px solid #6383b9; display:inline-block; margin-bottom:12px; line-height:26px;}
 .cbg_content #guide_item_1, .cbg_content #guide_item_2, .cbg_content #guide_item_3 { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:24px;}
 .cbg_content p {font-family:'proxima_nova_rgregular', sans-serif; font-size:16px !important; line-height:24px !important; color:#666666;}
