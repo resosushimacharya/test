@@ -18,6 +18,7 @@ wp_title("");?>
 
 </title>
 <?php 
+
  if(is_single() && get_post_type()=='product'){
     global $post;
    
@@ -25,6 +26,7 @@ wp_title("");?>
     $image =  wp_get_attachment_url(get_post_thumbnail_id($post->ID));
    
     ?>
+    
 <meta http-equiv="Cache-Control" content="no-cache"/>
 <!-- facebook share   -->
 <meta name="twitter:card" content="summary_large_image">
@@ -34,32 +36,30 @@ wp_title("");?>
 <meta name="twitter:site" content="@carpetcall" />
 <meta name="twitter:creator" content="@carpetcall">
 
-<meta property="og:url" content="<?php echo get_permalink(); ?>" />
-<meta property="og:site_name" content="Carpetcall" />
-<meta property="og:title" content="<?php echo get_the_title(); ?> " />
 
-<meta property="fb:app_id" content="312823042383349" />
 
-<meta property="og:type" content="article" />
-<meta itemprop="og:headline" content="<?php echo get_the_title(); ?> " />
-<meta itemprop="og:description" content="<?php echo get_the_title(); ?>" />
-
-<meta property="og:description" content="<?php echo get_the_title(); ?>" />
-
-<meta property="og:image" content="<?php echo  $image; ?>" />
-<link rel="image_src" href="<?php echo  $image; ?>"/>
 
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
+<link rel="image_src" href="<?php echo  $image; ?>"/> 
+<meta name="description" content="<?php echo get_the_excerpt();?>"/>
+<meta property="og:title" content="<?php echo get_the_title(); ?>"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="<?php echo get_permalink(); ?>"/>
+<meta property="og:image" content="<?php echo  $image; ?>"/>
+<meta property="og:site_name" content="Carpet Call"/>
+<meta property="fb:admins" content="hansu.shrestha.9"/>
+<meta property="og:description" content="<?php echo get_the_excerpt();?>"/>
+
+
+
                 <?php }
                 ?>
 
 <?php
 
-
-wp_head();
- if(isset($_SESSION['testing'] ) && (time() - $_SESSION['testing'] > 300)){
-     $_SESSION['use_curr_loc']="0";
+ if(isset($_SESSION['testing'] ) && (time() - $_SESSION['testing'] > 30)){
+     $_SESSION['use_curr_loc']="0";unset($_SESSION['cc_loc_name']);
   }
 ?>
 
@@ -143,7 +143,7 @@ function codeLatLng(lat, lng) {
         currentplace =   results[0].formatted_address;
        
         document.getElementById("cc_cuurent_location_name").value = currentplace;
-        alert(currentplace);
+       
         document.locform.submit();
        //document.getElementById("cc_control_map").submit();
         //find country name
@@ -206,10 +206,13 @@ function codeLatLng(lat, lng) {
 
 
 
+
+<?php wp_head();?>
 </head>
 <body <?php
 body_class();
 ?> >
+
 <?php
 if(get_post_type() == 'product'){?>
 	<div id="loading_overlay_div">
@@ -238,10 +241,14 @@ get_search_form();
                 
                 <div class="col-md-4 no-lr">
                 <div class="callinfo">
-                  <h2 class="calme callmea"><a href="tel:<?php
-                        echo get_field('telephone_link', '89',false);
-                                ?>"><?php
+                <?php $x=  get_field('telephone', '89',false);
+   $x = preg_replace('/\s+/', '', $x);
+   $x = '+61'.$x;   ?>
+                  <h2 class="calme callmea">
+                  <a href="tel:<?php
+                        echo $x; ?>"><?php
 echo get_field('telephone', '89',false);
+
 ?> </a></h2>
                     <h3 class="subcl"><?php
 echo get_field('contact_label', '89',false);
