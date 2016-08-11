@@ -508,6 +508,7 @@ wp_reset_postdata();
 
 
 <!-- PICK UP LOCATIONS -->
+<?php get_template_part( 'templates/head', 'office' );?>
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 

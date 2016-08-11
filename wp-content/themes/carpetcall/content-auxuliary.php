@@ -35,12 +35,14 @@ $state = '';
 $city = '';
 $direction = '';
 $storeID = $loop->post->ID;
+$phonesec = '<li class="cc-head-wpsl-phone cc-head-wpsl-phone-abs"><span>P:</span>'.$phone.'</li>';
 if(array_key_exists('wpsl_phone',$getinfo)){
  $phone = $getinfo['wpsl_phone'][0];$phone = $getinfo['wpsl_phone'][0];
    $x=  $phone;
    $x = preg_replace('/\s+/', '', $x);
    $x = '+61'.$x;  
-   $phone = ' <a class="phone" href="tel:'.$x.'">'.$phone.' </a>';
+   $phone = '<a class="phone" href="tel:'.$x.'">'.$phone.' </a>';
+   $phonesec = '<li class="cc-head-wpsl-phone"><span>P:</span>'.$phone.'</li>';
 }
 if(array_key_exists('wpsl_phone',$getinfo)){
  $fax = $getinfo['wpsl_fax'][0];
@@ -58,7 +60,7 @@ $combcsz =$city.' '.$state.' '.$zip;
 $title ='<li class="cc-head-wpsl-title">'.$title .'</li>';
 $add ='<li class="cc-head-wpsl-adrs">'.$add .'</li>';
 $combcszsec ='<li class="cc-head-wpsl-csz">'.$combcsz.'</li>';
-$phonesec = '<li class="cc-head-wpsl-phone"><span>P:</span>'.$phone.'</li>';
+
 $faxsec = '<li class="cc-head-wpsl-fax"><span>F:</span> '.$fax.'</li>';
 $direction =$combcsz;
  $val = "res";
