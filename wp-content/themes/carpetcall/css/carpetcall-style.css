@@ -574,10 +574,11 @@ ul.guide_list_cfaq li .fa { float:right; margin-top:8px; color:#c32327;}
 ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsemibold',sans-serif; color:#15489f; text-decoration:none; text-transform:uppercase; margin-bottom:10px;}
 .faq-cont-blka .col-md-9 { padding-left:5px;}
 .cont-panl { border-top:1px solid #efefef;}
+.cbg_content .panel-group { margin:0 !important;}
 .panel-group .panel{ border-radius:0; border-left:0; border-right:0; border-top:0; border-bottom:1px solid #efefef; box-shadow:none; -webkit-box-shadow:none; padding-bottom:11px;}
 .faq-cont-blka .panel-default>.panel-heading, .faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body { background:none; border:none; border-radius:0; padding: 0}
 .faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body{padding:0 35px 0 40px; font-size:18px; line-height:21px;}
-.faq-cont-blka .panel-default>.panel-heading a{position: relative;width: 100%;display: block;padding:15px; text-decoration:none; color:#0099ff; font:bold 18px 'proxima_nova_ltsemibold',sans-serif; text-transform:uppercase; }
+.faq-cont-blka .panel-default>.panel-heading a{position: relative;width: 100%;display: block;padding:15px 15px 4px 15px; text-decoration:none; color:#0099ff; font:bold 18px 'proxima_nova_ltsemibold',sans-serif; text-transform:uppercase; }
 .faq-cont-blka .panel-body p {font:normal 18px/21px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-right:30px;}
 .panel-group .panel+.panel { margin:0;}
 .faq-cont-blka .glyphicon-chevron-down:before{
