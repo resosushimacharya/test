@@ -53,11 +53,13 @@ $rootcheck = get_post_meta($post->ID);
                    		if($cat->parent==0){
                    			
                    			if(strcasecmp($cat->slug, 'rugs')==0){
+								$top_cat_slug = 'rugs';
                    				wc_get_template_part( 'content', 'single-rugs-product' );
                    			}
                    		
                    	
                    			if(strcasecmp($cat->slug, 'hard-flooring')==0){
+								$top_cat_slug = 'hard-flooring';
                    				wc_get_template_part( 'content', 'single-hard-flooring-product' );
                    			}
                    		

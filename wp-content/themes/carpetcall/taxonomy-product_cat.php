@@ -21,24 +21,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 <?php
+	$current_cat = get_term_by('slug',get_query_var('product_cat'),'product_cat');
 	$ancestors = get_ancestors( $current_cat->term_id, 'product_cat' );
 	$depth = count($ancestors) ; 
-	if($depth == 2 ){
+	if($depth >= 2 ){
 		//We will only have template for depth level 0 and 1, third level category won't be listed here
 		return ;
 		}
 
-$current_cat = get_term_by('slug',get_query_var('product_cat'),'product_cat');
 $top_cat = smart_category_top_parent_id($current_cat->term_id,'product_cat');
 if($top_cat){
 	$top_cat_obj = get_term_by('id',$top_cat,'product_cat');
 	$top_cat_slug = $top_cat_obj->slug;
 	get_template_part('templates/category',$top_cat_slug);
-
 	}
-
-
-
 ?>
 
 

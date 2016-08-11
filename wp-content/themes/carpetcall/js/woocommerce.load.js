@@ -50,7 +50,7 @@ jQuery(document).on('change','select#cc-size',function(e){
 	
 jQuery(document).on('click','.single-product .images .thumbnails img',function(e){
 	e.preventDefault();
-	var img = jQuery(this).attr('src');
+	var img = jQuery(this).parent('a').attr('href');
 	jQuery(this).parents('.images').find('.main-image-wrapper .woocommerce-main-image img').attr('srcset',img).attr('src',img);
 	});
 

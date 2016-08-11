@@ -91,7 +91,7 @@ function testing($link,$term_obj,$taxonomy){
 *
 * Run only once when we need to update the old existing products
 */
-add_action('wp_head','set_colour_metadata');
+//add_action('wp_head','set_colour_metadata');
 function set_colour_metadata(){
 	$args = array( 'post_type' => 'product', 'posts_per_page' => -1,);
 	$products = get_posts($args);
@@ -106,7 +106,7 @@ function set_colour_metadata(){
 *
 * Run only once when we need to update the old existing products
 */
-add_action('wp_head','set_sizes_metadata');
+//add_action('wp_head','set_sizes_metadata');
 function set_sizes_metadata(){
 	$args = array( 'post_type' => 'product', 'posts_per_page' => -1,);
 	$products = get_posts($args);
@@ -129,8 +129,7 @@ function get_category_depth($catid){
             return get_depth($catid, $depth, $i);
 	
 	}
-	
-	
+
 /*
 /* Function to show block with slider in category page and also used for ajax load more
 */
@@ -611,3 +610,37 @@ function cc_load_product_ajax(){
 	
 	
 	}
+	
+if ( ! function_exists( 'woocommerce_template_single_hardflooring_price' ) ) {
+
+	/**
+	 * Output the product title.
+	 *
+	 * @subpackage	Product
+	 */
+	function woocommerce_template_single_hardflooring_price() {
+		wc_get_template( 'single-product/hardflooring/price.php' );
+	}
+}
+if ( ! function_exists( 'woocommerce_template_single_hardflooring_metainfo' ) ) {
+
+	/**
+	 * Output the product title.
+	 *
+	 * @subpackage	Product
+	 */
+	function woocommerce_template_single_hardflooring_metainfo() {
+		wc_get_template( 'single-product/hardflooring/metainfo.php' );
+	}
+}
+if ( ! function_exists( 'woocommerce_template_single_hardflooring_title' ) ) {
+
+	/**
+	 * Output the product title.
+	 *
+	 * @subpackage	Product
+	 */
+	function woocommerce_template_single_hardflooring_title() {
+		wc_get_template( 'single-product/hardflooring/title.php' );
+	}
+}
