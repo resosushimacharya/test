@@ -42,6 +42,7 @@ get_header();
             <?php 
 
              	$rows = get_field('clearance__posts',$post->ID);
+                if( $rows ) {
              	foreach($rows as $row):?>
              	<div class="col-md-12 cc-clearance-row">
              	<?php
@@ -73,28 +74,34 @@ src="<?php echo $videolink;?>
                     	$win = $row['window']; 
                     	if(strcasecmp($row['ad_type'],'doc')!=0){?>
                     	<?php $link=null;
-                        if($row['link_url']){
+                        if($row['link_url'] && $row['link_title']){
                         $link = $row['link_url'];	
-                        }
-                    	?>
-                    	
-                    	<div class="nowspe nowsppe pull-right">
-                    	<a href="<?php echo ($link!=null)? $link: 'javascript:void(0)';?>" 
-						<?php  echo (strcasecmp($win, 'yes')== 0)?'target="_blank"':null;?>>
-                        <?php echo $row['link_title'];?>
+                        $title = $row['link_title'];  
+                        ?>
+                        <div class="nowspe nowsppe pull-right">
+                        <a href="<?php echo $link;?>" <?php echo (strcasecmp($win, 'yes')== 0)?'target="_blank"':null;?>>
+                            <?php echo $title;?>
                         </a>
                         </div>
+                        <?php } ?>
+                    	
                     <?php } else 
                     {
+                            $win = $row['window']; 
+                            $doc_url = $row['featured_document']['url'];
+                            $title = $row['link_title'];
+
+                            if( $doc_url && $title ) {
                     	?>
 	                    <div class="nowspe nowsppe pull-right">
-	                    <a href="<?php echo ($row['featured_document']['url'])? $row['featured_document']['url']: 'javascript:void(0)';?>"  
-	                     <?php  echo (strcasecmp($win, 'yes')== 0)?'target="_blank"':null;?>>
-	                     <?php echo $row['link_title'];?> 
+	                    <a href="<?php echo $doc_url; ?>" target="_blank">
+	                     <?php echo $title;?> 
 	                     </a>
 	                     </div>
 
-                    <?php }
+                    <?php 
+                            }#end-if
+                        }#end-else
                     ?>
 
                     </div>
@@ -102,6 +109,7 @@ src="<?php echo $videolink;?>
 </div>
 
             <?php  endforeach;
+        }# end-if
 			?>
 
 
