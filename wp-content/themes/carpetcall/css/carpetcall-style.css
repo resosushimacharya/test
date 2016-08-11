@@ -613,9 +613,16 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
  .main-image-wrapper {min-height:373px;}
 .main-image-wrapper a img {min-height:373px;}
 .main-image-over-wrapper { position:absolute; right:0; bottom:36px; pointer-events: none;}
-.woocommerce div.product div.images div.thumbnails { padding-top:0.75em;}
+
+.woocommerce div.product div.images div.thumbnails { padding-top:0.75em; margin:-10px;}
 .thumbnails.columns-3 > a.first img,  a.zoom img{ min-width:175px; max-height:115px; }
-.woocommerce-page div.product div.thumbnails a { margin-right:3.4%; margin-bottom:30px; }
+.woocommerce-page div.product div.thumbnails a { width:33.33%; margin:0 0 30px 0; border:10px solid #fff; }
+
+.woocommerce div.product div.images div.cc_custom_gal_thumb  { padding-top:0.75em; margin:-10px;}
+.cc_custom_gal_thumb .columns-3 > a.first img,  a.zoom img{ min-width:175px; max-height:115px; }
+.woocommerce-page div.product div.cc_custom_gal_thumb  a { width:33.33%; margin:0 0 30px 0;  border:10px solid #fff;}
+
+
 .mod-social { display:inline-block; padding:0;}
 .mod-social .cc-share-title{ float:left; font:bold 16px/25px 'proxima_nova_ltsemibold',sans-serif; color:#666666; margin-right:5px;}
 .images .mod-social a{ padding:0 10px 0 0;}
