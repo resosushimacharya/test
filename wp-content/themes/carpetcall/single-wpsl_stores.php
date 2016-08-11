@@ -74,7 +74,7 @@ else{
 </div>
 <div class="col-md-6 pull-right"><?php 
 echo '<a href="'. $backurl.'"><' ;?>
- VIEW ALL STORE</a>
+ VIEW ALL STORES</a>
 </div>
 </div>
 
@@ -94,7 +94,7 @@ echo '<a href="'. $backurl.'"><' ;?>
             $res =  apply_filters('cc_current_location_filter',$val);
              global $post;
       $getinfo = get_post_meta($post->ID);
-$phone = '-';
+$phone = ' -';
 $fax = '-';
 
 if(array_key_exists('wpsl_phone',$getinfo)){
@@ -112,9 +112,9 @@ if(array_key_exists('wpsl_fax',$getinfo)){
        
        <a href="https://maps.google.com/maps?saddr=<?php echo $res;?>&daddr=<?php echo $url['wpsl_address'][0].' '.$url['wpsl_city'][0];?>" target="_blank">GET DIRECTIONS</a>
        </div>
-       <div class="wpsl-phone-sec">
-       <span class="cc-cat-store-item-phone"><strong>P:</strong><?php echo $phone ;?></span>
-      <span class="cc-cat-store-item-fax"><strong>F:</strong><?php echo $fax ;?></span>    
+       <div class="wpsl-phone-sec cc-single-wpsl-ccstore">
+       <span class="cc-cat-store-item-phone"><strong>CALL:</strong><?php echo $phone ;?></span>
+      <span class="cc-cat-store-item-fax"><strong>FAX:</strong> <?php echo $fax ;?></span>    
        <div class="cc-str-cntblk cc-str-cntblk-a cc-str-cntblk-a-map clearfix"><a href="http://staging.carpetcall.com.au/contact-us/?id=<?php echo $post->ID;?>" class="cc-contact-link">CONTACT STORE</a></div>
        </div>
        
