@@ -20,14 +20,19 @@ $storeID =26771 ;
     
     <div class="col-md-6 no-pl"><!-- about start here -->
     <div class="intro">
-        <?php $about = get_post($aboutID);
+        <?php 
+            $about = get_post($aboutID);            
         ?>
-        <h1> <?php echo get_field('home_about_heading','option') ;?></h1>
-        <?php echo apply_filters('the_content',$about->post_content); ?>
-        
-        <?php $aboutlink = get_field('about_carpetcall_link',$aboutID);
-        ?>
-        <div class="rmore rmoree"><?php echo $aboutlink;?></div><div class="clearfix">  </div>
+        <h1><?php echo get_field('home_about_heading','option') ;?></h1>
+        <?php 
+            // load About Us Home Content from About Us page ( custom field )
+            $about_us_home_content = get_field( 'about_carpetcall_home_content' , $aboutID );
+            echo apply_filters( 'the_content' , $about_us_home_content ); 
+        ?>            
+        <div class="rmore rmoree">
+            <a href="<?php echo get_the_permalink( $aboutID ); ?>" title="<?php echo $about->post_title; ?>"><?php _e('Read More' , 'carpetcall'); ?></a>
+        </div>
+        <div class="clearfix">  </div>
     </div>
     </div><!-- about end here -->
     
