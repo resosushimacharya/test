@@ -618,15 +618,20 @@ wp_reset_postdata();
             </tr>
         </table>
       </div>
+      <div class="recommended_acc_static">
+      	<img src="<?php echo get_template_directory_uri()?>/images/underlay_rec.jpg">
+        <span><?php _e('UNDERLAY','carpetcall')?></span>
+      </div>
+      
       <?php
-	   
+	  /* 
 	   $args = array('post_type' => 'product',
         'tax_query' => array(
             array(
                 'taxonomy' => 'product_cat',
 				'posts_per_page'=>-1,
                 'field' => 'slug',
-                'terms' => 'accessories',
+                'terms' => 'underlay',
             ),
         ),
      );
@@ -645,6 +650,8 @@ wp_reset_postdata();
      ?>
      </div>
      <?php }
+	 
+	 */
 	 
 	 
 	 /* if(get_field('accessories',get_the_ID())){?>
