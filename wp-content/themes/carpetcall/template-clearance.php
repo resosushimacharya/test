@@ -54,7 +54,7 @@ get_header();
                       </div>
                   <?php }
                    else{ ?>
-                   <?php $videolink = 'http://www.youtube.com/embed/'.$row['featured_video'];?>
+                   <?php $videolink = 'https://www.youtube.com/embed/'.$row['featured_video'];?>
                      	<div class="col-md-4 cc-clearance-left"> <iframe width="100%" height="auto"
 src="<?php echo $videolink;?>
 ">
