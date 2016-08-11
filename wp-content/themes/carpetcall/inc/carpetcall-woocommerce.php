@@ -205,11 +205,10 @@ function woo_new_product_tab( $tabs ) {
 	);
 
 if($top_cat == 'hard-flooring'){
-	
-	$tabs['acces_tab'] = array(
+	$tabs['accesories_tab'] = array(
 		'title' 	=> __( "Accessories", 'woocommerce' ),
-		'priority' 	=> 50,
-		'callback' 	=> 'woo_new_product_tab_access'
+		'priority' 	=> 1,
+		'callback' 	=> 'woo_new_product_tab_accesories'
 	);
 	}
 	return $tabs;
@@ -314,103 +313,102 @@ $list = get_field('buying_guide_archive',$faqid );
   </div>
 <?php	
 }
-function woo_new_product_tab_access() {?>
+function woo_new_product_tab_accesories() {
+	$accessory_term_obj = get_term_by('slug','accessories','product_cat');
+	$acc_cats = get_terms(
+					'product_cat',
+					array(
+						'parent' => $accessory_term_obj->term_id,
+						'hide_empty'=>false,
+					)
+				);
 
-<?php $prourl = site_url();
-      $prourl =explode('/',$prourl);
-      if(strcasecmp($prourl[2], 'localhost')==0){
-      	$profaqid = '1725';
-      }
-      else{
-      	$profaqid = '26721';
-
-      }
-      ?>
-      
-
-     <div class="cont-panl">
-			<div class="panel-group" id="accordion">
-<?php
-global $post;
-$listcat=get_the_terms($post->ID,'product_cat');
-
-foreach($listcat as $cat){
-	if($cat->parent==0){
-		//echo "that's the correct answer";
-		$root = $cat->slug;
-		$rootname = $cat->name;
-	}
-	else{
-		//echo "that's the bullshit answer";
-	}
-}
-$args = array(
-    'post_type'      => 'page',
-    'posts_per_page' => -1,
-    'post_parent'    => $profaqid,
-    'order'          => 'ASC',
-    'orderby'        => 'menu_order',
-    'name' => $root
-
- );
-
-
-$parent = new WP_Query( $args );
-while($parent->have_posts()){
-    $parent->the_post();
-    $faqid =$post->ID;
-
-}
-wp_reset_query();
-
-$list = get_field('buying_guide_archive',$faqid );
-
-?>
-					
-					<?php
-					
-					 $faqcounter = 1;
-					foreach($list as $listitem):
-					
-
+	//$acc_cats = get_term_children( $accessory_term_obj->term_id, 'product_cat' );
+	//do_action('pr',$acc_cats);
+	if(!empty($acc_cats)){?>
+    <div class="cont-panl">
+            <div class="panel-group" id="accordion">
+            	<div class="panel panel-default">
+     <?php
+	 $count = 1;
+		foreach($acc_cats as $acc_cat){?>
+                    <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $acc_cat->term_id;?>">
+                <span class="pull-right glyphicon <?php echo ($faqcounter==1)?'glyphicon-chevron-up':'glyphicon glyphicon-chevron-down'?>"></span>
+                <?php echo $acc_cat->name;?>
+                </a>
+            </h4>
+        </div>
+                    <div id="collapse_<?php echo $acc_cat->term_id;?>" class="panel-collapse collapse <?php echo ($count==1)?'in':'' ;?> ">
+                    <div class="panel-body panel-body-faq">
+                    <?php
+						$acc_products = get_posts(
+											array(
+												'posts_per_page' => -1,
+												'post_type' => 'product',
+												'tax_query' => array(
+													array(
+														'taxonomy' => 'product_cat',
+														'field' => 'term_id',
+														'terms' => $acc_cat->term_id,
+													)
+												)
+											)
+										);
+					//do_action('pr',$acc_products);
+					if(!empty($acc_products)){
+						wp_reset_postdata();
+						foreach($acc_products as $acc_product){
+							global $post,$product;
+							$product  = wc_get_product($acc_product->ID);
+							$post = get_post($acc_product);
+							setup_postdata($post);
+							
+							?>
+							<div class="acc_list_item col-md-4">
+                            	<div class="acc_thumb">
+									<?php echo get_the_post_thumbnail($acc_product->ID,'thumbnail')?>
+								</div>
+                                <h3 class="acc_title_n_cat">
+                                <span class="acc_title"><?php _e($acc_product->post_title,'carpetcall');?></span> 
+                                <span class="acc_subcat"><?php echo 'test'?></span>
+                                </h3>
+                                <span class="acc_price">
+                                	<?php echo $product->get_price_html();?>
+                                </span>
+                                
+                           		<?php $x=do_shortcode('[add_to_cart_url id="'.$acc_product->ID.'"]');?>
+                                <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $acc_product->ID;?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart col-md-12" id="acc_quantity" >ADD TO CART</a>
+                            </div>
+							
+							wp_reset_postdata();
+                            <?php }?>
+                            	 
+                            <?php
+						}
 					
 					
 					?>
+                    
+                            
+                            
+                    </div>
+                    </div>
 
-					      
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $faqcounter;?>">
-          <span class="pull-right glyphicon <?php echo ($faqcounter==1)?'glyphicon-chevron-up':'glyphicon glyphicon-chevron-down'?>"></span>
-          <?php echo $listitem['title'];?>
-        </a>
-      </h4>
+			
+			<?php
+			$count++;
+            }
+			?>
+            </div>
+        </div>
     </div>
-    <div id="collapse_<?php echo $faqcounter;?>" class="panel-collapse collapse <?php echo ($faqcounter==1)?'in':'' ;?> ">
-      <div class="panel-body panel-body-faq">
-      
-        <?php echo $listitem['description']?>
-      
-      </div>
-    </div>
-  </div>
-		
-			<?php 
-			$faqcounter++;
-						if($faqcounter==6){
-				break;
-			}
-
-			endforeach;
-			?>	
-					
-               
-					
-				</div></div>
-  <div class="cc-tab-faq-read-more">
-  	<p>For more answers to your questions, please refer to our <a href="<?php echo get_the_permalink($faqid ); ?>"><?php echo $rootname; ?> FAQ </a> page.</p>
-  </div>
+		<?php
+		}
+	
+	
+	?>
 <?php	
 }
 
@@ -640,17 +638,22 @@ function jk_change_breadcrumb_delimiter( $defaults ) {
 function sv_change_product_price_display( $price ) {
 	global $post;
 	$pro = get_post_meta($post->ID);
-	if (array_key_exists("_sale_price",$pro)){
+	if (array_key_exists("_sale_price",$pro) && $pro['_sale_price'][0]!=''){
 		$prosale = 'A$'.$pro['_sale_price'][0];
+		$price =  '<div class="cc-price-control">
+	<h3><span class="cc-sale-price-title">'.$prosale.'</span> <span class="cc-line-through">A$'.$pro['_regular_price'][0].'</span></h3></div>';
 	}
 	else{
-		$prosale = '';
-	}
-	$price =  '<div class="cc-price-control">
+		$prosale = $prosale = 'A$'.$pro['_regular_price'][0];
+		$price =  '<div class="cc-price-control">
 
-	<h3><span class="cc-sale-price-title">'.$prosale.'</span> <span class="cc-line-through">A$'.$pro['_regular_price'][0].'</span></h3></div>';
+	<h3><span class="cc-sale-price-title">'.$prosale.'</span> </h3></div>';
+	}
 
 	return $price;
+	
+	
+	
 }
 add_filter( 'woocommerce_get_price_html', 'sv_change_product_price_display' );
 remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );

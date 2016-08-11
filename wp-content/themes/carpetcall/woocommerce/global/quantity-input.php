@@ -67,7 +67,8 @@ $(document).ready(function() {
             $(".add_to_cart_button").attr('data-quantity',$stoq);
               $(".add_to_cart_button").data('quantity',$stoq);
 			  if(sizem2){
-				  jQuery('.total_coverage .coverage_value').text($stoq*sizem2);
+				  var total_cov = $stoq*sizem2;
+				  jQuery('.total_coverage .coverage_value').text((total_cov.toFixed(2)));
 				  }
          }
          else{
