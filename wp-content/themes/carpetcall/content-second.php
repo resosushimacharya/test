@@ -20,7 +20,6 @@ else{
   $rootID=26690;
 }
 
-
  ?>
 
 <div class="cc-breadcrumb">
@@ -87,14 +86,15 @@ wp_reset_query();
 </ul>
 
 <?php 
-if($post->ID==$rugID || $post->ID==$hardID){
+#if($post->ID==$rugID || $post->ID==$hardID){
+$button_title = get_field( 'button_title' );
+$button_link = get_field( 'button_link' );
+if( '' != $button_title && '' != $button_link ) {
 ?>
-<!-- here comes certain contains in future if neaded..  -->
-<div class="nowspe nowsppe"><a href="<?php
-echo (strcasecmp($cat_link, 'halt') != 0) ? $cat_link : 'javascript:void(0)';
-?>"> SHOP NOW </a></div>
-<?php }?>
-
+<div class="nowspe nowsppe">
+  <a href="<?php echo $button_link; ?>" title="<?php echo $button_title; ?>"><?php echo $button_title; ?></a>
+</div>
+<?php } ?>
             </div>
             <div class="clearfix"></div>
 		</div>
