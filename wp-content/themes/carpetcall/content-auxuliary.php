@@ -36,6 +36,7 @@ $city = '';
 $direction = '';
 $storeID = $loop->post->ID;
 $phonesec = '<li class="cc-head-wpsl-phone cc-head-wpsl-phone-abs"><span>P:</span>'.$phone.'</li>';
+$faxsec = '<li class="cc-head-wpsl-fax cc-head-wpsl-fax-abs"><span>F:</span> '.$fax.'</li>';
 if(array_key_exists('wpsl_phone',$getinfo)){
  $phone = $getinfo['wpsl_phone'][0];$phone = $getinfo['wpsl_phone'][0];
    $x=  $phone;
@@ -46,6 +47,7 @@ if(array_key_exists('wpsl_phone',$getinfo)){
 }
 if(array_key_exists('wpsl_phone',$getinfo)){
  $fax = $getinfo['wpsl_fax'][0];
+ $faxsec = '<li class="cc-head-wpsl-fax"><span>F:</span> '.$fax.'</li>';
 }
 if(array_key_exists('wpsl_city',$getinfo)){
   $city  = $getinfo['wpsl_city'][0];
@@ -61,7 +63,7 @@ $title ='<li class="cc-head-wpsl-title">'.$title .'</li>';
 $add ='<li class="cc-head-wpsl-adrs">'.$add .'</li>';
 $combcszsec ='<li class="cc-head-wpsl-csz">'.$combcsz.'</li>';
 
-$faxsec = '<li class="cc-head-wpsl-fax"><span>F:</span> '.$fax.'</li>';
+
 $direction =$combcsz;
  $val = "res";
             $res =  apply_filters('cc_current_location_filter',$val);
