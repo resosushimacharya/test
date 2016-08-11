@@ -357,6 +357,8 @@ function woo_new_product_tab_accesories() {
 											)
 										);
 					//do_action('pr',$acc_products);
+					global $post;
+					$parent = $post;
 					if(!empty($acc_products)){
 						wp_reset_postdata();
 						foreach($acc_products as $acc_product){
@@ -364,7 +366,6 @@ function woo_new_product_tab_accesories() {
 							$product  = wc_get_product($acc_product->ID);
 							$post = get_post($acc_product);
 							setup_postdata($post);
-							
 							?>
 							<div class="acc_list_item col-md-4">
                             	<div class="acc_thumb">
@@ -372,23 +373,48 @@ function woo_new_product_tab_accesories() {
 								</div>
                                 <h3 class="acc_title_n_cat">
                                 <span class="acc_title"><?php _e($acc_product->post_title,'carpetcall');?></span> 
-                                <span class="acc_subcat"><?php echo 'test'?></span>
+                                <span class="acc_subcat">
+								<?php 
+								$categories = get_the_terms($acc_product->ID, 'product_cat' ); 
+								// wrapper to hide any errors from top level categories or products without category
+								if ( $categories ) : 
+									// loop through each cat
+									foreach($categories as $category) :
+									
+									  // get the children (if any) of the current cat
+									  $children = get_categories( array ('taxonomy' => 'product_cat', 'parent' => $category->term_id ));
+									  if ( count($children) == 0 ) {
+										  // if no children, then echo the category name.
+										  echo $category->name;
+										  break;
+									  }
+									endforeach;
+								
+								endif;
+								
+								?>
+                                
+                                </span>
                                 </h3>
                                 <span class="acc_price">
                                 	<?php echo $product->get_price_html();?>
                                 </span>
                                 <div class="acc_qnty">
-                                	<?php
-									echo woocommerce_quantity_input( array( 'min_value' => 1, 'max_value' => $product->backorders_allowed() ? '' : $product->get_stock_quantity() ) );
-									
+                                <?php 
+								if($acc_cat->slug == 'underlay'){
+								$rec_qty = 5;
+								}else{
+									$rec_qty='';}?>
+                                	<span class="acc_qty_lbl"><?php echo ($rec_qty=='')?'':'Rec'?> Qty: </span> <span class="acc_rec_qty"><?php echo $rec_qty?></span><?php
+									echo woocommerce_quantity_input( array( 'min_value' => 1, 'max_value' => $product->backorders_allowed() ? '' : max(20,$product->get_stock_quantity()),'input_value' => ($rec_qty=='')?'1':$rec_qty ) );
 									?>
                                 </div>
                            		<?php $x=do_shortcode('[add_to_cart_url id="'.$acc_product->ID.'"]');?>
-                                <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $acc_product->ID;?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart col-md-12" id="acc_quantity" >ADD TO CART</a>
+                                <a href="<?php echo $x ;?>" data-quantity="<?php echo ($rec_qty=='')?'1':$rec_qty?>" data-product_id="<?php echo $acc_product->ID;?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart col-md-12" id="acc_quantity" >ADD TO CART</a>
                             </div>
-							
+                            <?php 
 							wp_reset_postdata();
-                            <?php }?>
+							}?>
                             	 
                             <?php
 						}
