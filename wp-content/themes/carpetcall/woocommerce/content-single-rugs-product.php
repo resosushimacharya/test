@@ -257,7 +257,7 @@ foreach($filterproGroup as $bundle){
                 } 
                 else{
                   ?>
-                <img class="cc-product_no_image" src="<?php echo site_url();?>/plugins/woocommerce/assets/images/placeholder.png"/>
+                <img class="cc-product_no_image" src="<?php echo get_template_directory_uri();?>/plugins/woocommerce/assets/images/placeholder.png"/>
               <?php } ?>
               
               

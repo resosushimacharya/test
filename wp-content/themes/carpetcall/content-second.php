@@ -158,9 +158,9 @@ if($post->post_parent==$faqID){?>
     </div>
     <div id="collapse_<?php echo $i;?>" class="panel-collapse collapse <?php echo ($i==1)?'in':'' ;?> ">
       <div class="panel-body">
-     
-        <?php echo $rs['description'];?>
-        
+        <div class="panel-body-table">
+          <?php echo $rs['description'];?>
+        </div>
       </div>
     </div>
   </div>
@@ -192,16 +192,24 @@ if($post->post_parent==$faqID){?>
         } );
     } );
 } );
+<?php 
+  // accordion helpers for FAQ articles
+  if($post->post_parent==$faqID) {
+?>
 jQuery(window).load(function() {
-
+    // toggle show-hide of FAQ accordion
     $('.collapse').on('shown.bs.collapse', function(){
-$(this).parent().find(".glyphicon-chevron-down").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");
-}).on('hidden.bs.collapse', function(){
-$(this).parent().find(".glyphicon-chevron-up").removeClass("glyphicon-chevron-up").addClass("glyphicon-chevron-down");
-});
-
+      $(this).parent()
+             .find(".glyphicon-chevron-down")
+             .removeClass("glyphicon-chevron-down")
+             .addClass("glyphicon-chevron-up");
+    }).on('hidden.bs.collapse', function(){
+      $(this).parent()
+             .find(".glyphicon-chevron-up")
+             .removeClass("glyphicon-chevron-up")
+             .addClass("glyphicon-chevron-down");
+  });
+<?php } #end-if ?>
 });
     </script>
-<?php 
-get_footer();
-?>
+<?php get_footer(); ?>

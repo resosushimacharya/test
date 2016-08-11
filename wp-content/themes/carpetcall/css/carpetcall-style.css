@@ -1197,8 +1197,9 @@ input#cc_control_map { background:#c32428; width:267px; height:45px; font:bold 1
 .cc-cat-store-item span { margin-left:32px; font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666; display:block;  }
 span.wpsl-hf-street-b {font:normal 16px/45px 'proxima_nova_rgregular', sans-serif; color:#666666; margin:0; padding-left:32px; width:100%; margin-top:13px; text-decoration:none; }
 
-.cc-cat-store-item .cc-store-map-last-cover { min-height:105px; }
+.cc-cat-store-item .cc-store-map-last-cover { min-height:120px; }
 .page-template-find-a-store .cc-store-map-last-cover { min-height:105px; }
+.wpsl-info-window p span.cc-cat-store-item-phone { line-height:46px; }
 
 .cc-cat-store-section span.cc-cat-store-item-phone a {font:normal 16px/45px 'proxima_nova_rgregular', sans-serif; color:#1858b8; margin:0; padding-left:32px; width:100%; margin-top:13px; text-decoration:none; margin-left:-32px;}
 .cc-cat-store-section span.cc-cat-store-item-phone a:hover {color:#666666; cursor:pointer;}
@@ -1259,6 +1260,7 @@ span.cc-locator-current a {font: normal 12px 'proxima_nova_rgregular', sans-seri
 .cc-single-wpsl-ccstore span.cc-cat-store-item-phone a {font:700 16px/24px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none;}
 .cc-single-wpsl-ccstore span.cc-cat-store-item-phone a:hover { color:#006; cursor:pointer;}
 
+.cc-single-wpsl-ccstore span.cc-cat-store-item-fax-abs {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif!important ; color:#666666 !important;}
 
 .cc-single-wpsl-ccstore span.cc-cat-store-item-fax {font:700 16px/24px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none;}
 

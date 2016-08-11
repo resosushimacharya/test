@@ -34,17 +34,20 @@ jQuery(document).on('click','.select-design-product-image a.select_design',funct
 	e.preventDefault();
 	var url = jQuery(this).attr('href');
 	window.history.pushState("object or string", "Title", url);
-	
 	jQuery.get(url,function(response){
-		document.getElementsByTagName('html')[0].innerHTML = response
+		document.getElementsByTagName('html')[0].innerHTML = response;
+		jQuery(document).trigger('load');
+		jQuery(document).trigger('ready');
+		jQuery(document).find(".main-image-wrapper a.zoom").removeAttr('data-rel').prettyPhoto();
+		//jQuuery("a[rel^='prettyPhoto']").prettyPhoto();
 		});
 	});	
 jQuery(document).on('change','select#cc-size',function(e){
 	var url = jQuery(this).val();
-
 	window.history.pushState("object or string", "Title", url);
 	jQuery.get(url,function(response){
-		document.getElementsByTagName('html')[0].innerHTML = response
+		document.getElementsByTagName('html')[0].innerHTML = response;
+		jQuery(document).find(".main-image-wrapper a.zoom").removeAttr('data-rel').prettyPhoto();
 		});
 	});	
 	
