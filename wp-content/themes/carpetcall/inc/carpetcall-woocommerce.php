@@ -377,7 +377,12 @@ function woo_new_product_tab_accesories() {
                                 <span class="acc_price">
                                 	<?php echo $product->get_price_html();?>
                                 </span>
-                                
+                                <div class="acc_qnty">
+                                	<?php
+									echo woocommerce_quantity_input( array( 'min_value' => 1, 'max_value' => $product->backorders_allowed() ? '' : $product->get_stock_quantity() ) );
+									
+									?>
+                                </div>
                            		<?php $x=do_shortcode('[add_to_cart_url id="'.$acc_product->ID.'"]');?>
                                 <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $acc_product->ID;?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart col-md-12" id="acc_quantity" >ADD TO CART</a>
                             </div>

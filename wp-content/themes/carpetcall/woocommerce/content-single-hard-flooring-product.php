@@ -152,7 +152,7 @@ if($reqTempTerms){
 		 $proGal = get_post_meta( get_the_ID(), '_product_image_gallery', TRUE );
          $proGalId = explode(',',$proGal);
 		 foreach($proGalId as $pgi){
-			  $proImageName =  has_post_thumbnail()?wp_get_attachment_url($pgi):site_url().'/images/placeholder.png';
+			  $proImageName =  has_post_thumbnail()?wp_get_attachment_url($pgi):get_template_directory_uri().'/images/placeholder.png';
 				if(preg_match("/\_V/i", $proImageName))
 				{
 					$reqProImageId = $pgi;
@@ -833,12 +833,6 @@ wrapper close start */?>
                     
     </div>
     </div><!-- step three end here -->
-
-<script>
-$("document").ready(function(){
-    $(".woocommerce-main-image").removeAttr("data-rel");
-});
-</script>
 <style>
   #cc-enquiry-type{display:none;}
   .success_message_wrapper{display:none;}
