@@ -169,6 +169,33 @@ return '';
 add_filter( 'woocommerce_product_tabs', 'woo_new_product_tab' );
 function woo_new_product_tab( $tabs ) {
 	
+	global $product;
+	$post = $product;
+	$top_cat = '';
+	$reqTempTerms=get_the_terms($post->ID,'product_cat');
+                   
+                 
+                if($reqTempTerms){
+                   foreach($reqTempTerms as $cat){
+                   	  
+                   		if($cat->parent==0){
+                   			
+                   			if(strcasecmp($cat->slug, 'rugs')==0){
+                   				$top_cat = 'rugs';
+                   			}
+                   		
+                   	
+                   			if(strcasecmp($cat->slug, 'hard-flooring')==0){
+                   				$top_cat = 'hard-flooring';
+                   			}
+                   		
+                   		}
+                   	}
+               	}
+				
+				
+				
+	
 	// Adds the new tab
 	
 	$tabs['faq_tab'] = array(
@@ -177,6 +204,14 @@ function woo_new_product_tab( $tabs ) {
 		'callback' 	=> 'woo_new_product_tab_content'
 	);
 
+if($top_cat == 'hard-flooring'){
+	
+	$tabs['acces_tab'] = array(
+		'title' 	=> __( "Accessories", 'woocommerce' ),
+		'priority' 	=> 50,
+		'callback' 	=> 'woo_new_product_tab_access'
+	);
+	}
 	return $tabs;
 
 }
@@ -279,6 +314,106 @@ $list = get_field('buying_guide_archive',$faqid );
   </div>
 <?php	
 }
+function woo_new_product_tab_access() {?>
+
+<?php $prourl = site_url();
+      $prourl =explode('/',$prourl);
+      if(strcasecmp($prourl[2], 'localhost')==0){
+      	$profaqid = '1725';
+      }
+      else{
+      	$profaqid = '26721';
+
+      }
+      ?>
+      
+
+     <div class="cont-panl">
+			<div class="panel-group" id="accordion">
+<?php
+global $post;
+$listcat=get_the_terms($post->ID,'product_cat');
+
+foreach($listcat as $cat){
+	if($cat->parent==0){
+		//echo "that's the correct answer";
+		$root = $cat->slug;
+		$rootname = $cat->name;
+	}
+	else{
+		//echo "that's the bullshit answer";
+	}
+}
+$args = array(
+    'post_type'      => 'page',
+    'posts_per_page' => -1,
+    'post_parent'    => $profaqid,
+    'order'          => 'ASC',
+    'orderby'        => 'menu_order',
+    'name' => $root
+
+ );
+
+
+$parent = new WP_Query( $args );
+while($parent->have_posts()){
+    $parent->the_post();
+    $faqid =$post->ID;
+
+}
+wp_reset_query();
+
+$list = get_field('buying_guide_archive',$faqid );
+
+?>
+					
+					<?php
+					
+					 $faqcounter = 1;
+					foreach($list as $listitem):
+					
+
+					
+					
+					?>
+
+					      
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $faqcounter;?>">
+          <span class="pull-right glyphicon <?php echo ($faqcounter==1)?'glyphicon-chevron-up':'glyphicon glyphicon-chevron-down'?>"></span>
+          <?php echo $listitem['title'];?>
+        </a>
+      </h4>
+    </div>
+    <div id="collapse_<?php echo $faqcounter;?>" class="panel-collapse collapse <?php echo ($faqcounter==1)?'in':'' ;?> ">
+      <div class="panel-body panel-body-faq">
+      
+        <?php echo $listitem['description']?>
+      
+      </div>
+    </div>
+  </div>
+		
+			<?php 
+			$faqcounter++;
+						if($faqcounter==6){
+				break;
+			}
+
+			endforeach;
+			?>	
+					
+               
+					
+				</div></div>
+  <div class="cc-tab-faq-read-more">
+  	<p>For more answers to your questions, please refer to our <a href="<?php echo get_the_permalink($faqid ); ?>"><?php echo $rootname; ?> FAQ </a> page.</p>
+  </div>
+<?php	
+}
+
 add_filter( 'woocommerce_product_tabs', 'woo_rename_tabs', 98 );
 function woo_rename_tabs( $tabs ) {
 
@@ -419,13 +554,8 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
 remove_action('woocommerce_single_product_summary', 'wc_oosm_display_outofstock_message', 6);
-add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 5 );
-add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 10 );
-
- 
-
-
-
+//add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 5 );
+//add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 10 );
 }
 
 add_action( 'cc_out_of_stock', 'cc_out_of_stock_function',100);

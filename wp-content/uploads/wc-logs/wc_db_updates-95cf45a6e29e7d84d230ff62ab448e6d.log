@@ -18,3 +18,16 @@
 07-22-2016 @ 09:06:47 - Running wc_update_260_db_version callback
 07-22-2016 @ 09:06:47 - Finished wc_update_260_db_version callback
 07-22-2016 @ 09:06:47 - Data update complete
+08-11-2016 @ 02:09:26 - Running wc_update_260_options callback
+08-11-2016 @ 02:09:26 - Finished wc_update_260_options callback
+08-11-2016 @ 02:09:26 - Running wc_update_260_termmeta callback
+08-11-2016 @ 02:09:26 - Finished wc_update_260_termmeta callback
+08-11-2016 @ 02:09:26 - Running wc_update_260_zones callback
+08-11-2016 @ 02:09:26 - Finished wc_update_260_zones callback
+08-11-2016 @ 02:09:26 - Running wc_update_260_zone_methods callback
+08-11-2016 @ 02:09:26 - Finished wc_update_260_zone_methods callback
+08-11-2016 @ 02:09:26 - Running wc_update_260_refunds callback
+08-11-2016 @ 02:09:26 - Finished wc_update_260_refunds callback
+08-11-2016 @ 02:09:26 - Running wc_update_260_db_version callback
+08-11-2016 @ 02:09:26 - Finished wc_update_260_db_version callback
+08-11-2016 @ 02:09:26 - Data update complete

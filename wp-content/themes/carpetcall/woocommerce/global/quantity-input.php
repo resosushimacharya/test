@@ -57,8 +57,8 @@ $(document).ready(function() {
         
           
        $(document).on('change','#quantity-control',function(){
-          $stoq = $('#quantity-control').val();           
-           
+          $stoq = $('#quantity-control').val(); 
+		  var sizem2 = jQuery('#sizem2').val();          
               if($stoq.toLowerCase()!='please select'){
          $('#store-count-quantity').attr('href',$loadref);
 
@@ -66,6 +66,9 @@ $(document).ready(function() {
            $('#store-count-quantity').addClass('ajax_add_to_cart');
             $(".add_to_cart_button").attr('data-quantity',$stoq);
               $(".add_to_cart_button").data('quantity',$stoq);
+			  if(sizem2){
+				  jQuery('.total_coverage .coverage_value').text($stoq*sizem2);
+				  }
          }
          else{
            /*  $('#store-count-default').show();

@@ -5,19 +5,18 @@
 	$ancestors = get_ancestors( $current_cat->term_id, 'product_cat' );
 	$depth = count($ancestors) ; 
 	?>
-<div class="contaniner clearfix">
+<div class="contaniner clearfix category-rugs">
   <div class="inerblock_seC_mrugss">
     <div class="container-fluid mmrugm">
     <?php
 	$url = '';
-	$photos = get_field('product_slider_photos',$current_cat);
-	if(!empty($photos)){
-		$photo_arr = array_values($photos[0]);
-		$url = $photo_arr[0]['url'];
-		}
-	if(!$url){
-		$url = get_template_directory_uri().'/images/rugs-all.jpg';
-		}
+	$cat_thumb_id = get_woocommerce_term_meta($current_cat->term_id, 'thumbnail_id', true);
+	if($cat_thumb_id){
+		$url = wp_get_attachment_url($cat_thumb_id);
+		}else{
+			$url = get_template_directory_uri().'/images/rugs-all.jpg';
+			}
+
 	?>
      <div class="cc-rugsall-catgr clearfix" style=" <?php echo ($depth == 0)?'background-image:url('. $url:''?>">
       <div class="container">
