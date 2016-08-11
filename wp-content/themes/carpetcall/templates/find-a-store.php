@@ -131,7 +131,7 @@
                   $x = '+61'.$x;  
                   $phone = '<a class="phone" href="tel:'.$x.'">'.$phone.' </a>';
                   }
-                  if(array_key_exists('wpsl_phone',$getinfo)){
+                  if(array_key_exists('wpsl_fax',$getinfo)){
                   $fax = $getinfo['wpsl_fax'][0];
                   }
                   if(array_key_exists('wpsl_city',$getinfo)){
@@ -163,12 +163,13 @@
                 </div>
             </p>
             <div class="clearfix"></div>
-            <span class="wpsl-hf-street"><?php echo get_post_meta($post->ID,'wpsl_address',true );?></span>
+            <div class="cc-cat-store-item clearfix"><span class="wpsl-hf-street"><?php echo get_post_meta($post->ID,'wpsl_address',true );?></span>
                 
             <span class="wpsl-hf-street-a"><?php echo $zip.' '.$city.' '.$state;?></span>
             <span class="wpsl-hf-country"><?php echo $country;?></span>
+            </div>>
             <span class="wpsl-hf-street-b"><strong>P: </strong><?php echo  $phone ;?></span>
-            <span class="wpsl-hf-street-c"><strong>F: </strong> <?php echo get_post_meta($post->ID,'wpsl_fax',true );?></span>
+            <span class="wpsl-hf-street-c"><strong>F: </strong> <?php echo $fax;?></span>
                 
 
             <div class="hfc-fcnt-or hfc-fcnt-orr hfc-fcnt-orr-map clearfix">
