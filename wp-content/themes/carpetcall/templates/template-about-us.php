@@ -9,6 +9,8 @@ get_header();
     * get About Us page ID
     * need to show left navigation for About Us
 */
+$url = site_url();
+$url = explode('/',$url);
 if( strcasecmp($url[2],'localhost')==0 ) $aboutID =317;
 else $aboutID =317;
 
