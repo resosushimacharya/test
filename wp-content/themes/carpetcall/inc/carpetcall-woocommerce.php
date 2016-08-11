@@ -510,8 +510,15 @@ function jk_change_breadcrumb_delimiter( $defaults ) {
 function sv_change_product_price_display( $price ) {
 	global $post;
 	$pro = get_post_meta($post->ID);
+	if (array_key_exists("_sale_price",$pro)){
+		$prosale = 'A$'.$pro['_sale_price'][0];
+	}
+	else{
+		$prosale = '';
+	}
 	$price =  '<div class="cc-price-control">
-	<h3><span class="cc-sale-price-title">A$'.$pro['_sale_price'][0].'</span> <span class="cc-line-through">$'.$pro['_regular_price'][0].'</span></h3></div>';
+
+	<h3><span class="cc-sale-price-title">'.$prosale.'</span> <span class="cc-line-through">A$'.$pro['_regular_price'][0].'</span></h3></div>';
 
 	return $price;
 }

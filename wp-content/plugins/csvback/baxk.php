@@ -321,8 +321,8 @@ function  csv_import_rugs($csv)
 		$slct        = $csv[0];
 		$tlct        = $csv[3];
 		
-		$rootcatterm  =  str_replace('_', ' ', $rootcatterm);
-		$rootcatterm   = ucwords($rootcatterm);
+		/*$rootcatterm  =  str_replace('_', ' ', $rootcatterm);
+		$rootcatterm   = ucwords($rootcatterm);*/
 		if(!term_exists( $slct, 'product_cat', $rootcatterm ))
 		{  
 		   category_second_level($slct ,$rootcatterm) ;
@@ -339,9 +339,10 @@ function  csv_import_rugs($csv)
   
 		$sub_cat  = get_term_by( 'name', $tlct, 'product_cat');
 		$root_cat = get_term_by( 'name',$rootcatterm , 'product_cat');
+		wp_set_object_terms( $new_post_id, $rootcatterm, 'product_cat',true);
 		wp_set_object_terms( $new_post_id, $main_cat->slug, 'product_cat',true);
 		wp_set_object_terms( $new_post_id, $sub_cat->slug, 'product_cat',true);
-		wp_set_object_terms( $new_post_id, $root_cat->slug, 'product_cat',true);
+		
 
 							
 			
@@ -408,10 +409,14 @@ function  csv_import_rugs($csv)
         update_post_meta( $new_post_id, 'anti_slip_test', $csv[42] );
         update_post_meta( $new_post_id, 'trim_options', $csv[43] );
         update_post_meta( $new_post_id, 'discount', $csv[45] );
-        update_post_meta( $new_post_id, 'instructional_video', $csv[49] );
+      
+       
+ 
+        	update_post_meta( $new_post_id, 'instructional_video',$csv[49]);
+       
 		/* end option section */
 		update_post_meta( $new_post_id, '_regular_price', $csv[44] );
-		
+		/*update_post_meta( $new_post_id, '_sale_price', $csv[44] );*/
 		update_post_meta( $new_post_id, '_price', $csv[44] );
 		update_post_meta($new_post_id,'state',$csv[0]);
 		update_post_meta( $new_post_id, '_visibility', 'visible' );
@@ -526,13 +531,13 @@ function  csv_import_rugs($csv)
 		}
 	   			
 		update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id));
-		echo 'Rugs Product '.$csv[1].' imported</br>';
+		echo 'Hard Flooring Product '.$csv[1].' imported</br>';
 	}
 	else  
 	{
 		if(isset($exist->ID))
 		{
-			echo $csv[1].'Rugs Item already exists';
+			echo $csv[1].'Hard Flooring Item already exists';
 		}
 	}
 }
