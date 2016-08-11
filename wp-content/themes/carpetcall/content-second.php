@@ -137,7 +137,7 @@ if(have_posts()):
             <?php 
 if($post->post_parent==$faqID){?>
 	        <div class="cont-panl">
-			<div class="panel-group" id="accordion">
+			
 
 					
 			
@@ -145,7 +145,7 @@ if($post->post_parent==$faqID){?>
            if($res){
            foreach($res as $rs){
                   	$i++;?>
-                      
+                 <div class="panel-group" id="accordion_<?php echo $i++ ;?>">     
                   
 					<div class="panel panel-default">
     <div class="panel-heading">
@@ -165,14 +165,14 @@ if($post->post_parent==$faqID){?>
     </div>
   </div>
 				
-
+</div>
             
             <?php  } 
             }
             ?>
 <?php }
 ?>
-</div></div>
+</div>
              </div>
 		</div>
 </div>

@@ -23,7 +23,15 @@
                         <h5> <span class="pclt">P :</span> 02 9007 9294 </h5>
                     </div><div class="clearfix"></div>
                     </div> <!-- store one end -->
-                    
+                    <div class="col-md-4 no-lr">
+                    <div class="str-two">
+                        <h4> NSW </h4>
+                        <p>Seven Hills Head Office  </p>
+                        <p> Unit 3/6 Boden Road, </p>
+                        <p> Seven Hills NSW 2147 </p>
+                        <h5> <span class="pclt">P :</span> 02 9007 9294 </h5>
+                    </div><div class="clearfix"></div>
+                    </div> <!-- store one end -->
                     <div class="col-md-4 no-lr">
                     <div class="str-two">
                     	<h4> QLD </h4>
@@ -46,35 +54,12 @@
                     </div><div class="clearfix"></div>
                     </div> <!-- store three end -->
                     
-                </div><div class="clearfix"></div>
-                
-                
-            </div><div class="clearfix"></div><!-- first phase end -->
+               <!-- first phase end -->
             
-            <div class="nearstore-a">
+           
             	
-                <div class="col-md-12">
-                	<div class="col-md-4 no-lr">
-                    <div class="str-two">
-                    	<h4> VIC </h4>
-                        <p> Mulgrave Store </p>
-                        <p> 2 Village Court </p>
-                        <p> Mulgrave VIC 3170 </p>
-                        <h5> <span class="pclt">P :</span> 03 9912 0595 </h5>
-                    </div><div class="clearfix"></div>
-                    </div> <!-- store one end -->
-                    
-                    <div class="col-md-4 no-lr">
-                    <div class="str-two">
-                    	<h4> WA  </h4>
-                        <p> Stirling ( Head Office ) </p>
-                        <p>40 Bryan Place  </p>
-                        <p> Stirling WA 6021 </p>
-                        <h5> <span class="pclt">P :</span> 08 9241 1222 </h5>
-                    </div><div class="clearfix"></div>
-                    </div> <!-- store two end -->
-                    
-                    <div class="col-md-4 no-lr"></div> <!-- store three end -->
+   
+                	
                     
                 </div><div class="clearfix"></div>
                 
