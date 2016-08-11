@@ -4,6 +4,7 @@
 * @subpackage carpetcall
 */
 show_admin_bar(false);
+
 /*
   * register multiple ACF pages
   * Option pages :

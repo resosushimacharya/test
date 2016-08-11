@@ -132,7 +132,7 @@ if($resopen!="") {?>
 <div class="col-md-7 wpsl-single-right">
    
 	<?php echo do_shortcode('[wpsl_map id="'.$post->ID.'" width="500" height="350" zoom="5" map_type="roadmap" 
-map_type_control="true" map_style="default" street_view="false" 
+map_type_control="true" map_style="custom" street_view="false" 
 scrollwheel="true" control_position="left"]'); 
 ?>
 </div>
