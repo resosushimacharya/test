@@ -1,3 +1,4 @@
+<div class="product_single_container">
 <?php
 /**
  * The template for displaying product content in the single-product.php template
@@ -38,7 +39,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 	return;
 	 }
 ?>
-</div></div>
+</div>
+</div>
 <?php 
 
 /* 
@@ -49,6 +51,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="container">
 <div class="col-md-12 no-lr">
 
+
+<?php
+global $post;
+$reqTempTerms=get_the_terms($post->ID,'product_cat');
+if($reqTempTerms){
+	foreach($reqTempTerms as $cat){
+		$has_sub_cat=get_terms(array('parent'=>$cat->term_id,'taxonomy'=>'product_cat'));
+		if(count($has_sub_cat)==0){
+			$current_post_term_id = $cat->term_id;
+		}
+	}
+}
+						
+						
+
+
+
+?>
 <?php /*before-wrapper open  end */  ?>
 <div itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -59,6 +79,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * @hooked woocommerce_show_product_sale_flash - 10
 		 * @hooked woocommerce_show_product_images - 20
 		 */
+		
 		
 		do_action( 'woocommerce_before_single_product_summary' );?>
 		
@@ -80,6 +101,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			 */
 
 			do_action('cc_woocommerce_single_product_summary');
+			add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_hardflooring_price', 10 );
+			add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_hardflooring_title', 10 );
+			
+
 			do_action( 'woocommerce_single_product_summary' );
             do_action('cc_woocommerce_single_product_summary_remove');
     //do_action('cc_after_select_design_start');
@@ -98,108 +123,548 @@ if ( ! defined( 'ABSPATH' ) ) {
        *here we show the related products image and links
       */ ?>
       <div class="cc-related-product-design-section">
-
+        
       <h3>SELECT A DESIGN</h3>
       <div class="cc-select-design-pro-all col-md-12">
-      <?php 
-       $strsizes= array();
-           $reqTempTerms=get_the_terms($post->ID,'product_cat');
+      <?php
+	  global $post;
+	  $curr_post = $post;
+	$terms = wp_get_post_terms( $post->ID, 'product_cat' );
+  foreach ( $terms as $term ){
+	   $cats_array[] = $term->term_id;
+  }
+  $query_args = array( 'posts_per_page' => -1, 'no_found_rows' => 1, 'post_status' => 'publish', 'post_type' => 'product', 'tax_query' => array( 
+    array(
+      'taxonomy' => 'product_cat',
+      'field' => 'id',
+      'terms' => $cats_array
+    )));
+  $related_prods = new WP_Query($query_args);
+ 
+  if ( $related_prods->have_posts() ) {
+	 $count = 1;
+	while ( $related_prods->have_posts() ) {
+		$related_prods->the_post();
+		global $post;
+		setup_postdata($post);
+		 $stockcheck = get_post_meta($post->ID);
+         if(strcasecmp($stockcheck['_stock_status'][0],'instock')==0){ 
+		 $proGal = get_post_meta( get_the_ID(), '_product_image_gallery', TRUE );
+         $proGalId = explode(',',$proGal);
+		 foreach($proGalId as $pgi){
+			  $proImageName =  has_post_thumbnail()?wp_get_attachment_url($pgi):site_url().'/images/placeholder.png';
+				if(preg_match("/\_V/i", $proImageName))
+				{
+					$reqProImageId = $pgi;
+					$proImageName =  wp_get_attachment_url($pgi);
+					break;
+				}
+			 
+			 }
+		?>
+        <div class="select-design-product-image <?php echo  (get_the_ID() == $curr_post->ID)?'pro-active':null?>"> 
+            <a href="<?php echo the_permalink()?>" class="select_design"> 
+                <img class="cc-product_no_image" src="<?php echo $proImageName?>"> 
+            </a> 
+        </div>
+        <?php
+		 }
+		
+		
+		}
+		wp_reset_postdata();
+  
+  
+  
+  }// Reset Post Data
+wp_reset_postdata();
 
-   
-            if($reqTempTerms){
-            	
-           foreach($reqTempTerms as $cat){
-           	$has_sub_cat=get_terms(array('parent'=>$cat->term_id,'taxonomy'=>'product_cat'));
-           	
-              if(count($has_sub_cat)==0){
-						$current_post_term_id = $cat->term_id;
-						wp_reset_query();
-						$args = array('post_type'=>'product','posts_per_pages'=>'4',
-							'taxonomy'=>'product_cat','term'=>$cat->slug);
-						$loop = new WP_Query($args);
-						$i=0;
-						while($loop->have_posts())
-						{?><div class="select-design-product-image">
-                         <?php   $loop->the_post();
-							
-							//echo '<br>';$post->ID;?>
-							<a href="<?php the_permalink()?>">
-							<?php the_post_thumbnail( );?>
-							</a>
-							</div>
-						<?php 
-						$productsize = get_post_meta($post->ID);
-						
-                         $length= get_post_meta( $post->ID, '_length', TRUE );
-	                     $width= get_post_meta( $post->ID, '_width', TRUE );
-	                     $height= get_post_meta( $post->ID, '_height', TRUE );
-	                     $price = get_post_meta($post->ID,'_sale_price',TRUE);
-	                     $productsize   = $length.'CM X '. $length.'CM - $'.$price;  
-	                     $strsizes[$i] =array($productsize,get_the_permalink(),$post->ID);
-	                      $i++;
-					}
-					wp_reset_query();
+	?>
+	
+	
 
-}     	
-                   
-                   
-                   
-                   }
-               }
-              
-                 ?>
+                 
+                 
+                 
+                 
                  </div>
       </div>
       <?php $pro = get_post_meta($post->ID);
       global $post;
-      
        ?>
-      <?php if(strcasecmp($pro['_stock_status'][0],'instock')!=0){?><div>
-      <h3> OUT OF STOCK</h3>
-      <?php do_action('cc_after_select_design_start');  do_action( 'woocommerce_single_product_summary' ); ?>
-      </div><?php }?>
       <div class="cc-size-quantity-section">
-      <div class="cc-size-section col-md-12">
-      <h3>AVAILABLE SIZES</h3>
-      <select class="selectpicker col-md-10" name="cc-size" id="cc-size" onchange="location = this.value;" >
-      <?php foreach($strsizes as $ss):?>
       
-       <option <?php echo ($ss[2]==$post->ID?'selected="selected"':'');?> class="col-md-12" value="<?php echo $ss[1];?>"><?php echo $ss[0];?></option>
-     
-     <?php  endforeach ;?>
-   
-
-
-</select>
-
-
-
-      </div>
       <div class="cc-quantiy-section col-md-12">
-      <h3>QUANTITY</h3>
-
-      	<?php do_action('cc_size_quantity');
-      	 
+      <h3>QUANTITY (PACK) </h3>
+      	<?php 
       	 $x=do_shortcode('[add_to_cart_url id="'.$post->ID.'"]');
       	 ?>
       	 <?php  do_action( 'cc_custom_quantiy' );?>
+         <?php if(strcasecmp($pro['_stock_status'][0],'instock')!=0){?><div>
+      <h3> OUT OF STOCK</h3>
+      <?php do_action('cc_after_select_design_start');  do_action( 'woocommerce_single_product_summary' ); ?>
+      </div><?php }else{?><div>
+      <h3>In Stock - Pickup Only</h3>
+      </div>
+		  <?php		  
+		  }?>
+         <input type="hidden" name="sizem2" id="sizem2" value="<?php echo get_field('size_m2',get_the_ID())?>">
+        <?php  if(get_field('size_m2',get_the_ID())){?>
+			<div class="total_coverage">
+         <h3><?php _e('Total Coverage','carpetcall');?> <span class="coverage_value"><?php echo get_field('size_m2',get_the_ID())?></span> <span class="coverage_unit"><?php _e('SQM','carpetcall')?></span></h3>
+         
+         </div>
+			<?php }?>
+            <div class="sq_mtr_calc_wrap">
+         	<i><?php _e('Not sure how much you need?','carpetcall');?></i>
+         <div><span class="calc_icon"></span><a href="#"><?php _e('SQUARE METER CALCULATOR','carpetcall')?></a></div>
+         
+         </div>
       	 <div class="cc-quantiy-section-inner">
       	 <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $post->ID;?>" data-product_sku="<?php
       	  echo $pro['_sku'][0] ; ?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart col-md-12" id="store-count-quantity" >ADD TO CART</a>
+
       	  </div>
+          
       	  </div>
       </div>
       <div class="clearfix"></div>
      
       <div class="cc-product-enquiry col-md-12">
-      	<button type="button" class="btn btn-default col-md-12"> Enquiry NOW</button>
+      	<button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal2">ENQUIRE NOW</button>
       </div>
       <div class="cc-product-ship-free-section col-md-12">
-      <div class="cc-product-ship col-md-6"><span>SHIPPING<i class="fa fa-info-circle" aria-hidden="true"></i></span></div><div class="cc-product-free col-md-6"> FREE DELIVERY</div>
+      <div class="cc-product-ship col-md-6"><span>SHIPPING<i class="fa fa-info-circle" aria-hidden="true"></i></span></div><div class="cc-product-free col-md-6"> Not available</div>
       </div>
       <div class="cc-product-pick-location-section col-md-12">
-      <div class="cc-product-pick col-md-6">PICK UP</div><div class="cc-product-location col-md-6"><button type="button" class="btn btn-default col-md-12"> PICK UP LOCATION</button></div>
+      <div class="cc-product-pick col-md-6">
+      <button type="button" class="btn btn-default col-md-12" >Free PICK UP</button>
       </div>
+      <div class="cc-product-location col-md-6">
+      <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal">PICK UP LOCATION</button>       </div>
+      <!-- Trigger the modal with a button -->
+      
+<!-- Enquiry Now -->
+<div id="myModal2" class="modal fade querynow" role="dialog">
+
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-a-title">ENQUIRE NOW</h4>
+      </div>
+      <div class="modal-body">
+			<div class="review-form">
+            <form action="" method="post" id="contact_form" role="form">
+            <div class="contact_block_cntr">
+            
+                <div class="yd-title"> 	
+                <h3>YOUR  DETAILS</h3> 		
+                </div>
+                <select class="selectpicker col-md-6 valid" name="cc_enquiry_type" id="cc-enquiry-type" aria-invalid="false">
+            
+                       <option class="col-md-12" value="sales enquiry">
+                         Sales Enquiry
+                       </option>
+                       <option class="col-md-12" value="Service Enquiry">
+                         Service Enquiry
+                       </option>
+      
+                     </select>
+                <div class="flsm-blk">
+                <div class="form-group col-sm-6"> <label for="first_name">First Name</label>
+                    <input type="text" name="first_name" class="form-control" value="" size="40"  id="first_name"  placeholder="E.G. JOHN">
+                    <div class="error_label"></div> 
+                </div>
+               
+                <div class="form-group col-sm-6"><label for="first_name">Last Name </label>
+                    <input type="text" name="last_name" class="form-control" value="" size="40" id="last_name"  placeholder="E.G. SMITH ">
+                    <div class="error_label"></div>
+                </div>
+                
+                </div>
+                
+                <div class="meroi-blka">
+	            <div class="form-group col-sm-12"><label for="email_address">Email</label>
+	                   <input type="email" name="email_address" class="form-control" value="" size="40"  id="email_address" placeholder="E.G. JOHN.SMITH@EMAIL.COM">
+	                    <div class="error_label"></div>
+	            </div>
+                </div>
+                
+                <div class="tela-blkb">
+	            <div class="form-group col-sm-6">
+	            	<label for="mobile_phone_no">Phone</label>
+                    <input type="tel" name="mobile_phone_no" class="form-control"  value="" size="40" id="mobile_phone_no" placeholder="E.G. 0212345678">
+                    <div class="error_label"></div>
+                </div>
+                </div>
+                
+                
+                
+                
+                <div class="cc-store-form-section" id="cc-store-form-section">
+                <div class="form-group col-sm-12">	
+                		<h3>SELECT A STORE</h3>
+                		<p> Choose a store that is close to you so we can best respond to your query.</p>
+                </div>
+                
+                <div class="provision-section col-sm-12 clearfix">
+                <div class="form-group col-sm-4">
+
+                	<select class="selectpicker col-md-6 form-control"  name="cc_state_type" id="cc-state-type">
+                	<option class="col-md-12" value="default">STATE</option>
+                      <?php  get_template_part('content', 'contact-state');
+                     ?>
+
+                     </select>
+                     <div class="error_label"></div>
+                </div>
+                
+                <div class="form-group col-sm-8">
+              
+                	<select class="selectpicker col-md-6 form-control" name="cc_store_name" id="cc-store-name">
+                     <option class="col-md-12" value="default">Select a Store</option>
+
+                         <?php  get_template_part('content', 'contact-store');
+                     ?>
+
+                     </select>
+                     <div class="error_label"></div>
+                </div>
+
+                </div>
+                  <div class="form-group col-sm-8">
+                 <div class="cc-product-page-info">
+                 <?php  
+                        global $post;
+                        $reqTempTerms=get_the_terms($post->ID,'product_cat');
+
+
+                        if($reqTempTerms){
+
+                        foreach($reqTempTerms as $cat){
+                        $has_sub_cat=get_terms(array('parent'=>$cat->term_id,'taxonomy'=>'product_cat'));
+
+                        if(count($has_sub_cat)==0){
+                          $reserve = $cat->name ;
+
+                        }
+                        }
+                        }
+
+                         
+                        $resproHeight= get_post_meta($post->ID,'_height',true);
+                        $resproLength = get_post_meta( $post->ID,'_length', true);
+                        $resproWidth = get_post_meta( $post->ID,'_width', true);
+                        $resproSKU   = get_post_meta($post->ID,'_sku',true);
+                        $resproSize ='Size : '.$resproLength.'cm'.' '.$resproWidth.' '.'cm'.' '.$resproHeight;
+                        $resproCode = 'Rug Code : '.$resproSKU;
+                        $resproProduct ='Product : '.$reserve; 
+                        
+                        echo '<input type="hidden" value="'.$resproProduct.'" name="product_page_cat"/>';
+                        echo '<input type="hidden" value="'.$resproCode.'" name="product_page_code"/>';
+                        echo '<input type="hidden" value="'.$resproSize.'" name="product_page_size"/>';
+                        
+
+
+                 ?>
+                   
+                 </div>
+                 </div>
+                
+                </div>
+                
+                
+                <?php 
+                  $myemail = "";
+                  if(isset($_GET['id']))
+                  {
+
+                      $contactstoID = $_GET['id'];
+
+                      $field = get_post_meta($contactstoID);
+                    
+                  if(isset($field['wpsl_email'][0]))
+                  {
+                      $myemail = $field['wpsl_email'][0];
+                  }
+                  else
+                  {
+                      $stateemailpair = array();
+
+
+                      $args = array(
+                                      'post_type' =>'wpsl_stores',
+                                      'posts_per_page'=>'-1',
+                                      'meta_query' => array(
+                                                              array(
+                                                                  'key' => 'store_type',
+                                                                  'value' => 'head_office'
+                                                                  
+                                                              )
+                                                            )
+                                    );
+                      $loop = new WP_Query($args);
+                      $html = '';
+                      if($loop->have_posts())
+                      {
+                          while($loop->have_posts())
+                          {
+                              $loop->the_post();
+                                    /* 
+                                    **state head office  state and 
+                                    ***email address pair 
+                                    
+                                    */
+                                    
+                              $res = get_post_meta($loop->post->ID);
+                                     
+                              if(!isset($res['wpsl_email'][0]))
+                              {
+                                  $stateemailpair[$res['wpsl_state'][0]]  = get_option('admin_email');
+                              }   
+                              else
+                              {
+                                  $stateemailpair[$res['wpsl_state'][0]] = $res['wpsl_email'][0];
+                              }   
+                               
+                          
+                             
+
+                          }
+                          wp_reset_query();
+
+
+                      }
+                   
+                      $myemail =$stateemailpair[$field['wpsl_state'][0]];
+                  }
+                }
+              ?>
+                <input type="hidden" value="<?php echo $myemail;?>" class="btn-dn" id="send_email_address" name="send_email_address">
+                
+                <div class="ur-msg-title">
+                 <div class="form-group col-sm-12">
+                	
+                		<h3>Message</h3>
+                </div></div>
+
+                
+                <div class="form-group col-sm-12">
+                
+                 <textarea class="form-control" rows="5" id="cc_message" name="cc_message" placeholder="ENTER YOUR MESSAGE HERE"></textarea>
+                  <div class="error_label"></div>
+                </div>
+                 <div class="form-group col-sm-12">
+					   <script src='https://www.google.com/recaptcha/api.js'></script>
+                      <div class="g-recaptcha" data-callback="recaptchaCallbackone" data-sitekey="6LdfuCMTAAAAAGhFRMwboqar9gIW_yfmWVjT7OMj"></div>
+                       <input type="hidden" value="" id="check_captcha_one" name="check_captcha_one">
+                      <div class="error_label"></div>
+                   </div>
+                <div class="form-group col-sm-12">
+                 <input type="submit" value="Submit" class="btn-dn" id="cc_contact_submit">
+                </div> 
+                  <div class="form-group col-sm-12 success_message_wrapper ">
+                     
+                     <div class="success_message"></div><div class="close_box">X</div>
+
+                  </div>
+                   <div class="form-group col-sm-12 success_message_wrapper ">
+                     
+                     <div class="error_message"></div><div class="close_box">X</div>
+
+                  </div>
+
+
+            </div>
+
+        </form> 
+		<script>
+         $(document).on('click','.close_box',function(){
+    $(this).parent().fadeTo(300,0,function(){
+          $(this).remove();
+    });
+});
+ 
+  function recaptchaCallbackone(){
+   jQuery('#check_captcha_one').val('1');
+
+};
+</script>
+
+            </div><div class="clearfix"></div>            
+      </div>
+      
+    </div>
+
+  </div>
+ 
+</div><!-- query end here -->
+
+<!-- modal1 PICK UP -->
+
+
+<!-- PICK UP LOCATIONS -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">PICK UP LOCATIONS</h4>
+      </div>
+      <div class="modal-body">
+        	<h2 class="fyns-blk"> FIND YOUR NEAREST STORE </h2>
+            
+            <div class="frm-blk clearfix">
+            		<form class="form-inline">
+                    
+                    <div class="input-group">
+                      <input type="text"  placeholder="SUBURB OR POSTCODE" id="edit_dialog_keyword" name="edit_dialog_keyword" type="text" class="form-control controls"  onkeyup="customDialog(event);">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" onclick="rs='';autocomplet_dialog();" id="check_control_dialog"><img src="<?php echo get_template_directory_uri().'/images/icon2.jpg';?>" style="float:right; margin-top:-5px;"></button>
+                      </span>
+                    </div>
+                         
+                         <span class="midlt"> OR </span>
+                         
+                          <button type="button" class="btn btn-default" onclick="showlocationdialog();rs='';" >USE CURRENT LOCATION</button>
+                        </form>
+            </div>
+            <!-- <div id="dialog_list_id_s"></div> -->
+            
+            <div class="nearstore " id="dialog_list_id_s"> 
+            <div class="col-md-12">
+            	<?php
+              $args = array(
+                'post_type' => 'wpsl_stores',
+                'posts_per_page'=>'3',
+                'orderby' => 'rand'
+
+                     
+              );
+              $loop = new WP_Query($args);
+              if($loop->have_posts()):
+                while($loop->have_posts()):
+                  $loop->the_post();
+                 $temp = get_post_meta($loop->post->ID);
+                 ?>
+                  <div class="col-md-4 no-lr">
+                    <div class="str-one">
+                      <h4><?php 
+                      
+                      echo get_the_title();?> </h4>
+                      <?php if(!empty($temp['wpsl_address'][0])){ ?>
+                        <p><?php echo $temp['wpsl_address'][0] ;?></p>
+                        <?php } ?>
+                        <?php 
+                        $citystate ="" ;
+                        if(!empty($temp['wpsl_city'][0])){
+                          $citystate.=  $temp['wpsl_city'][0]." ";
+                        }
+                        if(!empty($temp['wpsl_state'][0])){
+                          $citystate.=  $temp['wpsl_state'][0];
+                        }
+                        ?>
+                        <p><?php echo $citystate ;?></p>
+                        <?php
+                         if(!empty($temp['wpsl_zip'][0])){ 
+                          ?>
+                        <p><?php echo $temp['wpsl_zip'][0]; ?></p>
+                        <?php } ?>
+                   
+                    </div><div class="clearfix"></div>
+                    </div>
+                 <?php  
+                 endwhile; 
+                 wp_reset_query();
+                endif;
+              ?>
+                
+              </div> <div class="clearfix"></div> 
+            </div>
+            <div class="clearfix"></div>
+            
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+
+
+
+      </div>
+      <div class="clearfix"></div>
+      <div class="hf_product_details">
+		<h3><?php _e('Details','carpetcall')?></h3>
+        <table>
+        	<tr class="odd">
+            	<td><?php _e('Colour','carpetcall')?></td>
+            	<td><?php _e(get_field('species__colour_decore',get_the_ID()),'carpetcall')?></td>
+            </tr>
+        	<tr class="even">
+            	<td><?php _e('Boards Per Pack','carpetcall')?></td>
+            	<td><?php _e(get_field('boards_per_pack',get_the_ID()),'carpetcall')?></td>
+            </tr>
+        	<tr class="odd">
+            	<td><?php _e('Coverage Per Pack','carpetcall')?></td>
+            	<td><?php _e(get_field('size_m2',get_the_ID()),'carpetcall')?></td>
+            </tr>
+        </table>
+      </div>
+      <?php
+	   
+	   $args = array('post_type' => 'product',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'product_cat',
+				'posts_per_page'=>-1,
+                'field' => 'slug',
+                'terms' => 'accessories',
+            ),
+        ),
+     );
+	 $loop = new WP_Query($args);
+     if($loop->have_posts()) {?>
+ 		<div class="hf_req_accessories">
+        <span><?php _e('Required Accessories to complete flooring','carpetcall')?></span>
+       <?php 
+	    while($loop->have_posts()) : $loop->the_post(); 
+			if(has_post_thumbnail()){
+						echo get_the_post_thumbnail(get_the_ID(),array('100',100));
+						}
+			echo '<span>'.the_title().'</span>';
+        endwhile;
+		wp_reset_postdata();
+     ?>
+     </div>
+     <?php }
+	 
+	 
+	 /* if(get_field('accessories',get_the_ID())){?>
+		  <div class="hf_req_accessories">
+		<span><?php _e('Required Accessories to complete flooring','carpetcall')?></span>
+        <?php 
+		$accessories = get_field('accessories',get_the_ID());
+		if(!empty($accessories)){
+			foreach($accessories as $acc){
+				if(has_post_thumbnail($acc)){
+					echo get_the_post_thumbnail($acc,array('100',100));
+					}
+				echo '<span>'.get_the_title($acc).'</span>';
+				}
+			}
+		
+		?>
+        
+      </div>
+		  <?php }*/
+	  
+	  ?>
 	</div><!-- .summary -->
 
 	<?php
@@ -210,7 +675,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * @hooked woocommerce_upsell_display - 15
 		 * @hooked woocommerce_output_related_products - 20
 		 */
+		remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products',20);
 		do_action( 'woocommerce_after_single_product_summary' );
+		add_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products',20);
+
 		//woocommerce_output_product_data_tabs();
 		
 		// as per design , this section appears in [] page
@@ -226,11 +694,23 @@ wrapper close start */?>
 </div></div>
 <?php /* before-wrapper close end*/?>
 <?php do_action( 'woocommerce_after_single_product' ); ?>
-<div class="container clearfix">
-<div class="inerblock_serc">
-<div class="col-md-12"><h3 style="text-align:center">YOU MAY ALSO LIKE</h3></div>
-<div class="col-md-12">
-<?php               wp_reset_query();
+
+ <div class="inerblock_sec_a">
+
+    <div class="container clearfix you_may_link_cntr">
+    <?php 
+    foreach($reqTempTerms as $cat){
+          $has_sub_cat=get_terms(array('parent'=>$cat->term_id,'taxonomy'=>'product_cat'));
+         
+          if(count($has_sub_cat)==0){
+            $docatname = $cat->slug;
+          }
+        }
+     //echo do_shortcode('[best_selling_products per_page="6" columns="12" category="'.$docatname.'"]');
+    ?>
+        <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
+<div class="you_may_like-content">
+		<?php               wp_reset_query();
 
 
 
@@ -239,7 +719,7 @@ wrapper close start */?>
 
                     
 					$reqTempTerms=get_the_terms($post->ID,'product_cat');
-					//do_action('pr',$reqTempTerms);
+					
 					foreach($reqTempTerms as $cat){
 						//echo $cat->parent;
 						if($cat->parent==0){
@@ -251,21 +731,25 @@ wrapper close start */?>
        'child_of'           => $cat->term_id
       );
       $terms = get_terms( 'product_cat', $args );
-                           // do_action('pr',$terms);
+                      
                             
 						}
 					}
 					shuffle($terms);
                         $i=1;
-                        
-					foreach($terms as $term){
-             
 
+					foreach($terms as $term){
+
+                
+                 
 						if($current_post_term_id!=$term->term_id){
+                   
 							
 							$has_sub_cat=get_terms(array('parent'=>$term->term_id,'taxonomy'=>'product_cat'));
+                
 								if(count($has_sub_cat)==0){
-                                        if($i<=3){
+                    
+                                      
 									//do_action('pr',$term);
                                         	
 									$filargs = array(
@@ -287,116 +771,76 @@ wrapper close start */?>
 								$filloop = new WP_Query($filargs);
 								 //do_action('pr',$filloop);
 								$hold = 1;
+
 								if($filloop->have_posts()){
+									if($i<=3){
+									$i++;
+
+                     				}
+                     				else{
+                     					break;
+                     				}
 									while($filloop->have_posts()):
 										$filloop->the_post();
 
 											/*var_dump($filloop->post->ID);*/
-
-
-									?><div class="col-md-4 cc-other-term-pro">
-										<?php the_post_thumbnail();
-										
-										
-										$woo=get_post_meta($filloop->post->ID);
-										//do_action('pr',$woo);
-					                     // echo $post->ID;
-										echo '<h3>'.$term->name.'</h3>';
-										echo "<h5>FROM A$".$woo['_sale_price'][0].'</h5>';
-
-
-										?>
-										</div>
-
-
-								<?php endwhile;?>
-                     		<?php 
-                     		wp_reset_query(); }
-                     		
-							$i++;
-                     				}
-								}
-
-
-							
-                    
-
-						}
-
-
-					}
-			
-
- ?>
-
-
-
-</div>
-
-<div class="col-md-12">
-
-
-<?php
-$tax = 'product_cat';
-
-
-						$tax_terms = get_terms($tax);
-
-					 $args=array(
-					'post_type' => 'product',
-					
-					'post_status' => 'publish',
-					'posts_per_page' => -1,
-					'ignore_sticky_posts'=> 1
-					);
-					//echo $tax_term->slug;
-					$my_query = null;
-					$my_query = new WP_Query($args);
-					while ($my_query->have_posts()) : $my_query->the_post();
-					$woo=get_post_meta($post->ID);
+											$woo=get_post_meta($post->ID);
 					
 					$price=$woo['_regular_price'][0];
 					
 					
 					$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-					
-					/*if(!empty(unserialize($woo['_product_attributes'][0])))
-				$prounits=unserialize($woo['_product_attributes'][0]);*/
-				
-				if(isset($prounits['size']['value'])){
-					$prounit=$prounits['size']['value'];
-				}
-               ?>
-                     <?php  if($woo['_featured'][0]=='yes'){ ?>
-                   <div class="col-md-4">
-                  
-                  		<div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div>
+
+
+									?> <div class="col-md-4">
+                  		<div class="pro_secone">
+                  		<a href="<?php the_permalink();?>" class="cc-product-item-image-link"><div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
                   
                     <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
-                    <div class="sublk_prom">
-                      		<div class="ptxt">
-					<h3><?php
-					the_title();?></h3><?php 
+                    <div class="mero_itemss">
+                      		<div class="proabtxt">
+					 <a href="<?php the_permalink();?>" class="cc-product-item-title-link"><h4>
+					<?php echo $term->name;?>
+					</h4></a><?php 
 
+					$reqTempTerms=get_the_terms($post->ID,'product_cat');
 					
 
 					
 
 					
 					if(!empty($price)){
-						echo '<h5> FROM A$'.$price.'</h5>';
+						echo '<h6> FROM A$'.$price.'</h6>';
 						
 						}?></div>
 					<div class="clearfix"></div>
                            
                       </div>
+                      </div></a>
                       </div>
-                      <?php }?>
+								<?php endwhile;?>
+                     		<?php 
+                     		wp_reset_query(); }
+                     		
+							
+								}
+						}
+					}
+ ?></div>
+<div class="clearfix"></div>
 					
-               <?php
+                    
+    </div>
+    </div><!-- step three end here -->
 
-					endwhile;
-					wp_reset_query();
-					?><div class="clearfix"></div>
-					</div></div>
-					</div>
+<script>
+$("document").ready(function(){
+    $(".woocommerce-main-image").removeAttr("data-rel");
+});
+</script>
+<style>
+  #cc-enquiry-type{display:none;}
+  .success_message_wrapper{display:none;}
+</style>
+
+</div>

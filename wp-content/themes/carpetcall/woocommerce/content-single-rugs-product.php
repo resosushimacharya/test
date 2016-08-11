@@ -29,6 +29,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 * @hooked wc_print_notices - 10
 	 */
 	?>
+    
+    
     <div class="container">
 <div class="col-md-12">
 <?php 
@@ -81,6 +83,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			 */
 
 			do_action('cc_woocommerce_single_product_summary');
+			add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 5 );
+			add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 10 );
 			do_action( 'woocommerce_single_product_summary' );
             do_action('cc_woocommerce_single_product_summary_remove');
     //do_action('cc_after_select_design_start');

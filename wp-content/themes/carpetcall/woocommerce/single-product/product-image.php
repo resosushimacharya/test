@@ -37,7 +37,7 @@ global $post, $woocommerce, $product;
                   
                   $parent_term = get_term( $cat->parent, 'product_cat');
                   
-                 echo '<h4 class="cc-category-show">'.$cat->name.' '.$parent_term->name.'</h4>';
+                 echo '<h4 class="cc-category-show">'.$cat->name.' - '.$parent_term->name.'</h4>';
                 
               	}
               	}
@@ -68,7 +68,44 @@ global $post, $woocommerce, $product;
 		}
 	?>
 
-	<?php do_action( 'woocommerce_product_thumbnails' ); ?>
+	<?php //do_action( 'woocommerce_product_thumbnails' ); ?>
+   
+    <div class="cc_custom_gal_thumb thumbnails columns-3">
+    	<?php 
+		 $attachment_ids = $product->get_gallery_attachment_ids();
+		
+		foreach( $attachment_ids as $attachment_id ) 
+		{
+			$image_link = wp_get_attachment_url( $attachment_id );
+			$image_thumb = wp_get_attachment_image_src($attachment_id,array('150','150'));
+			?>
+        <a href="<?php echo  $image_link?>">
+        	<img src="<?php echo $image_thumb[0]?>">
+        </a>
+		<?php
+        }
+
+
+		//do_action('pr',get_post_meta(get_the_ID()));
+		/*
+		$thumbs =get_post_meta(get_the_ID(),'_product_image_gallery');
+		if(!empty($thumbs)){
+			$thumbs = explode(',',$thumbs[0]);
+			foreach($thumbs as $thumb){
+				$thumb_url = wp_get_attachment_image_src($thumb,'shop_thumbnail');
+				$thumb_full_url = wp_get_attachment_image_src($thumb,'full');
+				?>
+                <a href="<?php echo $thumb_full_url[0]?>">
+                	<img class="attachment-shop_thumbnail size-shop_thumbnail" src="<?php echo $thumb_url[0]?>">
+                </a>
+                <?php
+				}
+			} 
+			*/
+			?>
+    
+    </div>
+    
 		<div class="mod-social">
 		<div class="cc-share-title">SHARE: </div>
 		<a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink($post->ID);?>" target="_blank">
