@@ -355,12 +355,12 @@ function custom_listing_templates() {
    
     $listing_template .= "\t\t\t" . '<p><%= thumb %>' . "\r\n";
     $listing_template .= "\t\t\t\t" .'<div class="cc-cat-store-item"><span class="cc-store-icon-label"><img src ="'.get_template_directory_uri().'/images/markers/location.png"/>'.wpsl_store_header_template( 'listing' ).'</span><div class="clearfix"></div>' . "\r\n";
-    $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address %></span>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<div class="cc-store-map-last-cover clearfix"><span class="wpsl-street"><%= address %></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% if ( address2 ) { %>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address2 %></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n";
-    $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span></div>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% if ( phone ) { %>' . "\r\n";
             $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P:' .'</strong><a href="tel:'.$x .'"> <%= formatPhoneNumber( phone ) %></a></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% } else { %>' . "\r\n";
@@ -439,13 +439,13 @@ function custom_listing_templates_server() {
     $listing_template .= "\t\t" . '<div class="cc-cat-store-section">' . "\r\n";
    
     $listing_template .= "\t\t\t" . '<p><%= thumb %>' . "\r\n";
-    $listing_template .= "\t\t\t\t" .'<div class="cc-cat-store-item"><span class="cc-store-icon-label"><img src ="'.get_template_directory_uri().'/images/markers/location.png"/>'.wpsl_store_header_template( 'listing' ).'</span><div class="clearfix"></div>' . "\r\n";
-    $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address %></span>' . "\r\n";
+    $listing_template .= "\t\t\t\t" .'<div class="cc-cat-store-item clearfix"><span class="cc-store-icon-label"><img src ="'.get_template_directory_uri().'/images/markers/location.png"/>'.wpsl_store_header_template( 'listing' ).'</span><div class="clearfix"></div>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<div class="cc-store-map-last-cover"><span class="wpsl-street"><%= address %></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% if ( address2 ) { %>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-street"><%= address2 %></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n";
-    $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span></div>' . "\r\n";
  $listing_template .= "\t\t\t\t" . '<% if ( phone ) { %>' . "\r\n";
             $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P:' .'</strong><a href="tel:<%= formatPhoneNumber( phone ) %>"> <%= formatPhoneNumber( phone ) %></a></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% } else { %>' . "\r\n";
