@@ -1,4 +1,7 @@
 /* this is script for calculator section of product in store */
+$(".form-square-meter").submit(function(e){
+    e.preventDefault();
+  });
 $ = jQuery.noConflict();
     $(document).ready(function() {
         $("#cal_more").click(function() {

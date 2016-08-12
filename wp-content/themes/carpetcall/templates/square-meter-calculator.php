@@ -17,16 +17,16 @@
   
 
 
-    
+            <form  method="post" id='form-square-meter' class="form-square-meter">
     
        <div class="row"><?php
        $x = get_field('size_m2',get_the_ID());
-      echo $x;
+       $stock = get_post_meta(get_the_ID(), '_stock', true);
        ?>
-            <div class="col-md-12"><div class="col-md-2">
-            <label for="cov_per_pack">Enter Coverage Per Pack</label></div>
+            <div class="col-md-12">
             <div class="col-md-2">
-                 <input type="text" class="form-control" id="cov_per_pack" placeholder="" name="cov_per_pack" value='<?php echo $x ;?>'>
+                 <input type="hidden" class="form-control" id="cov_per_pack" placeholder="" name="cov_per_pack" value='<?php echo $x ;?>'>
+                  <input type="hidden" class="form-control" id="cc_Stock_count" placeholder="" name="cc_Stock_count" value='<?php echo $x ;?>'>
                  </div><div class="col-md-3">
               sqm/pack 
             </div>
@@ -77,6 +77,7 @@
                     <button type="button" class="btn btn-default" id="cal_more">+Add Rooms</button>
                     <button type="submit" class="btn btn-default" id="cal_id" >Calculate</button>
                 </div><div class="form-group col-md-4 "></div> </div>
+                </form>
 
     <div class="row"><div class="form-group col-md-8 col-item-price">
         <p class="pull-right">Excess</p>
