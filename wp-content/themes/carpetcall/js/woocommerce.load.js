@@ -1,7 +1,4 @@
 jQuery(document).ready(function($){
-	
-jQuery(document).find(".main-image-wrapper a").attr('data-rel','prettyPhoto').prettyPhoto({social_tools:''});
-
 jQuery(document)
 .ajaxStart(function(){
 	 $("body").css("overflow","hidden"); // Disabling the Scroll while ajax is loading
@@ -40,7 +37,7 @@ jQuery(document).on('click','.select-design-product-image a.select_design',funct
 		document.getElementsByTagName('html')[0].innerHTML = response;
 		jQuery(document).trigger('load');
 		jQuery(document).trigger('ready');
-		jQuery(document).find(".main-image-wrapper a.zoom").removeAttr('data-rel').prettyPhoto({social_tools:''});
+		jQuery(document).find(".main-image-wrapper a.zoom").removeAttr('data-rel').prettyPhoto({hook:"data-rel",social_tools:!1,theme:"pp_woocommerce",horizontal_padding:20,opacity:.8,deeplinking:!1});
 		//jQuuery("a[rel^='prettyPhoto']").prettyPhoto();
 		});
 	});	
@@ -49,7 +46,7 @@ jQuery(document).on('change','select#cc-size',function(e){
 	window.history.pushState("object or string", "Title", url);
 	jQuery.get(url,function(response){
 		document.getElementsByTagName('html')[0].innerHTML = response;
-		jQuery(document).find(".main-image-wrapper a.zoom").removeAttr('data-rel').prettyPhoto({social_tools:''});
+		jQuery(document).find(".main-image-wrapper a.zoom").removeAttr('data-rel').prettyPhoto({hook:"data-rel",social_tools:!1,theme:"pp_woocommerce",horizontal_padding:20,opacity:.8,deeplinking:!1});
 		});
 	});	
 	
