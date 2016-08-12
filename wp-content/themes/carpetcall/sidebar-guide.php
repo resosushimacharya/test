@@ -1,6 +1,35 @@
 <ul class="guide_list_cbg">
             
 <?php 
+
+
+$roottitle = ' ';
+$url = site_url();
+$url = explode('/',$url);
+
+if(strcasecmp($url[2],'localhost')==0)
+{
+ if($post->ID=='1690'){
+ 	$roottitle ="GUIDE";
+ }
+ if($post->ID=='1711'){
+ 	$roottitle ="CARE";
+ }
+ if($post->ID=='1725'){
+ 	$roottitle ="FAQ";
+ }
+}
+else{
+if($post->ID=='26696'){
+ 	$roottitle ="GUIDE";
+ }
+ if($post->ID=='26709'){
+ 	$roottitle ="CARE";
+ }
+ if($post->ID=='26721'){
+ 	$roottitle ="FAQ";
+ }
+}
 $args = array(
     'post_type'      => 'page',
     'posts_per_page' => -1,
@@ -11,10 +40,11 @@ $args = array(
 
 
 $parent = new WP_Query( $args );
+
 while($parent->have_posts()){
     $parent->the_post();
     
-     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). '<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID) .' '.$roottitle.' ' .'<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
 }
 wp_reset_query();
  ?>

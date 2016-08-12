@@ -13,8 +13,12 @@ if(autoCurrentLoc.curr_loc==="1"){
 if(startLatlng==''){
 	wpslSettings.startLatlng =startLatlng;
 }
+$(document).ready(function(){
 
 
+
+	$('.cc-cat-store-item-phone a ').attr('href',"tel:hello");
+})
 
 
 

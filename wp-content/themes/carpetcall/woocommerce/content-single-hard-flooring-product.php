@@ -361,7 +361,7 @@ wp_reset_postdata();
                         $resproWidth = get_post_meta( $post->ID,'_width', true);
                         $resproSKU   = get_post_meta($post->ID,'_sku',true);
                         $resproSize ='Size : '.$resproLength.'cm'.' '.$resproWidth.' '.'cm'.' '.$resproHeight;
-                        $resproCode = 'Rug Code : '.$resproSKU;
+                        $resproCode = 'Hard Flooring Code : '.$resproSKU;
                         $resproProduct ='Product : '.$reserve; 
                         
                         echo '<input type="hidden" value="'.$resproProduct.'" name="product_page_cat"/>';
@@ -619,6 +619,7 @@ wp_reset_postdata();
         </table>
       </div>
       <div class="recommended_acc_static">
+      <span><?php _e('Required Accessories to complete flooring:','carpetcall')?></span>
       	<img src="<?php echo get_template_directory_uri()?>/images/underlay_rec.jpg">
         <span><?php _e('UNDERLAY','carpetcall')?></span>
       </div>
