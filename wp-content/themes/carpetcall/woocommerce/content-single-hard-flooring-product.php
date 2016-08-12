@@ -54,6 +54,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php
 global $post;
+global $product;
+$product = wc_get_product($post->ID);
+
 $reqTempTerms=get_the_terms($post->ID,'product_cat');
 if($reqTempTerms){
 	foreach($reqTempTerms as $cat){
@@ -756,18 +759,10 @@ wrapper close start */?>
                         $i=1;
 
 					foreach($terms as $term){
-
-                
-                 
 						if($current_post_term_id!=$term->term_id){
-                   
 							$has_sub_cat=get_terms(array('parent'=>$term->term_id,'taxonomy'=>'product_cat'));
-                
 								if(count($has_sub_cat)==0){
-                    
-                                      
 									//do_action('pr',$term);
-                                        	
 									$filargs = array(
 													'post_type'=>'product',
 													'posts_per_page'=>'1',
@@ -844,8 +839,7 @@ wrapper close start */?>
 					}
  ?></div>
 <div class="clearfix"></div>
-					
-                    
+               
     </div>
     </div><!-- step three end here -->
 <style>

@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         $options .= '<option class= "col-md-12"'. ' value="' . $count . '" >' . $count . '</option>';
     } 
     if ( $options ){ ?>
-    <select name="<?php echo esc_attr( $args['input_name'] ); ?>" id="quantity-control" title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="qty col-md-12 selectpicker " /><?php echo $options;?></select>
+    <select name="<?php echo esc_attr( $args['input_name'] ); ?>" id="quantity-control" title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="qty col-md-12 selectpicker "><?php echo $options;?></select>
     <?php } else {
         printf( '%s <input type="hidden" name="%s" value="%s" />', $args['input_value'], $args['input_name'], $args['input_value'] );
     }
@@ -40,56 +40,12 @@ if ( ! defined( 'ABSPATH' ) ) {
         $options .= '<option' . selected( $args['input_value'], $count, false ) .' class= "col-md-12"'. ' value="' . $count . '" >' . $count . '</option>';
     } 
     if ( $options ){ ?>
-    <select name="<?php echo esc_attr( $args['input_name'] ); ?>" id="quantity-control" title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="qty col-md-12 selectpicker " /><?php echo $options;?></select>
+    <select name="<?php echo esc_attr( $args['input_name'] ); ?>" id="quantity-control" title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="qty col-md-12 selectpicker "><?php echo $options;?></select>
     <?php } else {
         printf( '%s <input type="hidden" name="%s" value="%s" />', $args['input_value'], $args['input_name'], $args['input_value'] );
     } 
     }?>
 </div>
-<script>
-$ = jQuery.noConflict();
-$(document).ready(function() {
- $('#sel_cart').attr('selected','selected');
-        $loadref=$('#store-count-quantity').attr('href');
-        $('#store-count-quantity').attr('href','javascript:void(0)');
-          $('#store-count-quantity').removeClass('add_to_cart_button');
-           $('#store-count-quantity').removeClass('ajax_add_to_cart');
-        
-          
-       $(document).on('change','#quantity-control',function(){
-          $stoq = $('#quantity-control').val(); 
-		  var sizem2 = jQuery('#sizem2').val();          
-              if($stoq.toLowerCase()!='please select'){
-         $('#store-count-quantity').attr('href',$loadref);
-
-          $('#store-count-quantity').addClass('add_to_cart_button');
-           $('#store-count-quantity').addClass('ajax_add_to_cart');
-            $(".add_to_cart_button").attr('data-quantity',$stoq);
-              $(".add_to_cart_button").data('quantity',$stoq);
-			  if(sizem2){
-				  var total_cov = $stoq*sizem2;
-				  jQuery('.total_coverage .coverage_value').text((total_cov.toFixed(2)));
-				  }
-         }
-         else{
-           /*  $('#store-count-default').show();
-          $('#store-count-quantity').hide();*/
-         $('#store-count-quantity').attr('href','javascript:void(0)');
-          $('#store-count-quantity').removeClass('add_to_cart_button');
-           $('#store-count-quantity').removeClass('ajax_add_to_cart');
-           
-         }
-       
-        
-
-          });
-     
-
-
-     });
-
-
-</script>
 <style>
      #quantity-control{width: 60%;}
      .cc-quantiy-section
