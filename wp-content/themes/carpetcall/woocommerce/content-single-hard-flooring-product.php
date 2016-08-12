@@ -217,7 +217,10 @@ wp_reset_postdata();
 			<?php }?>
             <div class="sq_mtr_calc_wrap">
          	<i><?php _e('Not sure how much you need?','carpetcall');?></i>
-         <div><span class="calc_icon"></span><a href="#"><?php _e('SQUARE METER CALCULATOR','carpetcall')?></a></div>
+         <div><span class="calc_icon"></span>
+
+        <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModalcalc"><?php _e('SQUARE METER CALCULATOR','carpetcall')?></button>
+    </div>
          
          </div>
       	 <div class="cc-quantiy-section-inner">
@@ -509,6 +512,7 @@ wp_reset_postdata();
 
 <!-- PICK UP LOCATIONS -->
 <?php get_template_part( 'templates/head', 'office' );?>
+<?php get_template_part('templates/square','meter-calculator'); ?>
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
