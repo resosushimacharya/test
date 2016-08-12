@@ -46,50 +46,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     } 
     }?>
 </div>
-<script>
-$ = jQuery.noConflict();
-$(document).ready(function() {
- $('#quantity-control #sel_cart').attr('selected','selected');
-        $loadref=$('#store-count-quantity').attr('href');
-        $('#store-count-quantity').attr('href','javascript:void(0)');
-          $('#store-count-quantity').removeClass('add_to_cart_button');
-           $('#store-count-quantity').removeClass('ajax_add_to_cart');
-        
-          
-       $(document).on('change','#quantity-control',function(){
-          $stoq = $('#quantity-control').val(); 
-		  var sizem2 = jQuery('#sizem2').val();          
-              if($stoq.toLowerCase()!='please select'){
-         $('#store-count-quantity').attr('href',$loadref);
-
-          $('#store-count-quantity').addClass('add_to_cart_button');
-           $('#store-count-quantity').addClass('ajax_add_to_cart');
-            $(".add_to_cart_button").attr('data-quantity',$stoq);
-              $(".add_to_cart_button").data('quantity',$stoq);
-			  if(sizem2){
-				  var total_cov = $stoq*sizem2;
-				  jQuery('.total_coverage .coverage_value').text((total_cov.toFixed(2)));
-				  }
-         }
-         else{
-           /*  $('#store-count-default').show();
-          $('#store-count-quantity').hide();*/
-         $('#store-count-quantity').attr('href','javascript:void(0)');
-          $('#store-count-quantity').removeClass('add_to_cart_button');
-           $('#store-count-quantity').removeClass('ajax_add_to_cart');
-           
-         }
-       
-        
-
-          });
-     
-
-
-     });
-
-
-</script>
 <style>
      #quantity-control{width: 60%;}
      .cc-quantiy-section

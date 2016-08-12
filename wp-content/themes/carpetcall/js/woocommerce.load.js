@@ -1,4 +1,63 @@
 jQuery(document).ready(function($){
+
+$ = jQuery.noConflict();
+$(document).ready(function() {
+ 	$('.cc-quantiy-section #quantity-control #sel_cart').attr('selected','selected');
+        $loadref=$('#store-count-quantity').attr('href');
+        $('#store-count-quantity').attr('href','javascript:void(0)');
+          $('#store-count-quantity').removeClass('add_to_cart_button');
+           $('#store-count-quantity').removeClass('ajax_add_to_cart');
+        
+          
+       $(document).on('change','.cc-quantiy-section #quantity-control',function(){
+          $stoq = $('.cc-quantiy-section  #quantity-control').val(); 
+		   alert($stoq);
+		   var sizem2 = jQuery('#sizem2').val(); 
+		  alert(sizem2);         
+              if($stoq.toLowerCase()!='please select'){
+         $('#store-count-quantity').attr('href',$loadref);
+
+          $('#store-count-quantity').addClass('add_to_cart_button');
+           $('#store-count-quantity').addClass('ajax_add_to_cart');
+            $(".add_to_cart_button").attr('data-quantity',$stoq);
+              $(".add_to_cart_button").data('quantity',$stoq);
+			  if(sizem2){
+				  
+				  var total_cov = $stoq*sizem2;
+				 
+				  jQuery('.total_coverage .coverage_value').text((total_cov.toFixed(2)));
+				  }
+         }
+         else{
+           /*  $('#store-count-default').show();
+          $('#store-count-quantity').hide();*/
+         $('#store-count-quantity').attr('href','javascript:void(0)');
+          $('#store-count-quantity').removeClass('add_to_cart_button');
+           $('#store-count-quantity').removeClass('ajax_add_to_cart');
+           
+         }
+       
+        
+
+          });
+		
+		$(document).on('change','.acc_qnty .quantity select',function(){
+			 if($stoq.toLowerCase()!='please select'){
+				jQuery(this).parents('.acc_list_item').find('a.acc_add_to_cart').attr('data-quantity',jQuery(this).val());
+				 }else{
+				 
+				 }
+
+			//jQuery(this).parents('.acc_qnty').find('a.acc_add_to_cart').attr('data-quantity',jQuery(this).val());
+			});
+     
+
+
+     });
+
+
+
+
 jQuery(document).find('.main-image-wrapper a.zoom').removeAttr('data-rel');
 jQuery(document)
 .ajaxStart(function(){
@@ -76,7 +135,6 @@ function update_content_from_ajax(response){
 		jQuery(document).find(".main-image-wrapper a.zoom").removeAttr('data-rel').prettyPhoto({hook:"data-rel",social_tools:!1,theme:"pp_woocommerce",horizontal_padding:20,opacity:.8,deeplinking:!1});
 		
 	
-		//jQuery.ready();
 			
 	}	
 	

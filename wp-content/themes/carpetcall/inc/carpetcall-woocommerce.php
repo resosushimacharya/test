@@ -434,11 +434,11 @@ function woo_new_product_tab_accesories() {
 								}else{
 									$rec_qty='';}?>
                                 	<span class="acc_qty_lbl"><?php echo ($rec_qty=='')?'':'Rec'?> Qty: </span> <span class="acc_rec_qty"><?php echo $rec_qty?></span><?php
-									echo woocommerce_quantity_input( array( 'input_name'=>'acc_qty', 'min_value' => 1, 'max_value' => $product->backorders_allowed() ? '' : max(20,$product->get_stock_quantity()),'input_value' => ($rec_qty=='')?'1':$rec_qty ) );
+									echo woocommerce_quantity_input( array( 'min_value' => 1, 'max_value' => $product->backorders_allowed() ? '' : max(20,$product->get_stock_quantity()),'input_value' => ($rec_qty=='')?'1':$rec_qty ) );
 									?>
                                 </div>
                            		<?php $x=do_shortcode('[add_to_cart_url id="'.$acc_product->ID.'"]');?>
-                                <a href="<?php echo $x ;?>" data-quantity="<?php echo ($rec_qty=='')?'1':$rec_qty?>" data-product_id="<?php echo $acc_product->ID;?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart col-md-12" id="acc_quantity" >ADD TO CART</a>
+                                <a href="<?php echo $x ;?>" data-quantity="<?php echo ($rec_qty=='')?'1':$rec_qty?>" data-product_id="<?php echo $acc_product->ID;?>" class="button product_type_simple col-md-12 acc_add_to_cart" >ADD TO CART</a>
                             </div>
                             <?php 
 							wp_reset_postdata();
@@ -663,9 +663,10 @@ function woo_new_product_tab_specifications(){
             <td class="value">
 			<?php 
 			if(get_field('instructional_video')){
-				echo wp_video_shortcode(array('src'=> get_field('instructional_video')));
+				echo get_field('instructional_video');
+				//echo wp_video_shortcode(array('src'=> get_field('instructional_video')));
 			}?>
-			<?php //echo get_field('instructional_video')?>
+			
             </td>
         </tr>
     </table>
