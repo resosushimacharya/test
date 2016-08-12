@@ -19,13 +19,16 @@
 
     
     
-       <div class="row">
+       <div class="row"><?php
+       $x = get_field('size_m2',get_the_ID());
+      echo $x;
+       ?>
             <div class="col-md-12"><div class="col-md-2">
             <label for="cov_per_pack">Enter Coverage Per Pack</label></div>
             <div class="col-md-2">
-                 <input type="text" class="form-control" id="cov_per_pack" placeholder="" name="cov_per_pack">
+                 <input type="text" class="form-control" id="cov_per_pack" placeholder="" name="cov_per_pack" value='<?php echo $x ;?>'>
                  </div><div class="col-md-3">
-              sqm/pack
+              sqm/pack 
             </div>
             </div>
         </div>
@@ -40,7 +43,7 @@
                                 <label for="width_1">Room 1 Width(m)</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" id="width_1" placeholder="" name="width_1">
+                                <input type="text" class="form-control" id="width_1" placeholder="" name="width_1" required>
                             </div>
                         </div>
                         <div class="form-group col-md-6">
@@ -48,7 +51,7 @@
                                 <label for="length_1">Length(m)</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" id="length_1" placeholder="" name="length_1">
+                                <input type="text" class="form-control" id="length_1" placeholder="" name="length_1" required>
                             </div>
                         </div>
                     </div>
@@ -125,7 +128,7 @@
         </button>
   </div>
 </div>
-        <div class="clearfix"></div>    
+            
             
       </div>
       
