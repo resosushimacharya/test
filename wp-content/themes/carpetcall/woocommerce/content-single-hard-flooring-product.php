@@ -619,6 +619,7 @@ wp_reset_postdata();
         </table>
       </div>
       <div class="recommended_acc_static">
+      <span><?php _e('Required Accessories to complete flooring:','carpetcall')?></span>
       	<img src="<?php echo get_template_directory_uri()?>/images/underlay_rec.jpg">
         <span><?php _e('UNDERLAY','carpetcall')?></span>
       </div>

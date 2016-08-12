@@ -38,7 +38,7 @@ jQuery(document).on('click','.select-design-product-image a.select_design',funct
 		document.getElementsByTagName('html')[0].innerHTML = response;
 		jQuery(document).trigger('load');
 		jQuery(document).trigger('ready');
-		jQuery(document).find(".main-image-wrapper a.zoom").removeAttr('data-rel').prettyPhoto();
+		jQuery(document).find(".main-image-wrapper a.zoom").removeAttr('data-rel').prettyPhoto({social_tools:''});
 		//jQuuery("a[rel^='prettyPhoto']").prettyPhoto();
 		});
 	});	
@@ -47,7 +47,7 @@ jQuery(document).on('change','select#cc-size',function(e){
 	window.history.pushState("object or string", "Title", url);
 	jQuery.get(url,function(response){
 		document.getElementsByTagName('html')[0].innerHTML = response;
-		jQuery(document).find(".main-image-wrapper a.zoom").removeAttr('data-rel').prettyPhoto();
+		jQuery(document).find(".main-image-wrapper a.zoom").removeAttr('data-rel').prettyPhoto({social_tools:''});
 		});
 	});	
 	
