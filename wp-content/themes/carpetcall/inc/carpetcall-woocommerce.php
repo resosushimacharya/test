@@ -206,9 +206,14 @@ function woo_new_product_tab( $tabs ) {
 
 if($top_cat == 'hard-flooring'){
 	$tabs['accesories_tab'] = array(
-		'title' 	=> __( "Accessories", 'woocommerce' ),
+		'title' 	=> __( "ACCESSORIES", 'woocommerce' ),
 		'priority' 	=> 1,
 		'callback' 	=> 'woo_new_product_tab_accesories'
+	);
+	$tabs['guides_tab'] = array(
+		'title' 	=> __( "GUIDES", 'woocommerce' ),
+		'priority' 	=> 5,
+		'callback' 	=> 'woo_new_product_tab_guides'
 	);
 	}
 	return $tabs;
@@ -442,6 +447,46 @@ function woo_new_product_tab_accesories() {
 	?>
 <?php	
 }
+
+function woo_new_product_tab_guides(){
+	global $post;
+	$installation_guide = get_field('installation_options');
+	$maintainance_guide = get_field('care_instructions');
+	?>
+    <div class="cont-panl">
+        <div class="panel-group" id="accordion_guides">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_guides" href="#collapse_installtion_guide">
+                    <span class="pull-right glyphicon glyphicon-chevron-up"></span>
+                    <?php _e('INSTALLATION GUIDE','carpetcall')?>
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse_installtion_guide" class="panel-collapse collapse in">
+                <div class="panel-body panel-body-faq">
+                	<?php echo $installation_guide;?>
+                </div>
+            </div>
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_guides" href="#collapse_maintainance_guide">
+                    <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                    <?php _e('MAINTAINANCE GUIDE','carpetcall')?>
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse_maintainance_guide" class="panel-collapse collapse">
+                <div class="panel-body panel-body-faq">
+                	<?php echo $maintainance_guide;?>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+	<?php
+	}
 
 add_filter( 'woocommerce_product_tabs', 'woo_rename_tabs', 98 );
 function woo_rename_tabs( $tabs ) {
