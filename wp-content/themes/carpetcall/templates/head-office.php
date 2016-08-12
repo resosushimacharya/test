@@ -17,7 +17,7 @@
             <?php // head office section start ?>
             <div class="nearstore">
                 
-                <div class="col-md-12">
+                <div class="cc-pul-headoff">
              <?php 
 
             $args = array(
@@ -85,12 +85,14 @@
     
     
 
-        ?><div class="col-md-4 no-lr">
+        ?><div class="col-md-4 pul-sec-cc">
                     <div class="str-two">
                         <h4><?php echo $state; ?></h4>
+                        <div class="cc-store-pul-block">
                         <p><?php echo get_the_title();?> Head Office  </p>
                         <p><?php echo  $add ; ?></p>
                         <p><?php echo  $city.' '.$state.' '.$zip;?></p>
+                        </div>
                         <h5> <span class="pclt">P :</span> <?php echo $phone;?></h5>
                     </div><div class="clearfix"></div>
                     </div> <!-- store one end -->

@@ -32,7 +32,6 @@ $size      = count( $ancestors );
     <div class="container clearfix">
         <div class="inerblock_serc_child">
             <div class="cc-breadcrumb">
-                <span class="cc-bread-root">
                 <?php 
                     if( !empty( $ancestors ) ) {
                         for( $i=0; $i<=$size; $i++ ) {

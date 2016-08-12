@@ -197,18 +197,45 @@ function woo_new_product_tab( $tabs ) {
 				
 	
 	// Adds the new tab
+
+    unset( $tabs['description'] );      	// Remove the description tab
+    unset( $tabs['reviews'] ); 			// Remove the reviews tab
+	$tabs['additional_information']['title'] = __( 'DETAILS' );	// Rename the additional information tab
+	$tabs['additional_information']['callback'] = 'woo_custom_information_tab_content';
 	
 	$tabs['faq_tab'] = array(
 		'title' 	=> __( "FAQ'S", 'woocommerce' ),
-		'priority' 	=> 50,
+		'priority' 	=> 49,
 		'callback' 	=> 'woo_new_product_tab_content'
+	);
+	
+	$tabs['ret_tab'] = array(
+		'title' 	=> __( 'RETURNS', 'woocommerce' ),
+		'priority' 	=> 50,
+		'callback' 	=> 'woo_new_product_tab_content_ret'
 	);
 
 if($top_cat == 'hard-flooring'){
 	$tabs['accesories_tab'] = array(
-		'title' 	=> __( "Accessories", 'woocommerce' ),
+		'title' 	=> __( "ACCESSORIES", 'woocommerce' ),
 		'priority' 	=> 1,
 		'callback' 	=> 'woo_new_product_tab_accesories'
+	);
+	$tabs['specifications_tab'] = array(
+		'title' 	=> __( "SPECIFICATIONS", 'woocommerce' ),
+		'priority' 	=> 46,
+		'callback' 	=> 'woo_new_product_tab_specifications'
+	);
+	$tabs['guides_tab'] = array(
+		'title' 	=> __( "GUIDES", 'woocommerce' ),
+		'priority' 	=> 47,
+		'callback' 	=> 'woo_new_product_tab_guides'
+	);
+	}else{
+		$tabs['care_tab'] = array(
+		'title' 	=> __( 'CARE INSTRUCTIONS', 'woocommerce' ),
+		'priority' 	=> 48,
+		'callback' 	=> 'woo_new_product_tab_content_care'
 	);
 	}
 	return $tabs;
@@ -367,7 +394,7 @@ function woo_new_product_tab_accesories() {
 							$post = get_post($acc_product);
 							setup_postdata($post);
 							?>
-							<div class="acc_list_item col-md-4">
+							<div class="acc_list_item col-md-4 <?php echo $acc_cat->slug?>">
                             	<div class="acc_thumb">
 									<?php echo get_the_post_thumbnail($acc_product->ID,'thumbnail')?>
 								</div>
@@ -442,17 +469,230 @@ function woo_new_product_tab_accesories() {
 	?>
 <?php	
 }
-
+function woo_new_product_tab_guides(){
+	global $post;
+	$installation_guide = get_field('installation_options');
+	$maintainance_guide = get_field('care_instructions');
+	?>
+    <div class="cont-panl">
+        <div class="panel-group" id="accordion_guides">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_guides" href="#collapse_installtion_guide">
+                    <span class="pull-right glyphicon glyphicon-chevron-up"></span>
+                    <?php _e('INSTALLATION GUIDE','carpetcall')?>
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse_installtion_guide" class="panel-collapse collapse in">
+                <div class="panel-body panel-body-faq">
+                	<?php echo $installation_guide;?>
+                </div>
+            </div>
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_guides" href="#collapse_maintainance_guide">
+                    <span class="pull-right glyphicon glyphicon-chevron-down"></span>
+                    <?php _e('MAINTAINANCE GUIDE','carpetcall')?>
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse_maintainance_guide" class="panel-collapse collapse">
+                <div class="panel-body panel-body-faq">
+                	<?php echo $maintainance_guide;?>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+	<?php
+	}
+function woo_new_product_tab_specifications(){
+	wp_reset_postdata();
+	global $post,$product;
+	echo '<h3 class="detail-heading-item-spec">Product Specifications</h3>';?>
+	<table class="product_specifications_table">
+    	<tr>
+            <td class="spec_label"><?php _e('Country of Origin Manufacture','carptecall')?></td>
+            <td class="value"><?php echo get_field('country_of_origin_manufacture')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Colour','carptecall')?></td>
+            <td class="value"><?php echo get_field('species__colour_decore')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Price per pack','carptecall')?></td>
+            <td class="value"><?php echo $product->get_price();?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Boards per pack','carptecall')?></td>
+            <td class="value"><?php echo get_field('boards_per_pack')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Coverage per pack','carptecall')?></td>
+            <td class="value"><?php echo get_field('size_m2')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Product - Length','carptecall')?></td>
+            <td class="value"><?php echo get_post_meta( $post->ID, '_length', TRUE );?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Product - Width','carptecall')?></td>
+            <td class="value"><?php echo $width= get_post_meta( $post->ID, '_width', TRUE );?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Product - Thickness Veneer','carptecall')?></td>
+            <td class="value"><?php echo get_field('product_thickness_veneer')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Product - Thickness Total','carptecall')?></td>
+            <td class="value"><?php echo get_field('pack_thickness')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Pack - Length','carptecall')?></td>
+            <td class="value"><?php echo get_field('pack_length')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Pack - Width','carptecall')?></td>
+            <td class="value"><?php echo get_field('pack_width')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Pack - Weight','carptecall')?></td>
+            <td class="value"><?php echo get_field('pack_weight')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Underlay Options','carptecall')?></td>
+            <td class="value"><?php echo get_field('underlay_options')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Board Type','carptecall')?></td>
+            <td class="value"><?php echo get_field('board_type')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Supplier','carptecall')?></td>
+            <td class="value"><?php echo get_field('supplier')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Installation options','carptecall')?></td>
+            <td class="value"><?php echo get_field('installation_options')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Underlay Options','carptecall')?></td>
+            <td class="value"><?php echo get_field('species_colour_decore')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Glue Options','carptecall')?></td>
+            <td class="value"><?php echo get_field('glue_options')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Scotia Options','carptecall')?></td>
+            <td class="value"><?php echo get_field('scotia_options')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Accessories','carptecall')?></td>
+            <td class="value"><?php echo get_field('accessories')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Edge Type','carptecall')?></td>
+            <td class="value"><?php echo get_field('edge_type')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Joint System','carptecall')?></td>
+            <td class="value"><?php echo get_field('joint_system')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Surface Finish','carptecall')?></td>
+            <td class="value"><?php echo get_field('surface_finish')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Janka Rating','carptecall')?></td>
+            <td class="value"><?php echo get_field('janka_rating')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Structural Warranty','carptecall')?></td>
+            <td class="value"><?php echo get_field('structural_warranty')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Wear Layer Warranty','carptecall')?></td>
+            <td class="value"><?php echo get_field('wear_layer_warranty')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Construction Style','carptecall')?></td>
+            <td class="value"><?php echo get_field('construction_style')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Recommended Use','carptecall')?></td>
+            <td class="value"><?php echo get_field('species__colour_decore')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Recommended Areas of Use','carptecall')?></td>
+            <td class="value"><?php echo get_field('recommended_use')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Standards - Coating','carptecall')?></td>
+            <td class="value"><?php echo get_field('coating')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Standards - AC Rating','carptecall')?></td>
+            <td class="value"><?php echo get_field('ac_rating')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Standards - Core Type','carptecall')?></td>
+            <td class="value"><?php echo get_field('core_type')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Standards - Anti Slip Test','carptecall')?></td>
+            <td class="value"><?php echo get_field('anti_slip_test')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Standards - Base','carptecall')?></td>
+            <td class="value"><?php echo get_field('base')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('ISO Certification','carptecall')?></td>
+            <td class="value"><?php echo get_field('iso_certification')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Trim Options','carptecall')?></td>
+            <td class="value"><?php echo get_field('trim_options')?></td>
+        </tr>
+    	<tr>
+            <td class="spec_label"><?php _e('Instructional Video','carptecall')?></td>
+            <td class="value">
+			<?php 
+			if(get_field('instructional_video')){
+				echo get_field('instructional_video');?>
+            
+            <?php
+			}?>
+            
+			<?php //echo get_field('instructional_video')?>
+            </td>
+        </tr>
+    </table>
+    
+    
+    <?php 
+	$fields = get_fields($post->ID);
+	//do_action('pr',$fields);
+	?>
+    
+    <?php
+	}
+/*
 add_filter( 'woocommerce_product_tabs', 'woo_rename_tabs', 98 );
 function woo_rename_tabs( $tabs ) {
 
-     unset( $tabs['description'] );      	// Remove the description tab
+    unset( $tabs['description'] );      	// Remove the description tab
     unset( $tabs['reviews'] ); 			// Remove the reviews tab
 	$tabs['additional_information']['title'] = __( 'DETAILS' );	// Rename the additional information tab
 
 	return $tabs;
 
 }
+*/
+/*
 add_filter( 'woocommerce_product_tabs', 'woo_new_product_tab_care' );
 function woo_new_product_tab_care( $tabs ) {
 	
@@ -467,6 +707,8 @@ function woo_new_product_tab_care( $tabs ) {
 	return $tabs;
 
 }
+
+*/
 function woo_new_product_tab_content_care() {?>
 <?php global $product;
 global $post;
@@ -477,6 +719,8 @@ if(!empty($careins)){
 ?>
 
 <?php }?><?php 
+
+/*
 add_filter( 'woocommerce_product_tabs', 'woo_new_product_tab_ret',96 );
 function woo_new_product_tab_ret( $tabs ) {
 	
@@ -491,6 +735,7 @@ function woo_new_product_tab_ret( $tabs ) {
 	return $tabs;
 
 }
+*/
 function woo_new_product_tab_content_ret() {?>
 <?php global $product;
 global $post;
@@ -512,9 +757,9 @@ echo '<p>'.$retinfo.'</p>';
 ?>
 
 <?php }?><?php 
+/*
 add_filter( 'woocommerce_product_tabs', 'woo_reorder_tabs', 98 );
 function woo_reorder_tabs( $tabs ) {
-
 	$tabs['additional_information']['priority'] = 5;			// Reviews first
 	$tabs['care_tab']['priority'] = 10;			// Description second
 	$tabs['faq_tab']['priority'] = 15;
@@ -522,6 +767,8 @@ function woo_reorder_tabs( $tabs ) {
 
 	return $tabs;
 }
+*/
+/*
 add_filter( 'woocommerce_product_tabs', 'woo_custom_information_tab', 98 );
 function woo_custom_information_tab( $tabs ) {
 
@@ -529,7 +776,7 @@ function woo_custom_information_tab( $tabs ) {
 
 	return $tabs;
 }
-
+*/
 function woo_custom_information_tab_content() {
     global	$post;
 	echo '<h2 class="detail-heading-item">Overview</h2>';
@@ -555,7 +802,6 @@ if(!empty($d4)){
 echo '<p>'.$d4.'</p>';
 }
 		echo '<h3 class="detail-heading-item-spec">SPECIFICATIONS</h3>';?>
-
 		<ul class="specific-list">
 		<?php if(!empty($yarn)){?>
 		<li><span>Yarn Type : </span><?php echo $yarn; ?></li><?php }?>
