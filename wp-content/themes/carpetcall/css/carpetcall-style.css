@@ -650,6 +650,10 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .cc-select-design-pro-all.col-md-12 { padding:0; font-size:0;margin: 0 -5px;}
 .cc-size-section.col-md-12, .cc-quantiy-section.col-md-12, .quantity.col-md-12, .cc-product-enquiry.col-md-12, .cc-product-ship-free-section.col-md-12, .cc-product-ship.col-md-6, .cc-product-free.col-md-6, .cc-product-pick-location-section.col-md-12, .cc-product-pick.col-md-6, .cc-product-location.col-md-6 { padding:0;}
 .modal-dialog{ margin-top:200px; width:817px;}
+
+.single.single-product .modal-dialog{ margin-top:200px; width:815px;}
+.single.single-product .modal-header{ padding:18px 29px 14px 22px;}
+
 .modal-content { border-radius:0; border-color:#e7edf8;}
 .modal-title {font:bold 30px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:9px;}
 .modal-a-title {font:bold 30px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:9px;}
