@@ -1,4 +1,5 @@
-<?php remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+<?php 
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
 add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
@@ -437,7 +438,7 @@ function woo_new_product_tab_accesories() {
 									?>
                                 </div>
                            		<?php $x=do_shortcode('[add_to_cart_url id="'.$acc_product->ID.'"]');?>
-                                <a href="<?php echo $x ;?>" data-quantity="<?php echo ($rec_qty=='')?'1':$rec_qty?>" data-product_id="<?php echo $acc_product->ID;?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart col-md-12" id="acc_quantity" >ADD TO CART</a>
+                                <a href="<?php echo $x ;?>" data-quantity="<?php echo ($rec_qty=='')?'1':$rec_qty?>" data-product_id="<?php echo $acc_product->ID;?>" class="button product_type_simple col-md-12 acc_add_to_cart" >ADD TO CART</a>
                             </div>
                             <?php 
 							wp_reset_postdata();
@@ -662,17 +663,13 @@ function woo_new_product_tab_specifications(){
             <td class="value">
 			<?php 
 			if(get_field('instructional_video')){
-				echo get_field('instructional_video');?>
-            
-            <?php
+				echo get_field('instructional_video');
+				//echo wp_video_shortcode(array('src'=> get_field('instructional_video')));
 			}?>
-            
-			<?php //echo get_field('instructional_video')?>
+			
             </td>
         </tr>
     </table>
-    
-    
     <?php 
 	$fields = get_fields($post->ID);
 	//do_action('pr',$fields);

@@ -650,6 +650,10 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .cc-select-design-pro-all.col-md-12 { padding:0; font-size:0;margin: 0 -5px;}
 .cc-size-section.col-md-12, .cc-quantiy-section.col-md-12, .quantity.col-md-12, .cc-product-enquiry.col-md-12, .cc-product-ship-free-section.col-md-12, .cc-product-ship.col-md-6, .cc-product-free.col-md-6, .cc-product-pick-location-section.col-md-12, .cc-product-pick.col-md-6, .cc-product-location.col-md-6 { padding:0;}
 .modal-dialog{ margin-top:200px; width:817px;}
+
+.single.single-product .modal-dialog{ margin-top:200px; width:815px;}
+.single.single-product .modal-header{ padding:18px 29px 14px 22px;}
+
 .modal-content { border-radius:0; border-color:#e7edf8;}
 .modal-title {font:bold 30px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:9px;}
 .modal-a-title {font:bold 30px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:9px;}
@@ -1368,3 +1372,15 @@ opacity: 0.5;
 .panel-body-table tr.bg_table { background-color:#d0ebfd; }
 .panel-body-table td { vertical-align:top; line-height:30px; }
 .panel-body-table td strong { font-weight:700; color:#0e0e0e; padding-left:2px;}
+.cc-smc-blk-title h3 { font-family:'proxima_nova_ltsemibold', sans-serif; font-size:30px !important; font-weight:bold; color:#15489f !important; text-transform:uppercase; margin:9px 0 16px 1px !important; }
+div#cal_pro_1 .container_1 .form-group.col-md-6 { padding:0; margin-bottom:20px; }
+div#cal_pro_1 .container_1 .col-md-6 label {font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding-left:15px; margin:0;}
+div#cal_pro_1 .container_1 .col-md-6.no-lr { clear:both;}
+div#cal_pro_1 .container_1 .col-md-6.no-lr .form-control { background-color:#e7edf8; border:1px solid #cdd9ed; border-radius:0; outline:0; box-shadow:none; width:222px; height:45px; margin-left:5px; margin-top:7px;}
+div#cal_pro_1 .container_1 .col-md-6.no-lr .form-control::-webkit-input-placeholder {
+   font:700 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; text-transform:uppercase;
+}
+div#calculator_container { border-bottom:1px solid #efefef; margin-bottom:18px; }
+.calculator_container .form-group.col-md-8 .form-control { border:0; background:none; box-shadow:none; margin-top:35px;}
+.single.single-product .form-group.col-md-8.col-item-price { padding-right:0;}
+.single.single-product .form-group.col-md-8.col-item-price button { float:right; }
