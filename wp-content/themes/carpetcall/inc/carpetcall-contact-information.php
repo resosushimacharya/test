@@ -358,7 +358,7 @@ function custom_listing_templates() {
     $listing_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span></div>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% if ( phone ) { %>' . "\r\n";
-            $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P:' .'</strong><a href="tel:'.$x .'"> <%= formatPhoneNumber( phone ) %></a></span>' . "\r\n";
+            $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P:' .'</strong><a href="tel:<%= formatPhoneNumber( phone ) %>"> <%= formatPhoneNumber( phone ) %></a></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% } else { %>' . "\r\n";
             $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P: ' . '</strong> -</span>' . "\r\n";
             $listing_template .= "\t\t\t\t" . '<% } %>';
@@ -443,7 +443,7 @@ function custom_listing_templates_server() {
     $listing_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span></div>' . "\r\n";
   $listing_template .= "\t\t\t\t" . '<% if ( phone ) { %>' . "\r\n";
-            $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P:' .'</strong><a href="tel:'.$x .'"><%= formatPhoneNumber( phone ) %></a></span>' . "\r\n";
+            $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P:' .'</strong><a href="tel:'.$x .'"> <%= formatPhoneNumber( phone ) %></a></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% } else { %>' . "\r\n";
             $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P: ' . '</strong> -</span>' . "\r\n";
             $listing_template .= "\t\t\t\t" . '<% } %>';

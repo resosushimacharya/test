@@ -361,7 +361,7 @@ wp_reset_postdata();
                         $resproWidth = get_post_meta( $post->ID,'_width', true);
                         $resproSKU   = get_post_meta($post->ID,'_sku',true);
                         $resproSize ='Size : '.$resproLength.'cm'.' '.$resproWidth.' '.'cm'.' '.$resproHeight;
-                        $resproCode = 'Rug Code : '.$resproSKU;
+                        $resproCode = 'Hard Flooring Code : '.$resproSKU;
                         $resproProduct ='Product : '.$reserve; 
                         
                         echo '<input type="hidden" value="'.$resproProduct.'" name="product_page_cat"/>';
