@@ -1,4 +1,5 @@
 /* this is script for calculator section of product in store */
+
 $ = jQuery.noConflict();
     $(document).ready(function() {
         $("#cal_more").click(function() {
@@ -26,6 +27,12 @@ $ = jQuery.noConflict();
 
        	}
        	  else{
+            for($i=1;$i<=$loop;$i++){
+               if($('#length_'+$i).val()==''){
+                $myid ='#length_'+$i;
+                   $($myid).parent().append('<div class="cc-void-field">hello</div>');alert($i);
+                  }
+               }
        	for($i=1;$i<=$loop;$i++){
        		$length = '#length_'+$i;
        		$width = '#width_'+$i;
@@ -70,7 +77,7 @@ $ = jQuery.noConflict();
          $calarea = 0;
        	/*alert($loop);*/
        	$covperpack = 2.49;
-       	  
+       	    
        	for($i=1;$i<=$loop;$i++){
        		$length = '#length_'+$i;
        		$width = '#width_'+$i;

@@ -17,15 +17,18 @@
   
 
 
+            
     
-    
-       <div class="row">
-            <div class="col-md-12"><div class="col-md-2">
-            <label for="cov_per_pack">Enter Coverage Per Pack</label></div>
+       <div class="row"><?php
+       $x = get_field('size_m2',get_the_ID());
+       $stock = get_post_meta(get_the_ID(), '_stock', true);
+       ?>
+            <div class="col-md-12">
             <div class="col-md-2">
-                 <input type="text" class="form-control" id="cov_per_pack" placeholder="" name="cov_per_pack">
+                 <input type="hidden" class="form-control" id="cov_per_pack" placeholder="" name="cov_per_pack" value='<?php echo $x ;?>'>
+                  <input type="hidden" class="form-control" id="cc_Stock_count" placeholder="" name="cc_Stock_count" value='<?php echo $stock;?>'>
                  </div><div class="col-md-3">
-              sqm/pack
+              sqm/pack 
             </div>
             </div>
         </div>
@@ -40,7 +43,7 @@
                                 <label for="width_1">Room 1 Width(m)</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" id="width_1" placeholder="" name="width_1">
+                                <input type="text" class="form-control" id="width_1" placeholder="" name="width_1" required>
                             </div>
                         </div>
                         <div class="form-group col-md-6">
@@ -48,7 +51,7 @@
                                 <label for="length_1">Length(m)</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" id="length_1" placeholder="" name="length_1">
+                                <input type="text" class="form-control" id="length_1" placeholder="" name="length_1" required>
                             </div>
                         </div>
                     </div>
@@ -74,6 +77,7 @@
                     <button type="button" class="btn btn-default" id="cal_more">+Add Rooms</button>
                     <button type="submit" class="btn btn-default" id="cal_id" >Calculate</button>
                 </div><div class="form-group col-md-4 "></div> </div>
+                </form>
 
     <div class="row"><div class="form-group col-md-8 col-item-price">
         <p class="pull-right">Excess</p>
@@ -125,7 +129,7 @@
         </button>
   </div>
 </div>
-        <div class="clearfix"></div>    
+            
             
       </div>
       

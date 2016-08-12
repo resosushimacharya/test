@@ -27,6 +27,7 @@ $(window).scroll(function() {
 });
 
 
+
 /*
 * Change the main image when thumbnail is clicked in product single page.
 */

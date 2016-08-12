@@ -105,8 +105,13 @@ else{ ?>
 
 <?php get_footer( 'shop' ); ?>
 <script type="text/javascript">
+function recaptchaCallback(){
+   jQuery('#check_captcha_one').val('1');
+    
+};
+
 $ = jQuery.noConflict();
-$(document).on('click','.close_box',function(){
+ $(document).on('click','.close_box',function(){
   var that=this;
     $(this).parent().fadeTo(300,0,function(){
           $(that).parent().hide();
@@ -117,56 +122,61 @@ $(document).on('click','.close_box',function(){
 jQuery.validator.setDefaults({ 
 ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
  submitHandler: function() {
-		 var form_data= jQuery("#contact_form").serializeArray();
-		  var json = {};
+     var form_data= jQuery("#contact_form").serializeArray();
+      var json = {};
 
-		jQuery.each(form_data, function() {
-			json[this.name] = this.value || '';
-		});
-		
-	jQuery.ajax({
+    jQuery.each(form_data, function() {
+      json[this.name] = this.value || '';
+    });
+    
+  jQuery.ajax({
          type : "post",
          dataType : "json",
          url : "<?php echo admin_url( 'admin-ajax.php' ); ?>",
          data : {
-         	 action: "contact_action",
-         	 form_data : json
-         	},
+           action: "contact_action",
+           form_data : json
+          },
          success: function(response) {
            if(typeof(response.success) != "undefined" && response.success !== null) {
                //jQuery("#vote_counter").html(response.vote_count)
-			   jQuery('#first_name').val('');
-			   jQuery('#last_name').val('');
-			   jQuery('#email_address').val('');
-			   jQuery('#mobile_phone_no').val('');
-			   jQuery('#cc-state-type').val('default');
-			   jQuery('#cc-store-name').val('default');
+         jQuery('#first_name').val('');
+         jQuery('#last_name').val('');
+         jQuery('#email_address').val('');
+         jQuery('#mobile_phone_no').val('');
+         jQuery('#cc-state-type').val('default');
+         jQuery('#cc-store-name').val('default');
          
-			   jQuery('#cc_message').val('');
+         jQuery('#cc_message').val('');
           jQuery('#cc_message').attr("placeholder", "ENTER YOUR MESSAGE HERE");
          jQuery('#cc-state-type-only').val('default');
-			   jQuery('.success_message').parent().show();
-             jQuery('.success_message').html(response.success).show();
+         $('.error_message').parent().hide(); 
+         $('.success_message').parent().hide();
+         $('.success_message').parent().show();
+         
+
+         jQuery('.success_message').html(response.success).show();
         
-			   grecaptcha.reset();
+         grecaptcha.reset();
             }else{
-              	if(typeof(response.captcha_error) != "undefined" && response.captcha_error !== null){
-					grecaptcha.reset();
-					jQuery('.error_message').parent().show();
-             
-					jQuery('.error_message').html(response.captcha_error).show();
-				}else if(typeof(response.error) != "undefined" && response.error !== null){
-					
-						jQuery('.error_message').parent().show();
-						jQuery('.error_message').html(response.error).show();
-					
-				}
+                if(typeof(response.captcha_error) != "undefined" && response.captcha_error !== null){
+          grecaptcha.reset();
+            $('.success_message').parent().hide();
+            $('.error_message').parent().hide();
+           $('.error_message').parent().show();
+          jQuery('.error_message').html(response.captcha_error).show();
+        }else if(typeof(response.error) != "undefined" && response.error !== null){
+            grecaptcha.reset();
+           $('.error_message').parent().show();
+          jQuery('.error_message').html(response.error).show();
+          
+        }
             }
          }
       }) 
 }
 }) 
-   $.validator.addMethod("phoneValidation",function(value,element){
+  $.validator.addMethod("phoneValidation",function(value,element){
       
       str= value;
        value =value.replace(/[a-z]/gi, '');
@@ -296,8 +306,9 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
       mobile_phone_no :{
              phoneValidation:true,
              required: true,
-              minlength:10,
-              maxlength:10
+             maxlength:10,
+             minlength:10
+              
       
      /* required:true*/}
       ,
@@ -305,7 +316,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
               number: true,
               required: true,
             },
-      check_captcha_one : "required"     
+      check_captcha_one: "required"     
   },
   messages: {
       first_name:{required: "Please enter your first name!"
@@ -339,7 +350,9 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
   
   
   });
-//hello 
+
+
 
 </script>
+
 

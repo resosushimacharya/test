@@ -569,8 +569,8 @@ if(array_key_exists('wpsl_fax',$getinfo)){
         $info_window_template .= "\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n"; // Use the correct address format
         $info_window_template .= "\t\t" . '</p>' . "\r\n";
         $info_window_template .= "\t\t" . '<% if ( phone ) { %><% tel = phone.replace(" ", "") %>' . "\r\n";
-         $info_window_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P: ' .'</strong><a href="tel:'.$phone.'"> <%= phone %></a></span>' . "\r\n";
-        $info_window_template .= "\t\t" . '<% } else { %>' . "\r\n";
+            $info_window_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P: ' .'</strong><a href="tel:+61' . '<%= (tel.replace( /\s+/g,"" )).replace( "0", "" ) %>' . '"><%= phone %></a></span>' . "\r\n";
+    $info_window_template .= "\t\t\t\t" . '<% } else { %>' . "\r\n";
         $info_window_template .= "\t\t\t\t" . '<span><strong>' .'P: ' . '</strong> -</span>' . "\r\n";
       $info_window_template .= "\t\t\t\t" . '<% } %>';
         $info_window_template .= "\t\t" . '<% if ( fax ) { %>' . "\r\n";
