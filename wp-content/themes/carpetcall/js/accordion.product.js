@@ -11,6 +11,3 @@ $(this).parent().find(".glyphicon-chevron-up").removeClass("glyphicon-chevron-up
 
 });
 
-$('.cc-cat-store-item-phone a ').attr('href',"tel:hello");
-alert("hello")
-
