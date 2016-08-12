@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         $options .= '<option class= "col-md-12"'. ' value="' . $count . '" >' . $count . '</option>';
     } 
     if ( $options ){ ?>
-    <select name="<?php echo esc_attr( $args['input_name'] ); ?>" id="quantity-control" title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="qty col-md-12 selectpicker " /><?php echo $options;?></select>
+    <select name="<?php echo esc_attr( $args['input_name'] ); ?>" id="quantity-control" title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="qty col-md-12 selectpicker "><?php echo $options;?></select>
     <?php } else {
         printf( '%s <input type="hidden" name="%s" value="%s" />', $args['input_value'], $args['input_name'], $args['input_value'] );
     }
@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         $options .= '<option' . selected( $args['input_value'], $count, false ) .' class= "col-md-12"'. ' value="' . $count . '" >' . $count . '</option>';
     } 
     if ( $options ){ ?>
-    <select name="<?php echo esc_attr( $args['input_name'] ); ?>" id="quantity-control" title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="qty col-md-12 selectpicker " /><?php echo $options;?></select>
+    <select name="<?php echo esc_attr( $args['input_name'] ); ?>" id="quantity-control" title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="qty col-md-12 selectpicker "><?php echo $options;?></select>
     <?php } else {
         printf( '%s <input type="hidden" name="%s" value="%s" />', $args['input_value'], $args['input_name'], $args['input_value'] );
     } 
@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <script>
 $ = jQuery.noConflict();
 $(document).ready(function() {
- $('#sel_cart').attr('selected','selected');
+ $('#quantity-control #sel_cart').attr('selected','selected');
         $loadref=$('#store-count-quantity').attr('href');
         $('#store-count-quantity').attr('href','javascript:void(0)');
           $('#store-count-quantity').removeClass('add_to_cart_button');
