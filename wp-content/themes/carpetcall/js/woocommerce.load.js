@@ -1,4 +1,6 @@
 jQuery(document).ready(function($){
+	
+jQuery(document).find(".main-image-wrapper a").attr('data-rel','prettyPhoto').prettyPhoto({social_tools:''});
 
 jQuery(document)
 .ajaxStart(function(){

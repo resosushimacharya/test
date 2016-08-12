@@ -59,6 +59,7 @@ if($reqTempTerms){
 	foreach($reqTempTerms as $cat){
 		$has_sub_cat=get_terms(array('parent'=>$cat->term_id,'taxonomy'=>'product_cat'));
 		if(count($has_sub_cat)==0){
+			global $current_post_term_id;
 			$current_post_term_id = $cat->term_id;
 		}
 	}
@@ -131,7 +132,10 @@ if($reqTempTerms){
 	  $curr_post = $post;
 	$terms = wp_get_post_terms( $post->ID, 'product_cat' );
   foreach ( $terms as $term ){
-	   $cats_array[] = $term->term_id;
+	 $children = get_term_children($term->term_id, 'product_cat'); 
+	if(($term->term_id!="" && sizeof($children)==0)) {
+		$cats_array[] = $term->parent;
+	}
   }
   $query_args = array( 'posts_per_page' => -1, 'no_found_rows' => 1, 'post_status' => 'publish', 'post_type' => 'product', 'tax_query' => array( 
     array(
@@ -140,7 +144,6 @@ if($reqTempTerms){
       'terms' => $cats_array
     )));
   $related_prods = new WP_Query($query_args);
- 
   if ( $related_prods->have_posts() ) {
 	 $count = 1;
 	while ( $related_prods->have_posts() ) {
@@ -754,7 +757,6 @@ wrapper close start */?>
                  
 						if($current_post_term_id!=$term->term_id){
                    
-							
 							$has_sub_cat=get_terms(array('parent'=>$term->term_id,'taxonomy'=>'product_cat'));
                 
 								if(count($has_sub_cat)==0){
