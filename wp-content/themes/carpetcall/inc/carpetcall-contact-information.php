@@ -328,24 +328,11 @@ function custom_frontend_meta_appointment( $store_fields ) {
 
 function custom_listing_templates() {
     
-
     global $wpsl_settings;
     global $post;
-   
- 
-     $x ='';
-    $site_url = site_url();  
-    $getinfo =get_post_meta($post->ID);
-    if(array_key_exists('wpsl_phone',$getinfo)){
-   $phone = $getinfo['wpsl_phone'][0];
-   $x=  $phone;
-   $x = preg_replace('/\s+/', '', $x);
-   $x = '+61'.$x;
-} 
-      
-    
-   
 
+    $site_url = site_url();  
+          
     $listing_template = '<li data-store-id="<%= id %>" class="col-md-4">' . "\r\n";
     $listing_template .= "\t\t" . '<div class="cc-cat-store-section">' . "\r\n";
    
@@ -357,13 +344,13 @@ function custom_listing_templates() {
     $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span></div>' . "\r\n";
-    $listing_template .= "\t\t\t\t" . '<% if ( phone ) { %>' . "\r\n";
-            $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P:' .'</strong><a href="tel:<%= formatPhoneNumber( phone ) %>"> <%= formatPhoneNumber( phone ) %></a></span>' . "\r\n";
+    $listing_template .= "\t\t\t\t" . '<% if ( phone ) { %><% tel = phone.replace(" ", "") %>' . "\r\n";
+            $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P: ' .'</strong><a href="tel:+61' . '<%= (tel.replace( /\s+/g,"" )).replace( "0", "" ) %>' . '"> <%= phone %></a></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% } else { %>' . "\r\n";
             $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P: ' . '</strong> -</span>' . "\r\n";
             $listing_template .= "\t\t\t\t" . '<% } %>';
     $listing_template .= "\t\t\t\t" . '<% if ( fax ) { %>' . "\r\n";
-                $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-fax"><strong>' .'F:' .'</strong> <%= fax %></span>' . "\r\n";
+                $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-fax"><strong>' .'F: ' .'</strong> <%= fax %></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% } else { %>' . "\r\n";
                   $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-fax"><strong>' .'F: ' . '</strong> -</span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% } %>';
@@ -403,25 +390,10 @@ function cc_store_search($){
 
 }*/
 function custom_listing_templates_server() {
-    
-
-    global $wpsl_settings;
-     global $post;
-     $getinfo =get_post_meta($post->ID);
-      $x ='';
-    if(array_key_exists('wpsl_phone',$getinfo)){
-   $phone = $getinfo['wpsl_phone'][0];
-   $x=  get_post_meta($post->ID,'wpsl_phone',true);
-   $x = preg_replace('/\s+/', '', $x);
-   $x = '+61'.$x;  
-}  
-   
- 
-   $y = '1787';
-   
-   
-    $listing_template = '<%=id %>';
-     $site_url = site_url();
+  global $wpsl_settings;
+  global $post;
+     
+  $site_url = site_url();
 
     $listing_template = '<% if (  id!=26801 ) { %>' .
     '<% if (  id!=26783 ) { %>'.
@@ -442,13 +414,13 @@ function custom_listing_templates_server() {
     $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span class="wpsl-country"><%= country %></span></div>' . "\r\n";
-  $listing_template .= "\t\t\t\t" . '<% if ( phone ) { %>' . "\r\n";
-            $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P:' .'</strong><a href="tel:'.$x .'"> <%= formatPhoneNumber( phone ) %></a></span>' . "\r\n";
+  $listing_template .= "\t\t\t\t" . '<% if ( phone ) { %><% tel = phone.replace(" ", "") %>' . "\r\n";
+            $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P: ' .'</strong><a href="tel:+61' . '<%= (tel.replace( /\s+/g,"" )).replace( "0", "" ) %>' . '"><%= phone %></a></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% } else { %>' . "\r\n";
             $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P: ' . '</strong> -</span>' . "\r\n";
             $listing_template .= "\t\t\t\t" . '<% } %>';
     $listing_template .= "\t\t\t\t" . '<% if ( fax ) { %>' . "\r\n";
-                $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-fax"><strong>' .'F:' .'</strong> <%= fax %></span>' . "\r\n";
+                $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-fax"><strong>' .'F: ' .'</strong> <%= fax %></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% } else { %>' . "\r\n";
                   $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-fax"><strong>' .'F: ' . '</strong> -</span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% } %>';
@@ -570,7 +542,7 @@ function custom_more_info_template() {
         $phone = ' -';
         $fax = '-';
         $x = ' ';
-        
+
 if(array_key_exists('wpsl_phone',$getinfo)){
         $phone = $getinfo['wpsl_phone'][0];$phone = $getinfo['wpsl_phone'][0];
         $x=  $phone;
@@ -582,9 +554,9 @@ if(array_key_exists('wpsl_fax',$getinfo)){
         $fax = $getinfo['wpsl_fax'][0];
 }
 
-        $phonesec = '<strong>' .'P:' .'</strong>'.$phone;
+        $phonesec = '<strong>' .'P: ' .'</strong>'.$phone;
         $faxsec = '<strong>F:</strong> '.$fax; 
-      
+
 
 
    $info_window_template = '<div data-store-id="<%= id %>" class="wpsl-info-window">' . "\r\n";
@@ -596,8 +568,8 @@ if(array_key_exists('wpsl_fax',$getinfo)){
         $info_window_template .= "\t\t\t" . '<% } %>' . "\r\n";
         $info_window_template .= "\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n"; // Use the correct address format
         $info_window_template .= "\t\t" . '</p>' . "\r\n";
-        $info_window_template .= "\t\t" . '<% if ( phone ) { %>' . "\r\n";
-         $info_window_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P:' .'</strong><a href="tel:'.$x.'"> <%= formatPhoneNumber( phone ) %></a></span>' . "\r\n";
+        $info_window_template .= "\t\t" . '<% if ( phone ) { %><% tel = phone.replace(" ", "") %>' . "\r\n";
+         $info_window_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P: ' .'</strong><a href="tel:'.$phone.'"> <%= phone %></a></span>' . "\r\n";
         $info_window_template .= "\t\t" . '<% } else { %>' . "\r\n";
         $info_window_template .= "\t\t\t\t" . '<span><strong>' .'P: ' . '</strong> -</span>' . "\r\n";
       $info_window_template .= "\t\t\t\t" . '<% } %>';
@@ -640,7 +612,7 @@ if(array_key_exists('wpsl_fax',$getinfo)){
         $fax = $getinfo['wpsl_fax'][0];
 }
 
-        $phonesec = '<strong>' .'P:' .'</strong>'.$phone;
+        $phonesec = '<strong>' .'P: ' .'</strong>'.$phone;
         $faxsec = '<strong>F:</strong> '.$fax; 
 
 
