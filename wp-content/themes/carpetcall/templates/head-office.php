@@ -11,76 +11,98 @@
         	
             
             
+            
+            	
+               
+            <?php // head office section start ?>
             <div class="nearstore">
-            	
+                
                 <div class="col-md-12">
-                	<div class="col-md-4 no-lr">
+             <?php 
+
+            $args = array(
+                'post_type'=>'wpsl_stores',
+                'posts_per_page'=>'-1',
+                'orderby' => 'title',
+                 'order' => 'ASC',
+                'meta_query' => array (
+                array (
+                'key' => 'store_type',
+                'value' => 'head_office',
+                )
+            ) 
+          );
+
+            $loop = new WP_Query($args);
+        ?>
+      
+
+        <?php   
+
+          while($loop->have_posts()):
+                $loop->the_post();
+
+              $getinfo  = get_post_meta($post->ID);
+              
+     
+                  $lat = $getinfo['wpsl_lat'];
+                  $long = $getinfo['wpsl_lng'];
+                  $stoLatLong=array($lat,$long);
+                  $add = $getinfo['wpsl_address'][0];
+                  $title = get_the_title();
+                  $sll[] = array($title,$add,$stoLatLong);
+                 
+                  $phone = '-';
+                  $fax = '-';
+                  $zip ='';
+                  $state = '';
+                  $city = '';
+                  $direction = '';
+                  $country  = '';
+                  if(array_key_exists('wpsl_phone',$getinfo)){
+                  $phone = $getinfo['wpsl_phone'][0];
+                  $x=  $phone;
+                  $x = preg_replace('/\s+/', '', $x);
+                  $x = '+61'.$x;  
+                  $phone = '<a class="phone" href="tel:'.$x.'">'.$phone.' </a>';
+                  }
+                  if(array_key_exists('wpsl_fax',$getinfo)){
+                  $fax = $getinfo['wpsl_fax'][0];
+                  }
+                  if(array_key_exists('wpsl_city',$getinfo)){
+                  $city  = $getinfo['wpsl_city'][0];
+                  }
+                  if(array_key_exists('wpsl_state',$getinfo)){
+                  $state = $getinfo['wpsl_state'][0];
+                  }
+                  if(array_key_exists('wpsl_zip',$getinfo)){
+                  $zip = $getinfo['wpsl_zip'][0];
+                  }  
+                
+                 if(array_key_exists('wpsl_address',$getinfo)){
+                  $add= $getinfo['wpsl_address'][0];
+                 } 
+    
+    
+
+        ?><div class="col-md-4 no-lr">
                     <div class="str-two">
-                    	<h4> NSW </h4>
-                        <p>Seven Hills Head Office  </p>
-                        <p> Unit 3/6 Boden Road, </p>
-                        <p> Seven Hills NSW 2147 </p>
-                        <h5> <span class="pclt">P :</span> 02 9007 9294 </h5>
+                        <h4><?php echo $state; ?></h4>
+                        <div class="cc-store-pul-block">
+                        <p><?php echo get_the_title();?> Head Office  </p>
+                        <p><?php echo  $add ; ?></p>
+                        <p><?php echo  $city.' '.$state.' '.$zip;?></p>
+                        </div>
+                        <h5> <span class="pclt">P :</span> <?php echo $phone;?></h5>
                     </div><div class="clearfix"></div>
                     </div> <!-- store one end -->
-                    
-                    <div class="col-md-4 no-lr">
-                    <div class="str-two">
-                    	<h4> QLD </h4>
-                        <p> QLD Builders Division </p>
-                        <p> 24 Jutland Street, </p>
-                        <p> Builders Division </p>
-                        <p> Logenlea QLD 4131 </p>
-                        <h5> <span class="pclt">P :</span> 07 3895 6501 </h5>
-                    </div><div class="clearfix"></div>
-                    </div> <!-- store two end -->
-                    
-                    <div class="col-md-4 no-lr">
-                    <div class="str-two">
-                    	<h4> SA </h4>
-                        <p> Wingfield (Head Office) </p>
-                        <p> 26-28 Rosberg Rd </p>
-                        <p> Builders Division </p>
-                        <p> Wingfield SA 5013 </p>
-                        <h5> <span class="pclt">P :</span> 08 8122 0080 </h5>
-                    </div><div class="clearfix"></div>
-                    </div> <!-- store three end -->
-                    
-                </div><div class="clearfix"></div>
-                
-                
-            </div><div class="clearfix"></div><!-- first phase end -->
-            
-            <div class="nearstore-a">
-            	
-                <div class="col-md-12">
-                	<div class="col-md-4 no-lr">
-                    <div class="str-two">
-                    	<h4> VIC </h4>
-                        <p> Mulgrave Store </p>
-                        <p> 2 Village Court </p>
-                        <p> Mulgrave VIC 3170 </p>
-                        <h5> <span class="pclt">P :</span> 03 9912 0595 </h5>
-                    </div><div class="clearfix"></div>
-                    </div> <!-- store one end -->
-                    
-                    <div class="col-md-4 no-lr">
-                    <div class="str-two">
-                    	<h4> WA  </h4>
-                        <p> Stirling ( Head Office ) </p>
-                        <p>40 Bryan Place  </p>
-                        <p> Stirling WA 6021 </p>
-                        <h5> <span class="pclt">P :</span> 08 9241 1222 </h5>
-                    </div><div class="clearfix"></div>
-                    </div> <!-- store two end -->
-                    
-                    <div class="col-md-4 no-lr"></div> <!-- store three end -->
-                    
-                </div><div class="clearfix"></div>
-                
-                
-            </div><div class="clearfix"></div><!-- second phase end -->
-            
+      
+    <?php endwhile;
+    wp_reset_query(); ?>
+      
+        </div></div>
+        <div class="clearfix"></div>
+            <?php // head office section end ?>
       </div>
       
     </div>

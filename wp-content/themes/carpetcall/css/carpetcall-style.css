@@ -56,7 +56,11 @@
 focus {outline:none;}
 img { display:block; border:0; }
 ul, li { padding:0; margin:0; }
-h1, h2, h3, h4, h5, h6 {margin:0;}
+h1 {margin:0; font-size:36px; color:#15489f;}
+h2 {margin:0; font-size:24px; color:#0099ff;}
+h3 {margin:0; font-size:18px; color:#0099ff;}
+h4 {margin:0; font-size:16px; color:#0099ff;} 
+h5 {margin:0; font-size:12px; color:#0099ff;}
 
 p {margin: 2px 0; font:normal 0.875em/150% 'proxima_nova_rgregular', sans-serif; color:#333333;  }
 html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-size: 100%; background:#fff; color:#000; line-height:150%; }
@@ -574,10 +578,11 @@ ul.guide_list_cfaq li .fa { float:right; margin-top:8px; color:#c32327;}
 ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsemibold',sans-serif; color:#15489f; text-decoration:none; text-transform:uppercase; margin-bottom:10px;}
 .faq-cont-blka .col-md-9 { padding-left:5px;}
 .cont-panl { border-top:1px solid #efefef;}
+.cbg_content .panel-group { margin:0 !important;}
 .panel-group .panel{ border-radius:0; border-left:0; border-right:0; border-top:0; border-bottom:1px solid #efefef; box-shadow:none; -webkit-box-shadow:none; padding-bottom:11px;}
 .faq-cont-blka .panel-default>.panel-heading, .faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body { background:none; border:none; border-radius:0; padding: 0}
 .faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body{padding:0 35px 0 40px; font-size:18px; line-height:21px;}
-.faq-cont-blka .panel-default>.panel-heading a{position: relative;width: 100%;display: block;padding:15px; text-decoration:none; color:#0099ff; font:bold 18px 'proxima_nova_ltsemibold',sans-serif; text-transform:uppercase; }
+.faq-cont-blka .panel-default>.panel-heading a{position: relative;width: 100%;display: block;padding:15px 15px 4px 15px; text-decoration:none; color:#0099ff; font:bold 18px 'proxima_nova_ltsemibold',sans-serif; text-transform:uppercase; }
 .faq-cont-blka .panel-body p {font:normal 18px/21px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-right:30px;}
 .panel-group .panel+.panel { margin:0;}
 .faq-cont-blka .glyphicon-chevron-down:before{
@@ -649,12 +654,12 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .frm-blk .input-group .btn { float:right; height:45px; border:0; border-radius:0; outline:0; background-color:#e7edf8; } 
 .midlt {font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; text-transform:uppercase; text-align:center; padding:0 16px;}
 .frm-blk .btn { font:bold 14px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-transform:uppercase; text-align:center; background-color:#c32428; border-radius:0; border:0; height:45px; width:29.6%;  }
-.nearstore, .nearstore-a {padding:0 0 35px 0;}
+.nearstore, .nearstore-a {padding:0 0 35px 0; display:inline-block; }
+.cc-store-pul-block { min-height:125px; }
 .clostor-blk {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding-bottom:10px; margin-bottom:2px;}
 .nearstore .col-md-12, .nearstore-a .col-md-12{ padding:0;}
-.nearstore .col-md-12 .col-md-4:nth-child(1), .nearstore-a .col-md-12 .col-md-4:nth-child(1) { width:31.2%;}
-.nearstore .col-md-4:nth-child(2), .nearstore-a .col-md-4:nth-child(2) { width:31.2%; margin:0 26px 0 22px; }
-.nearstore .col-md-4:nth-child(3), .nearstore-a .col-md-4:nth-child(3) { width:31.2%; }
+.nearstore .col-md-12 .col-md-4 { width:33.33%;}
+
 .str-one { border:1px solid #e7edf8; padding:33px 25px 30px 26px; min-height:250px;}
 .str-one h4 {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; margin-bottom:10px;}
 .str-one p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; line-height:24px; margin:0;}
@@ -665,9 +670,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .str-two p {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; line-height:24px; margin:0;}
 .str-two h5 {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#144a9f; line-height:24px; margin:0;}
 .pclt { font-weight:700; color:#0296ff;}
-.nearstore .col-md-4:nth-child(1) .str-two h5 { margin-top:24px;}
-.nearstore-a .col-md-4:nth-child(1) .str-two h5 { margin-top:24px;}
-.nearstore-a .col-md-4:nth-child(2) .str-two h5 { margin-top:24px;}
+
 
 
 
@@ -881,6 +884,7 @@ ul.cat_list li a:hover {color:#000;}
 .inerblock_serc_child .cc-breadcrumb > span.cc-bread-root a, .inerblock_serc_child .cc-breadcrumb > span.cc-bread-parent a { font-size:12px; color:#15489f; text-transform:uppercase; text-decoration:none; margin:0 2px; }
 .inerblock_serc_child .cc-breadcrumb > span.cc-bread-root a:hover, .inerblock_serc_child .cc-breadcrumb > span.cc-bread-parent a:hover { cursor:pointer;}
 .inerblock_serc_child .cc-breadcrumb > span.cc-bread-current { font-size:12px; text-transform:uppercase; color:#666666; text-decoration:none; margin:0 2px; }
+
 .inerblock_serc_child h3 {font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; border-bottom:1px solid #6383b9; display:inline-block; margin-bottom:12px; line-height:26px;}
 .cbg_content #guide_item_1, .cbg_content #guide_item_2, .cbg_content #guide_item_3 { font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:24px;}
 .cbg_content p {font-family:'proxima_nova_rgregular', sans-serif; font-size:16px !important; line-height:24px !important; color:#666666;}
@@ -1337,3 +1341,13 @@ opacity: 0.5;
 .cc-cat-sub-desc-sec p span strong {font:700 20px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; }
 .cc-cat-sub-desc-sec ul { margin:0 0 0 17px; }
 .cc-cat-sub-desc-sec ul li {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-bottom:23px;}
+.panel-body-table table { width:100%; margin:15px 0; font:normal 15px 'proxima_nova_rgregular', sans-serif; color:#666666; border-spacing:4px; text-align:left; border-collapse: separate;
+	 -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px; }
+.panel-body-table tr.bg_table { background-color:#d0ebfd; }
+.panel-body-table td { vertical-align:top; line-height:30px; }
+.panel-body-table td strong { font-weight:700; color:#0e0e0e; padding-left:2px;}

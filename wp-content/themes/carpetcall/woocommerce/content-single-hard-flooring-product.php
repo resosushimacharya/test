@@ -241,7 +241,7 @@ wp_reset_postdata();
       <button type="button" class="btn btn-default col-md-12" >Free PICK UP</button>
       </div>
       <div class="cc-product-location col-md-6">
-      <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal1">PICK UP</button>
+      <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal1">PICK UP LOCATIONS</button>
       </div>
       <!-- Trigger the modal with a button -->
       

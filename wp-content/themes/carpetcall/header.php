@@ -213,13 +213,7 @@ function codeLatLng(lat, lng) {
 body_class();
 ?> >
 
-<?php
-if(get_post_type() == 'product'){?>
-	<div id="loading_overlay_div">
-</div>
-	<?php }
 
-?>
 
 <div class="container-fluid wrapper clearfix">
   
