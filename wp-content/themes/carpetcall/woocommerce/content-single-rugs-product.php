@@ -604,18 +604,7 @@ endforeach;
             </div>
 
         </form> 
-		<script>
-         $(document).on('click','.close_box',function(){
-    $(this).parent().fadeTo(300,0,function(){
-          $(this).remove();
-    });
-});
- 
-  function recaptchaCallbackone(){
-   jQuery('#check_captcha_one').val('1');
-
-};
-</script>
+		
 
             </div><div class="clearfix"></div>            
       </div>
