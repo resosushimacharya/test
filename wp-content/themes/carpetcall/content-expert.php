@@ -4,56 +4,61 @@
                 	<h2><?php echo get_field('home_expert_heading','option') ;?> </h2>
                    <div class="row">
                     <?php
-                    
-                    $ei = 2;
+                        if( !have_rows( 'experts_section' , 'option' ) ) {
+                    ?>
+                          <div class="col-md-12">
+                            <p class="text-center"><?php _e( 'Nothing has been set for this section !' , 'carpetcall' ); ?></p>
+                          </div>
+                    <?php
+                        } else {
+                          $i=0;
+                        while( have_rows( 'experts_section' , 'option' ) ) {
+                          the_row();
 
- $args=array(
-          'post_type' => 'experts',
+                          $title          = get_sub_field( 'highlight') . ' ' . get_sub_field( 'non_highlight_section' );
+                          $link_selected  = get_sub_field( 'link_url_external' ); // check for external link
+                          $content        = apply_filters( 'the_content' , get_sub_field( 'content' ) );
+                    ?>
+                    <div class="col-md-6 idea-<?php ( $i%2==0 ) ? 'left' : 'right'; ?>">
+                      <div class="measure_blk">
+                        <div class="meas_img">
+                          <img src="<?php the_sub_field('featured_image'); ?>" alt="<?php echo $title; ?>" class="img-responsive">
+                          </div><div class="clearfix"></div>
+                         
+                         <div class="measr_cnt">
+                          <h3>
+                            <?php
+                              if( get_sub_field( 'highlight' ) ) echo '<span class="frcol"> ' . get_sub_field( 'highlight') . ' </span>';
 
-          'order' => 'ASC',
-          'post_status' => 'publish',
-          'posts_per_page' => -1,
-          'ignore_sticky_posts'=> 1
-          );
-          //echo $tax_term->slug;
-          $my_query = null;
-          $my_query = new WP_Query($args);
-          while ($my_query->have_posts()) : $my_query->the_post();
-$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-  $highlight =get_field('highlight',$post->ID);
-   $non_highlight_section =get_field('non_highlight_section',$post->ID);
-    $link_title =get_field('link_title',$post->ID);
-     $link =get_field('link',$post->ID);
+                              if( get_sub_field( 'non_highlight_section') ) echo get_sub_field( 'non_highlight_section' );
+                            ?>
+                            </h3>
+                          
+                            <p><?php echo $content; ?></p>
+                          
+                         </div>
+                         <div class="clearfix"></div>
+                         
+                         <?php
+                            $link       = get_sub_field( 'link' );
+                            $link_title = get_sub_field( 'link_title' );
 
-                     ?>
-                        <div class="col-md-6 <?php echo ($ei%2==0?'idea-left':'idea-right') ;?>">
-                        <div class="measure_blk">
-                          <div class="meas_img" style="background:url(<?php echo $feat_image;?>); min-width:483px; min-height:326px; background-size: cover; background-position:center; background-repeat:no-repeat; overflow:hidden;">
-                            <img src="<?php echo $feat_image ;?>" alt="guide" class="img-responsive"/>
-                            </div><div class="clearfix"></div>
-                           
-                           <div class="measr_cnt">
-                            <h3>
-                            <?php if(!empty($highlight)){?>
-                            <span class="frcol"> <?php echo $highlight;?></span>
-                            <?php }?> <?php echo $non_highlight_section ;?> </h3>
-                            
-                              <?php the_content();?>
-                            
-                           </div><div class="clearfix"></div>
-                           
-                           <div class="find_tb find_tbb">
-                          <a href="<?php echo $link;?>" target="_blank"> <?php echo $link_title;?></a>
-                           </div><div class="clearfix"></div>
-                            
-                        </div>
-                        </div><!-- measuer end -->    
-
-                     <?php 
-                     $ei++;
-                     endwhile;
-                     wp_reset_query();?>
-                     </div>
+                            if( $link && $link_title ) {
+                          ?>
+                         <div class="find_tb find_tbb">
+                            <a href="<?php echo $link; ?>" title="<?php echo $title; ?>"<?php if( is_array( $link_selected ) ) echo 'target="_blank"' ; ?>>  <?php echo $link_title; ?> </a>
+                         </div>
+                         <?php } #end-if ?>
+                         <div class="clearfix"></div>
+                          
+                      </div>
+                    </div>
+                    <?php
+                              $i++; 
+                            } #end-while
+                          } #end-else 
+                    ?>
+                  </div><!-- end .row -->
 
                    <div class="clearfix"></div>
                     
