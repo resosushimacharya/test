@@ -10,3 +10,4 @@ $(this).parent().find(".glyphicon-chevron-up").removeClass("glyphicon-chevron-up
 });
 
 });
+

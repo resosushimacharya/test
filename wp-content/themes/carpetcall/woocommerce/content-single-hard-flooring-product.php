@@ -220,7 +220,10 @@ wp_reset_postdata();
 			<?php }?>
             <div class="sq_mtr_calc_wrap">
          	<i><?php _e('Not sure how much you need?','carpetcall');?></i>
-         <div><span class="calc_icon"></span><a href="#"><?php _e('SQUARE METER CALCULATOR','carpetcall')?></a></div>
+         <div><span class="calc_icon"></span>
+
+        <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModalcalc"><?php _e('SQUARE METER CALCULATOR','carpetcall')?></button>
+    </div>
          
          </div>
       	 <div class="cc-quantiy-section-inner">
@@ -364,7 +367,7 @@ wp_reset_postdata();
                         $resproWidth = get_post_meta( $post->ID,'_width', true);
                         $resproSKU   = get_post_meta($post->ID,'_sku',true);
                         $resproSize ='Size : '.$resproLength.'cm'.' '.$resproWidth.' '.'cm'.' '.$resproHeight;
-                        $resproCode = 'Rug Code : '.$resproSKU;
+                        $resproCode = 'Hard Flooring Code : '.$resproSKU;
                         $resproProduct ='Product : '.$reserve; 
                         
                         echo '<input type="hidden" value="'.$resproProduct.'" name="product_page_cat"/>';
@@ -512,6 +515,7 @@ wp_reset_postdata();
 
 <!-- PICK UP LOCATIONS -->
 <?php get_template_part( 'templates/head', 'office' );?>
+<?php get_template_part('templates/square','meter-calculator'); ?>
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 

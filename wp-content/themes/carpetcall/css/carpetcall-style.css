@@ -557,6 +557,8 @@ li.clblk_a::before {content: '';}
 
 .proabtxt h6{font:normal 12px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase; margin-left:3px; margin-top:5px;}
 
+.meromm {}
+.meromm.affix{top: 160px;}
 ul.guide_list_cbg { background:#e7edf8; padding:28px; margin-bottom:21px;}
 ul.guide_list_cbg li {list-style:none;}
 ul.guide_list_cbg li .fa { float:right; margin-top:8px; color:#c32327; }
