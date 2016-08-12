@@ -38,7 +38,8 @@ echo ' > ' ; ?><span class="cc-bread-current"><?php echo get_the_title().' '.get
  <div class="container clearfix">
 	<div class="inerblock_sec">
 		<div class="col-md-3 no-pl">
-        <div class="meromm">
+        <div id="stickSide">
+        <div class="meromm" data-spy="affix" data-offset-top="138">
 			
 <?php 
  $res = get_field('buying_guide_archive', get_the_id());
@@ -49,7 +50,7 @@ echo ' > ' ; ?><span class="cc-bread-current"><?php echo get_the_title().' '.get
         
         $i = 0;
         if($res){
-          echo '<ul class="guide_list_cbg">';
+          echo '<ul class="guide_list_cbg nav">';
         foreach ($res as $rs) {
             $i++;
 ?>
@@ -100,6 +101,7 @@ if( '' != $button_title && '' != $button_link ) {
   <a href="<?php echo $button_link; ?>" title="<?php echo $button_title; ?>"><?php echo $button_title; ?></a>
 </div>
 <?php } ?>
+            </div>
             </div>
             <div class="clearfix"></div>
 		</div>
@@ -191,12 +193,12 @@ if($post->post_parent==$faqID){?>
         $target = $(target);
 
         $('html, body').stop().animate( {
-            'scrollTop': $target.offset().top - 185
+            'scrollTop': $target.offset().top
         }, 900, 'swing', function () {
             window.location.hash = target;
-        } );
-    } );
-} );
+        });
+    });
+	
 <?php 
   // accordion helpers for FAQ articles
   if($post->post_parent==$faqID) {
@@ -215,6 +217,18 @@ jQuery(window).load(function() {
              .addClass("glyphicon-chevron-down");
   });
 <?php } #end-if ?>
+});
+
+jQuery(document).ready(function(){
+	var stickWidth = jQuery('.meromm').innerWidth();
+	jQuery('.meromm').width(stickWidth);
+	
+	jQuery('body').scrollspy({
+	 target: "#stickSide",
+	 offset: jQuery('.banner').outerHeight(true) + 20
+	
+	 });
+	
 });
     </script>
 <?php get_footer(); ?>
