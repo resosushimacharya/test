@@ -104,7 +104,7 @@
                         <?php
                             foreach($booklink as $singlelink){
 
-                                 echo '<li><a href="'.$singlelink['contact_url'].'"'.'target="_blank">'.$singlelink["{$askanexpert}"].'</a></li>';
+                                 echo '<li><a href="'.$singlelink['contact_url'].'"'.'target="_blank">'.$singlelink['ask_an_expert'].'</a></li>';
                             }
                         ?>
                     </ul>
