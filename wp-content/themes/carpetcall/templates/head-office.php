@@ -17,7 +17,7 @@
             <?php // head office section start ?>
             <div class="nearstore">
                 
-                <div class="col-md-12">
+                <div class="cc-pul-headoff">
              <?php 
 
             $args = array(
@@ -85,7 +85,7 @@
     
     
 
-        ?><div class="col-md-4 no-lr">
+        ?><div class="col-md-4 pul-sec-cc">
                     <div class="str-two">
                         <h4><?php echo $state; ?></h4>
                         <div class="cc-store-pul-block">
