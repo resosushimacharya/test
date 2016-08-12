@@ -2,7 +2,7 @@
 function custom_post_type()
 	{
 
-get_arguments('expert','experts','Expert','Experts','Experts','dashicons-admin-post',5);
+#get_arguments('expert','experts','Expert','Experts','Experts','dashicons-admin-post',5);
 get_arguments('enquiry','enquiries','Enquiries','Enquiries','Enquiries','dashicons-visibility',80);
 
 
