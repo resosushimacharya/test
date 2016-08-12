@@ -11,8 +11,14 @@ get_header();
 */
 $url = site_url();
 $url = explode('/',$url);
-if( strcasecmp($url[2],'localhost')==0 ) $aboutID =317;
-else $aboutID =317;
+if( strcasecmp($url[2],'localhost')==0 ) { 
+    $aboutID    = 317;
+    $children   = array( 2314 , 2307 );
+}
+else { 
+    $aboutID =317;
+    $children   = array( 33774 , 33763 );
+}
 
 /*
     * code for : breadcrumb
@@ -74,7 +80,8 @@ $size      = count( $ancestors );
                         <?php
                             $ancestor_id = (!empty( $ancestors )) ? $ancestors[0] : $id;
                             $all_about_pages = array(
-                                'child_of'  => $ancestor_id ,
+                                'child_of'  => $ancestor_id,
+                                'include'   => $children,
                                 'depth'     => 1,
                                 'link_after'=> '<i class="fa fa-caret-right" aria-hidden="true"></i>',
                                 'title_li'  => ''
