@@ -150,8 +150,11 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
          jQuery('#cc_message').val('');
           jQuery('#cc_message').attr("placeholder", "ENTER YOUR MESSAGE HERE");
          jQuery('#cc-state-type-only').val('default');
-         $('.error_message').parent().hide();
+         $('.error_message').parent().hide(); 
+         $('.success_message').parent().hide();
          $('.success_message').parent().show();
+         
+
          jQuery('.success_message').html(response.success).show();
         
          grecaptcha.reset();
@@ -159,6 +162,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
                 if(typeof(response.captcha_error) != "undefined" && response.captcha_error !== null){
           grecaptcha.reset();
             $('.success_message').parent().hide();
+            $('.error_message').parent().hide();
            $('.error_message').parent().show();
           jQuery('.error_message').html(response.captcha_error).show();
         }else if(typeof(response.error) != "undefined" && response.error !== null){

@@ -374,10 +374,15 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
             }else{
                 if(typeof(response.captcha_error) != "undefined" && response.captcha_error !== null){
           grecaptcha.reset();
-           $('.error_message').parent().show();
+            $('.error_message').parent().hide(); 
+         $('.success_message').parent().hide();
+         $('.success_message').parent().show();
+         
           jQuery('.error_message').html(response.captcha_error).show();
         }else if(typeof(response.error) != "undefined" && response.error !== null){
             grecaptcha.reset();
+             $('.error_message').parent().hide(); 
+         $('.success_message').parent().hide();
            $('.error_message').parent().show();
           jQuery('.error_message').html(response.error).show();
           

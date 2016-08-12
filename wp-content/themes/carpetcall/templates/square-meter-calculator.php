@@ -17,7 +17,7 @@
   
 
 
-            <form  method="post" id='form-square-meter' class="form-square-meter">
+            
     
        <div class="row"><?php
        $x = get_field('size_m2',get_the_ID());
@@ -26,7 +26,7 @@
             <div class="col-md-12">
             <div class="col-md-2">
                  <input type="hidden" class="form-control" id="cov_per_pack" placeholder="" name="cov_per_pack" value='<?php echo $x ;?>'>
-                  <input type="hidden" class="form-control" id="cc_Stock_count" placeholder="" name="cc_Stock_count" value='<?php echo $x ;?>'>
+                  <input type="hidden" class="form-control" id="cc_Stock_count" placeholder="" name="cc_Stock_count" value='<?php echo $stock;?>'>
                  </div><div class="col-md-3">
               sqm/pack 
             </div>
