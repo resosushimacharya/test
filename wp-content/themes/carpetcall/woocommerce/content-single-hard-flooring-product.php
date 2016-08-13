@@ -216,7 +216,7 @@ wp_reset_postdata();
          <input type="hidden" name="sizem2" id="sizem2" value="<?php echo get_field('size_m2',get_the_ID())?>">
         <?php  if(get_field('size_m2',get_the_ID())){?>
 			<div class="total_coverage">
-         <h3><?php _e('Total Coverage','carpetcall');?> <span class="coverage_value"><?php echo get_field('size_m2',get_the_ID())?></span> <span class="coverage_unit"><?php _e('SQM','carpetcall')?></span></h3>
+         <h3><?php _e('Total Coverage: ','carpetcall');?> <span class="coverage_value"><?php echo get_field('size_m2',get_the_ID())?></span> <span class="coverage_unit"><?php _e('SQM','carpetcall')?></span></h3>
          
          </div>
 			<?php }?>

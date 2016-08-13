@@ -36,7 +36,7 @@ $size      = count( $ancestors );
 ?>
 <div class="child-innerpg">
     <div class="container clearfix">
-        <div class="inerblock_serc_child">
+        <div class="inerblock_serc_child about-page">
             <div class="cc-breadcrumb">
                 <?php 
                     if( !empty( $ancestors ) ) {
