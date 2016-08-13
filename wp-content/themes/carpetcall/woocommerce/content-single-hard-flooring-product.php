@@ -225,8 +225,9 @@ wp_reset_postdata();
          <div class="cc-sq-mtr-calc-wrap">
 
         <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModalcalc"><span class="fa fa-calc"></span><?php _e('SQUARE METER CALCULATOR','carpetcall')?></button>
+       
     </div>
-         
+     <div class="cc-smc-underline"></div>     
          </div>
       	 <div class="cc-quantiy-section-inner">
       	 <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $post->ID;?>" data-product_sku="<?php

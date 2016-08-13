@@ -1428,3 +1428,12 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 .cc-size-quantity-section .total_coverage h3 span.coverage_value { color:#0099ff;}
 .cc-size-quantity-section .sq_mtr_calc_wrap { margin-top:5px;}
 .cc-size-quantity-section .sq_mtr_calc_wrap i {font:italic 16px 'proxima_nova_rgregular', sans-serif; color:#666666;}
+.cc-sq-mtr-calc-wrap button.btn.btn-default.col-md-12 { border:0; background:none; box-shadow:none; text-align:left; padding-left:0; font:700 16px 'proxima_nova_ltsemibold', sans-serif; color:#1853bb; text-transform:uppercase;}
+.cc-sq-mtr-calc-wrap button.btn.btn-default.col-md-12:focus{ border:0; box-shadow:none; outline:0; }
+.cc-sq-mtr-calc-wrap button span.fa.fa-calc::before {
+	content: '\f1ec';
+		font-family: FontAwesome;
+		font-size:16px;
+		color: #1853bb;
+		font-weight:normal;	
+}
