@@ -242,15 +242,17 @@ get_search_form();
                 <div class="callinfo">
                 <?php $x=  get_field('telephone', '89',false);
    $x = preg_replace('/\s+/', '', $x);
+   $x = preg_replace( '/^[0]{1}/', '', $x );
+   $i = 1;
    $x = '+61'.$x;   ?>
                   <h2 class="calme callmea">
                   <a href="tel:<?php
                         echo $x; ?>"><?php
-echo get_field('telephone', '89',false);
+echo __( 'CALL ', 'carpetcall' ) . get_field('telephone', '89',false);
 
 ?> </a></h2>
                     <h3 class="subcl"><?php
-echo __( 'CALL', 'carpetcall' ) . get_field('contact_label', '89',false);
+echo get_field('contact_label', '89',false);
 ?>"</h3>
                      <div class="contblk"><a href="<?php
 echo get_field('contact_url', '89');
