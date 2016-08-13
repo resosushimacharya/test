@@ -1423,3 +1423,7 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 
 .cc-size-quantity-section .stock_info_wrap h3 {font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#009900; text-transform:uppercase; margin-top:66px; margin-bottom:10px;}
 .cc-size-quantity-section .stock_info_wrap h3 span.cc-po {color:#c32327;}
+.cc-size-quantity-section .total_coverage h3{font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase;}
+.cc-size-quantity-section .total_coverage h3 span.coverage_value { color:#0099ff;}
+.cc-size-quantity-section .sq_mtr_calc_wrap { margin-top:5px;}
+.cc-size-quantity-section .sq_mtr_calc_wrap i {font:italic 16px 'proxima_nova_rgregular', sans-serif; color:#666666;}
