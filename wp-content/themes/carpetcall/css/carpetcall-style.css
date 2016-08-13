@@ -1419,3 +1419,6 @@ a.btn-employment{
 	text-decoration:none; cursor:pointer;
  }
 a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
+
+.cc-size-quantity-section .stock_info_wrap h3 {font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#009900; text-transform:uppercase; margin-top:66px; margin-bottom:10px;}
+.cc-size-quantity-section .stock_info_wrap h3 span.cc-po {color:#c32327;}
