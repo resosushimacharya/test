@@ -133,6 +133,9 @@ if($reqTempTerms){
       <?php
 	  global $post;
 	  $curr_post = $post;
+	  
+	  $second_lvl_cat = get_term_by('id',$current_post_term_id,'product_cat');
+	/*  
 	$terms = wp_get_post_terms( $post->ID, 'product_cat' );
   foreach ( $terms as $term ){
 	 $children = get_term_children($term->term_id, 'product_cat'); 
@@ -140,16 +143,16 @@ if($reqTempTerms){
 		$cats_array[] = $term->parent;
 	}
   }
+  */
   $query_args = array( 'posts_per_page' => -1, 'no_found_rows' => 1, 'post_status' => 'publish', 'post_type' => 'product', 'tax_query' => array( 
     array(
       'taxonomy' => 'product_cat',
       'field' => 'id',
-      'terms' => $cats_array
+      'terms' => $second_lvl_cat->term_id
     )));
   $related_prods = new WP_Query($query_args);
   if ( $related_prods->have_posts() ) {
-	 $count = 1;
-	while ( $related_prods->have_posts() ) {
+		while ( $related_prods->have_posts() ) {
 		$related_prods->the_post();
 		global $post;
 		setup_postdata($post);
@@ -175,13 +178,8 @@ if($reqTempTerms){
         </div>
         <?php
 		 }
-		
-		
 		}
 		wp_reset_postdata();
-  
-  
-  
   }// Reset Post Data
 wp_reset_postdata();
 
@@ -209,8 +207,9 @@ wp_reset_postdata();
          <?php if(strcasecmp($pro['_stock_status'][0],'instock')!=0){?><div>
       <h3> OUT OF STOCK</h3>
       <?php do_action('cc_after_select_design_start');  do_action( 'woocommerce_single_product_summary' ); ?>
-      </div><?php }else{?><div>
-      <h3>In Stock - Pickup Only</h3>
+      </div><?php }else{?>
+      <div class="stock_info_wrap clearfix">
+      <h3>In Stock - <span class="cc-po">Pickup Only</span></h3>
       </div>
 		  <?php		  
 		  }?>
@@ -223,9 +222,9 @@ wp_reset_postdata();
 			<?php }?>
             <div class="sq_mtr_calc_wrap">
          	<i><?php _e('Not sure how much you need?','carpetcall');?></i>
-         <div><span class="calc_icon"></span>
+         <div>
 
-        <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModalcalc"><?php _e('SQUARE METER CALCULATOR','carpetcall')?></button>
+        <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModalcalc"><span class="fa fa-calc"></span><?php _e('SQUARE METER CALCULATOR','carpetcall')?></button>
     </div>
          
          </div>
@@ -712,186 +711,102 @@ wrapper close start */?>
 <?php do_action( 'woocommerce_after_single_product' ); ?>
 
  <div class="inerblock_sec_a">
-
     <div class="container clearfix you_may_link_cntr">
-    <?php 
-    foreach($reqTempTerms as $cat){
-          $has_sub_cat=get_terms(array('parent'=>$cat->term_id,'taxonomy'=>'product_cat'));
-         
-          if(count($has_sub_cat)==0){
-            $docatname = $cat->slug;
-          }
-        }
-     //echo do_shortcode('[best_selling_products per_page="6" columns="12" category="'.$docatname.'"]');
-    ?>
         <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
 <div class="you_may_like-content">
 		<?php               wp_reset_query();
 
-
-
-
                     global $post;
-
-                    
-					$reqTempTerms=get_the_terms($post->ID,'product_cat');
-					
+					//$reqTempTerms=get_the_terms($post->ID,'product_cat');
 					$second_lvl_cat = get_term_by('id',$current_post_term_id,'product_cat');
-					
-					foreach($reqTempTerms as $cat){
-						//echo $cat->parent;
-						if(count( get_term_children( $cat->term_id, 'product_cat' ) ) > 0 ){
-							$args = array(
-							   'hide_empty'         => true,
-							   'orderby'            => 'id',
-							   'show_count'         => 0,
-							   'use_desc_for_title' => 0,
-							   'child_of'           => $cat->term_id,
-							   'exclude'			=>$second_lvl_cat->parent,
-							   'fields'				=>'ids',
-							  );
-				$terms = get_terms( 'product_cat', $args );
+					$you_may_like_cats = get_term_children( $second_lvl_cat->parent, 'product_cat' );
+					if(count( $you_may_like_cats ) > 0 ){
+						$count =1;
+						$you_may_like_prods = array();
+						foreach($you_may_like_cats as $cat){
+							if($cat != $second_lvl_cat->term_id){
+								$args = array(
+											'post_type'=>'product',
+											'posts_per_page'=>1,
+											'meta_key'		=>'_regular_price',
+											'order_by'		=>'meta_value_num',
+											'order'			=>'ASC',
+											'tax_query'	=>array(
+														array(
+															'taxonomy' => 'product_cat',
+															'field'    => 'term_id',
+															'terms'    => $cat,
+														)
+													)
+												);
+							$like_prod = new WP_Query($args);
+							if($like_prod->have_posts()){
+								while($like_prod->have_posts()){
+										$post = $like_prod->the_post();
+										if($count >3){
+										break;
+										}
+										
+								$you_may_like_prods	[$cat] =  $post;
+								$count++;
+								}
+								}
+							}
+						
 						}
 					}
-					//do_action('pr',$terms);
-					//shuffle($terms);
-                        $i=1;
-						
-					$you_may_like_args = array(
-												'post_type'=>'product',
-												'posts_per_page'	=>3,
-												'meta_key'		=>'_regular_price',
-												'order_by'		=>'meta_value_num',
-												'tax_query' => array(
-																array(
-																	'taxonomy' => 'product_cat',
-																	'field'    => 'term_id',
-																	'terms'    => $terms,
-																	'operator' => 'IN',
-																),
-															),
-													);
-					$filloop = new WP_Query($you_may_like_args);
-					
-					if($filloop->have_posts()){
-									while($filloop->have_posts()):
-										$filloop->the_post();
-
-											/*var_dump($filloop->post->ID);*/
-											$woo=get_post_meta($post->ID);
-					
-					$price=$woo['_regular_price'][0];
-					
-					
-					$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-
-
-									?> <div class="col-md-4">
-                  		<div class="pro_secone">
-                  		<a href="<?php the_permalink();?>" class="cc-product-item-image-link"><div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
-                  
-                    <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
-                    <div class="mero_itemss">
-                      		<div class="proabtxt">
-					 <a href="<?php the_permalink();?>" class="cc-product-item-title-link"><h4>
-					<?php echo $term->name;?>
-					</h4></a><?php 
-
-					$reqTempTerms=get_the_terms($post->ID,'product_cat');
-					
-
-					
-
-					
-					if(!empty($price)){
-						echo '<h6> FROM A$'.$price.'</h6>';
-						
-						}?></div>
-					<div class="clearfix"></div>
-                           
-                      </div>
-                      </div></a>
-                      </div>
-								<?php endwhile;?>
-                     		<?php 
-                     		wp_reset_query(); }	
-
-					/*foreach($terms as $term){
-						if($current_post_term_id!=$term->term_id){
-							$has_sub_cat=get_terms(array('parent'=>$term->term_id,'taxonomy'=>'product_cat'));
-								if(count($has_sub_cat)==0){
-									//do_action('pr',$term);
-									$filargs = array(
-													'post_type'=>'product',
-													'posts_per_page'=>'1',
-													'meta_key'=>'_sale_price',
-													'orderby' => 'meta_value_num',
-													 'order'     => 'ASC',
-													'tax_query' => array(
-																		array(
-																			'taxonomy' => 'product_cat',
-																			'field'    => 'term_id',
-																			'terms'    => $term->term_id,
-																		),
-																	),
-																
-													);
-									 wp_reset_postdata();
-								$filloop = new WP_Query($filargs);
-								 //do_action('pr',$filloop);
-								$hold = 1;
-
-								if($filloop->have_posts()){
-									while($filloop->have_posts()):
-										$filloop->the_post();
-
-											$woo=get_post_meta($post->ID);
-					
-					$price=$woo['_regular_price'][0];
-					
-					
-					$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-
-
-									?> <div class="col-md-4">
-                  		<div class="pro_secone">
-                  		<a href="<?php the_permalink();?>" class="cc-product-item-image-link"><div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
-                  
-                    <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
-                    <div class="mero_itemss">
-                      		<div class="proabtxt">
-					 <a href="<?php the_permalink();?>" class="cc-product-item-title-link"><h4>
-					<?php echo $term->name;?>
-					</h4></a><?php 
-
-					$reqTempTerms=get_the_terms($post->ID,'product_cat');
-					
-
-					
-
-					
-					if(!empty($price)){
-						echo '<h6> FROM A$'.$price.'</h6>';
-						
-						}?></div>
-					<div class="clearfix"></div>
-                           
-                      </div>
-                      </div></a>
-                      </div>
-								<?php endwhile;?>
-                     		<?php 
-                     		wp_reset_query(); }
-                     		
-							
-								}
-						}
-					}*/
+				
  ?></div>
 <div class="clearfix"></div>
                
     </div>
     </div><!-- step three end here -->
+    
+ <?php if(count($you_may_like_prods) >0){?>
+	 <div class="inerblock_sec_a">
+    <div class="container clearfix you_may_link_cntr">
+        <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
+<div class="you_may_like-content">
+	<?php 
+	
+									foreach($you_may_like_prods as $cat=>$post){
+					setup_postdata($post);
+					$woo=get_post_meta($post->ID);
+					$price=$woo['_regular_price'][0];
+					$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+									?> <div class="col-md-4">
+                  		<div class="pro_secone">
+                  		<a href="<?php the_permalink();?>" class="cc-product-item-image-link"><div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
+                  
+                    <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
+                    <div class="mero_itemss">
+                      		<div class="proabtxt">
+					 <a href="<?php the_permalink();?>" class="cc-product-item-title-link"><h4>
+					<?php $term = get_term_by('id',$cat,'product_cat');
+					echo $term->name;?>
+					</h4></a><?php 
+					if(!empty($price)){
+						echo '<h6> FROM A$'.$price.'</h6>';
+						
+						}?></div>
+					<div class="clearfix"></div>
+                           
+                      </div>
+                      </div></a>
+                      </div>
+								<?php
+								$count++; }?>
+                     		<?php 
+                     		wp_reset_query(); 
+	?>
+</div>
+<div class="clearfix"></div>
+               
+    </div>
+    </div>
+	<?php }?>   
+    
+    
 <style>
   #cc-enquiry-type{display:none;}
   .success_message_wrapper{display:none;}
