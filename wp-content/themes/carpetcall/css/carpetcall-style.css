@@ -1439,7 +1439,6 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 		font-size:16px;
 		color: #1853bb;
 		font-weight:normal;	
-<<<<<<< HEAD
 		margin-right:4px;
 }
 .cc-quantiy-section .cc-smc-underline { border-bottom:1px solid #a8bee5; padding-bottom:17px; margin:0 40% 0 5%; }
@@ -1463,7 +1462,5 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 .single.single-product .recommended_acc_static{ margin-top:25px;}
 .single.single-product .recommended_acc_static span {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666;}
 .single.single-product .recommended_acc_static img { margin:13px 0 9px 0;}
-=======
-}
 
->>>>>>> 8761f850a0382341fea89759d58878b207a18b7a
+.single.single-product .recommended_acc_static span.cc-rec-acc-underlay {font:normal 12px/24px 'proxima_nova_rgregular', sans-serif !important; color:#666666; }
