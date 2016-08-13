@@ -106,15 +106,15 @@ else{ ?>
 <?php get_footer( 'shop' ); ?>
 <script type="text/javascript">
 
-/* 
-  function recaptchaCallbackone(){
-   jQuery('#check_captcha_one').val('1');
-
-
-};*/
-
 
 $ = jQuery.noConflict();
+
+  function recaptchaCallbackone(response){	  
+	$('.g-recaptcha').siblings('.error_label').html('');
+}
+
+
+
  $(document).on('click','.close_box',function(){
   var that=this;
     $(this).parent().fadeTo(300,0,function(){

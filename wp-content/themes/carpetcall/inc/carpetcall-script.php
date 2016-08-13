@@ -21,16 +21,16 @@ wp_enqueue_style('main-store-map-style',get_template_directory_uri().'/css/main-
 add_action( 'wp_enqueue_scripts', 'header_script' );
 	
 
-
-
 function carpetcall_scripts() {
+	 wp_enqueue_script( 'jquery-min', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', array(), false, false);
 	if(is_page_template('page-calculator.php' ) || get_post_type()=='product'){
 		wp_enqueue_script( 'product-calculator', get_template_directory_uri().'/js/product-calculator.js', array(), false, false);
 	}
  wp_enqueue_script( 'jquery-sub', get_template_directory_uri().'/js/jquery-2.1.4.js', array(), false, false);
 wp_enqueue_script( 'modernizer', get_template_directory_uri().'/js/modernizr.custom.79639.js', array(), false, false);
 
-wp_enqueue_script( 'my-script', get_template_directory_uri().'/js/script.js', array(), false, false);
+
+wp_enqueue_script( 'my-script', get_template_directory_uri().'/js/script.js', array('jquery'), false, false);
 wp_enqueue_script( 'lightbox-script', get_template_directory_uri().'/js/jquery.lightbox.min.js', array(), false, false);
 wp_enqueue_script( 'auda', get_template_directory_uri().'/js/slick.js', array(), false, false);
 wp_enqueue_script( 'responsiveTabs', get_template_directory_uri().'/js/jquery.responsiveTabs.min.js', array(), false, false);
