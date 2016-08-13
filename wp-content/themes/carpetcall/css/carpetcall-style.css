@@ -1424,9 +1424,9 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 
 .cc-size-quantity-section .stock_info_wrap h3 {font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#009900; text-transform:uppercase; margin-top:66px; margin-bottom:10px;}
 .cc-size-quantity-section .stock_info_wrap h3 span.cc-po {color:#c32327;}
-<<<<<<< .merge_file_a17536
+
 .remove_row_calc{cursor:pointer;}
-=======
+
 .cc-size-quantity-section .total_coverage h3{font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase;}
 .cc-size-quantity-section .total_coverage h3 span.coverage_value { color:#0099ff;}
 .cc-size-quantity-section .sq_mtr_calc_wrap { margin-top:5px;}
@@ -1441,7 +1441,7 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 		font-weight:normal;	
 		margin-right:4px;
 }
-<<<<<<< HEAD
+
 
 
 .cc-pro-det-fb .accordion-toggle .glyphicon-chevron-down{display: none;}
@@ -1450,7 +1450,6 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 .cc-pro-det-fb .accordion-toggle.collapsed .glyphicon-chevron-down{display: block;}
 .cc-pro-det-fb .accordion-toggle.collapsed .glyphicon-chevron-up{display: none;}
 
-=======
 .cc-quantiy-section .cc-smc-underline { border-bottom:1px solid #a8bee5; padding-bottom:17px; margin:0 40% 0 5%; }
 .cc-quantiy-section .cc-sq-mtr-calc-wrap { margin-top:4px; }
 .cc-quantiy-section .cc-quantiy-section-inner { margin-top:8px; }
@@ -1474,4 +1473,4 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 .single.single-product .recommended_acc_static img { margin:13px 0 9px 0;}
 
 .single.single-product .recommended_acc_static span.cc-rec-acc-underlay {font:normal 12px/24px 'proxima_nova_rgregular', sans-serif !important; color:#666666; }
->>>>>>> 7bd6d10a5f71eb553aff57ffd549534b86d32d90
+
