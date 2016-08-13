@@ -1431,7 +1431,7 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 .cc-size-quantity-section .total_coverage h3 span.coverage_value { color:#0099ff;}
 .cc-size-quantity-section .sq_mtr_calc_wrap { margin-top:5px;}
 .cc-size-quantity-section .sq_mtr_calc_wrap i {font:italic 16px 'proxima_nova_rgregular', sans-serif; color:#666666;}
-.cc-sq-mtr-calc-wrap button.btn.btn-default.col-md-12 { border:0; background:none; box-shadow:none; text-align:left; padding-left:0; font:700 16px 'proxima_nova_ltsemibold', sans-serif; color:#1853bb; text-transform:uppercase;}
+.cc-sq-mtr-calc-wrap button.btn.btn-default.col-md-12 { border:0; background:none; box-shadow:none; text-align:left; padding:0; font:700 16px 'proxima_nova_ltsemibold', sans-serif; color:#1853bb; text-transform:uppercase;}
 .cc-sq-mtr-calc-wrap button.btn.btn-default.col-md-12:focus{ border:0; box-shadow:none; outline:0; }
 .cc-sq-mtr-calc-wrap button span.fa.fa-calc::before {
 	content: '\f1ec';
@@ -1439,7 +1439,9 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 		font-size:16px;
 		color: #1853bb;
 		font-weight:normal;	
+		margin-right:4px;
 }
+<<<<<<< HEAD
 
 
 .cc-pro-det-fb .accordion-toggle .glyphicon-chevron-down{display: none;}
@@ -1448,3 +1450,28 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 .cc-pro-det-fb .accordion-toggle.collapsed .glyphicon-chevron-down{display: block;}
 .cc-pro-det-fb .accordion-toggle.collapsed .glyphicon-chevron-up{display: none;}
 
+=======
+.cc-quantiy-section .cc-smc-underline { border-bottom:1px solid #a8bee5; padding-bottom:17px; margin:0 40% 0 5%; }
+.cc-quantiy-section .cc-sq-mtr-calc-wrap { margin-top:4px; }
+.cc-quantiy-section .cc-quantiy-section-inner { margin-top:8px; }
+.cc-quantiy-section .cc-quantiy-section-inner a.button.product_type_simple { background:#c32428; }
+.cc-quantiy-section .cc-quantiy-section-inner a.button.product_type_simple:hover { background:#d91419;}
+.cc-size-quantity-section .cc-quantiy-section{ margin-bottom:0;}
+.single.single-product .summary.entry-summary .cc-product-ship-free-section { margin:14px 0 0 0;  }
+.single.single-product .summary.entry-summary .cc-product-ship-free-section .cc-product-ship span { border:0;}
+.single.single-product .cc-product-ship {font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase; text-decoration:none; margin-bottom:10px; }
+.single.single-product .cc-product-ship:hover { color:#15489f;}
+.single.single-product .cc-product-free{ font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#c32327; text-transform:uppercase; line-height:26px;}
+.single.single-product span.pickup-free-tag{color:#0099ff;}
+.single.single-product .hf_product_details { margin-top:26px; }
+.single.single-product .hf_product_details table { width:100%; margin-top:15px;}
+.single.single-product .hf_product_details table > tbody > tr.odd > td { background:#e7edf8; font:normal 16px/26px 'proxima_nova_rgregular', sans-serif; color:#666666; padding-left:5px; width:50%; }
+.single.single-product .hf_product_details table > tbody > tr.even > td { font:normal 16px/26px 'proxima_nova_rgregular', sans-serif; color:#666666; padding-left:5px; width:50%; }
+
+.single.single-product .hf_product_details > table > tbody > tr > td:nth-child(2){font-weight:bold;}
+.single.single-product .recommended_acc_static{ margin-top:25px;}
+.single.single-product .recommended_acc_static span {font:normal 16px/24px 'proxima_nova_rgregular', sans-serif; color:#666666;}
+.single.single-product .recommended_acc_static img { margin:13px 0 9px 0;}
+
+.single.single-product .recommended_acc_static span.cc-rec-acc-underlay {font:normal 12px/24px 'proxima_nova_rgregular', sans-serif !important; color:#666666; }
+>>>>>>> 7bd6d10a5f71eb553aff57ffd549534b86d32d90
