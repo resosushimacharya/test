@@ -69,7 +69,7 @@ jQuery(document).find('.main-image-wrapper a.zoom').removeAttr('data-rel');
 	
 	*/
 
-
+/*
 $(window).scroll(function() {
 	if(jQuery('#cc_load_more').is(':visible')){
    	var hT = $('#cc_load_more').offset().top,
@@ -82,6 +82,7 @@ $(window).scroll(function() {
    }
 		}
 });
+*/
 
 
 
@@ -121,7 +122,6 @@ jQuery(document).on('change','select#cc-size',function(e){
 	});	
 	
 function update_content_from_ajax(response){
-
 		var images_section = jQuery(response).find('.images').html();
 		var summary_entry_summary = jQuery(response).find('.summary.entry-summary').html();
 		var tab_accesories = jQuery(response).find('#tab-accesories_tab').html();
@@ -143,16 +143,13 @@ function update_content_from_ajax(response){
 		jQuery(document).find('#you_may_like-content').html(you_may_like);
 		jQuery(document).find(".main-image-wrapper a.zoom").removeAttr('data-rel').prettyPhoto({hook:"data-rel",social_tools:!1,theme:"pp_woocommerce",horizontal_padding:20,opacity:.8,deeplinking:!1});
 	}	
-	
-	
-	
+
 jQuery(document).on('click','.single-product .images .thumbnails img',function(e){
 	e.preventDefault();
 	var img = jQuery(this).parent('a').attr('href');
 	jQuery(this).parents('.images').find('.main-image-wrapper .woocommerce-main-image img').attr('srcset',img).attr('src',img);
 	jQuery(this).parents('.images').find('.main-image-wrapper a.woocommerce-main-image').attr('href',img);
 	});
-
 
 jQuery(document).on('click','.cc-product-sort a',function(){
 		jQuery("#ajax_offset").val(0);
@@ -206,6 +203,7 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-price-var-sec .che
 	cc_trigger_ajax_load(function(output){
 		output = jQuery.parseJSON(output);
 		jQuery('#category_slider_block_wrapper').html(output.html);
+		//jQuery('#ajax_offset').
 		jQuery('.cat_slider.slick-slider').slick('unslick');
 		init_slick_slider();
 	});
@@ -268,7 +266,7 @@ else if(jQuery(trig_ele).parent().hasClass('sort_key')){
 				jQuery('#ajax_sort_by').val('price');
 				jQuery('#ajax_sort_order').val('DESC');
 				}
-		cc_trigger_ajax_load(function(output){
+	cc_trigger_ajax_load(function(output){
 	output = jQuery.parseJSON(output);
 	jQuery('#category_slider_block_wrapper').html(output.html);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
@@ -280,13 +278,12 @@ else if(jQuery(trig_ele).parent().hasClass('sort_key')){
 
 	});
 jQuery("#cc_load_more").click(function(e) {
-		  $("body, .banner ").addClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
-	jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax call
+	
+	//$("body, .banner ").addClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
+	//jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax call
 
 
-//$("#ajax_offset").val(parseInt($("#ajax_offset").val())+1);
 var perpage  = jQuery('#perpage_var').val();
-//$("#ajax_offset").val(parseInt($("#ajax_offset").val())+perpage);
 cc_trigger_ajax_load(function(output){
 output = jQuery.parseJSON(output);
 var is_first = jQuery("#cc_load_more").attr('first');
@@ -301,14 +298,15 @@ jQuery("#child_cat_count").val(output.child_cat_count);
 jQuery("#ajax_offset").val(output.offset);
 jQuery('.cat_slider.slick-slider').slick('unslick');
 init_slick_slider();
-	
-	$("body, .banner ").removeClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
-	jQuery('#loading_overlay_div').hide(); // Displaying the Loading gif during ajax call
-	
+//$("body, .banner ").removeClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
+//jQuery('#loading_overlay_div').hide(); // Displaying the Loading gif during ajax call
 	});
 
 });
 function cc_trigger_ajax_load(handleData){
+
+$("body, .banner ").addClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
+jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax call
 	var perpage  = jQuery('#perpage_var').val();
 	var cat_id = $("#ajax_cat_id").val();
 	var child_cat_count = $('#child_cat_count').val();
@@ -348,29 +346,11 @@ function cc_trigger_ajax_load(handleData){
 					}
 			handleData(response);
 			
-		});
-		
-		
-	/*jQuery.ajax({
-			url: woo_load_autocomplete.ajax_url,
-			type: 'POST',
-			data: {
-				perpage:perpage,
-				cat_id:cat_id,
-				offset:offset,
-				sort_by:sort_by,
-				sort_order:sort_order,
-				depth:depth,
-				color:selected_colors,
-				size:selected_sizes,
-				price:selected_price_ranges,
-				action: 'show_category_slider_block'
-				
-			},
-			success:function(data){
-				
-			}
-		});*/
-	
+		}).done(function(){
+	$("body, .banner ").removeClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
+	jQuery('#loading_overlay_div').hide(); // Displaying the Loading gif during ajax call
+			
+			});
+
 	}
 });
