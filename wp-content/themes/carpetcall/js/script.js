@@ -14,14 +14,8 @@
 $i=1;
 jQuery(document).ready(function(e) {
     jQuery('#storefinder_btn').click(function() {
-        
-
         jQuery(".dropdown-content").toggle();
          jQuery(this).parent('.dropdown').toggleClass('click-open');
-    
-
-     
-       
       jQuery('.woocomerce_dropdown').removeClass('open');
         jQuery('.dropdown-menu').hide() ;
 
