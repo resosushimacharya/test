@@ -250,7 +250,7 @@ echo get_field('telephone', '89',false);
 
 ?> </a></h2>
                     <h3 class="subcl"><?php
-echo get_field('contact_label', '89',false);
+echo __( 'CALL', 'carpetcall' ) . get_field('contact_label', '89',false);
 ?>"</h3>
                      <div class="contblk"><a href="<?php
 echo get_field('contact_url', '89');
