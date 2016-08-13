@@ -51,13 +51,7 @@ if(have_posts()):
             'scrollTop': $target.offset().top - 155
         }, 900, 'swing', function () {
             window.location.hash = target;
-        } );
-    } );
-} );
-
-    </script>
-
- <?php get_footer();
-
-
- ?>
+        });
+    });
+});</script>
+ <?php get_footer();?>

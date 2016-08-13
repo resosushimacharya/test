@@ -36,7 +36,7 @@ $size      = count( $ancestors );
 ?>
 <div class="child-innerpg">
     <div class="container clearfix">
-        <div class="inerblock_serc_child">
+        <div class="inerblock_serc_child about-page">
             <div class="cc-breadcrumb">
                 <?php 
                     if( !empty( $ancestors ) ) {
@@ -62,7 +62,7 @@ $size      = count( $ancestors );
                     <span class="cc-bread-current"><?php the_title(); ?></span>
                 <?php } #end-else ?>
             </div><!-- end .cc-breadcrumb -->
-            <h1><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php the_title(); ?></h1>
+            <h1><?php the_title(); ?></h1>
         </div><!-- end .innerblock_serc_child -->
     </div><!-- end .container.clearfix -->
 </div><!-- end .child-innerpg -->
