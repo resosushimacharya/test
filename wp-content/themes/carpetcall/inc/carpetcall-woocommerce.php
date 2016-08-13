@@ -257,7 +257,7 @@ function woo_new_product_tab_content() {?>
       
 
      <div class="cont-panl">
-			<div class="panel-group" id="accordion">
+			
 <?php
 global $post;
 $listcat=get_the_terms($post->ID,'product_cat');
@@ -304,7 +304,7 @@ $list = get_field('buying_guide_archive',$faqid );
 					
 					
 					?>
-
+            <div class="panel-group" id="accordion_<?php echo $faqcounter;?> ">
 					      
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -323,7 +323,7 @@ $list = get_field('buying_guide_archive',$faqid );
       </div>
     </div>
   </div>
-		
+		</div>
 			<?php 
 			$faqcounter++;
 						if($faqcounter==6){
@@ -335,7 +335,7 @@ $list = get_field('buying_guide_archive',$faqid );
 					
                
 					
-				</div></div>
+				</div>
   <div class="cc-tab-faq-read-more">
   	<p>For more answers to your questions, please refer to our <a href="<?php echo get_the_permalink($faqid ); ?>"><?php echo $rootname; ?> FAQ </a> page.</p>
   </div>
