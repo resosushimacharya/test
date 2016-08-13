@@ -1441,3 +1441,10 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 		font-weight:normal;	
 }
 
+
+.cc-pro-det-fb .accordion-toggle .glyphicon-chevron-down{display: none;}
+.cc-pro-det-fb .accordion-toggle .glyphicon-chevron-up{display: block;}
+
+.cc-pro-det-fb .accordion-toggle.collapsed .glyphicon-chevron-down{display: block;}
+.cc-pro-det-fb .accordion-toggle.collapsed .glyphicon-chevron-up{display: none;}
+
