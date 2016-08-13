@@ -346,6 +346,8 @@ get_template_part('content', 'navwoo');
     <script type="text/javascript">
 
      function load_minicart() {
+		 
+		jQuery('#cc-mini-cart-cntr').html('<li class="cc-loader-cntr"><i class="fa fa-spinner  fa-spin" aria-hidden="true"></i></li>');
         jQuery.ajax({
             type: 'POST',
             url: "<?php echo admin_url('admin-ajax.php'); ?>",
@@ -355,9 +357,12 @@ get_template_part('content', 'navwoo');
                 action: 'woocommerce_cc',
 
             },
+			dataType:"json",
             success: function(data) {
-
-                jQuery('#woo_control').html(data);
+				console.log(data);
+               // jQuery('#woo_control').html(data);
+				jQuery('#count').html(data.count);
+				jQuery('#cc-mini-cart-cntr').html(data.ul_html);
                 ajax_count++;
 
             }
