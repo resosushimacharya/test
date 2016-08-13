@@ -1,6 +1,6 @@
 jQuery(document).ready(function($){
 
-jQuery("#cc-state-type").change(function(e) {
+jQuery(document).on('change',"#cc-state-type", function(e) {
 
 
 var state = jQuery("#cc-state-type").val();
