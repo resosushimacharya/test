@@ -222,11 +222,12 @@ wp_reset_postdata();
 			<?php }?>
             <div class="sq_mtr_calc_wrap">
          	<i><?php _e('Not sure how much you need?','carpetcall');?></i>
-         <div>
+         <div class="cc-sq-mtr-calc-wrap">
 
         <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModalcalc"><span class="fa fa-calc"></span><?php _e('SQUARE METER CALCULATOR','carpetcall')?></button>
+       
     </div>
-         
+     <div class="cc-smc-underline"></div>     
          </div>
       	 <div class="cc-quantiy-section-inner">
       	 <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $post->ID;?>" data-product_sku="<?php
@@ -242,11 +243,11 @@ wp_reset_postdata();
       	<button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal2">ENQUIRE NOW</button>
       </div>
       <div class="cc-product-ship-free-section col-md-12">
-      <div class="cc-product-ship col-md-6"><span>SHIPPING<i class="fa fa-info-circle" aria-hidden="true"></i></span></div><div class="cc-product-free col-md-6"> Not available</div>
+      <div class="cc-product-ship col-md-6"><span>SHIPPING</span></div><div class="cc-product-free col-md-6"> Not available</div>
       </div>
       <div class="cc-product-pick-location-section col-md-12">
       <div class="cc-product-pick col-md-6">
-      <button type="button" class="btn btn-default col-md-12" >Free PICK UP</button>
+      <button type="button" class="btn btn-default col-md-12" ><span class="pickup-free-tag">Free</span> PICKUP</button>
       </div>
       <div class="cc-product-location col-md-6">
       <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal1">PICK UP LOCATIONS</button>
@@ -610,15 +611,15 @@ wp_reset_postdata();
 		<h3><?php _e('Details','carpetcall')?></h3>
         <table>
         	<tr class="odd">
-            	<td><?php _e('Colour','carpetcall')?></td>
+            	<td><?php _e('Colour: ','carpetcall')?></td>
             	<td><?php _e(get_field('species__colour_decore',get_the_ID()),'carpetcall')?></td>
             </tr>
         	<tr class="even">
-            	<td><?php _e('Boards Per Pack','carpetcall')?></td>
+            	<td><?php _e('Boards Per Pack: ','carpetcall')?></td>
             	<td><?php _e(get_field('boards_per_pack',get_the_ID()),'carpetcall')?></td>
             </tr>
         	<tr class="odd">
-            	<td><?php _e('Coverage Per Pack','carpetcall')?></td>
+            	<td><?php _e('Coverage Per Pack: ','carpetcall')?></td>
             	<td><?php _e(get_field('size_m2',get_the_ID()),'carpetcall')?></td>
             </tr>
         </table>

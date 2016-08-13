@@ -2,7 +2,7 @@ jQuery(document).ready(function($){
 
 $ = jQuery.noConflict();
 $(document).ready(function() {
- 	$('.cc-quantiy-section #quantity-control #sel_cart').attr('selected','selected');
+ 	//$('.cc-quantiy-section #quantity-control #sel_cart').attr('selected','selected');
         $loadref=$('#store-count-quantity').attr('href');
         $('#store-count-quantity').attr('href','javascript:void(0)');
           $('#store-count-quantity').removeClass('add_to_cart_button');
@@ -54,7 +54,12 @@ $(document).ready(function() {
      });
 
 
+jQuery(document).on('click','.acc_list_item .acc_info_wrap',function(){
+	
+	alert('show accessories details in popup');
+	
 
+	});
 
 jQuery(document).find('.main-image-wrapper a.zoom').removeAttr('data-rel');
 /*jQuery(document)
@@ -67,9 +72,9 @@ jQuery(document).find('.main-image-wrapper a.zoom').removeAttr('data-rel');
 		$("body ,banner ").removeClass("ovelay_hidden_class");// re-enabling the scroll after ajax request is complete
 	});
 	
-	8/
+	*/
 
-
+/*
 $(window).scroll(function() {
 	if(jQuery('#cc_load_more').is(':visible')){
    	var hT = $('#cc_load_more').offset().top,
@@ -78,12 +83,11 @@ $(window).scroll(function() {
        wS = $(this).scrollTop();
    if (wS > (hT+hH-wH)){
 	   jQuery('#cc_load_more').hide();
-	   $("body").css("overflow","hidden");
        jQuery(document).find('#cc_load_more').trigger('click');
-	   
    }
 		}
 });
+*/
 
 
 
@@ -123,7 +127,6 @@ jQuery(document).on('change','select#cc-size',function(e){
 	});	
 	
 function update_content_from_ajax(response){
-
 		var images_section = jQuery(response).find('.images').html();
 		var summary_entry_summary = jQuery(response).find('.summary.entry-summary').html();
 		var tab_accesories = jQuery(response).find('#tab-accesories_tab').html();
@@ -145,16 +148,13 @@ function update_content_from_ajax(response){
 		jQuery(document).find('#you_may_like-content').html(you_may_like);
 		jQuery(document).find(".main-image-wrapper a.zoom").removeAttr('data-rel').prettyPhoto({hook:"data-rel",social_tools:!1,theme:"pp_woocommerce",horizontal_padding:20,opacity:.8,deeplinking:!1});
 	}	
-	
-	
-	
+
 jQuery(document).on('click','.single-product .images .thumbnails img',function(e){
 	e.preventDefault();
 	var img = jQuery(this).parent('a').attr('href');
 	jQuery(this).parents('.images').find('.main-image-wrapper .woocommerce-main-image img').attr('srcset',img).attr('src',img);
 	jQuery(this).parents('.images').find('.main-image-wrapper a.woocommerce-main-image').attr('href',img);
 	});
-
 
 jQuery(document).on('click','.cc-product-sort a',function(){
 		jQuery("#ajax_offset").val(0);
@@ -164,6 +164,8 @@ jQuery(document).on('click','.cc-product-sort a',function(){
 jQuery(document).on('click','.cc-count-clear',function(){
 	jQuery('img.cc-tick-display').hide();
 	jQuery('#selected_colors').val('');
+	jQuery('#child_cat_count').val(1);
+	jQuery('#ajax_offset').val(0);
 	jQuery('input.price_range').removeAttr('checked');
 	jQuery('#selected_price_ranges').val('');
 	jQuery('input.size_option').removeAttr('checked');
@@ -171,13 +173,14 @@ jQuery(document).on('click','.cc-count-clear',function(){
 	jQuery(this).hide();
 	cc_trigger_ajax_load(function(output){
 	output = jQuery.parseJSON(output);
+	//jQuery('#category_slider_block_wrapper').append(output.html);
 	jQuery('#category_slider_block_wrapper').html(output.html);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
 	init_slick_slider();
 	});
 
-	jQuery("#ajax_offset").val(0);
-	jQuery("#child_cat_count").val(1);
+	jQuery("#ajax_offset").val(output.offset);
+	jQuery("#child_cat_count").val(output.child_cat_count);
 
 	});
 	
@@ -208,6 +211,8 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-price-var-sec .che
 	cc_trigger_ajax_load(function(output){
 		output = jQuery.parseJSON(output);
 		jQuery('#category_slider_block_wrapper').html(output.html);
+			jQuery("#ajax_offset").val(output.offset);
+			jQuery("#child_cat_count").val(output.child_cat_count);
 		jQuery('.cat_slider.slick-slider').slick('unslick');
 		init_slick_slider();
 	});
@@ -235,6 +240,8 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-price-var-sec .che
 	cc_trigger_ajax_load(function(output){
 	output = jQuery.parseJSON(output);
 	jQuery('#category_slider_block_wrapper').html(output.html);
+			jQuery("#ajax_offset").val(output.offset);
+			jQuery("#child_cat_count").val(output.child_cat_count);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
 	init_slick_slider();
 	});
@@ -251,6 +258,8 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-price-var-sec .che
 	cc_trigger_ajax_load(function(output){
 	output = jQuery.parseJSON(output);
 	jQuery('#category_slider_block_wrapper').html(output.html);
+			jQuery("#ajax_offset").val(output.offset);
+			jQuery("#child_cat_count").val(output.child_cat_count);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
 	init_slick_slider();
 	});
@@ -270,9 +279,11 @@ else if(jQuery(trig_ele).parent().hasClass('sort_key')){
 				jQuery('#ajax_sort_by').val('price');
 				jQuery('#ajax_sort_order').val('DESC');
 				}
-		cc_trigger_ajax_load(function(output){
+	cc_trigger_ajax_load(function(output){
 	output = jQuery.parseJSON(output);
 	jQuery('#category_slider_block_wrapper').html(output.html);
+			jQuery("#ajax_offset").val(output.offset);
+			jQuery("#child_cat_count").val(output.child_cat_count);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
 	init_slick_slider();
 	});	
@@ -282,27 +293,38 @@ else if(jQuery(trig_ele).parent().hasClass('sort_key')){
 
 	});
 jQuery("#cc_load_more").click(function(e) {
-//$("#ajax_offset").val(parseInt($("#ajax_offset").val())+1);
-	var perpage  = jQuery('#perpage_var').val();
-//$("#ajax_offset").val(parseInt($("#ajax_offset").val())+perpage);
+	
+	//$("body, .banner ").addClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
+	//jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax call
+
+
+var perpage  = jQuery('#perpage_var').val();
 cc_trigger_ajax_load(function(output){
 output = jQuery.parseJSON(output);
+/*
 var is_first = jQuery("#cc_load_more").attr('first');
 if(is_first == 'yes'){
 	jQuery('#category_slider_block_wrapper').html(output.html);
 	}else{
 	jQuery('#category_slider_block_wrapper').append(output.html);
 	}
+	*/
+jQuery('#category_slider_block_wrapper').append(output.html);
 jQuery("#cc_load_more").attr('first','no');	
 
 jQuery("#child_cat_count").val(output.child_cat_count);
 jQuery("#ajax_offset").val(output.offset);
 jQuery('.cat_slider.slick-slider').slick('unslick');
 init_slick_slider();
+//$("body, .banner ").removeClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
+//jQuery('#loading_overlay_div').hide(); // Displaying the Loading gif during ajax call
 	});
 
 });
 function cc_trigger_ajax_load(handleData){
+
+$("body, .banner ").addClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
+jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax call
 	var perpage  = jQuery('#perpage_var').val();
 	var cat_id = $("#ajax_cat_id").val();
 	var child_cat_count = $('#child_cat_count').val();
@@ -313,7 +335,6 @@ function cc_trigger_ajax_load(handleData){
 	var selected_colors  = $("#selected_colors").val();
 	var selected_sizes  = $("#selected_sizes").val();
 	var selected_price_ranges  = $("#selected_price_ranges").val();
-	 $("body, .banner ").addClass('ovelay_hidden_class');
 	var data = {
 				'action': 'show_category_slider_block' , 
 				'perpage':perpage,
@@ -342,30 +363,12 @@ function cc_trigger_ajax_load(handleData){
 					jQuery('#cc_load_more').removeAttr('disabled').show();
 					}
 			handleData(response);
-			 $("body, .banner ").removeClass('ovelay_hidden_class');
-		});
-		
-		
-	/*jQuery.ajax({
-			url: woo_load_autocomplete.ajax_url,
-			type: 'POST',
-			data: {
-				perpage:perpage,
-				cat_id:cat_id,
-				offset:offset,
-				sort_by:sort_by,
-				sort_order:sort_order,
-				depth:depth,
-				color:selected_colors,
-				size:selected_sizes,
-				price:selected_price_ranges,
-				action: 'show_category_slider_block'
-				
-			},
-			success:function(data){
-				
-			}
-		});*/
-	
+			
+		}).done(function(){
+	$("body, .banner ").removeClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
+	jQuery('#loading_overlay_div').hide(); // Displaying the Loading gif during ajax call
+			
+			});
+
 	}
 });
