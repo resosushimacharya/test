@@ -744,15 +744,13 @@ wrapper close start */?>
 						//echo $cat->parent;
 						if($cat->parent==0){
 							$args = array(
-       'hide_empty'         => 0,
-       'orderby'            => 'id',
-       'show_count'         => 0,
-       'use_desc_for_title' => 0,
-       'child_of'           => $cat->term_id
-      );
-      $terms = get_terms( 'product_cat', $args );
-                      
-                            
+							   'hide_empty'         => 0,
+							   'orderby'            => 'id',
+							   'show_count'         => 0,
+							   'use_desc_for_title' => 0,
+							   'child_of'           => $cat->term_id
+							  );
+				$terms = get_terms( 'product_cat', $args );
 						}
 					}
 					shuffle($terms);

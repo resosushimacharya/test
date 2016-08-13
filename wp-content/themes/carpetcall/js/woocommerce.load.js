@@ -11,9 +11,7 @@ $(document).ready(function() {
           
        $(document).on('change','.cc-quantiy-section #quantity-control',function(){
           $stoq = $('.cc-quantiy-section  #quantity-control').val(); 
-		   alert($stoq);
 		   var sizem2 = jQuery('#sizem2').val(); 
-		  alert(sizem2);         
               if($stoq.toLowerCase()!='please select'){
          $('#store-count-quantity').attr('href',$loadref);
 
@@ -42,7 +40,7 @@ $(document).ready(function() {
           });
 		
 		$(document).on('change','.acc_qnty .quantity select',function(){
-			 if($stoq.toLowerCase()!='please select'){
+			 if(jQuery(this).val().toLowerCase()!='please select'){
 				jQuery(this).parents('.acc_list_item').find('a.acc_add_to_cart').attr('data-quantity',jQuery(this).val());
 				 }else{
 				 
