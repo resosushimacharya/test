@@ -9,6 +9,7 @@ $ = jQuery.noConflict();
               	+'"> </div> </div> </div> </div> </div> <div class="col-md-4 "> <div class="form-group col-md-8"> <input type="text" class="form-control col-md-8 item_indivisual_total" id="item_total_'+count
               	+'" placeholder="" name="item_total_'+count
               	+'" readonly> </div> <div class="form-group col-md-4"> m<sup>2</sup> </div> </div> </div> ');
+              
 
         });
 
@@ -38,7 +39,7 @@ $ = jQuery.noConflict();
        		$width = '#width_'+$i;
        		$item_id= '#item_total_'+$i;
        		$temp = $($length).val()*$($width).val();
-            $($item_id).val($temp);  
+            $($item_id).html($temp);  
 
     $calarea +=$temp;
 	}
