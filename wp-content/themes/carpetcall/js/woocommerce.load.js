@@ -1,3 +1,6 @@
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip({html:true})
+})
 jQuery(document).ready(function($){
 
 $ = jQuery.noConflict();
@@ -54,9 +57,9 @@ $(document).ready(function() {
      });
 
 
-jQuery(document).on('click','.acc_list_item .acc_info_wrap',function(){
+jQuery(document).on('mouseover','.acc_list_item',function(){
 	
-	alert('show accessories details in popup');
+	
 	
 
 	});

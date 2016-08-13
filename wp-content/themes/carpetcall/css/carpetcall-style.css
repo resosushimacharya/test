@@ -118,7 +118,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 	.navsrchblk .col-md-12 .col-md-2:nth-child(3) li#woo_control > a .mcrt{margin: 0}
 	.navsrchblk .col-md-12 .col-md-2:nth-child(3) li#woo_control > a .mcrt img{position: relative; top: 15px;}
 	ul#mywoosection li.dropdown.open > a{background-color: #0099ff;}
-	ul#mywoosection ul.dropdown-menu{ margin-top: 0}
+	ul#mywoosection ul.dropdown-menu{ margin-top: 0; max-height:397px; overflow:auto;}
 
 .sfind { font:bold 28px/148% 'proxima_nova_ltsemibold', sans-serif; color:#FFF;}
 .sfind .col-md-8 { padding-left:20px; padding-right:20px;}
