@@ -75,7 +75,7 @@ wp_title("");?>
     
 
 <!-- custom css -->
-<?php if(is_home() || (is_single() && get_post_type()=='product')){
+<?php if(get_post_type()!='wpsl_stores'){
 ?><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCN3lkABBKjsMdIzAyI1Rwy_6Z8cT8IEWc&libraries=places"></script>
 <?php } ?>
     <script type="text/javascript">
@@ -346,6 +346,8 @@ get_template_part('content', 'navwoo');
     <script type="text/javascript">
 
      function load_minicart() {
+		 
+		jQuery('#cc-mini-cart-cntr').html('<li class="cc-loader-cntr"><i class="fa fa-spinner  fa-spin" aria-hidden="true"></i></li>').show();
         jQuery.ajax({
             type: 'POST',
             url: "<?php echo admin_url('admin-ajax.php'); ?>",
@@ -355,9 +357,12 @@ get_template_part('content', 'navwoo');
                 action: 'woocommerce_cc',
 
             },
+			dataType:"json",
             success: function(data) {
-
-                jQuery('#woo_control').html(data);
+			
+               // jQuery('#woo_control').html(data);
+				jQuery('#count').html(data.count);
+				jQuery('#cc-mini-cart-cntr').html(data.ul_html);
                 ajax_count++;
 
             }

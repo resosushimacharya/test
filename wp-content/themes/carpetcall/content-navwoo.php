@@ -13,5 +13,6 @@
 
     </div>
   </div> </a>
+  <ul class="dropdown-menu" id="cc-mini-cart-cntr"></ul>
 	</li>
 			</ul>
