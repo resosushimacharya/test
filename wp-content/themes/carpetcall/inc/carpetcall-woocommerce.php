@@ -256,7 +256,7 @@ function woo_new_product_tab_content() {?>
       ?>
       
 
-     <div class="cont-panl">
+     <div class="cont-panl  cc-pro-det-fb">
 			
 <?php
 global $post;
@@ -309,8 +309,10 @@ $list = get_field('buying_guide_archive',$faqid );
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $faqcounter;?>">
-          <span class="pull-right glyphicon <?php echo ($faqcounter==1)?'glyphicon-chevron-up':'glyphicon glyphicon-chevron-down'?>"></span>
+        <a class="accordion-toggle <?php echo ($faqcounter==1)?'':'collapsed' ;?> " data-toggle="collapse" data-parent="#accordion_<?php echo $faqcounter;?> " href="#collapse_<?php echo $faqcounter;?>">
+            <span class="pull-right glyphicon glyphicon glyphicon-chevron-down " ></span>	
+			<span class="pull-right glyphicon glyphicon-chevron-up"></span>
+
           <?php echo $listitem['title'];?>
         </a>
       </h4>
@@ -354,16 +356,18 @@ function woo_new_product_tab_accesories() {
 	//$acc_cats = get_term_children( $accessory_term_obj->term_id, 'product_cat' );
 	//do_action('pr',$acc_cats);
 	if(!empty($acc_cats)){?>
-    <div class="cont-panl">
-            <div class="panel-group" id="accordion">
-            	<div class="panel panel-default">
+    <div class="cont-panl cc-pro-det-fb">
+            
      <?php
 	 $count = 1;
 		foreach($acc_cats as $acc_cat){?>
+		         <div class="panel-group" id="accordion_<?php echo $count;?>">
+            	<div class="panel panel-default">
                     <div class="panel-heading">
             <h4 class="panel-title">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $acc_cat->term_id;?>">
-                <span class="pull-right glyphicon <?php echo ($faqcounter==1)?'glyphicon-chevron-up':'glyphicon glyphicon-chevron-down'?>"></span>
+                <a class="accordion-toggle  <?php echo ($count==1)?'':'collapsed' ;?> " data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $acc_cat->term_id;?>">
+               <span class="pull-right glyphicon glyphicon glyphicon-chevron-down " ></span>	
+			<span class="pull-right glyphicon glyphicon-chevron-up"></span>
                 <?php echo $acc_cat->name;?>
                 </a>
             </h4>
@@ -471,14 +475,14 @@ function woo_new_product_tab_accesories() {
                             
                     </div>
                     </div>
-
+   </div>
+        </div>
 			
 			<?php
 			$count++;
             }
 			?>
-            </div>
-        </div>
+         
     </div>
 		<?php
 		}
