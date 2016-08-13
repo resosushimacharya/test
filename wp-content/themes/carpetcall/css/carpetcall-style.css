@@ -1386,3 +1386,19 @@ div#calculator_container { border-bottom:1px solid #efefef; margin-bottom:18px; 
 .single.single-product .form-group.col-md-8.col-item-price button { float:right; }
 
 .ovelay_hidden_class{overflow:hidden; padding-right:17px;}
+
+.single.single-product .form-group.col-md-8.col-item-price { text-align:right;} 
+.single.single-product button#cal_more { display:inline-block; border-color:#144a9f; background:none; border-radius:0; width:170px; height:45px; font:normal 14px 'proxima_nova_ltsemibold', sans-serif; color:#144a9f; text-transform:uppercase; text-decoration:none; margin-left:14px; }
+.single.single-product button#cal_more:hover { background:#144a9f; color:#FFF;}
+
+.single.single-product button#cal_id { display:inline-block; border-color:transparent; background:#144a9f; border-radius:0; width:170px; height:45px; font:700 14px 'proxima_nova_ltsemibold', sans-serif; color:#FFFFFF; text-transform:uppercase; text-decoration:none; margin-left:14px; }
+.single.single-product button#cal_id:hover { border-color:#144a9f; background:none; color:#144a9f;}
+.single.single-product p.pull-right{font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; margin:9px 0 -1px 0; }
+
+.single.single-product button#cancel_calc { display:inline-block; border-color:#144a9f; background:none; border-radius:0; width:170px; height:45px; font:700 14px 'proxima_nova_ltsemibold', sans-serif; color:#144a9f; text-transform:uppercase; text-decoration:none; margin-bottom:34px; margin-right:5px; }
+.single.single-product button#cancel_calc:hover { background:#144a9f; color:#FFF;}
+
+.single.single-product button#confirm_calc { display:inline-block; border-color:transparent; background:#c32428; border-radius:0; width:170px; height:45px; font:700 14px 'proxima_nova_ltsemibold', sans-serif; color:#FFFFFF; text-transform:uppercase; text-decoration:none; margin-left:15px; }
+.single.single-product button#confirm_calc:hover { border-color:#c32428; background:none; color:#144a9f;}
+.single.single-product span.cc-cal-showup{font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase;}
+span#exceess_area_percent, span#total_area, span#no_of_packs { border:0; box-shadow:none; outline:0;}
