@@ -60,7 +60,8 @@
 
                 
                         <div class="form-group col-md-8">
-                            <input type="text" class="form-control col-md-8 item_indivisual_total" id="item_total_1" placeholder="" name="item_total_1" readonly>
+                            
+                            <span class="form-control col-md-8 item_indivisual_total" id="item_total_1"> = </span>
                         </div>
                         
                    
@@ -70,43 +71,42 @@
     
 <div class="row">
  <div class="form-group col-md-8 col-item-price">
-                    <button type="button" class="btn btn-default" id="cal_more">+Add Rooms</button>
+                    <button type="button" class="btn btn-default" id="cal_more">+ Add Rooms</button>
                     <button type="submit" class="btn btn-default" id="cal_id" >Calculate</button>
                 </div><div class="form-group col-md-4 "></div> </div>
                 </form>
 
     <div class="row"><div class="form-group col-md-8 col-item-price">
-        <p class="pull-right">Excess</p>
+        <p class="pull-right">Excess:</p>
     </div>
     <div class="col-md-4 col-total-item-section">
-        <div class="form-group col-md-8 ">
-            <input type="text" class="form-control col-result-input" id="exceess_area_percent" placeholder="" readonly>
+        <div class="form-group col-md-4 no-lr cc-me">
+           
+             <span class="form-control col-result-input" id="exceess_area_percent"> </span>
         </div>
-        <div class="form-group col-md-4">
-            %</div>
+        <div class="form-group col-md-4 no-pl">
+            <span class="cc-cal-showup">%</span></div>
     </div>
     </div><div class="row">
-    <div class="form-group col-md-8  col-item-price ">
-        <p class="pull-right">Total m
-            <Sup>2</Sup>
-        </p>
+    <div class="form-group col-md-8 col-item-price">
+        <p class="pull-right">Total:</p>
     </div>
     <div class="col-md-4 col-total-item-section">
-        <div class="form-group col-md-8">
-            <input type="text" class="form-control col-result-input" id="total_area" placeholder="" name="total_area" readonly>
+        <div class="form-group col-md-4 no-lr cc-me">
+            
+            <span class="form-control col-result-input" id="total_area"> </span>
         </div>
-        <div class="form-group col-md-4">
-            m
-            <Sup>2</Sup>
-        </div>
+        <div class="form-group col-md-4 no-pl">
+        <span class="cc-cal-showup">SQM</span></div>
     </div>
     </div><div class="row">
-    <div class="form-group col-md-8 col-item-price ">
-        <p class="pull-right">Total Packs Required</p>
+    <div class="form-group col-md-8 col-item-price">
+        <p class="pull-right">Total Packs Required:</p>
     </div>
     <div class="col-md-4 col-total-item-section">
-        <div class="form-group col-md-8">
-            <input type="text" class="form-control col-result-input" id="no_of_packs" placeholder="" readonly>
+        <div class="form-group col-md-4 no-lr cc-me">
+            
+            <span class="form-control col-result-input" id="no_of_packs"> </span>
         </div>
     </div>
     </div>
@@ -114,12 +114,12 @@
 
 <div class="clearfix"></div>
 <div class="row">
-  <div class="col-md-6 ">
+  <div class="col-md-5 no-pr">
     <button class="btn btn-default pull-right" type="button" id="cancel_calc"  >
        Cancel
         </button>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6 no-pl">
     <button class="btn btn-default" type="button" id="confirm_calc" >
       Confirm
         </button>
