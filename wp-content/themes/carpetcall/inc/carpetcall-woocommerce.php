@@ -433,6 +433,7 @@ function woo_new_product_tab_accesories() {
                                 <span class="acc_price">
                                 	<?php echo $product->get_price_html();?>
                                 </span>
+                                </div>
                                 <div class="acc_qnty">
                                 <?php 
 								if($acc_cat->slug == 'underlay'){
@@ -445,13 +446,13 @@ function woo_new_product_tab_accesories() {
                                 </div>
                            		<?php $x=do_shortcode('[add_to_cart_url id="'.$acc_product->ID.'"]');?>
                                 <a href="<?php echo $x ;?>" data-quantity="<?php echo ($rec_qty=='')?'1':$rec_qty?>" data-product_id="<?php echo $acc_product->ID;?>" class="button product_type_simple col-md-12 acc_add_to_cart" >ADD TO CART</a>
-                                </div>
+                                
                                 <div class="modal fade" tabindex="-1" role="dialog" id="accinfo_<?php echo get_the_ID()?>_<?php echo $acc_cat->slug;?>">
                                 <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                 <div class="modal-header">
                                 	<span aria-hidden="true" class="close" data-dismiss="modal">&times;</span>
-                                <h4 class="modal-title">Accessory Details</h4>
+                                <h4 class="modal-title"><?php the_title()?></h4>
                                 </div>
                                 <div class="modal-body">
                                 <?php the_content();?>
