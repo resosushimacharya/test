@@ -247,7 +247,7 @@ wp_reset_postdata();
       </div>
       <div class="cc-product-pick-location-section col-md-12">
       <div class="cc-product-pick col-md-6">
-      <button type="button" class="btn btn-default col-md-12" >Free PICKUP</button>
+      <button type="button" class="btn btn-default col-md-12" ><span class="pickup-free-tag">Free</span> PICKUP</button>
       </div>
       <div class="cc-product-location col-md-6">
       <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal1">PICK UP LOCATIONS</button>
