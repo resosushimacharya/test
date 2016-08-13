@@ -1357,7 +1357,7 @@ height: 100%;
 width: 100%; 
 background-color: #000;  
 z-index: 2; 
-opacity: 0.5;
+opacity: 0.5; background-image:url('../images/loading.gif'); background-position:center center; background-repeat:no-repeat;
 }
 .cc-cat-sub-desc-sec p span strong {font:700 20px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; }
 .cc-cat-sub-desc-sec ul { margin:0 0 0 17px; }
@@ -1384,3 +1384,5 @@ div#calculator_container { border-bottom:1px solid #efefef; margin-bottom:18px; 
 .calculator_container .form-group.col-md-8 .form-control { border:0; background:none; box-shadow:none; margin-top:35px;}
 .single.single-product .form-group.col-md-8.col-item-price { padding-right:0;}
 .single.single-product .form-group.col-md-8.col-item-price button { float:right; }
+
+.ovelay_hidden_class{overflow:hidden; padding-right:17px;}

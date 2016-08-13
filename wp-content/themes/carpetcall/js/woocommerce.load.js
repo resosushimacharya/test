@@ -57,15 +57,17 @@ $(document).ready(function() {
 
 
 jQuery(document).find('.main-image-wrapper a.zoom').removeAttr('data-rel');
-jQuery(document)
+/*jQuery(document)
 .ajaxStart(function(){
-	 $("body").css("overflow","hidden"); // Disabling the Scroll while ajax is loading
+	 $("body, banner ").addClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
 	jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax call
 	})
 .ajaxStop(function(){
 		jQuery('#loading_overlay_div').hide(); // Hiding the loading gid after ajax call is finished
-		$("body").css("overflow","auto");// re-enabling the scroll after ajax request is complete
+		$("body ,banner ").removeClass("ovelay_hidden_class");// re-enabling the scroll after ajax request is complete
 	});
+	
+	8/
 
 
 $(window).scroll(function() {
@@ -92,12 +94,12 @@ jQuery(document).on('click','.select-design-product-image a.select_design',funct
 	e.preventDefault();
 	var url = jQuery(this).attr('href');
 	window.history.pushState("object or string", "Title", url);
-	 $("body, .banner").css({"overflow":"hidden", "padding-right":"17px"});// Disabling the Scroll while ajax is loading
+	 $("body, .banner ").addClass('ovelay_hidden_class');// Disabling the Scroll while ajax is loading
 	jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax call
 
 	jQuery.get(url,function(response){
 		update_content_from_ajax(response);
-			 $("body, .banner").css({"overflow":"auto","padding-right":"0"}); // Disabling the Scroll while ajax is loading
+			 $("body, .banner ").removeClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
 			jQuery('#loading_overlay_div').hide(); // Displaying the Loading gif during ajax call
 
 		});
@@ -108,12 +110,12 @@ jQuery(document).on('click','.select-design-product-image a.select_design',funct
 jQuery(document).on('change','select#cc-size',function(e){
 	var url = jQuery(this).val();
 	window.history.pushState("object or string", "Title", url);
-		 $("body").css({"overflow":"hidden", "padding-right":"17px"}); // Disabling the Scroll while ajax is loading
+		  $("body, .banner ").addClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
 	jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax call
 
 	jQuery.get(url,function(response){
 		update_content_from_ajax(response);
-			 $("body").css("overflow","auto"); // Disabling the Scroll while ajax is loading
+			  $("body, .banner ").removeClass('ovelay_hidden_class');// Disabling the Scroll while ajax is loading
 			jQuery('#loading_overlay_div').hide(); // Displaying the Loading gif during ajax call
 
 		//jQuery(document).find(".main-image-wrapper a.zoom").removeAttr('data-rel').prettyPhoto({hook:"data-rel",social_tools:!1,theme:"pp_woocommerce",horizontal_padding:20,opacity:.8,deeplinking:!1});
@@ -311,7 +313,7 @@ function cc_trigger_ajax_load(handleData){
 	var selected_colors  = $("#selected_colors").val();
 	var selected_sizes  = $("#selected_sizes").val();
 	var selected_price_ranges  = $("#selected_price_ranges").val();
-	
+	 $("body, .banner ").addClass('ovelay_hidden_class');
 	var data = {
 				'action': 'show_category_slider_block' , 
 				'perpage':perpage,
@@ -340,6 +342,7 @@ function cc_trigger_ajax_load(handleData){
 					jQuery('#cc_load_more').removeAttr('disabled').show();
 					}
 			handleData(response);
+			 $("body, .banner ").removeClass('ovelay_hidden_class');
 		});
 		
 		
