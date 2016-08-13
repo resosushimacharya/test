@@ -398,7 +398,7 @@ function woo_new_product_tab_accesories() {
 							<div class="acc_list_item col-md-4 <?php echo $acc_cat->slug?>">
                             	<div class="acc_info_wrap">
                                 <div class="acc_thumb">
-									<a href="javascript:void(0)"><?php echo get_the_post_thumbnail($acc_product->ID,'thumbnail')?></a>
+									<?php echo get_the_post_thumbnail($acc_product->ID,'thumbnail')?>
 								</div>
                                 <h3 class="acc_title_n_cat">
                                 <span class="acc_title"><a href="javascript:void(0)"><?php _e($acc_product->post_title,'carpetcall');?></a></span> 

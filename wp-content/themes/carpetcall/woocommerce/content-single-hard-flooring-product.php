@@ -611,15 +611,15 @@ wp_reset_postdata();
 		<h3><?php _e('Details','carpetcall')?></h3>
         <table>
         	<tr class="odd">
-            	<td><?php _e('Colour','carpetcall')?></td>
+            	<td><?php _e('Colour: ','carpetcall')?></td>
             	<td><?php _e(get_field('species__colour_decore',get_the_ID()),'carpetcall')?></td>
             </tr>
         	<tr class="even">
-            	<td><?php _e('Boards Per Pack','carpetcall')?></td>
+            	<td><?php _e('Boards Per Pack: ','carpetcall')?></td>
             	<td><?php _e(get_field('boards_per_pack',get_the_ID()),'carpetcall')?></td>
             </tr>
         	<tr class="odd">
-            	<td><?php _e('Coverage Per Pack','carpetcall')?></td>
+            	<td><?php _e('Coverage Per Pack: ','carpetcall')?></td>
             	<td><?php _e(get_field('size_m2',get_the_ID()),'carpetcall')?></td>
             </tr>
         </table>
