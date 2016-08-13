@@ -2,7 +2,7 @@ jQuery(document).ready(function($){
 
 $ = jQuery.noConflict();
 $(document).ready(function() {
- 	$('.cc-quantiy-section #quantity-control #sel_cart').attr('selected','selected');
+ 	//$('.cc-quantiy-section #quantity-control #sel_cart').attr('selected','selected');
         $loadref=$('#store-count-quantity').attr('href');
         $('#store-count-quantity').attr('href','javascript:void(0)');
           $('#store-count-quantity').removeClass('add_to_cart_button');
