@@ -54,7 +54,10 @@ $(document).ready(function() {
      });
 
 
-
+jQuery(document).on('click','.tabs .acc_info_wrap',function(){
+	alert('show accessories details in popup');
+	
+	});
 
 jQuery(document).find('.main-image-wrapper a.zoom').removeAttr('data-rel');
 /*jQuery(document)

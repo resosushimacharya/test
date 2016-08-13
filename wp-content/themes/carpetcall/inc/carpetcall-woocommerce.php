@@ -396,11 +396,12 @@ function woo_new_product_tab_accesories() {
 							setup_postdata($post);
 							?>
 							<div class="acc_list_item col-md-4 <?php echo $acc_cat->slug?>">
-                            	<div class="acc_thumb">
-									<?php echo get_the_post_thumbnail($acc_product->ID,'thumbnail')?>
+                            	<div class="acc_info_wrap">
+                                <div class="acc_thumb">
+									<a href="javascript:void(0)"><?php echo get_the_post_thumbnail($acc_product->ID,'thumbnail')?></a>
 								</div>
                                 <h3 class="acc_title_n_cat">
-                                <span class="acc_title"><?php _e($acc_product->post_title,'carpetcall');?></span> 
+                                <span class="acc_title"><a href="javascript:void(0)"><?php _e($acc_product->post_title,'carpetcall');?></a></span> 
                                 <span class="acc_subcat">
 								<?php 
 								$categories = get_the_terms($acc_product->ID, 'product_cat' ); 
@@ -413,7 +414,7 @@ function woo_new_product_tab_accesories() {
 									  $children = get_categories( array ('taxonomy' => 'product_cat', 'parent' => $category->term_id ));
 									  if ( count($children) == 0 ) {
 										  // if no children, then echo the category name.
-										  echo $category->name;
+										  echo '<a href="javascript:void(0)">'.$category->name.'</a>';
 										  break;
 									  }
 									endforeach;
@@ -424,6 +425,7 @@ function woo_new_product_tab_accesories() {
                                 
                                 </span>
                                 </h3>
+                                </div>
                                 <span class="acc_price">
                                 	<?php echo $product->get_price_html();?>
                                 </span>

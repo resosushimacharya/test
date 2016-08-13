@@ -243,11 +243,11 @@ wp_reset_postdata();
       	<button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal2">ENQUIRE NOW</button>
       </div>
       <div class="cc-product-ship-free-section col-md-12">
-      <div class="cc-product-ship col-md-6"><span>SHIPPING<i class="fa fa-info-circle" aria-hidden="true"></i></span></div><div class="cc-product-free col-md-6"> Not available</div>
+      <div class="cc-product-ship col-md-6"><span>SHIPPING</span></div><div class="cc-product-free col-md-6"> Not available</div>
       </div>
       <div class="cc-product-pick-location-section col-md-12">
       <div class="cc-product-pick col-md-6">
-      <button type="button" class="btn btn-default col-md-12" >Free PICK UP</button>
+      <button type="button" class="btn btn-default col-md-12" >Free PICKUP</button>
       </div>
       <div class="cc-product-location col-md-6">
       <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal1">PICK UP LOCATIONS</button>
