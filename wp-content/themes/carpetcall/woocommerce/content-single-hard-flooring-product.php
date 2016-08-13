@@ -710,57 +710,48 @@ wrapper close start */?>
 <?php /* before-wrapper close end*/?>
 <?php do_action( 'woocommerce_after_single_product' ); ?>
 
- <div class="inerblock_sec_a">
-    <div class="container clearfix you_may_link_cntr">
-        <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
-<div class="you_may_like-content">
-		<?php               wp_reset_query();
+<?php
 
-                    global $post;
-					//$reqTempTerms=get_the_terms($post->ID,'product_cat');
-					$second_lvl_cat = get_term_by('id',$current_post_term_id,'product_cat');
-					$you_may_like_cats = get_term_children( $second_lvl_cat->parent, 'product_cat' );
-					if(count( $you_may_like_cats ) > 0 ){
-						$count =1;
-						$you_may_like_prods = array();
-						foreach($you_may_like_cats as $cat){
-							if($cat != $second_lvl_cat->term_id){
-								$args = array(
-											'post_type'=>'product',
-											'posts_per_page'=>1,
-											'meta_key'		=>'_regular_price',
-											'order_by'		=>'meta_value_num',
-											'order'			=>'ASC',
-											'tax_query'	=>array(
-														array(
-															'taxonomy' => 'product_cat',
-															'field'    => 'term_id',
-															'terms'    => $cat,
-														)
-													)
-												);
-							$like_prod = new WP_Query($args);
-							if($like_prod->have_posts()){
-								while($like_prod->have_posts()){
-										$post = $like_prod->the_post();
-										if($count >3){
-										break;
-										}
-										
-								$you_may_like_prods	[$cat] =  $post;
-								$count++;
-								}
-								}
-							}
-						
+	wp_reset_query();
+	global $post;
+	$you_may_like_prods = array();
+	//$reqTempTerms=get_the_terms($post->ID,'product_cat');
+	$second_lvl_cat = get_term_by('id',$current_post_term_id,'product_cat');
+	$you_may_like_cats = get_term_children( $second_lvl_cat->parent, 'product_cat' );
+	if(count( $you_may_like_cats ) > 0 ){
+		$count =1;
+		
+		foreach($you_may_like_cats as $cat){
+			if($cat != $second_lvl_cat->term_id){
+				$args = array(
+							'post_type'=>'product',
+							'posts_per_page'=>1,
+							'meta_key'		=>'_regular_price',
+							'order_by'		=>'meta_value_num',
+							'order'			=>'ASC',
+							'tax_query'	=>array(
+										array(
+											'taxonomy' => 'product_cat',
+											'field'    => 'term_id',
+											'terms'    => $cat,
+										)
+									)
+								);
+			$like_prod = new WP_Query($args);
+			if($like_prod->have_posts()){
+				foreach($like_prod->posts as $post){
+						if($count >3){
+						break;
 						}
-					}
-				
- ?></div>
-<div class="clearfix"></div>
-               
-    </div>
-    </div><!-- step three end here -->
+				$you_may_like_prods	[$cat] =  $post;
+				$count++;
+				}
+				}
+			}
+		}
+	}
+					
+					?>
     
  <?php if(count($you_may_like_prods) >0){?>
 	 <div class="inerblock_sec_a">
@@ -768,8 +759,7 @@ wrapper close start */?>
         <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
 <div class="you_may_like-content">
 	<?php 
-	
-									foreach($you_may_like_prods as $cat=>$post){
+				foreach($you_may_like_prods as $key=>$post){
 					setup_postdata($post);
 					$woo=get_post_meta($post->ID);
 					$price=$woo['_regular_price'][0];
@@ -782,15 +772,13 @@ wrapper close start */?>
                     <div class="mero_itemss">
                       		<div class="proabtxt">
 					 <a href="<?php the_permalink();?>" class="cc-product-item-title-link"><h4>
-					<?php $term = get_term_by('id',$cat,'product_cat');
+					<?php $term = get_term_by('id',$key,'product_cat');
 					echo $term->name;?>
 					</h4></a><?php 
 					if(!empty($price)){
 						echo '<h6> FROM A$'.$price.'</h6>';
-						
 						}?></div>
 					<div class="clearfix"></div>
-                           
                       </div>
                       </div></a>
                       </div>
