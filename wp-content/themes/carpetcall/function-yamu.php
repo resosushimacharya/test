@@ -274,7 +274,7 @@ $args = wp_parse_args( $args, $defaults);
 */	);
 
 	if($sort_by == 'price'){
-		$filargs['meta_key'] = '_sale_price';
+		$filargs['meta_key'] = '_regular_price';
 	}elseif($sort_by == 'popular'){
 		$filargs['meta_key'] = 'total_sales';
 		}
@@ -354,7 +354,7 @@ $args = wp_parse_args( $args, $defaults);
 		foreach($price as $range){
 			$range_arr = explode('-',$range);
 			$price_range_query[] = array(
-										 'key' => '_sale_price', 
+										 'key' => '_regular_price', 
 										 'value' => $range_arr,
 										 'type'	=>	'NUMERIC',
 										 'compare' => 'BETWEEN'
@@ -397,7 +397,7 @@ $args = wp_parse_args( $args, $defaults);
 		);	
 		
 	if($sort_by == 'price'){
-		$grp_prod_args['meta_key'] = '_sale_price';
+		$grp_prod_args['meta_key'] = '_regular_price';
 	}elseif($sort_by == 'popular'){
 		$grp_prod_args['meta_key'] = 'total_sales';
 		}
@@ -406,7 +406,7 @@ $args = wp_parse_args( $args, $defaults);
 	
 		
 	if($sort_by == 'price'){
-		$grp_prod_args['meta_key'] = '_sale_price';
+		$grp_prod_args['meta_key'] = '_regular_price';
 	}elseif($sort_by == 'popular'){
 		$grp_prod_args['meta_key'] = 'total_sales';
 		}
@@ -455,7 +455,7 @@ $args = wp_parse_args( $args, $defaults);
 		}
 	
 	if($pch==1){
-	$res = get_post_meta($filloop->post->ID ,'_sale_price',true);
+	$res = get_post_meta($filloop->post->ID ,'_regular_price',true);
 	echo '<div class="col-md-6 cc-cat-sub-price">From <span>A$'.$res.'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
 	
 	$pch++;
