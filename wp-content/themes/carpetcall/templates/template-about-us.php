@@ -81,7 +81,7 @@ $size      = count( $ancestors );
                             $ancestor_id = (!empty( $ancestors )) ? $ancestors[0] : $id;
                             $all_about_pages = array(
                                 'child_of'  => $ancestor_id,
-                                'include'   => $children,
+                                #'include'   => $children,
                                 'depth'     => 1,
                                 'link_after'=> '<i class="fa fa-caret-right" aria-hidden="true"></i>',
                                 'title_li'  => ''
