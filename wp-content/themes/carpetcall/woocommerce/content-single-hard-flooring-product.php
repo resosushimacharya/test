@@ -207,8 +207,9 @@ wp_reset_postdata();
          <?php if(strcasecmp($pro['_stock_status'][0],'instock')!=0){?><div>
       <h3> OUT OF STOCK</h3>
       <?php do_action('cc_after_select_design_start');  do_action( 'woocommerce_single_product_summary' ); ?>
-      </div><?php }else{?><div>
-      <h3>In Stock - Pickup Only</h3>
+      </div><?php }else{?>
+      <div class="stock_info_wrap clearfix">
+      <h3>In Stock - <span class="cc-po">Pickup Only</span></h3>
       </div>
 		  <?php		  
 		  }?>
@@ -740,53 +741,20 @@ wrapper close start */?>
 												);
 							$like_prod = new WP_Query($args);
 							if($like_prod->have_posts()){
-									while($like_prod->have_posts()){
+								while($like_prod->have_posts()){
 										$post = $like_prod->the_post();
 										if($count >3){
 										break;
 										}
 										
-						$you_may_like_prods	[$cat] =  $post;	
-					setup_postdata($post);
-					$woo=get_post_meta($post->ID);
-					
-					$price=$woo['_regular_price'][0];
-					$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-									?> <div class="col-md-4">
-                  		<div class="pro_secone">
-                  		<a href="<?php the_permalink();?>" class="cc-product-item-image-link"><div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
-                  
-                    <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
-                    <div class="mero_itemss">
-                      		<div class="proabtxt">
-					 <a href="<?php the_permalink();?>" class="cc-product-item-title-link"><h4>
-					<?php $term = get_term_by('id',$cat,'product_cat');
-					echo $term->name;?>
-					</h4></a><?php 
-					if(!empty($price)){
-						echo '<h6> FROM A$'.$price.'</h6>';
-						
-						}?></div>
-					<div class="clearfix"></div>
-                           
-                      </div>
-                      </div></a>
-                      </div>
-								<?php
-								$count++; }?>
-                     		<?php 
-                     		wp_reset_query(); 
-							
-							
-							
-							
-							
-							
+								$you_may_like_prods	[$cat] =  $post;
+								$count++;
 								}
 								}
 							}
 						
 						}
+					}
 				
  ?></div>
 <div class="clearfix"></div>
