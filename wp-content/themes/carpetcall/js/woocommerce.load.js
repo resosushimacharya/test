@@ -159,6 +159,8 @@ jQuery(document).on('click','.cc-product-sort a',function(){
 jQuery(document).on('click','.cc-count-clear',function(){
 	jQuery('img.cc-tick-display').hide();
 	jQuery('#selected_colors').val('');
+	jQuery('#child_cat_count').val(1);
+	jQuery('#ajax_offset').val(0);
 	jQuery('input.price_range').removeAttr('checked');
 	jQuery('#selected_price_ranges').val('');
 	jQuery('input.size_option').removeAttr('checked');
@@ -166,13 +168,14 @@ jQuery(document).on('click','.cc-count-clear',function(){
 	jQuery(this).hide();
 	cc_trigger_ajax_load(function(output){
 	output = jQuery.parseJSON(output);
+	//jQuery('#category_slider_block_wrapper').append(output.html);
 	jQuery('#category_slider_block_wrapper').html(output.html);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
 	init_slick_slider();
 	});
 
-	jQuery("#ajax_offset").val(0);
-	jQuery("#child_cat_count").val(1);
+	jQuery("#ajax_offset").val(output.offset);
+	jQuery("#child_cat_count").val(output.child_cat_count);
 
 	});
 	
@@ -203,7 +206,8 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-price-var-sec .che
 	cc_trigger_ajax_load(function(output){
 		output = jQuery.parseJSON(output);
 		jQuery('#category_slider_block_wrapper').html(output.html);
-		//jQuery('#ajax_offset').
+			jQuery("#ajax_offset").val(output.offset);
+			jQuery("#child_cat_count").val(output.child_cat_count);
 		jQuery('.cat_slider.slick-slider').slick('unslick');
 		init_slick_slider();
 	});
@@ -231,6 +235,8 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-price-var-sec .che
 	cc_trigger_ajax_load(function(output){
 	output = jQuery.parseJSON(output);
 	jQuery('#category_slider_block_wrapper').html(output.html);
+			jQuery("#ajax_offset").val(output.offset);
+			jQuery("#child_cat_count").val(output.child_cat_count);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
 	init_slick_slider();
 	});
@@ -247,6 +253,8 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-price-var-sec .che
 	cc_trigger_ajax_load(function(output){
 	output = jQuery.parseJSON(output);
 	jQuery('#category_slider_block_wrapper').html(output.html);
+			jQuery("#ajax_offset").val(output.offset);
+			jQuery("#child_cat_count").val(output.child_cat_count);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
 	init_slick_slider();
 	});
@@ -269,6 +277,8 @@ else if(jQuery(trig_ele).parent().hasClass('sort_key')){
 	cc_trigger_ajax_load(function(output){
 	output = jQuery.parseJSON(output);
 	jQuery('#category_slider_block_wrapper').html(output.html);
+			jQuery("#ajax_offset").val(output.offset);
+			jQuery("#child_cat_count").val(output.child_cat_count);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
 	init_slick_slider();
 	});	
@@ -286,12 +296,15 @@ jQuery("#cc_load_more").click(function(e) {
 var perpage  = jQuery('#perpage_var').val();
 cc_trigger_ajax_load(function(output){
 output = jQuery.parseJSON(output);
+/*
 var is_first = jQuery("#cc_load_more").attr('first');
 if(is_first == 'yes'){
 	jQuery('#category_slider_block_wrapper').html(output.html);
 	}else{
 	jQuery('#category_slider_block_wrapper').append(output.html);
 	}
+	*/
+jQuery('#category_slider_block_wrapper').append(output.html);
 jQuery("#cc_load_more").attr('first','no');	
 
 jQuery("#child_cat_count").val(output.child_cat_count);
