@@ -736,23 +736,87 @@ wrapper close start */?>
                     
 					$reqTempTerms=get_the_terms($post->ID,'product_cat');
 					
+					$second_lvl_cat = get_term_by('id',$current_post_term_id,'product_cat');
+					
 					foreach($reqTempTerms as $cat){
 						//echo $cat->parent;
-						if($cat->parent==0){
+						if(count( get_term_children( $cat->term_id, 'product_cat' ) ) > 0 ){
 							$args = array(
-							   'hide_empty'         => 0,
+							   'hide_empty'         => true,
 							   'orderby'            => 'id',
 							   'show_count'         => 0,
 							   'use_desc_for_title' => 0,
-							   'child_of'           => $cat->term_id
+							   'child_of'           => $cat->term_id,
+							   'exclude'			=>$second_lvl_cat->parent,
+							   'fields'				=>'ids',
 							  );
 				$terms = get_terms( 'product_cat', $args );
 						}
 					}
-					shuffle($terms);
+					//do_action('pr',$terms);
+					//shuffle($terms);
                         $i=1;
+						
+					$you_may_like_args = array(
+												'post_type'=>'product',
+												'posts_per_page'	=>3,
+												'meta_key'		=>'_regular_price',
+												'order_by'		=>'meta_value_num',
+												'tax_query' => array(
+																array(
+																	'taxonomy' => 'product_cat',
+																	'field'    => 'term_id',
+																	'terms'    => $terms,
+																	'operator' => 'IN',
+																),
+															),
+													);
+					$filloop = new WP_Query($you_may_like_args);
+					
+					if($filloop->have_posts()){
+									while($filloop->have_posts()):
+										$filloop->the_post();
 
-					foreach($terms as $term){
+											/*var_dump($filloop->post->ID);*/
+											$woo=get_post_meta($post->ID);
+					
+					$price=$woo['_regular_price'][0];
+					
+					
+					$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+
+
+									?> <div class="col-md-4">
+                  		<div class="pro_secone">
+                  		<a href="<?php the_permalink();?>" class="cc-product-item-image-link"><div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
+                  
+                    <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
+                    <div class="mero_itemss">
+                      		<div class="proabtxt">
+					 <a href="<?php the_permalink();?>" class="cc-product-item-title-link"><h4>
+					<?php echo $term->name;?>
+					</h4></a><?php 
+
+					$reqTempTerms=get_the_terms($post->ID,'product_cat');
+					
+
+					
+
+					
+					if(!empty($price)){
+						echo '<h6> FROM A$'.$price.'</h6>';
+						
+						}?></div>
+					<div class="clearfix"></div>
+                           
+                      </div>
+                      </div></a>
+                      </div>
+								<?php endwhile;?>
+                     		<?php 
+                     		wp_reset_query(); }	
+
+					/*foreach($terms as $term){
 						if($current_post_term_id!=$term->term_id){
 							$has_sub_cat=get_terms(array('parent'=>$term->term_id,'taxonomy'=>'product_cat'));
 								if(count($has_sub_cat)==0){
@@ -778,17 +842,9 @@ wrapper close start */?>
 								$hold = 1;
 
 								if($filloop->have_posts()){
-									if($i<=3){
-									$i++;
-
-                     				}
-                     				else{
-                     					break;
-                     				}
 									while($filloop->have_posts()):
 										$filloop->the_post();
 
-											/*var_dump($filloop->post->ID);*/
 											$woo=get_post_meta($post->ID);
 					
 					$price=$woo['_regular_price'][0];
@@ -830,7 +886,7 @@ wrapper close start */?>
 							
 								}
 						}
-					}
+					}*/
  ?></div>
 <div class="clearfix"></div>
                

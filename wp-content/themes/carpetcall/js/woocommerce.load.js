@@ -92,9 +92,14 @@ jQuery(document).on('click','.select-design-product-image a.select_design',funct
 	e.preventDefault();
 	var url = jQuery(this).attr('href');
 	window.history.pushState("object or string", "Title", url);
+	 $("body, .banner").css({"overflow":"hidden", "padding-right":"17px"});// Disabling the Scroll while ajax is loading
+	jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax call
 
 	jQuery.get(url,function(response){
 		update_content_from_ajax(response);
+			 $("body, .banner").css({"overflow":"auto","padding-right":"0"}); // Disabling the Scroll while ajax is loading
+			jQuery('#loading_overlay_div').hide(); // Displaying the Loading gif during ajax call
+
 		});
 	});	
 	
@@ -103,8 +108,14 @@ jQuery(document).on('click','.select-design-product-image a.select_design',funct
 jQuery(document).on('change','select#cc-size',function(e){
 	var url = jQuery(this).val();
 	window.history.pushState("object or string", "Title", url);
+		 $("body").css({"overflow":"hidden", "padding-right":"17px"}); // Disabling the Scroll while ajax is loading
+	jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax call
+
 	jQuery.get(url,function(response){
 		update_content_from_ajax(response);
+			 $("body").css("overflow","auto"); // Disabling the Scroll while ajax is loading
+			jQuery('#loading_overlay_div').hide(); // Displaying the Loading gif during ajax call
+
 		//jQuery(document).find(".main-image-wrapper a.zoom").removeAttr('data-rel').prettyPhoto({hook:"data-rel",social_tools:!1,theme:"pp_woocommerce",horizontal_padding:20,opacity:.8,deeplinking:!1});
 		});
 	});	
@@ -131,9 +142,6 @@ function update_content_from_ajax(response){
 		jQuery(document).find('#tab-ret_tab').html(tab_ret);
 		jQuery(document).find('#you_may_like-content').html(you_may_like);
 		jQuery(document).find(".main-image-wrapper a.zoom").removeAttr('data-rel').prettyPhoto({hook:"data-rel",social_tools:!1,theme:"pp_woocommerce",horizontal_padding:20,opacity:.8,deeplinking:!1});
-		
-	
-			
 	}	
 	
 	
@@ -150,7 +158,6 @@ jQuery(document).on('click','.cc-product-sort a',function(){
 		jQuery("#ajax_offset").val(0);
 		jQuery("#child_cat_count").val(1);
 		
-
 	});
 jQuery(document).on('click','.cc-count-clear',function(){
 	jQuery('img.cc-tick-display').hide();
