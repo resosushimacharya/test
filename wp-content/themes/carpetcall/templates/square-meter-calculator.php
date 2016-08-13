@@ -41,7 +41,7 @@
                                 <label for="width_1">Room 1</label>
                             </div>
                             <div class="col-md-6 no-lr">
-                                <input type="text" class="form-control" id="width_1" placeholder=" Width (m)" name="width_1" required>
+                                <input type="text" class="form-control width_check" id="width_1" placeholder=" Width (m)" name="width_1" required>
                             </div>
                         </div>
                         <div class="form-group col-md-6">
@@ -49,25 +49,20 @@
                                 <label for="length_1"></label>
                             </div>
                             <div class="col-md-6 no-lr">
-                                <input type="text" class="form-control" id="length_1" placeholder="Length (m)" name="length_1" required>
+                                <input type="text" class="form-control length_check" id="length_1" placeholder="Length (m)" name="length_1" required>
                             </div>
                         </div>
                     </div>
                 </div>
                
             </div>
-            <div class="col-md-4 ">
-
-                
+            <div class="col-md-3 ">
                         <div class="form-group col-md-8">
-                            
-                           <span class="form-control col-md-8 item_indivisual_total"> = <span id="item_total_1"> </span></span>
+                           <span class="form-control col-md-8 item_indivisual_total"> = <span id="item_total_1">-</span> SQM</span>
                         </div>
-                        
-                   
             </div>
-
-        </div></div>
+        </div>
+ </div>
     
 <div class="row">
  <div class="form-group col-md-8 col-item-price">
@@ -124,6 +119,9 @@
       Confirm
         </button>
   </div>
+</div>
+<div class="row">
+	<div class="col-sm-12 " id="error_max_msg"></div>
 </div>
             
             

@@ -1375,22 +1375,22 @@ opacity: 0.5; background-image:url('../images/loading.gif'); background-position
 .panel-body-table td { vertical-align:top; line-height:30px; }
 .panel-body-table td strong { font-weight:700; color:#0e0e0e; padding-left:2px;}
 .cc-smc-blk-title h3 { font-family:'proxima_nova_ltsemibold', sans-serif; font-size:30px !important; font-weight:bold; color:#15489f !important; text-transform:uppercase; margin:9px 0 16px 1px !important; }
-div#cal_pro_1 .container_1 .form-group.col-md-6 { padding:0; margin-bottom:20px; }
-div#cal_pro_1 .container_1 .col-md-6 label {font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding-left:15px; margin:0;}
-div#cal_pro_1 .container_1 .col-md-6.no-lr { clear:both;}
-div#cal_pro_1 .container_1 .col-md-6.no-lr .form-control { background-color:#e7edf8; border:1px solid #cdd9ed; border-radius:0; outline:0; box-shadow:none; width:222px; height:45px; margin-left:5px; margin-top:7px;}
-div#cal_pro_1 .container_1 .col-md-6.no-lr .form-control::-webkit-input-placeholder {
+.cal_pro .container_1 .form-group.col-md-6 { padding:0; margin-bottom:20px; }
+.cal_pro .container_1 .col-md-6 label {font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding-left:15px; margin:0;}
+.cal_pro .container_1 .col-md-6.no-lr { clear:both;}
+.cal_pro .container_1 .col-md-6.no-lr .form-control { background-color:#e7edf8; border:1px solid #cdd9ed; border-radius:0; outline:0; box-shadow:none; width:222px; height:45px; margin-left:5px; margin-top:7px;}
+.cal_pro .container_1 .col-md-6.no-lr .form-control::-webkit-input-placeholder {
    font:700 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; text-transform:uppercase;
 }
 div#calculator_container { border-bottom:1px solid #efefef; margin-bottom:18px; }
-.calculator_container .form-group.col-md-8 .form-control { border:0; background:none; box-shadow:none; margin-top:35px;}
-.single.single-product .form-group.col-md-8.col-item-price { padding-right:0;}
-.single.single-product .form-group.col-md-8.col-item-price button { float:right; }
+.calculator_container .form-group .form-control { border:0; background:none; box-shadow:none; margin-top:35px;}
+.single.single-product .form-group.col-item-price { padding-right:0;}
+.single.single-product .form-group.col-item-price button { float:right; }
 
 .ovelay_hidden_class{overflow:hidden; padding-right:17px;}
 
 
-.single.single-product .form-group.col-md-8.col-item-price { text-align:right;} 
+.single.single-product .form-group.col-item-price { text-align:right;} 
 .single.single-product button#cal_more { display:inline-block; border-color:#144a9f; background:none; border-radius:0; width:170px; height:45px; font:normal 14px 'proxima_nova_ltsemibold', sans-serif; color:#144a9f; text-transform:uppercase; text-decoration:none; margin-left:14px; }
 .single.single-product button#cal_more:hover { background:#144a9f; color:#FFF;}
 
@@ -1424,6 +1424,9 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 
 .cc-size-quantity-section .stock_info_wrap h3 {font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#009900; text-transform:uppercase; margin-top:66px; margin-bottom:10px;}
 .cc-size-quantity-section .stock_info_wrap h3 span.cc-po {color:#c32327;}
+<<<<<<< .merge_file_a17536
+.remove_row_calc{cursor:pointer;}
+=======
 .cc-size-quantity-section .total_coverage h3{font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase;}
 .cc-size-quantity-section .total_coverage h3 span.coverage_value { color:#0099ff;}
 .cc-size-quantity-section .sq_mtr_calc_wrap { margin-top:5px;}
@@ -1437,3 +1440,4 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 		color: #1853bb;
 		font-weight:normal;	
 }
+
