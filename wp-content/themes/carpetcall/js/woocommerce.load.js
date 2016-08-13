@@ -67,7 +67,7 @@ jQuery(document).find('.main-image-wrapper a.zoom').removeAttr('data-rel');
 		$("body ,banner ").removeClass("ovelay_hidden_class");// re-enabling the scroll after ajax request is complete
 	});
 	
-	8/
+	*/
 
 
 $(window).scroll(function() {
@@ -78,9 +78,7 @@ $(window).scroll(function() {
        wS = $(this).scrollTop();
    if (wS > (hT+hH-wH)){
 	   jQuery('#cc_load_more').hide();
-	   $("body").css("overflow","hidden");
        jQuery(document).find('#cc_load_more').trigger('click');
-	   
    }
 		}
 });
@@ -282,8 +280,12 @@ else if(jQuery(trig_ele).parent().hasClass('sort_key')){
 
 	});
 jQuery("#cc_load_more").click(function(e) {
+		  $("body, .banner ").addClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
+	jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax call
+
+
 //$("#ajax_offset").val(parseInt($("#ajax_offset").val())+1);
-	var perpage  = jQuery('#perpage_var').val();
+var perpage  = jQuery('#perpage_var').val();
 //$("#ajax_offset").val(parseInt($("#ajax_offset").val())+perpage);
 cc_trigger_ajax_load(function(output){
 output = jQuery.parseJSON(output);
@@ -299,6 +301,10 @@ jQuery("#child_cat_count").val(output.child_cat_count);
 jQuery("#ajax_offset").val(output.offset);
 jQuery('.cat_slider.slick-slider').slick('unslick');
 init_slick_slider();
+	
+	$("body, .banner ").removeClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
+	jQuery('#loading_overlay_div').hide(); // Displaying the Loading gif during ajax call
+	
 	});
 
 });
@@ -313,7 +319,6 @@ function cc_trigger_ajax_load(handleData){
 	var selected_colors  = $("#selected_colors").val();
 	var selected_sizes  = $("#selected_sizes").val();
 	var selected_price_ranges  = $("#selected_price_ranges").val();
-	 $("body, .banner ").addClass('ovelay_hidden_class');
 	var data = {
 				'action': 'show_category_slider_block' , 
 				'perpage':perpage,
@@ -342,7 +347,7 @@ function cc_trigger_ajax_load(handleData){
 					jQuery('#cc_load_more').removeAttr('disabled').show();
 					}
 			handleData(response);
-			 $("body, .banner ").removeClass('ovelay_hidden_class');
+			
 		});
 		
 		
