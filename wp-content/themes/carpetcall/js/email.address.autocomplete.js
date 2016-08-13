@@ -24,7 +24,8 @@ var store= jQuery("#cc-store-name").val();
 });
 });
 jQuery(document).ready(function($){
-jQuery("#cc-state-type-only").change(function(e) {
+	
+jQuery(document).on('change' ,"#cc-state-type-only",function(e) {
 
 var staterel= jQuery("#cc-state-type-only").val();
  
