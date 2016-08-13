@@ -283,14 +283,19 @@ select#cc-state-type , select#cc-store-name,select#cc-state-type-only{
   display:block;
 } */
 </style>
+
+<?php 
+get_footer();
+
+?>
 <script>
+
 function recaptchaCallback(){
    jQuery('#check_captcha').val('1');
-    
-};
+	jQuery('.g-recaptcha').siblings('.error_label').html('');
+}
 
-$ = jQuery.noConflict();
- $(document).on('click','.close_box',function(){
+ jQuery(document).on('click','.close_box',function(){
   var that=this;
     $(this).parent().fadeTo(300,0,function(){
           $(that).parent().hide();
@@ -331,10 +336,8 @@ $(document).ready(function() {
      });  
 
 </script>
-<?php 
-get_footer();
 
-?>
+
 <script type="text/javascript">
 jQuery.validator.setDefaults({ 
 ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
@@ -363,6 +366,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
          jQuery('#mobile_phone_no').val('');
          jQuery('#cc-state-type').val('default');
          jQuery('#cc-store-name').val('default');
+		 jQuery('#check_captcha').val('');
          
          jQuery('#cc_message').val('');
           jQuery('#cc_message').attr("placeholder", "ENTER YOUR MESSAGE HERE");

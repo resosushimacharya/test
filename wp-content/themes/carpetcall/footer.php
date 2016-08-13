@@ -138,26 +138,26 @@
 </div><!-- main wrapper end -->
 <script>
 // Initiate Lightbox
-$(function() {
-    if($('.ourgallery').length>0)
-        $('.ourgallery a').lightbox();
+(function() {
+    if(jQuery('.ourgallery').length>0)
+        jQuery('.ourgallery a').lightbox();
 });
 </script>
 <script type="text/javascript">
-$(document).ready(function () {
-var $tabs = $('#horizontalTab');
+jQuery(document).ready(function () {
+var $tabs = jQuery('#horizontalTab');
 // $tabs.responsiveTabs({
 // rotate: false,
 // startCollapsed: 'accordion',
 // collapsible: 'accordion',
 // setHash: true,
 // activate: function(e, tab) {
-// $('.info').html('Tab <strong>' + tab.id + '</strong> activated!');
+// jQuery('.info').html('Tab <strong>' + tab.id + '</strong> activated!');
 // console.log(tab);
-// var slider_cnt=$(tab.selector).find('.regular-slider');
+// var slider_cnt=jQuery(tab.selector).find('.regular-slider');
 // // alert('hji');
-// if($(slider_cnt).length){
-// $(slider_cnt).slick({
+// if(jQuery(slider_cnt).length){
+// jQuery(slider_cnt).slick({
 // dots: true,
 // infinite: true,
 // slidesToShow: 3,
@@ -168,27 +168,27 @@ var $tabs = $('#horizontalTab');
 // },
 // activateState: function(e, state) {
 // //console.log(state);
-// $('.info').html('Switched from <strong>' + state.oldState + '</strong> state to <strong>' + state.newState + '</strong> state!');
+// jQuery('.info').html('Switched from <strong>' + state.oldState + '</strong> state to <strong>' + state.newState + '</strong> state!');
 
 // }
 // });
-$('#start-rotation').on('click', function() {
+jQuery('#start-rotation').on('click', function() {
 $tabs.responsiveTabs('startRotation', 1000);
 });
-$('#stop-rotation').on('click', function() {
+jQuery('#stop-rotation').on('click', function() {
 $tabs.responsiveTabs('stopRotation');
 });
-$('#start-rotation').on('click', function() {
+jQuery('#start-rotation').on('click', function() {
 $tabs.responsiveTabs('active');
 });
-$('#enable-tab').on('click', function() {
+jQuery('#enable-tab').on('click', function() {
 $tabs.responsiveTabs('enable', 3);
 });
-$('#disable-tab').on('click', function() {
+jQuery('#disable-tab').on('click', function() {
 $tabs.responsiveTabs('disable', 3);
 });
-$('.select-tab').on('click', function() {
-$tabs.responsiveTabs('activate', $(this).val());
+jQuery('.select-tab').on('click', function() {
+$tabs.responsiveTabs('activate', jQuery(this).val());
 });
 });
 
@@ -209,8 +209,8 @@ if(isset($_POST["wpsl-search-input"]) && isset($_POST["cc-control-map"]) ){?>
   var  a = '<?php echo json_encode($_POST["wpsl-search-input"]);?>';
 
 
-$('#wpsl-search-input').val(a);
-$('#wpsl-search-btn').trigger('click');
+jQuery('#wpsl-search-input').val(a);
+jQuery('#wpsl-search-btn').trigger('click');
 
   });
   </script>
@@ -218,8 +218,8 @@ $('#wpsl-search-btn').trigger('click');
 
 <?php }?>
  <script>
-  $(document).ready(function(){
-   /* $('.cat_slider').slick({
+  jQuery(document).ready(function(){
+   /* jQuery('.cat_slider').slick({
           dots: true,
           infinite: false,
           speed: 300,

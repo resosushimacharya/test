@@ -1,5 +1,5 @@
 jQuery(document).ready(function($){
-jQuery("#cc-store-name").change(function(e) {
+jQuery(document).on('change' ,"#cc-store-name",function(e) {
 
 var store= jQuery("#cc-store-name").val();
  

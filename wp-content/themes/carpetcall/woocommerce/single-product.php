@@ -106,15 +106,17 @@ else{ ?>
 <?php get_footer( 'shop' ); ?>
 <script type="text/javascript">
 
-/* 
-  function recaptchaCallbackone(){
-   jQuery('#check_captcha_one').val('1');
-
-
-};*/
-
 
 $ = jQuery.noConflict();
+
+  function recaptchaCallbackone(response){
+	 jQuery('#check_captcha_one').val('1');
+	  	  
+	$('.g-recaptcha').siblings('.error_label').html('');
+}
+
+
+
  $(document).on('click','.close_box',function(){
   var that=this;
     $(this).parent().fadeTo(300,0,function(){
@@ -157,7 +159,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
          $('.error_message').parent().hide();
          $('.success_message').parent().show();
          jQuery('.success_message').html(response.success).show();
-         jQuery('#check_captcha_one').val();
+         jQuery('#check_captcha_one').val('');
          grecaptcha.reset();
             }else{
                 if(typeof(response.captcha_error) != "undefined" && response.captcha_error !== null){
@@ -172,7 +174,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
           jQuery('.error_message').html(response.error).show();
           
         }
-        jQuery('#check_captcha_one').val();
+        jQuery('#check_captcha_one').val('');
             }
          }
       }) 
