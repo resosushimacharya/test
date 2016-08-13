@@ -105,10 +105,14 @@ else{ ?>
 
 <?php get_footer( 'shop' ); ?>
 <script type="text/javascript">
-function recaptchaCallback(){
+
+/* 
+  function recaptchaCallbackone(){
    jQuery('#check_captcha_one').val('1');
-    
-};
+
+
+};*/
+
 
 $ = jQuery.noConflict();
  $(document).on('click','.close_box',function(){
@@ -150,20 +154,17 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
          jQuery('#cc_message').val('');
           jQuery('#cc_message').attr("placeholder", "ENTER YOUR MESSAGE HERE");
          jQuery('#cc-state-type-only').val('default');
-         $('.error_message').parent().hide(); 
-         $('.success_message').parent().hide();
+         $('.error_message').parent().hide();
          $('.success_message').parent().show();
-         
-
          jQuery('.success_message').html(response.success).show();
-        
+         jQuery('#check_captcha_one').val();
          grecaptcha.reset();
             }else{
                 if(typeof(response.captcha_error) != "undefined" && response.captcha_error !== null){
           grecaptcha.reset();
             $('.success_message').parent().hide();
-            $('.error_message').parent().hide();
            $('.error_message').parent().show();
+           $('#recaptcha-anchor-label').html('Captcha Error')
           jQuery('.error_message').html(response.captcha_error).show();
         }else if(typeof(response.error) != "undefined" && response.error !== null){
             grecaptcha.reset();
@@ -171,6 +172,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
           jQuery('.error_message').html(response.error).show();
           
         }
+        jQuery('#check_captcha_one').val();
             }
          }
       }) 
