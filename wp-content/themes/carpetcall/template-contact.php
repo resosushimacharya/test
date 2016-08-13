@@ -366,6 +366,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
          jQuery('#mobile_phone_no').val('');
          jQuery('#cc-state-type').val('default');
          jQuery('#cc-store-name').val('default');
+		 jQuery('#check_captcha').val('');
          
          jQuery('#cc_message').val('');
           jQuery('#cc_message').attr("placeholder", "ENTER YOUR MESSAGE HERE");
