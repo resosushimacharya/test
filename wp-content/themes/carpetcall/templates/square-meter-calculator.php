@@ -61,7 +61,7 @@
                 
                         <div class="form-group col-md-8">
                             
-                            <span class="form-control col-md-8 item_indivisual_total" id="item_total_1"> = </span>
+                           <span class="form-control col-md-8 item_indivisual_total"> = <span id="item_total_1"> </span></span>
                         </div>
                         
                    
