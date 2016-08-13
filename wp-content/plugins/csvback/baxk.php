@@ -567,7 +567,26 @@ function css_products_import()
 				if(move_uploaded_file($_FILES['importcsv']['tmp_name'], TEMPLATEPATH.'/csv/'.$new_file_name))
 				{
 					$csvFile = TEMPLATEPATH.'/csv/'.$new_file_name;
+					
 					$csvs = readCSV($csvFile);
+					$fn = explode('.',$new_file_name);
+				
+					
+					if(strcasecmp($fn[0] ,"ttttt")!=0){
+						echo '
+						<div class="wrap"><ul class="subsubsub">
+	<li class="all">You must match the corresponding csv file.</li>
+	<li class="all">In this case,You must choose rugs.csv.</li>
+	
+</ul>
+<br clear="all">
+<ul>
+<li class="all">
+	<a href ="'.site_url().'/wp-admin/edit.php?post_type=product&page=css-products-import" class="modifcation-hover" >Go back.</a>
+	</li></ul></div>';
+						die();
+
+					}
 					if($csvs)
 					{
 						$args = array(
@@ -640,6 +659,27 @@ function css_products_import()
 				{
 					$csvFile = TEMPLATEPATH.'/csv/'.$new_file_name;
 					$csvs = readCSV($csvFile);
+					$fn = explode('.',$new_file_name);
+				
+					
+					if(strcasecmp($fn[0] ,"hard-flooring")!=0){
+						echo '
+						<div class="wrap"><ul class="subsubsub">
+	<li class="all">You must match the corresponding csv file.</li>
+	<li class="all">In this case,You must choose hard-flooring.csv.</li>
+	
+</ul>
+<br clear="all">
+<ul>
+<li class="all">
+	<a href ="'.site_url().'/wp-admin/edit.php?post_type=product&page=css-products-import" class="modifcation-hover" >Go back.</a>
+	</li></ul></div>';
+					
+						
+						die();
+
+					}
+					
 					if($csvs)
 					{
 						$args = array(

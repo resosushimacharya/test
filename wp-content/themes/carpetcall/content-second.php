@@ -152,7 +152,7 @@ if($post->post_parent==$faqID){?>
            if($res){
            foreach($res as $rs){
                   	$i++;?>
-                 <div class="panel-group" id="accordion_<?php echo $i++ ;?>">     
+                 <div class="panel-group" id="accordion_<?php echo $i;?>">     
                   
 					<div class="panel panel-default">
     <div class="panel-heading">
@@ -163,7 +163,7 @@ if($post->post_parent==$faqID){?>
         </a>
       </h4>
     </div>
-    <div id="collapse_<?php echo $i;?>" class="panel-collapse collapse <?php echo ($i==2)?'in':'' ;?> ">
+    <div id="collapse_<?php echo $i;?>" class="panel-collapse collapse <?php echo ($i==1)?'in':'' ;?> ">
       <div class="panel-body">
         <div class="panel-body-table">
           <?php echo $rs['description'];?>
@@ -198,15 +198,16 @@ if($post->post_parent==$faqID){?>
             window.location.hash = target;
         });
     });
+  });
 	
 <?php 
   // accordion helpers for FAQ articles
   if($post->post_parent==$faqID) {
 ?>
-jQuery(window).load(function() {
+
     // toggle show-hide of FAQ accordion
     $('.collapse').on('shown.bs.collapse', function(){
-      $(this).parent()
+          $(this).parent()
              .find(".glyphicon-chevron-down")
              .removeClass("glyphicon-chevron-down")
              .addClass("glyphicon-chevron-up");
@@ -217,18 +218,14 @@ jQuery(window).load(function() {
              .addClass("glyphicon-chevron-down");
   });
 <?php } #end-if ?>
-});
+
 
 jQuery(document).ready(function(){
 	var stickWidth = jQuery('.meromm').innerWidth();
-	jQuery('.meromm').width(stickWidth);
-	
+	jQuery('.meromm').width(stickWidth);	
 	jQuery('body').scrollspy({
 	 target: "#stickSide",
 	 offset: jQuery('.banner').outerHeight(true) + 20
-	
-	 });
-	
-});
-    </script>
+  });
+   });</script>
 <?php get_footer(); ?>

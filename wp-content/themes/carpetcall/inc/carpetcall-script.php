@@ -40,8 +40,10 @@ wp_enqueue_script( 'validator-script', get_template_directory_uri().'/js/jquery.
 wp_enqueue_script( 'trouble-script', get_template_directory_uri().'/js/trouble.cc.map.js', array('wpsl-js'), false, false);
 
 
-
-	 wp_enqueue_script( 'jquery-accordion', get_template_directory_uri().'/js/accordion.product.js', array('wpsl-gmap'), false, false);
+      if(get_post_type()=='product')
+      {
+	wp_enqueue_script( 'jquery-accordion', get_template_directory_uri().'/js/accordion.product.js', array(), false, false);
+}
 }
 
 add_action( 'wp_enqueue_scripts', 'carpetcall_scripts' );
