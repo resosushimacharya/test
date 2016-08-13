@@ -116,7 +116,7 @@ get_template_part('content', 'carpetmap');
     
     <script type="text/javascript">
 	
-	$(window).load(function(){
+	jQuery(window).load(function(){
 		function slider_position(){
 			var left_offset = jQuery(".container").offset().left - 10;	
 		 	var left_arrow = jQuery(".slider .slick-prev").css({ 'left': left_offset + 10 });
@@ -128,13 +128,13 @@ get_template_part('content', 'carpetmap');
 	
 
 	
-    $(document).on('ready', function() {
+    jQuery(document).on('ready', function() {
 	
       var left_offset = jQuery(".container").offset().left - 10;
 
-      $('.center')
+      jQuery('.center')
 	  	.on('init', function(slick) {            
-            $('.center').fadeIn(3000);
+            jQuery('.center').fadeIn(3000);
         })
 		.slick({
 		  centerMode: true,
@@ -169,11 +169,11 @@ get_template_part('content', 'carpetmap');
 			}
 		  ]
 		});	
-		$('.center').show();
+		jQuery('.center').show();
 	
 	
 		
-	$('.responsive').slick({
+	jQuery('.responsive').slick({
 		  dots: true,
 		  infinite: true,
 		  speed: 300,
