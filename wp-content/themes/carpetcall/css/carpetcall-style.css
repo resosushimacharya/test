@@ -1474,3 +1474,5 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 
 .single.single-product .recommended_acc_static span.cc-rec-acc-underlay {font:normal 12px/24px 'proxima_nova_rgregular', sans-serif !important; color:#666666; }
 
+.cc-loader-cntr{ padding:10px; text-align:center;}
+

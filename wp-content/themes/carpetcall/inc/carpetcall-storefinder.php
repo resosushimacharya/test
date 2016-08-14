@@ -530,95 +530,105 @@ add_action( 'wp_enqueue_scripts', 'store_scripts' );
 
 /* CARPET CALL WOOCOMERCE AJAX CALL */
 function woocommerce_minicart_cc(){
-
-
-  ?>
-
-<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><div class="mcrt">
-      <img src="<?php echo get_template_directory_uri() ;?>/images/cart-icon.png" alt="icon" width="31" height="25" style="float:left;"/> <span class="crrt"> MY CART </span>
-      <div class="rnkct"> <span class="badge" id="count" >
-        <?php $count=0;
+	$ajax=false;
+	if( ! empty( $_SERVER[ 'HTTP_X_REQUESTED_WITH' ] ) &&
+      strtolower( $_SERVER[ 'HTTP_X_REQUESTED_WITH' ]) == 'xmlhttprequest' ) {
+		  $ajax=true;
+	  }
+	  $count=0;
         foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ):
         $count++;
         endforeach;
-        echo $count; ?>
-      </span>
+		$html="";
+		$ul_html="";
+	if(!$ajax){
+ 
+ $html.='<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><div class="mcrt">
+      <img src="'.get_template_directory_uri() .'/images/cart-icon.png" alt="icon" width="31" height="25" style="float:left;"/> <span class="crrt"> MY CART </span>
+      <div class="rnkct"> <span class="badge" id="count" >'.$count.'</span>
     </div>
-  </div> </a>
-  
+  </div> </a>';
+	
 
-  <ul class="dropdown-menu">
-    <li><span class="mycrt_blk">my cart (<?php echo  $count; ?>)</span></li>
-    <?php //do_action('pr',WC()->cart->get_cart());?>
-    <?php foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+  $html.='<ul class="dropdown-menu" id="cc-mini-cart-cntr">';
+  }
+
+    $ul_html.='<li><span class="mycrt_blk">my cart ('.$count.')</span></li>';
+    foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
       $_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
           $product_id   = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
-    if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {?>
-    <li>
-      <div class="crtblk_sec">
-        <div class="crt_pname">
+    if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
+      $ul_html.='<li>';
+        $ul_html.='<div class="crtblk_sec">';
+          $ul_html.='<div class="crt_pname">';
           
-          <h2><ins><?php $reqTempTerms=get_the_terms($product_id ,'product_cat');
+            $ul_html.='<h2><ins>'.$reqTempTerms=get_the_terms($product_id ,'product_cat');
           
           foreach($reqTempTerms as $reqTerm){
             if($reqTerm->term_id!=20)
             {
-              echo $reqTerm->name;
+             $ul_html.=$reqTerm->name;
               break;
             }
-          } ?>- <?php if ( ! $_product->is_visible() ) {
-          echo apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key ) . '&nbsp;';
+          } 
+		   $ul_html.='- ';
+		  if ( ! $_product->is_visible() ) {
+           $ul_html.=apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key ) . '&nbsp;';
           } else {
-          echo apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $_product->get_permalink( $cart_item ) ), $_product->get_title() ), $cart_item, $cart_item_key );
-          }?></ins></h2>
-          <h3> <?php
-          echo $cart_item['quantity'];
-          
-          ?> x <span class="rugcl"><?php
-            echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
-          ?></span> </h3>
-        </div>
+          $ul_html.=apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $_product->get_permalink( $cart_item ) ), $_product->get_title() ), $cart_item, $cart_item_key );
+          }
+		  $ul_html.='</ins></h2>';
+		  $ul_html.="<h3>". $cart_item['quantity']." x <span class='rugcl'>". apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key )."</span> </h3>";
+         $ul_html.="</div>";
         
         
-        <div class="crt_price">
-          <h4><?php
-          echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key );?> </h4>
-        </div>
-        </div><div class="clearfix"></div>
-      </li>
+         $ul_html.='<div class="crt_price">';
+           $ul_html.='<h4>'.apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ).'</h4>';
+         $ul_html.='</div>';
+         $ul_html.='</div><div class="clearfix"></div>';
+       $ul_html.='</li>';
       
-      <?php }
-      }?>
-      <li>
-        <div class="crtblk_sec">
-          <div class="crt_pname">
-            <h5> TOTAL</h5>
+     }
+      }
+	  
+	  
+      $ul_html.=' <li>';
+         $ul_html.='<div class="crtblk_sec">';
+           $ul_html.='<div class="crt_pname">';
+             $ul_html.='<h5> TOTAL</h5>';
             
-          </div>
+           $ul_html.='</div>';
           
           
-          <div class="crt_price">
-            <h4><?php echo WC()->cart->get_cart_total(); ?></h4>
-          </div>
-          </div><div class="clearfix"></div>
-        </li>
+           $ul_html.='<div class="crt_price">';
+             $ul_html.='<h4>'. WC()->cart->get_cart_total().'</h4>';
+           $ul_html.='</div>';
+           $ul_html.='</div><div class="clearfix"></div>';
+         $ul_html.='</li>';
         
-        <li>
-          <div class="crt_clear">
+         $ul_html.='<li>';
+           $ul_html.='<div class="crt_clear">
             <div class="view_c view_cc">
-              <a href="<?php echo get_permalink(33);?>"> VIEW CART </a>
+              <a href="'.get_permalink(33).'"> VIEW CART </a>
             </div>
             
             <div class="check_crt check_crtt">
-              <a href="<?php echo get_permalink(34);?>"> CHECKOUT </a>
+              <a href="'.get_permalink(34).'"> CHECKOUT </a>
               </div><div class="clearfix"></div>
               </div><div class="clearfix"></div>
-            </li>
-            
-          </ul>
-        
-          
+            </li> ';
+            if(!$ajax){
+				$html.=$ul_html;
+			}
+          $html.='</ul>';
 
-<?php die(); } 
+		if( ! empty( $_SERVER[ 'HTTP_X_REQUESTED_WITH' ] ) && strtolower( $_SERVER[ 'HTTP_X_REQUESTED_WITH' ]) == 'xmlhttprequest' ) {
+		  $result['count']=$count;
+		   $result['ul_html']=$ul_html;
+		   echo json_encode($result);die;
+	  	}else{
+		  echo $html;
+		}
+ } 
 add_action('wp_ajax_woocommerce_cc', 'woocommerce_minicart_cc');
 add_action('wp_ajax_nopriv_woocommerce_cc', 'woocommerce_minicart_cc');

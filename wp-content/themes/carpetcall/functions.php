@@ -17,7 +17,7 @@ show_admin_bar(true);
       * used on file: inc/carpetcall-contact-information.php
     */
     require_once('recaptchalib.php');
-	require_once('function-yamu.php');
+  require_once('function-yamu.php');
   acf_add_options_sub_page('Labeling');
   acf_add_options_sub_page('Front-Page Sections');
   acf_add_options_sub_page('Miscellaneous');
@@ -247,10 +247,12 @@ include_once TEMPLATEPATH."/inc/carpetcall-woocommerce.php";
 /*include_once TEMPLATEPATH."/inc/backcsv.php";*/
 /* shoping cart section */
 function filter_search($query) {
-if ($query->is_search) {
-$query->set('post_type', array('backgrounds','product','workflows','visualiser','post'));
-}
-return $query;
+  if( !is_admin() ) { 
+    if ($query->is_search) {
+    $query->set('post_type', array('product','post'));
+    }
+    return $query;
+  }
 }
 add_filter('pre_get_posts', 'filter_search');
 

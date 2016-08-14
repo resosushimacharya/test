@@ -344,6 +344,8 @@ $list = get_field('buying_guide_archive',$faqid );
 <?php	
 }
 function woo_new_product_tab_accesories() {
+	global $product;
+	$current_loaded_product = $product;
 	$accessory_term_obj = get_term_by('slug','accessories','product_cat');
 	$acc_cats = get_terms(
 					'product_cat',
@@ -437,15 +439,18 @@ function woo_new_product_tab_accesories() {
                                 <div class="acc_qnty">
                                 <?php 
 								if($acc_cat->slug == 'underlay'){
-								$rec_qty = 5;
+								$tpm_ratio = get_field('tpm_ratio',get_the_ID())?get_field('tpm_ratio',get_the_ID()):1;	
+								$rec_qty = ceil(get_field('size_m2',$current_loaded_product->id)/(get_field('tpm_ratio',get_the_ID())?get_field('tpm_ratio',get_the_ID()):1));
+								
 								}else{
 									$rec_qty='';}?>
-                                	<span class="acc_qty_lbl"><?php echo ($rec_qty=='')?'':'Rec'?> Qty: </span> <span class="acc_rec_qty"><?php echo $rec_qty?></span><?php
-									echo woocommerce_quantity_input( array( 'min_value' => 1, 'max_value' => $product->backorders_allowed() ? '' : max(20,$product->get_stock_quantity()),'input_value' => ($rec_qty=='')?'1':$rec_qty ) );
+                                	<span class="acc_qty_lbl"><?php echo ($rec_qty=='')?'':'Rec'?> Qty: </span> 
+                                    <span class="acc_rec_qty" tpm_ratio="<?php echo $tpm_ratio?>"><?php echo $rec_qty?></span><?php
+									echo woocommerce_quantity_input( array( 'min_value' => 1, 'max_value' => $product->backorders_allowed() ? '' : max(20,$product->get_stock_quantity())) );
 									?>
                                 </div>
                            		<?php $x=do_shortcode('[add_to_cart_url id="'.$acc_product->ID.'"]');?>
-                                <a href="<?php echo $x ;?>" data-quantity="<?php echo ($rec_qty=='')?'1':$rec_qty?>" data-product_id="<?php echo $acc_product->ID;?>" class="button product_type_simple col-md-12 acc_add_to_cart" >ADD TO CART</a>
+                                <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $acc_product->ID;?>" class="button product_type_simple col-md-12 acc_add_to_cart" >ADD TO CART</a>
                                 
                                 <div class="modal fade" tabindex="-1" role="dialog" id="accinfo_<?php echo get_the_ID()?>_<?php echo $acc_cat->slug;?>">
                                 <div class="modal-dialog" role="document">
