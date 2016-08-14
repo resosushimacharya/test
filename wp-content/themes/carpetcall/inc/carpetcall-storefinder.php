@@ -172,7 +172,7 @@ else:?>
         <form autocomplete="off" name="formStoreFinder" method="post" action="<?php echo site_url().'/find-a-store/';?>">
           <input type="hidden" name="cc-control-map" value="cc-control-map">   
              <input id="wpsl-search-input" type="hidden" value="<?php echo $keyword ;?>" name="wpsl-search-input" placeholder="" aria-required="true" >
-             <a href="javascript:void(0);" title="See more nearby stores" onclick="document.formStoreFinder.submit();">See more nearby stores</a>
+             <a href="javascript:void(0);" title="See more nearby stores" onclick="document.formStoreFinder.submit();">See more nearby stores</a>&nbsp; | &nbsp;<a href="#" class="clear_storefinder_state">Clear search</a>
       </form>
       </div>        
     <?php } 

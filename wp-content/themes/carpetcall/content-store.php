@@ -8,9 +8,7 @@
                         <div class="dropdown storefinder_cntr" id="storefinder_id">
                         
                           <button class="dropbtn" id="storefinder_btn"><img src="<?php echo get_template_directory_uri();?>/images/indicator.png" width="20" height="28" style=" float:left; margin:5px 11px 0 0;"/>STORE FINDER  <i class="fa fa-angle-down" aria-hidden="true"></i> </button>
-                          <div class="dropdown-content" id="after_dropdown">
-                    
-                            <div>
+                          <div class="dropdown-content" id="after_dropdown"><div>
                             <div id="directory_list_id_s"></div>
                             
                             

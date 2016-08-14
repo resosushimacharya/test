@@ -165,6 +165,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
     min-width: 359px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	padding:10px;
+	font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#15489f;
 }
 
 /* Links inside the dropdown */
@@ -172,12 +173,12 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
     color:#15489f;
     padding: 13px 0 3px 0;
     text-decoration: none;
-    display: block;
-	font:normal 12px 'proxima_nova_rgregular', sans-serif;	
+    display: inline-block;
+	font:normal 12px 'proxima_nova_rgregular', sans-serif; cursor:pointer;
 	
 }
-
-
+.dropdown-content a:hover{ text-decoration:underline;}
+	
 /* Show the dropdown menu on hover */
 .dropdown.click-open .dropdown-content {
     display: block;
@@ -1478,4 +1479,6 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 
 .woocomerce_dropdown #cc-mini-cart-cntr{display:none;}
 .woocomerce_dropdown.open #cc-mini-cart-cntr{ display:block;}
+
+
 
