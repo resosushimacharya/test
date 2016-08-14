@@ -75,7 +75,7 @@ wp_title("");?>
     
 
 <!-- custom css -->
-<?php if(get_post_type()!='wpsl_stores'){
+<?php if(get_post_type()!='wpsl_stores' &&  !is_page_template('templates/find-a-store.php')){
 ?><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCN3lkABBKjsMdIzAyI1Rwy_6Z8cT8IEWc&libraries=places"></script>
 <?php } ?>
     <script type="text/javascript">
@@ -142,9 +142,13 @@ function codeLatLng(lat, lng) {
          //formatted address
         currentplace =   results[0].formatted_address;
        
-        document.getElementById("cc_cuurent_location_name").value = currentplace;
-       
-        document.locform.submit();
+      //  jQuery("#cc_cuurent_location_name").val(currentplace);
+		if(jQuery('#cc_cuurent_location_name').length>0){
+		   jQuery('#cc_cuurent_location_name').val(currentplace);
+		}
+		if(jQuery('form[name=locform]').length>0){
+		   document.locform.submit();
+		}
        //document.getElementById("cc_control_map").submit();
         //find country name
          /*    for (var i=0; i<results[0].address_components.length; i++) {
