@@ -361,7 +361,7 @@ endforeach;
       </div>
       <div class="cc-product-pick-location-section col-md-12">
       <div class="cc-product-pick col-md-6">
-      <button type="button" class="btn btn-default col-md-12" >PICK UP</button>
+      <div class="btn btn-default col-md-12" >PICK UP</div>
       </div>
       <div class="cc-product-location col-md-6">
       <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal">PICK UP LOCATION</button>       </div>

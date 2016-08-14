@@ -698,7 +698,7 @@ function woo_new_product_tab_specifications(){
         </tr>
     </table>
     <?php 
-	$fields = get_fields($post->ID);
+	//$fields = get_fields($post->ID);
 	//do_action('pr',$fields);
 	?>
     
