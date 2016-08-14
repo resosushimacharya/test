@@ -356,15 +356,15 @@ jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax
 		jQuery.post(woo_load_autocomplete.ajax_url, data, function(response) {
 			output = jQuery.parseJSON(response);
 			if(output.html == ''){
-				var myObject = new Object();
-				myObject.html = "<div><strong> No more results found !! </strong> </div>";
-				myObject.child_cat_count = output.child_cat_count;
-				myObject.offset = output.offset;
-				myObject = JSON.stringify(myObject);
-				response = myObject;
-				jQuery('#cc_load_more').attr('disabled','disabled').hide();
+//				var myObject = new Object();
+//				myObject.html = "";
+//				myObject.child_cat_count = output.child_cat_count;
+//				myObject.offset = output.offset;
+//				myObject = JSON.stringify(myObject);
+//				response = myObject;
+				jQuery('#cc_load_more').attr('disabled','disabled').val('No More Products');
 				}else{
-					jQuery('#cc_load_more').removeAttr('disabled').show();
+					jQuery('#cc_load_more').removeAttr('disabled').val('Load More');
 					}
 			handleData(response);
 			

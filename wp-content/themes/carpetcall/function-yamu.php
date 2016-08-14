@@ -136,7 +136,6 @@ function get_category_depth($catid){
 add_action('wp_ajax_show_category_slider_block','show_category_slider_block');
 add_action('wp_ajax_nopriv_show_category_slider_block','show_category_slider_block');
 function show_category_slider_block($args){
-
 ob_start();
 	$defaults = array(
 		'cat_id' =>0,
@@ -197,22 +196,54 @@ $args = wp_parse_args( $args, $defaults);
 		$discats=get_terms(array('parent'=>$discats_temp[0]->term_id,'taxonomy'=>'product_cat'));
 		$discats = array_slice($discats,$offset,$perpage);
 		if(!empty($discats)){
+		
 		if($perpage > count($discats)){
-			$offset = min($perpage - count($discats),count($discats));
-			$child_cat_count++;
-			$discats_temp = array_slice($discats_org, $child_cat_count-1, 1);
-			$discats_next = get_terms(array('parent'=>$discats_temp[0]->term_id,'taxonomy'=>'product_cat'));
-			$discats_next = array_slice($discats_next,0,$offset);
-			if($offset == count($discats)){
-				$offset = 0;
-				$child_cat_count++;
+			$found_count = count($discat);
+			while($found_count < $perpage ){
+				$offset = min($perpage - $found_count,$found_count);
+				//$child_cat_count++;
+				$discats_temp = array_slice($discats_org, $child_cat_count-1, 1);
+				$discats_next = get_terms(array('parent'=>$discats_temp[0]->term_id,'taxonomy'=>'product_cat'));
+				$discats_next = array_slice($discats_next,0,$offset);
+				if($offset == $found_count){
+					$offset = 0;
+					$child_cat_count++;
+					}else{
+						$child_cat_count++;
+						}
+				$found_count = $found_count+count($discats);
+
+				foreach($discats_next as $cat_next){
+					array_push($discats,$cat_next);
+					}
+			
+				
+				
 				}
-			foreach($discats_next as $cat_next){
-				array_push($discats,$cat_next);
-				}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			}else{
 				$offset = $perpage+$offset;
 				}
+				
 		$cats_slice = $discats;
 			}else{
 				$cats_slice = '';
@@ -220,7 +251,6 @@ $args = wp_parse_args( $args, $defaults);
 		//$current_cat = $discats_temp[0];
 		
 		//array_slice($discats, $offset, $perpage);
-		
 		
 			}else{
 				$cats_slice = '';
@@ -551,6 +581,7 @@ $args = wp_parse_args( $args, $defaults);
 		return $ret;
 		}
 }
+
 
 /*
 /*Function to add the category description text field to rugs category and other top level product categories
