@@ -1517,3 +1517,6 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 		font-weight:normal;	
 		margin:0 2px;
 }
+.range_slider .slider{
+	min-width:150px;
+	}

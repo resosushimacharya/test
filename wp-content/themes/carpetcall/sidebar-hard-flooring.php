@@ -150,7 +150,9 @@
 		
 		?>
         
-      <b>A$ <?php echo $min_price_prod->get_price()?> </b> <input id="price_range_filter" type="text" data-slider-min="<?php echo $min_price_prod->get_price()?>" data-slider-max="<?php echo $max_price_prod->get_price()?>" data-slider-step="1" data-slider-value="[<?php echo $min_price_prod->get_price()/2?>,<?php echo $max_price_prod->get_price()/2?>]"/> <b>A$ <?php echo $max_price_prod->get_price()?></b>
+      
+      <div class="range_slider"><b>A$ <?php echo $min_price_prod->get_price()?> </b><input id="price_range_filter" type="text" data-slider-min="<?php echo $min_price_prod->get_price()?>" data-slider-max="<?php echo $max_price_prod->get_price()?>" data-slider-step="1" data-slider-value="[<?php echo $min_price_prod->get_price()?>,<?php echo $max_price_prod->get_price()/2?>]"/><b>A$ <?php echo $max_price_prod->get_price()?></b></div> 
+      
       
       
          <?php /*?><form role="form">
