@@ -401,7 +401,7 @@ function woo_new_product_tab_accesories() {
 							$post = get_post($acc_product);
 							setup_postdata($post);
 							?>
-							<div class="acc_list_item col-md-4 <?php echo $acc_cat->slug?>">
+							<div class="acc_list_item col-md-3 <?php echo $acc_cat->slug?>">
                             	<div class="acc_info_wrap" data-toggle="modal" data-target="#accinfo_<?php echo get_the_ID()?>_<?php echo $acc_cat->slug;?>">
                                 <div class="acc_thumb">
 									<?php echo get_the_post_thumbnail($acc_product->ID,'thumbnail')?>
