@@ -256,7 +256,7 @@ function woo_new_product_tab_content() {?>
       ?>
       
 
-     <div class="cont-panl  cc-pro-det-fb">
+     <div class="cont-panl  cc-pro-det-fb hf-products">
 			
 <?php
 global $post;
