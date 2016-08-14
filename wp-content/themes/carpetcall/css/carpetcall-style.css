@@ -1385,7 +1385,7 @@ opacity: 0.5; background-image:url('../images/loading.gif'); background-position
 div#calculator_container { border-bottom:1px solid #efefef; margin-bottom:18px; }
 .calculator_container .form-group .form-control { border:0; background:none; box-shadow:none; margin-top:35px;}
 .single.single-product .form-group.col-item-price { padding-right:0;}
-.single.single-product .form-group.col-item-price button { float:right; }
+
 
 .ovelay_hidden_class{overflow:hidden; padding-right:17px;}
 
@@ -1475,4 +1475,7 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 .single.single-product .recommended_acc_static span.cc-rec-acc-underlay {font:normal 12px/24px 'proxima_nova_rgregular', sans-serif !important; color:#666666; }
 
 .cc-loader-cntr{ padding:10px; text-align:center;}
+
+.woocomerce_dropdown #cc-mini-cart-cntr{display:none;}
+.woocomerce_dropdown.open #cc-mini-cart-cntr{ display:block;}
 
