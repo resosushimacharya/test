@@ -2,6 +2,14 @@
 if ( ! is_admin() ) {
     include ABSPATH . 'wp-admin/includes/template.php';
 }
+add_action( 'wp_enqueue_scripts', 'enqueeue_cc_req_scripts');
+function enqueeue_cc_req_scripts(){
+	wp_register_script( 'bootstrap-slider-js','https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.1.3/bootstrap-slider.min.js','','',true);
+	wp_register_style( 'bootstrap-slider-css','https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.1.3/css/bootstrap-slider.min.css');
+	wp_enqueue_script( 'bootstrap-slider-js');
+	wp_enqueue_style( 'bootstrap-slider-css');
+
+	}
 
 /*
 * Hook to remove add new product from admin bar menu
