@@ -228,16 +228,3 @@
     </div><?php */?>
 
 </div>
-
-<script>
-
-     $(document).ready(function() {
-
-       $(document).on("click",'.swatch',function(){
-                //$(this).find('img.cc-tick-display').toggle();
-            });
-
-         });
-   
-
-</script>
