@@ -23,10 +23,13 @@ $(document).ready(function() {
             $(".add_to_cart_button").attr('data-quantity',$stoq);
               $(".add_to_cart_button").data('quantity',$stoq);
 			  if(sizem2){
-				  
 				  var total_cov = $stoq*sizem2;
-				 
 				  jQuery('.total_coverage .coverage_value').text((total_cov.toFixed(2)));
+				  jQuery('.acc_list_item.underlay .acc_rec_qty').each(function(index, element) {
+                    if(jQuery(this).attr('tpm_ratio')){
+						jQuery(this).text(Math.ceil(parseInt(total_cov)/parseInt(jQuery(this).attr('tpm_ratio'))));
+						}
+                });
 				  }
          }
          else{
@@ -58,8 +61,6 @@ $(document).ready(function() {
 
 
 jQuery(document).on('mouseover','.acc_list_item',function(){
-	
-	
 	
 
 	});
