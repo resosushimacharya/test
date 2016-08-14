@@ -283,7 +283,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
 
        
         required:true,
-        wordCount: ['50']
+        wordCount: ['125']
       },
       email_address: {
         required: true,
