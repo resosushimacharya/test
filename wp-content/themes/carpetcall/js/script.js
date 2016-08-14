@@ -17,7 +17,7 @@ jQuery(document).ready(function(e) {
         jQuery(".dropdown-content").toggle();
          jQuery(this).parent('.dropdown').toggleClass('click-open');
       jQuery('.woocomerce_dropdown').removeClass('open');
-        jQuery('.dropdown-menu').hide() ;
+      //  jQuery('.dropdown-menu').hide() ;
 
   
    
@@ -33,7 +33,9 @@ jQuery(document).ready(function(e) {
             }
         }
     });*/
-
+jQuery(document).on('click','.product-remove a',function(){
+	setTimeout(function(){ load_minicart(); }, 1500);
+});
 
     jQuery(document).mouseup(function(e) {
         e.preventDefault();

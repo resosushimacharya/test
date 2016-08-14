@@ -347,7 +347,7 @@ get_template_part('content', 'navwoo');
 
      function load_minicart() {
 		 
-		jQuery('#cc-mini-cart-cntr').html('<li class="cc-loader-cntr"><i class="fa fa-spinner  fa-spin" aria-hidden="true"></i></li>').show();
+		jQuery('#cc-mini-cart-cntr').html('<li class="cc-loader-cntr"><i class="fa fa-spinner  fa-spin" aria-hidden="true"></i></li>');
         jQuery.ajax({
             type: 'POST',
             url: "<?php echo admin_url('admin-ajax.php'); ?>",
@@ -362,6 +362,7 @@ get_template_part('content', 'navwoo');
 			
                // jQuery('#woo_control').html(data);
 				jQuery('#count').html(data.count);
+				jQuery('#counttest').html(data.count);
 				jQuery('#cc-mini-cart-cntr').html(data.ul_html);
                 ajax_count++;
 

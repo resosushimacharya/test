@@ -256,7 +256,7 @@ function woo_new_product_tab_content() {?>
       ?>
       
 
-     <div class="cont-panl  cc-pro-det-fb">
+     <div class="cont-panl  cc-pro-det-fb hf-products">
 			
 <?php
 global $post;
@@ -367,7 +367,7 @@ function woo_new_product_tab_accesories() {
             	<div class="panel panel-default">
                     <div class="panel-heading">
             <h4 class="panel-title">
-                <a class="accordion-toggle  <?php echo ($count==1)?'':'collapsed' ;?> " data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $acc_cat->term_id;?>">
+                <a class="accordion-toggle <?php echo ($count==1)?'first-acc-cat':'collapsed' ;?> " data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $acc_cat->term_id;?>">
                <span class="pull-right glyphicon glyphicon glyphicon-chevron-down " ></span>	
 			<span class="pull-right glyphicon glyphicon-chevron-up"></span>
                 <?php echo $acc_cat->name;?>
@@ -375,7 +375,7 @@ function woo_new_product_tab_accesories() {
             </h4>
         </div>
                     <div id="collapse_<?php echo $acc_cat->term_id;?>" class="panel-collapse collapse <?php echo ($count==1)?'in':'' ;?> ">
-                    <div class="panel-body panel-body-faq">
+                    <div class="panel-body panel-body-faq hf-faq">
                     <?php
 						$acc_products = get_posts(
 											array(

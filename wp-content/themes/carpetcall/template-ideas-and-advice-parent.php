@@ -26,7 +26,7 @@
 
 </div>
 
-<h3><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo get_the_title();?>  </h3>
+<h1><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo get_the_title();?>  </h1>
 </div>
 </div>
 </div>
