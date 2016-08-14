@@ -575,14 +575,12 @@ function css_products_import()
 					if(strcasecmp($fn[0] ,"ttttt")!=0){
 						echo '
 						<div class="wrap"><ul class="subsubsub">
-	<li class="all">You must match the corresponding csv file.</li>
-	<li class="all">In this case,You must choose rugs.csv.</li>
-	
-</ul>
+	<li class="all">Please select correct file to upload Hard Flooring / Rugs products .
+	</li></ul>
 <br clear="all">
 <ul>
 <li class="all">
-	<a href ="'.site_url().'/wp-admin/edit.php?post_type=product&page=css-products-import" class="modifcation-hover" >Go back.</a>
+	<a href ="'.site_url().'/wp-admin/edit.php?post_type=product&page=css-products-import" class="modifcation-hover" >Go Back.</a>
 	</li></ul></div>';
 						die();
 
@@ -663,16 +661,13 @@ function css_products_import()
 				
 					
 					if(strcasecmp($fn[0] ,"hard-flooring")!=0){
-						echo '
-						<div class="wrap"><ul class="subsubsub">
-	<li class="all">You must match the corresponding csv file.</li>
-	<li class="all">In this case,You must choose hard-flooring.csv.</li>
-	
-</ul>
+							echo '<div class="wrap"><ul class="subsubsub">
+	<li class="all">Please select correct file to upload Hard Flooring / Rugs products .
+	</li></ul>
 <br clear="all">
 <ul>
 <li class="all">
-	<a href ="'.site_url().'/wp-admin/edit.php?post_type=product&page=css-products-import" class="modifcation-hover" >Go back.</a>
+	<a href ="'.site_url().'/wp-admin/edit.php?post_type=product&page=css-products-import" class="modifcation-hover" >Go Back.</a>
 	</li></ul></div>';
 					
 						
