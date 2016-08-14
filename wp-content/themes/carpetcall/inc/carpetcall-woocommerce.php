@@ -375,7 +375,7 @@ function woo_new_product_tab_accesories() {
             </h4>
         </div>
                     <div id="collapse_<?php echo $acc_cat->term_id;?>" class="panel-collapse collapse <?php echo ($count==1)?'in':'' ;?> ">
-                    <div class="panel-body panel-body-faq">
+                    <div class="panel-body panel-body-faq hf-faq">
                     <?php
 						$acc_products = get_posts(
 											array(
