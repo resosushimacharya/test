@@ -577,8 +577,8 @@ ul.guide_list_cbg li.current_page_item a { text-decoration: underline; text-deco
 .breadcrumbs { margin-bottom:12px;}
 .inerblock_sec_faq h3 {font:normal 36px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; border-bottom:1px solid #627ab2; display:inline-block; line-height:25px; margin-bottom:13px;}
 .ab_arrow { font-size:25px; margin-right:6px;}
-.inerblock_serc_child h1 {font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; border-bottom:1px solid #6383b9; display:inline-block; margin-bottom:12px; line-height:26px;}
-	.inerblock_serc_child.about-page h1{ border-bottom: none; }
+.inerblock_serc_child h1, .inerblock_serc h1{font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; border-bottom:1px solid #6383b9; display:inline-block; margin-bottom:12px; line-height:26px;}
+.inerblock_serc_child.about-page h1{ border-bottom: none; }
 img.alignright { margin:10px 0 10px 10px; float:right; padding:10px; border:1px solid #eeeeee;}
 img.alignleft { float:left; padding:10px; border:1px solid #eeeeee; margin:10px 10px 10px 0;}
 img.aligncenter { padding:10px; margin:10px auto 10px; border:1px solid #eeeeee; }
@@ -655,7 +655,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .modal-dialog{ margin-top:200px; width:817px;}
 
 .single.single-product .modal-dialog{ margin-top:200px; width:815px;}
-.single.single-product .modal-header{ padding:18px 29px 14px 22px;}
+.single.single-product .modal-header{ padding:18px 29px 14px 40px;}
 
 .modal-content { border-radius:0; border-color:#e7edf8;}
 .modal-title {font:bold 30px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin-top:9px;}
