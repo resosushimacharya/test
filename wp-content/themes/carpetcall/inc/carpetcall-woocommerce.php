@@ -444,9 +444,9 @@ function woo_new_product_tab_accesories() {
 								
 								}else{
 									$rec_qty='';}?>
-                                	<span class="acc_qty_lbl"><?php echo ($rec_qty=='')?'':'Rec'?> Qty: </span> 
-                                    <span class="acc_rec_qty" tpm_ratio="<?php echo $tpm_ratio?>"><?php echo $rec_qty?></span><?php
-									echo woocommerce_quantity_input( array( 'min_value' => 1, 'max_value' => $product->backorders_allowed() ? '' : max(20,$product->get_stock_quantity())) );
+                                	<div class="rec_qty_wrap"><span class="acc_qty_lbl"><?php echo ($rec_qty=='')?'':'Rec'?> Qty: </span> 
+                                    <span class="acc_rec_qty" tpm_ratio="<?php echo $tpm_ratio?>"><?php echo $rec_qty?></span></div><?php
+									echo woocommerce_quantity_input( array( 'min_value' => 0, 'max_value' => $product->backorders_allowed() ? '' : max(20,$product->get_stock_quantity())) );
 									?>
                                 </div>
                            		<?php $x=do_shortcode('[add_to_cart_url id="'.$acc_product->ID.'"]');?>
