@@ -47,6 +47,16 @@ function autocomplet() {
 	
 }
 
+jQuery(document).on('click', '.clear_storefinder_state', function(){
+	jQuery('#after_location').show();
+	jQuery('#after_browse').show();
+	jQuery('#before_heading').show();
+	jQuery('#after_heading').hide();
+	jQuery('#directory_list_id').hide();
+	jQuery('#directory_list_id_s').hide();
+	jQuery('#after_dropdown').removeAttr('style');
+});
+
 // set_item : this function will be executed when we select an item
 function set_item(item) {
 	// change input value
