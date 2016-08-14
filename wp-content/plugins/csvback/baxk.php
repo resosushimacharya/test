@@ -572,7 +572,7 @@ function css_products_import()
 					$fn = explode('.',$new_file_name);
 				
 					
-					if(strcasecmp($fn[0] ,"ttttt")!=0){
+					if(strcasecmp($fn[0] ,"rugs")!=0){
 						echo '
 						<div class="wrap"><ul class="subsubsub">
 	<li class="all">Please select correct file to upload Hard Flooring / Rugs products .
