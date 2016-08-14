@@ -165,6 +165,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
     min-width: 359px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	padding:10px;
+	font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#15489f;
 }
 
 /* Links inside the dropdown */
@@ -172,12 +173,12 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
     color:#15489f;
     padding: 13px 0 3px 0;
     text-decoration: none;
-    display: block;
-	font:normal 12px 'proxima_nova_rgregular', sans-serif;	
+    display: inline-block;
+	font:normal 12px 'proxima_nova_rgregular', sans-serif; cursor:pointer;
 	
 }
-
-
+.dropdown-content a:hover{ text-decoration:underline;}
+	
 /* Show the dropdown menu on hover */
 .dropdown.click-open .dropdown-content {
     display: block;
@@ -1479,3 +1480,23 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 .woocomerce_dropdown #cc-mini-cart-cntr{display:none;}
 .woocomerce_dropdown.open #cc-mini-cart-cntr{ display:block;}
 
+<<<<<<< HEAD
+.single.single-product div#tab-accesories_tab, .single.single-product .panel.panel-default{ margin:0 !important;}
+.single.single-product a.accordion-toggle.first-acc-cat { margin-top:25px;}
+.acc_list_item.col-md-4.underlay { border:1px solid #999; padding:15px; width:33.33%; }
+.cont-panl.cc-pro-det-fb .acc_info_wrap { display:block; }
+.cont-panl.cc-pro-det-fb h3.acc_title_n_cat { margin-top:18px; display:inline-block; }
+.cont-panl.cc-pro-det-fb h3.acc_title_n_cat span.acc_title a {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; text-decoration:none;}
+.cont-panl.cc-pro-det-fb h3.acc_title_n_cat span.acc_title a:hover { color:#000; cursor:pointer;}
+
+.cont-panl.cc-pro-det-fb h3.acc_title_n_cat span.acc_subcat a {font:normal 14px 'proxima_nova_rgregular', sans-serif; color:#087bda; text-transform:uppercase; text-decoration:none;}
+.cont-panl.cc-pro-det-fb h3.acc_title_n_cat span.acc_subcat a:hover { color:#666; cursor:pointer;}
+.cc-price-control { margin-top:-9px;}
+.cc-price-control h3 span.cc-sale-price-title {font:bold 14px 'proxima_nova_ltsemibold', sans-serif; color:#087bda; text-transform:uppercase;}
+.single.single-product .acc_qnty { display:inline-block; margin-top:2px;}
+
+.acc_qnty span.acc_qty_lbl, .acc_qnty span.acc_rec_qty {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; }
+=======
+
+
+>>>>>>> 2bb8c5b4dccdf4dfb246d2d5300f85f53a6f6070
