@@ -48,7 +48,7 @@
 }
 #cssmenu ul li ul {
   position: absolute;
-  left: -9999px;
+  left:-99999px;
   top: auto;
   padding: 10px;
   background: #fff;
@@ -291,6 +291,7 @@
 }
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li{margin: 0; padding: 0}
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a { margin:5px 0 }
+#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i{ margin-right: 10px; }
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a::after{content: '';display:none}
 #cssmenu > ul#menu-main  li.menu-item-depth-0:nth-child(2) ul.sub-menu { height:auto;}
 #cssmenu > ul#menu-main  li.menu-item-depth-0:nth-child(2) ul.sub-menu li.menu-item-depth-1 ul.sub-menu{ height:auto; left:98.5%; width:75%;}
