@@ -92,7 +92,7 @@ $currentcat = get_queried_object();
 	);
 	 ?>
         <div id="category_slider_block_wrapper">
-        <?php $ret = show_category_slider_block($args);
+        <?php $ret = loadmore_hf($args);
 			echo $ret['html'];
 		?>
         </div>

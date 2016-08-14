@@ -107,9 +107,53 @@
     <div id="collapse_price" class="panel-collapse collapse in">
       <div class="panel-body">
         <div class="cc-price-var-items">
+        <?php 
+		$args_min = array(
+							'post_type'=>'product',
+							'posts_per_page'	=>1,
+							'tax_query'	=>array(
+									 array(
+										'taxonomy' => 'product_cat',
+										'field' => 'id',
+										'terms' => $term_id,
+										'include_children' => true,
+										'operator' => 'IN'
+										),
+								),
+							'meta_key'		=>'_regular_price',
+							'orderby'		=>'meta_value_num',
+							'order'			=>'ASC'
+						);
+		$args_max = array(
+							'post_type'=>'product',
+							'posts_per_page'	=>1,
+							'tax_query'	=>array(
+									 array(
+										'taxonomy' => 'product_cat',
+										'field' => 'id',
+										'terms' => $term_id,
+										'include_children' => true,
+										'operator' => 'IN'
+										),
+								),
+							'meta_key'		=>'_regular_price',
+							'orderby'		=>'meta_value_num',
+							'order'			=>'DESC'
+						);
+		wp_reset_postdata();
+		$min_prod = get_posts($args_min);
+		$max_prod = get_posts($args_max);
+		
+		$min_price_prod = wc_get_product($min_prod[0]->ID);
+		$max_price_prod = wc_get_product($max_prod[0]->ID); 
+		
+		
+		?>
+        
+      <b>A$ <?php echo $min_price_prod->get_price()?> </b> <input id="price_range_filter" type="text" data-slider-min="<?php echo $min_price_prod->get_price()?>" data-slider-max="<?php echo $max_price_prod->get_price()?>" data-slider-step="1" data-slider-value="[<?php echo $min_price_prod->get_price()/2?>,<?php echo $max_price_prod->get_price()/2?>]"/> <b>A$ <?php echo $max_price_prod->get_price()?></b>
       
       
-         <form role="form">
+         <?php /*?><form role="form">
     <div class="checkbox">
       <input type="checkbox" class="price_range" value="0-200"><label>$0 - $200</label>
     </div>
@@ -128,7 +172,7 @@
      <div class="checkbox">
       <input type="checkbox" class="price_range" value="1000-999999"><label>$1000+</label>
     </div>
-  </form>
+  </form><?php */?>
 
         </div>
       </div>
@@ -138,7 +182,7 @@
   </div>
     </div>
     <div class="clearfix"></div>
-  <div class="cc-size-var-sec">
+  <?php /*?><div class="cc-size-var-sec">
          <div class="panel-group cc-price-var" id="accordion-size">
       
       <div class="panel panel-default">
@@ -181,19 +225,6 @@
     </div>
   </div>
   </div>
-    </div>
+    </div><?php */?>
 
 </div>
-
-<script>
-
-     $(document).ready(function() {
-
-       $(document).on("click",'.swatch',function(){
-                //$(this).find('img.cc-tick-display').toggle();
-            });
-
-         });
-   
-
-</script>

@@ -64,7 +64,7 @@ foreach ($booklink as $singlelink) {
     <div class="cptin cptinn">
     <a href="<?php
 echo get_field('contact_url', '89');
-?>" target="_blank"> <?php
+?>"> <?php
 echo get_field('contact_link_title', '89');
 ?></a>
     </div>

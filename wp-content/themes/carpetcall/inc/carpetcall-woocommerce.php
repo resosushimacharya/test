@@ -320,7 +320,7 @@ $list = get_field('buying_guide_archive',$faqid );
     <div id="collapse_<?php echo $faqcounter;?>" class="panel-collapse collapse <?php echo ($faqcounter==1)?'in':'' ;?> ">
       <div class="panel-body panel-body-faq">
       
-        <?php echo $listitem['description']?>
+        <p><?php echo $listitem['description']?></p>
       
       </div>
     </div>
@@ -543,151 +543,151 @@ function woo_new_product_tab_specifications(){
 	<table class="product_specifications_table">
     	<tr>
             <td class="spec_label"><?php _e('Country of Origin Manufacture','carptecall')?></td>
-            <td class="value"><?php echo get_field('country_of_origin_manufacture')?></td>
+            <td class="specs_value"><?php echo get_field('country_of_origin_manufacture')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Colour','carptecall')?></td>
-            <td class="value"><?php echo get_field('species__colour_decore')?></td>
+            <td class="specs_value"><?php echo get_field('species__colour_decore')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Price per pack','carptecall')?></td>
-            <td class="value"><?php echo $product->get_price();?></td>
+            <td class="specs_value"><?php echo $product->get_price();?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Boards per pack','carptecall')?></td>
-            <td class="value"><?php echo get_field('boards_per_pack')?></td>
+            <td class="specs_value"><?php echo get_field('boards_per_pack')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Coverage per pack','carptecall')?></td>
-            <td class="value"><?php echo get_field('size_m2')?></td>
+            <td class="specs_value"><?php echo get_field('size_m2')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Product - Length','carptecall')?></td>
-            <td class="value"><?php echo get_post_meta( $post->ID, '_length', TRUE );?></td>
+            <td class="specs_value"><?php echo get_post_meta( $post->ID, '_length', TRUE );?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Product - Width','carptecall')?></td>
-            <td class="value"><?php echo $width= get_post_meta( $post->ID, '_width', TRUE );?></td>
+            <td class="specs_value"><?php echo $width= get_post_meta( $post->ID, '_width', TRUE );?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Product - Thickness Veneer','carptecall')?></td>
-            <td class="value"><?php echo get_field('product_thickness_veneer')?></td>
+            <td class="specs_value"><?php echo get_field('product_thickness_veneer')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Product - Thickness Total','carptecall')?></td>
-            <td class="value"><?php echo get_field('pack_thickness')?></td>
+            <td class="specs_value"><?php echo get_field('pack_thickness')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Pack - Length','carptecall')?></td>
-            <td class="value"><?php echo get_field('pack_length')?></td>
+            <td class="specs_value"><?php echo get_field('pack_length')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Pack - Width','carptecall')?></td>
-            <td class="value"><?php echo get_field('pack_width')?></td>
+            <td class="specs_value"><?php echo get_field('pack_width')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Pack - Weight','carptecall')?></td>
-            <td class="value"><?php echo get_field('pack_weight')?></td>
+            <td class="specs_value"><?php echo get_field('pack_weight')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Underlay Options','carptecall')?></td>
-            <td class="value"><?php echo get_field('underlay_options')?></td>
+            <td class="specs_value"><?php echo get_field('underlay_options')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Board Type','carptecall')?></td>
-            <td class="value"><?php echo get_field('board_type')?></td>
+            <td class="specs_value"><?php echo get_field('board_type')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Supplier','carptecall')?></td>
-            <td class="value"><?php echo get_field('supplier')?></td>
+            <td class="specs_value"><?php echo get_field('supplier')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Installation options','carptecall')?></td>
-            <td class="value"><?php echo get_field('installation_options')?></td>
+            <td class="specs_value"><?php echo get_field('installation_options')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Underlay Options','carptecall')?></td>
-            <td class="value"><?php echo get_field('species_colour_decore')?></td>
+            <td class="specs_value"><?php echo get_field('species_colour_decore')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Glue Options','carptecall')?></td>
-            <td class="value"><?php echo get_field('glue_options')?></td>
+            <td class="specs_value"><?php echo get_field('glue_options')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Scotia Options','carptecall')?></td>
-            <td class="value"><?php echo get_field('scotia_options')?></td>
+            <td class="specs_value"><?php echo get_field('scotia_options')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Accessories','carptecall')?></td>
-            <td class="value"><?php echo get_field('accessories')?></td>
+            <td class="specs_value"><?php echo get_field('accessories')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Edge Type','carptecall')?></td>
-            <td class="value"><?php echo get_field('edge_type')?></td>
+            <td class="specs_value"><?php echo get_field('edge_type')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Joint System','carptecall')?></td>
-            <td class="value"><?php echo get_field('joint_system')?></td>
+            <td class="specs_value"><?php echo get_field('joint_system')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Surface Finish','carptecall')?></td>
-            <td class="value"><?php echo get_field('surface_finish')?></td>
+            <td class="specs_value"><?php echo get_field('surface_finish')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Janka Rating','carptecall')?></td>
-            <td class="value"><?php echo get_field('janka_rating')?></td>
+            <td class="specs_value"><?php echo get_field('janka_rating')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Structural Warranty','carptecall')?></td>
-            <td class="value"><?php echo get_field('structural_warranty')?></td>
+            <td class="specs_value"><?php echo get_field('structural_warranty')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Wear Layer Warranty','carptecall')?></td>
-            <td class="value"><?php echo get_field('wear_layer_warranty')?></td>
+            <td class="specs_value"><?php echo get_field('wear_layer_warranty')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Construction Style','carptecall')?></td>
-            <td class="value"><?php echo get_field('construction_style')?></td>
+            <td class="specs_value"><?php echo get_field('construction_style')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Recommended Use','carptecall')?></td>
-            <td class="value"><?php echo get_field('species__colour_decore')?></td>
+            <td class="specs_value"><?php echo get_field('species__colour_decore')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Recommended Areas of Use','carptecall')?></td>
-            <td class="value"><?php echo get_field('recommended_use')?></td>
+            <td class="specs_value"><?php echo get_field('recommended_use')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Standards - Coating','carptecall')?></td>
-            <td class="value"><?php echo get_field('coating')?></td>
+            <td class="specs_value"><?php echo get_field('coating')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Standards - AC Rating','carptecall')?></td>
-            <td class="value"><?php echo get_field('ac_rating')?></td>
+            <td class="specs_value"><?php echo get_field('ac_rating')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Standards - Core Type','carptecall')?></td>
-            <td class="value"><?php echo get_field('core_type')?></td>
+            <td class="specs_value"><?php echo get_field('core_type')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Standards - Anti Slip Test','carptecall')?></td>
-            <td class="value"><?php echo get_field('anti_slip_test')?></td>
+            <td class="specs_value"><?php echo get_field('anti_slip_test')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Standards - Base','carptecall')?></td>
-            <td class="value"><?php echo get_field('base')?></td>
+            <td class="specs_value"><?php echo get_field('base')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('ISO Certification','carptecall')?></td>
-            <td class="value"><?php echo get_field('iso_certification')?></td>
+            <td class="specs_value"><?php echo get_field('iso_certification')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Trim Options','carptecall')?></td>
-            <td class="value"><?php echo get_field('trim_options')?></td>
+            <td class="specs_value"><?php echo get_field('trim_options')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Instructional Video','carptecall')?></td>
-            <td class="value">
+            <td class="specs_value">
 			<?php 
 			if(get_field('instructional_video')){
 				echo get_field('instructional_video');

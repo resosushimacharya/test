@@ -1,6 +1,9 @@
 $(function () {
   $('[data-toggle="tooltip"]').tooltip({html:true})
 })
+
+jQuery('#price_range_filter').slider({});
+
 jQuery(document).ready(function($){
 
 $ = jQuery.noConflict();
