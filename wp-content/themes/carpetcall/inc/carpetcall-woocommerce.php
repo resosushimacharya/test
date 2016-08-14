@@ -367,7 +367,7 @@ function woo_new_product_tab_accesories() {
             	<div class="panel panel-default">
                     <div class="panel-heading">
             <h4 class="panel-title">
-                <a class="accordion-toggle <?php echo $acc_cat->slug;?> <?php echo ($count==1)?'':'collapsed' ;?> " data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $acc_cat->term_id;?>">
+                <a class="accordion-toggle <?php echo ($count==1)?'first-acc-cat':'collapsed' ;?> " data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $acc_cat->term_id;?>">
                <span class="pull-right glyphicon glyphicon glyphicon-chevron-down " ></span>	
 			<span class="pull-right glyphicon glyphicon-chevron-up"></span>
                 <?php echo $acc_cat->name;?>
