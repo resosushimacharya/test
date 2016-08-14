@@ -118,9 +118,11 @@ wp_title("");?>
          lat = position.coords.latitude;
          lon = position.coords.longitude;
          rs = [lat, lon];
-        var c=autocomplet();
+       autocomplet();
 		
-		setTimeout(function(){  codeLatLng_header(lat, lon) ; }, 1000);
+		
+		
+		setTimeout(function(){  codeLatLng_header(lat, lon) ; }, 2000);
 
      }
 	 function codeLatLng_header(lat, lng) {
