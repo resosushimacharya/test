@@ -168,8 +168,9 @@ function calculate_square(){
 
 $(document).on('click','#confirm_calc',function(){
 	var max_val=$('#cc_Stock_count').val();
+
 	var culc_val=$('#no_of_packs').text();
-	
+	if(Number(culc_val)!=0){
 	if(Number(max_val)>=Number(culc_val)){
 		 var temp_count = $('#cov_per_pack').val();
 		  temp_count = Number(temp_count);
@@ -177,14 +178,21 @@ $(document).on('click','#confirm_calc',function(){
 		  var total_cov_ret = temp_count*cal_quan;
 		$("#quantity-control").val(culc_val);
 		$(".coverage_value").html(total_cov_ret);
+		jQuery('.underlay .acc_rec_qty').each(function(index,element){
+			console.log(element);
+			var tmpr = jQuery(element).attr('tpm_ratio');
+			jQuery(element).text(Math.ceil(Number(total_cov_ret)/Number(tmpr)));
+
+		});
+		
 		$("#quantity-control").trigger('change');
 		$('#error_max_msg').html('');
 		$('.close').trigger('click');
 	}else{
 		$('#error_max_msg').html('Insufficient stock.');
 	}
-	
-	
+	}
+
 	
 	
 });
