@@ -1,7 +1,6 @@
 <?php
 ?><!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:fb="http://ogp.me/ns/fb#">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta content="chj">
@@ -11,6 +10,8 @@
 <link rel="shortcut icon" href="<?php
 echo get_template_directory_uri();
 ?>/images/favicon.ico"/>
+
+
 <title><?php
 wp_title("");?>
 
@@ -27,32 +28,31 @@ wp_title("");?>
    
     ?>
     
-<meta http-equiv="Cache-Control" content="no-cache"/>
-<!-- facebook share   -->
-<meta name="twitter:card" content="summary_large_image">
-                <!-- <meta name="twitter:title" content="<?php //echo get_the_title(); ?>"> -->
-<meta name="twitter:description" content="<?php echo get_the_title(); ?>">
-<meta name="twitter:image" content="<?php echo  $image; ?>">             
-<meta name="twitter:site" content="@carpetcall" />
-<meta name="twitter:creator" content="@carpetcall">
 
 
 
 
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<link rel="image_src" href="<?php echo  $image; ?>"/> 
-<meta name="description" content="<?php echo get_the_excerpt();?>"/>
-<meta property="og:title" content="<?php echo get_the_title(); ?>"/>
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="<?php echo get_permalink(); ?>"/>
-<meta property="og:image" content="<?php echo  $image; ?>"/>
-<meta property="og:site_name" content="Carpet Call"/>
-<meta property="fb:admins" content="hansu.shrestha.9"/>
+ 
+<meta property="fb:app_id" content="312823042383349"/>
 <meta property="og:description" content="<?php echo get_the_excerpt();?>"/>
 
+<meta property="og:title" content="<?php echo get_the_title(); ?>"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="<?php echo get_the_permalink();?>"/>
+<meta property="og:image" content="<?php echo  $image; ?>"/>
+<meta property="og:site_name" content="carpetcall"/>
+<meta property="fb:admins" content="hansu.shrestha.9"/>
 
 
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@psprakash045">
+<meta name="twitter:title" content="<?php echo get_the_title(); ?>">
+<meta name="twitter:description" content="<?php echo get_the_excerpt();?>">
+<meta name="twitter:image" content="<?php echo  $image; ?>">
+
+<meta name="description" content="<?php echo get_the_excerpt();?>">
+ <link rel="image_src" href="<?php echo  $image; ?>" /> 
                 <?php }
                 ?>
 
