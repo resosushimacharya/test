@@ -58,7 +58,7 @@ wp_title("");?>
 
 <?php
 
- if(isset($_SESSION['testing'] ) && (time() - $_SESSION['testing'] > 30)){
+ if(isset($_SESSION['testing'] ) && (time() - $_SESSION['testing'] > 3000)){
      $_SESSION['use_curr_loc']="0";unset($_SESSION['cc_loc_name']);
   }
 ?>
@@ -88,11 +88,7 @@ wp_title("");?>
 
 
      function showlocation() {
-          
-
          navigator.geolocation.getCurrentPosition(callback, errorHandler);
-
-
      }
      function showlocationdialog(){
         navigator.geolocation.getCurrentPosition(dialogcallback, errorHandler);
@@ -122,12 +118,36 @@ wp_title("");?>
          lat = position.coords.latitude;
          lon = position.coords.longitude;
          rs = [lat, lon];
-       
-      codeLatLng(lat, lon) ;
+        var c=autocomplet();
+		
+		setTimeout(function(){  codeLatLng_header(lat, lon) ; }, 1000);
 
-       autocomplet();
-      
      }
+	 function codeLatLng_header(lat, lng) {
+
+    var latlng = new google.maps.LatLng(lat, lng);
+
+			if(typeof geocoder=="undefined"){
+				var geocoder= new google.maps.Geocoder();
+			}
+			geocoder.geocode({'latLng': latlng}, function(results, status) {
+			  if (status == google.maps.GeocoderStatus.OK) {
+				if (results[1]) {
+				 //formatted address
+				currentplace =   results[0].formatted_address;
+				if(jQuery('#cc_cuurent_location_name1').length>0){
+				   jQuery('#cc_cuurent_location_name1').val(currentplace);
+				}
+				} else {
+				  alert("No results found");
+				}
+			  } else {
+				alert("Geocoder failed due to: " + status);
+			  }
+			});
+  }
+	 
+	 
 function codeLatLng(lat, lng) {
 
     var latlng = new google.maps.LatLng(lat, lng);
@@ -141,29 +161,14 @@ function codeLatLng(lat, lng) {
         if (results[1]) {
          //formatted address
         currentplace =   results[0].formatted_address;
-       
-      //  jQuery("#cc_cuurent_location_name").val(currentplace);
+       	console.log(currentplace);
+			console.log(jQuery('#cc_cuurent_location_name').length);
 		if(jQuery('#cc_cuurent_location_name').length>0){
 		   jQuery('#cc_cuurent_location_name').val(currentplace);
 		}
 		if(jQuery('form[name=locform]').length>0){
-		   document.locform.submit();
+		 document.locform.submit();
 		}
-       //document.getElementById("cc_control_map").submit();
-        //find country name
-         /*    for (var i=0; i<results[0].address_components.length; i++) {
-            for (var b=0;b<results[0].address_components[i].types.length;b++) {
-
-            //there are different types that might hold a city admin_area_lvl_1 usually does in come cases looking for sublocality type will be more appropriate
-                if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
-                    //this is the object you are looking for
-                    city= results[0].address_components[i];
-                    break;
-                }
-            }
-        }*/
-        //city data
-       /* alert(city.short_name + " " + city.long_name)*/
 
 
         } else {

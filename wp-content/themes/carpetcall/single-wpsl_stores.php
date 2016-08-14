@@ -2,7 +2,6 @@
 
 get_header();?>
 <?php 
-
 global $post;
 
 $state_post_parent = $post->post_parent;
