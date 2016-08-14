@@ -1476,3 +1476,6 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 
 .cc-loader-cntr{ padding:10px; text-align:center;}
 
+.woocomerce_dropdown #cc-mini-cart-cntr{display:none;}
+.woocomerce_dropdown.open #cc-mini-cart-cntr{ display:block;}
+
