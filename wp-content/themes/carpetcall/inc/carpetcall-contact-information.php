@@ -96,12 +96,12 @@ $data=$_POST['form_data'];
                      $emailcheck =sanitize_email($data['email_address']);
                     if($data['first_name']==""){
                       $message['error'] ='Error:Empty Firstname!';
-                    }elseif(strlen($data['first_name'])>32){
-                      $message['error'] ='Error:First name exceeds the length(32)!';
+                    }elseif(strlen($data['first_name'])>50){
+                      $message['error'] ='Error:First name exceeds the length(50)!';
                     }elseif($data['last_name']==""){
                       $message['error'] ='Error:Empty Last name!';
-                    }elseif(strlen($data['last_name'])>32){
-                      $message['error'] ='Error:Last name exceeds the length(32)';
+                    }elseif(strlen($data['last_name'])>50){
+                      $message['error'] ='Error:Last name exceeds the length(50)';
                     }elseif(filter_var($emailcheck, FILTER_VALIDATE_EMAIL) === false){
                      $message['error'] ='Email Format is Invalid!';
                     }elseif(!ctype_digit($phono)){
@@ -109,8 +109,8 @@ $data=$_POST['form_data'];
                     }elseif(strlen($phono)!=10){
                      $message['error'] = 'phone length must be of 10!';
                    }
-                    elseif(str_word_count($messagecheck)>100){
-                      $message['error'] ='Message words count exceeds(100)!';
+                    elseif(str_word_count($messagecheck)>125){
+                      $message['error'] ='Message words count exceeds(125)!';
                     }elseif($state_error){
                         $message['error'] ="You haven't choosen the state  correctly yet!";
                     }elseif($store_name_error){

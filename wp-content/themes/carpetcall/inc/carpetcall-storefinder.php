@@ -170,7 +170,8 @@ else:?>
  <?php if(!isset($_POST['latitude'])){ ?>
       <div class="wpsl-input">
         <form autocomplete="off" name="formStoreFinder" method="post" action="<?php echo site_url().'/find-a-store/';?>">
-          <input type="hidden" name="cc-control-map" value="cc-control-map">   
+          <input type="hidden" name="cc-control-map" value="cc-control-map">  
+            <input type="hidden" id="cc_cuurent_location_name" name="cc-cuurent-location-name"> 
              <input id="wpsl-search-input" type="hidden" value="<?php echo $keyword ;?>" name="wpsl-search-input" placeholder="" aria-required="true" >
              <a href="javascript:void(0);" title="See more nearby stores" onclick="document.formStoreFinder.submit();">See more nearby stores</a>&nbsp; | &nbsp;<a href="#" class="clear_storefinder_state">Clear search</a>
       </form>
@@ -178,9 +179,14 @@ else:?>
     <?php } 
     else {
       ?>
+      
+      
+      
     <form method="post" name="formStoreFinder" action="<?php echo site_url().'/find-a-store/';?>" >
       <input type="hidden" name="cc-current-location-store" value="cc-current-location-store">
-      <a href="javascript:void(0);" title="See more nearby stores" onclick="document.formStoreFinder.submit();">See more nearby stores</a>
+      <input type="hidden" id="cc_cuurent_location_name"  name="cc-cuurent-location-name"/>
+      
+      <a href="javascript:void(0);" title="See more nearby stores" onclick="document.formStoreFinder.submit();">See more nearby stores</a>&nbsp; | &nbsp;<a href="#" class="clear_storefinder_state">Clear search</a>
     </form>
     <?php }
     ?>
