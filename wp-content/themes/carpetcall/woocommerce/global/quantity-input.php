@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <?php
     $options = '';
     if(is_single()){ 
-      $options .='<option class= "col-md-12"'. ' value="PLEASE SELECT" id="sel_cart" hidden>PLEASE SELECT</option>';
+      //$options .='<option class= "col-md-12"'. ' value="PLEASE SELECT" id="sel_cart" hidden>PLEASE SELECT</option>';
       for ( $count = $args['min_value']; $count <= $args['max_value']; $count = $count+$args['step'] ) {
         $options .= '<option class= "col-md-12"'. ' value="' . $count . '" >' . $count . '</option>';
     } 
