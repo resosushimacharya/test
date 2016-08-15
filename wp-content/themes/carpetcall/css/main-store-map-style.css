@@ -107,20 +107,21 @@ display:none;
 
 	
 .contents{   
-  color: #F1F1F1;
-  font-family: arial;
-  line-height: 50px;
-  position: absolute; 
-  z-index:1;
- 	text-align: center;
-	-webkit-transform: translateX(-50%);
-		-moz-transform: translateX(-50%);
-			-ms-transform: translateX(-50%);
-				-o-transform: translateX(-50%);
-					transform: translateX(-50%);
-      left: 31%;
-    top: 14%;
-  cursor:pointer !important;
+    color: #F1F1F1;
+    font-family: arial;
+    line-height: 50px;
+    position: absolute; 
+    z-index:1;
+    text-align: center;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    left: 24px;
+    top: 18%;
+    width:50px;
+    cursor:pointer !important;
  }
   .maf_info{margin-left: 20px !important;}
   /* .store-map{

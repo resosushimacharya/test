@@ -1210,7 +1210,8 @@ input#cc_control_map { background:#c32428; width:267px; height:45px; font:bold 1
 	color:#144a9f;
 	font-weight:normal;
 }
-.page-template-find-a-store #gmap .contents h5 { font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff;}
+.page-template-find-a-store #gmap .contents h5 { font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff;
+line-height: 9px;}
 .page-template-find-a-store #gmap .contents h6 {font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff !important; }
 
 .inerblock_serc.cc-store-nsw-blk { margin: 145px 0 0 0; }
