@@ -46,7 +46,7 @@ $booklink = get_field('contactlink', 89);
     <ul><?php
 foreach ($booklink as $singlelink) {
     
-    echo '<li><a href="' . $singlelink['contact_url'] . '"' . 'target="_blank">' . $singlelink['ask_an_expert'] . '</a></li>';
+    echo '<li> ' . $singlelink['ask_an_expert'] . '</li>';
     
     
 }
