@@ -405,7 +405,11 @@ function woo_new_product_tab_accesories() {
 								<div class="accessories_innner_wrap">
                                     <div class="acc_info_wrap" data-toggle="modal" data-target="#accinfo_<?php echo get_the_ID()?>_<?php echo $acc_cat->slug;?>">
                                     <div class="acc_thumb">
-                                        <?php echo get_the_post_thumbnail($acc_product->ID,'thumbnail')?>
+                                        <?php if(!has_post_thumbnail($acc_product->ID)){
+											echo get_the_post_thumbnail($acc_product->ID,'thumbnail');
+										}else{
+											echo '<img width="150" height="150" src="'.get_template_directory_uri().'/images/placeholder.png">';
+											}?>
                                     </div>
                                     <h3 class="acc_title_n_cat">
                                     <span class="acc_title"><a href="javascript:void(0)"><?php _e($acc_product->post_title,'carpetcall');?></a></span> 
