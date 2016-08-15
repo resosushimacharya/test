@@ -31,7 +31,7 @@ else{
         $external_link = null;
         foreach($guides as $guide):?>
              <div class="col-md-6  <?php echo ($gi%2==0?'idea-left':'idea-right') ;?>">
-             <div class="<?php echo ($gi%2==0?'rmvisual':'care_pro') ;?>" style="background:url(<?php echo $guide['image']['url'];?>); float:right; background-color:#0a71cf; min-width:483px; min-height:156px; background-size:cover; background-position:center; background-repeat:no-repeat; overflow:hidden;">
+             <div class="<?php echo ($gi%2==0?'rmvisual':'care_pro') ;?>" style="background:url(<?php echo $guide['image']['url'];?>); float:right; background-color:#0a71cf; min-width:483px; min-height:165px; background-size:cover; background-position:center; background-repeat:no-repeat; overflow:hidden;">
              <?php
                 
                 
@@ -66,7 +66,7 @@ else{
         <div class="row">
         
         <div class="col-md-6 idea-left">
-        <div class="guide_a" style="background:url(<?php echo get_template_directory_uri().'/images/guides.png';?>); float:right; background-color:#15489f; min-width:483px; min-height:197px; background-size: cover; background-position:center; background-repeat:no-repeat; overflow:hidden;">
+        <div class="guide_a" style="background:url(<?php echo get_template_directory_uri().'/images/guides.png';?>); float:right; background-color:#15489f; min-width:483px; min-height:205px; background-size: cover; background-position:center; background-repeat:no-repeat; overflow:hidden;">
            
             
             <div class="inner_cont">
@@ -104,7 +104,7 @@ wp_reset_query();
         </div>
         
         <div class="col-md-6 idea-right">
-        <div class="faq_blk" style="background:url(<?php echo get_template_directory_uri().'/images/faq.png';?>); float:right; background-color:#15489f; min-width:483px; min-height:197px; background-size: cover; background-position:center; background-repeat:no-repeat; overflow:hidden;">
+        <div class="faq_blk" style="background:url(<?php echo get_template_directory_uri().'/images/faq.png';?>); float:right; background-color:#15489f; min-width:483px; min-height:205px; background-size: cover; background-position:center; background-repeat:no-repeat; overflow:hidden;">
            
             
             <div class="quest_cont">

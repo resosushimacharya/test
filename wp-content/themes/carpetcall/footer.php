@@ -79,22 +79,19 @@
                 
                 
             </div><!-- left footer end -->
-            <?php $holdValue = site_url();
-			       $askanexpert =''; // intialisation of variable for handling the meta field in server and local
-			      $holdValue = explode('/',$holdValue);
-				
-				   if($holdValue[2]==='localhost'){
-					   $askanexpert = 'ask_an_expert';
-				   }
-				   else{
-					   $askanexpert = '_ask_an_expert';
-				   }  
-				   ?>
-
+           
             <div class="col-md-4 idea-right">
 
                 <h2 class="calcall"> “<?php echo bloginfo('description');?>” </h2>
-                <h3 class="calspl calspll"><a href="tel:<?php echo get_field('telephone_link','89'); ?>"><?php echo get_field('telephone_footer_title',89);?><a/></h3>
+                <h3 class="calspl calspll">
+                  <?php $x=  get_field('telephone_link', '89',false);
+                     $x = preg_replace('/\s+/', '', $x);
+                     $x = preg_replace( '/^[0]{1}/', '', $x );
+                     $i = 1;
+                     $x = '+61'.$x;   
+                  ?>
+                  <a href="tel:<?php echo $x; ?>"><?php echo get_field('telephone_footer_title',89);?><a/>
+                </h3>
                 <h4 class="bcwfsp"><?php echo get_field('footer_contact_title_label',89);?> </h4>
 
                 <div class="againlt">
@@ -104,7 +101,7 @@
                         <?php
                             foreach($booklink as $singlelink){
 
-                                 echo '<li><a href="'.$singlelink['contact_url'].'"'.'target="_blank">'.$singlelink['ask_an_expert'].'</a></li>';
+                                 echo '<li>' . $singlelink['ask_an_expert'] . '</li>';
                             }
                         ?>
                     </ul>
@@ -112,19 +109,38 @@
                 </div>
                 <div class="clearfix"></div>
 
-<div class="fcnt-or fcnt-orr clearfix"><a href="<?php echo get_field('contact_url','89'); ?>" target="_blank"> <?php echo get_field('contact_link_title','89'); ?></a> </div>
+<div class="fcnt-or fcnt-orr clearfix">
+  <a href="<?php echo get_field('contact_url','89'); ?>" target="_blank"> <?php echo get_field('contact_link_title','89'); ?></a>
+</div>
 
 </div><div class="clearfix"></div><!-- right footer end -->
 </div>
-	</div><div class="clearfix"></div>
-    
+  </div><div class="clearfix"></div>
 <div class="container">
 <div class="col-md-12 no-pl">
 <div class="fot_cpy">
 <ul>
-<li><span class="cpyrt"> © Copyright 2016 Carpet CalL</span> </li>
-<li><a href="#"> SITE MAP </a></li>
-<li><a href="#" class="last-child"> TERMS AND CONDITIONS </a></li>
+<li><span class="cpyrt"> © Copyright <?php echo date("Y"); ?> Carpet CalL</span> </li>
+<?php
+  # footer bottom menu
+  
+$url = site_url();
+$url =explode('/',$url);
+
+if(strcasecmp($url[2],'localhost')==0){
+  echo '
+  <li><a href="#"> SITE MAP </a></li>
+  <li><a href="#" class="last-child"> TERMS AND CONDITIONS </a></li>';
+}
+else{
+  $smID = 35294;
+  $tncID = 35292;
+  echo '
+  <li><a href="' . get_permalink($smID) . '"> ' . get_the_title($smID) . ' </a></li>
+  <li><a href="' . get_permalink( $tncID ) . '" class="last-child"> ' . get_the_title( $tncID ) . ' </a></li>';  
+}
+?>
+
 </ul><div class="clearfix"></div>
 </div><div class="clearfix"></div>
 </div>
@@ -219,9 +235,8 @@ jQuery('#wpsl-search-btn').trigger('click');
 <?php }?>
  <script>
   jQuery(document).ready(function(){
-	 
-	  
-	  
+    jQuery("input#price_range_filter").slider();
+    
    /* jQuery('.cat_slider').slick({
           dots: true,
           infinite: false,
@@ -259,4 +274,6 @@ jQuery('#wpsl-search-btn').trigger('click');
           ]
         });*/
   });
+
+
   </script>
