@@ -80,16 +80,16 @@
                 
             </div><!-- left footer end -->
             <?php $holdValue = site_url();
-			       $askanexpert =''; // intialisation of variable for handling the meta field in server and local
-			      $holdValue = explode('/',$holdValue);
-				
-				   if($holdValue[2]==='localhost'){
-					   $askanexpert = 'ask_an_expert';
-				   }
-				   else{
-					   $askanexpert = '_ask_an_expert';
-				   }  
-				   ?>
+             $askanexpert =''; // intialisation of variable for handling the meta field in server and local
+            $holdValue = explode('/',$holdValue);
+        
+           if($holdValue[2]==='localhost'){
+             $askanexpert = 'ask_an_expert';
+           }
+           else{
+             $askanexpert = '_ask_an_expert';
+           }  
+           ?>
 
             <div class="col-md-4 idea-right">
 
@@ -116,15 +116,32 @@
 
 </div><div class="clearfix"></div><!-- right footer end -->
 </div>
-	</div><div class="clearfix"></div>
-    
+  </div><div class="clearfix"></div>
 <div class="container">
 <div class="col-md-12 no-pl">
 <div class="fot_cpy">
 <ul>
-<li><span class="cpyrt"> © Copyright 2016 Carpet CalL</span> </li>
-<li><a href="#"> SITE MAP </a></li>
-<li><a href="#" class="last-child"> TERMS AND CONDITIONS </a></li>
+<li><span class="cpyrt"> © Copyright <?php echo date("Y"); ?> Carpet CalL</span> </li>
+<?php
+  # footer bottom menu
+  
+$url = site_url();
+$url =explode('/',$url);
+
+if(strcasecmp($url[2],'localhost')==0){
+  echo '
+  <li><a href="#"> SITE MAP </a></li>
+  <li><a href="#" class="last-child"> TERMS AND CONDITIONS </a></li>';
+}
+else{
+  $smID = 35294;
+  $tncID = 35292;
+  echo '
+  <li><a href="' . get_permalink($smID) . '"> ' . get_the_title($smID) . ' </a></li>
+  <li><a href="' . get_permalink( $tncID ) . '" class="last-child"> ' . get_the_title( $tncID ) . ' </a></li>';  
+}
+?>
+
 </ul><div class="clearfix"></div>
 </div><div class="clearfix"></div>
 </div>
@@ -219,9 +236,8 @@ jQuery('#wpsl-search-btn').trigger('click');
 <?php }?>
  <script>
   jQuery(document).ready(function(){
-	 
-	  
-	  
+    jQuery("input#price_range_filter").slider();
+    
    /* jQuery('.cat_slider').slick({
           dots: true,
           infinite: false,
@@ -259,4 +275,6 @@ jQuery('#wpsl-search-btn').trigger('click');
           ]
         });*/
   });
+
+
   </script>
