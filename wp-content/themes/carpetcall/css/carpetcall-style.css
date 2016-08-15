@@ -422,7 +422,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 .hamro_trade h2 { margin:55px 0 30px 0;}
 
 .rmvisual, .guide_a, .care_pro, .faq_blk { position:relative;}
-.rmblk_cont, .inner_cont, .quest_cont {position:absolute; top:15px; left:15px;}
+.rmblk_cont, .inner_cont, .quest_cont {position:absolute; top:15px; left:26px;}
 .rmblk_cont h3, .inner_cont h4, .quest_cont h4 { font:bold 20px 'proxima_nova_ltsemibold', sans-serif; color:#fff; margin:0 0 10px 0; }
 .rmblk_cont p { font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; margin:10px 171px 10px 0; }
 .trynow {font:bold 16px 'proxima_nova_ltsemibold', sans-serif;  color:#fff; }
