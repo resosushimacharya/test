@@ -366,7 +366,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 .cptspl { font-size:18px; color:#15489f; margin:-7px 0 15px 2px; }
 .suptlst li { list-style:none; display:block; margin:-1px 0 0 2px;}
 .suptlst li::before { content: '-';}
-.suptlst li a { font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666; text-decoration:none; text-transform:uppercase; padding-left:5px;}
+.suptlst li a , .suptlst li { font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666; text-decoration:none; text-transform:uppercase; padding-left:5px;}
 .suptlst li a:hover { color:#000;}
 .cptin { display:inline-block; }
 .cptinn a {margin:42px 0 0 30px;  display:block; padding:10px 51px 11px 50px; background:#C32327; font:bold 18px 'proxima_nova_rgregular', sans-serif; text-decoration:none; color:#FFF; text-transform:uppercase; letter-spacing:1px; text-align:center; }
@@ -517,7 +517,7 @@ li.clblk_a::before {content: '';}
 .againlt ul { margin:25px 0 2px 0;}
 .againlt li { list-style:none; display:block; }
 .againlt li::before { content: '-'; color:#FFF;}
-.againlt li a { font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none;  }
+.againlt li a, .againlt li { font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none;  }
 .againlt li a:hover { color:#FF0; }
 .fot_cpy ul { margin: -1px 0 22px 0;}
 .fot_cpy li { list-style:none; display:inline-block; margin:-2px; }
