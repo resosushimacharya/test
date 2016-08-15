@@ -19,7 +19,11 @@
 
             <div class="col-md-9">
                 <div class="cbg_content">
-                    <?php the_content(); ?>
+                    <?php 
+                        if( is_page( 'sitemap' ) || is_page( 35294 ) )
+                            echo '<div class="cc-sitemap">' . get_the_content() . '</div>';
+                        else the_content();
+                    ?>
                 </div><!-- end .cbg_content -->
             </div><!-- end .col-md-9 -->
 
