@@ -48,7 +48,7 @@ if(have_posts()):
         $target = $(target);
 
         $('html, body').stop().animate( {
-            'scrollTop': $target.offset().top - 155
+            'scrollTop': $target.offset().top - 190
         }, 900, 'swing', function () {
             window.location.hash = target;
         });
