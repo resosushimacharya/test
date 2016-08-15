@@ -74,7 +74,7 @@
     <div class="row"><div class="form-group col-md-8 col-item-price">
         <p class="pull-right">Excess:</p>
     </div>
-    <div class="col-md-4 col-total-item-section">
+    <div class="col-md-2 col-total-item-section">
         <div class="form-group col-md-4 no-lr cc-me">
            
              <span class="form-control col-result-input" id="exceess_area_percent"> </span>
@@ -86,7 +86,7 @@
     <div class="form-group col-md-8 col-item-price">
         <p class="pull-right">Total:</p>
     </div>
-    <div class="col-md-4 col-total-item-section">
+    <div class="col-md-2 col-total-item-section">
         <div class="form-group col-md-4 no-lr cc-me">
             
             <span class="form-control col-result-input" id="total_area"> </span>
@@ -98,7 +98,7 @@
     <div class="form-group col-md-8 col-item-price">
         <p class="pull-right">Total Packs Required:</p>
     </div>
-    <div class="col-md-4 col-total-item-section">
+    <div class="col-md-2 col-total-item-section">
         <div class="form-group col-md-4 no-lr cc-me">
             
             <span class="form-control col-result-input" id="no_of_packs"> </span>
