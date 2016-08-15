@@ -405,7 +405,7 @@ function woo_new_product_tab_accesories() {
 								<div class="accessories_innner_wrap">
                                     <div class="acc_info_wrap" data-toggle="modal" data-target="#accinfo_<?php echo get_the_ID()?>_<?php echo $acc_cat->slug;?>">
                                     <div class="acc_thumb">
-                                        <?php if(!has_post_thumbnail($acc_product->ID)){
+                                        <?php if(has_post_thumbnail($acc_product->ID)){
 											echo get_the_post_thumbnail($acc_product->ID,'thumbnail');
 										}else{
 											echo '<img width="150" height="150" src="'.get_template_directory_uri().'/images/placeholder.png">';
