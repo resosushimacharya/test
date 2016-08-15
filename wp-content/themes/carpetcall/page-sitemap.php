@@ -13,13 +13,16 @@
 <div class="faq-cont-blka">
     <div class="container clearfix">
         <div class="inerblock_sec clearfix">
-            <div class="col-md-12">
+			<div class="row">
+				<div class="col-md-12">
                 <div class="cbg_content sitemap-wrap clearfix">
                     <?php 
                         the_content();
                     ?>
                 </div><!-- end .cbg_content -->
-            </div><!-- end .col-md-9 -->
+            </div><!-- end .col-md-12 -->
+			</div>
+            
 
         </div><!--end .innerblock_sec -->
     </div><!-- end .container.clearfix -->
