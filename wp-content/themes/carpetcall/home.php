@@ -1,20 +1,9 @@
 
 <?php
 /* Template Name: design */
-get_header();
+    get_header();
 
 ?>
-    
-        <?php
-/*    why choose us section          */
-?>
-
-    <?php
-$id     = 114;
-$choose = get_post($id);
-
-?>
-       <!-- slider start -->
 
        <?php
 get_template_part('content', 'visualiser');
