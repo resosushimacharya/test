@@ -1490,13 +1490,15 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 .acc_list_item.col-md-3.underlay {  padding:0 10px;}
 .acc_list_item.col-md-3.underlay .accessories_innner_wrap { padding:0 25px; clear:both; }
 .cont-panl.cc-pro-det-fb .acc_info_wrap { display:block; clear:both; }
-.cont-panl.cc-pro-det-fb h3.acc_title_n_cat { margin-top:18px; display:inline-block; }
+.cont-panl.cc-pro-det-fb h3.acc_title_n_cat { margin-top:18px; display:inline-block; line-height:0; }
 .cont-panl.cc-pro-det-fb h3.acc_title_n_cat span.acc_title a {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; text-decoration:none;}
 .cont-panl.cc-pro-det-fb h3.acc_title_n_cat span.acc_title a:hover { color:#000; cursor:pointer;}
 
 .cont-panl.cc-pro-det-fb h3.acc_title_n_cat span.acc_subcat a {font:normal 14px 'proxima_nova_rgregular', sans-serif; color:#087bda; text-transform:uppercase; text-decoration:none;}
 .cont-panl.cc-pro-det-fb h3.acc_title_n_cat span.acc_subcat a:hover { color:#666; cursor:pointer;}
+.accessories_innner_wrap .cc-price-control { margin-top:-9px;}
 .single.single-product .cc-price-control h3 span.cc-sale-price-title {font:bold 30px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase;}
+.accessories_innner_wrap span.acc_price.small_price .cc-price-control h3 span.cc-sale-price-title { font:bold 14px 'proxima_nova_ltsemibold', sans-serif; color:#087bda; text-transform:uppercase;  }
 .single.single-product .cc-price-control h3 span.low {font:normal 18px 'proxima_nova_rgregular', sans-serif; color:#0099ff; text-transform:uppercase;}
 .single.single-product .acc_qnty { display:block; margin-top:2px; line-height:45px;}
 
