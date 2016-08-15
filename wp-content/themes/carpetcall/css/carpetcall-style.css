@@ -648,6 +648,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .cc-price-control .cc-sale-price-title {font:bold 30px 'proxima_nova_ltsemibold',sans-serif; color:#0099ff; text-decoration:none; text-transform:uppercase; }
 .cc-price-control .cc-line-through{font:normal 14px 'proxima_nova_rgregular', sans-serif; color:#c32327; text-decoration:line-through; text-transform:uppercase;}
 .summary.entry-summary h3{font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase;}
+
 .summary.entry-summary .product_title.entry-title {font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase;}
 .summary.entry-summary .cc-related-product-design-section h3{font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin:18px 0 3px 0;}
 .cc-select-design-pro-all.col-md-12 { padding:0; font-size:0;margin: 0 -5px;}
@@ -1493,7 +1494,8 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 
 .cont-panl.cc-pro-det-fb h3.acc_title_n_cat span.acc_subcat a {font:normal 14px 'proxima_nova_rgregular', sans-serif; color:#087bda; text-transform:uppercase; text-decoration:none;}
 .cont-panl.cc-pro-det-fb h3.acc_title_n_cat span.acc_subcat a:hover { color:#666; cursor:pointer;}
-.cc-price-control h3 span.cc-sale-price-title {font:bold 14px 'proxima_nova_ltsemibold', sans-serif; color:#087bda; text-transform:uppercase;}
+.single.single-product .cc-price-control h3 span.cc-sale-price-title {font:bold 30px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase;}
+.single.single-product .cc-price-control h3 span.low {font:normal 18px 'proxima_nova_rgregular', sans-serif; color:#0099ff; text-transform:uppercase;}
 .single.single-product .acc_qnty { display:block; margin-top:2px; line-height:45px;}
 
 .acc_qnty span.acc_qty_lbl, .acc_qnty span.acc_rec_qty {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; }
