@@ -1392,7 +1392,7 @@ opacity: 0.5; background-image:url('../images/loading.gif'); background-position
    font:700 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; text-transform:uppercase;
 }
 div#calculator_container { border-bottom:1px solid #efefef; margin-bottom:18px; }
-.calculator_container .form-group .form-control { border:0; background:none; box-shadow:none; margin-top:35px;}
+.calculator_container .form-group .form-control { border:0; background:none; box-shadow:none; margin-top:35px; width:150px;}
 .single.single-product .form-group.col-item-price { padding-right:0;}
 
 
