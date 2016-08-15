@@ -128,7 +128,7 @@ if(array_key_exists('wpsl_fax',$getinfo)){
 <span class="cc-cat-store-item-fax cc-cat-store-item-fax-abs"><strong>FAX</strong> <?php echo $fax ;?></span>  
       <?php }?>
 
-       <div class="cc-str-cntblk cc-str-cntblk-a cc-str-cntblk-a-map clearfix"><a href="http://staging.carpetcall.com.au/contact-us/?id=<?php echo $post->ID;?>" class="cc-contact-link">CONTACT STORE</a></div>
+       <div class="cc-str-cntblk cc-str-cntblk-a cc-str-cntblk-a-map clearfix"><a href="<?php echo site_url();?>/contact-us/?id=<?php echo $post->ID;?>" class="cc-contact-link">CONTACT STORE</a></div>
        </div>
        
 </div>

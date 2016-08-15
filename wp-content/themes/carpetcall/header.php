@@ -119,10 +119,7 @@ wp_title("");?>
          lon = position.coords.longitude;
          rs = [lat, lon];
        autocomplet();
-		
-		
-		
-		setTimeout(function(){  codeLatLng_header(lat, lon) ; }, 2000);
+		codeLatLng_header(lat, lon);
 
      }
 	 function codeLatLng_header(lat, lng) {
@@ -137,8 +134,8 @@ wp_title("");?>
 				if (results[1]) {
 				 //formatted address
 				currentplace =   results[0].formatted_address;
-				if(jQuery('#cc_cuurent_location_name1').length>0){
-				   jQuery('#cc_cuurent_location_name1').val(currentplace);
+				if(jQuery('#user_curr_loc_hide__').length>0){
+				   jQuery('#user_curr_loc_hide__').val(currentplace);
 				}
 				} else {
 				  alert("No results found");
@@ -147,6 +144,10 @@ wp_title("");?>
 				alert("Geocoder failed due to: " + status);
 			  }
 			});
+  }
+  function formStoreFinder_submit(){
+    jQuery('#cc_cuurent_location_name1').val(jQuery('#user_curr_loc_hide__').val());
+    document.formStoreFinder.submit();
   }
 	 
 	 
@@ -351,7 +352,7 @@ get_template_part('content', 'navwoo');
         </div></div>
     </div><div class="clearfix"></div><!-- banner end -->
 
-
+<input type="hidden" id="user_curr_loc_hide__">
 
 
     <script type="text/javascript">
