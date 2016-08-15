@@ -133,7 +133,11 @@ $probuyid ='26701';
 $procareid ='26713';
 }
 ?>
-    <?php $feat_image = wp_get_attachment_url( get_post_thumbnail_id($profaqid) );?>
+    <?php $feat_image = wp_get_attachment_image_src( get_post_thumbnail_id($profaqid),'medium' );
+		if($feat_image){
+			$feat_image = $feat_image[0];
+			}
+	?>
     <div class="you_may_like-content">
       <div class="col-md-4">
         <div class="pro_secone_a"> <a href="<?php echo get_the_permalink($probuyid);?>">
