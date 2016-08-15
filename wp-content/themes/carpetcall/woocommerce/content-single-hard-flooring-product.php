@@ -165,7 +165,10 @@ if($reqTempTerms){
 				if(preg_match("/\_V/i", $proImageName))
 				{
 					$reqProImageId = $pgi;
-					$proImageName =  wp_get_attachment_url($pgi);
+					$proImageName =  wp_get_attachment_image_src($pgi,'thumbnail');
+					if($proImageName){
+						$proImageName = $proImageName[0];
+						}
 					break;
 				}
 			 

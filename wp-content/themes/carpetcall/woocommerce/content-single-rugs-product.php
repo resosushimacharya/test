@@ -250,7 +250,10 @@ foreach($filterproGroup as $bundle){
               
               <a href="<?php echo get_the_permalink($key)?>" class="select_design">
               <?php if($flag==1){
-                     $proImageName =  wp_get_attachment_url($reqProImageId);
+                     $proImageName =  wp_get_attachment_image_src($reqProImageId,'thumbnail');
+					 if($proImageName){
+						 $proImageName = $proImageName[0];
+						 }
                      ?>
                       <img class="cc-product_no_image" src="<?php echo $proImageName ;?>"/>
                      <?php 
