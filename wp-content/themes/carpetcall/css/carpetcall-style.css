@@ -1552,10 +1552,11 @@ ul.page-list >li {
     vertical-align: top;
 }
 .sitemap-wrap{ padding: 0;}
-.sitemap-wrap ul{list-style: none;margin: 0;}
+.sitemap-wrap ul{list-style: none;margin: 0 0 0 6px;}
 .sitemap-wrap ul li:first-child a{}
 .sitemap-wrap ul li{ width:24%;}
-.sitemap-wrap ul li ul{    margin-bottom: 30px;}
-.sitemap-wrap ul li ul li{}
+.sitemap-wrap ul li ul{    margin-bottom: 30px; margin-left: 0;}
+.sitemap-wrap ul li ul li{ width: 100%;  padding-left: 8px; }
+.sitemap-wrap ul li ul li ul{ margin-bottom: 0 }
 .cc-void-field { width:100%; font-size:14px; margin-left:4px; color:#FF0000; }
 
