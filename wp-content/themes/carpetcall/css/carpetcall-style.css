@@ -1196,12 +1196,12 @@ input#cc_control_map { background:#c32428; width:267px; height:45px; font:bold 1
 #wpsl-search-wrap form {}
 .cc-store-list-section h4 {font:bold 24px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; margin:39px 0 47px 0;}
 .store-finder-page-form .store-finder-form-cntr #wpsl-auto-locate input{ border:none;}
-.cc-state-link { position:relative; border-bottom:1px solid #efefef; padding-bottom:15px; padding-top:15px;}
+.cc-state-link { position:relative; border-bottom:1px solid #efefef;}
 .cc-state-link:last-child { border:none;}
-.cc-state-link a {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none;  }
+.cc-state-link a {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff; text-transform:uppercase; text-decoration:none; padding-bottom:15px; padding-top:15px; display:block; width:100%; position:relative; }
 .cc-state-link a:hover { text-decoration:none; cursor:pointer;}
 
-.cc-state-link::before {
+.cc-state-link a::before {
   content: '\f105';
   position: absolute;
   right: 27px;
@@ -1210,7 +1210,9 @@ input#cc_control_map { background:#c32428; width:267px; height:45px; font:bold 1
 	font-size:20px;
 	color:#144a9f;
 	font-weight:normal;
+    transition:0.3s ease-in-out;
 }
+.cc-state-link:hover a:before{right: 17px;transition:0.3s ease-in-out;} 
 .page-template-find-a-store #gmap .contents h5 { font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff;
 line-height: 9px;}
 .page-template-find-a-store #gmap .contents h6 {font:bold 12px 'proxima_nova_ltsemibold', sans-serif; color:#0099ff !important; }
