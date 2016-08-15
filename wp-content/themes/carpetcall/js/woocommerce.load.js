@@ -199,6 +199,7 @@ jQuery(document).on('click','.cc-product-sort a',function(){
 		
 	});
 jQuery(document).on('click','.cc-count-clear',function(){
+	jQuery('a.clear_color_selection').hide();
 	jQuery('img.cc-tick-display').hide();
 	jQuery('#selected_colors').val('');
 	jQuery('#child_cat_count').val(1);
@@ -220,6 +221,25 @@ jQuery(document).on('click','.cc-count-clear',function(){
 	jQuery("#child_cat_count").val(output.child_cat_count);
 
 	});
+jQuery(document).on('click','a.clear_color_selection',function(){
+
+	jQuery('img.cc-tick-display').hide();
+	jQuery('#selected_colors').val('');
+	jQuery('#child_cat_count').val(1);
+	jQuery('#ajax_offset').val(0);
+	jQuery(this).hide();
+	cc_trigger_ajax_load(function(output){
+	output = jQuery.parseJSON(output);
+	//jQuery('#category_slider_block_wrapper').append(output.html);
+	jQuery('#category_slider_block_wrapper').html(output.html);
+	jQuery('.cat_slider.slick-slider').slick('unslick');
+	init_slick_slider();
+	});
+
+	jQuery("#ajax_offset").val(output.offset);
+	jQuery("#child_cat_count").val(output.child_cat_count);
+
+		});
 	
 	
 jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-size-var-sec .checkbox input[type=checkbox], .cc-product-sort a, .cc-price-var-items .checkbox input[type=checkbox]',function(event){
@@ -239,6 +259,12 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-size-var-sec .chec
 		jQuery(trig_ele).find('img.cc-tick-display').toggle();
 		var color_comma_text ='';
 		var prepend = '';
+		
+		if(jQuery('.cc-tick-display:visible').length >0){
+			jQuery('.clear_color_selection').show();
+			}else{
+				jQuery('.clear_color_selection').hide();
+			}
 		jQuery('.cc-tick-display:visible').each(function(index, element) {
 			prepend = (color_comma_text == '')?'':',';
            color_comma_text +=prepend+jQuery(element).parent().attr('id'); 
