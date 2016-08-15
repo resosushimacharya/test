@@ -188,6 +188,7 @@ $args = wp_parse_args( $args, $defaults);
 	//$term_id_sub =  get_queried_object()->term_id;
 	//$term_name = get_queried_object()->name;
 	$discats_org = get_terms(array('parent'=>$cat_id,'taxonomy'=>'product_cat'));
+	$cats_slice = '';
 	if(!empty($discats_org)){
 	if($depth == 0 ){
 		if(count($discats_org) > $child_cat_count){
@@ -238,9 +239,8 @@ $args = wp_parse_args( $args, $defaults);
 		
 		}else{
 			if($child_cat_count == 1){
-			$cats_slice = array_slice($discats_org, $offset, $perpage);
-			//do_action('pr',$cats_slice);
-			$offset = $offset+$perpage;
+				$cats_slice = array_slice($discats_org, $offset, $perpage);
+				$offset = $offset+$perpage;
 			}else{
 				$cats_slice = '';
 				}
@@ -609,6 +609,7 @@ $args = wp_parse_args( $args, $defaults);
 		}
 	}
 	extract($args);
+	$post_count = 0;
 	global $wp_query;
 	$current_cat = get_term( $cat_id, 'product_cat');
 	$discats_org = get_terms(array('parent'=>$cat_id,'taxonomy'=>'product_cat'));
@@ -672,6 +673,7 @@ $args = wp_parse_args( $args, $defaults);
 		}else{
 	$loopcounter = 0;
 	foreach($cats_slice as $discat){
+		$post_count++;
 	?>
 <div>
   <?php 
@@ -768,6 +770,7 @@ $args = wp_parse_args( $args, $defaults);
 	?>
   <?php 
 	if($filloop !='' && $filloop->post_count > 0){
+		$found_count = $filloop->post_count;
 		$current_cat = get_term_by('id',$discat->parent,'product_cat');
 		?>
   <div class="row cc-cat-sub-title-price-cover">
@@ -894,6 +897,7 @@ $args = wp_parse_args( $args, $defaults);
 		$ret['html'] = $html;
 		$ret['child_cat_count'] = $child_cat_count;
 		$ret['offset'] = $offset;
+		$ret['fount_posts'] = $found_count;
 		//do_action('pr',$ret);
 	}
 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {

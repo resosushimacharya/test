@@ -25,8 +25,8 @@ global $product;
 <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 <div class="cc-price-control">
 <h3><span class="cc-sale-price-title">A$<?php echo esc_attr( $product->get_price() ); ?></span><span class="low">/SQM</span> </h3></div>
-<h3>ONLINE PRICE</h3>
-<h3><span class="cc-sale-price-title"><?php _e('PRICE PER PACK:','carpetcall');?></span> A$<span><?php  echo $product->price;?></span></h3>
+<h3 class="online_price_subhead">ONLINE PRICE</h3>
+<h3 class="price_per_pack_subhead"><span class="cc-sale-price-title"><?php _e('PRICE PER PACK:','carpetcall');?></span> A$<span><?php  echo $product->price;?></span></h3>
 
 	<meta itemprop="price" content="<?php echo esc_attr( $product->get_price() ); ?>" />
 	<meta itemprop="priceCurrency" content="<?php echo esc_attr( get_woocommerce_currency() ); ?>" />
