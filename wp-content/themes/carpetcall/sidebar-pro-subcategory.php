@@ -42,7 +42,7 @@
       <h4 class="panel-title">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-colr" href="#collapse_color">
           <span class="pull-left glyphicon glyphicon-chevron-up"></span>
-         Colour</a><a href="javascript:void(0);" class="pull-right">CLEAR</a>
+         Colour</a><a href="javascript:void(0);" class="pull-right clear_color_selection">CLEAR</a>
         
       </h4>
     </div>
