@@ -267,6 +267,9 @@ foreach($listcat as $cat){
 		//echo "that's the correct answer";
 		$root = $cat->slug;
 		$rootname = $cat->name;
+		if(strcasecmp($root,'hard-flooring')==0){
+		$root =	'hard-floor';
+		}
 	}
 	else{
 		//echo "that's the bullshit answer";
@@ -298,6 +301,7 @@ $list = get_field('buying_guide_archive',$faqid );
 					<?php
 					
 					 $faqcounter = 1;
+					 if($list){
 					foreach($list as $listitem):
 					
 
@@ -333,6 +337,7 @@ $list = get_field('buying_guide_archive',$faqid );
 			}
 
 			endforeach;
+		}
 			?>	
 					
                
