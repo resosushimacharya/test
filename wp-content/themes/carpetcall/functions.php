@@ -52,7 +52,7 @@ function destroy_autoLoc(){
   else{
     $saveID = 26771 ;
   }
-
+ 
  
   if(isset($_POST["cc-current-location-store"])){
     $_SESSION['testing'] = time(); 
