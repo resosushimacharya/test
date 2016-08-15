@@ -1,35 +1,30 @@
-<?php
-
- get_header();
-?>
-
+<?php get_header(); ?>
 <div class="child-innerpg">
-   <div class="container clearfix">
-       <div class="inerblock_serc_child">
-         <?php 
-         if(have_posts()):
-            while(have_posts()):
-            	the_post();
-                echo '<h3>'.get_the_title().'</h3>';
-                the_content();
-                
-            endwhile;
-                
+    <div class="container clearfix">
+        <div class="inerblock_serc_child about-page">
+            <div class="cc-breadcrumb">
+              <span class="cc-bread-current"><?php the_title(); ?></span>
+            </div><!-- end .cc-breadcrumb -->
+            <h1><?php the_title(); ?></h1>
+        </div><!-- end .innerblock_serc_child -->
+    </div><!-- end .container.clearfix -->
+</div><!-- end .child-innerpg -->
 
+<div class="faq-cont-blka">
+    <div class="container clearfix">
+        <div class="inerblock_sec">
+            <div class="col-md-3 no-pl">
+                <div class="clearfix"></div>
+            </div><!-- end .col-md-3.no-pl -->
 
-         else:
-          echo "Sorry no post found.";
-         endif;
+            <div class="col-md-9">
+                <div class="cbg_content">
+                    <?php the_content(); ?>
+                </div><!-- end .cbg_content -->
+            </div><!-- end .col-md-9 -->
 
+        </div><!--end .innerblock_sec -->
+    </div><!-- end .container.clearfix -->
+</div><!-- end .faq-cont-blka -->
 
-
-         ?>
-       </div>
-  </div>
-</div>
-<div class="clearfix"></div>
-
- <?php get_footer();
-
-
- ?>
+<?php get_footer(); ?>

@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* ============= 800px starts ============= */
+@media only screen and (max-width: 800px) {
+	
+	/* === GLOBAL === */
+	.container{
+		width: auto;
+	}
+	
+	/* Display none goes here */
+	.callinfo{
+		display: none;
+	}
+	/* Display none ends here */	
+
+	/* === GLOBAL End === */
+
+	/* === HEADER === */	
+	.banner .cc-logo-cntr{
+		max-width: 330px;
+		width: auto;
+	}
+	.banner .cc-logo-cntr img{
+		width: 100%;
+	}
+	.banner .header-search-cntr{
+		width: auto;
+		margin: 0;
+	}
+	.searchm {
+	    margin-top: 25px;
+	}
+	.searchm .input-group{
+		border: none;
+	}
+	.searchm .form-control{
+		height: 68px;
+	}
+	/* === HEADER End === */
+
+	/* === HOME PAGE === */
+	.slider{
+		min-width: inherit;
+	}
+	/* === HOME PAGE End === */
+
+}
+/* ============= 800px Ends ============= */
