@@ -235,74 +235,7 @@ $currentcat = get_queried_object();
     </div>
   </div>
 </div>
-<div class="inerblock_sec_a">
-  <div class="container clearfix you_may_link_cntr">
-    <h3 class="cc-idea-ad-title" style="text-align:center">IDEAS & ADVICE</h3>
-    <?php 
-$prourl = site_url();
-$prourl =explode('/',$prourl);
-if(strcasecmp($prourl[2], 'localhost')==0){
-$profaqid = '1700';
-$probuyid ='1827';
-$procareid ='1719';
-}
-else{
-$profaqid = '26729';
-$probuyid ='26701';
-$procareid ='26713';
-}
-?>
-    <?php $feat_image = wp_get_attachment_image_src( get_post_thumbnail_id($profaqid),'medium' );
-		if($feat_image){
-			$feat_image = $feat_image[0];
-			}
-	?>
-    <div class="you_may_like-content">
-      <div class="col-md-4">
-        <div class="pro_secone_a"> <a href="<?php echo get_the_permalink($probuyid);?>">
-          <div class="img_cntr_a" style="background-image:url('<?php echo $feat_image; ?>');"></div>
-          </a>
-          <div class="mero_itemss">
-            <div class="proabtxt"> <a href="<?php echo get_the_permalink($probuyid);?>">
-              <h4>BUYING GUIDE</h4>
-              <span><?php echo get_the_title($probuyid) ;?> </span></a> </div>
-            <div class="clearfix"></div>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-      </div>
-      <?php $feat_image = wp_get_attachment_url( get_post_thumbnail_id($probuyid) );?>
-      <div class="col-md-4">
-        <div class="pro_secone_a"> <a href="<?php echo get_the_permalink($profaqid);?>">
-          <div class="img_cntr_a" style="background-image:url('<?php echo $feat_image; ?>');"></div>
-          </a>
-          <div class="mero_itemss">
-            <div class="proabtxt"> <a href="<?php echo get_the_permalink($profaqid);?>">
-              <h4>FAQ'S</h4>
-              <span><?php echo get_the_title($profaqid) ;?></span></a> </div>
-            <div class="clearfix"></div>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-      </div>
-      <?php $feat_image = wp_get_attachment_url( get_post_thumbnail_id($procareid) );?>
-      <div class="col-md-4">
-        <div class="pro_secone_a"> <a href=" <?php echo get_the_permalink($procareid);?>">
-          <div class="img_cntr_a" style="background-image:url('<?php echo $feat_image; ?>');"></div>
-          </a>
-          <div class="mero_itemss">
-            <div class="proabtxt"> <a href="<?php echo get_the_permalink($profaqid);?>">
-              <h4>PRODUCT CARE</h4>
-              <span><?php echo get_the_title($profaqid) ;?></span></a> </div>
-            <div class="clearfix"></div>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-      </div>
-    </div>
-    <div class="clearfix"></div>
-  </div>
-</div>
+<?php get_template_part('templates/template','like');?>
 <div class="cc_background_image">
   <div class="container clearfix cc-cat-sub-desc-sec"> <?php echo  apply_filters('the_content', get_field('product_category_description',$current_cat));?> 
     <!--    <h3 style="">Modern Rugs</h3>

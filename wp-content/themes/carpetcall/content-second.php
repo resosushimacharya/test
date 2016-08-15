@@ -73,7 +73,7 @@ $args = array(
     'orderby'        => 'menu_order'
  );
 
-
+$page_id = get_the_ID();
 $parent = new WP_Query( $args );
 
   if( $parent->have_posts() ) {
@@ -81,7 +81,10 @@ $parent = new WP_Query( $args );
     while($parent->have_posts()){
         $parent->the_post();
         
-         echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). ' FAQ <i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+        $menu_class = '';
+        if( $page_id == $post->ID ) $menu_class .= ' class="current_page_item"';
+    
+         echo '<li' . $menu_class . '><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). ' FAQ <i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
     }# end-while
     echo '</ul>';
   }# end-if
