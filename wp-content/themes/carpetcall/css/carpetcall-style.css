@@ -434,7 +434,7 @@ ul.guide_list { margin:0; padding:0; }
 ul.guide_list li {list-style:none; display:block;}
 ul.guide_list li a {font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none;}
 ul.guide_list li a:hover { color:#FF0;}
-ul.guide_list .fa { color:#F00; float:left; margin:4px 5px 0 0;}
+ul.guide_list .fa { color:#F00; float:left; margin:3px 12px 0 0; font-size:18px;}
 .idea-left{padding-left: 20px;padding-right: 9px}
 .idea-right{padding-right: 20px;padding-left: 9px}
 
@@ -1522,3 +1522,5 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 .range_slider .slider{
 	min-width:150px;
 	}
+	
+.cont-panl .panel-body.panel-body-faq p { padding-left:20px; }
