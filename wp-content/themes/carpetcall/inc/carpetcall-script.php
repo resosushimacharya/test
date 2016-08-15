@@ -29,7 +29,7 @@ function carpetcall_scripts() {
 	wp_enqueue_script( 'bootstrap-slider-js');
 	wp_enqueue_style( 'bootstrap-slider-css');
 	if(is_page_template('page-calculator.php' ) || get_post_type()=='product'){
-		wp_enqueue_script( 'product-calculator', get_template_directory_uri().'/js/product-calculator.js', array(), false, false);
+		wp_enqueue_script( 'product-calculator', get_template_directory_uri().'/js/product-calculator.js', array('jquery'), false, false);
 	}
  wp_enqueue_script( 'jquery-sub', get_template_directory_uri().'/js/jquery-2.1.4.js', array(), false, false);
 wp_enqueue_script( 'modernizer', get_template_directory_uri().'/js/modernizr.custom.79639.js', array(), false, false);

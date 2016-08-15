@@ -450,6 +450,7 @@ div#right_col ol li, .cbg_content ol li, .cbg_content ul li {font:normal 16px/25
 .cbg_content h5 { margin-bottom:22px;}
 .cbg_content h5 span strong {font:bold 18px 'proxima_nova_ltsemibold', sans-serif;  color:#0099ff;}
 .cbg_content h3 {  color:#666666 !important; margin:0; font-family: 'proxima_nova_ltsemibold', sans-serif; font-size:16px !important; line-height:24px !important; font-weight:700 !important; text-transform:uppercase; margin-bottom:0 !important; }
+.page-template.page-template-template-ideas-and-advice-parent .ab_arrow { margin-right:6px;}
 
 /*........... expert trade start here ..............*/
 .trade { background:#e7edf8; }
@@ -520,13 +521,13 @@ li.clblk_a::before {content: '';}
 .calspll a:hover { color:#FFF; }
 .bcwfsp {font:normal 12px 'proxima_nova_ltsemibold', sans-serif; color:#fff; text-transform:uppercase; }
 .againlt ul { margin:25px 0 2px 0;}
-.againlt li { list-style:none; display:block; }
+.againlt li { list-style:none; display:block; margin-bottom: 5px; }
 .againlt li::before { content: '-'; color:#FFF;}
 .againlt li a, .againlt li { font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none;  }
 .againlt li a:hover, .againlt li:hover { color:#FF0; }
 .fot_cpy ul { margin: -1px 0 22px 0;}
 .fot_cpy li { list-style:none; display:inline-block; margin:-2px; }
-.fot_cpy li a {font:normal 11px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none; padding:0 5px; border-right:1px solid #FFF; }
+.fot_cpy li a {font:normal 11px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none; padding:0 5px; border-right:1px solid #FFF; text-transform: uppercase;}
 .fot_cpy li a.last-child { border-right:none;} 
 .fot_cpy li a:hover { color:#FF0;}
 .cpyrt {font:normal 11px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-transform:uppercase; border-right:1px solid #FFF; padding-right:6px; }
@@ -1398,7 +1399,7 @@ opacity: 0.5; background-image:url('../images/loading.gif'); background-position
 }
 div#calculator_container { border-bottom:1px solid #efefef; margin-bottom:18px; }
 .calculator_container .form-group .form-control { border:0; background:none; box-shadow:none; margin-top:35px; width:150px; font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666;}
-.single.single-product span#item_total_1 { color:#0099ff; }
+.single.single-product span { color:#0099ff; }
 .single.single-product .form-group.col-item-price { padding-right:0;}
 
 
@@ -1544,6 +1545,7 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 .cont-panl .panel-body.panel-body-faq p { padding-left:20px; }
 a.clear_color_selection{display:none}
 
+
 ul.page-list >li {
     width: 20%;
     display: inline-block;
@@ -1555,3 +1557,5 @@ ul.page-list >li {
 .sitemap-wrap ul li{ width:24%;}
 .sitemap-wrap ul li ul{    margin-bottom: 30px;}
 .sitemap-wrap ul li ul li{}
+.cc-void-field { width:100%; font-size:14px; margin-left:4px; color:#FF0000; }
+
