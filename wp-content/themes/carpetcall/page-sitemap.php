@@ -12,9 +12,9 @@
 
 <div class="faq-cont-blka">
     <div class="container clearfix">
-        <div class="inerblock_sec">
+        <div class="inerblock_sec clearfix">
             <div class="col-md-12">
-                <div class="cbg_content">
+                <div class="cbg_content sitemap-wrap clearfix">
                     <?php 
                         the_content();
                     ?>
