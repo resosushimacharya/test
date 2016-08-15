@@ -64,6 +64,7 @@ h3 {margin:0; font-size:18px; color:#0099ff;}
 h4 {margin:0; font-size:16px; color:#0099ff;} 
 h5 {margin:0; font-size:12px; color:#0099ff;}*/
 
+a { cursor: point; }
 p {margin: 2px 0; font:normal 0.875em/150% 'proxima_nova_rgregular', sans-serif; color:#333333;  }
 html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-size: 100%; background:#fff; color:#000; line-height:150%; }
 .no-pr{padding-right: 0}
@@ -498,10 +499,13 @@ li.clblk_a::before {content: '';}
 .fcnt-orr a:hover {background:#b51a1d;}
 .footlist .clblk_a { margin-top:19px !important;}
 .footlist .col-md-3 { padding-left:0px !important; margin-top:-2px;}
-.shp_blk, .shp_blk > a, .shp_blk > a span {
+/*
+	* commented to leave heading menu links follow same property ( heading is not title but link )
+*/
+/*.shp_blk, .shp_blk > a, .shp_blk > a span {
     cursor: default !important;
 }
-.shp_blk a:hover, .shp_blk a:hover span{color: #fff; text-decoration:none}
+.shp_blk a:hover, .shp_blk a:hover span{color: #fff; text-decoration:none}*/
 
 .social { margin:18px 0 0 0;}
 .social li { list-style:none; display:inline-block;}
