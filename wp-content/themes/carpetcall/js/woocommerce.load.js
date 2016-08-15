@@ -1,9 +1,40 @@
+$=jQuery.noConflict();
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip({html:true})
+	if( $('[data-toggle="tooltip"]').length){
+		$('[data-toggle="tooltip"]').tooltip({html:true});
+		}
+  
 })
-
-
 jQuery(document).ready(function($){
+
+if(jQuery("input#price_range_filter").length > 0){
+	jQuery("input#price_range_filter").slider().on('slide',(function(ev){
+		value = ev.value;
+		 jQuery('.range_slider .price_from').text(value[0]);
+		 jQuery('.range_slider .price_to').text(value[1]);
+		  })
+		  ).on('slideStop',function(){
+			  		jQuery('.cc-count-clear').show();
+					jQuery("#ajax_offset").val(0);
+					jQuery("#child_cat_count").val(1);
+					jQuery('#cc_load_more').attr('first','yes');
+
+			  	jQuery('#price_range_filter').val(jQuery('#price_range_filter').attr('data-value'));
+	
+	  	
+				cc_trigger_ajax_load(function(output){
+					output = jQuery.parseJSON(output);
+					jQuery('#category_slider_block_wrapper').html(output.html);
+						jQuery("#ajax_offset").val(output.offset);
+						jQuery("#child_cat_count").val(output.child_cat_count);
+						jQuery('.cat_slider.slick-slider').slick('unslick');
+						init_slick_slider();
+					});
+				
+	
+	});
+}
+
 
 $ = jQuery.noConflict();
 $(document).ready(function() {
@@ -173,7 +204,7 @@ jQuery(document).on('click','.cc-count-clear',function(){
 	jQuery('#child_cat_count').val(1);
 	jQuery('#ajax_offset').val(0);
 	jQuery('input.price_range').removeAttr('checked');
-	jQuery('#selected_price_ranges').val('');
+	jQuery('#price_range_filter').val('');
 	jQuery('input.size_option').removeAttr('checked');
 	jQuery('#selected_sizes').val('');
 	jQuery(this).hide();
@@ -191,7 +222,7 @@ jQuery(document).on('click','.cc-count-clear',function(){
 	});
 	
 	
-jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-price-var-sec .checkbox input[type=checkbox], .cc-size-var-sec .checkbox input[type=checkbox], .cc-product-sort a, .cc-price-var-items .checkbox input[type=checkbox]',function(event){
+jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-size-var-sec .checkbox input[type=checkbox], .cc-product-sort a, .cc-price-var-items .checkbox input[type=checkbox]',function(event){
 	jQuery('.cc-count-clear').show();
 	//var data = '';
 		jQuery("#ajax_offset").val(0);
@@ -223,26 +254,12 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-price-var-sec .che
 		init_slick_slider();
 	});
 	 //console.log(jQuery('.cc-tick-display:visible'));
-	}else if(jQuery(trig_ele).hasClass('price_range')){
+	}/*else if(jQuery(trig_ele).hasClass('price_range')){
 		jQuery('.price_range').each(function(index, element) {
             jQuery(this).prop('checked','');
         });
 		jQuery(trig_ele).prop('checked','checked');
 		jQuery('#selected_price_ranges').val(jQuery(trig_ele).val());
-		/*
-		jQuery('#selected_price_ranges').val('');
-		var price_range_comma_text ='';
-		var prepend = '';
-		jQuery('.price_range:checked').each(function(index, element) {
-			console.log(jQuery(element).val());
-			prepend = (price_range_comma_text == '')?'':',';
-           price_range_comma_text +=prepend+jQuery(element).val(); 
-		   jQuery('#selected_price_ranges').val(price_range_comma_text);
-		});
-		
-		*/
-		
-		
 	cc_trigger_ajax_load(function(output){
 	output = jQuery.parseJSON(output);
 	jQuery('#category_slider_block_wrapper').html(output.html);
@@ -251,7 +268,7 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-price-var-sec .che
 	jQuery('.cat_slider.slick-slider').slick('unslick');
 	init_slick_slider();
 	});
-}else if(jQuery(trig_ele).hasClass('size_option')){
+}*/else if(jQuery(trig_ele).hasClass('size_option')){
 		jQuery('#selected_sizes').val('');
 		var size_comma_text ='';
 		var prepend = '';
@@ -340,7 +357,7 @@ jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax
 	var depth  = $("#cat_depth").val();
 	var selected_colors  = $("#selected_colors").val();
 	var selected_sizes  = $("#selected_sizes").val();
-	var selected_price_ranges  = $("#selected_price_ranges").val();
+	var selected_price_ranges  = $("#price_range_filter").val();
 	var data = {
 				'action': 'show_category_slider_block' , 
 				'perpage':perpage,
