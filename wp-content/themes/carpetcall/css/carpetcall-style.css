@@ -1379,16 +1379,16 @@ opacity: 0.5; background-image:url('../images/loading.gif'); background-position
 .cc-cat-sub-desc-sec p span strong {font:700 20px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; }
 .cc-cat-sub-desc-sec ul { margin:0 0 0 17px; }
 .cc-cat-sub-desc-sec ul li {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-bottom:23px;}
-.panel-body-table table { width:100%; margin:15px 0; font:normal 15px 'proxima_nova_rgregular', sans-serif; color:#666666; border-spacing:4px; text-align:left; border-collapse: separate;
+.panel-body-table table, .cbg_content table { width:100%; margin:15px 0; font:normal 15px 'proxima_nova_rgregular', sans-serif; color:#666666; border-spacing:4px; text-align:left; border-collapse: separate;
 	 -webkit-margin-start: auto;
     -webkit-margin-end: auto;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
     border-left-width: 0px; }
-.panel-body-table tr.bg_table { background-color:#d0ebfd; }
-.panel-body-table td { vertical-align:top; line-height:30px; }
-.panel-body-table td strong { font-weight:700; color:#0e0e0e; padding-left:2px;}
+.panel-body-table tr.bg_table, .cbg_content tr { background-color:#d0ebfd; }
+.panel-body-table td, .cbg_content td { vertical-align:top; line-height:30px; }
+.panel-body-table td strong, .cbg_content td strong { font-weight:700; color:#0e0e0e; padding-left:2px;}
 .cc-smc-blk-title h3 { font-family:'proxima_nova_ltsemibold', sans-serif; font-size:30px !important; font-weight:bold; color:#15489f !important; text-transform:uppercase; margin:9px 0 10px 1px !important; }
 .cal_pro .container_1 .form-group.col-md-6 { padding:0; margin-bottom:20px; width:47.5%; }
 .cal_pro .container_1 .col-md-6 label {font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding-left:19px; margin:0;}
