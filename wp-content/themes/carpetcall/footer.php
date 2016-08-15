@@ -219,7 +219,8 @@ jQuery('#wpsl-search-btn').trigger('click');
 <?php }?>
  <script>
   jQuery(document).ready(function(){
-	  jQuery("input#price_range_filter").slider();
+	 
+	  
 	  
    /* jQuery('.cat_slider').slick({
           dots: true,
@@ -258,6 +259,4 @@ jQuery('#wpsl-search-btn').trigger('click');
           ]
         });*/
   });
-
-
   </script>

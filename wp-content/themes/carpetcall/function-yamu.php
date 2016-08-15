@@ -2,14 +2,6 @@
 if ( ! is_admin() ) {
     include ABSPATH . 'wp-admin/includes/template.php';
 }
-add_action( 'wp_enqueue_scripts', 'enqueeue_cc_req_scripts');
-function enqueeue_cc_req_scripts(){
-	wp_register_script( 'bootstrap-slider-js','https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.1.3/bootstrap-slider.min.js','','',true);
-	wp_register_style( 'bootstrap-slider-css','https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.1.3/css/bootstrap-slider.min.css');
-	wp_enqueue_script( 'bootstrap-slider-js');
-	wp_enqueue_style( 'bootstrap-slider-css');
-
-	}
 
 /*
 * Hook to remove add new product from admin bar menu
@@ -184,7 +176,7 @@ $args = wp_parse_args( $args, $defaults);
 			$args['size'] = explode(',',sanitize_text_field($_POST['size']));
 		}
 		if(isset($_POST['price']) && ($_POST['price'] !='')){
-			$args['price'] = explode(',',sanitize_text_field($_POST['price']));
+			$args['price'] = sanitize_text_field($_POST['price']);
 		}
 		if(isset($_POST['child_cat_count']) && ($_POST['child_cat_count'] !='')){
 			$args['child_cat_count'] = sanitize_text_field($_POST['child_cat_count']);
@@ -199,10 +191,10 @@ $args = wp_parse_args( $args, $defaults);
 	if(!empty($discats_org)){
 	if($depth == 0 ){
 		if(count($discats_org) > $child_cat_count){
-			
 		$discats_temp = array_slice($discats_org, $child_cat_count-1, 1);
 		$discats=get_terms(array('parent'=>$discats_temp[0]->term_id,'taxonomy'=>'product_cat'));
 		$discats = array_slice($discats,$offset,$perpage);
+	
 		if(!empty($discats)){
 		if($perpage > count($discats)){
 			$child_cat_count++;
@@ -367,18 +359,16 @@ $args = wp_parse_args( $args, $defaults);
 	
 	
 	
-	if($price !='' && !empty($price)){
-		//$price_range_query = array( 'relation' => 'OR' );
-		foreach($price as $range){
-			$range_arr = explode('-',$range);
-			$price_range_query[] = array(
+	if($price !='' ){
+			$range_arr = explode(',',$price);
+			$filargs['meta_query'][] = array(
 										 'key' => '_regular_price', 
 										 'value' => $range_arr,
 										 'type'	=>	'NUMERIC',
 										 'compare' => 'BETWEEN'
 										  );
-		}
 	}
+	
 	if($color_meta_query !=''){
 		$filargs['meta_query'][]=$color_meta_query;
 		}
@@ -394,7 +384,6 @@ $args = wp_parse_args( $args, $defaults);
 
 	wp_reset_postdata();
 	$pch = 1;
-	
 	$all_products = new WP_Query($filargs);
 	if($all_products->post_count > 0){
 		$grp_prods = array();
@@ -465,7 +454,10 @@ $args = wp_parse_args( $args, $defaults);
 	foreach($proGalId as $imgid){
 		$proImageName = wp_get_attachment_url($imgid);
 		if(preg_match("/\_V/i", $proImageName)){
-			$feat_image = wp_get_attachment_url($imgid);
+			$feat_image = wp_get_attachment_image_src($imgid,'full');
+			if($feat_image){
+				$feat_image = $feat_image[0];
+				}
 			}
 		}
 	if($feat_image ==''){
@@ -513,7 +505,10 @@ $args = wp_parse_args( $args, $defaults);
 	foreach($proGalId as $imgid){
 		$proImageName = wp_get_attachment_url($imgid);
 		if(preg_match("/\_V/i", $proImageName)){
-			$feat_image = wp_get_attachment_url($imgid);
+			$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
+			if($feat_image){
+				$feat_image = $feat_image[0];
+				}
 			}
 		}
 		
@@ -607,7 +602,7 @@ $args = wp_parse_args( $args, $defaults);
 			$args['depth'] = sanitize_text_field($_POST['depth']);
 		}
 		if(isset($_POST['price']) && ($_POST['price'] !='')){
-			$args['price'] = explode(',',sanitize_text_field($_POST['price']));
+			$args['price'] = sanitize_text_field($_POST['price']);
 		}
 		if(isset($_POST['child_cat_count']) && ($_POST['child_cat_count'] !='')){
 			$args['child_cat_count'] = sanitize_text_field($_POST['child_cat_count']);
@@ -660,7 +655,6 @@ $args = wp_parse_args( $args, $defaults);
 		}else{
 			if($child_cat_count == 1){
 			$cats_slice = array_slice($discats_org, $offset, $perpage);
-			//do_action('pr',$cats_slice);
 			$offset = $offset+$perpage;
 			}else{
 				$cats_slice = '';
@@ -675,7 +669,6 @@ $args = wp_parse_args( $args, $defaults);
 		$ret['html'] = '';
 		$ret['child_cat_count'] = $child_cat_count+1;
 		$ret['offset'] = 0;
-		//No more products found
 		}else{
 	$loopcounter = 0;
 	foreach($cats_slice as $discat){
@@ -712,28 +705,19 @@ $args = wp_parse_args( $args, $defaults);
 
 	$price_range_query = '';
 	
-	if($price !='' && !empty($price)){
-		foreach($price as $range){
-			$range_arr = explode('-',$range);
-			$price_range_query[] = array(
+	if($price !='' ){
+			$range_arr = explode(',',$price);
+			$filargs['meta_query'][] = array(
 										 'key' => '_regular_price', 
 										 'value' => $range_arr,
 										 'type'	=>	'NUMERIC',
 										 'compare' => 'BETWEEN'
 										  );
-		}
 	}
-	if($price_range_query !=''){
-		foreach($price_range_query as $range_query){
-			$filargs['meta_query'][]=$range_query;
-			}
-		
-		}
-
 	wp_reset_postdata();
 	$pch = 1;
 	//$all_products = new WP_Query($filargs);
-	
+	//do_action('pr',$filargs);
 	$filloop = new WP_Query($filargs);
 	if($filloop->post_count==0){
 		$filloop = '';

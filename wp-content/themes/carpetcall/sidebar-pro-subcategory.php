@@ -6,7 +6,8 @@
     */
     $term_id =  get_queried_object()->term_id;
    
-    $prosubcats=get_terms(array('child'=>$term_id,'taxonomy'=>'product_cat'));
+    $prosubcats=get_term_children($term_id,'product_cat');
+	$taxonomy = 'product_cat';
 	//$prosubcats=get_term_children($term_id,'product_cat');
 	//do_action('pr',$prosubcats)
 	?>
@@ -15,14 +16,13 @@
     
     <h3>Categories</h3>
     
-    <?php 
+   <?php 
     foreach($prosubcats as $psc)
     {
-        $exclude_cat=get_terms(array('parent'=>$psc->term_id,'taxonomy'=>'product_cat'));
-
-        if($psc->parent!=0 &&  count($exclude_cat)!=0){
-        echo '<li><a href="'.get_category_link($psc->term_id).'">'.$psc->name.'<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';}
-       
+		$term = get_term_by( 'id', $psc, $taxonomy );
+		if($term->parent == $term_id){
+		 echo '<li><a href="'.get_term_link($term,$taxonomy).'">'.$term->name.'<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+		}
        } ?>
     </ul>
     
@@ -181,9 +181,53 @@
     <div id="collapse_price" class="panel-collapse collapse in">
       <div class="panel-body">
         <div class="cc-price-var-items">
+      <?php 
+		$args_min = array(
+							'post_type'=>'product',
+							'posts_per_page'	=>1,
+							'tax_query'	=>array(
+									 array(
+										'taxonomy' => 'product_cat',
+										'field' => 'id',
+										'terms' => $term_id,
+										'include_children' => true,
+										'operator' => 'IN'
+										),
+								),
+							'meta_key'		=>'_regular_price',
+							'orderby'		=>'meta_value_num',
+							'order'			=>'ASC'
+						);
+		$args_max = array(
+							'post_type'=>'product',
+							'posts_per_page'	=>1,
+							'tax_query'	=>array(
+									 array(
+										'taxonomy' => 'product_cat',
+										'field' => 'id',
+										'terms' => $term_id,
+										'include_children' => true,
+										'operator' => 'IN'
+										),
+								),
+							'meta_key'		=>'_regular_price',
+							'orderby'		=>'meta_value_num',
+							'order'			=>'DESC'
+						);
+		wp_reset_postdata();
+		$min_prod = get_posts($args_min);
+		$max_prod = get_posts($args_max);
+		
+		$min_price_prod = wc_get_product($min_prod[0]->ID);
+		$max_price_prod = wc_get_product($max_prod[0]->ID); 
+		
+		
+		?>
+        
       
+      <div class="range_slider"><b>A$ <span class="price_from"><?php echo $min_price_prod->get_price()?></span> </b><input id="price_range_filter" type="text" data-slider-min="<?php echo $min_price_prod->get_price()?>" data-slider-max="<?php echo $max_price_prod->get_price()?>" data-slider-step="1" data-slider-value="[<?php echo $min_price_prod->get_price()?>,<?php echo $max_price_prod->get_price()?>]"/><b>A$ <span class="price_to"><?php echo $max_price_prod->get_price()?></span></b></div> 
       
-         <form role="form">
+         <?php /*?><form role="form">
     <div class="checkbox">
       <input type="checkbox" class="price_range" value="0-200"><label>$0 - $200</label>
     </div>
@@ -202,7 +246,7 @@
      <div class="checkbox">
       <input type="checkbox" class="price_range" value="1000-999999"><label>$1000+</label>
     </div>
-  </form>
+  </form><?php */?>
 
         </div>
       </div>

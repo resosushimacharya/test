@@ -98,12 +98,3 @@ add_action('wp_ajax_woo_load', 'woo_load');
 add_action('wp_ajax_nopriv_woo_load', 'woo_load');
 
 
-add_action( 'wp_enqueue_scripts', 'wooocommerce_scripts' );
-function wooocommerce_scripts(){
-	wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', '',true);
-		wp_enqueue_script('jquery');
-	wp_register_script('woo-load-autocomplete', get_template_directory_uri(). '/js/woocommerce.load.js', '',true);
-
-wp_enqueue_script('woo-load-autocomplete');
-wp_localize_script( 'woo-load-autocomplete', 'woo_load_autocomplete', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
-}

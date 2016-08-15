@@ -16,6 +16,23 @@ show_admin_bar(true);
       * global variable for store listing counter
       * used on file: inc/carpetcall-contact-information.php
     */
+	
+add_action( 'wp_enqueue_scripts', 'wooocommerce_scripts' );
+function wooocommerce_scripts(){
+	wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', '',true);
+		wp_enqueue_script('jquery');
+		
+		wp_register_script( 'bootstrap-slider-js','https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.1.3/bootstrap-slider.min.js',array('jquery'),'',true);
+	wp_register_style( 'bootstrap-slider-css','https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.1.3/css/bootstrap-slider.min.css');
+	wp_enqueue_script( 'bootstrap-slider-js');
+	wp_enqueue_style( 'bootstrap-slider-css');
+
+	wp_register_script('woo-load-autocomplete', get_template_directory_uri(). '/js/woocommerce.load.js', array('jquery'),'',true);
+
+wp_enqueue_script('woo-load-autocomplete');
+wp_localize_script( 'woo-load-autocomplete', 'woo_load_autocomplete', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+}
+
     require_once('recaptchalib.php');
   require_once('function-yamu.php');
   acf_add_options_sub_page('Labeling');

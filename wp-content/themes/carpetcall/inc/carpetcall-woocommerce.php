@@ -402,69 +402,70 @@ function woo_new_product_tab_accesories() {
 							setup_postdata($post);
 							?>
 							<div class="acc_list_item col-md-3 <?php echo $acc_cat->slug?>">
-                            	<div class="acc_info_wrap" data-toggle="modal" data-target="#accinfo_<?php echo get_the_ID()?>_<?php echo $acc_cat->slug;?>">
-                                <div class="acc_thumb">
-									<?php echo get_the_post_thumbnail($acc_product->ID,'thumbnail')?>
+								<div class="accessories_innner_wrap">
+                                    <div class="acc_info_wrap" data-toggle="modal" data-target="#accinfo_<?php echo get_the_ID()?>_<?php echo $acc_cat->slug;?>">
+                                    <div class="acc_thumb">
+                                        <?php echo get_the_post_thumbnail($acc_product->ID,'thumbnail')?>
+                                    </div>
+                                    <h3 class="acc_title_n_cat">
+                                    <span class="acc_title"><a href="javascript:void(0)"><?php _e($acc_product->post_title,'carpetcall');?></a></span> 
+                                    <span class="acc_subcat">
+                                    <?php 
+                                    $categories = get_the_terms($acc_product->ID, 'product_cat' ); 
+                                    // wrapper to hide any errors from top level categories or products without category
+                                    if ( $categories ) : 
+                                        // loop through each cat
+                                        foreach($categories as $category) :
+                                        
+                                          // get the children (if any) of the current cat
+                                          $children = get_categories( array ('taxonomy' => 'product_cat', 'parent' => $category->term_id ));
+                                          if ( count($children) == 0 ) {
+                                              // if no children, then echo the category name.
+                                              echo '<a href="javascript:void(0)">'.$category->name.'</a>';
+                                              break;
+                                          }
+                                        endforeach;
+                                    
+                                    endif;
+                                    
+                                    ?>
+                                    
+                                    </span>
+                                    </h3>
+                                   
+                                    <span class="acc_price">
+                                        <?php echo $product->get_price_html();?>
+                                    </span>
+                                    </div>
+                                    <div class="acc_qnty">
+                                    <?php 
+                                    if($acc_cat->slug == 'underlay'){
+                                    $tpm_ratio = get_field('tpm_ratio',get_the_ID())?get_field('tpm_ratio',get_the_ID()):1;	
+                                    $rec_qty = ceil(get_field('size_m2',$current_loaded_product->id)/(get_field('tpm_ratio',get_the_ID())?get_field('tpm_ratio',get_the_ID()):1));
+                                    
+                                    }else{
+                                        $rec_qty='';}?>
+                                        <div class="rec_qty_wrap"><span class="acc_qty_lbl"><?php echo ($rec_qty=='')?'':'Rec'?> Qty: </span> 
+                                        <span class="acc_rec_qty" tpm_ratio="<?php echo $tpm_ratio?>"><?php echo $rec_qty?></span></div><?php
+                                        echo woocommerce_quantity_input( array( 'min_value' => 0, 'max_value' => $product->backorders_allowed() ? '' : max(20,$product->get_stock_quantity())) );
+                                        ?>
+                                    </div>
+                                    <?php $x=do_shortcode('[add_to_cart_url id="'.$acc_product->ID.'"]');?>
+                                    <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $acc_product->ID;?>" class="button product_type_simple col-md-12 acc_add_to_cart" >ADD TO CART</a>
+                                    <div class="modal fade" tabindex="-1" role="dialog" id="accinfo_<?php echo get_the_ID()?>_<?php echo $acc_cat->slug;?>">
+                                    <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <span aria-hidden="true" class="close" data-dismiss="modal">&times;</span>
+                                    <h4 class="modal-title"><?php the_title()?></h4>
+                                    </div>
+                                    <div class="modal-body">
+                                    <?php the_content();?>
+                                    </div>
+                                    </div>
+                                    </div>
+                                </div>
 								</div>
-                                <h3 class="acc_title_n_cat">
-                                <span class="acc_title"><a href="javascript:void(0)"><?php _e($acc_product->post_title,'carpetcall');?></a></span> 
-                                <span class="acc_subcat">
-								<?php 
-								$categories = get_the_terms($acc_product->ID, 'product_cat' ); 
-								// wrapper to hide any errors from top level categories or products without category
-								if ( $categories ) : 
-									// loop through each cat
-									foreach($categories as $category) :
-									
-									  // get the children (if any) of the current cat
-									  $children = get_categories( array ('taxonomy' => 'product_cat', 'parent' => $category->term_id ));
-									  if ( count($children) == 0 ) {
-										  // if no children, then echo the category name.
-										  echo '<a href="javascript:void(0)">'.$category->name.'</a>';
-										  break;
-									  }
-									endforeach;
-								
-								endif;
-								
-								?>
-                                
-                                </span>
-                                </h3>
-                               
-                                <span class="acc_price">
-                                	<?php echo $product->get_price_html();?>
-                                </span>
-                                </div>
-                                <div class="acc_qnty">
-                                <?php 
-								if($acc_cat->slug == 'underlay'){
-								$tpm_ratio = get_field('tpm_ratio',get_the_ID())?get_field('tpm_ratio',get_the_ID()):1;	
-								$rec_qty = ceil(get_field('size_m2',$current_loaded_product->id)/(get_field('tpm_ratio',get_the_ID())?get_field('tpm_ratio',get_the_ID()):1));
-								
-								}else{
-									$rec_qty='';}?>
-                                	<div class="rec_qty_wrap"><span class="acc_qty_lbl"><?php echo ($rec_qty=='')?'':'Rec'?> Qty: </span> 
-                                    <span class="acc_rec_qty" tpm_ratio="<?php echo $tpm_ratio?>"><?php echo $rec_qty?></span></div><?php
-									echo woocommerce_quantity_input( array( 'min_value' => 0, 'max_value' => $product->backorders_allowed() ? '' : max(20,$product->get_stock_quantity())) );
-									?>
-                                </div>
-                           		<?php $x=do_shortcode('[add_to_cart_url id="'.$acc_product->ID.'"]');?>
-                                <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $acc_product->ID;?>" class="button product_type_simple col-md-12 acc_add_to_cart" >ADD TO CART</a>
-                                
-                                <div class="modal fade" tabindex="-1" role="dialog" id="accinfo_<?php echo get_the_ID()?>_<?php echo $acc_cat->slug;?>">
-                                <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                	<span aria-hidden="true" class="close" data-dismiss="modal">&times;</span>
-                                <h4 class="modal-title"><?php the_title()?></h4>
-                                </div>
-                                <div class="modal-body">
-                                <?php the_content();?>
-                                </div>
-                                </div>
-                                </div>
-                            </div>
                             </div>
                             
                             <?php 
@@ -515,7 +516,7 @@ function woo_new_product_tab_guides(){
             </div>
             <div id="collapse_installtion_guide" class="panel-collapse collapse in">
                 <div class="panel-body panel-body-faq">
-                	<?php echo $installation_guide;?>
+                	<p><?php echo $installation_guide;?></p>
                 </div>
             </div>
             <div class="panel-heading">
@@ -528,7 +529,7 @@ function woo_new_product_tab_guides(){
             </div>
             <div id="collapse_maintainance_guide" class="panel-collapse collapse">
                 <div class="panel-body panel-body-faq">
-                	<?php echo $maintainance_guide;?>
+                	<p><?php echo $maintainance_guide;?></p>
                 </div>
             </div>
         </div>

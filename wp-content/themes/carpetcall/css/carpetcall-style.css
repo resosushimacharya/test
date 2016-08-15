@@ -235,7 +235,7 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .srch_pro .form-control { border:0; border-radius:0; padding: 21px 12px; height:48px; text-transform:uppercase; text-align:left; outline:none; }
 .srch_pro .btn-default { background-color:#FFF; border-color:#FFF; border-radius:0; padding:12px 12px;  outline:none;}
 .srch_pro .input-group-btn { margin:0; outline:0; box-shadow:none;}
-.curnloc { margin:10px 0; display:block; background:#15489f; }
+.curnloc { margin:10px 0; display:block; background:#15489f; text-align:center; }
 .curnloca a { padding:15px 20px; text-align:center; color:#FFF; font:bold 16px 'proxima_nova_rgregular', sans-serif; text-decoration:none; }
 .curnloca a:hover { background:#15489f; }
 
@@ -434,7 +434,7 @@ ul.guide_list { margin:0; padding:0; }
 ul.guide_list li {list-style:none; display:block;}
 ul.guide_list li a {font:normal 16px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none;}
 ul.guide_list li a:hover { color:#FF0;}
-ul.guide_list .fa { color:#F00;}
+ul.guide_list .fa { color:#F00; float:left; margin:4px 5px 0 0;}
 .idea-left{padding-left: 20px;padding-right: 9px}
 .idea-right{padding-right: 20px;padding-left: 9px}
 
@@ -1484,8 +1484,9 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 
 .single.single-product div#tab-accesories_tab, .single.single-product .panel.panel-default{ margin:0 !important;}
 .single.single-product a.accordion-toggle.first-acc-cat { margin-top:25px;}
-.acc_list_item.col-md-3.underlay {  padding:0 18px; width:231px; }
-.cont-panl.cc-pro-det-fb .acc_info_wrap { display:block; width:93%; clear:both; }
+.acc_list_item.col-md-3.underlay {  padding:0 10px;}
+.acc_list_item.col-md-3.underlay .accessories_innner_wrap { padding:0 25px; clear:both; }
+.cont-panl.cc-pro-det-fb .acc_info_wrap { display:block; clear:both; }
 .cont-panl.cc-pro-det-fb h3.acc_title_n_cat { margin-top:18px; display:inline-block; }
 .cont-panl.cc-pro-det-fb h3.acc_title_n_cat span.acc_title a {font:bold 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; text-decoration:none;}
 .cont-panl.cc-pro-det-fb h3.acc_title_n_cat span.acc_title a:hover { color:#000; cursor:pointer;}
@@ -1493,17 +1494,17 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 .cont-panl.cc-pro-det-fb h3.acc_title_n_cat span.acc_subcat a {font:normal 14px 'proxima_nova_rgregular', sans-serif; color:#087bda; text-transform:uppercase; text-decoration:none;}
 .cont-panl.cc-pro-det-fb h3.acc_title_n_cat span.acc_subcat a:hover { color:#666; cursor:pointer;}
 .cc-price-control h3 span.cc-sale-price-title {font:bold 14px 'proxima_nova_ltsemibold', sans-serif; color:#087bda; text-transform:uppercase;}
-.single.single-product .acc_qnty { display:inline-block; margin-top:2px; width:93%; line-height:45px;}
+.single.single-product .acc_qnty { display:block; margin-top:2px; line-height:45px;}
 
 .acc_qnty span.acc_qty_lbl, .acc_qnty span.acc_rec_qty {font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666666; }
 
 
-.acc_qnty .rec_qty_wrap { float:left; margin-right:25px;}
+.acc_qnty .rec_qty_wrap { float:left; margin-right:7px;}
 .acc_qnty .quantity.col-md-12 { width:88px; margin:0;}
-.single.single-product  select#quantity-control { width:50% !important;}
+.single.single-product  select#quantity-control { width:100% !important;}
 .single.single-product .panel-body.panel-body-faq.hf-faq { width:100%; margin:0; padding:0;}
-.single.single-product .panel.entry-content.wc-tab .panel-default>.panel-heading+.panel-collapse>.panel-body { padding:0 18px !important;}
-.single.single-product a.button.product_type_simple.col-md-12.acc_add_to_cart { width:93%; background:#c32428;}
+.single.single-product .panel.entry-content.wc-tab .panel-default>.panel-heading+.panel-collapse>.panel-body { padding:0px !important;}
+.single.single-product a.button.product_type_simple.col-md-12.acc_add_to_cart { width:93%; background:#c32428; float:none;}
 .single.single-product a.button.product_type_simple.col-md-12.acc_add_to_cart:hover { background:#df181d;}
 .single.single-product .panel.entry-content.wc-tab p{ margin:5px 36px 25px 20px;}
 
