@@ -516,7 +516,7 @@ function woo_new_product_tab_guides(){
             </div>
             <div id="collapse_installtion_guide" class="panel-collapse collapse in">
                 <div class="panel-body panel-body-faq">
-                	<?php echo $installation_guide;?>
+                	<p><?php echo $installation_guide;?></p>
                 </div>
             </div>
             <div class="panel-heading">
@@ -529,7 +529,7 @@ function woo_new_product_tab_guides(){
             </div>
             <div id="collapse_maintainance_guide" class="panel-collapse collapse">
                 <div class="panel-body panel-body-faq">
-                	<?php echo $maintainance_guide;?>
+                	<p><?php echo $maintainance_guide;?></p>
                 </div>
             </div>
         </div>

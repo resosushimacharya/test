@@ -454,7 +454,10 @@ $args = wp_parse_args( $args, $defaults);
 	foreach($proGalId as $imgid){
 		$proImageName = wp_get_attachment_url($imgid);
 		if(preg_match("/\_V/i", $proImageName)){
-			$feat_image = wp_get_attachment_url($imgid);
+			$feat_image = wp_get_attachment_image_src($imgid,'full');
+			if($feat_image){
+				$feat_image = $feat_image[0];
+				}
 			}
 		}
 	if($feat_image ==''){
@@ -502,7 +505,10 @@ $args = wp_parse_args( $args, $defaults);
 	foreach($proGalId as $imgid){
 		$proImageName = wp_get_attachment_url($imgid);
 		if(preg_match("/\_V/i", $proImageName)){
-			$feat_image = wp_get_attachment_url($imgid);
+			$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
+			if($feat_image){
+				$feat_image = $feat_image[0];
+				}
 			}
 		}
 		
