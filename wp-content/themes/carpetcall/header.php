@@ -221,193 +221,143 @@ function codeLatLng(lat, lng) {
 
 <?php wp_head();?>
 </head>
-<body <?php
-body_class();
-?> >
+<body <?php body_class(); ?> >
 
 <?php
 if(get_post_type() == 'product'){?>
-<div id="loading_overlay_div"></div>
-	<?php }
-
-?>
+    <div id="loading_overlay_div"></div>
+<?php } ?>
 
 <div class="container-fluid wrapper clearfix">
-  
     <div class="container-fluid banner clearfix">
-      <div class="container"><div class="row">
-          <div class="col-md-12">
-              <div class="col-md-4 no-lr"><div class="logo"><a href="<?php
-echo site_url();
-?>"> <img src="<?php
-echo get_theme_mod('carpet-logo');
-?>" alt="carpetcall" class="img-responsive"/> </a></div></div><!-- logo end -->
-                <div class="col-md-4">
-                <div class="searchm">
-                <?php
-get_search_form();
-?>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-4 no-lr cc-logo-cntr">
+                        <div class="logo">
+                            <a href="<?php echo site_url(); ?>"> 
+                                <img src="<?php echo get_theme_mod('carpet-logo'); ?>" alt="carpetcall" class="img-responsive"/> 
+                            </a>
+                        </div>
+                    </div><!-- logo end -->
+
+                    <div class="col-md-4 header-search-cntr">
+                        <div class="searchm">
+                        <?php get_search_form(); ?>
+                        </div>
+                    </div><!-- search end -->
+
+                    <div class="col-md-4 no-lr">
+                        <div class="callinfo">
+                            <?php $x=  get_field('telephone', '89',false);
+                            $x = preg_replace('/\s+/', '', $x);
+                            $x = preg_replace( '/^[0]{1}/', '', $x );
+                            $i = 1;
+                            $x = '+61'.$x;   ?>
+                            <h2 class="calme callmea">
+                                <a href="tel:<?php
+                                echo $x; ?>"><?php
+                                echo __( 'CALL ', 'carpetcall' ) . get_field('telephone', '89',false);
+
+                                ?> </a>
+                            </h2>
+                            <h3 class="subcl"><?php echo get_field('contact_label', '89',false); ?></h3>
+                            <div class="contblk">
+                                    <a href="<?php echo get_field('contact_url', '89'); ?>">
+                                    <?php echo get_field('contact_link_title', '89',false); ?>                                    
+                                </a>
+                            </div>
+                        </div>
+                    </div><!-- call info end -->
+
+                </div>
+
+                <div class="clearfix"></div><!-- header section end here ---->
+
+                <div class="navsrchblk clearfix">
+                    <div class="col-md-12">
+                        <div class="col-md-7 no-lr">
+                            <?php
+                                $defaults = array(
+                                    'theme_location' => 'header-menu',
+                                    'menu' => 'carpet_front',
+                                    'container' => 'div',
+                                    'container_class' => '',
+                                    'container_id' => 'cssmenu',
+                                    'menu_class' => '',
+                                    'menu_id' => '',
+                                    'echo' => true,
+                                    'fallback_cb' => '',
+                                    'link_before' => '',
+                                    'link_after' => '',
+                                    'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                    'depth' => 0,
+                                    'walker' => new JC_Walker_Nav_Menu()
+                                );
+                                wp_nav_menu($defaults);
+                            ?>
+                        </div><!-- menu end -->
+                        <!-- store finder begin -->
+                        <div class="col-md-3 no-lr">
+                            <div class="sfind">
+                                <?php get_template_part('content', 'store');  ?>
+                            </div>
+                        </div><!-- store finder end -->
+                        <div class="col-md-2 no-lr">
+                            <?php get_template_part('content', 'navwoo'); ?>
+                        </div><!-- my cart end -->
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div><!-- navi section end here -->
         </div>
-                </div><!-- search end -->
-                
-                <div class="col-md-4 no-lr">
-                <div class="callinfo">
-                <?php $x=  get_field('telephone', '89',false);
-   $x = preg_replace('/\s+/', '', $x);
-   $x = preg_replace( '/^[0]{1}/', '', $x );
-   $i = 1;
-   $x = '+61'.$x;   ?>
-                  <h2 class="calme callmea">
-                  <a href="tel:<?php
-                        echo $x; ?>"><?php
-echo __( 'CALL ', 'carpetcall' ) . get_field('telephone', '89',false);
-
-?> </a></h2>
-                    <h3 class="subcl"><?php
-echo get_field('contact_label', '89',false);
-?></h3>
-                     <div class="contblk"><a href="<?php
-echo get_field('contact_url', '89');
-?>">
-                     <?php
-echo get_field('contact_link_title', '89',false);
-?></a></div>
-                </div>
-                </div><!-- call info end -->
-                
-            </div><div class="clearfix"></div><!-- header section end here ---->
-           
- 
-            <div class="navsrchblk clearfix">
-            <div class="col-md-12">
-              <div class="col-md-7 no-lr">
-                <?php
-$defaults = array(
-        
-        'theme_location' => 'header-menu',
-        
-        'menu' => 'carpet_front',
-        
-        'container' => 'div',
-        
-        'container_class' => '',
-        
-        'container_id' => 'cssmenu',
-        
-        'menu_class' => '',
-        
-        'menu_id' => '',
-        
-        'echo' => true,
-        
-        'fallback_cb' => '',
-        
-        'link_before' => '',
-        
-        'link_after' => '',
-        
-        'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-        
-        'depth' => 0,
-        
-        'walker' => new JC_Walker_Nav_Menu()
-        
-        
-        
-);
-wp_nav_menu($defaults);
-?>
-
-
-
-
-                </div><!-- menu end -->
-                <!-- store finder begin -->
-                <div class="col-md-3 no-lr">
-                <div class="sfind">
-
-                  <?php
-                  
-get_template_part('content', 'store');
-?>
-                
-                </div>
-                </div><!-- store finder end -->
-                <div class="col-md-2 no-lr">
-                
-                 <?php
-get_template_part('content', 'navwoo');
-?>
-               
-                
-                
-                </div><!-- my cart end -->
-                
-                </div>
-                
-                
-                </div></div><div class="clearfix"></div><!-- navi section end here -->
-            
-            
-        </div></div>
-    </div><div class="clearfix"></div><!-- banner end -->
+    </div>
+</div>
+<div class="clearfix"></div><!-- banner end -->
 
 <input type="hidden" id="user_curr_loc_hide__">
 
 
-    <script type="text/javascript">
+<script type="text/javascript">
 
-     function load_minicart() {
-		 
-		jQuery('#cc-mini-cart-cntr').html('<li class="cc-loader-cntr"><i class="fa fa-spinner  fa-spin" aria-hidden="true"></i></li>');
+    function load_minicart() {
+        jQuery('#cc-mini-cart-cntr').html('<li class="cc-loader-cntr"><i class="fa fa-spinner  fa-spin" aria-hidden="true"></i></li>');
         jQuery.ajax({
             type: 'POST',
             url: "<?php echo admin_url('admin-ajax.php'); ?>",
             data: {
-
                 keyword: '123',
                 action: 'woocommerce_cc',
-
             },
-			dataType:"json",
+            dataType:"json",
             success: function(data) {
-			
-               // jQuery('#woo_control').html(data);
-				jQuery('#count').html(data.count);
-				jQuery('#counttest').html(data.count);
-				jQuery('#cc-mini-cart-cntr').html(data.ul_html);
+                // jQuery('#woo_control').html(data);
+                jQuery('#count').html(data.count);
+                jQuery('#counttest').html(data.count);
+                jQuery('#cc-mini-cart-cntr').html(data.ul_html);
                 ajax_count++;
-
             }
         });
-
-
     }
 
     jQuery(document).ready(function() {
-
         jQuery("#mywoosection").click(function(e) {
             load_minicart();
             jQuery('#after_dropdown').hide();
             $('.storefinder_cntr').removeClass('click-open');
             jQuery('#woo_control').show();
-
         });
     });
+
     var ajax_count = 0;
     jQuery(document).on('click', '.ajax_add_to_cart', function() {
-
         ajax_count = 1;
     });
-    jQuery(document).ajaxSuccess(function() {
 
+    jQuery(document).ajaxSuccess(function() {
         if (ajax_count == 1) {
             load_minicart();
-            
         }
-
-
-
     });
 
-    </script>
+</script>

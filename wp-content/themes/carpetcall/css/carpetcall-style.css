@@ -85,7 +85,7 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 .banner { background:#15489f; padding:17px 0 0 0; position:fixed; z-index:1000; width:100%;}
 .banner .col-md-12 {padding:0 20px;}
 .banner .col-md-4 { width:28.2%}
-.banner .col-md-12 .col-md-4:nth-child(2) { width:30.1%; margin:0 61px 0 21px; padding:0; }
+.banner .header-search-cntr { width:30.1%; margin:0 61px 0 21px; padding:0; }
 .banner .col-md-12 .col-md-4:nth-child(3) { width:32.4%;}
 
 .searchm { margin-top:11px;}
