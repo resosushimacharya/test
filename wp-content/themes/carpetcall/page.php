@@ -1,45 +1,34 @@
-<?php
-
- get_header();
-?>
-
+<?php get_header(); ?>
 <div class="child-innerpg">
-<div class="container clearfix">
-<div class="inerblock_serc_child">
-<?php
-$parent_title = get_the_title($post->post_parent);
-echo $parent_title;
-?>
-<?php if(empty( $post->post_parent)): ?>
-<?php 
-if(have_posts()):
+    <div class="container clearfix">
+        <div class="inerblock_serc_child about-page">
+            <div class="cc-breadcrumb">
+              <span class="cc-bread-current"><?php the_title(); ?></span>
+            </div><!-- end .cc-breadcrumb -->
+            <h1><?php the_title(); ?></h1>
+        </div><!-- end .innerblock_serc_child -->
+    </div><!-- end .container.clearfix -->
+</div><!-- end .child-innerpg -->
 
-    while(have_posts()):
-      the_post();
+<div class="faq-cont-blka">
+    <div class="container clearfix">
+        <div class="inerblock_sec">
+            <div class="col-md-3 no-pl">
+                <div class="clearfix"></div>
+            </div><!-- end .col-md-3.no-pl -->
 
-       the_title();
+            <div class="col-md-9">
+                <div class="cbg_content">
+                    <?php 
+                        if( is_page( 'sitemap' ) || is_page( 35294 ) )
+                            echo '<div class="cc-sitemap">' . get_the_content() . '</div>';
+                        else the_content();
+                    ?>
+                </div><!-- end .cbg_content -->
+            </div><!-- end .col-md-9 -->
 
-       the_content();
+        </div><!--end .innerblock_sec -->
+    </div><!-- end .container.clearfix -->
+</div><!-- end .faq-cont-blka -->
 
-    endwhile;
-
-
-	else:
-		echo "not found";
-
-
-	endif;
-
-?>
-<?php else: ?>
-	<?php get_template_part('content','second');?>
-<?php endif;?>	
-</div>
-</div>
-</div>
-<div class="clearfix"></div>
-
- <?php get_footer();
-
-
- ?>
+<?php get_footer(); ?>
