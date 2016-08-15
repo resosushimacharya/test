@@ -66,7 +66,7 @@ h5 {margin:0; font-size:12px; color:#0099ff;}*/
 
 a { cursor: point; }
 p {margin: 2px 0; font:normal 0.875em/150% 'proxima_nova_rgregular', sans-serif; color:#333333;  }
-html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-size: 100%; background:#fff; color:#000; line-height:150%; }
+html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-size: 100%; background:#fff; color:#000; line-height:150%; -webkit-font-smoothing: antialiased; font-variant:normal; -moz-osx-font-smoothing: grayscale; }
 .no-pr{padding-right: 0}
 .no-pl{padding-left: 0}
 .no-lr{padding:0;}
@@ -1392,7 +1392,8 @@ opacity: 0.5; background-image:url('../images/loading.gif'); background-position
    font:700 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; text-transform:uppercase;
 }
 div#calculator_container { border-bottom:1px solid #efefef; margin-bottom:18px; }
-.calculator_container .form-group .form-control { border:0; background:none; box-shadow:none; margin-top:35px; width:150px;}
+.calculator_container .form-group .form-control { border:0; background:none; box-shadow:none; margin-top:35px; width:150px; font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666;}
+.single.single-product span#item_total_1 { color:#0099ff; }
 .single.single-product .form-group.col-item-price { padding-right:0;}
 
 
@@ -1412,8 +1413,9 @@ div#calculator_container { border-bottom:1px solid #efefef; margin-bottom:18px; 
 
 .single.single-product button#confirm_calc { display:inline-block; border-color:transparent; background:#c32428; border-radius:0; width:170px; height:45px; font:700 14px 'proxima_nova_ltsemibold', sans-serif; color:#FFFFFF; text-transform:uppercase; text-decoration:none; margin-left:15px; margin-top:24px; }
 .single.single-product button#confirm_calc:hover { border-color:#c32428; background:none; color:#144a9f;}
-.single.single-product span.cc-cal-showup{font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase;}
-span#exceess_area_percent, span#total_area, span#no_of_packs { border:0; box-shadow:none; outline:0;}
+.single.single-product span.cc-cal-showup{font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase; display:inline-block; vertical-align:-8px;}
+span#exceess_area_percent, span#total_area, span#no_of_packs { border:0; box-shadow:none; outline:0; display:inline-block; vertical-align:-8px; font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; }
+
 
 
 a.btn-employment{
