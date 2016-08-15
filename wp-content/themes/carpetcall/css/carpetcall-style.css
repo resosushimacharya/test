@@ -1500,7 +1500,7 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 
 .acc_qnty .rec_qty_wrap { float:left; margin-right:25px;}
 .acc_qnty .quantity.col-md-12 { width:88px; margin:0;}
-.single.single-product  select#quantity-control { width:50% !important;}
+.single.single-product  select#quantity-control { width:100% !important;}
 .single.single-product .panel-body.panel-body-faq.hf-faq { width:100%; margin:0; padding:0;}
 .single.single-product .panel.entry-content.wc-tab .panel-default>.panel-heading+.panel-collapse>.panel-body { padding:0 18px !important;}
 .single.single-product a.button.product_type_simple.col-md-12.acc_add_to_cart { width:93%; background:#c32428;}
