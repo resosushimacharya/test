@@ -64,7 +64,7 @@ h3 {margin:0; font-size:18px; color:#0099ff;}
 h4 {margin:0; font-size:16px; color:#0099ff;} 
 h5 {margin:0; font-size:12px; color:#0099ff;}*/
 
-a { cursor: point; }
+a { cursor:pointer; }
 p {margin: 2px 0; font:normal 0.875em/150% 'proxima_nova_rgregular', sans-serif; color:#333333;  }
 html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-size: 100%; background:#fff; color:#000; line-height:150%; }
 .no-pr{padding-right: 0}
@@ -193,7 +193,8 @@ html, body{  font-weight:normal; font-family: 'proxima_nova_rgregular'; font-siz
 
 }
 .srch_pro .col-lg-12 { padding-right:20px; padding-left:20px; }
-.curlocate input  { background:#15489f; border:0; width:100%; padding:15px 20px; text-align:center; color:#FFF; font:bold 16px 'proxima_nova_rgregular', sans-serif; text-decoration:none; }
+.curlocate input  { background:#15489f; border:0; width:100%; padding:15px 20px; text-align:center; color:#FFF; font:bold 16px 'proxima_nova_rgregular', sans-serif; text-decoration:none;  }
+.curlocate input:hover{ background:#0a71cf;}
 .input-group  { width:100%; border:1px solid #a6a6a6;}
 ul#directory_list_id  {margin:10px 0; list-style:none; background:#fff; color:#000; font-size:16px;}
 ul#directory_list_id li { list-style: none; display:block; float:none; cursor:pointer; padding:0 10px; }
@@ -237,8 +238,8 @@ ul#directory_list_id li { list-style: none; display:block; float:none; cursor:po
 .srch_pro .btn-default { background-color:#FFF; border-color:#FFF; border-radius:0; padding:12px 12px;  outline:none;}
 .srch_pro .input-group-btn { margin:0; outline:0; box-shadow:none;}
 .curnloc { margin:10px 0; display:block; background:#15489f; text-align:center; }
-.curnloca a { padding:15px 20px; text-align:center; color:#FFF; font:bold 16px 'proxima_nova_rgregular', sans-serif; text-decoration:none; }
-.curnloca a:hover { background:#15489f; }
+.curnloca a { padding:15px 20px; text-align:center; color:#FFF; font:bold 16px 'proxima_nova_rgregular', sans-serif; text-decoration:none; width:100%;  }
+.curnloca a:hover { background:#0a71cf; text-decoration:none; } 
 
 /*........... carpetcall slide start here .................*/
 .carpetcall_slide { margin-top:145px; }
@@ -580,7 +581,7 @@ ul.guide_list_cbg li.current_page_item a { text-decoration: underline; text-deco
 .breadcrumbs, .breadcrumbs .home, .breadcrumbs .post.post-faqs-archive:hover { cursor:pointer;}
 .breadcrumbs { margin-bottom:12px;}
 .inerblock_sec_faq h3 {font:normal 36px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; border-bottom:1px solid #627ab2; display:inline-block; line-height:25px; margin-bottom:13px;}
-.ab_arrow { font-size:25px; margin-right:6px;}
+.ab_arrow { font-size:25px; /*margin-right:6px;*/}
 .inerblock_serc_child h1, .inerblock_serc h1{font:bold 36px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; border-bottom:1px solid #6383b9; display:inline-block; margin-bottom:12px; line-height:26px;}
 .inerblock_serc_child.about-page h1{ border-bottom: none; }
 img.alignright { margin:10px 0 10px 10px; float:right; padding:10px; border:1px solid #eeeeee;}
@@ -912,7 +913,7 @@ ul.cat_list li a:hover {color:#000;}
 /*..................... inner child section start here .....................*/
 
 .inerblock_serc_child { margin:145px 0 20px 0;}
-.inerblock_serc_child .cc-breadcrumb { padding-top:20px; padding-bottom:11px;}
+.inerblock_serc_child .cc-breadcrumb { padding:20px 0; font-size: 12px;line-height: 12px;}
 .inerblock_serc_child .cc-breadcrumb > span.cc-bread-root a, .inerblock_serc_child .cc-breadcrumb > span.cc-bread-parent a { font-size:12px; color:#15489f; text-transform:uppercase; text-decoration:none; margin:0 2px; }
 .inerblock_serc_child .cc-breadcrumb > span.cc-bread-root a:hover, .inerblock_serc_child .cc-breadcrumb > span.cc-bread-parent a:hover { cursor:pointer;}
 .inerblock_serc_child .cc-breadcrumb > span.cc-bread-current { font-size:12px; text-transform:uppercase; color:#666666; text-decoration:none; margin:0 2px; }
@@ -1215,7 +1216,7 @@ input#cc_control_map { background:#c32428; width:267px; height:45px; font:bold 1
 .inerblock_serc.cc-store-nsw-blk { margin: 145px 0 0 0; }
 .inerblock_serc.cc-store-nsw-blk .breadcrumbs { padding:20px 0; margin:0; cursor:text;}
 .inerblock_serc.cc-store-nsw-blk .breadcrumbs h4 { font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#666666; text-transform:uppercase; }
-.cc-locator-sub a {font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:none; margin-right:2px; }
+.cc-locator-sub a {font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#15489f; text-decoration:none; margin-right:5px; }
 .cc-locator-sub a:hover { text-decoration:none; color:#333; cursor:pointer;}
 .cc-locator-root a {font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#333333; text-decoration:none; margin-left:2px; cursor:text;}
 .tax-wpsl_store_category .wpsl-search { padding:0; background:none; }
@@ -1277,6 +1278,7 @@ span.wpsl-hf-street-b strong, span.wpsl-hf-street-c strong { color:#0099ff; }
 
 .inerblock_serc_cde.cc-locator-sec { margin:145px 0 0 0;}
 .cc-locator-title-sec-z { padding:19px 0 9px 0;}
+.cc-locator-title-sec-z h4{ font-size:12px; line-height:12px;}
 span.cc-locator-root a {font: normal 12px 'proxima_nova_rgregular', sans-serif; color: #15489f; text-decoration: none; margin:0 3px; }
 span.cc-locator-root a:hover {text-decoration: none; color: #333; cursor: pointer;}
 span.cc-locator-current a {font: normal 12px 'proxima_nova_rgregular', sans-serif; color: #333; text-decoration: none; margin-left:1px; cursor:text;}
