@@ -368,7 +368,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 .suptlst li { list-style:none; display:block; margin:-1px 0 0 2px;}
 .suptlst li::before { content: '-';}
 .suptlst li a , .suptlst li { font:normal 16px 'proxima_nova_rgregular', sans-serif; color:#666; text-decoration:none; text-transform:uppercase; padding-left:5px;}
-.suptlst li a:hover { color:#000;}
+.suptlst li a:hover, .suptlst li:hover { color:#000;}
 .cptin { display:inline-block; }
 .cptinn a {margin:42px 0 0 30px;  display:block; padding:10px 51px 11px 50px; background:#C32327; font:bold 18px 'proxima_nova_rgregular', sans-serif; text-decoration:none; color:#FFF; text-transform:uppercase; letter-spacing:1px; text-align:center; }
 .cptinn a:hover {background:#b01519;}
@@ -522,7 +522,7 @@ li.clblk_a::before {content: '';}
 .againlt li { list-style:none; display:block; }
 .againlt li::before { content: '-'; color:#FFF;}
 .againlt li a, .againlt li { font:normal 12px 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none;  }
-.againlt li a:hover { color:#FF0; }
+.againlt li a:hover, .againlt li:hover { color:#FF0; }
 .fot_cpy ul { margin: -1px 0 22px 0;}
 .fot_cpy li { list-style:none; display:inline-block; margin:-2px; }
 .fot_cpy li a {font:normal 11px/150% 'proxima_nova_rgregular', sans-serif; color:#fff; text-decoration:none; padding:0 5px; border-right:1px solid #FFF; }
@@ -597,7 +597,7 @@ ul.guide_list_cfaq li a { display:block; font:bold 14px/29px 'proxima_nova_ltsem
 .cbg_content .panel-group { margin:0 !important;}
 .panel-group .panel{ border-radius:0; border-left:0; border-right:0; border-top:0; border-bottom:1px solid #efefef; box-shadow:none; -webkit-box-shadow:none; padding-bottom:11px;}
 .faq-cont-blka .panel-default>.panel-heading, .faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body { background:none; border:none; border-radius:0; padding: 0}
-.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body{padding:0 35px 0 40px; font-size:18px; line-height:21px;}
+.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body{padding:0 35px 0 40px; font-size:18px; line-height:21px; margin-top: 10px;}
 .faq-cont-blka .panel-default>.panel-heading a{position: relative;width: 100%;display: block;padding:15px 15px 4px 15px; text-decoration:none; color:#0099ff; font:bold 18px 'proxima_nova_ltsemibold',sans-serif; text-transform:uppercase; }
 .faq-cont-blka .panel-body p {font:normal 18px/21px 'proxima_nova_rgregular', sans-serif; color:#666666; margin-right:30px;}
 .panel-group .panel+.panel { margin:0;}
