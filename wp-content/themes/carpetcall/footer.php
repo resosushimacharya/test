@@ -84,13 +84,14 @@
 
                 <h2 class="calcall"> “<?php echo bloginfo('description');?>” </h2>
                 <h3 class="calspl calspll">
-                  <?php $x=  get_field('telephone_link', '89',false);
-                     $x = preg_replace('/\s+/', '', $x);
+                  <?php 
+                     $telephone_link =  get_field('telephone_link', '89',false); 
+                     $x = preg_replace('/\s+/', '', $telephone_link);
                      $x = preg_replace( '/^[0]{1}/', '', $x );
                      $i = 1;
                      $x = '+61'.$x;   
                   ?>
-                  <a href="tel:<?php echo $x; ?>"><?php echo get_field('telephone_footer_title',89);?><a/>
+                  <a href="tel:<?php echo $x; ?>"><?php echo __( 'CALL ', 'carpetcall' ) . $telephone_link;?></a>
                 </h3>
                 <h4 class="bcwfsp"><?php echo get_field('footer_contact_title_label',89);?> </h4>
 
@@ -101,7 +102,7 @@
                         <?php
                             foreach($booklink as $singlelink){
 
-                                 echo '<li>' . $singlelink['ask_an_expert'] . '</li>';
+                                 echo '<li> ' . $singlelink['ask_an_expert'] . '</li>';
                             }
                         ?>
                     </ul>
@@ -110,7 +111,7 @@
                 <div class="clearfix"></div>
 
 <div class="fcnt-or fcnt-orr clearfix">
-  <a href="<?php echo get_field('contact_url','89'); ?>" target="_blank"> <?php echo get_field('contact_link_title','89'); ?></a>
+  <a href="<?php echo get_field('contact_url','89'); ?>" target="_blank"><?php echo get_field('contact_link_title','89'); ?></a>
 </div>
 
 </div><div class="clearfix"></div><!-- right footer end -->
