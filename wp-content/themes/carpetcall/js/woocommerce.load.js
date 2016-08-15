@@ -6,7 +6,7 @@ $(function () {
   
 })
 jQuery(document).ready(function($){
-
+jQuery('.acc_list_item .acc_qnty .quantity select.qty').val(0).trigger('click');
 if(jQuery("input#price_range_filter").length > 0){
 	jQuery("input#price_range_filter").slider().on('slide',(function(ev){
 		value = ev.value;
