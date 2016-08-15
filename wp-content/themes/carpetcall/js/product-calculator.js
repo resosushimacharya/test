@@ -150,8 +150,8 @@ function calculate_square(){
 		  var $estarea= $noofpacks*$covperpack;
 		  var $excarea=$estarea.toFixed(2) - $calarea;
 		 var  $excareaPer=$excarea/$calarea*100;
-		  
-		  $excareaPer=Math.ceil($excareaPer);
+		              
+		  $excareaPer=Math.ceil($excareaPer.toFixed(4));
 		 
 		   $("#exceess_area_percent").html($excareaPer);  
 		  $('#total_area').html($calarea);

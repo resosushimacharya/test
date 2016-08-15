@@ -433,7 +433,7 @@ function woo_new_product_tab_accesories() {
                                     </span>
                                     </h3>
                                    
-                                    <span class="acc_price">
+                                    <span class="acc_price small_price">
                                         <?php echo $product->get_price_html();?>
                                     </span>
                                     </div>

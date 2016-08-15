@@ -60,7 +60,7 @@ $(document).ready(function() {
 				  jQuery('.total_coverage .coverage_value').text((total_cov.toFixed(2)));
 				  jQuery('.acc_list_item.underlay .acc_rec_qty').each(function(index, element) {
                     if(jQuery(this).attr('tpm_ratio')){
-						jQuery(this).text(Math.ceil(parseInt(total_cov)/parseInt(jQuery(this).attr('tpm_ratio'))));
+						jQuery(this).text(Math.ceil(Number(total_cov)/Number(jQuery(this).attr('tpm_ratio'))));
 						}
                 });
 				  }
