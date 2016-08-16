@@ -441,7 +441,7 @@ endforeach;
 
                 	<select class="selectpicker col-md-6 form-control"  name="cc_state_type" id="cc-state-type">
                 	<option class="col-md-12" value="default">STATE</option>
-                      <?php  get_template_part('content', 'contact-state');
+                      <?php  get_template_part('templates/contact/content', 'contact-state');
                      ?>
 
                      </select>
@@ -453,7 +453,7 @@ endforeach;
                 	<select class="selectpicker col-md-6 form-control" name="cc_store_name" id="cc-store-name">
                      <option class="col-md-12" value="default">Select a Store</option>
 
-                         <?php  get_template_part('content', 'contact-store');
+                         <?php  get_template_part('templates/contact/content', 'contact-store');
                      ?>
 
                      </select>

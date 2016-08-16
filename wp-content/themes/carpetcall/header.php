@@ -300,11 +300,11 @@ if(get_post_type() == 'product'){?>
                         <!-- store finder begin -->
                         <div class="col-md-3 no-lr">
                             <div class="sfind">
-                                <?php get_template_part('content', 'store');  ?>
+                                <?php get_template_part('templates/contents/content', 'store');  ?>
                             </div>
                         </div><!-- store finder end -->
                         <div class="col-md-2 no-lr">
-                            <?php get_template_part('content', 'navwoo'); ?>
+                            <?php get_template_part('templates/contents/content', 'navwoo'); ?>
                         </div><!-- my cart end -->
                     </div>
                 </div>

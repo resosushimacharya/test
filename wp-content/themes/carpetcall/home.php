@@ -1,8 +1,8 @@
 
 <?php /* Template Name: design */
     get_header();
-    get_template_part('content', 'visualiser');
-    get_template_part('content', 'headings');?>
+    get_template_part('templates/contents/content', 'visualiser');
+    get_template_part('templates/contents/content', 'headings');?>
 
 <div class="container">
         <div class="calbk">
@@ -55,7 +55,7 @@
                                 <div class="responsive">
                                 <!-- product six end  -->
                                 <?php
-                                get_template_part('content', 'featured');
+                                get_template_part('templates/contents/content', 'featured');
                                 ?>
 
                                 </div><div class="clearfix"></div>
@@ -71,13 +71,13 @@
 </div>
 <div class="clearfix"></div><!-- featured product end here -->
 <!--ideas and advice strats here -->
-<?php get_template_part('content', 'idea'); ?>
+<?php get_template_part('templates/contents/content', 'idea'); ?>
 <!-- ideas and advice end here -->
 <!-- trade starts here -->
-<?php get_template_part('content', 'expert'); ?>        
+<?php get_template_part('templates/contents/content', 'expert'); ?>        
 <!-- trade end here -->
 
-<?php get_template_part('content', 'carpetmap'); ?><!-- about and visit content end here -->
+<?php get_template_part('templates/contents/content', 'carpetmap'); ?><!-- about and visit content end here -->
 
 <?php get_footer(); ?>
    
