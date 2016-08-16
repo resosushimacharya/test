@@ -324,7 +324,7 @@ $list = get_field('buying_guide_archive',$faqid );
     <div id="collapse_<?php echo $faqcounter;?>" class="panel-collapse collapse <?php echo ($faqcounter==1)?'in':'' ;?> ">
       <div class="panel-body panel-body-faq">
       
-        <p><?php echo $listitem['description']?></p>
+        <p class="faq_textarea"><?php echo $listitem['description']?></p>
       
       </div>
     </div>
