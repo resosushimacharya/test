@@ -1,8 +1,45 @@
 $=jQuery.noConflict();
+function init_slick_slider(){
+      jQuery('.cat_slider').slick({
+        dots: true,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows:false,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      });
+    }
+    
 $(function () {
 	if( $('[data-toggle="tooltip"]').length){
 		$('[data-toggle="tooltip"]').tooltip({html:true});
 		}
+    init_slick_slider();
   
 })
 jQuery(document).ready(function($){
@@ -16,7 +53,7 @@ if(jQuery("input#price_range_filter").length > 0){
 		  ).on('slideStop',function(){
 			  		jQuery('.cc-count-clear').show();
 					jQuery("#ajax_offset").val(0);
-					jQuery("#child_cat_count").val(1);
+					//jQuery("#child_cat_count").val(1);
 					jQuery('#cc_load_more').attr('first','yes');
 
 			  	jQuery('#price_range_filter').val(jQuery('#price_range_filter').attr('data-value'));
@@ -26,7 +63,7 @@ if(jQuery("input#price_range_filter").length > 0){
 					output = jQuery.parseJSON(output);
 					jQuery('#category_slider_block_wrapper').html(output.html);
 						jQuery("#ajax_offset").val(output.offset);
-						jQuery("#child_cat_count").val(output.child_cat_count);
+						//jQuery("#child_cat_count").val(output.child_cat_count);
 						jQuery('.cat_slider.slick-slider').slick('unslick');
 						init_slick_slider();
 					});
@@ -195,14 +232,14 @@ jQuery(document).on('click','.single-product .images .thumbnails img',function(e
 
 jQuery(document).on('click','.cc-product-sort a',function(){
 		jQuery("#ajax_offset").val(0);
-		jQuery("#child_cat_count").val(1);
+		//jQuery("#child_cat_count").val(1);
 		
 	});
 jQuery(document).on('click','.cc-count-clear',function(){
 	jQuery('a.clear_color_selection').hide();
 	jQuery('img.cc-tick-display').hide();
 	jQuery('#selected_colors').val('');
-	jQuery('#child_cat_count').val(1);
+	//jQuery('#child_cat_count').val(1);
 	jQuery('#ajax_offset').val(0);
 	jQuery('input.price_range').removeAttr('checked');
 	jQuery('#price_range_filter').val('');
@@ -218,14 +255,14 @@ jQuery(document).on('click','.cc-count-clear',function(){
 	});
 
 	jQuery("#ajax_offset").val(output.offset);
-	jQuery("#child_cat_count").val(output.child_cat_count);
+	//jQuery("#child_cat_count").val(output.child_cat_count);
 
 	});
 jQuery(document).on('click','a.clear_color_selection',function(){
 
 	jQuery('img.cc-tick-display').hide();
 	jQuery('#selected_colors').val('');
-	jQuery('#child_cat_count').val(1);
+	//jQuery('#child_cat_count').val(1);
 	jQuery('#ajax_offset').val(0);
 	jQuery(this).hide();
 	cc_trigger_ajax_load(function(output){
@@ -237,7 +274,7 @@ jQuery(document).on('click','a.clear_color_selection',function(){
 	});
 
 	jQuery("#ajax_offset").val(output.offset);
-	jQuery("#child_cat_count").val(output.child_cat_count);
+	//jQuery("#child_cat_count").val(output.child_cat_count);
 
 		});
 	
@@ -246,7 +283,7 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-size-var-sec .chec
 	jQuery('.cc-count-clear').show();
 	//var data = '';
 		jQuery("#ajax_offset").val(0);
-		jQuery("#child_cat_count").val(1);
+		//jQuery("#child_cat_count").val(1);
 		jQuery('#cc_load_more').attr('first','yes');
 
 	var trig_ele = event.target;
@@ -275,7 +312,7 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-size-var-sec .chec
 		output = jQuery.parseJSON(output);
 		jQuery('#category_slider_block_wrapper').html(output.html);
 			jQuery("#ajax_offset").val(output.offset);
-			jQuery("#child_cat_count").val(output.child_cat_count);
+			//jQuery("#child_cat_count").val(output.child_cat_count);
 		jQuery('.cat_slider.slick-slider').slick('unslick');
 		init_slick_slider();
 	});
@@ -308,7 +345,7 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-size-var-sec .chec
 	output = jQuery.parseJSON(output);
 	jQuery('#category_slider_block_wrapper').html(output.html);
 			jQuery("#ajax_offset").val(output.offset);
-			jQuery("#child_cat_count").val(output.child_cat_count);
+			//jQuery("#child_cat_count").val(output.child_cat_count);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
 	init_slick_slider();
 	});
@@ -332,7 +369,7 @@ else if(jQuery(trig_ele).parent().hasClass('sort_key')){
 	output = jQuery.parseJSON(output);
 	jQuery('#category_slider_block_wrapper').html(output.html);
 			jQuery("#ajax_offset").val(output.offset);
-			jQuery("#child_cat_count").val(output.child_cat_count);
+			//jQuery("#child_cat_count").val(output.child_cat_count);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
 	init_slick_slider();
 	});	
@@ -361,7 +398,7 @@ if(is_first == 'yes'){
 jQuery('#category_slider_block_wrapper').append(output.html);
 jQuery("#cc_load_more").attr('first','no');	
 
-jQuery("#child_cat_count").val(output.child_cat_count);
+//jQuery("#child_cat_count").val(output.child_cat_count);
 jQuery("#ajax_offset").val(output.offset);
 jQuery('.cat_slider.slick-slider').slick('unslick');
 init_slick_slider();
@@ -376,7 +413,7 @@ $("body, .banner ").addClass('ovelay_hidden_class'); // Disabling the Scroll whi
 jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax call
 	var perpage  = jQuery('#perpage_var').val();
 	var cat_id = $("#ajax_cat_id").val();
-	var child_cat_count = $('#child_cat_count').val();
+	//var child_cat_count = $('#child_cat_count').val();
 	var offset = $("#ajax_offset").val();
 	var sort_by  = $("#ajax_sort_by").val();
 	var sort_order  = $("#ajax_sort_order").val();
@@ -385,10 +422,10 @@ jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax
 	var selected_sizes  = $("#selected_sizes").val();
 	var selected_price_ranges  = $("#price_range_filter").val();
 	var data = {
-				'action': 'show_category_slider_block' , 
+				'action': jQuery('#cc_load_more').attr('callto'), 
 				'perpage':perpage,
 				'cat_id':cat_id,
-				'child_cat_count':child_cat_count,
+				//'child_cat_count':child_cat_count,
 				'offset':offset,
 				'sort_by':sort_by,
 				'sort_order':sort_order,

@@ -652,7 +652,7 @@ endforeach;
             <!-- <div id="dialog_list_id_s"></div> -->
             
             <div class="nearstore " id="dialog_list_id_s"> 
-            <div class="col-md-12">
+            <div class="cc-pul-headoff">
             	<?php
               $args = array(
                 'post_type' => 'wpsl_stores',
@@ -667,7 +667,7 @@ endforeach;
                   $loop->the_post();
                  $temp = get_post_meta($loop->post->ID);
                  ?>
-                  <div class="col-md-4 no-lr">
+                  <div class="col-md-4 pul-sec-cc">
                     <div class="str-one">
                       <h4><?php 
                       

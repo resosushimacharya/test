@@ -32,7 +32,7 @@ $tax = 'product_cat';
                      <?php  if(($woo['_featured'][0]=='yes') && (strcasecmp($woo['_stock_status'][0],'instock')==0)){ ?>
                    <div class="pro_for">
                   <?php if($feat_image!=''){?>
-                  <div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div>
+                  <div class="img_cntr_home" style="background-image:url('<?php echo $feat_image; ?>');"></div>
                   <?php }
                   else{ ?>
                   <div class="img_cntr cc-featured_no_image" style="background-image:url('http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png');"></div>
