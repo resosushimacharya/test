@@ -344,7 +344,7 @@ $list = get_field('buying_guide_archive',$faqid );
 					
 				</div>
   <div class="cc-tab-faq-read-more">
-  	<p>For more answers to your questions, please refer to our <a href="<?php echo get_the_permalink($faqid ); ?>"><?php echo $rootname; ?> FAQ </a> page.</p>
+  	<p class="faq_read_more_para">For more answers to your questions, please refer to our <a href="<?php echo get_the_permalink($faqid ); ?>"><?php echo $rootname; ?> FAQ </a> page.</p>
   </div>
 <?php	
 }
@@ -525,7 +525,7 @@ function woo_new_product_tab_guides(){
             </div>
             <div id="collapse_installtion_guide" class="panel-collapse collapse in">
                 <div class="panel-body panel-body-faq">
-                	<p><?php echo $installation_guide;?></p>
+                	<p class="cc-care_inst"><?php echo $installation_guide;?></p>
                 </div>
             </div>
             <div class="panel-heading">
@@ -538,7 +538,7 @@ function woo_new_product_tab_guides(){
             </div>
             <div id="collapse_maintainance_guide" class="panel-collapse collapse">
                 <div class="panel-body panel-body-faq">
-                	<p><?php echo $maintainance_guide;?></p>
+                	<p cc-care_inst><?php echo $maintainance_guide;?></p>
                 </div>
             </div>
         </div>
