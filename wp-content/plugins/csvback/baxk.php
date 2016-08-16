@@ -175,6 +175,7 @@ function  csv_import_rugs($csv)
 		update_post_meta( $new_post_id, '_regular_price', $csv[16] );
 		update_post_meta( $new_post_id, '_sale_price', $csv[18] );
 		update_post_meta( $new_post_id, '_price', $csv[18] );
+		update_post_meta( $new_post_id, 'total_sales', 0);
 		update_post_meta($new_post_id,'state',$csv[0]);
 		update_post_meta( $new_post_id, '_visibility', 'visible' );
 		update_post_meta( $new_post_id, '_length', $length);
@@ -421,7 +422,7 @@ function  csv_import_rugs($csv)
        $length  = str_replace("mm","",$csv[12]);
        $thick = str_replace("mm","",$csv[15]);
 		update_post_meta( $new_post_id, '_regular_price', $csv[44] );
-		/*update_post_meta( $new_post_id, '_sale_price', $csv[44] );*/
+		update_post_meta( $new_post_id, 'total_sales', 0);
 		update_post_meta( $new_post_id, '_price', $csv[44] );
 		update_post_meta($new_post_id,'state',$csv[0]);
 		update_post_meta( $new_post_id, '_visibility', 'visible' );
