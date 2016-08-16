@@ -623,7 +623,7 @@ wp_reset_postdata();
             </tr>
         	<tr class="odd">
             	<td><?php _e('Coverage Per Pack: ','carpetcall')?></td>
-            	<td><?php _e(get_field('size_m2',get_the_ID())?get_field('size_m2',get_the_ID()):'N/A','carpetcall')?></td>
+            	<td><?php _e(get_field('size_m2',get_the_ID())?get_field('size_m2',get_the_ID()).'sqm/pack':'N/A','carpetcall')?></td>
             </tr>
         </table>
       </div>

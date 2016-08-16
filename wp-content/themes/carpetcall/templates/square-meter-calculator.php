@@ -121,7 +121,7 @@
   </div>
 </div>
 <div class="row">
-	<div class="col-sm-12 " id="error_max_msg"></div>
+    <div class="col-sm-12 " id="error_max_msg"></div>
 </div>
             
             

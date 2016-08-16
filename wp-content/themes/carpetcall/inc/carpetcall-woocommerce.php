@@ -513,7 +513,7 @@ function woo_new_product_tab_guides(){
 	$maintainance_guide = get_field('care_instructions');
 	?>
     <div class="cont-panl">
-        <div class="panel-group" id="accordion_guides">
+        <div class="panel-group" id="accordion_guides_inst">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
@@ -525,9 +525,15 @@ function woo_new_product_tab_guides(){
             </div>
             <div id="collapse_installtion_guide" class="panel-collapse collapse in">
                 <div class="panel-body panel-body-faq">
-                	<p class="cc-care_inst"><?php echo $installation_guide;?></p>
+                	<p class="cc-care-inst-g"><?php echo $installation_guide;?></p>
                 </div>
             </div>
+           
+        </div>
+        </div>
+        <div class="panel-group" id="accordion_guides_main">
+        <div class="panel panel-default">
+            
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_guides" href="#collapse_maintainance_guide">
@@ -538,7 +544,7 @@ function woo_new_product_tab_guides(){
             </div>
             <div id="collapse_maintainance_guide" class="panel-collapse collapse">
                 <div class="panel-body panel-body-faq">
-                	<p class="clcc-care_inst"><?php echo $maintainance_guide;?></p>
+                	<p class="cc-care-inst-g"><?php echo $maintainance_guide;?></p>
                 </div>
             </div>
         </div>

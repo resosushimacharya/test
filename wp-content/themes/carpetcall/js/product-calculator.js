@@ -118,6 +118,11 @@ function calculate_square(){
 			  
             for($i=1;$i<=$loop;$i++){
 				err=false;
+				if(! $('#cal_pro_'+$i).length){
+					alert("hello");
+					continue;
+
+				}
                if($('#length_'+$i).val()==''){
                var $myid ='#length_'+$i;
 					$($myid).parent().find('.cc-void-field').remove();
@@ -135,6 +140,8 @@ function calculate_square(){
 						var $width = '#width_'+$i;
 						var $item_id= '#item_total_'+$i;
 						var $temp = $($length).val()*$($width).val();
+						$temp = $temp.toFixed(2);
+						alert("hello"+$temp);
 						$($item_id).html($temp); 
 						 $calarea +=$temp; 
 				}
@@ -149,6 +156,7 @@ function calculate_square(){
 			
 		  var $estarea= $noofpacks*$covperpack;
 		  var $excarea=$estarea.toFixed(2) - $calarea;
+		  alert($excarea/$calarea);
 		 var  $excareaPer=$excarea/$calarea*100;
 		              
 		  $excareaPer=Math.ceil($excareaPer.toFixed(4));
