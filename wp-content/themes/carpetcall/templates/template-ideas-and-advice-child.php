@@ -34,7 +34,7 @@ if(have_posts()):
 
 ?>
 <?php else: ?>
-	<?php get_template_part('content','second');?>
+	<?php get_template_part('templates/contents/content','second');?>
 <?php endif;?>	
 </div>
 </div>
