@@ -1437,6 +1437,7 @@ div#calculator_container { border-bottom:1px solid #efefef; margin-bottom:18px; 
 .single.single-product button#confirm_calc { display:inline-block; border-color:transparent; background:#c32428; border-radius:0; width:170px; height:45px; font:700 14px 'proxima_nova_ltsemibold', sans-serif; color:#FFFFFF; text-transform:uppercase; text-decoration:none; margin-left:15px; margin-top:24px; }
 .single.single-product button#confirm_calc:hover { border-color:#c32428; background:none; color:#144a9f;}
 .single.single-product span.cc-cal-showup{font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#666666; text-transform:uppercase; display:inline-block; vertical-align:-8px;}
+.single.single-product .cc-me{ width:auto;}
 span#exceess_area_percent, span#total_area, span#no_of_packs { border:0; box-shadow:none; outline:0; display:inline-block; vertical-align:-8px; font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; }
 
 
@@ -1557,8 +1558,14 @@ a.btn-employment:hover{ background-color:#15489f; color:#FFF;}
 }
 #accordion_guides .panel.panel-default .panel-heading .panel-title a.accordion-toggle { margin-top:25px;}
 .range_slider .slider{
-	min-width:150px;
+	min-width:201px;
+	overflow:visible;
 	}
+.archive.tax-product_cat .slider.slider-horizontal {
+	width:184px;
+	height:20px;
+	margin-left:10px;	
+}
 	
 .cont-panl .panel-body.panel-body-faq p { padding-left:20px; }
 a.clear_color_selection{display:none}
