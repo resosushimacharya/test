@@ -538,7 +538,7 @@ function woo_new_product_tab_guides(){
             </div>
             <div id="collapse_maintainance_guide" class="panel-collapse collapse">
                 <div class="panel-body panel-body-faq">
-                	<p cc-care_inst><?php echo $maintainance_guide;?></p>
+                	<p class="clcc-care_inst"><?php echo $maintainance_guide;?></p>
                 </div>
             </div>
         </div>
@@ -748,7 +748,7 @@ function woo_new_product_tab_content_care() {?>
 global $post;
 $careins = get_field('care_instructions',$post->ID);
 if(!empty($careins)){
-	echo '<p>'.$careins.'</p>';
+	echo '<p class="clcc-care_inst">'.$careins.'</p>';
 }
 ?>
 
