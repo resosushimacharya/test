@@ -301,7 +301,14 @@ function show_category_slider_block($args){
 				$grp_prod_args['order'] = $sort_order;
 				$filloop = new WP_Query($grp_prod_args);
 			}else{
-				$filloop = '';
+					$offset++;
+					if($offset < count($cat_arr)){
+						$next_cat = array_slice($cat_arr,$offset,1);
+						$next_cat =  get_term_by('id',$next_cat[0],'product_cat');
+						$cat_slice[] = $next_cat;
+					}else{
+							$filloop = '';
+					}
 			}
 			$hold = 1;
 			if($filloop !='' && $filloop->post_count > 0){
@@ -468,7 +475,6 @@ function loadmore_hf($args){
 		}
 		if(!empty($cat_slice)){
 			foreach($cat_slice as &$discat){
-				do_action('pr',$discat);
 				?>
 				<div>
 				<?php 
@@ -510,11 +516,11 @@ function loadmore_hf($args){
 				$pch = 1;
 				$filloop = new WP_Query($filargs);
 				if($filloop->post_count==0){
+					$offset++;
 					if($offset < count($cat_arr)){
-						$next_cat =  array_slice($cat_arr,$offset,1);
-						do_action('pr',$next_cat);
-						$cat_slice[] = get_term_by('id',$next_cat,'product_cat');
-						$offset++;
+						$next_cat = array_slice($cat_arr,$offset,1);
+						$next_cat =  get_term_by('id',$next_cat[0],'product_cat');
+						$cat_slice[] = $next_cat;
 						}else{
 							$filloop = '';
 						}
