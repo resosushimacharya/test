@@ -120,7 +120,7 @@ html, body {
 	margin: 0 61px 0 21px;
 	padding: 0;
 }
-.banner .col-md-12 .col-md-4:nth-child(3) {
+.banner .col-md-12 .call-info-cntr {
 	width: 32.4%;
 }
 .searchm {
@@ -220,34 +220,37 @@ html, body {
 .contblk a:hover {
 	background: #b01519;
 }
+.top-mobile-icons{
+	display: none;
+}
 .navsrchblk {
 	margin-top: 12px;
 }
 .navsrchblk .col-md-12 .col-md-7 {
 	width: 60.4%;
 }
-.navsrchblk .col-md-12 .col-md-3:nth-child(2) {
+.navsrchblk .col-md-12 .top-map-icon {
 	width: 21.5%;
 	margin-left: 23px;
 }
-.navsrchblk .col-md-12 .col-md-2:nth-child(3) {
+.navsrchblk .col-md-12 .top-cart-icon {
 	width: 17.7%;
 	margin-left: 0;
 	margin-right: -20px;
 	float: right;
 }
-.navsrchblk .col-md-12 .col-md-2:nth-child(3) li#woo_control {
+.navsrchblk .col-md-12 .top-cart-icon li#woo_control {
 	height: 50px;
 }
-.navsrchblk .col-md-12 .col-md-2:nth-child(3) li#woo_control > a {
+.navsrchblk .col-md-12 .top-cart-icon li#woo_control > a {
 	padding-right: 20px;
 	padding-left: 20px;
 	line-height: 50px;
 }
-.navsrchblk .col-md-12 .col-md-2:nth-child(3) li#woo_control > a .mcrt {
-	margin: 0
+.navsrchblk .col-md-12 .top-cart-icon li#woo_control > a .mcrt {
+	margin: 0;
 }
-.navsrchblk .col-md-12 .col-md-2:nth-child(3) li#woo_control > a .mcrt img {
+.navsrchblk .col-md-12 .top-cart-icon li#woo_control > a .mcrt img {
 	position: relative;
 	top: 15px;
 }

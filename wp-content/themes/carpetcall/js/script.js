@@ -154,6 +154,18 @@
       }
     });
 
+    // Text change of Shop our range to shop from 800px
+    if($('.top_shop').length){
+      function shop_text(){
+        if( $(window).width() <= 800 ){
+          $('.top_shop > a').text('Shop');
+        }else{
+          $('.top_shop > a').text('Shop our range');
+        }
+      }
+      shop_text();
+      window.addEventListener('resize', shop_text);
+    }
 
   });
 
