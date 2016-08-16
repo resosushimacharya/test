@@ -181,7 +181,8 @@
     <div id="collapse_price" class="panel-collapse collapse in">
       <div class="panel-body">
         <div class="cc-price-var-items">
-      <?php 
+      <?php
+		
 		$args_min = array(
 							'post_type'=>'product',
 							'posts_per_page'	=>1,
@@ -218,14 +219,15 @@
 		$min_prod = get_posts($args_min);
 		$max_prod = get_posts($args_max);
 		
-		$min_price_prod = wc_get_product($min_prod[0]->ID);
-		$max_price_prod = wc_get_product($max_prod[0]->ID); 
+		$min_price_prod = new WC_Product($min_prod[0]->ID);
+		$max_price_prod = new WC_Product($max_prod[0]->ID); 
 		
 		
+		$max = $max_price_prod->get_regular_price();
+		$min = $min_price_prod->get_regular_price();
 		?>
         
-      
-      <div class="range_slider"><b>A$ <span class="price_from"><?php echo $min_price_prod->get_price()?></span> </b><input id="price_range_filter" type="text" data-slider-min="<?php echo $min_price_prod->get_price()?>" data-slider-max="<?php echo $max_price_prod->get_price()?>" data-slider-step="1" data-slider-value="[<?php echo $min_price_prod->get_price()?>,<?php echo $max_price_prod->get_price()?>]"/><b>A$ <span class="price_to"><?php echo $max_price_prod->get_price()?></span></b></div> 
+      <div class="range_slider"><b>A$ <span class="price_from"><?php echo $min?></span> </b><input id="price_range_filter" type="text" data-slider-min="<?php echo $min?>" data-slider-max="<?php echo $max?>" data-slider-step="1" data-slider-value="[<?php echo $min?>,<?php echo $max?>]"/><b>A$ <span class="price_to"><?php echo $max?></span></b></div> 
       
          <?php /*?><form role="form">
     <div class="checkbox">

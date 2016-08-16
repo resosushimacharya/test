@@ -185,12 +185,24 @@ $args = wp_parse_args( $args, $defaults);
 	extract($args);
 	global $wp_query;
 	$current_cat = get_term( $cat_id, 'product_cat');
+	$cat_arr = generate_catids_array($cat_id,$depth);
+	
+	/*
+	
+	
+	
+	
+	
+	
+	
+	
 	//$term_id_sub =  get_queried_object()->term_id;
 	//$term_name = get_queried_object()->name;
 	$discats_org = get_terms(array('parent'=>$cat_id,'taxonomy'=>'product_cat'));
 	$cats_slice = '';
 	if(!empty($discats_org)){
 	if($depth == 0 ){
+		//do_action('pr',generate_catids_array($cat_id));
 		if(count($discats_org) > $child_cat_count){
 		$discats_temp = array_slice($discats_org, $child_cat_count-1, 1);
 		$discats=get_terms(array('parent'=>$discats_temp[0]->term_id,'taxonomy'=>'product_cat'));
@@ -257,8 +269,25 @@ $args = wp_parse_args( $args, $defaults);
 		//No more products found
 		}else{
 	$loopcounter = 0;
-	//do_action('pr',$cats_slice); 
-	foreach($cats_slice as $discat){
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	*/
+	if(!empty($cat_arr)){
+		$cat_slice = array();
+		$cat_slice_arr =  array_slice($cat_arr,$offset,$perpage);
+		$offset = $offset+$perpage;
+		foreach($cat_slice_arr as $catid){
+			$cat_slice[] = get_term_by('id',$catid,'product_cat');
+			}
+	if(!empty($cat_slice)){
+		foreach($cat_slice as $discat){
 	?>
 
 <div>
@@ -274,14 +303,7 @@ $args = wp_parse_args( $args, $defaults);
 			'terms'    => $discat->term_id,
 			),
 		),
-/*	'meta_query' => array(
-		'relation' => 'OR',
-		array(
-                'key' => '_stock_status',
-                'value' => 'instock'
-            ),
-	),
-*/	);
+	);
 
 	if($sort_by == 'price'){
 		$filargs['meta_key'] = '_regular_price';
@@ -290,10 +312,8 @@ $args = wp_parse_args( $args, $defaults);
 		}
 	$filargs['orderby'] = 'meta_value_num';
 	$filargs['order'] = $sort_order;
-	
 	$color_meta_query = '';
 	$size_meta_query = '';
-	$price_range_query = '';
 	
 	if($color !='' && !empty($color)){
 		$color_arr = array();
@@ -318,7 +338,6 @@ $args = wp_parse_args( $args, $defaults);
 									  );
 									  
 	}
-	
 	if($size !='' && !empty($size)){
 		
 		$size_arr = array();
@@ -347,18 +366,6 @@ $args = wp_parse_args( $args, $defaults);
 									  );
 									  
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	if($price !='' ){
 			$range_arr = explode(',',$price);
 			$filargs['meta_query'][] = array(
@@ -368,20 +375,12 @@ $args = wp_parse_args( $args, $defaults);
 										 'compare' => 'BETWEEN'
 										  );
 	}
-	
 	if($color_meta_query !=''){
 		$filargs['meta_query'][]=$color_meta_query;
 		}
 	if($size_meta_query !=''){
 		$filargs['meta_query'][]=$size_meta_query;
 		}
-	if($price_range_query !=''){
-		foreach($price_range_query as $range_query){
-			$filargs['meta_query'][]=$range_query;
-			}
-		
-		}
-
 	wp_reset_postdata();
 	$pch = 1;
 	$all_products = new WP_Query($filargs);
@@ -402,7 +401,6 @@ $args = wp_parse_args( $args, $defaults);
 		'post_type'	=>'product',
    		 'post__in' => $product_ids,
 		);	
-		
 	if($sort_by == 'price'){
 		$grp_prod_args['meta_key'] = '_regular_price';
 	}elseif($sort_by == 'popular'){
@@ -410,17 +408,6 @@ $args = wp_parse_args( $args, $defaults);
 		}
 	$grp_prod_args['orderby'] = 'meta_value_num';
 	$grp_prod_args['order'] = $sort_order;
-	
-		
-	if($sort_by == 'price'){
-		$grp_prod_args['meta_key'] = '_regular_price';
-	}elseif($sort_by == 'popular'){
-		$grp_prod_args['meta_key'] = 'total_sales';
-		}
-	$grp_prod_args['orderby'] = 'meta_value_num';
-	$grp_prod_args['order'] = $sort_order;
-		
-			
 	$filloop = new WP_Query($grp_prod_args);
 		}else{
 			$filloop = '';
@@ -511,14 +498,9 @@ $args = wp_parse_args( $args, $defaults);
 				}
 			}
 		}
-		
 	if($feat_image ==''){
 		$feat_image = 'http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png';
 		}
-	/*var_dump($filloop->post->ID);*/
-	
-	
-	
 	?>
       <div class=" cc-other-term-pro">
         <div class="cc-img-wrapper">
@@ -526,10 +508,6 @@ $args = wp_parse_args( $args, $defaults);
             <?php
 	
 	
-	$woo=get_post_meta($filloop->post->ID);
-	/*
-	echo '<h3>'.$discat->name.'</h3>';
-	echo "<h5>FROM A$".$woo['_sale_price'][0].'</h5>';*/
 	
 	
 	?>
@@ -549,13 +527,16 @@ $args = wp_parse_args( $args, $defaults);
 	?>
 </div>
 <?php 
-	}
+	}		
+		}else{
+			$html = '';
+			$offset = 0;
+			}
 		$html = ob_get_contents();
 		ob_end_clean();
 		$ret['html'] = $html;
-		$ret['child_cat_count'] = $child_cat_count;
+		//$ret['child_cat_count'] = $child_cat_count;
 		$ret['offset'] = $offset;
-		//do_action('pr',$ret);
 	}
 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 		echo json_encode($ret);
@@ -609,6 +590,12 @@ $args = wp_parse_args( $args, $defaults);
 		}
 	}
 	extract($args);
+	global $wp_query;
+	$current_cat = get_term( $cat_id, 'product_cat');
+	$cat_arr = generate_catids_array($cat_id,$depth);
+	
+/*
+
 	$post_count = 0;
 	global $wp_query;
 	$current_cat = get_term( $cat_id, 'product_cat');
@@ -672,8 +659,21 @@ $args = wp_parse_args( $args, $defaults);
 		$ret['offset'] = 0;
 		}else{
 	$loopcounter = 0;
-	foreach($cats_slice as $discat){
-		$post_count++;
+	
+	
+	
+	*/
+	if(!empty($cat_arr)){
+		$cat_slice = array();
+		$cat_slice_arr =  array_slice($cat_arr,$offset,$perpage);
+		$offset = $offset+$perpage;
+		foreach($cat_slice_arr as $catid){
+			$cat_slice[] = get_term_by('id',$catid,'product_cat');
+			}
+	
+	
+	if(!empty($cat_slice)){
+		foreach($cat_slice as $discat){
 	?>
 <div>
   <?php 
@@ -705,7 +705,6 @@ $args = wp_parse_args( $args, $defaults);
 	$filargs['orderby'] = 'meta_value_num';
 	$filargs['order'] = $sort_order;
 
-	$price_range_query = '';
 	
 	if($price !='' ){
 			$range_arr = explode(',',$price);
@@ -719,7 +718,6 @@ $args = wp_parse_args( $args, $defaults);
 	wp_reset_postdata();
 	$pch = 1;
 	//$all_products = new WP_Query($filargs);
-	//do_action('pr',$filargs);
 	$filloop = new WP_Query($filargs);
 	if($filloop->post_count==0){
 		$filloop = '';
@@ -857,7 +855,6 @@ $args = wp_parse_args( $args, $defaults);
 	if($feat_image ==''){
 		$feat_image = 'http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png';
 		}
-	/*var_dump($filloop->post->ID);*/
 	
 	
 	
@@ -865,16 +862,6 @@ $args = wp_parse_args( $args, $defaults);
       <div class=" cc-other-term-pro">
         <div class="cc-img-wrapper">
           <div class="cat-item-group-image" style="background-image:url(<?php echo $feat_image;?>)">
-            <?php
-	
-	
-	$woo=get_post_meta($filloop->post->ID);
-	/*
-	echo '<h3>'.$discat->name.'</h3>';
-	echo "<h5>FROM A$".$woo['_sale_price'][0].'</h5>';*/
-	
-	
-	?>
             <a href ="<?php the_permalink();?>" class="cc-pro-view">VIEW</a> </div>
         </div>
       </div>
@@ -892,14 +879,18 @@ $args = wp_parse_args( $args, $defaults);
 </div>
 <?php 
 	}
+	}
+	}else{
+			$html = '';
+			$offset = 0;
+		}
 		$html = ob_get_contents();
 		ob_end_clean();
 		$ret['html'] = $html;
-		$ret['child_cat_count'] = $child_cat_count;
+		//$ret['child_cat_count'] = $child_cat_count;
 		$ret['offset'] = $offset;
-		$ret['fount_posts'] = $found_count;
+		//$ret['fount_posts'] = $found_count;
 		//do_action('pr',$ret);
-	}
 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 		echo json_encode($ret);
 		die;
@@ -980,3 +971,40 @@ if ( ! function_exists( 'woocommerce_template_single_hardflooring_title' ) ) {
 		wc_get_template( 'single-product/hardflooring/title.php' );
 	}
 }
+
+function generate_catids_array($top_lvl_cat,$depth){
+	$transient = 'category_'.$top_lvl_cat.'_transient';
+	if ( false === ( $transient = get_transient( $transient ) ) ) {
+		$cat_arr = array();
+		$second_lvl_cats = get_terms(array('parent'=>$top_lvl_cat,'taxonomy'=>'product_cat','hide_empty'=>false));
+		foreach($second_lvl_cats as $cat_parents){
+			if($depth==0){
+				$third_lvl_cats = get_terms(array('parent'=>$cat_parents->term_id,'taxonomy'=>'product_cat'));
+				foreach($third_lvl_cats as $cat){
+					$cat_arr[] = $cat->term_id;
+				}
+			}else{
+				$cat_arr[] = $cat_parents->term_id;
+				}
+	
+			}
+	  set_transient( $transient, $cat_arr, 12 * HOUR_IN_SECONDS );
+	}
+return get_transient($transient);
+	}
+
+add_action('edited_product_cat','delete_product_cat_transient');
+add_action('delete_product_cat','delete_product_cat_transient');
+function delete_product_cat_transient($term_id,$taxonomy){
+	if('product_cat' == $taxonomy){
+		$parent  = get_term_by( 'id', $term_id, $taxonomy);
+		while ($parent->parent != '0'){
+			$transient = 'category_'.$parent->term_id.'_transient';
+			delete_transient( $transient ); 
+			$term_id = $parent->parent;
+			$parent  = get_term_by( 'id', $term_id, $taxonomy);
+		}
+		$transient = 'category_'.$parent->term_id.'_transient';
+		delete_transient( $transient ); 
+		}
+	}

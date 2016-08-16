@@ -781,7 +781,7 @@ else{
   $retID = 31856;
 }
 $retinfo = get_field('return_policy',$retID);
-echo '<p>'.$retinfo.'</p>';
+echo '<p class="returns_text">'.$retinfo.'</p>';
 
 ?>
 
