@@ -35,8 +35,22 @@
 	.searchm .input-group{
 		border: none;
 	}
-	.searchm .form-control{
+	.input-group .form-control, .input-group-btn{
+		display: inline-block;
+	}
+	.searchm .form-control, .searchm .btn{
 		height: 68px;
+	}
+	.input-group-btn:last-child>.btn svg{
+		height: 33px;
+		width: 33px;
+	    vertical-align: middle;
+	}
+	.input-group .form-control{
+		width: 89%;
+	}
+	.searchm .input-group-btn{
+		width: 11%;
 	}
 	/* === HEADER End === */
 
