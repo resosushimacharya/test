@@ -64,7 +64,7 @@ $ = jQuery.noConflict();
 	
 	////////////////////////////////////// remove row///////////////
 	$(document).on('click','.remove_row_calc',function(){
-		"use strict";
+		
 		$(this).parents('.row').remove();
 		//calculate_square();
 		
@@ -73,7 +73,7 @@ $ = jQuery.noConflict();
 	
 	////////// check number value //////////////
 	function number_check(value){
-		"use strict";
+		
 		 var  str= value;
 		   value =value.replace(/[a-z]/gi, '');
 		   var realLength = str.length;
@@ -91,7 +91,7 @@ $ = jQuery.noConflict();
 	
 	//////////////////////// calulater number error validate//////////////////
 	$(document).on('keyup','.width_check, .length_check', function(){
-		"use strict";
+		
 		$(this).siblings('.cc-void-field').remove();
 		
 		if($(this).val()===""){
@@ -102,7 +102,7 @@ $ = jQuery.noConflict();
 		
 	});
 function calculate_square(){
-	"use strict";
+
 	
 	/*alert($("#calculator_container>div").length);*/
        	var $loop =$("#calculator_container>div").length;

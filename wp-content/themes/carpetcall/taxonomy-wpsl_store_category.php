@@ -10,11 +10,14 @@
 
 <div class="cc-store-hd-title">
   <div class="container">
-    <div class="cc-bread-crumb-str">
-                      <span>CARPET CALL STORES</span>
-                  </div>
+   <div class="cc-locator-title-sec-z">
+   <?php 
+     echo '<h4><span class="cc-locator-sub"><a href="'.site_url().'/find-a-store/">'. 'STORE FINDER'.'</a></span>'.'> '. strtoupper(get_the_title()).'</a></span></h4>';
+   ?>
+
+</div>
                   <div class="cc-finder-title">
-                      <h3>STORE FINDER</h3>
+                      <h3><?php echo  strtoupper(get_the_title());?></h3>
                   </div>
                   <div class="cc-options-wrapper-nh">
                       <form method="post" action="<?php echo site_url();?>/find-a-store">
