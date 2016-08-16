@@ -758,8 +758,9 @@ select#cc-size { height:45px; border:1px solid #d1ddf1; background:#e7edf8; font
 .cc-product-pick .btn:hover { color:#666666; cursor:text; background-color:transparent; -webkit-box-shadow:none; box-shadow:none; outline:0;}
 .cc-product-pick .btn-default:focus { background-color:transparent; }
 .cc-product-location  {width:33.3%; height:29px; background:#FFF;}
-.cc-product-location .btn-default { width: auto; color:#15489f; border-color:inherit; border-radius:0; border:1px solid #15489f; font-family:'proxima_nova_ltsemibold', sans-serif;; font-size:12px; font-weight:700;}
-.cc-product-location .btn-default:hover {background:#15489f; color:#FFF;}
+.cc-product-location .btn-default { width: auto; color:#15489f; border-color:inherit; border-radius:0; border:1px solid #15489f; font-family:'proxima_nova_ltsemibold', sans-serif;; font-size:12px; font-weight:700; box-shadow:none; outline:0;}
+.cc-product-location .btn-default:hover {background:#15489f; color:#FFF;  box-shadow:none; outline:0;}
+.cc-product-location .btn-default:focus { background:none;}
 .cc-quantiy-section .quantity { margin:4px 0 5px 0;}
 .summary.entry-summary .cc-product-ship-free-section { margin:11px 0 0 0;}
 .summary.entry-summary .cc-product-pick-location-section { margin:1px 0 0 0;}
@@ -1595,4 +1596,5 @@ div#error_max_msg {
 	text-transform:uppercase;
 	letter-spacing:0.5px;
 	}
-.single.single-product .panel.entry-content.wc-tab p.returns_text { padding:30px 0; }
+.single.single-product .panel.entry-content.wc-tab p.returns_text, .single.single-product .panel.entry-content.wc-tab p.faq_read_more_para, .single.single-product .panel.entry-content.wc-tab p.clcc-care_inst  { padding:30px 0; }
+
