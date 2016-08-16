@@ -418,6 +418,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 		color: #15489f;
 		font-weight:normal;
 		}
+.img_cntr_home {background-position:center center; background-size:cover; min-height:148px;  }
 .img_cntr {background-position:center center; background-size:cover; min-height:183px;  }
 .img_cntr_a {background-position:center center; background-size:cover; min-height:148px;}
 .proabtxt span {font:normal 14px 'proxima_nova_rgregular', sans-serif; color:#087bda; margin-left:3px; text-transform:uppercase; }
@@ -1594,4 +1595,4 @@ div#error_max_msg {
 	text-transform:uppercase;
 	letter-spacing:0.5px;
 	}
-.woocommerce-tabs.wc-tabs-wrapper .panel.entry-content.wc-tab p{ margin:25px 0;}
+.single.single-product .woocommerce-tabs.wc-tabs-wrapper .panel.entry-content.wc-tab p{ margin:25px 0;}
