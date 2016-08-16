@@ -95,9 +95,9 @@ $ = jQuery.noConflict();
 		$(this).siblings('.cc-void-field').remove();
 		
 		if($(this).val()===""){
-		  $(this).parent().append('<div class="cc-void-field">PLease fill the field.</div>');
+		  $(this).parent().append('<div class="cc-void-field">Please fill the field!</div>');
 		}else if(!number_check($(this).val())){
-			 $(this).parent().append('<div class="cc-void-field">PLease fill number only</div>');
+			 $(this).parent().append('<div class="cc-void-field">Please fill number only!</div>');
 		}
 		
 	});
@@ -121,13 +121,13 @@ function calculate_square(){
                if($('#length_'+$i).val()==''){
                var $myid ='#length_'+$i;
 					$($myid).parent().find('.cc-void-field').remove();
-                    $($myid).parent().append('<div class="cc-void-field">PLease fiil the field.</div>');
+                    $($myid).parent().append('<div class="cc-void-field">Please fiil the field!</div>');
 					err=true;
                   }
 				  if($('#width_'+$i).val()==''){
                   $myid ='#width_'+$i;
 					$($myid).parent().find('.cc-void-field').remove();
-                   $($myid).parent().append('<div class="cc-void-field">PLease fiil the field.</div>');
+                   $($myid).parent().append('<div class="cc-void-field">Please fiil the field!</div>');
 				   err=true;
                   }
 				  if(!err){

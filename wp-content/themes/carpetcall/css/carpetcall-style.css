@@ -1410,7 +1410,7 @@ opacity: 0.5; background-image:url('../images/loading.gif'); background-position
 .cc-smc-blk-title h3 { font-family:'proxima_nova_ltsemibold', sans-serif; font-size:30px !important; font-weight:bold; color:#15489f !important; text-transform:uppercase; margin:9px 0 10px 1px !important; }
 .cal_pro .container_1 .form-group.col-md-6 { padding:0; margin-bottom:20px; width:47.5%; }
 .cal_pro .container_1 .col-md-6 label {font:700 18px 'proxima_nova_ltsemibold', sans-serif; color:#15489f; text-transform:uppercase; padding-left:19px; margin:0;}
-.cal_pro .container_1 .col-md-6.no-lr { clear:both;}
+.cal_pro .container_1 .col-md-6.no-lr { clear:both; width:100%;}
 .cal_pro .container_1 .col-md-6.no-lr .form-control { background-color:#e7edf8; border:1px solid #cdd9ed; border-radius:0; outline:0; box-shadow:none; width:222px; height:45px; margin-left:5px; margin-top:7px;}
 .cal_pro .container_1 .col-md-6.no-lr .form-control::-webkit-input-placeholder {
    font:700 12px 'proxima_nova_ltsemibold', sans-serif; color:#a8a8a8; text-transform:uppercase;
@@ -1584,7 +1584,7 @@ ul.page-list >li {
 .sitemap-wrap ul li ul{    margin-bottom: 30px; margin-left: 0;}
 .sitemap-wrap ul li ul li{ width: 100%;  padding-left: 8px; }
 .sitemap-wrap ul li ul li ul{ margin-bottom: 0 }
-.cc-void-field { width:100%; font-size:14px; margin-left:4px; color:#FF0000; }
+.cc-void-field { width:100%; margin-left:4px; color:#FF0000; font:normal 14px 'proxima_nova_rgregular', sans-serif; }
 
 div#error_max_msg {
 	font-size: 18px;
@@ -1595,4 +1595,4 @@ div#error_max_msg {
 	text-transform:uppercase;
 	letter-spacing:0.5px;
 	}
-.single.single-product .woocommerce-tabs.wc-tabs-wrapper .panel.entry-content.wc-tab p{ margin:25px 0;}
+.single.single-product .panel.entry-content.wc-tab p.returns_text { padding:30px 0; }
