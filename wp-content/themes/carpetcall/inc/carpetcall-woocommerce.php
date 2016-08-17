@@ -25,7 +25,7 @@ echo $rem;
 echo  get_the_id();
 echo "hello iam product";
 }
-add_action( 'woocommerce_after_shop_loop_item_title', 'extrafeature', 40 );
+//add_action( 'woocommerce_after_shop_loop_item_title', 'extrafeature', 40 );
 add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
 function woocommerce_header_add_to_cart_fragment( $fragments ) {
 	ob_start();
@@ -1097,8 +1097,8 @@ function woocommerce_best_selling_products( $atts ){
     global $woocommerce_loop;
     extract( shortcode_atts( array(
         'per_page'      => '12',
-        'columns'       => '4',
-        'category'		=> 'amore'
+        'columns'       => '4'
+        
         ), $atts ) );
     $args = array(
         'post_type' => 'product',
