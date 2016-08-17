@@ -8,6 +8,9 @@
 	.container{
 		width: auto;
 	}
+	.wrap_body{
+		margin-top: 312px;
+	}
 	
 	/* Display none goes here */
 	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon{

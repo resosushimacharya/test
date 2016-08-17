@@ -670,6 +670,12 @@ ul#directory_list_id li {
 	margin: 0 auto;
 	overflow: hidden;
 }
+.slider .home_slider_inner{
+	background-size: cover;
+	height: 351px;
+	width: 100%;
+	background-repeat: no-repeat;
+}
 .slider .slick-slide {
 	margin: 0 10px;
 	padding: 0;
@@ -709,7 +715,7 @@ ul#directory_list_id li {
 }
 .hamro {
 	position: absolute;
-	top: 50px;
+	top: 100px;
 	right: 195px;
 	display: none;
 }

@@ -25,7 +25,7 @@
             arrows: false,
             centerMode: true,
             centerPadding: '40px',
-            slidesToShow: 3,
+            slidesToShow: 1,
             draggable:true,
           }
         },
@@ -105,7 +105,7 @@
 
     
     jQuery(document).on("click",function(e) {
-      e.preventDefault();
+     // e.preventDefault();
       var container = jQuery("#after_dropdown");
       var bannerHeight = jQuery('.banner').outerHeight(true);
       var extra = jQuery(".pac-container");
