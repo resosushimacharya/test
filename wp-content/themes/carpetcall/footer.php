@@ -153,6 +153,7 @@ else{
 
 
 </div><!-- main wrapper end -->
+</div>
 <script>
 // Initiate Lightbox
 (function() {

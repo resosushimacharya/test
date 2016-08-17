@@ -317,6 +317,7 @@ if(get_post_type() == 'product'){?>
 
 <input type="hidden" id="user_curr_loc_hide__">
 
+<div class="wrap_body">
 
 <script type="text/javascript">
 

@@ -313,7 +313,7 @@ $list = get_field('buying_guide_archive',$faqid );
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a class="accordion-toggle <?php echo ($faqcounter==1)?'':'collapsed' ;?> " data-toggle="collapse" data-parent="#accordion_<?php echo $faqcounter;?> " href="#collapse_<?php echo $faqcounter;?>">
+        <a class="accordion-toggle <?php echo ($faqcounter==1)?'first-acc-cat':'collapsed';?>  " data-toggle="collapse" data-parent="#accordion_<?php echo $faqcounter;?> " href="#collapse_<?php echo $faqcounter;?>">
             <span class="pull-right glyphicon glyphicon glyphicon-chevron-down " ></span>	
 			<span class="pull-right glyphicon glyphicon-chevron-up"></span>
 
@@ -517,7 +517,7 @@ function woo_new_product_tab_guides(){
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_guides" href="#collapse_installtion_guide">
+                    <a class="accordion-toggle first-acc-cat" data-toggle="collapse" data-parent="#accordion_guides" href="#collapse_installtion_guide">
                     <span class="pull-right glyphicon glyphicon-chevron-up"></span>
                     <?php _e('INSTALLATION GUIDE','carpetcall')?>
                     </a>
@@ -525,7 +525,7 @@ function woo_new_product_tab_guides(){
             </div>
             <div id="collapse_installtion_guide" class="panel-collapse collapse in">
                 <div class="panel-body panel-body-faq">
-                	<p class="cc-care-inst-g"><?php echo $installation_guide;?></p>
+                	<div class="panel-body-table"><?php echo $installation_guide;?></div>
                 </div>
             </div>
            
@@ -544,7 +544,7 @@ function woo_new_product_tab_guides(){
             </div>
             <div id="collapse_maintainance_guide" class="panel-collapse collapse">
                 <div class="panel-body panel-body-faq">
-                	<p class="cc-care-inst-g"><?php echo $maintainance_guide;?></p>
+                	<div class="panel-body-table"><?php echo $maintainance_guide;?></div>
                 </div>
             </div>
         </div>
