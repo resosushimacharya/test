@@ -92,27 +92,33 @@
     // CSS MENU END
 
     // Store Finder Btn Header
-    jQuery('#storefinder_btn').click(function() {
-      jQuery(".dropdown-content").toggle();
-      jQuery(this).parent('.dropdown').toggleClass('click-open');
-      jQuery('.woocomerce_dropdown').removeClass('open');
-    });
+    
+    function storeFinderClick(){
+      jQuery('#storefinder_btn').click(function() {
+        jQuery(".dropdown-content").toggle();
+        jQuery(this).parent('.dropdown').toggleClass('click-open');
+        jQuery('.woocomerce_dropdown').removeClass('open');
+      });
+    }
+    storeFinderClick();
     // Store Finder Btn Header End
 
-    jQuery(document).mouseup(function(e) {
+    
+    jQuery(document).on("click",function(e) {
       e.preventDefault();
       var container = jQuery("#after_dropdown");
+      var bannerHeight = jQuery('.banner').outerHeight(true);
       var extra = jQuery(".pac-container");
       var xclick = window.event.clientX;
 
       var yclick = window.event.clientY;
-      yclick = yclick + 150;
+      yclick = yclick + bannerHeight;
       var compare = jQuery("#after_dropdown").height();
       var posx = jQuery("#after_dropdown").position();
       var postoptbox = jQuery("#after_dropdown").offset().top + jQuery("#after_dropdown").height();
       postoptbox = postoptbox + 100;
       var posleftbox = jQuery("#storefinder_btn").offset().left + jQuery("#after_dropdown").width();
-      compare = compare + 150;
+      compare = compare + bannerHeight;
       if ((yclick > 900 )|| (xclick > posleftbox || xclick < jQuery("#storefinder_btn").offset().left)) {
         jQuery('#after_dropdown').hide();
         jQuery('.storefinder_cntr').removeClass('click-open');
@@ -154,6 +160,36 @@
       }
     });
 
+    // Text change of Shop our range to shop from 800px
+    if($('.top_shop').length){
+      function shop_text(){
+        if( $(window).width() <= 800 ){
+          $('.top_shop > a').text('Shop');
+        }else{
+          $('.top_shop > a').text('Shop our range');
+        }
+      }
+      shop_text();
+      window.addEventListener('resize', shop_text);
+    }
+
+
+    // Clone strore finder Dropdown from 800px
+
+    if($('.sfind').length){     
+      function cloneShopDrop(){
+        if( $(window).width() <= 800 ){
+          var toClone = $('.sfind');
+          toClone.clone().appendTo('.top-mobile-icons .top-map-icon');
+          toClone.remove();
+          storeFinderClick();
+        }else{
+
+        }
+      }
+      cloneShopDrop();
+      window.addEventListener('resize', cloneShopDrop);
+    }
 
   });
 
