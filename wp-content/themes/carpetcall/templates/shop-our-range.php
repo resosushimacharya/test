@@ -74,9 +74,9 @@ get_header();
 	<?php
 	$top_lvl_cats = array('rugs','hard-flooring','carpets');
         foreach($top_lvl_cats as $top_cat){
-		$args_max = array(
+		$args = array(
 							'post_type'=>'product',
-							'posts_per_page'	=>1,
+							'posts_per_page'	=>($top_cat=='rugs')?2:1,
 							'tax_query'	=>array(
 									 array(
 										'taxonomy' => 'product_cat',
@@ -91,25 +91,41 @@ get_header();
 							'order'			=>'DESC'
 						);
 		wp_reset_postdata();
-		$min_prod = get_posts($args_min);
-		
-		}
-			?>
-    
-    <div class="col-md-4">
+		$most_popular = new WP_Query( $args );
+		if($most_popular->have_posts()){
+			while( $most_popular->have_posts() ){
+				$most_popular->the_post();?>
+				<div class="col-md-4">
                   		<div class="pro_secone">
-                  		<a href="http://localhost/carpetcall/product/ber-1622-65-120/" class="cc-product-item-image-link"><div class="img_cntr" style="background-image:url('http://localhost/carpetcall/wp-content/uploads/2016/06/BER_1622_65_V.jpg');"></div></a>
+                  		<a href="<?php echo the_permalink()?>" class="cc-product-item-image-link"><div class="img_cntr" style="background-image:url('<?php echo get_the_post_thumbnail_url(get_the_ID(),'thumbnail')?>');"></div></a>
                   
                     <!--img src="http://localhost/carpetcall/wp-content/uploads/2016/06/BER_1622_65_V.jpg" alt="BER.1622.65.120" class="img-responsive"/-->
                     <div class="mero_itemss">
                       		<div class="proabtxt">
-					 <a href="http://localhost/carpetcall/product/ber-1622-65-120/" class="cc-product-item-title-link"><h4>
-					BERLIN					</h4></a><h6> FROM A$195</h6></div>
+					 <a href="<?php the_permalink()?>" class="cc-product-item-title-link">
+					 <?php $terms = get_the_terms(get_the_ID(),'product_cat');
+					foreach ($terms as $term) {
+						if($term->parent == 0){
+							$category = $term;
+							break;
+							}
+						}
+					 ?><h4>
+                     <?php echo $category->name;?>
+					</h4></a><h6> FROM A$<?php echo get_post_meta(get_the_ID(),'_regular_price',true);?></h6></div>
 					<div class="clearfix"></div>
                            
                       </div>
                       </div>
                       </div>
+				<?php
+                }
+			}
+		
+		}
+			?>
+    
+    
 </div>
                
     </div>
