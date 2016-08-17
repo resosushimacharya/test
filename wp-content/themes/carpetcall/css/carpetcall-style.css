@@ -1178,6 +1178,15 @@ div#right_col ol li, .cbg_content ol li, .cbg_content ul li {
 .page-template.page-template-template-ideas-and-advice-parent .ab_arrow {
 	margin-right: 6px;
 }
+.panel-collapse .panel-body .panel-body-table { 
+	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	color: #666;
+}
+.panel-body.panel-body-faq .panel-body-table{
+	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	color: #666;
+	padding:0 39px;
+}
 
 /*........... expert trade start here ..............*/
 .trade {
@@ -2422,7 +2431,7 @@ ul.specific-list li {
 	position: relative;
 	width: 100%;
 	display: block;
-	padding: 15px;
+	padding: 15px 15px 17px 15px;
 	text-decoration: none;
 	color: #0099ff;
 	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
@@ -2457,7 +2466,7 @@ ul.specific-list li {
 	bottom: -37px;
 }
 #tab-faq_tab .cont-panl .panel.panel-default:nth-child(1) .panel-heading {
-	margin-top: 32px;
+	margin-top: 0;
 }
 
 /*....... Modern Rugs start here ..................*/
@@ -2601,7 +2610,9 @@ a.pull-right:hover {
 	display: inline-block;
 	margin-right: 5px;
 }
-
+.single.single-product .panel-group {
+	margin-bottom:0px;
+}
 /*............... 404 page not found start here ...............*/
 .page-sorry {
 	background-repeat: no-repeat;
@@ -4712,7 +4723,7 @@ a.btn-employment:hover {
 	background: #c32428;
 }
 .cc-quantiy-section .cc-quantiy-section-inner a.button.product_type_simple:hover {
-	background: #d91419;
+	background: #b01519;
 }
 .cc-size-quantity-section .cc-quantiy-section {
 	margin-bottom: 0;
@@ -4887,6 +4898,9 @@ a.btn-employment:hover {
 .single.single-product .panel.entry-content.wc-tab .panel-default>.panel-heading+.panel-collapse>.panel-body {
 	padding: 0px !important;
 }
+.single.single-product .panel.entry-content.wc-tab p.faq_textarea {
+	padding:0 20px;
+}
 .single.single-product a.button.product_type_simple.col-md-12.acc_add_to_cart {
 	width: 100%;
 	background: #c32428;
@@ -4930,7 +4944,7 @@ a.btn-employment:hover {
 	height: 20px;
 	margin-left: 10px;
 }
-.cont-panl .panel-body.panel-body-faq p {
+.cont-panl .panel-body.panel-body-faq p.cc-care_inst {
 	padding-left: 20px;
 }
 a.clear_color_selection {
@@ -4981,4 +4995,10 @@ div#error_max_msg {
 }
 .single.single-product .panel.entry-content.wc-tab p.returns_text, .single.single-product .panel.entry-content.wc-tab p.faq_read_more_para, .single.single-product .panel.entry-content.wc-tab p.clcc-care_inst {
 	padding: 30px 0;
+}
+.cc-price-var-sec .cc-price-var-items {
+	margin-top:12px;
+}
+.term-hard-flooring .cc_background_image {
+	display:none;
 }
