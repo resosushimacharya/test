@@ -241,13 +241,22 @@ if(get_post_type() == 'product'){?>
                         </div>
                     </div><!-- logo end -->
 
+                    <div class="top-mobile-icons mobile">
+                        <div class="top-map-icon">
+                            
+                        </div><!-- store finder end -->
+                        <div class="top-cart-icon">
+                             
+                        </div><!-- my cart end -->
+                    </div>
+
                     <div class="col-md-4 header-search-cntr">
                         <div class="searchm">
                             <?php get_search_form(); ?>
                         </div>
                     </div><!-- search end -->
 
-                    <div class="col-md-4 no-lr">
+                    <div class="col-md-4 no-lr call-info-cntr">
                         <div class="callinfo">
                             <?php $x=  get_field('telephone', '89',false);
                             $x = preg_replace('/\s+/', '', $x);
@@ -298,13 +307,13 @@ if(get_post_type() == 'product'){?>
                             ?>
                         </div><!-- menu end -->
                         <!-- store finder begin -->
-                        <div class="col-md-3 no-lr">
+                        <div class="col-md-3 no-lr top-map-icon">
                             <div class="sfind">
                                 <?php get_template_part('templates/contents/content', 'store');  ?>
                             </div>
                         </div><!-- store finder end -->
-                        <div class="col-md-2 no-lr">
-                            <?php get_template_part('templates/contents/content', 'navwoo'); ?>
+                        <div class="col-md-2 no-lr top-cart-icon">
+                           <?php get_template_part('templates/contents/content', 'navwoo'); ?>
                         </div><!-- my cart end -->
                     </div>
                 </div>

@@ -10,7 +10,7 @@
 	}
 	
 	/* Display none goes here */
-	.callinfo{
+	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon{
 		display: none;
 	}
 	/* Display none ends here */	
@@ -18,16 +18,27 @@
 	/* === GLOBAL End === */
 
 	/* === HEADER === */	
+	.banner{
+		padding-top: 0;
+	}
+	.banner .col-md-12{
+		padding: 0;
+	}
 	.banner .cc-logo-cntr{
 		max-width: 330px;
-		width: auto;
+		width: 330px;
+		display: inline-block;
+		padding-left: 20px;
+		margin-top: 20px;
 	}
 	.banner .cc-logo-cntr img{
 		width: 100%;
 	}
 	.banner .header-search-cntr{
-		width: auto;
+		width: auto;		
+		padding: 0 20px;
 		margin: 0;
+	    margin-top: -6px;
 	}
 	.searchm {
 	    margin-top: 25px;
@@ -35,8 +46,160 @@
 	.searchm .input-group{
 		border: none;
 	}
-	.searchm .form-control{
+	.input-group .form-control, .input-group-btn{
+		display: inline-block;
+	}
+	.searchm .form-control, .searchm .btn{
 		height: 68px;
+	}
+	.input-group-btn:last-child>.btn svg{
+		height: 33px;
+		width: 33px;
+	    vertical-align: middle;
+	}
+	.input-group .form-control{
+		width: 89%;
+	}
+	.searchm .input-group-btn{
+		width: 11%;
+	}
+	.navsrchblk{
+		margin-top: 30px;
+	}
+	.navsrchblk .col-md-12{
+		padding: 0;
+		position: static;
+	}
+	.navsrchblk .col-md-12 .col-md-7{
+		width: 100%;
+	}
+	.top-mobile-icons{
+		display: inline-block;
+		float: right;
+		font-size: 0;
+	}
+	.top-mobile-icons .top-map-icon, .top-mobile-icons .top-cart-icon{
+		height: 118px;
+		width: auto;
+		margin: 0;
+		display:inline-block;
+		vertical-align: top;
+	}
+	.top-mobile-icons .top-map-icon .dropbtn{
+		text-indent: -9999px;
+		height: auto;
+	    width: 70px;
+	    text-align: center;
+	    height: 118px;
+	}
+	.dropdown.click-open .dropbtn{
+		width: 70px;
+	}
+
+	/* Map */
+	.top-mobile-icons .top-map-icon button img{
+		margin: 0 auto !important;
+		position: relative;
+		width: 27px;
+		height: auto;
+		left: 50%;
+		-webkit-transform: translateX(-50%);
+		-moz-transform: translateX(-50%);
+		-ms-transform: translateX(-50%);
+		-o-transform: translateX(-50%);
+		transform: translateX(-50%);
+	}
+	.storefinder_cntr {
+		position: static;
+	}
+	.dropdown-content{
+		left: 0;
+		width: 100%;
+		z-index: 9999;
+		padding: 30px 20px 50px;
+	}
+	.loplc{
+		padding: 0;
+	}
+	.loplc h3{
+		font-size: 32px;
+	}
+	.loplc h3 span{
+		display: none;
+	}
+	.srch_pro {
+		margin: 12px 0 35px;
+	}
+	.srch_pro .input-group {
+		border: none;
+	}
+	.srch_pro .form-control{
+		height: 68px;
+		font-size: 24px;
+		padding: 15px 25px;
+		font-weight: 600;
+		letter-spacing: 0.25px;		
+	}
+	.srch_pro .input-group-btn{
+		width: 11%;
+	}
+	.srch_pro .btn-default{
+		border: none;
+		height: 68px;	
+		width: 100%;	
+	}
+	.curlocate input, .curnloca a {
+        font-family: 'proxima_nova_ltsemibold';
+	    font-size: 28px;
+	    height: 80px;
+	    line-height: 80px;
+	    padding: 0;
+	}
+	.curnloc {
+	    margin-top: 24px;
+	    margin-bottom: 0;
+	    padding-top: 24px;
+	    border-top: 2px solid rgba(255,255,255,0.16);
+	}
+
+	#directory_list_id_s{
+		margin: 0;
+		padding: 20px;
+	}
+
+	/* Map End */
+	
+	/* Top Cart */
+	.navsrchblk .col-md-12 .top-cart-icon{		
+		left: 0;
+		text-indent: -9999px;
+	}
+
+	/* Menu */
+	#cssmenu > ul > li{
+		height: 95px;
+		line-height: 95px;
+		border: 1px solid #15489f;
+		border-top: none;
+		border-bottom: none;
+	}
+	#cssmenu > ul > li:nth-child(1){
+		width:  24.21875%;
+		margin: 0;
+		border-left: none;
+	}
+	#cssmenu > ul > li:nth-child(2){
+		width: 42.1875%;
+		margin: 0;
+	}
+	#cssmenu > ul > li:nth-child(3){
+		width: 33.59375%;
+		margin: 0;
+		border-right: none;
+	}
+	#cssmenu > ul > li > a{
+		padding: 0;
+		font-size: 28px;
 	}
 	/* === HEADER End === */
 
