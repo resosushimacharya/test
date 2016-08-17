@@ -26,8 +26,9 @@ get_header();
 
 		<div class="gpf-block clearfix">
         <div class="container">
+        <div class="row cc-ia-item-cover">
 		<?php 
-        $top_lvl_cats = array('rugs','hard-flooring','carpets','blinds');
+        $top_lvl_cats = array('rugs','hard-flooring','carpets','blinds','accessories');
         foreach($top_lvl_cats as $top_cat){
             $term = get_term_by('slug',$top_cat,'product_cat');
             if($term){?>
@@ -56,35 +57,46 @@ get_header();
 							  }
 						  ?>
     
-    <div class="clearfix"></div>
-    <div class="read_more"><a href="<?php echo get_term_link($term->term_id) ?>"><?php _e('View All','carpetcall')?></a></div>
+   
+    <div class="read_more"><a href="<?php echo get_term_link($term->term_id) ?>"><?php _e('View All','carpetcall')?></a></div> <div class="clearfix"></div>
   </div>
 </div>
                 <?php }?>
                 
             <?php } ?>
-
                   </div>
                 </div>
-                
+                </div>                
         <div class="inerblock_sec_a">
     <div class="container clearfix you_may_link_cntr">
         <h3 style="text-align:center">Popular Products</h3>
 <div class="you_may_like-content">
-	<div class="col-md-4">
-                  		<div class="pro_secone">
-                  		<a href="http://localhost/carpetcall/product/ber-1622-65-120/" class="cc-product-item-image-link"><div class="img_cntr" style="background-image:url('http://localhost/carpetcall/wp-content/uploads/2016/06/BER_1622_65_V.jpg');"></div></a>
-                  
-                    <!--img src="http://localhost/carpetcall/wp-content/uploads/2016/06/BER_1622_65_V.jpg" alt="BER.1622.65.120" class="img-responsive"/-->
-                    <div class="mero_itemss">
-                      		<div class="proabtxt">
-					 <a href="http://localhost/carpetcall/product/ber-1622-65-120/" class="cc-product-item-title-link"><h4>
-					BERLIN					</h4></a><h6> FROM A$195</h6></div>
-					<div class="clearfix"></div>
-                           
-                      </div>
-                      </div>
-                      </div><div class="col-md-4">
+	<?php
+	$top_lvl_cats = array('rugs','hard-flooring','carpets');
+        foreach($top_lvl_cats as $top_cat){
+		$args_max = array(
+							'post_type'=>'product',
+							'posts_per_page'	=>1,
+							'tax_query'	=>array(
+									 array(
+										'taxonomy' => 'product_cat',
+										'field' => 'slug',
+										'terms' => $top_cat,
+										'include_children' => true,
+										'operator' => 'IN'
+										),
+								),
+							'meta_key'		=>'total_sales',
+							'orderby'		=>'meta_value_num',
+							'order'			=>'DESC'
+						);
+		wp_reset_postdata();
+		$min_prod = get_posts($args_min);
+		
+		}
+			?>
+    
+    <div class="col-md-4">
                   		<div class="pro_secone">
                   		<a href="http://localhost/carpetcall/product/ber-1622-65-120/" class="cc-product-item-image-link"><div class="img_cntr" style="background-image:url('http://localhost/carpetcall/wp-content/uploads/2016/06/BER_1622_65_V.jpg');"></div></a>
                   
