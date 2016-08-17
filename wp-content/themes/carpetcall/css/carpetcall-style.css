@@ -4723,7 +4723,7 @@ a.btn-employment:hover {
 	background: #c32428;
 }
 .cc-quantiy-section .cc-quantiy-section-inner a.button.product_type_simple:hover {
-	background: #d91419;
+	background: #b01519;
 }
 .cc-size-quantity-section .cc-quantiy-section {
 	margin-bottom: 0;
@@ -4995,4 +4995,10 @@ div#error_max_msg {
 }
 .single.single-product .panel.entry-content.wc-tab p.returns_text, .single.single-product .panel.entry-content.wc-tab p.faq_read_more_para, .single.single-product .panel.entry-content.wc-tab p.clcc-care_inst {
 	padding: 30px 0;
+}
+.cc-price-var-sec .cc-price-var-items {
+	margin-top:12px;
+}
+.term-hard-flooring .cc_background_image {
+	display:none;
 }
