@@ -203,12 +203,67 @@ function woo_new_product_tab( $tabs ) {
     unset( $tabs['reviews'] ); 			// Remove the reviews tab
 	$tabs['additional_information']['title'] = __( 'DETAILS' );	// Rename the additional information tab
 	$tabs['additional_information']['callback'] = 'woo_custom_information_tab_content';
-	
+	?>
+	<?php $prourl = site_url();
+      $prourl =explode('/',$prourl);
+      if(strcasecmp($prourl[2], 'localhost')==0){
+      	$profaqid = '1725';
+      }
+      else{
+      	$profaqid = '26721';
+
+      }
+      ?>
+      
+
+     
+			
+<?php
+global $post;
+$listcat=get_the_terms($post->ID,'product_cat');
+
+foreach($listcat as $cat){
+	if($cat->parent==0){
+		//echo "that's the correct answer";
+		$root = $cat->slug;
+		$rootname = $cat->name;
+		if(strcasecmp($root,'hard-flooring')==0){
+		$root =	'hard-floor';
+		}
+	}
+	else{
+		//echo "that's the bullshit answer";
+	}
+}
+$args = array(
+    'post_type'      => 'page',
+    'posts_per_page' => -1,
+    'post_parent'    => $profaqid,
+    'order'          => 'ASC',
+    'orderby'        => 'menu_order',
+    'name' => $root
+
+ );
+
+
+$parent = new WP_Query( $args );
+while($parent->have_posts()){
+    $parent->the_post();
+    $faqid =$post->ID;
+
+}
+wp_reset_query();
+
+$list = get_field('buying_guide_archive',$faqid );
+
+?> 
+	<?php
+	if($list){
 	$tabs['faq_tab'] = array(
 		'title' 	=> __( "FAQ'S", 'woocommerce' ),
 		'priority' 	=> 49,
 		'callback' 	=> 'woo_new_product_tab_content'
-	);
+	);}
 	
 	$tabs['ret_tab'] = array(
 		'title' 	=> __( 'RETURNS', 'woocommerce' ),
@@ -256,7 +311,7 @@ function woo_new_product_tab_content() {?>
       ?>
       
 
-     <div class="cont-panl  cc-pro-det-fb hf-products">
+     
 			
 <?php
 global $post;
@@ -297,11 +352,13 @@ wp_reset_query();
 $list = get_field('buying_guide_archive',$faqid );
 
 ?>
-					
+				
 					<?php
 					
 					 $faqcounter = 1;
-					 if($list){
+					 if($list){ ?>
+					 <div class="cont-panl  cc-pro-det-fb hf-products">	
+					 <?php 
 					foreach($list as $listitem):
 					
 
@@ -336,16 +393,23 @@ $list = get_field('buying_guide_archive',$faqid );
 				break;
 			}
 
-			endforeach;
+			endforeach;?>
+			</div>
+			<div class="cc-tab-faq-read-more">
+  	<p class="faq_read_more_para">For more answers to your questions, please refer to our <a href="<?php echo get_the_permalink($faqid ); ?>"><?php echo $rootname; ?> FAQ </a> page.</p>
+  </div>
+			<?php
 		}
+		
+
+	
+
 			?>	
 					
                
 					
-				</div>
-  <div class="cc-tab-faq-read-more">
-  	<p class="faq_read_more_para">For more answers to your questions, please refer to our <a href="<?php echo get_the_permalink($faqid ); ?>"><?php echo $rootname; ?> FAQ </a> page.</p>
-  </div>
+				
+  
 <?php	
 }
 function woo_new_product_tab_accesories() {

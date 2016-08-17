@@ -5,6 +5,8 @@
 
     // HomePage Hero Slider
     var left_offset = jQuery(".container").offset().left - 10;
+
+    if( jQuery('.center').length){
     jQuery('.center')
     .on('init', function(slick) {            
       jQuery('.center').fadeIn(3000);
@@ -41,10 +43,11 @@
         }
       ]
     }); 
-    jQuery('.center').show();
+    jQuery('.center').show();}
     // HomePage Hero Slider End
 
-    // HomePage Featured Product Slider    
+    // HomePage Featured Product Slider 
+    if( jQuery('.center').length){   
     jQuery('.responsive').slick({
       dots: true,
       infinite: true,
@@ -76,7 +79,7 @@
           }
         }      
       ]
-    });
+    });}
     // HomePage Featured Product Slider End
 
     // CSS MENU
@@ -105,7 +108,6 @@
 
     
     jQuery(document).on("click",function(e) {
-      e.preventDefault();
       var container = jQuery("#after_dropdown");
       var bannerHeight = jQuery('.banner').outerHeight(true);
       var extra = jQuery(".pac-container");

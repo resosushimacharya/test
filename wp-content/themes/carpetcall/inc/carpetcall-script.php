@@ -10,13 +10,14 @@ wp_enqueue_style('lightbox',get_template_directory_uri().'/css/jquery.lightbox.m
 wp_enqueue_style('responsive-tabs',get_template_directory_uri().'/css/responsive-tabs.css');
 wp_enqueue_style('tabstyle',get_template_directory_uri().'/css/tabstyle.css');
 wp_enqueue_style('menustyless',get_template_directory_uri().'/css/menustyles.css');
-wp_enqueue_style('main',get_template_directory_uri().'/css/carpetcall-style.css');
-wp_enqueue_style('responsive_main',get_template_directory_uri().'/css/responsive.css');
+
 if(is_home()){
 wp_enqueue_style('map-store-style',get_template_directory_uri().'/css/map-store-style.css');}
 if(is_page_template('templates/find-a-store.php')){
 wp_enqueue_style('main-store-map-style',get_template_directory_uri().'/css/main-store-map-style.css');
 }
+wp_enqueue_style('main',get_template_directory_uri().'/css/carpetcall-style.css');
+wp_enqueue_style('responsive_main',get_template_directory_uri().'/css/responsive.css');
 /*wp_enqueue_style('responsive-design',get_template_directory_uri().'/css/responsive-design.css');*/
 }
 add_action( 'wp_enqueue_scripts', 'header_script' );
@@ -35,7 +36,7 @@ function carpetcall_scripts() {
 wp_enqueue_script( 'modernizer', get_template_directory_uri().'/js/modernizr.custom.79639.js', array(), false, false);
 
 
-wp_enqueue_script( 'my-script', get_template_directory_uri().'/js/script.js', array('jquery'), false, false);
+
 wp_enqueue_script( 'lightbox-script', get_template_directory_uri().'/js/jquery.lightbox.min.js', array(), false, false);
 wp_enqueue_script( 'auda', get_template_directory_uri().'/js/slick.js', array(), false, false);
 wp_enqueue_script( 'responsiveTabs', get_template_directory_uri().'/js/jquery.responsiveTabs.min.js', array(), false, false);
@@ -43,7 +44,7 @@ wp_enqueue_script( 'bootstrap-script', get_template_directory_uri().'/js/bootstr
 wp_enqueue_script( 'validator-script', get_template_directory_uri().'/js/jquery.validate.min.js', array(), false, true);
 
 wp_enqueue_script( 'trouble-script', get_template_directory_uri().'/js/trouble.cc.map.js', array('wpsl-js'), false, false);
-
+wp_enqueue_script( 'my-script', get_template_directory_uri().'/js/script.js', array('jquery'), false, false);
 
       if(get_post_type()=='product')
       {

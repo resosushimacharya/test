@@ -1,5 +1,6 @@
 $=jQuery.noConflict();
 function init_slick_slider(){
+	if(jQuery('.cat_slider').length){
       jQuery('.cat_slider').slick({
         dots: true,
         infinite: false,
@@ -33,6 +34,7 @@ function init_slick_slider(){
           }
         ]
       });
+  }
     }
     
 $(function () {
