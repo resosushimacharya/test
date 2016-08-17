@@ -85,7 +85,7 @@
 		display:inline-block;
 		vertical-align: top;
 	}
-	.top-mobile-icons .top-map-icon button{
+	.top-mobile-icons .top-map-icon .dropbtn{
 		text-indent: -9999px;
 		height: auto;
 	    width: 70px;
@@ -95,6 +95,8 @@
 	.dropdown.click-open .dropbtn{
 		width: 70px;
 	}
+
+	/* Map */
 	.top-mobile-icons .top-map-icon button img{
 		margin: 0 auto !important;
 		position: relative;
@@ -114,13 +116,66 @@
 		left: 0;
 		width: 100%;
 		z-index: 9999;
+		padding: 30px 20px 50px;
+	}
+	.loplc{
+		padding: 0;
+	}
+	.loplc h3{
+		font-size: 32px;
+	}
+	.loplc h3 span{
+		display: none;
+	}
+	.srch_pro {
+		margin: 12px 0 35px;
+	}
+	.srch_pro .input-group {
+		border: none;
+	}
+	.srch_pro .form-control{
+		height: 68px;
+		font-size: 24px;
+		padding: 15px 25px;
+		font-weight: 600;
+		letter-spacing: 0.25px;		
+	}
+	.srch_pro .input-group-btn{
+		width: 11%;
+	}
+	.srch_pro .btn-default{
+		border: none;
+		height: 68px;	
+		width: 100%;	
+	}
+	.curlocate input, .curnloca a {
+        font-family: 'proxima_nova_ltsemibold';
+	    font-size: 28px;
+	    height: 80px;
+	    line-height: 80px;
+	    padding: 0;
+	}
+	.curnloc {
+	    margin-top: 24px;
+	    margin-bottom: 0;
+	    padding-top: 24px;
+	    border-top: 2px solid rgba(255,255,255,0.16);
 	}
 
+	#directory_list_id_s{
+		margin: 0;
+		padding: 20px;
+	}
 
+	/* Map End */
+	
+	/* Top Cart */
 	.navsrchblk .col-md-12 .top-cart-icon{		
 		left: 0;
 		text-indent: -9999px;
 	}
+
+	/* Menu */
 	#cssmenu > ul > li{
 		height: 95px;
 		line-height: 95px;

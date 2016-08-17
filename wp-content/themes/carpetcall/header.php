@@ -243,12 +243,10 @@ if(get_post_type() == 'product'){?>
 
                     <div class="top-mobile-icons mobile">
                         <div class="top-map-icon">
-                            <div class="sfind">
-                                <?php get_template_part('content', 'store');  ?>
-                            </div>
+                            
                         </div><!-- store finder end -->
                         <div class="top-cart-icon">
-                             <?php get_template_part('content', 'navwoo'); ?>
+                             
                         </div><!-- my cart end -->
                     </div>
 

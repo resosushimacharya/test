@@ -382,6 +382,7 @@ ul#mywoosection ul.dropdown-menu {
 .input-group {
 	width: 100%;
 	border: 1px solid #a6a6a6;
+	border-collapse: collapse;
 }
 ul#directory_list_id {
 	margin: 10px 0;
@@ -558,18 +559,22 @@ ul#directory_list_id li {
 .srch_pro .form-control {
 	border: 0;
 	border-radius: 0;
-	padding: 21px 12px;
+	padding: 10px 12px;
 	height: 48px;
 	text-transform: uppercase;
 	text-align: left;
 	outline: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
 }
 .srch_pro .btn-default {
 	background-color: #FFF;
-	border-color: #FFF;
+	border: none;
 	border-radius: 0;
 	padding: 12px 12px;
 	outline: none;
+	height: 48px;
 }
 .srch_pro .input-group-btn {
 	margin: 0;
@@ -578,8 +583,7 @@ ul#directory_list_id li {
 }
 .curnloc {
 	margin: 10px 0;
-	display: block;
-	background: #15489f;
+	display: block;	
 	text-align: center;
 }
 .curnloca a {
@@ -589,6 +593,7 @@ ul#directory_list_id li {
 	font: bold 16px 'proxima_nova_rgregular', sans-serif;
 	text-decoration: none;
 	width: 100%;
+	background: #15489f;
 }
 .curnloca a:hover {
 	background: #0a71cf;
