@@ -293,6 +293,7 @@ ul#mywoosection ul.dropdown-menu {
 	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
 	color: #666;
 	font-size: 12px;
+	text-transform: uppercase;
 }
 .mcrt {
 	position: relative;
@@ -1681,7 +1682,7 @@ ul.guide_list_cbg li.current_page_item a {
 	cursor: pointer;
 }
 .breadcrumbs {
-	margin-bottom: 12px;
+	margin:18px 0 12px 0;
 }
 .inerblock_sec_faq h3 {
 	font: normal 36px 'proxima_nova_ltsemibold', sans-serif;
@@ -1818,7 +1819,7 @@ ul.guide_list_cfaq li a {
 
 /*................ Inner Featured Product start here ...................*/
 .inerblock-sec-prod-a {
-	margin: 145px 0 0px 0;
+	margin: 0 0 0 0;
 }
 .woocommerce-breadcrumb a.breadcrum-link-2, .woocommerce-breadcrumb a.breadcrum-link-3, .woocommerce-breadcrumb a.breadcrum-link-4, .woocommerce-breadcrumb a.breadcrum-link-5 {
 	font: normal 12px 'proxima_nova_rgregular', sans-serif;
@@ -2826,7 +2827,7 @@ ul.cat_list li a:hover {
 
 /*........... clearance start here ...............*/
 .inerblock_clearn {
-	margin: 137px 0 20px 0;
+	margin: 0px 0 20px 0;
 }
 .inerblock_clearn span {
 	font: normal 12px 'proxima_nova_rgregular', sans-serif;
@@ -4120,7 +4121,7 @@ span.wpsl-hf-street-b strong, span.wpsl-hf-street-c strong {
 	color: #FFF;
 }
 .inerblock_serc_cde.cc-locator-sec {
-	margin: 145px 0 0 0;
+	margin: 0px 0 0 0;
 }
 .cc-locator-title-sec-z {
 	padding: 19px 0 9px 0;
