@@ -42,7 +42,7 @@ $storeID =26771 ;
         
         <div class="store-map">
             
-            <?php get_template_part('templates/cotents/content','map');?>
+            <?php get_template_part('templates/contents/content','map');?>
             </div><div class="clearfix"></div><!-- for store map end -->
             <?php $storelink = get_field('visit_our_store_link',$storeID);
             ?>
