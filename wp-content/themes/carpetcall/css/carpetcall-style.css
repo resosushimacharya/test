@@ -100,6 +100,7 @@ html, body {
 .wrapper, .banner, .tstore, .cartblk, .calus, .wellblk, .crpchoose, .rtfloblk, .crptslide, .pont, .mystor, .expert, .footer_c, .sor_blk, .againlt, .fot_cpy, .limblk, .rugpro_blk, .rugspro_blk, .rug_size, .carpetcall_slide, .parcel_blk, .feature_pro, .trade, .cbg_blk, .mmrugm, .page-sorry {
 	padding: 0;
 }
+.wrap_body { margin: 145px 0 20px 0; }
 
 /* banner section start here ---*/
 .banner {
@@ -1480,7 +1481,7 @@ li.clblk_a::before {
 
 /*............. inner page section start here .................*/
 .inerblock_serc {
-	margin: 155px 0 20px 0;
+	margin: 0px 0 20px 0;
 }
 
 /*.............. carpet buying guide start here ..................*/
@@ -2478,7 +2479,7 @@ ul.specific-list li {
 
 /*....... Modern Rugs start here ..................*/
 .inerblock_seC_mrugss {
-	margin: 145px 0 20px 0;
+	margin: 0px 0 20px 0;
 }
 .mmrugm {
 	background: #eff1f0;
@@ -2696,7 +2697,7 @@ a.pull-right:hover {
 	height: 275px;
 }
 .body-wrapper {
-	margin: 145px 0 38px 0;
+	margin: 0px 0 38px 0;
 }
 ul.cat_list {
 	margin: 0 0 29px 0;
@@ -2744,7 +2745,7 @@ ul.cat_list li a:hover {
 
 /*..................... inner child section start here .....................*/
 .inerblock_serc_child {
-	margin: 145px 0 20px 0;
+	margin: 0px 0 20px 0;
 }
 .inerblock_serc_child .cc-breadcrumb {
 	padding: 20px 0;
