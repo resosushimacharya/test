@@ -28,8 +28,8 @@ else {
 */
 $id = get_the_id();
 $ancestors = get_post_ancestors( $id );
-#print_r( $ancestors );
-#exit;
+//print_r( $ancestors );
+//exit;
 // reverse array to maintain correct ancestor order
 $ancestors = array_reverse ( $ancestors );
 $size      = count( $ancestors );
