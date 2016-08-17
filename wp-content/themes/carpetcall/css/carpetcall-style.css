@@ -1106,9 +1106,10 @@ h5.tryit.tryita {
 	position: relative;
 }
 .rmblk_cont, .inner_cont, .quest_cont {
-	position: absolute;
-	top: 15px;
-	left: 26px;
+	padding:15px 20px;
+}
+.inner_cont, .quest_cont {
+	min-height:232px;	
 }
 .rmblk_cont h3, .inner_cont h4, .quest_cont h4 {
 	font: bold 20px 'proxima_nova_ltsemibold', sans-serif;
@@ -1215,7 +1216,30 @@ div#right_col ol li, .cbg_content ol li, .cbg_content ul li {
 	color: #666;
 	padding:0 39px;
 }
-
+.idea-left .rmvisual, .idea-right .care_pro {
+	float: right;
+    background-color: #0a71cf;
+    min-width: 483px;
+    min-height: 165px;
+    background-size: cover;
+    background-position: -55px 0px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+.idea-left .guide_a, .idea-right .faq_blk {
+	float:right;
+	background-color:#15489f; 
+	min-width:483px; 
+	background-size: cover;  
+	background-repeat:no-repeat; 
+	overflow:hidden;
+}
+.idea-left .guide_a {
+	background-position:-109px 1px;
+}
+.idea-right .faq_blk {
+	background-position:-145px 8px;
+}
 
 /*........... expert trade start here ..............*/
 .trade {
