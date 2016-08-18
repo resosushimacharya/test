@@ -329,7 +329,24 @@ function custom_frontend_meta_appointment( $store_fields ) {
 function custom_listing_templates() {
     
     global $wpsl_settings;
-    global $post;
+      global $post;
+     
+  $site_url = site_url();
+  $cat = get_queried_object();
+
+if($cat->taxonomy){
+    
+    $categoryName = $cat->name;
+    $categoryCount = $cat->count; 
+    if($categoryCount>1){
+        $categoryStore = 'STORES';
+    }
+    else{
+        $categoryStore = 'STORE';
+    }
+   $categoryDisdplay ='<div class="cc-store-cat-page-heading">SHOWING '.$cat->count.' '.$categoryStore.'  IN '.$categoryName.' </div>' ;
+}
+     
 
     $site_url = site_url();  
           
@@ -393,7 +410,21 @@ function custom_listing_templates_server() {
   global $post;
      
   $site_url = site_url();
+  $cat = get_queried_object();
 
+if($cat->taxonomy){
+    
+    $categoryName = $cat->name;
+    $categoryCount = $cat->count; 
+    if($categoryCount>1){
+        $categoryStore = 'STORES';
+    }
+    else{
+        $categoryStore = 'STORE';
+    }
+   $categoryDisdplay ='<div class="cc-store-cat-page-heading">SHOWING '.$cat->count.' '.$categoryStore.'  IN '.$categoryName.' </div>' ;
+}
+    
     $listing_template = '<% if (  id!=26801 ) { %>' .
     '<% if (  id!=26783 ) { %>'.
         '<% if (  id!=26797 ) { %>'.

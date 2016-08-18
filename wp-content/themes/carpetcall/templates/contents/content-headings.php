@@ -15,7 +15,7 @@
                    
                      <?php echo $heading['title'];?> </h3>
                     <p><?php echo $heading['description'];?> </p>
-                    </div><div class="clearfix"></div>
+                    </div>
                     
                 </div>
                 </div>

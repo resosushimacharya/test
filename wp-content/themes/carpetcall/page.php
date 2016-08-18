@@ -13,11 +13,9 @@
 <div class="faq-cont-blka">
     <div class="container clearfix">
         <div class="inerblock_sec">
-            <div class="col-md-3 no-pl">
-                <div class="clearfix"></div>
-            </div><!-- end .col-md-3.no-pl -->
+            
 
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="cbg_content">
                     <?php 
                         the_content();

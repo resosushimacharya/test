@@ -117,7 +117,7 @@ $output .= "\t" . '</div>' . "\r\n";
 }
 if($post->ID!=$locsermapID || isset($_POST["cc-current-location-store"]) || isset($_POST["wpsl-search-input"]) || isset($_POST["store-unique-key"]) ){
 
-$output .= "\t" . '<div id="wpsl-result-list">'. $categoryDisdplay . "\r\n";
+$output .= "\t" . '<div id="wpsl-result-list">'. "\r\n";
 $output .= "\t\t" . '<div id="wpsl-stores" '. $autoload_class .'>' . "\r\n";  
 $output .= "\t\t\t" . '<ul class="map-result-not-found test"></ul>' . "\r\n";
 $output .= "\t\t" . '</div>' . "\r\n";

@@ -66,7 +66,7 @@ $term =  get_queried_object();
 <div class="cc-store-bdy-contr">
   <div class="container">
 
-<?php echo do_shortcode('[wpsl template="custom" category="'.$term->slug.'" 
+<?php echo do_shortcode('[wpsl template="custom"  
 ]'); ?>
 
 
@@ -84,3 +84,17 @@ $term =  get_queried_object();
 </style>
 
 <?php get_footer();?>
+<script type="text/javascript">
+  jQuery( document ).ajaxComplete(function( event, xhr, settings ) {
+    console.log( 'testssssssssssssss'); 
+  if(settings.url.indexOf('action=store_search') !== -1){
+    if(typeof xhr.responseJSON!=="undefined"){
+
+      console.log( xhr.responseJSON.length);
+    }
+     
+
+
+  }
+});
+</script>

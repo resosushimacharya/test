@@ -4,24 +4,102 @@
 /* ============= 800px starts ============= */
 @media only screen and (max-width: 800px) {
 	
-	/* === GLOBAL === */
+	/* ===== GLOBAL ===== */
 	.container{
 		width: auto;
 	}
-	
+	[class*='col-']{
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 	.wrap_body{
 		margin-top: 312px;
 	}
+	.slick-dotted.slick-slider{
+		margin-bottom: 0;
+	}
 	
 	/* Display none goes here */
-	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon{
+	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img{
 		display: none;
 	}
-	/* Display none ends here */	
+	/* Display none ends here */
 
-	/* === GLOBAL End === */
+	/* Display Block goes here */
+	.calbk-mobile{
+		display: block;
+	}
+	/* Display Block ends here */	
+	
+	/* Font-size 24px; */
+	.suptlst li, .aag p, .aag_a p, .aag_c p, .ptxt h4, .ptxt h5, .nowspp a, .trynow{
+		font-size: 24px;
+	}
+	/* Font-size 24px; End */
 
-	/* === HEADER === */	
+	/* Font-size 28px; */
+	.cptinn a, .ptxt h3, ul.guide_list li a{
+		font-size: 28px;
+	}
+	/* Font-size 28px; End */
+
+	/* Font-size 30px; */
+	.cptspl{
+		font-size: 30px;
+	}
+	/* Font-size 30px; End */
+
+	/* Font-size 32px; */
+	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4{
+		font-size: 32px;
+	}
+	/* Font-size 32px; End */
+
+	/* Font-size 36px; */
+	.meropro_blk h1, .thought_blk h2, .hamro_trade h2{
+		font-size: 36px;
+	}
+	/* Font-size 36px; End */
+
+	/* Font-size 48px; */
+	.bookcbk{
+		font-size: 48px;
+	}
+	/* Font-size 48px; End */
+	
+	/* Big buttons */
+	.cptinn a{
+		height: 90px;
+		padding: 0;
+		line-height: 90px;
+		display: block;
+	}
+	/* Big buttons End*/
+	
+	/* Small buttons */
+	.nowspp a{
+		height: 60px;
+		padding: 0;
+		line-height: 60px;
+		display: block;
+	}
+	/* Small buttons End*/	
+
+	/* Text Transform uppercase */
+	.meroshop .col-md-4:nth-child(2) .aag .so_title > a span:first-child{
+		text-transform: uppercase;
+	}
+	/* Text Transform uppercase End*/
+
+	/* Proxima Nova Font Bold */
+	.rmblk_cont h3, .inner_cont h4, .quest_cont h4, .trynow{
+		font-family: 'ProximaN Bold';
+	}
+	/* Proxima Nova Font Bold End */
+
+	/* ===== GLOBAL End ===== */
+
+	/* ===== HEADER ===== */	
 	.banner{
 		padding-top: 0;
 	}
@@ -76,6 +154,7 @@
 	}
 	.navsrchblk .col-md-12 .col-md-7{
 		width: 100%;
+		padding: 0;
 	}
 	.top-mobile-icons{
 		display: inline-block;
@@ -208,9 +287,248 @@
 	/* === HEADER End === */
 
 	/* === HOME PAGE === */
+
+	/* Slider */
 	.slider{
 		min-width: inherit;
 	}
+	/* Slider End*/
+	
+	/* Callback */
+	.calbk-mobile .calbk{
+		text-align: center;
+		margin-top: 57px;
+	}
+	.cptspl{
+		margin-bottom: 25px;
+	}
+	.suptlst li{
+		padding-left: 0;
+		color: #989898;
+	}
+	.cptin{
+		display: block;
+	}
+	.cptinn a{
+		margin: 35px 0 0;
+	}
+	/* Callback End */
+
+	/* Home Top Shop Sec */
+	.meroshop{
+		margin: 55px 0 40px;
+	}
+	.shopping{
+		top: 0;
+		height: 150px;
+		padding: 20px;
+		position: relative;
+		display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+		display: -ms-flexbox;  /* TWEENER - IE 10 */
+		display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+		display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */	
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		-webkit-box-align: center;
+		align-items: center;	
+	}
+	.aag{
+		width: 100%;
+	}
+	.meroshop .col-md-12 .col-md-4{
+		padding: 0;
+		margin-bottom: 20px;
+	}
+	.meroshop .col-md-12 .col-md-4:last-child{
+		margin-bottom: 0;
+	}
+	.so_title, .aag p, .meroshop .col-md-4:nth-child(2) .aag .so_title, .meroshop .col-md-4:nth-child(2) .aag p, .meroshop .col-md-4:nth-child(3) .aag p{
+		margin-left: 135px;
+	}
+	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span{
+		font-family: 'ProximaN Bold';
+	}
+	.meroshop .col-md-4 .aag img{
+		position: absolute;
+		top: 50%;
+		height: auto !important;
+		margin: 0 !important;
+		-webkit-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		-o-transform: translateY(-50%);
+		transform: translateY(-50%);
+	}
+	.meroshop .col-md-4:nth-child(1) .aag img,  .meroshop .col-md-4:nth-child(3) .aag img{
+	    width: 70px;	
+	    left: 20px;    
+	}
+	.meroshop .col-md-4:nth-child(2) .aag img{
+		width: 90px;
+	}
+	.meroshop .col-md-4:nth-child(3) .aag img{
+		left: 30px;
+	}
+	/* Home Top Shop Sec End */
+
+	/* Home Featured Product */
+	.feature_pro{
+		padding: 45px 0 55px;
+	}
+	.meropro_blk h1{
+		margin-top: 0;
+		margin-bottom: 22px;
+	}
+	.meropro_blk .col-md-12{
+		padding: 0;
+	}
+	.meropro_blk .responsive {
+		padding: 0 10px;
+	}
+	.responsive .slick-prev{
+		left: 0;
+	}
+	.responsive .slick-next{
+		right: 0;
+	}
+	.responsive .slick-dots{
+		left: 0;
+	}	
+	.responsive .slick-track{
+		display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+		display: -ms-flexbox;  /* TWEENER - IE 10 */
+		display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+		display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+	    -ms-flex-align: stretch;
+		-webkit-align-items: stretch;
+		-webkit-box-align: stretch;
+		align-items: stretch;
+	}
+	.responsive .pro_for{
+		height: inherit;
+		padding: 15px 15px 90px;
+		position: relative;
+	}
+	.responsive .pro_for .nowsp{
+		position: absolute;
+	    left: 30px;
+	    right: 30px;
+	    bottom: 30px;
+	}
+	.responsive .pro_for .img_cntr_home{
+		height: 190px;
+	}
+	.responsive .sublk_prom{
+		margin-top: 20px;
+		margin-bottom: 30px;
+		padding: 0 15px;
+	}
+	.ptxt h3, .ptxt h4, .ptxt h5{
+		padding-left: 0;
+	}
+	.nowsp{
+		margin-left: 0;
+		height: inherit;
+		width: auto;
+	}
+	.nowspp a{
+		height: 60px;
+		padding: 0;
+		line-height: 60px;
+	}
+	.responsive .slick-next, .responsive .slick-prev{
+		width: 55px;
+		height: 90px;
+		top: 140px;
+		z-index: 10;
+	    -webkit-transform: translate(0,0);
+	    -ms-transform: translate(0,0);
+	    transform: translate(0,0);
+	}
+	.responsive .slick-next:before, .responsive .slick-prev:before{
+		font-size: 62px;
+	}
+	.meropro_blk{
+		margin-bottom: 45px;
+	}
+	.slick-dots li{
+		height: 26px;
+		width: 26px;
+		margin: 0 15px;
+	}
+	.responsive .slick-dots li button{
+		height: 26px;
+		width: 26px;
+		background: #e2e2e2;
+		border-radius: 50%;
+	}
+	.responsive .slick-dots li button:before{
+		display: none;
+	}
+	.responsive .slick-dots li.slick-active button{
+		background: #15489f;
+	}
+	/* Home Featured Product End */
+
+	/* Home Ideas and Advice */
+	.thought_blk{
+		margin: 0;
+		padding: 50px 0 45px;
+	}
+	.thought_blk h2{
+		margin-bottom: 25px;
+	}
+	.idea-left .rmvisual.idea-top_block, .idea-right .care_pro.idea-top_block{
+		width: 100%;
+		height: 150px;
+		min-height: inherit;
+		background-size: contain;
+		background-position: 99% top;
+		margin-bottom: 15px;
+	}	
+	.rmblk_cont, .inner_cont, .quest_cont{
+		padding: 30px;
+	}
+	.rmblk_cont h3, .inner_cont h4, .quest_cont h4{
+		margin-bottom: 20px;
+	}
+	.idea-left .guide_a, .idea-right .faq_blk{
+		width: 100%;
+		margin-top: 0;
+		margin-bottom: 15px;
+		background-position: 99% top;
+	}
+	.idea-right .faq_blk{
+		margin-bottom: 0;
+	}
+	ul.guide_list li{
+		position: relative;
+		padding-left: 35px;
+	}
+	ul.guide_list li a{
+		line-height: 50px;
+	}
+	ul.guide_list .fa{
+		margin: 0;
+		position: absolute;
+		left: 0;
+		font-size: 24px;
+		top: 50%;
+		-wenkit-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		-o-transform: translateY(-50%);
+		transform: translateY(-50%);
+	}
+	.inner_cont h4, .quest_cont h4 {
+	    margin-bottom: 10px;
+	}
+	/* Home Ideas and Advice End */
+
+	.hamro_trade h2{		
+		margin-top: 0;
+	}
+	
 	/* === HOME PAGE End === */
 
 }
