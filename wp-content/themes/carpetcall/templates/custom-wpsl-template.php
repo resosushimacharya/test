@@ -119,7 +119,7 @@ if($post->ID!=$locsermapID || isset($_POST["cc-current-location-store"]) || isse
 
 $output .= "\t" . '<div id="wpsl-result-list">'. $categoryDisdplay . "\r\n";
 $output .= "\t\t" . '<div id="wpsl-stores" '. $autoload_class .'>' . "\r\n";  
-$output .= "\t\t\t" . '<ul class="test"></ul>' . "\r\n";
+$output .= "\t\t\t" . '<ul class="map-result-not-found test"></ul>' . "\r\n";
 $output .= "\t\t" . '</div>' . "\r\n";
 $output .= "\t\t" . '<div id="wpsl-direction-details">' . "\r\n";
 $output .= "\t\t\t" . '<ul></ul>' . "\r\n";

@@ -100,7 +100,7 @@
             $loop = new WP_Query($args);
         ?>
         <div class="cc-head-office-wrap">
-        <div class="cc-head-office-secn"> <ul class="cc-head-office-list">
+        <div class="cc-head-office-secn"> <ul class="cc-head-office-list ">
 
         <?php   
 
@@ -124,15 +124,27 @@
                   $city = '';
                   $direction = '';
                   $country  = '';
+                  $phoneCon = false; // void condition '
+                  $faxCon = false; // void condition 
                   if(array_key_exists('wpsl_phone',$getinfo)){
                   $phone = $getinfo['wpsl_phone'][0];
+                  if($phone == ''){
+                    $phoneCon = false;
+                    break;
+                  }
                   $x=  $phone;
                   $x = preg_replace('/\s+/', '', $x);
                   $x = '+61'.$x;  
                   $phone = '<a class="phone" href="tel:'.$x.'">'.$phone.' </a>';
+                  $phoneCon = true;
                   }
                   if(array_key_exists('wpsl_fax',$getinfo)){
                   $fax = $getinfo['wpsl_fax'][0];
+                  if($fax == ''){
+                    $faxCon = false;
+                    break;
+                  }
+                  $faxCon = true;
                   }
                   if(array_key_exists('wpsl_city',$getinfo)){
                   $city  = $getinfo['wpsl_city'][0];
@@ -164,17 +176,29 @@
             </p>
             <div class="clearfix"></div>
             <div class="cc-store-map-last-cover clearfix"><span class="wpsl-hf-street"><?php echo get_post_meta($post->ID,'wpsl_address',true );?></span>
-                
-            <span class="wpsl-hf-street-a"><?php echo $zip.' '.$city.' '.$state;?></span>
-            <span class="wpsl-hf-country"><?php echo $country;?></span>
+               <?php if ( $zip == '' ) { ?>
+            <span class="wpsl-hf-street-a"><?php echo $city.' '.$state.' '.$zip;?></span>
+            <?php } else { ?>
+            <span class="wpsl-hf-street-a"><?php echo $city.', '.$state.' '.$zip;?></span>
+            <?php } ?>
+            
             </div>
-            <span class="wpsl-hf-street-b"><strong>P: </strong><?php echo  $phone ;?></span>
-            <span class="wpsl-hf-street-c"><strong>F: </strong> <?php echo $fax;?></span>
-                
+            <div class="cc-phone-fax-wrapper">
+                <?php if ( $phoneCon ) { ?>
+                <span class="wpsl-hf-street-b"><strong>P: </strong><?php echo  $phone ;?></span>
+                <?php } ?>
+                <?php if ( $faxCon ) { ?>
+                <span class="wpsl-hf-street-c"><strong>F: </strong> <?php echo $fax;?></span>
+                <?php } ?>
+            </div>
 
+              
+               
             <div class="hfc-fcnt-or hfc-fcnt-orr hfc-fcnt-orr-map clearfix">
                 <a href="<?php echo site_url();?>/contact-us/?id=<?php echo $post->ID ; ?>" class="cc-contact-link  ">Contact Store</a>
-            </div>         
+            </div>  
+       
+               
         </div>
        
         </li>

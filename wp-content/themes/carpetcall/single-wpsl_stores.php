@@ -114,19 +114,11 @@ if(array_key_exists('wpsl_fax',$getinfo)){
        <div class="wpsl-phone-sec cc-single-wpsl-ccstore">
        <?php if(array_key_exists('wpsl_phone',$getinfo)){ ?>
        <span class="cc-cat-store-item-phone"><strong>CALL</strong><?php echo $phone ;?></span>
-       <?php } else{
-       
-      ?>
-      <span class="cc-cat-store-item-phone cc-cat-store-item-phone-abs"><strong>CALL</strong><?php echo $phone ;?></span>
-       <?php }
-       ?>
+       <?php } ?>
        <?php if(array_key_exists('wpsl_fax',$getinfo)){?>
       <span class="cc-cat-store-item-fax"><strong>FAX</strong> <?php echo $fax ;?></span>  
-      <?php  }
-      else{
-        ?>  
-<span class="cc-cat-store-item-fax cc-cat-store-item-fax-abs"><strong>FAX</strong> <?php echo $fax ;?></span>  
-      <?php }?>
+      <?php  } ?>
+     
 
        <div class="cc-str-cntblk cc-str-cntblk-a cc-str-cntblk-a-map clearfix"><a href="<?php echo site_url();?>/contact-us/?id=<?php echo $post->ID;?>" class="cc-contact-link">CONTACT STORE</a></div>
        </div>

@@ -3925,6 +3925,7 @@ input#cc_control_map {
 	margin: 0 -10px;
 	font-size: 0;
 }
+#wpsl-stores .test li{ font-size:16px;font-weight:700;color:#FF0000; }
 #wpsl-wrap #wpsl-result-list li {
 	border-bottom: none;
 }
@@ -3940,6 +3941,8 @@ input#cc_control_map {
 .cc-cat-store-section {
 	border: 1px solid #e7edf8;
 	padding: 10px;
+	min-height: 360px;
+	position: relative;
 }
 .cc-store-icon-label strong a {
 	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
@@ -4053,7 +4056,7 @@ span.cc-cat-store-item-phone strong, span.cc-cat-store-item-fax strong {
 	background: #b51a1d;
 }
 .cc-cats-or {
-	margin: 8px 0 18px 0;
+	margin: 8px 0 0px 0;
 	text-align: center;
 }
 .cc-cas-orr a {
@@ -4082,6 +4085,8 @@ span.cc-cat-store-item-phone strong, span.cc-cat-store-item-fax strong {
 	padding: 0;
 	margin: 0 -10px;
 }
+.cc-last-con-vis-wrapper{position: absolute;bottom: 20px;
+left: 25px;}
 .cc-head-office-list li {
 	list-style: none;
 	margin: 0;

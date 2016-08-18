@@ -35,8 +35,8 @@ $state = '';
 $city = '';
 $direction = '';
 $storeID = $loop->post->ID;
-$phonesec = '<li class="cc-head-wpsl-phone cc-head-wpsl-phone-abs"><span>P:</span>'.$phone.'</li>';
-$faxsec = '<li class="cc-head-wpsl-fax cc-head-wpsl-fax-abs"><span>F:</span> '.$fax.'</li>';
+$phonesec = '';
+$faxsec = '';
 if(array_key_exists('wpsl_phone',$getinfo)){
  $phone = $getinfo['wpsl_phone'][0];$phone = $getinfo['wpsl_phone'][0];
    $x=  $phone;
@@ -58,7 +58,7 @@ if(array_key_exists('wpsl_state',$getinfo)){
 if(array_key_exists('wpsl_zip',$getinfo)){
  $zip = $getinfo['wpsl_zip'][0];
 }
-$combcsz =$city.' '.$state.' '.$zip;
+$combcsz =$city.', '.$state.' '.$zip;
 $title ='<li class="cc-head-wpsl-title">'.$title .'</li>';
 $add ='<li class="cc-head-wpsl-adrs">'.$add .'</li>';
 $combcszsec ='<li class="cc-head-wpsl-csz">'.$combcsz.'</li>';
