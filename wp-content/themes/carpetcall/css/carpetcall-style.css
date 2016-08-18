@@ -36,6 +36,20 @@
 	font-weight: 900;
 	font-style: normal;
 }
+
+/* PN Bold */
+@font-face {
+  font-family: 'ProximaN Bold';
+  src: url('../fonts/ProximaNova-Bold.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/ProximaNova-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/ProximaNova-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/ProximaNova-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/ProximaNova-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/ProximaNova-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+
+
 * {
 	padding: 0;
 	margin: 0;
@@ -5063,4 +5077,10 @@ div#error_max_msg {
 }
 .single.single-product .woocommerce-tabs.wc-tabs-wrapper .panel.entry-content.wc-tab p {
 	margin: 25px 0;
+}
+
+
+/* Display None on desktop */
+.calbk-mobile{
+	display: none;
 }

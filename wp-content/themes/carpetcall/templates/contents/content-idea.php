@@ -22,7 +22,7 @@
                         foreach($guides as $guide):?>
                                 <div class="col-md-6  <?php echo ($gi%2==0?'idea-left':'idea-right') ;?>">
 
-                                        <div class="<?php echo ($gi%2==0?'rmvisual':'care_pro') ;?>" style="background-image:url(<?php echo $guide['image']['url'];?>);">
+                                        <div class="idea-top_block <?php echo ($gi%2==0?'rmvisual':'care_pro') ;?>" style="background-image:url(<?php echo $guide['image']['url'];?>);">
                                         <?php
                                                 if(!empty($guide['link_url_external'])){
                                                         $external_link =$guide['link_url_external'][0];
@@ -59,7 +59,7 @@
                 <div class="row">
 
                         <div class="col-md-6 idea-left">
-                                <div class="guide_a" style="background-image:url(<?php echo get_template_directory_uri().'/images/guides.png';?>); ">
+                                <div class="idea-bottom_block guide_a" style="background-image:url(<?php echo get_template_directory_uri().'/images/guides.png';?>); ">
 
 
                                         <div class="inner_cont">
@@ -94,7 +94,7 @@
                         </div>
 
                         <div class="col-md-6 idea-right">
-                                <div class="faq_blk" style="background-image:url(<?php echo get_template_directory_uri().'/images/faq.png';?>);">
+                                <div class="idea-bottom_block faq_blk" style="background-image:url(<?php echo get_template_directory_uri().'/images/faq.png';?>);">
 
 
                                         <div class="quest_cont">
