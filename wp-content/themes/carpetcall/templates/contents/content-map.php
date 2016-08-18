@@ -1,4 +1,4 @@
-<div style="overflow:hidden;height:259px;width:100%;background-image: url(<?php echo get_template_directory_uri(); ?>/images/map-content.png); background-repeat:no-repeat; background-size:contain; background-position:50% 50%;">
+<div style="overflow:hidden;height:259px;width:100%;background-image: url(<?php echo get_template_directory_uri(); ?>/images/map-content.svg); background-repeat:no-repeat; background-size:contain; background-position:50% 50%;">
     <div class="map_img"  style=""></div>
 <div id="gmap" style="position:relative;height: 500px; width:100%;top:-120px;background-color: transparent;"></div>
 </div>

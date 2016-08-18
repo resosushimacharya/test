@@ -1122,6 +1122,9 @@ h5.tryit.tryita {
 .hamro_trade h2 {
 	margin: 55px 0 30px 0;
 }
+.hamro_trade h2 br{
+	display: none;
+}
 .rmvisual, .guide_a, .care_pro, .faq_blk {
 	position: relative;
 }
@@ -3715,7 +3718,7 @@ div#right_col p a:hover {
 	cursor: pointer;
 }
 .cc-store-hd-title {
-	margin: 145px 0 0 0;
+	margin: 0;
 	background: #f0f2f1;
 }
 .cc-bread-crumb-str {
@@ -3905,7 +3908,7 @@ input#cc_control_map {
 	color: #0099ff !important;
 }
 .inerblock_serc.cc-store-nsw-blk {
-	margin: 145px 0 0 0;
+	margin: 0;
 }
 .inerblock_serc.cc-store-nsw-blk .breadcrumbs {
 	padding: 20px 0;
