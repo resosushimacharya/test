@@ -5129,4 +5129,10 @@ div#error_max_msg {
 .calbk-mobile{
 	display: none;
 }
-
+.cc-terms-condn, .cbg_content.cc-condn-page {
+	padding:0;
+}
+.inerblock_sec.cc-page-all {
+	margin:0;
+}
+	

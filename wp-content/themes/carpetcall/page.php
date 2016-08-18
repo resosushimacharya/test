@@ -12,11 +12,11 @@
 
 <div class="faq-cont-blka">
     <div class="container clearfix">
-        <div class="inerblock_sec">
+        <div class="inerblock_sec cc-page-all">
             
 
-            <div class="col-md-12">
-                <div class="cbg_content">
+            <div class="col-md-12 no-lr cc-terms-condn">
+                <div class="cbg_content cc-condn-page">
                     <?php 
                         the_content();
                     ?>
