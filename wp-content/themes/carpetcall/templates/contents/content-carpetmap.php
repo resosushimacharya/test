@@ -24,11 +24,14 @@ $storeID =26771 ;
             $about = get_post($aboutID);            
         ?>
         <h1><?php echo get_field('home_about_heading','option') ;?></h1>
-        <?php 
-            // load About Us Home Content from About Us page ( custom field )
-            $about_us_home_content = get_field( 'about_carpetcall_home_content' , $aboutID );
-            echo apply_filters( 'the_content' , $about_us_home_content ); 
-        ?>            
+        <div class="home_about_sec">
+            <?php 
+                // load About Us Home Content from About Us page ( custom field )
+                $about_us_home_content = get_field( 'about_carpetcall_home_content' , $aboutID );
+                echo apply_filters( 'the_content' , $about_us_home_content ); 
+            ?>
+        </div>
+
         <div class="rmore rmoree">
             <a href="<?php echo get_the_permalink( $aboutID ); ?>" title="<?php echo $about->post_title; ?>"><?php _e('Read More' , 'carpetcall'); ?></a>
         </div>

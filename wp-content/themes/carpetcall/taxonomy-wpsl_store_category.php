@@ -65,8 +65,11 @@ $term =  get_queried_object();
 
 <div class="cc-store-bdy-contr">
   <div class="container">
-
-<?php echo do_shortcode('[wpsl template="custom"  
+<?php if (isset($_POST['wpsl-search-input']){
+  echo do_shortcode('[wpsl template="custom" ]');
+}
+?>
+<?php echo do_shortcode('[wpsl template="custom" category="'.$term->slug.'" 
 ]'); ?>
 
 
