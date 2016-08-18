@@ -20,7 +20,8 @@ $slider_link_title_without_box=get_field('slider_link_title_without_box',$post->
 $slider_link=get_field('slider_link',$post->ID);
 $slider_external_link=get_field('slider_external_link',$post->ID);
    ?>
-   <div>
+   <div class="home_slider_content">
+   <div class="home_slider_inner" style="background-image: url('<?php echo $feat_image;?>');">
     <div class="hamro">
     <?php if($slider_title){?>
         <h3> <?php echo $slider_title;?> </h3>
@@ -40,8 +41,7 @@ $slider_external_link=get_field('slider_external_link',$post->ID);
         <?php }?>
        <?php  }?>
       </div>
-      <img src="<?php echo $feat_image;?>" alt="images" class="img-responsive">
-      
+      </div>
     </div>
  <?php 
  endwhile;
