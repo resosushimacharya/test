@@ -329,7 +329,24 @@ function custom_frontend_meta_appointment( $store_fields ) {
 function custom_listing_templates() {
     
     global $wpsl_settings;
-    global $post;
+      global $post;
+     
+  $site_url = site_url();
+  $cat = get_queried_object();
+
+if($cat->taxonomy){
+    
+    $categoryName = $cat->name;
+    $categoryCount = $cat->count; 
+    if($categoryCount>1){
+        $categoryStore = 'STORES';
+    }
+    else{
+        $categoryStore = 'STORE';
+    }
+   $categoryDisdplay ='<div class="cc-store-cat-page-heading">SHOWING '.$cat->count.' '.$categoryStore.'  IN '.$categoryName.' </div>' ;
+}
+     
 
     $site_url = site_url();  
           
@@ -344,7 +361,9 @@ function custom_listing_templates() {
     $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n";
     
-    $listing_template .= "\t\t\t\t" . '<div class="cc-phone-fax-wrapper"><% if ( phone ) { %><% tel = phone.replace(" ", "") %>' . "\r\n";
+  
+               $listing_template .='</div>'. "\r\n";
+                    $listing_template .= "\t\t\t\t" . '<div class="cc-phone-fax-wrapper"><% if ( phone ) { %><% tel = phone.replace(" ", "") %>' . "\r\n";
             $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P: ' .'</strong><a href="tel:+61' . '<%= (tel.replace( /\s+/g,"" )).replace( "0", "" ) %>' . '"> <%= phone %></a></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% }  %>' . "\r\n";
            
@@ -353,7 +372,7 @@ function custom_listing_templates() {
     $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
     
             $listing_template .= "\t\t" . '</div>' . "\r\n";
-               $listing_template .='</div><div class="cc-last-con-vis-wrapper"><div class="cc-cats-vsp cc-cats-vsp-a clearfix"><a href="<%= permalink %>">View Store Page</a></div>';
+               $listing_template .='<div class="cc-last-con-vis-wrapper"><div class="cc-cats-vsp cc-cats-vsp-a clearfix"><a href="<%= permalink %>">View Store Page</a></div>';
                 $listing_template .='<div class="cc-cats-or cc-cas-orr cc-cats-orr-map clearfix"><a href="'.$site_url.'/contact-us/?id=<%= id %>" class="cc-contact-link  ">Contact Store</a></div></div>';
     $listing_template .= "\t\t\t" . '</p>' . "\r\n";
      
@@ -393,7 +412,21 @@ function custom_listing_templates_server() {
   global $post;
      
   $site_url = site_url();
+  $cat = get_queried_object();
 
+if($cat->taxonomy){
+    
+    $categoryName = $cat->name;
+    $categoryCount = $cat->count; 
+    if($categoryCount>1){
+        $categoryStore = 'STORES';
+    }
+    else{
+        $categoryStore = 'STORE';
+    }
+   $categoryDisdplay ='<div class="cc-store-cat-page-heading">SHOWING '.$cat->count.' '.$categoryStore.'  IN '.$categoryName.' </div>' ;
+}
+    
     $listing_template = '<% if (  id!=26801 ) { %>' .
     '<% if (  id!=26783 ) { %>'.
         '<% if (  id!=26797 ) { %>'.
@@ -413,7 +446,9 @@ function custom_listing_templates_server() {
     $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<span>' . wpsl_address_format_placeholders() . '</span>' . "\r\n";
     
-  $listing_template .= "\t\t\t\t" . '<div class="cc-phone-fax-wrapper"><% if ( phone ) { %><% tel = phone.replace(" ", "") %>' . "\r\n";
+ 
+               $listing_template .='</div>'. "\r\n";
+                $listing_template .= "\t\t\t\t" . '<div class="cc-phone-fax-wrapper"><% if ( phone ) { %><% tel = phone.replace(" ", "") %>' . "\r\n";
             $listing_template .= "\t\t\t\t" . '<span class="cc-cat-store-item-phone"><strong>' .'P: ' .'</strong><a href="tel:+61' . '<%= (tel.replace( /\s+/g,"" )).replace( "0", "" ) %>' . '"> <%= phone %></a></span>' . "\r\n";
     $listing_template .= "\t\t\t\t" . '<% }  %>' . "\r\n";
            
@@ -422,7 +457,7 @@ function custom_listing_templates_server() {
     $listing_template .= "\t\t\t\t" . '<% } %>' . "\r\n";
     
             $listing_template .= "\t\t" . '</div>' . "\r\n";
-               $listing_template .='</div><div class="cc-last-con-vis-wrapper"><div class="cc-cats-vsp cc-cats-vsp-a  clearfix"><a href="<%= permalink %>">View Store Page</a></div>';
+            $listing_template .=  "\t\t" .' <div class="cc-last-con-vis-wrapper"><div class="cc-cats-vsp cc-cats-vsp-a  clearfix"><a href="<%= permalink %>">View Store Page</a></div>';
                 $listing_template .='<div class="cc-cats-or cc-cas-orr cc-cats-orr-map clearfix"><a href="'. $site_url.'/contact-us/?id=<%= id %>" class="cc-contact-link  ">Contact Store</a></div></div>';
     $listing_template .= "\t\t\t" . '</p>' . "\r\n";
      

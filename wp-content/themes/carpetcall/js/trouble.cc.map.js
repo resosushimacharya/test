@@ -13,6 +13,7 @@ if(autoCurrentLoc.curr_loc==="1"){
 if(startLatlng==''){
 	wpslSettings.startLatlng =startLatlng;
 }
+console.log(wpslSettings);
 $(document).ready(function(){
 
 

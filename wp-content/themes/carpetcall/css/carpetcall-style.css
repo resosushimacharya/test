@@ -1616,6 +1616,14 @@ li.clblk_a::before {
 	padding-left: 17px;
 	margin-bottom: 73px;
 }
+.cbg_content h2 {
+	margin-bottom: 19px;
+}
+.cbg_content h2 strong {
+	font: normal 18px 'proxima_nova_ltsemibold', sans-serif;
+    color: #0099ff;
+	text-transform:uppercase;
+}
 .cbg_content p {
 	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
 	color: #666666;
@@ -3966,8 +3974,6 @@ input#cc_control_map {
 .cc-cat-store-section {
 	border: 1px solid #e7edf8;
 	padding: 10px;
-	min-height: 360px;
-	position: relative;
 }
 .cc-store-icon-label strong a {
 	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
@@ -3988,7 +3994,7 @@ input#cc_control_map {
 }
 .cc-cat-store-item span {
 	margin-left: 32px;
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font: normal 16px 'proxima_nova_rgregular', sans-serif;
 	color: #666666;
 	display: block;
 }
@@ -4002,16 +4008,26 @@ span.wpsl-hf-street-b {
 	text-decoration: none;
 }
 .cc-cat-store-item .cc-store-map-last-cover {
-	min-height: 120px;
+	height: 100px;
+	overflow:hidden;
+}
+.cc-cat-store-item .cc-phone-fax-wrapper {
+	height:45px;
+	margin-top:10px;
 }
 .page-template-find-a-store .cc-store-map-last-cover {
-	min-height: 105px;
+	height: 100px;
+	overflow:hidden;
+}
+.cc-head-office-list-item .cc-phone-fax-wrapper {
+	height:45px;
+	margin-top:10px;
 }
 .wpsl-info-window p span.cc-cat-store-item-phone {
 	line-height: 46px;
 }
 .cc-cat-store-section span.cc-cat-store-item-phone a {
-	font: normal 16px/45px 'proxima_nova_rgregular', sans-serif;
+	font: normal 16px 'proxima_nova_rgregular', sans-serif;
 	color: #1858b8;
 	margin: 0;
 	padding-left: 32px;
@@ -4019,6 +4035,7 @@ span.wpsl-hf-street-b {
 	margin-top: 13px;
 	text-decoration: none;
 	margin-left: -32px;
+	line-height:1.5;
 }
 .cc-cat-store-section span.cc-cat-store-item-phone a:hover {
 	color: #666666;
@@ -4044,7 +4061,6 @@ span.wpsl-hf-street-b {
 	margin: 0;
 	padding-left: 32px;
 	width: 100%;
-	margin-top: 13px;
 }
 span.wpsl-hf-street-b {
 	width: auto;
@@ -4053,7 +4069,6 @@ span.wpsl-hf-street-b {
 span.cc-cat-store-item-fax {
 	color: #666666;
 	line-height: none;
-	margin-top: -14px;
 }
 span.wpsl-hf-street-c {
 	color: #666666;
@@ -4108,20 +4123,25 @@ span.cc-cat-store-item-phone strong, span.cc-cat-store-item-fax strong {
 }
 .cc-head-office-secn {
 	padding: 0;
+}
+.cc-last-con-vis-wrapper{
+
+}
+ul.cc-head-office-list {
+	font-size:0;
 	margin: 0 -10px;
 }
-.cc-last-con-vis-wrapper{position: absolute;bottom: 20px;
-left: 25px;}
 .cc-head-office-list li {
 	list-style: none;
 	margin: 0;
 	padding: 10px;
-	min-height: 275px;
+	vertical-align:top;
+	float:none;
+	display:inline-block;
 }
 .cc-head-office-list-item {
 	border: 1px solid #e7edf8;
 	padding: 10px;
-	min-height: 275px;
 }
 .cc-head-office-label {
 	margin-top: 10px;
@@ -4299,7 +4319,6 @@ p.wpsl-no-margin strong {
 	text-transform: uppercase;
 }
 span.cc-cat-store-item-phone {
-	line-height: 46px;
 }
 .wpsl-phone-sec span {
 	display: block;
@@ -5113,4 +5132,10 @@ div#error_max_msg {
 .calbk-mobile{
 	display: none;
 }
-
+.cc-terms-condn, .cbg_content.cc-condn-page {
+	padding:0;
+}
+.inerblock_sec.cc-page-all {
+	margin:0;
+}
+	
