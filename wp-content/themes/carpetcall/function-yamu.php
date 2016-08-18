@@ -721,7 +721,7 @@ if ( ! function_exists( 'woocommerce_template_single_hardflooring_title' ) ) {
 
 function generate_catids_array($top_lvl_cat,$depth){
 	$transient = 'category_'.$top_lvl_cat.'_transient';
-	if ( false === ( $transient = get_transient( $transient ) ) ) {
+	if ( false === ( get_transient( $transient ) ) ) {
 		$cat_arr = array();
 		$second_lvl_cats = get_terms(array('parent'=>$top_lvl_cat,'taxonomy'=>'product_cat','hide_empty'=>false));
 		foreach($second_lvl_cats as $cat_parents){
