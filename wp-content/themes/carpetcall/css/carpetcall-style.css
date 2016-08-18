@@ -5051,7 +5051,6 @@ a.clear_color_selection {
 }
 ul.page-list >li {
 	width: 20%;
-	display: inline-block;
 	vertical-align: top;
 }
 .sitemap-wrap {
@@ -5135,4 +5134,6 @@ div#error_max_msg {
 .inerblock_sec.cc-page-all {
 	margin:0;
 }
+.page-id-26771 .page-template-find-a-store #gmap .contents h6 {
 	
+}
