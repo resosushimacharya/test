@@ -52,7 +52,7 @@ usort($iadata, 'order_of_ideas_and_advice_function');
 foreach($iadata as $iad){?>
     <?php if(strcasecmp($iad['category'],'More')==0):?>
 	<div class="col-md-6 cc-ia-item cc-ia-more">
-    <div class="more-blk-b">
+    <div class="all-items-blk">
 		<h3><?php echo $iad['title'];?></h3>
 		<?php echo $iad['description'];?>
         </div>
@@ -134,7 +134,7 @@ wp_reset_query();?>
     ?>
    
     <div class="col-md-6 cc-ia-item">
-    <div class="fq-blk-a">
+    <div class="all-items-blk">
 		<a href="<?php echo get_the_permalink($faqID);?>"><h3><?php echo $iad['title'];?></h3></a>
 		<p><?php echo $iad['description'];?></p>
 		  

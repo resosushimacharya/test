@@ -1173,6 +1173,7 @@ ul.guide_list .fa {
 	float: none;
 	font-size: 14px;
 	display: inline-block;
+	margin:0 0 23px 0;
 }
 h2.sub_page_title {
 	font: normal 18px 'proxima_nova_ltsemibold', sans-serif;
@@ -2703,7 +2704,7 @@ a.pull-right:hover {
 	padding: 37px 36px;
 	min-height: 412px;
 }
-.fq-blk-a h3, .more-blk-b h3 {
+.all-items-blk h3 {
 	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
 	color: #15489f;
 	text-transform: uppercase;
@@ -2748,6 +2749,7 @@ a.pull-right:hover {
 ul.cat_list {
 	margin: 0 0 29px 0;
 	padding: 0;
+	min-height:185px;
 }
 ul.cat_list li {
 	list-style: none;
@@ -2933,7 +2935,7 @@ ul.cat_list li a:hover {
 	background-color: #f0f2f1;
 }
 .inerblock_contblk {
-	margin: 137px 0 20px 0;
+	margin: 0px 0 20px 0;
 }
 .inerblock_contblk.cc-wrapper-whole .col-md-6 {
 	padding-left: 0;
@@ -3606,7 +3608,7 @@ ul.cc-color-var-item {
 	text-transform: uppercase;
 }
 .cc-cat-pro-section-right input:hover {
-	background-color: #b61a1e;
+	background-color: #b01519;
 }
 .cc_background_image {
 	background-color: #FFF;
@@ -5057,4 +5059,20 @@ div#error_max_msg {
 }
 .single.single-product .woocommerce-tabs.wc-tabs-wrapper .panel.entry-content.wc-tab p {
 	margin: 25px 0;
+}
+.read_more a { 
+	background-color:#c32428;
+	display:inline-block;
+	text-align:center;
+	width:220px;
+	height:45px;
+	font: bold 18px/45px 'proxima_nova_ltsemibold', sans-serif;
+	color:#FFF;
+	text-transform:uppercase;
+	text-decoration:none;
+}
+.read_more a:hover {
+	background-color:#b01519;
+	outline:0;
+	box-shadow:none;	
 }
