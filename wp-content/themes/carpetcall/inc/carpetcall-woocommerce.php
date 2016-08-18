@@ -25,7 +25,7 @@ echo $rem;
 echo  get_the_id();
 echo "hello iam product";
 }
-add_action( 'woocommerce_after_shop_loop_item_title', 'extrafeature', 40 );
+//add_action( 'woocommerce_after_shop_loop_item_title', 'extrafeature', 40 );
 add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
 function woocommerce_header_add_to_cart_fragment( $fragments ) {
 	ob_start();
@@ -203,12 +203,67 @@ function woo_new_product_tab( $tabs ) {
     unset( $tabs['reviews'] ); 			// Remove the reviews tab
 	$tabs['additional_information']['title'] = __( 'DETAILS' );	// Rename the additional information tab
 	$tabs['additional_information']['callback'] = 'woo_custom_information_tab_content';
-	
+	?>
+	<?php $prourl = site_url();
+      $prourl =explode('/',$prourl);
+      if(strcasecmp($prourl[2], 'localhost')==0){
+      	$profaqid = '1725';
+      }
+      else{
+      	$profaqid = '26721';
+
+      }
+      ?>
+      
+
+     
+			
+<?php
+global $post;
+$listcat=get_the_terms($post->ID,'product_cat');
+
+foreach($listcat as $cat){
+	if($cat->parent==0){
+		//echo "that's the correct answer";
+		$root = $cat->slug;
+		$rootname = $cat->name;
+		if(strcasecmp($root,'hard-flooring')==0){
+		$root =	'hard-floor';
+		}
+	}
+	else{
+		//echo "that's the bullshit answer";
+	}
+}
+$args = array(
+    'post_type'      => 'page',
+    'posts_per_page' => -1,
+    'post_parent'    => $profaqid,
+    'order'          => 'ASC',
+    'orderby'        => 'menu_order',
+    'name' => $root
+
+ );
+
+
+$parent = new WP_Query( $args );
+while($parent->have_posts()){
+    $parent->the_post();
+    $faqid =$post->ID;
+
+}
+wp_reset_query();
+
+$list = get_field('buying_guide_archive',$faqid );
+
+?> 
+	<?php
+	if($list){
 	$tabs['faq_tab'] = array(
 		'title' 	=> __( "FAQ'S", 'woocommerce' ),
 		'priority' 	=> 49,
 		'callback' 	=> 'woo_new_product_tab_content'
-	);
+	);}
 	
 	$tabs['ret_tab'] = array(
 		'title' 	=> __( 'RETURNS', 'woocommerce' ),
@@ -256,7 +311,7 @@ function woo_new_product_tab_content() {?>
       ?>
       
 
-     <div class="cont-panl  cc-pro-det-fb hf-products">
+     
 			
 <?php
 global $post;
@@ -297,11 +352,13 @@ wp_reset_query();
 $list = get_field('buying_guide_archive',$faqid );
 
 ?>
-					
+				
 					<?php
 					
 					 $faqcounter = 1;
-					 if($list){
+					 if($list){ ?>
+					 <div class="cont-panl  cc-pro-det-fb hf-products">	
+					 <?php 
 					foreach($list as $listitem):
 					
 
@@ -313,7 +370,7 @@ $list = get_field('buying_guide_archive',$faqid );
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a class="accordion-toggle <?php echo ($faqcounter==1)?'':'collapsed' ;?> " data-toggle="collapse" data-parent="#accordion_<?php echo $faqcounter;?> " href="#collapse_<?php echo $faqcounter;?>">
+        <a class="accordion-toggle <?php echo ($faqcounter==1)?'first-acc-cat':'collapsed';?>  " data-toggle="collapse" data-parent="#accordion_<?php echo $faqcounter;?> " href="#collapse_<?php echo $faqcounter;?>">
             <span class="pull-right glyphicon glyphicon glyphicon-chevron-down " ></span>	
 			<span class="pull-right glyphicon glyphicon-chevron-up"></span>
 
@@ -336,16 +393,23 @@ $list = get_field('buying_guide_archive',$faqid );
 				break;
 			}
 
-			endforeach;
+			endforeach;?>
+			</div>
+			<div class="cc-tab-faq-read-more">
+  	<p class="faq_read_more_para">For more answers to your questions, please refer to our <a href="<?php echo get_the_permalink($faqid ); ?>"><?php echo $rootname; ?> FAQ </a> page.</p>
+  </div>
+			<?php
 		}
+		
+
+	
+
 			?>	
 					
                
 					
-				</div>
-  <div class="cc-tab-faq-read-more">
-  	<p class="faq_read_more_para">For more answers to your questions, please refer to our <a href="<?php echo get_the_permalink($faqid ); ?>"><?php echo $rootname; ?> FAQ </a> page.</p>
-  </div>
+				
+  
 <?php	
 }
 function woo_new_product_tab_accesories() {
@@ -517,7 +581,7 @@ function woo_new_product_tab_guides(){
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_guides" href="#collapse_installtion_guide">
+                    <a class="accordion-toggle first-acc-cat" data-toggle="collapse" data-parent="#accordion_guides" href="#collapse_installtion_guide">
                     <span class="pull-right glyphicon glyphicon-chevron-up"></span>
                     <?php _e('INSTALLATION GUIDE','carpetcall')?>
                     </a>
@@ -525,7 +589,7 @@ function woo_new_product_tab_guides(){
             </div>
             <div id="collapse_installtion_guide" class="panel-collapse collapse in">
                 <div class="panel-body panel-body-faq">
-                	<p class="cc-care-inst-g"><?php echo $installation_guide;?></p>
+                	<div class="panel-body-table"><?php echo $installation_guide;?></div>
                 </div>
             </div>
            
@@ -544,7 +608,7 @@ function woo_new_product_tab_guides(){
             </div>
             <div id="collapse_maintainance_guide" class="panel-collapse collapse">
                 <div class="panel-body panel-body-faq">
-                	<p class="cc-care-inst-g"><?php echo $maintainance_guide;?></p>
+                	<div class="panel-body-table"><?php echo $maintainance_guide;?></div>
                 </div>
             </div>
         </div>
@@ -1033,8 +1097,8 @@ function woocommerce_best_selling_products( $atts ){
     global $woocommerce_loop;
     extract( shortcode_atts( array(
         'per_page'      => '12',
-        'columns'       => '4',
-        'category'		=> 'amore'
+        'columns'       => '4'
+        
         ), $atts ) );
     $args = array(
         'post_type' => 'product',

@@ -333,7 +333,7 @@ function custom_listing_templates() {
 
     $site_url = site_url();  
           
-    $listing_template = '<li data-store-id="<%= id %>" class="col-md-4">' . "\r\n";
+    $listing_template = '<li data-store-id="<%= id %>" class="col-xs-6 col-sm-4">' . "\r\n";
     $listing_template .= "\t\t" . '<div class="cc-cat-store-section">' . "\r\n";
    
     $listing_template .= "\t\t\t" . '<p><%= thumb %>' . "\r\n";
@@ -403,7 +403,7 @@ function custom_listing_templates_server() {
                     '<% if (  id!=26791 ) { %>'.
                         
                             '<% if (  id!=26785 ) { %>'.
-                                '<% if (  id!=26787 ) { %><li data-store-id="<%= id %>" class="col-md-4">' . "\r\n";
+                                '<% if (  id!=26787 ) { %><li data-store-id="<%= id %>" class="col-xs-6 col-sm-4">' . "\r\n";
     $listing_template .= "\t\t" . '<div class="cc-cat-store-section">' . "\r\n";
    
     $listing_template .= "\t\t\t" . '<p><%= thumb %>' . "\r\n";

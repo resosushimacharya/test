@@ -66,7 +66,10 @@ $ = jQuery.noConflict();
 	$(document).on('click','.remove_row_calc',function(){
 		
 		$(this).parents('.row').remove();
-		//calculate_square();
+		if(jQuery('#calculator_container').find('.calculated').length>0){
+			calculate_square();
+		}
+		
 		
 	});
 	
@@ -110,53 +113,44 @@ function calculate_square(){
 		 var err=false;
        	/*alert($loop);*/
        	var $covperpack =$('#cov_per_pack').val();
-       	if($('#cov_per_pack').val()===""){
-       		alert("plese enter coverage per pack!");
-
-       	}
-       	  else{
-			  
-            for($i=1;$i<=$loop;$i++){
-				err=false;
-				if(! $('#cal_pro_'+$i).length){
-					alert("hello");
-					continue;
-
-				}
-               if($('#length_'+$i).val()==''){
-               var $myid ='#length_'+$i;
-					$($myid).parent().find('.cc-void-field').remove();
-                    $($myid).parent().append('<div class="cc-void-field">Please fiil the field!</div>');
+      
+			    
+          
+        jQuery('#calculator_container .row').each(function(index,element){
+            	err=false;
+       		       if(jQuery(element).find('.length_check').val()==''){
+                    var myid =jQuery(element).find('.length_check');
+					$(myid).parent().find('.cc-void-field').remove();
+                    $(myid).parent().append('<div class="cc-void-field">Please fill the field!</div>');
 					err=true;
-                  }
-				  if($('#width_'+$i).val()==''){
-                  $myid ='#width_'+$i;
-					$($myid).parent().find('.cc-void-field').remove();
-                   $($myid).parent().append('<div class="cc-void-field">Please fiil the field!</div>');
+                   }
+				  if(jQuery(element).find('.width_check').val()==''){
+                    var  myid =jQuery(element).find('.width_check');
+					$(myid).parent().find('.cc-void-field').remove();
+                    $(myid).parent().append('<div class="cc-void-field">Please fill the field!</div>');
 				   err=true;
                   }
-				  if(!err){
-					  var $length = '#length_'+$i;
-						var $width = '#width_'+$i;
-						var $item_id= '#item_total_'+$i;
-						var $temp = $($length).val()*$($width).val();
-						$temp = $temp.toFixed(2);
-						alert("hello"+$temp);
-						$($item_id).html($temp); 
-						 $calarea +=$temp; 
-				}
-				  
-				  
-				  
-               }
+                 // To add the class in first row element 
+                 if(index == 0 ) {
+                 	 $(element).addClass("calculated");
 
+                 }
+                 if(!err){
+       			$temp = Number(jQuery(element).find('.width_check').val())*Number(jQuery(element).find('.length_check').val());
+                  $temp = $temp.toFixed(2);
+						$temp = Number($temp );
+					var item_id =jQuery(element).find('.item_indivisual_total span');
+						$(item_id).html($temp); 
+						 $calarea +=$temp;   
+						  }
+       });
 	
-	
+
 		  var $noofpacks = Math.ceil($calarea/$covperpack);
 			
 		  var $estarea= $noofpacks*$covperpack;
 		  var $excarea=$estarea.toFixed(2) - $calarea;
-		  alert($excarea/$calarea);
+		 
 		 var  $excareaPer=$excarea/$calarea*100;
 		              
 		  $excareaPer=Math.ceil($excareaPer.toFixed(4));
@@ -167,7 +161,7 @@ function calculate_square(){
 			/*for DU1133 TPM and  1.6 area/quantiy */ 
 		   var $apq = 1.6;
 			var $quantity = Math.ceil($estarea/$apq); 
-		}
+	
 
 	
 }
@@ -234,22 +228,21 @@ $(document).on('click','#cal_id',function(){
          $calarea = 0;
        	/*alert($loop);*/
        	$covperpack = 2.49;
-       	    
-       	for($i=1;$i<=$loop;$i++){
-       		$length = '#length_'+$i;
-       		$width = '#width_'+$i;
-       		$item_id= '#item_total_'+$i;
-       		$($length).val('');
-       		$($width).val('');
-       		 $($item_id).html('');
-       		 if($i>=2){
-               $rowid = '#row_cal_'+$i;
-       		 	 $($rowid).remove();
-       		 }
-       	
-           
+  
+       		
+       	jQuery('#calculator_container .row ').each(function(index,element){
+           if(index!=0){
+           $(element).remove();
+           }
+           else{
+           	jQuery(element).find('.width_check').val('');
+           	jQuery(element).find('.length_check').val('');
+           	jQuery(element).find('.item_indivisual_total span').html('-');
+           	if(jQuery('#calculator_container').find('.calculated').length>0){
+           	$(element).removeClass('calculated');}
+           }
+           });
 
-	}
 
 
        });
