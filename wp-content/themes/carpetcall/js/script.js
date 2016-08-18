@@ -47,7 +47,7 @@
     // HomePage Hero Slider End
 
     // HomePage Featured Product Slider 
-    if( jQuery('.center').length){   
+    if( jQuery('.responsive').length){   
     jQuery('.responsive').slick({
       dots: true,
       infinite: true,
@@ -65,7 +65,7 @@
           }
         },
         {
-          breakpoint: 600,
+          breakpoint: 801,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2
