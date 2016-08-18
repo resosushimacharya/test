@@ -43,19 +43,19 @@ get_header();
 																		)
 																	);
 						  if($term_childs){?>
-      <?php
+       <ul class="cat_list"><?php
 						  shuffle($term_childs);
 						  $child_cats = array_slice($term_childs,0,4);
 						  //var_dump($child_cats);
 						  foreach($child_cats as $cat){?>
-      <ul class="cat_list">
+     
         <li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp;<a href="<?php echo get_term_link($cat->term_id)?>"><?php echo $cat->name?></a></li>
-      </ul>
       <div class="clearfix"></div>
       <?php  }?>
       <?php
 							  }
 						  ?>
+      </ul>
     
    
     <div class="read_more"><a href="<?php echo get_term_link($term->term_id) ?>"><?php _e('View All','carpetcall')?></a></div> <div class="clearfix"></div>
