@@ -1599,6 +1599,14 @@ li.clblk_a::before {
 	padding-left: 17px;
 	margin-bottom: 73px;
 }
+.cbg_content h2 {
+	margin-bottom: 19px;
+}
+.cbg_content h2 strong {
+	font: normal 18px 'proxima_nova_ltsemibold', sans-serif;
+    color: #0099ff;
+	text-transform:uppercase;
+}
 .cbg_content p {
 	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
 	color: #666666;
@@ -3701,7 +3709,7 @@ div#right_col p a:hover {
 	cursor: pointer;
 }
 .cc-store-hd-title {
-	margin: 145px 0 0 0;
+	margin:0;
 	background: #f0f2f1;
 }
 .cc-bread-crumb-str {
@@ -3891,7 +3899,7 @@ input#cc_control_map {
 	color: #0099ff !important;
 }
 .inerblock_serc.cc-store-nsw-blk {
-	margin: 145px 0 0 0;
+	margin: 0px 0 0 0;
 }
 .inerblock_serc.cc-store-nsw-blk .breadcrumbs {
 	padding: 20px 0;
@@ -3949,7 +3957,6 @@ input#cc_control_map {
 .cc-cat-store-section {
 	border: 1px solid #e7edf8;
 	padding: 10px;
-	min-height: 360px;
 	position: relative;
 }
 .cc-store-icon-label strong a {
@@ -3988,7 +3995,12 @@ span.wpsl-hf-street-b {
 	min-height: 120px;
 }
 .page-template-find-a-store .cc-store-map-last-cover {
-	min-height: 105px;
+	height: 100px;
+	overflow:hidden;
+}
+.cc-head-office-list-item .cc-phone-fax-wrapper {
+	height:45px;
+	margin-top:10px;
 }
 .wpsl-info-window p span.cc-cat-store-item-phone {
 	line-height: 46px;
@@ -4091,20 +4103,24 @@ span.cc-cat-store-item-phone strong, span.cc-cat-store-item-fax strong {
 }
 .cc-head-office-secn {
 	padding: 0;
-	margin: 0 -10px;
 }
 .cc-last-con-vis-wrapper{position: absolute;bottom: 20px;
 left: 25px;}
+ul.cc-head-office-list {
+	font-size:0;
+	margin: 0 -10px;
+}
 .cc-head-office-list li {
 	list-style: none;
 	margin: 0;
 	padding: 10px;
-	min-height: 275px;
+	vertical-align:top;
+	float:none;
+	display:inline-block;
 }
 .cc-head-office-list-item {
 	border: 1px solid #e7edf8;
 	padding: 10px;
-	min-height: 275px;
 }
 .cc-head-office-label {
 	margin-top: 10px;
