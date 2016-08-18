@@ -3971,7 +3971,6 @@ input#cc_control_map {
 .cc-cat-store-section {
 	border: 1px solid #e7edf8;
 	padding: 10px;
-	position: relative;
 }
 .cc-store-icon-label strong a {
 	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
@@ -3992,7 +3991,7 @@ input#cc_control_map {
 }
 .cc-cat-store-item span {
 	margin-left: 32px;
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font: normal 16px 'proxima_nova_rgregular', sans-serif;
 	color: #666666;
 	display: block;
 }
@@ -4006,7 +4005,12 @@ span.wpsl-hf-street-b {
 	text-decoration: none;
 }
 .cc-cat-store-item .cc-store-map-last-cover {
-	min-height: 120px;
+	height: 100px;
+	overflow:hidden;
+}
+.cc-cat-store-item .cc-phone-fax-wrapper {
+	height:45px;
+	margin-top:10px;
 }
 .page-template-find-a-store .cc-store-map-last-cover {
 	height: 100px;
@@ -4020,7 +4024,7 @@ span.wpsl-hf-street-b {
 	line-height: 46px;
 }
 .cc-cat-store-section span.cc-cat-store-item-phone a {
-	font: normal 16px/45px 'proxima_nova_rgregular', sans-serif;
+	font: normal 16px 'proxima_nova_rgregular', sans-serif;
 	color: #1858b8;
 	margin: 0;
 	padding-left: 32px;
@@ -4028,6 +4032,7 @@ span.wpsl-hf-street-b {
 	margin-top: 13px;
 	text-decoration: none;
 	margin-left: -32px;
+	line-height:1.5;
 }
 .cc-cat-store-section span.cc-cat-store-item-phone a:hover {
 	color: #666666;
@@ -4053,7 +4058,6 @@ span.wpsl-hf-street-b {
 	margin: 0;
 	padding-left: 32px;
 	width: 100%;
-	margin-top: 13px;
 }
 span.wpsl-hf-street-b {
 	width: auto;
@@ -4062,7 +4066,6 @@ span.wpsl-hf-street-b {
 span.cc-cat-store-item-fax {
 	color: #666666;
 	line-height: none;
-	margin-top: -14px;
 }
 span.wpsl-hf-street-c {
 	color: #666666;
@@ -4118,8 +4121,9 @@ span.cc-cat-store-item-phone strong, span.cc-cat-store-item-fax strong {
 .cc-head-office-secn {
 	padding: 0;
 }
-.cc-last-con-vis-wrapper{position: absolute;bottom: 20px;
-left: 25px;}
+.cc-last-con-vis-wrapper{
+
+}
 ul.cc-head-office-list {
 	font-size:0;
 	margin: 0 -10px;
@@ -4312,7 +4316,6 @@ p.wpsl-no-margin strong {
 	text-transform: uppercase;
 }
 span.cc-cat-store-item-phone {
-	line-height: 46px;
 }
 .wpsl-phone-sec span {
 	display: block;
