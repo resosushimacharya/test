@@ -132,11 +132,15 @@
                     $phoneCon = false;
                     break;
                   }
+                  else{
+                    $phoneCon = true;
+
+                  }
                   $x=  $phone;
                   $x = preg_replace('/\s+/', '', $x);
                   $x = '+61'.$x;  
                   $phone = '<a class="phone" href="tel:'.$x.'">'.$phone.' </a>';
-                  $phoneCon = true;
+                  
                   }
                   if(array_key_exists('wpsl_fax',$getinfo)){
                   $fax = $getinfo['wpsl_fax'][0];
@@ -144,7 +148,10 @@
                     $faxCon = false;
                     break;
                   }
-                  $faxCon = true;
+                  else{
+                    $faxCon = true;
+                  }
+                  
                   }
                   if(array_key_exists('wpsl_city',$getinfo)){
                   $city  = $getinfo['wpsl_city'][0];
