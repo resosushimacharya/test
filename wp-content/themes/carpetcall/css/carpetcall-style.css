@@ -5221,6 +5221,10 @@ div#error_max_msg {
 	margin:14px 0 24px 0;
 	padding:0;
 }
+.carpet_blinds_single_right .againlt ul li::before {
+	content:'-';
+	color:#666;
+}
 .carpet_blinds_single_right .againlt ul li {
 	list-style:none;
 	display:block;
