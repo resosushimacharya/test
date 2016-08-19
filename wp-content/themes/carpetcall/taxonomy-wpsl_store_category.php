@@ -3,9 +3,15 @@
 
   //head-selected
   $nearest = true;
+  $furl = $_SERVER['REQUEST_URI'];
+$furl =explode('find-a-store/',$furl);
+$furl =explode('/',$furl[1]); 
+$cc_data_cat= $furl[0];
+
+
 
   if(isset($_POST["check-head-id"])) $nearest = false;
-
+ 
 ?>
 <?php
 $term =  get_queried_object();
@@ -65,14 +71,16 @@ $term =  get_queried_object();
 
 <div class="cc-store-bdy-contr">
   <div class="container">
-<?php if (isset($_POST['wpsl-search-input']){
-  echo do_shortcode('[wpsl template="custom" ]');
+<?php if (isset($_POST['wpsl-search-input'])){
+  echo do_shortcode('[wpsl template="custom"  start_location="'.$_POST['wpsl-search-input'].'"]');
+}
+else{
+
+ 
+  $_POST['wpsl-search-input'] =$cc_data_cat;
+ echo do_shortcode('[wpsl template="custom" start_location="'.strtoupper($cc_data_cat).'"]');
 }
 ?>
-<?php echo do_shortcode('[wpsl template="custom" category="'.$term->slug.'" 
-]'); ?>
-
-
 
 </div>
 </div><div class="clearfix"></div>
@@ -88,15 +96,13 @@ $term =  get_queried_object();
 
 <?php get_footer();?>
 <script type="text/javascript">
-  jQuery( document ).ajaxComplete(function( event, xhr, settings ) {
-    console.log( 'testssssssssssssss'); 
+jQuery( document ).ajaxComplete(function( event, xhr, settings ) {
   if(settings.url.indexOf('action=store_search') !== -1){
     if(typeof xhr.responseJSON!=="undefined"){
-
-      console.log( xhr.responseJSON.length);
+  if(jQuery('#wpsl-search-input').val()!=""){
+      jQuery('.cc-finder-title h3').html(jQuery('#wpsl-search-input').val());
     }
-     
-
+  }
 
   }
 });

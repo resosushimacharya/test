@@ -234,4 +234,3 @@ jQuery(document).ready(function(){
 	 offset: jQuery('.banner').outerHeight(true) + 20
   });
    });</script>
-<?php get_footer(); ?>
