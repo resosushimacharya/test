@@ -42,58 +42,61 @@ echo ' > ' ; ?><span class="cc-bread-current"><?php echo get_the_title().' '.get
         <div class="meromm" data-spy="affix" data-offset-top="138">
 			
 <?php 
- $res = get_field('buying_guide_archive', get_the_id());
-
-  if($post->post_parent!=$faqID){ ?>
+ $res = get_field('buying_guide_archive', get_the_id());?>
+<ul class="guide_list_cbg">
+            
 <?php 
 
-        
-        $i = 0;
-        if($res){
-          echo '<ul class="guide_list_cbg nav">';
-        foreach ($res as $rs) {
-            $i++;
-?>
-                     <?php
-            echo '<li><a href="' . '#guide_item_' . $i . '">' . $rs['title'] . '<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
-?>
-                     
-                  <?php
-        }
-          echo '</ul>';
-      }
+
+$roottitle = ' ';
+$url = site_url();
+$url = explode('/',$url);
+
+$parentID = $post->post_parent;
+
+if(strcasecmp($url[2],'localhost')==0)
+{
+ if($parentID=='1690'){
+  $roottitle ="GUIDE";
  }
- else{
+ if($parentID=='1711'){
+  $roottitle ="CARE";
+ }
+ if($parentID=='1725'){
+  $roottitle ="FAQ";
+ }
+}
+else{
+if($parentID=='26696'){
+  $roottitle ="GUIDE";
+ }
+ if($parentID=='26709'){
+  $roottitle ="CARE";
+ }
+ if($parentID=='26721'){
+  $roottitle ="FAQ";
+ }
+}
 
 $args = array(
     'post_type'      => 'page',
     'posts_per_page' => -1,
-    'post_parent'    => $faqID,
+    'post_parent'    => $parentID,
     'order'          => 'ASC',
     'orderby'        => 'menu_order'
  );
 
-$page_id = get_the_ID();
+
 $parent = new WP_Query( $args );
 
-  if( $parent->have_posts() ) {
-    echo '<ul class="guide_list_cbg">';
-    while($parent->have_posts()){
-        $parent->the_post();
-        
-        $menu_class = '';
-        if( $page_id == $post->ID ) $menu_class .= ' class="current_page_item"';
+while($parent->have_posts()){
+    $parent->the_post();
     
-         echo '<li' . $menu_class . '><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). ' FAQ <i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
-    }# end-while
-    echo '</ul>';
-  }# end-if
+     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID) .' '.$roottitle.' ' .'<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+}
 wp_reset_query();
-
- }
  ?>
 </ul>
-
 <?php 
 #if($post->ID==$rugID || $post->ID==$hardID){
 $button_title = get_field( 'button_title' );
