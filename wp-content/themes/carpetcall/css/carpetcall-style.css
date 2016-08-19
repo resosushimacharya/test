@@ -5093,6 +5093,25 @@ ul.page-list >li {
 	color:#333;
 	cursor:pointer;
 }
+.sitemap-wrap ul.page-list li > ul.children li a {
+	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	color: #666666;
+	text-decoration:none;
+}
+.sitemap-wrap ul.page-list li > ul.children li a:hover {
+	color:#000;
+}
+
+.sitemap-wrap ul.page-list li a {
+font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	color: #0099ff;
+	text-transform: uppercase;
+	text-decoration:none;	
+}
+.sitemap-wrap ul.page-list li a:hover {
+	color:#333;
+	cursor:pointer;	
+}
 .sitemap-wrap ul li ul {
 	margin-bottom: 30px;
 	margin-left: 0;
