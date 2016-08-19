@@ -212,7 +212,7 @@ wp_reset_postdata();
       <?php do_action('cc_after_select_design_start');  do_action( 'woocommerce_single_product_summary' ); ?>
       </div><?php }else{?>
       <div class="stock_info_wrap clearfix">
-      <h3>In Stock - <span class="cc-po">Pickup Only</span></h3>
+      <h3>In Stock  <span class="cc-po">- Pickup Only</span></h3>
       </div>
 		  <?php		  
 		  }?>
