@@ -44,8 +44,6 @@ $output .= "\t\t\t\t" .'<input type="hidden" name="cc-control-map"  value="cc-co
 $res = get_queried_object();
 $res = get_object_vars($res);
 
-
-
 if(isset($_POST["wpsl-search-input"])){
 $output .= "\t\t\t\t" . '<input id="wpsl-search-input" type="text" value="" name="wpsl-search-input" placeholder="'.$_POST["wpsl-search-input"] .'" aria-required="true" />' . "\r\n";
 }
