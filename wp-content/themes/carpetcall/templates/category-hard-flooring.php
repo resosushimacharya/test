@@ -67,7 +67,7 @@ $currentcat = get_queried_object();
               <li class="sort_key"> <span class="cc-count-label">Sort by:</span></li>
               <li class="sort_key"> <a href="javascript:void(0)" sort="popular">Popularity</a> </li>
               <li class="sort_key cc-count-active"> <a href="javascript:void(0)" sort="price_low">$</a> </li>
-              <li class="sort_key"> <a href="javascript:void(0)" sort="price_high">$$</a> </li>
+              <li class="sort_key"> <a href="javascript:void(0)" sort="price_high">$$$</a> </li>
             </ul>
             <?php //do_action( 'woocommerce_before_shop_loop' ); ?>
           </div>

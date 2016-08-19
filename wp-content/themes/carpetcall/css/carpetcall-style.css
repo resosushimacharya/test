@@ -2516,7 +2516,7 @@ ul.specific-list li {
 	position: relative;
 	width: 100%;
 	display: block;
-	padding: 15px;
+	padding: 15px 12px;
 	text-decoration: none;
 	color: #0099ff;
 	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
@@ -4922,6 +4922,12 @@ a.btn-employment:hover {
 	display: block;
 	clear: both;
 }
+.acc_info_wrap .acc_thumb {
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 148px;	
+}
 .cont-panl.cc-pro-det-fb h3.acc_title_n_cat {
 	margin-top: 18px;
 	display: inline-block;
@@ -4978,7 +4984,7 @@ a.btn-employment:hover {
 }
 .acc_qnty .rec_qty_wrap {
 	float: left;
-	margin-right: 19px;
+	margin-right: 15px;
 }
 .acc_qnty .quantity.col-md-12 {
 	width: 88px;

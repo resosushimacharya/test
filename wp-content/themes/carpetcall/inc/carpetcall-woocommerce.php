@@ -469,16 +469,17 @@ function woo_new_product_tab_accesories() {
 							$product  = wc_get_product($acc_product->ID);
 							$post = get_post($acc_product);
 							setup_postdata($post);
-							?>
+							if(has_post_thumbnail($acc_product->ID)){
+											$acc_feat_img = get_the_post_thumbnail_url($acc_product->ID,'thumbnail');
+										}else{
+											$acc_feat_img = get_template_directory_uri().'/images/placeholder.png';
+											}?>
+                                            
 							<div class="acc_list_item col-md-3 <?php echo $acc_cat->slug?>">
 								<div class="accessories_innner_wrap">
                                     <div class="acc_info_wrap" data-toggle="modal" data-target="#accinfo_<?php echo get_the_ID()?>_<?php echo $acc_cat->slug;?>">
-                                    <div class="acc_thumb">
-                                        <?php if(has_post_thumbnail($acc_product->ID)){
-											echo get_the_post_thumbnail($acc_product->ID,'thumbnail');
-										}else{
-											echo '<img width="150" height="150" src="'.get_template_directory_uri().'/images/placeholder.png">';
-											}?>
+                                    <div class="acc_thumb" style="background-image:url(<?php echo $acc_feat_img;?>)">
+                                        
                                     </div>
                                     <h3 class="acc_title_n_cat">
                                     <span class="acc_title"><a href="javascript:void(0)"><?php _e($acc_product->post_title,'carpetcall');?></a></span> 
@@ -1020,12 +1021,12 @@ function sv_change_product_price_display( $price ) {
 	global $post;
 	$pro = get_post_meta($post->ID);
 	if (array_key_exists("_sale_price",$pro) && $pro['_sale_price'][0]!=''){
-		$prosale = 'A$'.$pro['_sale_price'][0];
+		$prosale = 'A$'.number_format($pro['_sale_price'][0],2,'.','');
 		$price =  '<div class="cc-price-control">
 	<h3><span class="cc-sale-price-title">'.$prosale.'</span> <span class="cc-line-through">A$'.$pro['_regular_price'][0].'</span></h3></div>';
 	}
 	else{
-		$prosale = $prosale = 'A$'.$pro['_regular_price'][0];
+		$prosale = $prosale = 'A$'.number_format($pro['_regular_price'][0],2,'.','');
 		$price =  '<div class="cc-price-control">
 
 	<h3><span class="cc-sale-price-title">'.$prosale.'</span> </h3></div>';
