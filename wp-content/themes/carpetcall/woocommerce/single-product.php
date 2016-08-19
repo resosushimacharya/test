@@ -62,6 +62,11 @@ $rootcheck = get_post_meta($post->ID);
 								$top_cat_slug = 'hard-flooring';
                    				wc_get_template_part( 'content', 'single-hard-flooring-product' );
                    			}
+                   			
+							if(strcasecmp($cat->slug, 'carpets')==0){
+								$top_cat_slug = 'carpets';
+                   				wc_get_template_part( 'content', 'single-carpets-product' );
+                   			}
                    		
                    		}
                    	}

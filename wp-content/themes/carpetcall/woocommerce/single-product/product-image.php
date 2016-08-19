@@ -28,16 +28,16 @@ global $post, $woocommerce, $product;
 
    
             if($reqTempTerms){
-            	
            foreach($reqTempTerms as $cat){
            	$has_sub_cat=get_terms(array('parent'=>$cat->term_id,'taxonomy'=>'product_cat'));
-           	
               if(count($has_sub_cat)==0){
-
-                  
-                  $parent_term = get_term( $cat->parent, 'product_cat');
-                  
-                 echo '<h4 class="cc-category-show">'.$cat->name.' - '.$parent_term->name.'</h4>';
+                  if( $cat->parent != 0){
+					   $parent_term = get_term( $cat->parent, 'product_cat');
+					   echo '<h4 class="cc-category-show">'.$cat->name.' - '.$parent_term->name.'</h4>';
+					  }else{
+					   $parent_term = $cat;
+					   echo '<h4 class="cc-category-show">'.$cat->name.'</h4>';
+					  }
                 
               	}
               	}

@@ -5093,6 +5093,25 @@ ul.page-list >li {
 	color:#333;
 	cursor:pointer;
 }
+.sitemap-wrap ul.page-list li > ul.children li a {
+	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	color: #666666;
+	text-decoration:none;
+}
+.sitemap-wrap ul.page-list li > ul.children li a:hover {
+	color:#000;
+}
+
+.sitemap-wrap ul.page-list li a {
+font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	color: #0099ff;
+	text-transform: uppercase;
+	text-decoration:none;	
+}
+.sitemap-wrap ul.page-list li a:hover {
+	color:#333;
+	cursor:pointer;	
+}
 .sitemap-wrap ul li ul {
 	margin-bottom: 30px;
 	margin-left: 0;
@@ -5174,5 +5193,67 @@ div#error_max_msg {
 }
 .cbg_content .cc-about-lat-wrapper {
 	margin-bottom:30px;
+}
+.carpet_blinds_single_right {
+	margin-top:17px;
+	border:1px solid #144a9f;
+	padding:25px;
+}
+.carpet_blinds_single_right h3, .carpet_blinds_single_right h4 {
+	margin:0;
+}
+.carpet_blinds_single_right h3.calspl.calspll a {
+	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	color:#c32327;
+	text-transform:uppercase;
+	text-decoration:none;
+}
+.carpet_blinds_single_right h3.calspl.calspll a:hover {
+	color:#144a9f;
+	cursor:pointer;	
+}
+.carpet_blinds_single_right h4.bcwfsp {
+	font: bold 16px 'proxima_nova_ltsemibold', sans-serif;
+	color:#15489f;
+	margin-top:-3px;
+}
+.carpet_blinds_single_right .againlt ul {
+	margin:14px 0 24px 0;
+	padding:0;
+}
+.carpet_blinds_single_right .againlt ul li::before {
+	content:'-';
+	color:#666;
+	position:absolute;
+	left:0;
+}
+.carpet_blinds_single_right .againlt ul li {
+	list-style:none;
+	display:block;
+	font:normal 16px 'proxima_nova_rgregular', sans-serif;
+	color:#666;
+	text-decoration:none;
+	text-transform:uppercase;
+	margin-bottom:0;
+	position:relative;
+	padding-left:15px;
+}
+.carpet_blinds_single_right .cc-product-enquiry .btn-default{
+	width:96.5%;
+	height:45px;
+	background-color:#c32327;
+	text-align:center;
+	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	color:#FFF;
+	text-decoration:none;
+	text-transform:uppercase;
+	margin:0 0 0 0;
+	box-shadow:none;
+	outline:0;
+	border:0;
+	border-radius:0;
+}
+.carpet_blinds_single_right .cc-product-enquiry .btn-default:hover {
+	background-color:#b01519;
 }
 
