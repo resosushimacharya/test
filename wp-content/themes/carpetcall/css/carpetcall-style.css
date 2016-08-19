@@ -5224,6 +5224,8 @@ div#error_max_msg {
 .carpet_blinds_single_right .againlt ul li::before {
 	content:'-';
 	color:#666;
+	position:absolute;
+	left:0;
 }
 .carpet_blinds_single_right .againlt ul li {
 	list-style:none;
@@ -5232,7 +5234,9 @@ div#error_max_msg {
 	color:#666;
 	text-decoration:none;
 	text-transform:uppercase;
-	margin-left:-7px;
+	margin-bottom:0;
+	position:relative;
+	padding-left:15px;
 }
 .carpet_blinds_single_right .cc-product-enquiry .btn-default{
 	width:96.5%;
