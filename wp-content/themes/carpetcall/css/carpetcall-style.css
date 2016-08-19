@@ -54,6 +54,7 @@
 	padding: 0;
 	margin: 0;
 	outline: none;
+	box-shadow:none;
 }
 focus {
 	outline: none;
@@ -2396,7 +2397,8 @@ select#cc-size {
 	outline: 0;
 }
 .cc-product-location .btn-default:focus {
-	background: none;
+	background-color:transparent;
+	color:#15489f;
 }
 .cc-quantiy-section .quantity {
 	margin: 4px 0 5px 0;
@@ -5153,3 +5155,7 @@ div#error_max_msg {
 	margin-left:2px;
 	margin-top:2px;
 }
+.cbg_content .cc-about-lat-wrapper {
+	margin-bottom:30px;
+}
+
