@@ -32,8 +32,8 @@ function wooocommerce_scripts(){
 wp_enqueue_script('woo-load-autocomplete');
 wp_localize_script( 'woo-load-autocomplete', 'woo_load_autocomplete', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 }
-
-  require_once('inc/recaptchalib.php');
+  include_once TEMPLATEPATH."/inc/recaptchalib.php";
+  
   require_once('function-yamu.php');
   acf_add_options_sub_page('Labeling');
   acf_add_options_sub_page('Front-Page Sections');
@@ -79,10 +79,9 @@ function destroy_autoLoc(){
       <?php
 
   }
- if(!isset($_SESSION['testing'])){
-   $_SESSION['use_curr_loc']="0";
-
- }
+else{
+  $_SESSION['use_curr_loc']=0;
+}
 
    add_filter('cc_current_location_filter','cc_current_location_func',10,1);
    function cc_current_location_func($val){

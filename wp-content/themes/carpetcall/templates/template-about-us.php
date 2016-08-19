@@ -138,7 +138,7 @@ $loop = new WP_Query($args);
         echo  '<h2 class="sub_page_title">'.get_the_title().'</h2>';
         echo '<p>'.get_the_excerpt().'</p>';
         echo  '<div class="">';
-        echo '<a class="btn-employment" href="'.get_the_excerpt().'">Read More</a>';
+        echo '<a class="btn-employment" href="'.get_permalink().'">Read More</a>';
         echo '</div>';
         echo '</div>';
     }
