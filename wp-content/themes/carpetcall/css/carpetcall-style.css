@@ -1681,6 +1681,7 @@ li.clblk_a::before {
 }
 .meromm.affix {
 	top: 160px;
+	z-index:100;
 }
 ul.guide_list_cbg {
 	background: #e7edf8;
