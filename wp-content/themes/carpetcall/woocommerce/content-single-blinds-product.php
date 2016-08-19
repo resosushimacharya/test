@@ -147,7 +147,7 @@ if($reqTempTerms){
                         <?php
                             foreach($booklink as $singlelink){
 
-                                 echo '<li> - ' . $singlelink['ask_an_expert'] . '</li>';
+                                 echo '<li> ' . $singlelink['ask_an_expert'] . '</li>';
                             }
                         ?>
                     </ul>
