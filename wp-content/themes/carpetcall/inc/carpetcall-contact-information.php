@@ -656,7 +656,7 @@ if(array_key_exists('wpsl_fax',$getinfo)){
         $fax = $getinfo['wpsl_fax'][0];
         	if($fax  == ' '){
 		$faxCon = false;
-		break;
+		//break;
 	}
 	 else{
     $faxCon  = true;
