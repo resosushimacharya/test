@@ -115,7 +115,7 @@ html, body {
 .wrapper, .banner, .tstore, .cartblk, .calus, .wellblk, .crpchoose, .rtfloblk, .crptslide, .pont, .mystor, .expert, .footer_c, .sor_blk, .againlt, .fot_cpy, .limblk, .rugpro_blk, .rugspro_blk, .rug_size, .carpetcall_slide, .parcel_blk, .feature_pro, .trade, .cbg_blk, .mmrugm, .page-sorry {
 	padding: 0;
 }
-.wrap_body { margin: 145px 0 20px 0; }
+.wrap_body { margin: 145px 0 0 0; }
 
 /* banner section start here ---*/
 .banner {
@@ -5075,7 +5075,23 @@ ul.page-list >li {
 .sitemap-wrap ul li:first-child a {
 }
 .sitemap-wrap ul li {
-	width: 24%;
+	width: 100%;
+}
+.sitemap-wrap ul li strong {
+	display: block;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #CCC;
+}
+.sitemap-wrap ul li strong a {
+	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	color: #0099ff;
+	text-transform: uppercase;
+	text-decoration:none;
+}
+.sitemap-wrap ul li strong a:hover {
+	color:#333;
+	cursor:pointer;
 }
 .sitemap-wrap ul li ul {
 	margin-bottom: 30px;
