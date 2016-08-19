@@ -569,7 +569,8 @@ function woocommerce_minicart_cc(){
         $ul_html.='<div class="crtblk_sec">';
           $ul_html.='<div class="crt_pname">';
           
-            $ul_html.='<h2><ins>'.$reqTempTerms=get_the_terms($product_id ,'product_cat');
+            $ul_html.='<h2><ins>';
+            $reqTempTerms=get_the_terms($product_id ,'product_cat');
           
           foreach($reqTempTerms as $reqTerm){
             if($reqTerm->term_id!=20)
