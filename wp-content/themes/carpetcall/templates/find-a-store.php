@@ -43,8 +43,12 @@
 	<div class="container">
     
                   <?php  
-                
-                    echo  do_shortcode('[wpsl template="custom" ]');
+                  if(isset($_POST['wpsl-search-input'])){
+                    echo  do_shortcode('[wpsl template="custom" start_location="'.$_POST['wpsl-search-input'].'"]');
+                  }
+                  else{
+                   echo  do_shortcode('[wpsl template="custom"]');
+                  }
             
                     ?>
 
@@ -132,11 +136,15 @@
                     $phoneCon = false;
                     break;
                   }
+                  else{
+                    $phoneCon = true;
+
+                  }
                   $x=  $phone;
                   $x = preg_replace('/\s+/', '', $x);
                   $x = '+61'.$x;  
                   $phone = '<a class="phone" href="tel:'.$x.'">'.$phone.' </a>';
-                  $phoneCon = true;
+                  
                   }
                   if(array_key_exists('wpsl_fax',$getinfo)){
                   $fax = $getinfo['wpsl_fax'][0];
@@ -144,7 +152,10 @@
                     $faxCon = false;
                     break;
                   }
-                  $faxCon = true;
+                  else{
+                    $faxCon = true;
+                  }
+                  
                   }
                   if(array_key_exists('wpsl_city',$getinfo)){
                   $city  = $getinfo['wpsl_city'][0];
@@ -214,6 +225,9 @@
                      <div class="cc-store-list-section">
 
                           <h4>SHOWING STORES AUSTRALIA WIDE </h4>
+                          <form id="category-form-submit" method="post" action="<?php echo site_url(); ?>/find-a-store/" name="category-form-submit">
+                            <input type="hidden" id="cc-wpsl-search-input-lat" name="wpsl-search-input">
+                          </form>
 
                           <?php 
                             $tax = 'wpsl_store_category';
@@ -231,13 +245,25 @@
                               );
                             foreach($tax_terms as $term):
                              
-                              echo '<div class="cc-state-link"><a href="'.site_url().'/find-a-store/'.strtolower($term->name).'" >'.$regions[$term->name].'</a></div>';
+                              echo '<div class="cc-state-link"><a data-cat_name="'.strtolower($term->name).'" class="cc-cat-lat-submit" >'.$regions[$term->name].'</a></div>';
                               endforeach; ?>
                         </div>
                       <?php }
                     }
                       ?>
     </div>
+
+    <script>
+    jQuery(document).on('click','.cc-cat-lat-submit',function(e){
+      e.preventDefault();
+      var url="<?php echo site_url('/find-a-store/'); ?>";
+      var append_cat=jQuery(this).data('cat_name');
+      var new_url=url+append_cat;
+      jQuery('#cc-wpsl-search-input-lat').val(append_cat);
+      jQuery('#category-form-submit').attr('action',new_url)
+      jQuery('form#category-form-submit').submit();
+    })
+    </script>
 </div><div class="clearfix"></div><!-- main content end here -->
 
 <?php get_footer(); ?>
@@ -265,3 +291,15 @@
                              }
      
 ?>
+<script type="text/javascript">
+jQuery( document ).ajaxComplete(function( event, xhr, settings ) {
+  if(settings.url.indexOf('action=store_search') !== -1){
+    if(typeof xhr.responseJSON!=="undefined"){
+ 
+      jQuery('.cc-finder-title h3').html(jQuery('#wpsl-search-input').val());
+ 
+  }
+
+  }
+});
+</script>

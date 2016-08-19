@@ -4,6 +4,15 @@ $ = jQuery.noConflict();
     $(document).ready(function() {
         $("#cal_more").click(function() {
         		var count = $("#calculator_container>div").length;
+        		counts = count - 1;
+        		 jQuery('#calculator_container .row').each(function(index,element){
+        		 	if(index==counts){
+        		 		 var Id = $(element).attr('id');
+        		 		  var lastCount =  Id.split("_");
+        		 		  lastCount = lastCount[2];
+        		 		 count = Number(lastCount);
+        		 	}
+        		  });
         		count = count + 1;
              /* $("#calculator_container").append('<div class="row" id="row_cal_'+count+'"> <div class="col-md-8 col-item-price"><div class="cal_pro" id="cal_pro_'+count+'"> <div class="container_'+count+'"><div class="form-group col-md-6"> <div class="col-md-6"> <label for="width_'+count+'">Room '+count+' Width(m)</label> </div> <div class="col-md-6"> <input type="text" class="form-control" id="width_'+count+'" placeholder="" name="width_'+count+'"> </div> </div> <div class="form-group col-md-6"> <div class="col-md-6"> <label for="legth_'+count+'">Length(m)</label> </div> <div class="col-md-6"> <input type="text" class="form-control" id="length_'+count+'" placeholder="" name="length_'+count
               	+'"> </div> </div> </div> </div> </div> <div class="col-md-4 "> <div class="form-group col-md-8"> <input type="text" class="form-control col-md-8 item_indivisual_total" id="item_total_'+count
@@ -76,9 +85,13 @@ $ = jQuery.noConflict();
 	
 	////////// check number value //////////////
 	function number_check(value){
+
+		if($(document).find('#error_max_msg').length){
+			$('#error_max_msg').hide();
+		}
 		
 		 var  str= value;
-		   value =value.replace(/[a-z]/gi, '');
+		   value =value.replace(/[a-z\+\-\/\=]/gi, '');
 		   var realLength = str.length;
 		  var  tempLength =  value.length;
 		  
@@ -191,6 +204,7 @@ $(document).on('click','#confirm_calc',function(){
 		$('#error_max_msg').html('');
 		$('.close').trigger('click');
 	}else{
+		$('#error_max_msg').show();
 		$('#error_max_msg').html('Insufficient stock.');
 	}
 	}
@@ -220,28 +234,32 @@ $(document).on('click','#cal_id',function(){
        $(document).on("click",'#cancel_calc',function(){
                     
 			$('.cc-void-field').remove();
-             
-       $("#exceess_area_percent").html('');
-        $('#total_area').html('');
-        $("#no_of_packs").html('');
-        $loop =$("#calculator_container>div").length;
-         $calarea = 0;
-       	/*alert($loop);*/
-       	$covperpack = 2.49;
-  
-       		
-       	jQuery('#calculator_container .row ').each(function(index,element){
-           if(index!=0){
-           $(element).remove();
-           }
-           else{
-           	jQuery(element).find('.width_check').val('');
-           	jQuery(element).find('.length_check').val('');
-           	jQuery(element).find('.item_indivisual_total span').html('-');
-           	if(jQuery('#calculator_container').find('.calculated').length>0){
-           	$(element).removeClass('calculated');}
-           }
-           });
+			if($(document).find('#error_max_msg').length){
+			$('#error_max_msg').hide();
+		}
+		
+
+			$("#exceess_area_percent").html('');
+			$('#total_area').html('');
+			$("#no_of_packs").html('');
+			$loop =$("#calculator_container>div").length;
+			$calarea = 0;
+			/*alert($loop);*/
+			$covperpack = 2.49;
+
+
+			jQuery('#calculator_container .row ').each(function(index,element){
+				if(index!=0){
+					$(element).remove();
+				}
+				else{
+					jQuery(element).find('.width_check').val('');
+					jQuery(element).find('.length_check').val('');
+					jQuery(element).find('.item_indivisual_total span').html('-');
+					if(jQuery('#calculator_container').find('.calculated').length>0){
+						$(element).removeClass('calculated');}
+				}
+			});
 
 
 

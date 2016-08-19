@@ -33,7 +33,10 @@ $ancestors = get_post_ancestors( $id );
 // reverse array to maintain correct ancestor order
 $ancestors = array_reverse ( $ancestors );
 $size      = count( $ancestors );
+
 ?>
+
+
 <div class="child-innerpg">
     <div class="container clearfix">
         <div class="inerblock_serc_child about-page">
@@ -116,7 +119,31 @@ $size      = count( $ancestors );
 
             <div class="col-md-9">
                 <div class="cbg_content">
-                    <?php the_content(); ?>
+                <?php the_content();  ?>
+                <?php if($size==1){
+
+$args = array(
+    'post_type'      => 'page',
+    'posts_per_page' => -1,
+    'post_parent'    => $id,
+    'order'          => 'ASC',
+    'orderby'        => 'menu_order'
+ );
+$loop = new WP_Query($args);
+
+
+    while($loop->have_posts()){
+        $loop->the_post();
+        echo '<div class="cc-about-lat-wrapper">';
+        echo  '<h2 class="sub_page_title">'.get_the_title().'</h2>';
+        echo '<p>'.get_the_excerpt().'</p>';
+        echo  '<div class="">';
+        echo '<a class="btn-employment" href="'.get_permalink().'">Read More</a>';
+        echo '</div>';
+        echo '</div>';
+    }
+}
+    ?>
                 </div><!-- end .cbg_content -->
             </div><!-- end .col-md-9 -->
 

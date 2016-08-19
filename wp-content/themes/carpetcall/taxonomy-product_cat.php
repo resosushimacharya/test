@@ -33,8 +33,12 @@ $top_cat = smart_category_top_parent_id($current_cat->term_id,'product_cat');
 if($top_cat){
 	$top_cat_obj = get_term_by('id',$top_cat,'product_cat');
 	$top_cat_slug = $top_cat_obj->slug;
-	get_template_part('templates/category',$top_cat_slug);
-	}
+	if($top_cat_slug == 'rugs' || $top_cat_slug == 'hard-flooring'){
+		get_template_part('templates/category',$top_cat_slug);
+	}else if($top_cat_slug == 'carpets' || $top_cat_slug == 'blinds'){
+		//get_template_part('templates/category','carpet_n_blinds');
+		}
+}
 ?>
 
 

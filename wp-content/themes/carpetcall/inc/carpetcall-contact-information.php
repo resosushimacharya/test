@@ -638,23 +638,29 @@ if(array_key_exists('wpsl_phone',$getinfo)){
         $phone = $getinfo['wpsl_phone'][0];
         if($phone  == ' '){
 		$phoneCon = false;
-		break;
+	
 	}
+  else{
+    $phoneCon = true;
+  }
         $phone = $getinfo['wpsl_phone'][0];
         $x=  $phone;
         $x = preg_replace('/\s+/', '', $x);
         $x = '+61'.$x;  
         $phone = ' <a class="phone" href="tel:'.$x.'">'.$phone.' </a>';
-      $phoneCon = true;
+     
+ 
 
 }
 if(array_key_exists('wpsl_fax',$getinfo)){
         $fax = $getinfo['wpsl_fax'][0];
         	if($fax  == ' '){
 		$faxCon = false;
-		break;
+		//break;
 	}
-	$faxCon = true;
+	 else{
+    $faxCon  = true;
+  }
 }
 
         $phonesec = '<strong>' .'P: ' .'</strong>'.$phone;

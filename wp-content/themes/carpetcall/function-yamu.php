@@ -719,6 +719,32 @@ if ( ! function_exists( 'woocommerce_template_single_hardflooring_title' ) ) {
 	}
 }
 
+
+if ( ! function_exists( 'woocommerce_template_single_carpets_blinds_price' ) ) {
+
+	/**
+	 * Output the product title.
+	 *
+	 * @subpackage	Product
+	 */
+	function woocommerce_template_single_carpets_blinds_price() {
+		wc_get_template( 'single-product/carpets_blinds/price.php' );
+	}
+}
+if ( ! function_exists( 'woocommerce_template_single_carpets_blinds_title' ) ) {
+
+	/**
+	 * Output the product title.
+	 *
+	 * @subpackage	Product
+	 */
+	function woocommerce_template_single_carpets_blinds_title() {
+		wc_get_template( 'single-product/carpets_blinds/title.php' );
+	}
+}
+
+
+
 function generate_catids_array($top_lvl_cat,$depth){
 	$transient = 'category_'.$top_lvl_cat.'_transient';
 	if ( false === ( get_transient( $transient ) ) ) {

@@ -105,8 +105,8 @@ if($reqTempTerms){
 			 */
 
 			do_action('cc_woocommerce_single_product_summary');
-			add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_hardflooring_price', 10 );
-			add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_hardflooring_title', 10 );
+			add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_carpets_blinds_price', 10 );
+			add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_carpets_blinds_title', 10 );
 			
 
 			do_action( 'woocommerce_single_product_summary' );
@@ -126,139 +126,43 @@ if($reqTempTerms){
        *Select a design section 
        *here we show the related products image and links
       */ ?>
-      <div class="cc-related-product-design-section">
-        
-      <h3>SELECT A DESIGN</h3>
-      <div class="cc-select-design-pro-all col-md-12">
-      <?php
-	  global $post;
-	  $curr_post = $post;
-	  
-	  $second_lvl_cat = get_term_by('id',$current_post_term_id,'product_cat');
-	/*  
-	$terms = wp_get_post_terms( $post->ID, 'product_cat' );
-  foreach ( $terms as $term ){
-	 $children = get_term_children($term->term_id, 'product_cat'); 
-	if(($term->term_id!="" && sizeof($children)==0)) {
-		$cats_array[] = $term->parent;
-	}
-  }
-  */
-  $query_args = array( 'posts_per_page' => -1, 'no_found_rows' => 1, 'post_status' => 'publish', 'post_type' => 'product', 'tax_query' => array( 
-    array(
-      'taxonomy' => 'product_cat',
-      'field' => 'id',
-      'terms' => $second_lvl_cat->term_id
-    )));
-  $related_prods = new WP_Query($query_args);
-  if ( $related_prods->have_posts() ) {
-		while ( $related_prods->have_posts() ) {
-		$related_prods->the_post();
-		global $post;
-		setup_postdata($post);
-		 $stockcheck = get_post_meta($post->ID);
-         if(strcasecmp($stockcheck['_stock_status'][0],'instock')==0){ 
-		 $proGal = get_post_meta( get_the_ID(), '_product_image_gallery', TRUE );
-         $proGalId = explode(',',$proGal);
-		 foreach($proGalId as $pgi){
-			  $proImageName =  has_post_thumbnail()?wp_get_attachment_url($pgi):get_template_directory_uri().'/images/placeholder.png';
-				if(preg_match("/\_V/i", $proImageName))
-				{
-					$reqProImageId = $pgi;
-					$proImageName =  wp_get_attachment_image_src($pgi,'thumbnail');
-					if($proImageName){
-						$proImageName = $proImageName[0];
-						}
-					break;
-				}
-			 
-			 }
-		?>
-        <div class="select-design-product-image <?php echo  (get_the_ID() == $curr_post->ID)?'pro-active':null?>"> 
-            <a href="<?php echo the_permalink()?>" class="select_design"> 
-                <img class="cc-product_no_image" src="<?php echo $proImageName?>"> 
-            </a> 
-        </div>
-        <?php
-		 }
-		}
-		wp_reset_postdata();
-  }// Reset Post Data
-wp_reset_postdata();
+      <div class="carpet_blinds_single_right">
+                 
+                 <h3 class="calspl calspll">
+                          <?php 
+                             $telephone_link =  get_field('telephone_link', '89',false); 
+                             $x = preg_replace('/\s+/', '', $telephone_link);
+                             $x = preg_replace( '/^[0]{1}/', '', $x );
+                             $i = 1;
+                             $x = '+61'.$x;   
+                          ?>
+                          <a href="tel:<?php echo $x; ?>"><?php echo __( 'CALL ', 'carpetcall' ) . $telephone_link;?></a>
+                        </h3>
+                <h4 class="bcwfsp"><?php echo get_field('footer_contact_title_label',89);?> </h4>
+                
+                <div class="againlt">
+                    <ul>
 
-	?>
-	
-	
+                        <?php $booklink=get_field('contactlink',89);?>
+                        <?php
+                            foreach($booklink as $singlelink){
 
-                 
-                 
-                 
-                 
-                 </div>
-      </div>
+                                 echo '<li> ' . $singlelink['ask_an_expert'] . '</li>';
+                            }
+                        ?>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                
+      
+      
       <?php $pro = get_post_meta($post->ID);
       global $post;
        ?>
-      <div class="cc-size-quantity-section">
-      
-      <div class="cc-quantiy-section col-md-12">
-      <h3>QUANTITY (PACK) </h3>
-      	<?php 
-      	 $x=do_shortcode('[add_to_cart_url id="'.$post->ID.'"]');
-      	 ?>
-      	 <?php  do_action( 'cc_custom_quantiy' );?>
-         <?php if(strcasecmp($pro['_stock_status'][0],'instock')!=0){?><div>
-      <h3> OUT OF STOCK</h3>
-      <?php do_action('cc_after_select_design_start');  do_action( 'woocommerce_single_product_summary' ); ?>
-      </div><?php }else{?>
-      <div class="stock_info_wrap clearfix">
-      <h3>In Stock  <span class="cc-po">- Pickup Only</span></h3>
-      </div>
-		  <?php		  
-		  }?>
-         <input type="hidden" name="sizem2" id="sizem2" value="<?php echo get_field('size_m2',get_the_ID())?>">
-        <?php  if(get_field('size_m2',get_the_ID())){?>
-			<div class="total_coverage">
-         <h3><?php _e('Total Coverage: ','carpetcall');?> <span class="coverage_value"><?php echo get_field('size_m2',get_the_ID())?></span> <span class="coverage_unit"><?php _e('SQM','carpetcall')?></span></h3>
-         
-         </div>
-			<?php }?>
-            <div class="sq_mtr_calc_wrap">
-         	<i><?php _e('Not sure how much you need?','carpetcall');?></i>
-         <div class="cc-sq-mtr-calc-wrap">
-
-        <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModalcalc"><span class="fa fa-calc"></span><?php _e('SQUARE METER CALCULATOR','carpetcall')?></button>
-       
-    </div>
-     <div class="cc-smc-underline"></div>     
-         </div>
-      	 <div class="cc-quantiy-section-inner">
-      	 <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $post->ID;?>" data-product_sku="<?php
-      	  echo $pro['_sku'][0] ; ?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart col-md-12" id="store-count-quantity" >ADD TO CART</a>
-
-      	  </div>
-          
-      	  </div>
-      </div>
-      <div class="clearfix"></div>
-     
       <div class="cc-product-enquiry col-md-12">
       	<button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal2">ENQUIRE NOW</button>
       </div>
-      <div class="cc-product-ship-free-section col-md-12">
-      <div class="cc-product-ship col-md-6"><span>SHIPPING</span></div><div class="cc-product-free col-md-6"> Not available</div>
-      </div>
-      <div class="cc-product-pick-location-section col-md-12">
-      <div class="cc-product-pick col-md-6">
-      <div class="btn btn-default col-md-12" ><span class="pickup-free-tag">Free</span> PICKUP</div>
-      </div>
-      <div class="cc-product-location col-md-6">
-      <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal1">PICK UP LOCATIONS</button>
-      </div>
-      <!-- Trigger the modal with a button -->
-      
-<!-- Enquiry Now -->
-<div id="myModal2" class="modal fade querynow" role="dialog">
+      <div id="myModal2" class="modal fade querynow" role="dialog">
 
   <div class="modal-dialog">
 
@@ -510,180 +414,11 @@ wp_reset_postdata();
 
   </div>
  
-</div><!-- query end here -->
-
-<!-- modal1 PICK UP -->
-
-
-<!-- PICK UP LOCATIONS -->
-<?php get_template_part( 'templates/head', 'office' );?>
-<?php get_template_part('templates/square','meter-calculator'); ?>
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">PICK UP LOCATIONS</h4>
-      </div>
-      <div class="modal-body">
-        	<h2 class="fyns-blk"> FIND YOUR NEAREST STORE </h2>
-            
-            <div class="frm-blk clearfix">
-            		<form class="form-inline">
-                    
-                    <div class="input-group">
-                      <input type="text"  placeholder="SUBURB OR POSTCODE" id="edit_dialog_keyword" name="edit_dialog_keyword" type="text" class="form-control controls"  onkeyup="customDialog(event);">
-                      <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" onclick="rs='';autocomplet_dialog();" id="check_control_dialog"><img src="<?php echo get_template_directory_uri().'/images/icon2.jpg';?>" style="float:right; margin-top:-5px;"></button>
-                      </span>
-                    </div>
-                         
-                         <span class="midlt"> OR </span>
-                         
-                          <button type="button" class="btn btn-default" onclick="showlocationdialog();rs='';" >USE CURRENT LOCATION</button>
-                        </form>
-            </div>
-            <!-- <div id="dialog_list_id_s"></div> -->
-            
-            <div class="nearstore " id="dialog_list_id_s"> 
-            <div class="col-md-12">
-            	<?php
-              $args = array(
-                'post_type' => 'wpsl_stores',
-                'posts_per_page'=>'3',
-                'orderby' => 'rand'
-
-                     
-              );
-              $loop = new WP_Query($args);
-              if($loop->have_posts()):
-                while($loop->have_posts()):
-                  $loop->the_post();
-                 $temp = get_post_meta($loop->post->ID);
-                 ?>
-                  <div class="col-md-4 no-lr">
-                    <div class="str-one">
-                      <h4><?php 
-                      
-                      echo get_the_title();?> </h4>
-                      <?php if(!empty($temp['wpsl_address'][0])){ ?>
-                        <p><?php echo $temp['wpsl_address'][0] ;?></p>
-                        <?php } ?>
-                        <?php 
-                        $citystate ="" ;
-                        if(!empty($temp['wpsl_city'][0])){
-                          $citystate.=  $temp['wpsl_city'][0]." ";
-                        }
-                        if(!empty($temp['wpsl_state'][0])){
-                          $citystate.=  $temp['wpsl_state'][0];
-                        }
-                        ?>
-                        <p><?php echo $citystate ;?></p>
-                        <?php
-                         if(!empty($temp['wpsl_zip'][0])){ 
-                          ?>
-                        <p><?php echo $temp['wpsl_zip'][0]; ?></p>
-                        <?php } ?>
-                   
-                    </div><div class="clearfix"></div>
-                    </div>
-                 <?php  
-                 endwhile; 
-                 wp_reset_query();
-                endif;
-              ?>
-                
-              </div> <div class="clearfix"></div> 
-            </div>
-            <div class="clearfix"></div>
-            
-      </div>
-      
-    </div>
-
-  </div>
 </div>
-
-
-
-      </div>
       <div class="clearfix"></div>
-      <div class="hf_product_details">
-		<h3><?php _e('Details','carpetcall')?></h3>
-        <table>
-        	<tr class="odd">
-            	<td><?php _e('Colour: ','carpetcall')?></td>
-            	<td><?php _e((get_field('species__colour_decore',get_the_ID()))?get_field('species__colour_decore',get_the_ID()):'N/A','carpetcall')?></td>
-            </tr>
-        	<tr class="even">
-            	<td><?php _e('Boards Per Pack: ','carpetcall')?></td>
-            	<td><?php _e(get_field('boards_per_pack',get_the_ID())?get_field('boards_per_pack',get_the_ID()):'N/A','carpetcall')?></td>
-            </tr>
-        	<tr class="odd">
-            	<td><?php _e('Coverage Per Pack: ','carpetcall')?></td>
-            	<td><?php _e(get_field('size_m2',get_the_ID())?get_field('size_m2',get_the_ID()).'sqm/pack':'N/A','carpetcall')?></td>
-            </tr>
-        </table>
-      </div>
-      <div class="recommended_acc_static">
-      <span><?php _e('Required Accessories to complete flooring:','carpetcall')?></span>
-      	<img src="<?php echo get_template_directory_uri()?>/images/underlay_rec.jpg">
-        <span class="cc-rec-acc-underlay"><?php _e('UNDERLAY','carpetcall')?></span>
-      </div>
       
-      <?php
-	  /* 
-	   $args = array('post_type' => 'product',
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'product_cat',
-				'posts_per_page'=>-1,
-                'field' => 'slug',
-                'terms' => 'underlay',
-            ),
-        ),
-     );
-	 $loop = new WP_Query($args);
-     if($loop->have_posts()) {?>
- 		<div class="hf_req_accessories">
-        <span><?php _e('Required Accessories to complete flooring','carpetcall')?></span>
-       <?php 
-	    while($loop->have_posts()) : $loop->the_post(); 
-			if(has_post_thumbnail()){
-						echo get_the_post_thumbnail(get_the_ID(),array('100',100));
-						}
-			echo '<span>'.the_title().'</span>';
-        endwhile;
-		wp_reset_postdata();
-     ?>
-     </div>
-     <?php }
-	 
-	 */
-	 
-	 
-	 /* if(get_field('accessories',get_the_ID())){?>
-		  <div class="hf_req_accessories">
-		<span><?php _e('Required Accessories to complete flooring','carpetcall')?></span>
-        <?php 
-		$accessories = get_field('accessories',get_the_ID());
-		if(!empty($accessories)){
-			foreach($accessories as $acc){
-				if(has_post_thumbnail($acc)){
-					echo get_the_post_thumbnail($acc,array('100',100));
-					}
-				echo '<span>'.get_the_title($acc).'</span>';
-				}
-			}
-		
-		?>
-        
-      </div>
-		  <?php }*/
-	  
-	  ?>
+       </div>
+
 	</div><!-- .summary -->
 
 	<?php

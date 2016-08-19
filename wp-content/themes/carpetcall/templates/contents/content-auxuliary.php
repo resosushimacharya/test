@@ -43,7 +43,7 @@ if(array_key_exists('wpsl_phone',$getinfo)){
    $x = preg_replace('/\s+/', '', $x);
    $x = '+61'.$x;  
    $phone = '<a class="phone" href="tel:'.$x.'">'.$phone.' </a>';
-   $phonesec = '<li class="cc-head-wpsl-phone"><span>P:</span>'.$phone.'</li>';
+   $phonesec = '<li class="cc-head-wpsl-phone"><span>P: </span>'.$phone.'</li>';
 }
 if(array_key_exists('wpsl_fax',$getinfo)){
  $fax = $getinfo['wpsl_fax'][0];
