@@ -214,7 +214,8 @@ register_nav_menus(
 array(
 'header-menu' => __( 'Header Menu' ),
 'front-menu' => __( 'Front Menu' ),
-'footer-menu' => __( 'Footer Menu' )
+'footer-menu' => __( 'Footer Menu' ),
+'footer-mobile-menu' => __( 'Footer Mobile Menu' )
 )
 );
 }

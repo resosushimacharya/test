@@ -5128,9 +5128,10 @@ div#error_max_msg {
 
 
 /* Display None on desktop */
-.calbk-mobile{
+.calbk-mobile, .footer_nav_mobile{
 	display: none;
 }
+/* Display None on desktop  End*/
 .cc-terms-condn, .cbg_content.cc-condn-page {
 	padding:0;
 }

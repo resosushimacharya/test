@@ -6,38 +6,65 @@
                     <img src="<?php echo get_template_directory_uri() ;?>/images/carpetcall-logo.png" alt="logo" class="img-responsive"/>
                 </div>
 
-                <div class="subcat">
+                <div class="subcat footer_nav_desktop">
                     <!--my style ---->
+                    <!--- -->
+                    <?php    /**
+                    * Displays a navigation menu
+                    * @param array $args Arguments
+                    */
+                    $args = array(
+                    'theme_location'  => 'footer-menu',
+                    'menu'            => 'footlist',
+                    'container'       => '',
+                    'container_class' => '',
+                    'container_id'    => '',
+                    'menu_class'      => 'footlist',
+                    'menu_id'         => '',
+                    'echo'            => true,
+                    'fallback_cb'     => '',
 
-                        <!--- -->
-                        <?php    /**
-                        * Displays a navigation menu
-                        * @param array $args Arguments
-                        */
-                        $args = array(
-                        'theme_location'  => 'footer-menu',
-                        'menu'            => 'footlist',
-                        'container'       => '',
-                        'container_class' => '',
-                        'container_id'    => '',
-                        'menu_class'      => 'footlist',
-                        'menu_id'         => '',
-                        'echo'            => true,
-                        'fallback_cb'     => '',
+                    'link_before'     => '',
+                    'link_after'      => '',
+                    'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                    'depth'           => 2,
+                    'walker'          => new JC_Footer_Nav_Menu()
+                    );
+                    wp_nav_menu($args);?>
 
-                        'link_before'     => '',
-                        'link_after'      => '',
-                        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                        'depth'           => 2,
-                        'walker'          => new JC_Footer_Nav_Menu()
-                        );
+                    <div class="clearfix"></div>
+                </div>
 
-                        wp_nav_menu($args);?>
+                <div class="subcat footer_nav_mobile">
+                    <!--my style ---->
+                    <!--- -->
+                    <?php    /**
+                    * Displays a navigation menu
+                    * @param array $args Arguments
+                    */
+                    $args = array(
+                    'theme_location'  => 'footer-mobile-menu',
+                    'menu'            => 'foot_mob',
+                    'container'       => '',
+                    'container_class' => '',
+                    'container_id'    => '',
+                    'menu_class'      => 'foot_mob',
+                    'menu_id'         => '',
+                    'echo'            => true,
+                    'fallback_cb'     => '',
 
-                        <div class="clearfix"></div>
+                    'link_before'     => '',
+                    'link_after'      => '',
+                    'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                    'depth'           => 2,
+                    'walker'          => new JC_Footer_Nav_Menu()
+                    );
+                    wp_nav_menu($args);?>
 
-                
-                </div><div class="clearfix"></div><!-- sub category listing end -->
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="clearfix"></div><!-- sub category listing end -->
                 
                 <div class="social">
                     <ul>
