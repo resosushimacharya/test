@@ -189,6 +189,12 @@ function woo_new_product_tab( $tabs ) {
                    			if(strcasecmp($cat->slug, 'hard-flooring')==0){
                    				$top_cat = 'hard-flooring';
                    			}
+                   			if(strcasecmp($cat->slug, 'carpets')==0){
+                   				$top_cat = 'carpets';
+                   			}
+                   			if(strcasecmp($cat->slug, 'blinds')==0){
+                   				$top_cat = 'blinds';
+                   			}
                    		
                    		}
                    	}
@@ -247,14 +253,15 @@ $args = array(
 
 
 $parent = new WP_Query( $args );
+$list = '';
 while($parent->have_posts()){
     $parent->the_post();
     $faqid =$post->ID;
+	$list = get_field('buying_guide_archive',$faqid );
 
 }
 wp_reset_query();
 
-$list = get_field('buying_guide_archive',$faqid );
 
 ?> 
 	<?php
