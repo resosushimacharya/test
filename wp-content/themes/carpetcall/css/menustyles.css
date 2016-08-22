@@ -107,8 +107,7 @@
   letter-spacing: 0;
   display: block;
   width: auto;
-  padding: 15px 10px;
-  line-height:0px;
+  padding: 7px 10px;
   position: relative;
   margin-bottom:10px;
 }
@@ -246,7 +245,7 @@
   left: 0; 
 }
 #cssmenu > ul > li:hover > ul > li {
-  max-height: 72px;
+ /* max-height: 72px;*/
  /* position: relative;*/
 }
 #cssmenu #menu-button {
