@@ -59,7 +59,7 @@ $currentcat = get_queried_object();
  
 ?>
         <div class="rugm-blk col-md-6 no-pl">
-          <p> <span class="cc-cat-title-count"> <?php echo $currentcat->count;?> <?php echo single_cat_title('',false).' '.$appafter;?> Products </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
+          <p> <span class="cc-cat-title-count"> <span class="post_count"><?php echo $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
         </div>
         <div class="col-md-6 no-pr">
           <div class="pull-right cc-product-sort">
