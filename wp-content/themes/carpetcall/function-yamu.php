@@ -79,9 +79,8 @@ function testing($link,$term_obj,$taxonomy){
 	$catid = $term_obj->term_id;
 	$ancestors = get_ancestors( $term_obj->term_id, 'product_cat' );
 	$depth = count($ancestors) ;
-			
 	if($depth >=2){
-		$link = '';
+		//$link = '';
 		}
 	return $link;
 	}
@@ -430,7 +429,7 @@ function loadmore_hf($args){
 	$defaults = array(
 		'cat_id' =>0,
 		'offset'=>0,
-		'perpage'=>1,
+		'perpage'=>-1,
 		'sort_by'	=>'price',
 		'sort_order'=>'DESC',
 		'depth'=>0,
@@ -643,6 +642,175 @@ function loadmore_hf($args){
 	ob_end_clean();
 	$ret['html'] = $html;
 	$ret['offset'] = $offset;
+	$ret['found_prod'] = $found_count;
+	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+		echo json_encode($ret);
+		die;
+	}else{
+		return $ret;
+	}
+}
+add_action('wp_ajax_cc_custom_search','cc_custom_search');
+add_action('wp_ajax_nopriv_cc_custom_search','cc_custom_search');
+function cc_custom_search($args){
+	ob_start();
+	$defaults = array(
+		'offset'=>0,
+		'sort_by'	=>'price',
+		'perpage'=>-1,
+		'sort_order'=>'DESC',
+		'price'	=>'',
+		'shop_range'	=>'',
+		's'				=>'',
+	);
+	$args = wp_parse_args( $args, $defaults);
+	
+	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+		if(isset($_POST['offset'])){
+		$args['offset'] = sanitize_text_field($_POST['offset']);
+		}
+		if(isset($_POST['s'])){
+		$args['s'] = sanitize_text_field($_POST['s']);
+		}
+		if(isset($_POST['sort_by'])){
+		$args['sort_by'] = sanitize_text_field($_POST['sort_by']);
+		}
+		if(isset($_POST['sort_order'])){
+		$args['sort_order'] = sanitize_text_field($_POST['sort_order']);
+		}
+		if(isset($_POST['price']) && ($_POST['price'] !='')){
+		$args['price'] = sanitize_text_field($_POST['price']);
+		}
+		if(isset($_POST['perpage'])){
+		$args['perpage'] = sanitize_text_field($_POST['perpage']);
+		}
+		if(isset($_POST['shop_range']) && ($_POST['shop_range'] !='')){
+		$args['shop_range'] = sanitize_text_field($_POST['shop_range']);
+		}
+	}
+	extract($args);
+	global $wp_query;
+	$found_count = 0;
+	$filargs = array(
+					'post_type'=>'product',
+					'post_stauts' =>'publish',
+					'posts_per_page'=>-1,
+					's'				=>$s,
+					'meta_query'=>array(
+										array(
+											'key'	=>'_stock_status',
+											'value'	=>'instock',
+										),
+									),
+				);
+				
+				
+		if($shop_range !='' ){
+					$shop_range_arr = explode(',',$shop_range);
+					$filargs['tax_query'] = array(
+													array(
+														'taxonomy' => 'product_cat',
+														'field' => 'id',
+														'terms' => $shop_range_arr,
+														'include_children' => true,
+														'operator' => 'IN'
+													  )
+												);
+				}
+				
+				
+				
+				if($sort_by == 'price'){
+					$filargs['meta_key'] = '_regular_price';
+				}elseif($sort_by == 'popular'){
+					$filargs['meta_key'] = 'total_sales';
+				}
+				$filargs['orderby'] = 'meta_value_num';
+				$filargs['order'] = $sort_order;
+				
+				if($price !='' ){
+					$range_arr = explode(',',$price);
+					$filargs['meta_query'][] = array(
+													'key' => '_regular_price', 
+													'value' => $range_arr,
+													'type'	=>	'NUMERIC',
+													'compare' => 'BETWEEN'
+												);
+				}			
+				wp_reset_postdata();
+				$prod_count_init = new WP_Query($filargs);
+				$found_count = ($prod_count_init->post_count  > 0)?$prod_count_init->post_count:0;	
+				//$filargs['posts_per_page']=$perpage;
+				//$filargs['offset']=$offset;
+				$filloop = new WP_Query($filargs);
+				if($filloop->have_posts()){
+					while($filloop->have_posts()){
+						$filloop->the_post();?>
+						<div class="search_prod_wrapper col-md-4">
+                            	<?php
+								//$imgurl = (has_post_thumbnail())?the_post_thumbnail_url('thumbnail'):get_template_directory_uri().'/images/placeholder.png';
+								 ?>
+                            <div class="search_thumb" style="background-image:url(<?php echo (has_post_thumbnail())?the_post_thumbnail_url('thumbnail'):get_template_directory_uri().'/images/placeholder.png'?>)"></div>
+                            <div class="search_title">
+								<?php 
+                                    $categories = get_the_terms(get_the_ID(), 'product_cat' ); 
+                                    if ( $categories ) : 
+                                        foreach($categories as $category) :
+                                          $children = get_categories( array ('taxonomy' => 'product_cat', 'parent' => $category->term_id ));
+                                          if ( count($children) == 0 ) {
+											  ?>
+                                              <span class="parent_cat">
+                                              
+											  <?php 
+											  $temp_parent = get_term_by('id',$category->parent,'product_cat'); 
+											  if($temp_parent){?>
+												  <a href="<?php echo get_term_link($temp_parent->term_id,"product_cat")?>"><?php echo $temp_parent->name?></a>
+												  <?php }
+											  ?>
+                                              
+                                              </span>
+                                              
+                                              <span class="cat_third">
+                                              <a href="<?php echo get_term_link($category->term_id,"product_cat")?>"><?php echo $category->name?></a>
+                                              </span>
+                                            
+                                             <?php break;
+                                          }
+                                        endforeach;
+                                    endif;
+                                    ?>
+                                    
+                            </div>
+                            <div class="search_price">
+                            	<?php
+								$product = wc_get_product( get_the_ID() );
+								if(get_field('size_m2',get_the_ID())){?>
+									<div class="cc-price-control">
+
+									<h3><span class="cc-sale-price-title">A$<?php echo $product->get_regular_price().'/SQM'?></span> </h3>
+                                   </div>
+									<?php }else{
+										echo  $product->get_price_html();
+										}
+								?>
+                            </div>
+                            <div class="search_shop_now">
+                            	<div class="read_more">
+                                <a href="<?php echo get_term_link($temp_parent->term_id,"product_cat")?>">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+						<?php
+                        }
+			$html = ob_get_clean();
+				}else{
+					$ret['html'] = '';
+					$ret['offset'] = 0;
+					$ret['found_prod'] = 0;
+						}
+	
+	$ret['html'] = $html;
+	$ret['offset'] = $offset+$perpage;
 	$ret['found_prod'] = $found_count;
 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 		echo json_encode($ret);

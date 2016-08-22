@@ -27,7 +27,7 @@ else{
 echo ' > ' ; ?><span class="cc-bread-parent"><a href="<?php echo get_the_permalink($post->post_parent);?>"><?php echo get_the_title($post->post_parent);?></a></span><?php 
 echo ' > ' ; ?><span class="cc-bread-current"><?php echo get_the_title().' '.get_the_title($post->post_parent);?></span>
 </div>
-<h1><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span> <?php echo get_the_title();?> <?php echo get_the_title($post->post_parent);?> </h1>
+<h1><a href="<?php echo get_permalink($post->post_parent) ;?>"> <span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span> <?php echo get_the_title();?> <?php echo get_the_title($post->post_parent);?> </h1>
   
            
 </div>
@@ -39,7 +39,7 @@ echo ' > ' ; ?><span class="cc-bread-current"><?php echo get_the_title().' '.get
 	<div class="inerblock_sec">
 		<div class="col-md-3 no-pl">
         <div id="stickSide">
-        <div class="meromm" data-spy="affix" data-offset-top="138">
+        <div class="meromm" >
 			
 <?php 
  $res = get_field('buying_guide_archive', get_the_id());?>

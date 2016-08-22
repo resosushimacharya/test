@@ -1763,7 +1763,7 @@ ul.guide_list_cbg li.current_page_item a {
 .ab_arrow {
 	font-size: 25px; /*margin-right:6px;*/
 }
-.inerblock_serc_child h1, .inerblock_serc h1 {
+.inerblock_serc_child h1 a  {
 	font: bold 36px 'proxima_nova_ltsemibold', sans-serif;
 	color: #15489f;
 	text-transform: uppercase;
@@ -1771,6 +1771,23 @@ ul.guide_list_cbg li.current_page_item a {
 	display: inline-block;
 	margin-bottom: 12px;
 	line-height: 26px;
+	text-decoration:none;
+}
+.inerblock_serc_child h1 a:hover {
+	cursor:pointer;
+}
+.inerblock_serc h1 a {
+	font: bold 36px 'proxima_nova_ltsemibold', sans-serif;
+	color: #15489f;
+	text-transform: uppercase;
+	border-bottom: 1px solid #6383b9;
+	display: inline-block;
+	margin-bottom: 12px;
+	line-height: 26px;
+	text-decoration:none;
+}
+.inerblock_serc h1 a:hover {
+	cursor:pointer;
 }
 .inerblock_serc_child.about-page h1 {
 	border-bottom: none;
@@ -1845,6 +1862,8 @@ ul.guide_list_cfaq li a {
 	font-size: 18px;
 	line-height: 21px;
 	margin-top: 10px;
+	font: normal 18px 'proxima_nova_rgregular', sans-serif;
+	color: #666666;
 }
 .faq-cont-blka .panel-default>.panel-heading a {
 	position: relative;
@@ -2535,7 +2554,7 @@ ul.specific-list li {
 	text-transform: uppercase;
 }
 .panel.entry-content.wc-tab .panel-default>.panel-heading+.panel-collapse>.panel-body {
-	padding: 0 23px 15px 38px;
+	padding: 0 23px 0px 38px;
 	font-size: 18px;
 	line-height: 21px;
 }
@@ -2563,9 +2582,9 @@ ul.specific-list li {
 	bottom: -37px;
 }
 
-.postid-34563 .panel-body.panel-body-faq p.faq_textarea {
+/*.postid-34563 .panel-body.panel-body-faq p.faq_textarea {
 	padding:0 38px;
-}
+}*/
 
 /*....... Modern Rugs start here ..................*/
 .inerblock_seC_mrugss {
@@ -2746,7 +2765,7 @@ a.pull-right:hover {
 .all-items-blk {
 	background-color: #e7edf8;
 	padding: 37px 36px;
-	min-height: 412px;
+	min-height: 366px;
 }
 .all-items-blk h3 {
 	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
@@ -2791,7 +2810,7 @@ a.pull-right:hover {
 	margin: 0px 0 38px 0;
 }
 ul.cat_list {
-	margin: 0 0 29px 0;
+	margin: 0 0 0px 0;
 	padding: 0;
 	min-height:185px;
 }
@@ -3571,14 +3590,14 @@ ul.cc-color-var-item {
 }
 .cc-cat-sub-group-item {
 	font-size: 0;
-	margin: 0 -10px;
+	margin: 0 -5px;
 }
 .cc-cat-sub-group-item .cc-other-term-pro {
 	font-size: 14px;
 	width: 20%;
 	display: inline-block;
 	vertical-align: top;
-	padding: 5px 10px;
+	padding: 5px;
 }
 .cc-img-wrapper {
 	position: relative;
@@ -5016,9 +5035,9 @@ a.btn-employment:hover {
 	margin: 0;
 	padding: 0;
 }
-.single.single-product .panel.entry-content.wc-tab .panel-default>.panel-heading+.panel-collapse>.panel-body {
+/*.single.single-product .panel.entry-content.wc-tab .panel-default>.panel-heading+.panel-collapse>.panel-body {
 	padding: 0px !important;
-}
+}*/
 /*.single.single-product .panel.entry-content.wc-tab p.faq_textarea {
 	padding:0 20px;
 }*/
@@ -5032,7 +5051,10 @@ a.btn-employment:hover {
 	background: #b01519;
 }
 .single.single-product .panel.entry-content.wc-tab p {
-	margin: 5px 36px 25px 20px;
+	margin: 0px 36px 0px 0px;
+}
+.postid-34963 .panel-body-table {
+	padding-left:0px !important;
 }
 .single.single-product .panel-body.panel-body-faq {
 	margin: 0 0 20px 0 !important;
@@ -5157,9 +5179,9 @@ div#error_max_msg {
 .term-hard-flooring .cc_background_image {
 	display:none;
 }
-.single.single-product .woocommerce-tabs.wc-tabs-wrapper .panel.entry-content.wc-tab p {
+/*.single.single-product .woocommerce-tabs.wc-tabs-wrapper .panel.entry-content.wc-tab p {
 	margin: 25px 0;
-}
+}*/
 
 
 .read_more a { 

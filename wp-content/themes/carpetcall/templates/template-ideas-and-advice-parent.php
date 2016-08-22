@@ -13,6 +13,7 @@
   */
  $term_id_sub =  get_queried_object()->term_id;
  $term_name = get_queried_object()->name;
+ global $post;
 ?>
  <div class="cbg_blk clearfix">
  <div class="container">
@@ -26,7 +27,7 @@
 
 </div>
 
-<h1><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo get_the_title();?>  </h1>
+<h1><a href="<?php echo get_permalink($post->post_parent);?>"><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo get_the_title();?>  </a></h1>
 </div>
 </div>
 </div>
