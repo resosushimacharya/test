@@ -750,7 +750,7 @@ function cc_custom_search($args){
                             	<?php
 								//$imgurl = (has_post_thumbnail())?the_post_thumbnail_url('thumbnail'):get_template_directory_uri().'/images/placeholder.png';
 								 ?>
-                            <div class="search_thumb" style="background-position: center center; background-size: cover; min-height: 150px; background-image:url(<?php echo (has_post_thumbnail())?the_post_thumbnail_url('thumbnail'):get_template_directory_uri().'/images/placeholder.png'?>)"></div>
+                            <div class="search_thumb" style="background-image:url(<?php echo (has_post_thumbnail())?the_post_thumbnail_url('thumbnail'):get_template_directory_uri().'/images/placeholder.png'?>)"></div>
                             <div class="search_title">
 								<?php 
                                     $categories = get_the_terms(get_the_ID(), 'product_cat' ); 
