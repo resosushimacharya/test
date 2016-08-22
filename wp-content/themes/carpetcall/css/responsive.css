@@ -341,12 +341,24 @@
 	#cssmenu > ul > li:hover > ul > li{
 		max-height: inherit;
 	}
+	#cssmenu > ul > li > a.show_nav{
+		background: #0099ff;
+	}
 
 	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1{
-		transform: translateX(-100%);
+		-webkit-transform: translateX(-110%);
+		-moz-transform: translateX(-110%);
+		-ms-transform: translateX(-110%);
+		-o-transform: translateX(-110%);
+		transform: translateX(-110%);		
 	}
 	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1.is-visible{
+		-webkit-transform: translateX(0);
+		-moz-transform: translateX(0);
+		-ms-transform: translateX(0);
+		-o-transform: translateX(0);
 		transform: translateX(0);
+		transition: all 0.5s ease;
 	}
 
 	/* Menu End */

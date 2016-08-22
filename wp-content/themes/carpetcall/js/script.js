@@ -231,7 +231,8 @@
 
       function responsive_nav(){
 
-        if($(window).innerWidth() <= 800){          $('#cssmenu ul li ul li.sub-menu-item').append('<span class="fa fa-angle-right right_arrow"></span>');
+        if($(window).innerWidth() <= 800){          
+          $('#cssmenu ul li ul li.sub-menu-item').append('<span class="fa fa-angle-right right_arrow"></span>');
 
           var parentLink = $('#cssmenu ul li ul li.sub-menu-item');
           $(parentLink).each(function(){
