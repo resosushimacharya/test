@@ -452,7 +452,18 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
        },
       "A minimum of {0} words is required here."
     );
-
+ jQuery.validator.addMethod("wordCount",
+       function(value, element, params) {
+          var count = getWordCount(value);
+          if(count >= params[0]) {
+             return false;
+          }
+          else{
+            return true;
+          }
+       },
+      "A minimum of {0} words is required here."
+    );
 //call the validator
 
 
@@ -499,7 +510,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
 
        
         required:true,
-        wordCount: ['125']
+        wordCount: ['50']
       },
       email_address: {
         required: true,
@@ -539,10 +550,18 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
       check_captcha : "required"     
   },
   messages: {
-      first_name:{required: "Please enter your first name!"
+      first_name:{required: "Please enter your first name!",
+      maxlength:"Please enter at most 32 characters."
     },
-      last_name: "Please enter your last name!",
-      email_address: "Please enter valid email address!",
+      last_name:{
+        required:"Please enter your last name!",
+        maxlength:"Please enter at most 32 characters."
+      } ,
+      email_address:{required:"Please enter your email address!",
+      email:"Please enter valid email address!"
+
+
+    },
       
       information: " Please enter your message!",
        mobile_phone_no: {
@@ -551,8 +570,8 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
           },
 
       
-      cc_message:{  required:"Field must be filled up!",
-                    wordCount:"you may write 50 words at most!"
+      cc_message:{  required:"Please enter your message!",
+                    wordCount:"Please enter at most 50 words."
                  
     },
       cc_state_type:{ default: "Please select a state!" },
