@@ -183,7 +183,7 @@ function calculate_square(){
 
 $(document).on('click','#confirm_calc',function(){
 	var max_val=$('#cc_Stock_count').val();
-
+     $loadref=$('#store-count-quantity').attr('href');
 	var culc_val=$('#no_of_packs').text();
 	if(Number(culc_val)!=0){
 	if(Number(max_val)>=Number(culc_val)){
@@ -191,8 +191,18 @@ $(document).on('click','#confirm_calc',function(){
 		  temp_count = Number(temp_count);
 		  var cal_quan = Number(culc_val);
 		  var total_cov_ret = temp_count*cal_quan;
+		  total_cov_ret = total_cov_ret.toFixed(2);
 		$("#quantity-control").val(culc_val);
 		$(".coverage_value").html(total_cov_ret);
+		$stoq = $('.cc-quantiy-section  #quantity-control').val(); 
+		   var sizem2 = jQuery('#sizem2').val(); 
+              if($stoq.toLowerCase()!='please select'){
+         $('#store-count-quantity').attr('href',$loadref);
+
+          $('#store-count-quantity').addClass('add_to_cart_button');
+           $('#store-count-quantity').addClass('ajax_add_to_cart');
+            $(".add_to_cart_button").attr('data-quantity',$stoq);
+              $(".add_to_cart_button").data('quantity',$stoq);}
 		jQuery('.underlay .acc_rec_qty').each(function(index,element){
 			console.log(element);
 			var tmpr = jQuery(element).attr('tpm_ratio');

@@ -74,7 +74,9 @@
                           var options = { types: ['geocode'],componentRestrictions: {country: "AU"} };
                           var types = document.getElementById('type');
                           var check = input.value;
-                          
+                          if($('#alert_msg').length){
+                            $('#alert_msg').hide();
+                          }
                           
                           e.which = e.which || e.keyCode;
                           if(e.which == 13) {
@@ -102,14 +104,16 @@
                                                 window.alert("Autocomplete's returned place contains no geometry");
                                                 return;
                                       }
+
                                   
-                          
+                          altcomplet();
+
                           
                           })
                               
                               
                       document.addEventListener("keydown", KeyCheck);
-                
+                  
                 
                 }
                 function KeyCheck(event){
