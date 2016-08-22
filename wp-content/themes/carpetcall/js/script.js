@@ -19,14 +19,14 @@
       dots: true,
       draggable:false,
       lazyLoad: 'ondemand',
-      speed: 1000,
+      speed: 600,
       responsive: [
         {
-          breakpoint: 769,
+          breakpoint: 801,
           settings: {
             arrows: false,
             centerMode: true,
-            centerPadding: '40px',
+            centerPadding: '0',
             slidesToShow: 1,
             draggable:true,
           }
@@ -36,7 +36,7 @@
           settings: {
             arrows: false,
             centerMode: true,
-            centerPadding: '40px',
+            centerPadding: '0',
             slidesToShow: 1,
             draggable:true,        
           }
@@ -193,6 +193,73 @@
       cloneShopDrop();
       window.addEventListener('resize', cloneShopDrop);
     }
+
+
+    // Accordion for footer Menu
+    if($('.footer_nav_mobile').length){
+      $('.footer_nav_mobile .foot_mob li.menu-item-has-children').prepend('<span class="fa fa-angle-down footer-open"></span>');          
+       function footer_menu_toggle(){
+        jQuery('.footer_nav_mobile .foot_mob li.menu-item-has-children span.footer-open').click(function(j) {
+          if(jQuery(this).parent('li').hasClass('open')){          
+            jQuery(this).parent('li').find('ul.sub-menu').slideUp();
+            jQuery(this).parent('li').removeClass('open');
+          }else{
+            jQuery('.footer_nav_mobile .foot_mob li.menu-item-has-children ul.sub-menu' ).slideUp();
+            jQuery('.footer_nav_mobile .foot_mob li.menu-item-has-children.open' ).removeClass('open');
+            jQuery(this).parent('li').addClass('open');
+            var dropDown = jQuery(this).parent('li').find('ul.sub-menu');             
+            dropDown.stop(false, true).slideToggle();        
+          }
+          if (jQuery(this).hasClass('active')) {
+            jQuery(this).removeClass('active fa-angle-up').addClass('fa-angle-down');          
+          } else {
+            jQuery(this).removeClass('fa-angle-down').addClass('active fa-angle-up');
+            jQuery('.footer_nav_mobile .foot_mob li.menu-item-has-children span.footer-open.active').removeClass('active fa-angle-up').addClass('fa-angle-down'); 
+            jQuery(this).removeClass('fa-angle-down').addClass('active fa-angle-up');
+          }
+                   
+        });    
+      }
+      footer_menu_toggle();
+    }
+
+
+    // Header Nav Scripts
+    if($('#cssmenu').length){
+
+      responsive_nav();
+
+      function responsive_nav(){
+
+        if($(window).innerWidth() <= 800){          $('#cssmenu ul li ul li.sub-menu-item').append('<span class="fa fa-angle-right right_arrow"></span>');
+
+          var parentLink = $('#cssmenu ul li ul li.sub-menu-item');
+          $(parentLink).each(function(){
+            var $this = $(this);
+            var selected_link = $this.children('a').attr('href');
+            var selected_link_text = $this.children('a').text();
+            if($(this).find('.selected-link-cntr').length <= 0){
+              $this.children('ul.menu-depth-2').prepend('<div class="selected-link-cntr"><span class="go-back"><i class="fa fa-angle-left"></i></span><span class="selected_link_text">'+ selected_link_text +'</span></span><span class="selected_main_link"><a href=\"'+selected_link+'\">ALL</a></span></div>')
+            }
+          });
+        }else{
+          $('.right_arrow').remove();
+          $('.selected-link-cntr').remove();
+        }
+
+      }
+
+      $('#cssmenu > ul > li.main-menu-item > a').on('click', function(e){
+        e.preventDefault();
+        $(this).addClass('show_nav');
+        $(this).parent('li').find('ul.menu-depth-1').addClass('is-visible');
+
+      });
+
+    }
+
+
+
 
   });
 

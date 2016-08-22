@@ -20,25 +20,31 @@
 	}
 	
 	/* Display none goes here */
-	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img{
+	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child{
 		display: none;
 	}
 	/* Display none ends here */
 
 	/* Display Block goes here */
-	.calbk-mobile, .hamro_trade h2 br{
+	.calbk-mobile, .hamro_trade h2 br, .footer_nav_mobile{
 		display: block;
 	}
 	/* Display Block ends here */	
+
+	/* Font-size 18px; */
+	.cpyrt{
+		font-size: 18px;
+	}
+	/* Font-size 18px; End */
 	
 	/* Font-size 24px; */
-	.suptlst li, .aag p, .aag_a p, .aag_c p, .ptxt h4, .ptxt h5, .nowspp a, .trynow{
+	.suptlst li, .aag p, .aag_a p, .aag_c p, .ptxt h4, .ptxt h5, .nowspp a, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .searchm .form-control{
 		font-size: 24px;
 	}
 	/* Font-size 24px; End */
 
 	/* Font-size 28px; */
-	.cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a{
+	.cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a, #cssmenu ul li ul li a{
 		font-size: 28px;
 	}
 	/* Font-size 28px; End */
@@ -56,13 +62,13 @@
 	/* Font-size 32px; End */
 
 	/* Font-size 36px; */
-	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2{
+	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a{
 		font-size: 36px;
 	}
 	/* Font-size 36px; End */
 
 	/* Font-size 48px; */
-	.bookcbk{
+	.bookcbk, .calspl a{
 		font-size: 48px;
 	}
 	/* Font-size 48px; End */
@@ -92,7 +98,7 @@
 	/* Text Transform uppercase End*/
 
 	/* Proxima Nova Font Bold */
-	.rmblk_cont h3, .inner_cont h4, .quest_cont h4, .trynow{
+	.rmblk_cont h3, .inner_cont h4, .quest_cont h4, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .calspl a{
 		font-family: 'ProximaN Bold';
 	}
 	/* Proxima Nova Font Bold End */
@@ -102,7 +108,7 @@
 	/* ===== HEADER ===== */	
 	.banner{
 		padding-top: 0;
-		display: none;
+		/*display: none;*/
 	}
 	.banner .col-md-12{
 		padding: 0;
@@ -258,6 +264,7 @@
 		left: 0;
 		text-indent: -9999px;
 	}
+	/* Top Cart End */
 
 	/* Menu */
 	#cssmenu > ul > li{
@@ -266,6 +273,7 @@
 		border: 1px solid #15489f;
 		border-top: none;
 		border-bottom: none;
+		position: static;
 	}
 	#cssmenu > ul > li:nth-child(1){
 		width:  24.21875%;
@@ -285,6 +293,63 @@
 		padding: 0;
 		font-size: 28px;
 	}
+	#cssmenu ul li ul{
+		left: 0;
+		width: 100%;
+		padding: 0;
+		-webkit-box-shadow: 0px 2px 29px 3px rgba(0,0,0,0.43);
+		-moz-box-shadow: 0px 2px 29px 3px rgba(0,0,0,0.43);
+		box-shadow: 0px 2px 29px 3px rgba(0,0,0,0.43);		
+	}
+	#cssmenu ul li ul li{
+		margin: 0;
+		padding: 0;
+		transition: none;
+	}
+	#cssmenu ul li ul li a{
+		line-height: 1;
+		margin: 0;
+		padding: 0;
+		width: 90%;
+	}
+	#cssmenu ul li ul li.sub-menu-item{
+		padding: 45px 55px 45px 45px;
+		position: relative;
+		border-bottom: 1px solid #e8e8e8;
+	}
+	#cssmenu ul li ul li.sub-menu-item:last-child{
+		border: none;
+	}
+	#cssmenu ul li ul li.sub-menu-item span.right_arrow{
+		font-size: 42px;
+		color: #15489f;
+		position: absolute;
+	    width: 50px;
+	    text-align: center;
+	    right: 35px;
+	    height: 100%;
+	    top: 0;
+	    line-height: 116px;
+	}
+	#cssmenu > ul >li > ul> li:hover > a, #cssmenu ul li ul li.active > a{
+		color: #1858b8;
+		background: transparent;
+	}
+	#cssmenu > ul >li > ul> li:hover a.menu-link.sub-menu-link:after{
+		display: none;
+	}
+	#cssmenu > ul > li:hover > ul > li{
+		max-height: inherit;
+	}
+
+	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1{
+		transform: translateX(-100%);
+	}
+	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1.is-visible{
+		transform: translateX(0);
+	}
+
+	/* Menu End */
 	/* === HEADER End === */
 
 	/* === HOME PAGE === */
@@ -292,6 +357,40 @@
 	/* Slider */
 	.slider{
 		min-width: inherit;
+	}
+	.slider .slick-slide{
+		margin: 0;
+	}
+	.hamro{
+		right: 35px;
+	}
+	.hamro h4{
+		margin-top: 3px;
+	}
+	h5.tryit.tryita {
+	    margin-top: 35px;
+	    height: 40px;
+	    width: 180px;
+	}
+	.tryita a{
+		padding: 0;
+		display: block;
+		height: 40px;
+		font-size: 26px;
+		line-height: 40px;
+		font-family: 'proxima_nova_ltsemibold';
+	}
+	.slick-dots li button {
+	    height: 26px;
+	    width: 26px;
+	    background: #e2e2e2;
+	    border-radius: 50%;
+	}
+	.slick-dots li.slick-active button{
+		background: #15489f;
+	}
+	.slider .slick-dots{
+		bottom: 25px;
 	}
 	/* Slider End*/
 	
@@ -607,13 +706,90 @@
 	}
 	
 	.stmap{
-
+		padding-bottom: 105px;
 	}
-
-
+	.store-map{
+		top: 95px;
+	}
+	.stmap:nth-child(1) .rmore{
+		margin-top: 350px;
+	}
 	/* Home Map End */
-	
+
 	/* === HOME PAGE End === */
+
+	/* ===== FOOTER ===== */	
+	.footer_nav_mobile{		
+		margin: 0 -20px;
+	}
+	.footer_nav_mobile .foot_mob{
+		list-style: none;
+	}
+	.footer_nav_mobile .foot_mob li{
+	    padding: 28px 50px 28px 35px;
+		position: relative;
+		border-bottom: 1px solid rgba(255,255,255,0.37);
+	}
+	.footer_nav_mobile .foot_mob li.menu-item-has-children .fa{		
+	    font-family: FontAwesome;
+	    font-size: 36px;
+	    position: absolute;
+	    right: 40px;
+	    z-index: 999;
+	    top: 0;
+	    height: 100%;
+	    width: 50px;
+	    line-height: 80px;
+	    text-align: center;
+	}
+	.footer_nav_mobile .foot_mob li .sub-menu{
+		display: none;
+		margin: 0;
+		margin-top: 20px;
+	}
+	.footer_nav_mobile .foot_mob li .sub-menu li{
+		padding: 15px;
+	}
+	.footer_nav_mobile .foot_mob li .sub-menu li a{
+		font-size: 18px;
+		font-family: 'proxima_nova_ltsemibold';
+	}
+	.social {
+		margin-top: 35px;
+		padding: 0 15px;
+	}
+	.gtku{
+		margin-right: 0;
+	}
+	.social li a{
+		margin-left: 24px;
+		padding: 0;
+	}	
+	.calcall{
+		-webkit-transform: rotate(355deg);
+    	-moz-transform: rotate(355deg);
+    	-ms-transform: rotate(355deg);
+    	-o-transform: rotate(355deg);
+    	transform: rotate(355deg);
+	}
+	.calcall{
+		font-size: 34px;
+		margin-top: 75px;
+	}
+	.calspl{
+		text-align: center;
+		margin-top: 30px;
+	}
+	.fot_cpy ul{
+		text-align: center;
+	    margin-top: 40px;
+	}
+	.cpyrt{
+		border: none;
+		font-family: 'proxima_nova_ltsemibold';
+	}
+	/* ===== FOOTER END ===== */
+	
 
 }
 /* ============= 800px Ends ============= */
