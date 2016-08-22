@@ -7,8 +7,17 @@
 
 	$product_cats = get_terms( 'product_cat', array( 'parent' => 0 ) );
 	?>
-    
-    <div id="collapse_size" class="panel-collapse collapse in">
+  <?php /*?><div class="cc-size-var-sec">
+         <div class="panel-group cc-price-var" id="accordion-size">
+      <div class="panel panel-default">    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-price" href="#collapse_size">
+          <span class="pull-left glyphicon glyphicon-chevron-up"></span>
+         Shop Our Range</a>
+        
+      </h4>
+    </div>
+    <div id="collapse_shop_range" class="panel-collapse collapse in">
       <div class="panel-body">
         <div class="cc-shop-range-select">
          <form role="form">
@@ -22,7 +31,58 @@
         </div>
       </div>
     </div>
+    </div>
+    </div>
+    </div><?php */?>
+   <h3> Refine By </h3> 
     
+  <div class="clearfix"></div>
+  <div class="cc-size-var-sec">
+         <div class="panel-group cc-price-var" id="accordion-size">
+      
+      <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-price" href="#collapse_shop_range">
+          <span class="pull-left glyphicon glyphicon-chevron-up"></span>
+         SHOP OUR RANGE</a>
+        
+      </h4>
+    </div>
+    <div id="collapse_shop_range" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <div class="cc-price-var-items">
+      
+      <form role="form">
+   <?php foreach($product_cats as $term){?>
+	   <div class="checkbox">
+      <input type="checkbox" class="shop_range" value="<?php echo $term->term_id?>"><label><?php _e($term->name,'carpetcall')?></label>
+    </div>
+	   <?php }?>
+    
+  </form>
+         
+
+        </div>
+      </div>
+     
+    </div>
+  </div>
+  </div>
+    </div>
+    <div class="clearfix"></div>
+  <div class="cc-price-var-sec">
+         <div class="panel-group cc-price-var" id="accordion-price">
+      
+      <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-price" href="#collapse_price">
+          <span class="pull-left glyphicon glyphicon-chevron-up"></span>
+         PRICE</a>
+        
+      </h4>
+    </div>
     <div id="collapse_price" class="panel-collapse collapse in">
       <div class="panel-body">
         <div class="cc-price-var-items">
@@ -56,5 +116,9 @@
       </div>
      
     </div>
-   
-    </div><div class="clearfix"></div>
+  </div>
+  </div>
+    </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
