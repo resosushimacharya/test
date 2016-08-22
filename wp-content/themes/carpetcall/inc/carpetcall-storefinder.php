@@ -75,7 +75,7 @@ $controlzip=1;?>
        <?php 
         $latlongloc = getDistanceBetweenPointsNew($lat, $long, $latitude2, $longitude2,'Km');
           
-        $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0],$latlongloc,get_the_title()); ?>
+        $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0],$latlongloc,get_the_title(),get_the_permalink()); ?>
         <?php }
         else{?>
          <?php
@@ -83,7 +83,7 @@ $controlzip=1;?>
 
 
 
-      $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0],$latlongloc,get_the_title()); 
+      $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0],$latlongloc,get_the_title(),get_the_permalink()); 
          }?>         
               
 
@@ -111,20 +111,24 @@ usort($myArrays, 'sortByOrder');
 			break;
 			} 
 			$zloop++;?>
-		
+		      <div class="cc-lat-header-top-cover">
+          <a href="<?php echo $ma[6];?>" > 
            <div class="col-md-8">
-
+               
                             <address>
+                           
                               <strong><u><?php echo $ma[5];?>:</u></strong><br>
                                <?php echo $ma[0].' '.$ma[1].' '.$ma[2].' '.$ma[3] ;
                                ?>
-                              
+                             
                             </address>
                             </div> 
                             <div class="col-md-4"><p><strong><?php
                              echo $ma[4].' km'; 
                        ?> 
                             </strong></p></div><div class="clearfix"></div>
+          </a>
+                            </div>
 	<?php endforeach;?>
 
 <?php else:?>
@@ -137,8 +141,9 @@ usort($myArrays, 'sortByOrder');
 
       ?>
 		
-
-           <div class="col-md-8">
+<div class="cc-lat-header-top-cover">
+          <a href="<?php echo $ma[6];?>" >
+              <div class="col-md-8">
 
                              <address>
                               <strong><u><?php echo $ma[5];?>:</u></strong><br>
@@ -151,6 +156,8 @@ usort($myArrays, 'sortByOrder');
                              echo $ma[4].' km'; 
                        ?> 
                             </strong></p></div><div class="clearfix"></div>
+          </a>
+                            </div>
 	<?php endforeach;?>
 <?php endif;
 else:?>

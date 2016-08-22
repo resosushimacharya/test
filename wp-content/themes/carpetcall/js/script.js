@@ -7,79 +7,81 @@
     var left_offset = jQuery(".container").offset().left - 10;
 
     if( jQuery('.center').length){
-    jQuery('.center')
-    .on('init', function(slick) {            
-      jQuery('.center').fadeIn(3000);
-    })
-    .slick({
-      centerMode: true,
-      centerPadding: left_offset + 'px',
-      slidesToShow: 1,
-      arrows: true,
-      dots: true,
-      draggable:false,
-      lazyLoad: 'ondemand',
-      speed: 600,
-      responsive: [
-        {
-          breakpoint: 801,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '0',
-            slidesToShow: 1,
-            draggable:true,
+      jQuery('.center')
+      .on('init', function(slick) {            
+        jQuery('.center').fadeIn(3000);
+      })
+      .slick({
+        centerMode: true,
+        centerPadding: left_offset + 'px',
+        slidesToShow: 1,
+        arrows: true,
+        dots: true,
+        draggable:false,
+        lazyLoad: 'ondemand',
+        speed: 600,
+        responsive: [
+          {
+            breakpoint: 801,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: '0',
+              slidesToShow: 1,
+              draggable:true,
+            }
+          },
+          {
+            breakpoint: 481,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: '0',
+              slidesToShow: 1,
+              draggable:true,        
+            }
           }
-        },
-        {
-          breakpoint: 481,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '0',
-            slidesToShow: 1,
-            draggable:true,        
-          }
-        }
-      ]
-    }); 
-    jQuery('.center').show();}
+        ]
+      }); 
+      jQuery('.center').show();
+    }
     // HomePage Hero Slider End
 
     // HomePage Featured Product Slider 
     if( jQuery('.responsive').length){   
-    jQuery('.responsive').slick({
-      dots: true,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 4,
-      slidesToScroll: 4,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 801,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }      
-      ]
-    });}
+      jQuery('.responsive').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 801,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }      
+        ]
+      });
+    }
     // HomePage Featured Product Slider End
 
     // CSS MENU
@@ -98,7 +100,7 @@
     
     function storeFinderClick(){
       jQuery('#storefinder_btn').click(function() {
-        jQuery(".dropdown-content").toggle();
+        jQuery(this).next(".dropdown-content").toggle();
         jQuery(this).parent('.dropdown').toggleClass('click-open');
         jQuery('.woocomerce_dropdown').removeClass('open');
       });
@@ -122,9 +124,16 @@
       postoptbox = postoptbox + 100;
       var posleftbox = jQuery("#storefinder_btn").offset().left + jQuery("#after_dropdown").width();
       compare = compare + bannerHeight;
-      if ((yclick > 900 )|| (xclick > posleftbox || xclick < jQuery("#storefinder_btn").offset().left)) {
-        jQuery('#after_dropdown').hide();
-        jQuery('.storefinder_cntr').removeClass('click-open');
+      if($(window).innerWidth() <= 800){
+        if ((yclick > 900 )|| (xclick > posleftbox || xclick < jQuery("#storefinder_btn").offset().left)) {
+          jQuery('#after_dropdown').hide();
+          jQuery('.storefinder_cntr').removeClass('click-open');
+        }
+      }else{
+        if (yclick > 900) {
+          jQuery('#after_dropdown').hide();
+          jQuery('.storefinder_cntr').removeClass('click-open');
+        }
       }
     });
 
@@ -176,9 +185,7 @@
       window.addEventListener('resize', shop_text);
     }
 
-
     // Clone strore finder Dropdown from 800px
-
     if($('.sfind').length){     
       function cloneShopDrop(){
         if( $(window).width() <= 800 ){
@@ -194,6 +201,20 @@
       window.addEventListener('resize', cloneShopDrop);
     }
 
+    // Clone Cart Dropdown from 800px
+    if($('#mywoosection').length){
+      function cloneCartDrop(){
+        if( $(window).width() <= 800 ){
+          var toClone = $('#mywoosection');
+          toClone.clone().appendTo('.top-mobile-icons .top-cart-icon');
+          toClone.remove();          
+        }else{
+
+        }
+      }
+      cloneCartDrop();
+      window.addEventListener('resize', cloneCartDrop);
+    }
 
     // Accordion for footer Menu
     if($('.footer_nav_mobile').length){
@@ -223,14 +244,12 @@
       footer_menu_toggle();
     }
 
-
     // Header Nav Scripts
     if($('#cssmenu').length){
 
       responsive_nav();
 
       function responsive_nav(){
-
         if($(window).innerWidth() <= 800){          
           $('#cssmenu ul li ul li.sub-menu-item').append('<span class="fa fa-angle-right right_arrow"></span>');
 
@@ -247,20 +266,62 @@
           $('.right_arrow').remove();
           $('.selected-link-cntr').remove();
         }
-
       }
 
       $('#cssmenu > ul > li.main-menu-item > a').on('click', function(e){
-        e.preventDefault();
-        $(this).addClass('show_nav');
-        $(this).parent('li').find('ul.menu-depth-1').addClass('is-visible');
+        if($(window).innerWidth() <= 800 ){
+          e.preventDefault();
+          var liParent = $(this).parent('li');        
 
+          if(liParent.hasClass('open_sub_nav')){                    
+            liParent.find('ul.menu-depth-1').removeClass('is-visible');
+            liParent.removeClass('open_sub_nav');          
+          }else{
+            jQuery('#cssmenu > ul > li.main-menu-item ul.sub-menu' ).removeClass('is-visible');
+            jQuery('#cssmenu > ul > li.main-menu-item.open_sub_nav' ).removeClass('open_sub_nav');
+            $('#cssmenu ul li ul li.sub-menu-item.open_inner_nav').removeClass('open_inner_nav');
+            liParent.addClass('open_sub_nav');
+            liParent.find('ul.menu-depth-1').addClass('is-visible');
+          }
+
+          if($(this).hasClass('show_nav')){
+            $(this).removeClass('show_nav');
+          }else{
+            $(this).addClass('show_nav');
+            $('#cssmenu > ul > li.main-menu-item > a.show_nav').removeClass('show_nav');
+            $(this).addClass('show_nav');
+          }
+        }
+      });
+
+      $('#cssmenu ul li ul.menu-depth-1 li.sub-menu-item span.right_arrow').on('click', function(){        
+         if($(window).innerWidth() <= 800 ){
+          var innerParent = $(this).parent('li');
+          var mainParent = $(this).parents('li.open_sub_nav');
+
+          if(innerParent.hasClass('open_inner_nav')){
+            innerParent.find('ul.menu-depth-2').removeClass('is-visible');
+            innerParent.removeClass('open_sub_nav');
+            $('#cssmenu ul li ul li.sub-menu-item.open_inner_nav').removeClass('open_inner_nav');
+          }else{
+            jQuery('#cssmenu > ul > li.main-menu-item ul.menu-depth-1' ).removeClass('is-visible');
+            jQuery('#cssmenu > ul > li.main-menu-item ul.sub-menu li ul.menu-depth-2' ).removeClass('is-visible');
+            jQuery('#cssmenu > ul > li.main-menu-item.open_sub_nav ul li.open_inner_nav' ).removeClass('open_inner_nav');
+            innerParent.addClass('open_inner_nav');
+            innerParent.find('ul.menu-depth-2').addClass('is-visible');
+          }
+        }
+      }); 
+
+      $('.selected-link-cntr span.go-back').on('click', function(){
+        if($(window).innerWidth() <= 800 ){
+          $(this).parents('ul.menu-depth-2').removeClass('is-visible');
+          $(this).parents('ul.menu-depth-1').addClass('is-visible');
+          $(this).parents('ul.menu-depth-1').find('li.open_inner_nav').removeClass('open_inner_nav');
+        }
       });
 
     }
-
-
-
 
   });
 
