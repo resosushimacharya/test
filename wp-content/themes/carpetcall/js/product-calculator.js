@@ -91,7 +91,7 @@ $ = jQuery.noConflict();
 		}
 		
 		 var  str= value;
-		   value =value.replace(/[a-z\+\-\/\=]/gi, '');
+		   value =value.replace(/[a-z\-\/\=]/gi, '');
 		   var realLength = str.length;
 		  var  tempLength =  value.length;
 		  
@@ -106,14 +106,36 @@ $ = jQuery.noConflict();
 	
 	
 	//////////////////////// calulater number error validate//////////////////
-	$(document).on('keyup','.width_check, .length_check', function(){
+	$(document).on('keyup','.width_check', function(){
 		
 		$(this).siblings('.cc-void-field').remove();
 		
 		if($(this).val()===""){
-		  $(this).parent().append('<div class="cc-void-field">Please fill the field!</div>');
+		  $(this).parent().append('<div class="cc-void-field">Please enter width.</div>');
 		}else if(!number_check($(this).val())){
-			 $(this).parent().append('<div class="cc-void-field">Please fill number only!</div>');
+			  if(Number($(this).val())<0){
+			     	 $(this).parent().append('<div class="cc-void-field">Please enter positive number only.</div>');
+			}
+			 else{
+			 	 $(this).parent().append('<div class="cc-void-field">Please enter number only.</div>');
+			 }
+		}
+		
+	});
+	$(document).on('keyup','.length_check', function(){
+		
+		$(this).siblings('.cc-void-field').remove();
+		
+		if($(this).val()===""){
+		  $(this).parent().append('<div class="cc-void-field">Please enter length.</div>');
+		}else if(!number_check($(this).val())){
+			     if(Number($(this).val())<0){
+			     	 $(this).parent().append('<div class="cc-void-field">Please enter positive number only.</div>');
+			}
+			 else{
+			 	 $(this).parent().append('<div class="cc-void-field">Please enter number only.</div>');
+			 }
+
 		}
 		
 	});
@@ -134,13 +156,13 @@ function calculate_square(){
        		       if(jQuery(element).find('.length_check').val()==''){
                     var myid =jQuery(element).find('.length_check');
 					$(myid).parent().find('.cc-void-field').remove();
-                    $(myid).parent().append('<div class="cc-void-field">Please fill the field!</div>');
+                    $(myid).parent().append('<div class="cc-void-field">Please enter length.</div>');
 					err=true;
                    }
 				  if(jQuery(element).find('.width_check').val()==''){
                     var  myid =jQuery(element).find('.width_check');
 					$(myid).parent().find('.cc-void-field').remove();
-                    $(myid).parent().append('<div class="cc-void-field">Please fill the field!</div>');
+                    $(myid).parent().append('<div class="cc-void-field">Please enter width.</div>');
 				   err=true;
                   }
                  // To add the class in first row element 
@@ -153,9 +175,12 @@ function calculate_square(){
                   $temp = $temp.toFixed(2);
 						$temp = Number($temp );
 					var item_id =jQuery(element).find('.item_indivisual_total span');
+                      if($temp>0){
 						$(item_id).html($temp); 
+
 						 $calarea +=$temp;   
 						  }
+						}
        });
 	
 
