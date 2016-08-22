@@ -41,8 +41,13 @@ if ( ! defined( 'ABSPATH' ) ) {
     } 
     if ( $options ){ ?>
     <select name="<?php echo esc_attr( $args['input_name'] ); ?>" id="quantity-control" title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="qty col-md-12 selectpicker "><?php echo $options;?></select>
-    <?php } else {
-        printf( '%s <input type="hidden" name="%s" value="%s" />', $args['input_value'], $args['input_name'], $args['input_value'] );
+    <?php } else {?>
+		<select name="<?php echo esc_attr( $args['input_name'] ); ?>" id="quantity-control" title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="qty col-md-12 selectpicker "><?php echo $options;?></select>
+        <?php
+		
+        //printf( '%s <input type="hidden" name="%s" value="%s" />', $args['input_value'], $args['input_name'], $args['input_value'] );
+   
+   
     } 
     }?>
 </div>
