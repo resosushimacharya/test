@@ -750,8 +750,9 @@ function cc_custom_search($args){
                             	<?php
 								//$imgurl = (has_post_thumbnail())?the_post_thumbnail_url('thumbnail'):get_template_directory_uri().'/images/placeholder.png';
 								 ?>
-                            <div class="search_thumb" style="background-image:url(<?php echo (has_post_thumbnail())?the_post_thumbnail_url('thumbnail'):get_template_directory_uri().'/images/placeholder.png'?>)"></div>
-                            <div class="search_title">
+                                 
+<div class="cc-search-inner-wrap">                            <div class="search_thumb" style="background-image:url(<?php echo (has_post_thumbnail())?the_post_thumbnail_url('thumbnail'):get_template_directory_uri().'/images/placeholder.png'?>)"></div>
+<div class="cc-search-tps">                            <div class="search_title">
 								<?php 
                                     $categories = get_the_terms(get_the_ID(), 'product_cat' ); 
                                     if ( $categories ) : 
@@ -799,7 +800,7 @@ function cc_custom_search($args){
                                 <a href="<?php echo get_term_link($temp_parent->term_id,"product_cat")?>">Shop Now</a>
                                 </div>
                             </div>
-                        </div>
+</div></div>                        </div>
 						<?php
                         }
 			$html = ob_get_clean();

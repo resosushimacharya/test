@@ -91,7 +91,7 @@ $ = jQuery.noConflict();
 		}
 		
 		 var  str= value;
-		   value =value.replace(/[a-z\+\-\/\=]/gi, '');
+		   value =value.replace(/[a-z\-\/\=]/gi, '');
 		   var realLength = str.length;
 		  var  tempLength =  value.length;
 		  
@@ -106,14 +106,36 @@ $ = jQuery.noConflict();
 	
 	
 	//////////////////////// calulater number error validate//////////////////
-	$(document).on('keyup','.width_check, .length_check', function(){
+	$(document).on('keyup','.width_check', function(){
 		
 		$(this).siblings('.cc-void-field').remove();
 		
 		if($(this).val()===""){
-		  $(this).parent().append('<div class="cc-void-field">Please fill the field!</div>');
+		  $(this).parent().append('<div class="cc-void-field">Please enter width.</div>');
 		}else if(!number_check($(this).val())){
-			 $(this).parent().append('<div class="cc-void-field">Please fill number only!</div>');
+			  if(Number($(this).val())<0){
+			     	 $(this).parent().append('<div class="cc-void-field">Please enter positive number only.</div>');
+			}
+			 else{
+			 	 $(this).parent().append('<div class="cc-void-field">Please enter number only.</div>');
+			 }
+		}
+		
+	});
+	$(document).on('keyup','.length_check', function(){
+		
+		$(this).siblings('.cc-void-field').remove();
+		
+		if($(this).val()===""){
+		  $(this).parent().append('<div class="cc-void-field">Please enter length.</div>');
+		}else if(!number_check($(this).val())){
+			     if(Number($(this).val())<0){
+			     	 $(this).parent().append('<div class="cc-void-field">Please enter positive number only.</div>');
+			}
+			 else{
+			 	 $(this).parent().append('<div class="cc-void-field">Please enter number only.</div>');
+			 }
+
 		}
 		
 	});
@@ -134,13 +156,13 @@ function calculate_square(){
        		       if(jQuery(element).find('.length_check').val()==''){
                     var myid =jQuery(element).find('.length_check');
 					$(myid).parent().find('.cc-void-field').remove();
-                    $(myid).parent().append('<div class="cc-void-field">Please fill the field!</div>');
+                    $(myid).parent().append('<div class="cc-void-field">Please enter length.</div>');
 					err=true;
                    }
 				  if(jQuery(element).find('.width_check').val()==''){
                     var  myid =jQuery(element).find('.width_check');
 					$(myid).parent().find('.cc-void-field').remove();
-                    $(myid).parent().append('<div class="cc-void-field">Please fill the field!</div>');
+                    $(myid).parent().append('<div class="cc-void-field">Please enter width.</div>');
 				   err=true;
                   }
                  // To add the class in first row element 
@@ -153,9 +175,12 @@ function calculate_square(){
                   $temp = $temp.toFixed(2);
 						$temp = Number($temp );
 					var item_id =jQuery(element).find('.item_indivisual_total span');
+                      if($temp>0){
 						$(item_id).html($temp); 
+
 						 $calarea +=$temp;   
 						  }
+						}
        });
 	
 
@@ -183,7 +208,7 @@ function calculate_square(){
 
 $(document).on('click','#confirm_calc',function(){
 	var max_val=$('#cc_Stock_count').val();
-
+     $loadref=$('#store-count-quantity').attr('href');
 	var culc_val=$('#no_of_packs').text();
 	if(Number(culc_val)!=0){
 	if(Number(max_val)>=Number(culc_val)){
@@ -191,8 +216,18 @@ $(document).on('click','#confirm_calc',function(){
 		  temp_count = Number(temp_count);
 		  var cal_quan = Number(culc_val);
 		  var total_cov_ret = temp_count*cal_quan;
+		  total_cov_ret = total_cov_ret.toFixed(2);
 		$("#quantity-control").val(culc_val);
 		$(".coverage_value").html(total_cov_ret);
+		$stoq = $('.cc-quantiy-section  #quantity-control').val(); 
+		   var sizem2 = jQuery('#sizem2').val(); 
+              if($stoq.toLowerCase()!='please select'){
+         $('#store-count-quantity').attr('href',$loadref);
+
+          $('#store-count-quantity').addClass('add_to_cart_button');
+           $('#store-count-quantity').addClass('ajax_add_to_cart');
+            $(".add_to_cart_button").attr('data-quantity',$stoq);
+              $(".add_to_cart_button").data('quantity',$stoq);}
 		jQuery('.underlay .acc_rec_qty').each(function(index,element){
 			console.log(element);
 			var tmpr = jQuery(element).attr('tpm_ratio');

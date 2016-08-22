@@ -34,15 +34,20 @@ if ( ! defined( 'ABSPATH' ) ) {
     }
     } 
     else{
-
-    
     for ( $count = $args['min_value']; $count <= $args['max_value']; $count = $count+$args['step'] ) {
         $options .= '<option' . selected( $args['input_value'], $count, false ) .' class= "col-md-12"'. ' value="' . $count . '" >' . $count . '</option>';
-    } 
+    }
+	
+	 
     if ( $options ){ ?>
     <select name="<?php echo esc_attr( $args['input_name'] ); ?>" id="quantity-control" title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="qty col-md-12 selectpicker "><?php echo $options;?></select>
     <?php } else {
-        printf( '%s <input type="hidden" name="%s" value="%s" />', $args['input_value'], $args['input_name'], $args['input_value'] );
+		for ( $count = $args['min_value']; $count <= 20; $count = $count+$args['step'] ) {
+        $options .= '<option' . selected( $args['input_value'], $count, false ) .' class= "col-md-12"'. ' value="' . $count . '" >' . $count . '</option>';
+    }?>
+		<select name="<?php echo esc_attr( $args['input_name'] ); ?>" id="quantity-control" title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="qty col-md-12 selectpicker "><?php echo $options;?></select>
+        <?php
+        //printf( '%s <input type="hidden" name="%s" value="%s" />', $args['input_value'], $args['input_name'], $args['input_value'] );
     } 
     }?>
 </div>
