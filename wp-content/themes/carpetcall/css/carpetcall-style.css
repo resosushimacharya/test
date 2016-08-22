@@ -997,11 +997,20 @@ h5.tryit.tryita {
 .ptxt {
 	min-height: 103px;
 }
-.ptxt h3 {
+.ptxt h3 a {
 	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
 	color: #15489f;
 	text-transform: uppercase;
 	padding-left: 16px;
+	text-decoration:none;
+}
+.ptxt h3 a:hover {
+	color:#000;
+}
+.ptxt h3 a:focus {
+	outline:0;
+	outline-offset:0;	
+	box-shadow:none;
 }
 .ptxt h4, .ptxt h5 {
 	font: normal 14px 'proxima_nova_rgregular', sans-serif;
@@ -2553,8 +2562,9 @@ ul.specific-list li {
 	position: relative;
 	bottom: -37px;
 }
-#tab-faq_tab .cont-panl .panel.panel-default:nth-child(1) .panel-heading {
-	margin-top: 32px;
+
+.postid-34563 .panel-body.panel-body-faq p.faq_textarea {
+	padding:0 38px;
 }
 
 /*....... Modern Rugs start here ..................*/
@@ -5009,9 +5019,9 @@ a.btn-employment:hover {
 .single.single-product .panel.entry-content.wc-tab .panel-default>.panel-heading+.panel-collapse>.panel-body {
 	padding: 0px !important;
 }
-.single.single-product .panel.entry-content.wc-tab p.faq_textarea {
+/*.single.single-product .panel.entry-content.wc-tab p.faq_textarea {
 	padding:0 20px;
-}
+}*/
 .single.single-product a.button.product_type_simple.col-md-12.acc_add_to_cart {
 	width: 100%;
 	background: #c32428;
@@ -5257,4 +5267,7 @@ div#error_max_msg {
 .carpet_blinds_single_right .cc-product-enquiry .btn-default:hover {
 	background-color:#b01519;
 }
-
+.page-id-26726 .panel-body .panel-body-table {
+	font:normal 18px 'proxima_nova_rgregular', sans-serif;
+	color:#666;
+}

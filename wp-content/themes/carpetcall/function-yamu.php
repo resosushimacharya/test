@@ -184,6 +184,7 @@ function show_category_slider_block($args){
 	}
 	extract($args);
 	global $wp_query;
+	$product_found = 0;
 	$current_cat = get_term( $cat_id, 'product_cat');
 	$cat_arr = generate_catids_array($cat_id,$depth);
 	if(!empty($cat_arr)){
@@ -275,6 +276,7 @@ function show_category_slider_block($args){
 			wp_reset_postdata();
 			$pch = 1;
 			$all_products = new WP_Query($filargs);
+			$product_found += $all_products->post_count;
 			if($all_products->post_count > 0){
 				$grp_prods = array();
 				while($all_products->have_posts())
@@ -406,12 +408,14 @@ function show_category_slider_block($args){
 		}else{
 		$html = '';
 		$offset = 0;
+		$product_found = 0;
 		}
 	}
 	$html = ob_get_contents();
 	ob_end_clean();
 	$ret['html'] = $html;
 	$ret['offset'] = $offset;
+	$ret['found_prod'] = $product_found;
 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 	echo json_encode($ret);
 	die;
@@ -464,6 +468,7 @@ function loadmore_hf($args){
 	}
 	extract($args);
 	global $wp_query;
+	$found_count = 0;
 	$current_cat = get_term( $cat_id, 'product_cat');
 	$cat_arr = generate_catids_array($cat_id,$depth);
 	if(!empty($cat_arr)){
@@ -528,7 +533,7 @@ function loadmore_hf($args){
 				?>
 				<?php 
 				if($filloop !='' && $filloop->post_count > 0){
-					$found_count = $filloop->post_count;
+					$found_count += $filloop->post_count;
 					$current_cat = get_term_by('id',$discat->parent,'product_cat');
 					?>
 					<div class="row cc-cat-sub-title-price-cover">
@@ -631,12 +636,14 @@ function loadmore_hf($args){
 		}else{
 			$html = '';
 			$offset = 0;
+			$found_count = 0;
 		}
 	}
 	$html = ob_get_contents();
 	ob_end_clean();
 	$ret['html'] = $html;
 	$ret['offset'] = $offset;
+	$ret['found_prod'] = $found_count;
 	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 		echo json_encode($ret);
 		die;
