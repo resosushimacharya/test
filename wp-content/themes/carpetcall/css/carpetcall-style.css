@@ -1763,7 +1763,7 @@ ul.guide_list_cbg li.current_page_item a {
 .ab_arrow {
 	font-size: 25px; /*margin-right:6px;*/
 }
-.inerblock_serc_child h1, .inerblock_serc h1 {
+.inerblock_serc_child h1 a  {
 	font: bold 36px 'proxima_nova_ltsemibold', sans-serif;
 	color: #15489f;
 	text-transform: uppercase;
@@ -1771,6 +1771,23 @@ ul.guide_list_cbg li.current_page_item a {
 	display: inline-block;
 	margin-bottom: 12px;
 	line-height: 26px;
+	text-decoration:none;
+}
+.inerblock_serc_child h1 a:hover {
+	cursor:pointer;
+}
+.inerblock_serc h1 a {
+	font: bold 36px 'proxima_nova_ltsemibold', sans-serif;
+	color: #15489f;
+	text-transform: uppercase;
+	border-bottom: 1px solid #6383b9;
+	display: inline-block;
+	margin-bottom: 12px;
+	line-height: 26px;
+	text-decoration:none;
+}
+.inerblock_serc h1 a:hover {
+	cursor:pointer;
 }
 .inerblock_serc_child.about-page h1 {
 	border-bottom: none;
