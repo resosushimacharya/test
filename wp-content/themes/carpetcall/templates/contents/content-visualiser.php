@@ -21,9 +21,14 @@ $slider_link=get_field('slider_link',$post->ID);
 $slider_external_link=get_field('slider_external_link',$post->ID);
    ?>
    <div class="home_slider_content">
-   <div class="home_slider_inner" style="background-image: url('<?php echo $feat_image;?>');">
-    <div class="hamro">
-    <?php if($slider_title){?>
+    <a href="<?php echo ($slider_external_link!=null?$slider_external_link:$slider_link);?>" target="_blank" class="clearfix"> 
+      <div class="home_slider_inner" style="background-image: url('<?php echo $feat_image;?>');">
+      </div>        
+    </a>
+
+
+      <div class="hamro">
+        <?php if($slider_title){?>
         <h3> <?php echo $slider_title;?> </h3>
         <?php }?>
         <?php if($slider_caption){?>
@@ -35,13 +40,14 @@ $slider_external_link=get_field('slider_external_link',$post->ID);
        <?php echo $slider_link_title_without_box; ?></a></h5> 
        <?php }
        else{?>
- <?php if($slider_link_title){?>
+          <?php if($slider_link_title){?>
         <h5 class="tryit tryita"><a href="<?php echo ($slider_external_link!=null?$slider_external_link:$slider_link);?> "target="_blank"> <?php echo $slider_link_title; ?></a></h5>
         
         <?php }?>
        <?php  }?>
+      
       </div>
-      </div>
+      
     </div>
  <?php 
  endwhile;
