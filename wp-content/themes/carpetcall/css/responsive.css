@@ -38,13 +38,13 @@
 	/* Font-size 18px; End */
 	
 	/* Font-size 24px; */
-	.suptlst li, .aag p, .aag_a p, .aag_c p, .ptxt h4, .ptxt h5, .nowspp a, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .searchm .form-control, .selected-link-cntr span.selected_main_link a{
+	.suptlst li, .aag p, .aag_a p, .aag_c p, .ptxt h4, .ptxt h5, .nowspp a, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .searchm .form-control, .selected-link-cntr span.selected_main_link a, .crt_pname h2, .crt_pname h3, .crt_price h4, .crt_pname h5, .view_cc a, .check_crtt a{
 		font-size: 24px;
 	}
 	/* Font-size 24px; End */
 
 	/* Font-size 28px; */
-	.cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a, #cssmenu ul li ul li a, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a{
+	.cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a, #cssmenu ul li ul li a, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a, .ptxt h3 a, .mycrt_blk{
 		font-size: 28px;
 	}
 	/* Font-size 28px; End */
@@ -264,6 +264,49 @@
 		left: 0;
 		text-indent: -9999px;
 	}
+	.top-mobile-icons .top-cart-icon{
+		margin-left: 5px;
+	}
+	.top-mobile-icons .top-cart-icon ul, .top-mobile-icons .top-cart-icon ul li, .top-mobile-icons .top-cart-icon ul li > a{
+		height: 100%;
+	}
+	.mcrt{
+		margin: 0;
+		top: 40px;
+	}
+	.mcrt img{
+		width: 45px;
+		height: auto;
+	}
+	.rnkct{
+		left: 35px;
+	}
+	.rnkct .badge {
+	    height: 25px;
+	    width: 25px;
+	    padding: 0;
+	    line-height: 25px;
+	    border-radius: 50%;
+	    font-size: 18px;
+	}
+	li#woo_control{
+		position: static;
+	}
+	ul#mywoosection ul.dropdown-menu {
+	    position: absolute;
+	    left: 0;
+	    background: #fff;
+	    top: 118px;
+	    width: 100%;
+	    max-height: inherit;
+	    height: auto;
+	}
+	.crt_pname h5, .view_c{
+		margin-left: 0;
+	}
+	ul#mywoosection li#woo_control > a{
+		padding: 0 10px 0 20px;
+	}
 	/* Top Cart End */
 
 	/* Menu */
@@ -396,6 +439,7 @@
 		padding: 0px 55px 0px 45px;
 	    color: #fff;
 	    position: relative;
+	    height: 100px;
 	}
 	.selected-link-cntr span.go-back{
 		font-size: 42px;
@@ -414,7 +458,7 @@
 	    left: 50%;
         line-height: 100px;
 	    display: inline-block;
-	    position: relative;
+	    position: absolute;
 	    -webkit-transform: translateX(-50%);
 	    -moz-transform: translateX(-50%);
 	    -ms-transform: translateX(-50%);
@@ -559,7 +603,7 @@
 		margin-top: 0;
 		margin-bottom: 22px;
 	}
-	.meropro_blk .col-md-12{
+	.meropro_blk .col-md-12, .ptxt h3 a{
 		padding: 0;
 	}
 	.meropro_blk .responsive {
@@ -665,6 +709,7 @@
 		background-size: contain;
 		background-position: 99% top;
 		margin-bottom: 15px;
+		min-width: inherit;
 	}	
 	.rmblk_cont, .inner_cont, .quest_cont{
 		padding: 30px;
@@ -677,6 +722,7 @@
 		margin-top: 0;
 		margin-bottom: 15px;
 		background-position: 99% top;
+		min-width: inherit;
 	}
 	.idea-right .faq_blk{
 		margin-bottom: 0;
@@ -873,3 +919,403 @@
 
 }
 /* ============= 800px Ends ============= */
+
+
+/* ============= 599px starts ============= */
+
+@media only screen and (max-width: 599px){
+	
+	/* ===== GLOBAL ===== */
+	.wrap_body{
+		margin-top: 265px;
+	}	
+
+	/* Font-size 16px; */
+	.cpyrt{
+		font-size: 16px;
+	}
+	/* Font-size 16px; End */
+	
+	/* Font-size 18px; */
+	.suptlst li, .aag p, .aag_a p, .aag_c p, .ptxt h4, .ptxt h5, .nowspp a, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .searchm .form-control, .selected-link-cntr span.selected_main_link a, .crt_pname h2, .crt_pname h3, .crt_price h4, .crt_pname h5, .view_cc a, .check_crtt a{
+		font-size: 18px;
+	}
+	/* Font-size 18px; End */
+
+	/* Font-size 24px; */
+	.cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a, #cssmenu ul li ul li a, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a, .ptxt h3 a, .mycrt_blk, #cssmenu > ul > li > a{
+		font-size: 24px;
+	}
+	/* Font-size 24px; End */
+
+	/* Font-size 24px; */
+	.cptspl{
+		font-size: 24px;
+	}
+	/* Font-size 24px; End */
+
+	/* Font-size 26px; */
+	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .measr_cnt h3, .intro p, .rmoree a, .loplc h3{
+		font-size: 26px;
+	}
+	/* Font-size 26px; End */
+
+	/* Font-size 32px; */
+	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a{
+		font-size: 32px;
+	}
+	/* Font-size 32px; End */
+
+	/* Font-size 42px; */
+	.bookcbk, .calspl a{
+		font-size: 40px;
+	}
+	/* Font-size 42px; End */
+	
+	/* Big buttons */
+	.cptinn a, .find_tbb a{
+		height: 70px;
+		padding: 0;
+		line-height: 70px;
+		display: block;
+	}
+	/* Big buttons End*/
+	
+	/* Small buttons */
+	.nowspp a{
+		height: 40px;
+		padding: 0;
+		line-height: 40px;
+		display: block;
+	}
+	/* Small buttons End*/	
+
+	/* ===== GLOBAL End ===== */
+
+	/* ===== HEADER ===== */	
+	.banner .cc-logo-cntr{
+		max-width: 275px;
+		width: 275px;
+	}
+	.navsrchblk {
+	    margin-top: 29px;
+	}
+	.searchm .input-group{
+		border: none;
+	}
+	.searchm .form-control, .searchm .btn{
+		height: 55px;
+	}
+	.input-group-btn:last-child>.btn svg{
+		height: 26px;
+		width: 26px;
+	}
+	.input-group .form-control{
+		width: 87%;
+	}
+	.searchm .input-group-btn{
+		width: 13%;
+	}
+	.top-mobile-icons .top-map-icon, .top-mobile-icons .top-cart-icon{
+		height: 100px;
+		width: auto;
+		margin: 0;
+		display:inline-block;
+		vertical-align: top;
+	}
+	.top-mobile-icons .top-map-icon .dropbtn{
+		text-indent: -9999px;
+		height: auto;
+	    width: 60px;
+	    text-align: center;
+	    height: 100px;
+	}
+	.dropdown.click-open .dropbtn{
+		width: 60px;
+	}
+
+	/* Map */
+	.top-mobile-icons .top-map-icon button img{
+		width: 24px;
+	}
+	.dropdown-content{
+		padding: 20px 20px 40px;
+	}
+	.loplc{
+		padding: 0;
+	}
+	.loplc h3{
+		text-align: center;
+	}
+	.loplc h3 span{
+		display: none;
+	}
+	.srch_pro {
+		margin: 12px 0 25px;
+	}
+	.srch_pro .input-group {
+		border: none;
+	}
+	.srch_pro .form-control{
+		height: 55px;
+    	font-size: 18px;
+   		padding: 10px 20px;	
+	}
+	.srch_pro .input-group-btn{
+		width: 13%;
+	}
+	.srch_pro .btn-default{
+		height: 55px;		
+	}
+	.curlocate input, .curnloca a {
+	    font-size: 22px;
+	    height: 60px;
+	    line-height: 60px;
+	}
+	.curnloc {
+	    margin-top: 20px;
+	    padding-top: 20px;
+	}
+	#directory_list_id_s{
+		margin: 0;
+		padding: 20px;
+	}
+
+	/* Map End */
+	
+	/* Top Cart */
+	.mcrt{
+		top: 30px;
+	}
+	.mcrt img{
+		width: 40px;
+	}
+	.rnkct{
+		left: 30px;
+	}
+	.rnkct .badge {
+	    height: 20px;
+	    width: 20px;
+	    line-height: 20px;
+	    font-size: 16px;
+	}
+	ul#mywoosection ul.dropdown-menu {
+	    top: 100px;
+	}
+	ul#mywoosection li#woo_control > a{
+		padding: 0 10px 0 20px;
+	}
+	/* Top Cart End */
+
+	/* Menu */
+	#cssmenu > ul > li{
+		height: 80px;
+		line-height: 80px;
+	}
+	#cssmenu > ul > li > a{
+		font-size: 22px;
+	}
+	#cssmenu ul li ul li.sub-menu-item, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li{
+		padding: 30px 35px 30px 25px;
+	}
+	#cssmenu ul li ul li a, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a{
+		font-size: 22px;
+	}
+	#cssmenu ul li ul li.sub-menu-item span.right_arrow{
+		font-size: 38px;
+	    right: 20px;
+	    line-height: 80px;
+	}
+	.selected-link-cntr{
+		padding: 0px 35px 0px 25px;
+		height: 80px;
+	}
+	.selected-link-cntr span.go-back{
+		font-size: 36px;
+	    line-height: 80px;
+	}
+	.selected-link-cntr span.selected_link_text {
+	    font-size: 24px;
+        line-height: 80px;
+	}
+	.selected-link-cntr span.selected_main_link a{
+	    line-height: 80px !important;
+	    font-size: 18px !important;
+	}
+	/* Menu End */
+	/* === HEADER End === */
+
+	/* === HOME PAGE === */
+
+	/* Slider */
+	.hamro{
+		right: 25px;
+	}
+	.hamro h3{
+		font-size: 32px;
+	}
+	.hamro h4{
+		font-size: 22px;
+	}
+	h5.tryit.tryita {
+	    margin-top: 25px;
+	}
+	.tryita a{
+		display: block;
+		font-size: 22px;
+	}
+	.slick-dots li button {
+	    height: 20px;
+	    width: 20px;
+	}
+	.slick-dots li.slick-active button{
+		background: #15489f;
+	}	
+	.slider .slick-dots{
+		bottom: 20px;
+	}
+	.slick-dots li{
+		height: 20px;
+		width: 20px;
+		margin: 0 10px;
+	}
+	/* Slider End*/
+	
+	/* Callback */
+	.calbk-mobile .calbk{
+		margin-top: 45px;
+	}
+	.cptinn a{
+		margin: 30px 0 0;
+	}
+	/* Callback End */
+
+	/* Home Top Shop Sec */
+	.shopping{
+		height: 130px;
+	}
+	.so_title, .aag p, .meroshop .col-md-4:nth-child(2) .aag .so_title, .meroshop .col-md-4:nth-child(2) .aag p, .meroshop .col-md-4:nth-child(3) .aag p{
+		margin-left: 100px;
+	}
+	.meroshop .col-md-4:nth-child(1) .aag img,  .meroshop .col-md-4:nth-child(3) .aag img{
+	    width: 55px;	
+	    left: 15px;    
+	}
+	.meroshop .col-md-4:nth-child(2) .aag img{
+		width: 65px;
+	}
+	.meroshop .col-md-4:nth-child(3) .aag img{
+		left: 15px;
+	}
+	/* Home Top Shop Sec End */
+
+	/* Home Featured Product */	
+	.nowspp a{
+		height: 60px;
+		padding: 0;
+		line-height: 60px;
+	}
+	.responsive .slick-next, .responsive .slick-prev{
+		width: 50px;
+		height: 80px;
+		top: 150px;
+	}
+	.responsive .slick-next:before, .responsive .slick-prev:before{
+		font-size: 56px;
+	}
+	.responsive .slick-dots li button{
+		height: 20px;
+		width: 20px;
+	}
+	/* Home Featured Product End */
+
+	/* Home Ideas and Advice */
+	.idea-left .rmvisual.idea-top_block, .idea-right .care_pro.idea-top_block{
+		height: 130px;
+	}	
+	.rmblk_cont, .inner_cont, .quest_cont{
+		padding: 25px 20px;
+	}
+	ul.guide_list li{
+		padding-left: 25px;
+	}
+	ul.guide_list li a{
+		line-height: 45px;
+	}
+	ul.guide_list .fa{
+		font-size: 22px;
+	}
+	.inner_cont h4, .quest_cont h4 {
+	    margin-bottom: 10px;
+	}
+	/* Home Ideas and Advice End */
+	
+	/* Home Trade */
+	.trade {
+	    padding: 50px 0 90px;
+	}
+	.measr_cnt{
+		margin-top: 70px
+	}
+	/* Home Trade End */
+	
+	/* Home Map */	
+	.abvist .col-md-6:first-child{
+		padding: 0 20px;
+	}
+	.intro, .stmap{
+		max-width: 100%
+	}
+	.intro{
+		margin-bottom: 130px;
+	}
+	.intro p{
+		line-height: 1.4;
+	}	
+	.stmap{
+		padding-bottom: 90px;
+	}
+	/* Home Map End */
+
+	/* === HOME PAGE End === */
+
+
+	/* ===== FOOTER ===== */	
+	.footer_nav_mobile .foot_mob li{
+	    padding: 28px 50px 28px 35px;	    
+	}
+	.footer_nav_mobile .foot_mob li.menu-item-has-children .fa{		
+	    font-size: 32px;
+	    right: 25px;
+	    line-height: 75px;
+	}
+	.footer_nav_mobile .foot_mob li .sub-menu li a{
+		font-size: 16px;
+	}
+	.social {
+		padding: 0;
+	}
+	.social li a{
+	}	
+	.calcall{
+		-webkit-transform: rotate(355deg);
+    	-moz-transform: rotate(355deg);
+    	-ms-transform: rotate(355deg);
+    	-o-transform: rotate(355deg);
+    	transform: rotate(355deg);
+	}
+	.calcall{
+		font-size: 26px;
+		margin-top: 65px;
+	}
+	.calspl{
+		margin-top: 40px;
+	}
+	.fot_cpy ul{
+	    margin-top: 30px;
+	}
+	/* ===== FOOTER END ===== */
+
+}
+
+/* ============= 599px Ends ============= */

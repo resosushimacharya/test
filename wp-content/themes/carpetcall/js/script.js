@@ -30,16 +30,6 @@
               slidesToShow: 1,
               draggable:true,
             }
-          },
-          {
-            breakpoint: 481,
-            settings: {
-              arrows: false,
-              centerMode: true,
-              centerPadding: '0',
-              slidesToShow: 1,
-              draggable:true,        
-            }
           }
         ]
       }); 
@@ -73,7 +63,7 @@
             }
           },
           {
-            breakpoint: 480,
+            breakpoint: 481,
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1

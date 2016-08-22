@@ -1628,6 +1628,9 @@ li.clblk_a::before {
 }
 .cbg_content h2 {
 	margin-bottom: 19px;
+	font: normal 18px 'proxima_nova_ltsemibold', sans-serif;
+    color: #0099ff;
+	text-transform:uppercase;
 }
 .cbg_content h2 strong {
 	font: normal 18px 'proxima_nova_ltsemibold', sans-serif;
@@ -1791,6 +1794,9 @@ ul.guide_list_cbg li.current_page_item a {
 }
 .inerblock_serc_child.about-page h1 {
 	border-bottom: none;
+	font: bold 36px 'proxima_nova_ltsemibold', sans-serif;
+	color: #15489f;
+	text-transform:uppercase;
 }
 img.alignright {
 	margin: 10px 0 10px 10px;
@@ -2297,6 +2303,7 @@ select#cc-size {
 #quantity-control {
 	width: 56.1% !important;
 	height: 45px;
+	text-align:left;
 	border: 1px solid #d1ddf1;
 	background: #e7edf8;
 	font-size: 16px;
@@ -2449,7 +2456,7 @@ select#cc-size {
 	border-bottom: 1px solid #d3ced2;
 	padding: 0;
 	font-size: 0;
-	height: 23px;
+	height: 24px;
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs li {
 	border-radius: 0;
@@ -4964,7 +4971,7 @@ a.btn-employment:hover {
 	margin-top: 18px;
 	display: inline-block;
 	line-height: 0;
-	min-height: 55px;
+	min-height: 60px;
 	width: 100%;
 }
 .cont-panl.cc-pro-det-fb h3.acc_title_n_cat span.acc_title a {
@@ -5016,14 +5023,18 @@ a.btn-employment:hover {
 }
 .acc_qnty .rec_qty_wrap {
 	float: left;
-	margin-right: 15px;
+	margin-right: 4px;
 }
 .acc_qnty .quantity.col-md-12 {
 	width: 88px;
 	margin: 0;
 }
 .cc-quantiy-section.col-md-12 .quantity.col-md-12 select#quantity-control {
-	width: 50% !important;
+	width: 55% !important;
+	text-align:left;
+}
+.cc-quantiy-section.col-md-12 .quantity.col-md-12 select#quantity-control option {
+	padding:0;
 }
 .single.single-product  select#quantity-control {
 	width: 100% !important;
@@ -5358,4 +5369,37 @@ div#error_max_msg {
 }
 .cc-search-tps {
 	padding:0 10px;
+}
+.cbg_content.cc-condn-page .woocommerce table.shop_table {
+	border:0;
+	border-radius:0;
+	border-spacing:1px;
+}
+.cbg_content.cc-condn-page {
+	 border-spacing:1px;
+}
+.cbg_content.cc-condn-page .woocommerce table.shop_table th {
+	color:#000;
+}
+.cbg_content.cc-condn-page .woocommerce input.button {
+	background-color:#15489f;
+	color:#FFF;
+	text-transform:uppercase;
+	letter-spacing:1px;
+	border-radius:0;
+}
+.cbg_content.cc-condn-page .woocommerce input.button:hover {
+	background-color:#0e48aa;
+}
+.cbg_content.cc-condn-page span.amount {
+	font: bold 16px 'proxima_nova_ltsemibold', sans-serif;
+	color:#000000; 
+}
+.cbg_content.cc-condn-page .product-name a {
+	font: bold 16px 'proxima_nova_ltsemibold', sans-serif;
+	color:#15489f;
+	text-decoration:none; 
+}
+.cbg_content.cc-condn-page .product-name a:hover {
+	color:#000;
 }
