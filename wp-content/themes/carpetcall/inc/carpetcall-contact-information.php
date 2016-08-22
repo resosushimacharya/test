@@ -109,8 +109,8 @@ $data=$_POST['form_data'];
                     }elseif(strlen($phono)!=10){
                      $message['error'] = 'phone length must be of 10!';
                    }
-                    elseif(str_word_count($messagecheck)>125){
-                      $message['error'] ='Message words count exceeds(125)!';
+                    elseif(str_word_count($messagecheck)>50){
+                      $message['error'] ='Message words count exceeds(50)!';
                     }elseif($state_error){
                         $message['error'] ="You haven't choosen the state  correctly yet!";
                     }elseif($store_name_error){

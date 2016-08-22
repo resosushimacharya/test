@@ -30,18 +30,19 @@ $tax = 'product_cat';
 				}
                ?>
                      <?php  if(($woo['_featured'][0]=='yes') && (strcasecmp($woo['_stock_status'][0],'instock')==0)){ ?>
-                   <div class="pro_for">
+                   <div class="pro_for"><a href="<?php echo the_permalink(); ?>" >
                   <?php if($feat_image!=''){?>
                   <div class="img_cntr_home" style="background-image:url('<?php echo $feat_image; ?>');"></div>
                   <?php }
                   else{ ?>
                   <div class="img_cntr cc-featured_no_image" style="background-image:url('http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png');"></div>
                   <?php }?>
+                  </a>
                     <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
                     <div class="sublk_prom">
                       		<div class="ptxt">
-					<h3><?php
-					the_title();?></h3><?php 
+					<h3><a href="<?php echo the_permalink(); ?>" ><?php
+					the_title();?></h3></a><?php 
 
 					$reqTempTerms=get_the_terms($post->ID,'product_cat');
 					
