@@ -20,7 +20,7 @@
 	}
 	
 	/* Display none goes here */
-	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child{
+	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i{
 		display: none;
 	}
 	/* Display none ends here */
@@ -38,13 +38,13 @@
 	/* Font-size 18px; End */
 	
 	/* Font-size 24px; */
-	.suptlst li, .aag p, .aag_a p, .aag_c p, .ptxt h4, .ptxt h5, .nowspp a, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .searchm .form-control{
+	.suptlst li, .aag p, .aag_a p, .aag_c p, .ptxt h4, .ptxt h5, .nowspp a, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .searchm .form-control, .selected-link-cntr span.selected_main_link a{
 		font-size: 24px;
 	}
 	/* Font-size 24px; End */
 
 	/* Font-size 28px; */
-	.cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a, #cssmenu ul li ul li a{
+	.cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a, #cssmenu ul li ul li a, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a{
 		font-size: 28px;
 	}
 	/* Font-size 28px; End */
@@ -306,16 +306,19 @@
 		padding: 0;
 		transition: none;
 	}
-	#cssmenu ul li ul li a{
+	#cssmenu ul li ul li a, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a{
 		line-height: 1;
 		margin: 0;
 		padding: 0;
 		width: 90%;
 	}
-	#cssmenu ul li ul li.sub-menu-item{
+	#cssmenu ul li ul li.sub-menu-item, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li{
 		padding: 45px 55px 45px 45px;
 		position: relative;
 		border-bottom: 1px solid #e8e8e8;
+	}
+	#cssmenu ul li ul li.sub-menu-item.open_inner_nav{
+		position: static;
 	}
 	#cssmenu ul li ul li.sub-menu-item:last-child{
 		border: none;
@@ -330,6 +333,7 @@
 	    height: 100%;
 	    top: 0;
 	    line-height: 116px;
+	    cursor: pointer;
 	}
 	#cssmenu > ul >li > ul> li:hover > a, #cssmenu ul li ul li.active > a{
 		color: #1858b8;
@@ -338,7 +342,7 @@
 	#cssmenu > ul >li > ul> li:hover a.menu-link.sub-menu-link:after{
 		display: none;
 	}
-	#cssmenu > ul > li:hover > ul > li{
+	#cssmenu > ul > li:hover > ul > li, #cssmenu ul li ul li:hover > ul > li{
 		max-height: inherit;
 	}
 	#cssmenu > ul > li > a.show_nav{
@@ -350,7 +354,8 @@
 		-moz-transform: translateX(-110%);
 		-ms-transform: translateX(-110%);
 		-o-transform: translateX(-110%);
-		transform: translateX(-110%);		
+		transform: translateX(-110%);	
+		transition: all 0.2s ease;	
 	}
 	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1.is-visible{
 		-webkit-transform: translateX(0);
@@ -358,7 +363,70 @@
 		-ms-transform: translateX(0);
 		-o-transform: translateX(0);
 		transform: translateX(0);
-		transition: all 0.5s ease;
+		transition: all 0.2s ease;
+	}
+
+	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1 li ul.menu-depth-2{
+		display: block;
+		top: 0;
+		padding: 0;
+		left: 110% !important;
+		width: 100% !important;
+		-webkit-transform: translateX(110%);
+		-moz-transform: translateX(110%);
+		-ms-transform: translateX(110%);
+		-o-transform: translateX(110%);
+		transform: translateX(110%);
+		-webkit-box-shadow: 0px 2px 29px 3px rgba(0,0,0,0.43);
+		-moz-box-shadow: 0px 2px 29px 3px rgba(0,0,0,0.43);
+		box-shadow: 0px 2px 29px 3px rgba(0,0,0,0.43);
+		transition: all 0.2s ease;	
+	}
+	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1 li ul.menu-depth-2.is-visible{
+		-webkit-transform: translateX(0);
+		-moz-transform: translateX(0);
+		-ms-transform: translateX(0);
+		-o-transform: translateX(0);
+		transform: translateX(0);
+		transition: all 0.2s ease;
+	}
+
+	.selected-link-cntr{
+		background: #0099ff;
+		padding: 0px 55px 0px 45px;
+	    color: #fff;
+	    position: relative;
+	}
+	.selected-link-cntr span.go-back{
+		font-size: 42px;
+    	float: left;
+	    line-height: 100px;
+	    cursor: pointer;
+	}
+	.selected-link-cntr span.selected_main_link{
+		float: right;
+		cursor: pointer;
+	}
+	.selected-link-cntr span.selected_link_text {
+	    font-size: 28px;
+	    text-transform: uppercase;
+	    font-family: 'proxima_nova_ltsemibold';
+	    left: 50%;
+        line-height: 100px;
+	    display: inline-block;
+	    position: relative;
+	    -webkit-transform: translateX(-50%);
+	    -moz-transform: translateX(-50%);
+	    -ms-transform: translateX(-50%);
+	    -o-transform: translateX(-50%);
+	    transform: translateX(-50%);
+	}
+	.selected-link-cntr span.selected_main_link a{
+        color: #fff !important;
+	    text-decoration: underline !important;
+	    width: auto !important;
+	    line-height: 100px !important;
+	    font-size: 24px !important;
 	}
 
 	/* Menu End */
