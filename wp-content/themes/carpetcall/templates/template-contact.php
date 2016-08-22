@@ -399,7 +399,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
   $.validator.addMethod("phoneValidation",function(value,element){
       
       str= value;
-       value =value.replace(/[a-z]/gi, '');
+        value =value.replace(/[a-z\+\-\/\=]/gi, '');
        realLength = str.length;
        tempLength =  value.length;
       
@@ -550,36 +550,36 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
       check_captcha : "required"     
   },
   messages: {
-      first_name:{required: "Please enter your first name!",
+      first_name:{required: "Please enter your first name.",
       maxlength:"Please enter at most 32 characters."
     },
       last_name:{
-        required:"Please enter your last name!",
+        required:"Please enter your last name.",
         maxlength:"Please enter at most 32 characters."
       } ,
-      email_address:{required:"Please enter your email address!",
-      email:"Please enter valid email address!"
+      email_address:{required:"Please enter your email address.",
+      email:"Please enter valid email address."
 
 
     },
       
-      information: " Please enter your message!",
+      information: " Please enter your message.",
        mobile_phone_no: {
-            required :"Please enter your phone number!",
-            phoneValidation: "Please enter valid phone number!",
+            required :"Please enter your phone number.",
+            phoneValidation: "Please enter valid phone number.",
           },
 
       
-      cc_message:{  required:"Please enter your message!",
+      cc_message:{  required:"Please enter your message.",
                     wordCount:"Please enter at most 50 words."
                  
     },
-      cc_state_type:{ default: "Please select a state!" },
-      cc_state_type_only:{ default: "Please select a state!" },
+      cc_state_type:{ default: "Please select a state." },
+      cc_state_type_only:{ default: "Please select a state." },
       cc_store_name: { 
-                default: "Please select a store!" 
+                default: "Please select a store." 
               },
-      check_captcha :"Please  select captcha!",        
+      check_captcha :"Please  select captcha.",        
   },
   errorPlacement: function(error, element){
     var err_cntr=element.parent("div").find(".error_label");
