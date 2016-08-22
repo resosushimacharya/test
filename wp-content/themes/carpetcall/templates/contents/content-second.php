@@ -39,7 +39,7 @@ echo ' > ' ; ?><span class="cc-bread-current"><?php echo get_the_title().' '.get
 	<div class="inerblock_sec">
 		<div class="col-md-3 no-pl">
         <div id="stickSide">
-        <div class="meromm" data-spy="affix" data-offset-top="138">
+        <div class="meromm" >
 			
 <?php 
  $res = get_field('buying_guide_archive', get_the_id());?>
