@@ -5293,3 +5293,69 @@ div#error_max_msg {
 	font:normal 18px 'proxima_nova_rgregular', sans-serif;
 	color:#666;
 }
+.cc-product-sub-category-list h3 {
+	margin-top:3px;
+	text-transform:none;
+	width:100%;	
+	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	color:#666666;
+	border-bottom:1px solid #efefef;
+	padding-bottom:10px;
+	margin-bottom:13px;
+}
+.search.search-results .slider.slider-horizontal {
+	width:200px;
+	height:20px;
+	margin:0 0 5px 10px;
+}
+.search_prod_wrapper .search_thumb {
+	height:148px;
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:center center;
+}
+.search_sidebar {
+	font-size:0;
+	margin:0 -10px;
+}
+.search_prod_wrapper {
+	padding:0 10px;
+	float:none;
+	display:inline-block;	
+}
+.search_title {
+	margin-top:18px;	
+}
+.search_title span.parent_cat a {
+	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	color:#15489f; 
+	text-transform:uppercase;
+	text-decoration:none;
+}
+.search_title span.parent_cat a:hover {
+		color:#000;
+}
+.search_price {
+	 margin-top:-21px;	
+}
+.search_price .cc-price-control h3 {
+	border:0;	
+}
+.search_price .cc-price-control h3 span.cc-sale-price-title {
+	font: bold 14px 'proxima_nova_ltsemibold', sans-serif;
+	color:#087bda; 
+	text-transform:uppercase;
+	border:0;
+}
+.search_shop_now {
+	margin:17px 0 38px 0;
+}
+.search_shop_now .read_more a {
+	width:181px;
+}
+.cc-search-inner-wrap {
+	padding:10px;	
+}
+.cc-search-tps {
+	padding:0 10px;
+}
