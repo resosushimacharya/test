@@ -64,6 +64,7 @@ if(jQuery("input#price_range_filter").length > 0){
 				cc_trigger_ajax_load(function(output){
 					output = jQuery.parseJSON(output);
 					jQuery('#category_slider_block_wrapper').html(output.html);
+					jQuery('.cc-cat-title-count .post_count').text(output.found_prod);
 						jQuery("#ajax_offset").val(output.offset);
 						//jQuery("#child_cat_count").val(output.child_cat_count);
 						jQuery('.cat_slider.slick-slider').slick('unslick');
@@ -238,6 +239,7 @@ jQuery(document).on('click','.cc-product-sort a',function(){
 		
 	});
 jQuery(document).on('click','.cc-count-clear',function(){
+	jQuery("input#price_range_filter").slider('refresh');
 	jQuery('a.clear_color_selection').hide();
 	jQuery('img.cc-tick-display').hide();
 	jQuery('#selected_colors').val('');
@@ -252,11 +254,14 @@ jQuery(document).on('click','.cc-count-clear',function(){
 	output = jQuery.parseJSON(output);
 	//jQuery('#category_slider_block_wrapper').append(output.html);
 	jQuery('#category_slider_block_wrapper').html(output.html);
+	jQuery('.cc-cat-title-count .post_count').text(output.found_prod);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
 	init_slick_slider();
+	
 	});
 
 	jQuery("#ajax_offset").val(output.offset);
+
 	//jQuery("#child_cat_count").val(output.child_cat_count);
 
 	});
@@ -271,10 +276,10 @@ jQuery(document).on('click','a.clear_color_selection',function(){
 	output = jQuery.parseJSON(output);
 	//jQuery('#category_slider_block_wrapper').append(output.html);
 	jQuery('#category_slider_block_wrapper').html(output.html);
+	jQuery('.cc-cat-title-count .post_count').text(output.found_prod);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
 	init_slick_slider();
 	});
-
 	jQuery("#ajax_offset").val(output.offset);
 	//jQuery("#child_cat_count").val(output.child_cat_count);
 
@@ -313,6 +318,7 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-size-var-sec .chec
 	cc_trigger_ajax_load(function(output){
 		output = jQuery.parseJSON(output);
 		jQuery('#category_slider_block_wrapper').html(output.html);
+		jQuery('.cc-cat-title-count .post_count').text(output.found_prod);
 			jQuery("#ajax_offset").val(output.offset);
 			//jQuery("#child_cat_count").val(output.child_cat_count);
 		jQuery('.cat_slider.slick-slider').slick('unslick');
@@ -346,6 +352,7 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-size-var-sec .chec
 	cc_trigger_ajax_load(function(output){
 	output = jQuery.parseJSON(output);
 	jQuery('#category_slider_block_wrapper').html(output.html);
+	jQuery('.cc-cat-title-count .post_count').text(output.found_prod);
 			jQuery("#ajax_offset").val(output.offset);
 			//jQuery("#child_cat_count").val(output.child_cat_count);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
@@ -370,6 +377,7 @@ else if(jQuery(trig_ele).parent().hasClass('sort_key')){
 	cc_trigger_ajax_load(function(output){
 	output = jQuery.parseJSON(output);
 	jQuery('#category_slider_block_wrapper').html(output.html);
+	jQuery('.cc-cat-title-count .post_count').text(output.found_prod);
 			jQuery("#ajax_offset").val(output.offset);
 			//jQuery("#child_cat_count").val(output.child_cat_count);
 	jQuery('.cat_slider.slick-slider').slick('unslick');
@@ -398,6 +406,7 @@ if(is_first == 'yes'){
 	}
 	*/
 jQuery('#category_slider_block_wrapper').append(output.html);
+jQuery('.cc-cat-title-count .post_count').text(output.found_prod);
 jQuery("#cc_load_more").attr('first','no');	
 
 //jQuery("#child_cat_count").val(output.child_cat_count);
@@ -410,7 +419,6 @@ init_slick_slider();
 
 });
 function cc_trigger_ajax_load(handleData){
-
 $("body, .banner ").addClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
 jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax call
 	var perpage  = jQuery('#perpage_var').val();
@@ -455,7 +463,11 @@ jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax
 		}).done(function(){
 	$("body, .banner ").removeClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
 	jQuery('#loading_overlay_div').hide(); // Displaying the Loading gif during ajax call
-			
+	if(output.found_prod == 0){
+		jQuery('#cc_load_more').hide();
+		}else{
+			jQuery('#cc_load_more').show();
+			}		
 			});
 
 	}
