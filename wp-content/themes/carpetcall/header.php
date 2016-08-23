@@ -13,10 +13,12 @@ echo get_template_directory_uri();
 
 
 <title><?php
-wp_title("");?>
 
-
-
+if(is_page('single-product')){
+	echo 'aayo;';
+	}
+wp_title("");
+?>
 </title>
 <?php 
 
