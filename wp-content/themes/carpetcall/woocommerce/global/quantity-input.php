@@ -42,10 +42,15 @@ if ( ! defined( 'ABSPATH' ) ) {
     if ( $options ){ ?>
     <select name="<?php echo esc_attr( $args['input_name'] ); ?>" id="quantity-control" title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="qty col-md-12 selectpicker "><?php echo $options;?></select>
     <?php } else {
+		if(true){
 		$max = max(100,$args['input_value']);
 		for ( $count = $args['min_value']; $count <= $max; $count = $count+$args['step'] ) {
         $options .= '<option' . selected( $args['input_value'], $count, false ) .' class= "col-md-12"'. ' value="' . $count . '" >' . $count . '</option>';
-    }?>
+		}
+		}
+		else{
+			
+			}?>
 		<select name="<?php echo esc_attr( $args['input_name'] ); ?>" id="quantity-control" title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" class="qty col-md-12 selectpicker "><?php echo $options;?></select>
         <?php
         //printf( '%s <input type="hidden" name="%s" value="%s" />', $args['input_value'], $args['input_name'], $args['input_value'] );

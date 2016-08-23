@@ -3,6 +3,15 @@ if ( ! is_admin() ) {
     include ABSPATH . 'wp-admin/includes/template.php';
 }
 
+add_filter( 'woocommerce_return_to_shop_redirect', 'return_to_shop_link' );
+function return_to_shop_link() {
+     $rugs_term = get_term_by('slug','rugs','product_cat');
+	 return get_term_link($rugs_term->term_id,'product_cat');
+	 
+	  // change to the link you want
+}
+
+
 /*
 * Hook to remove add new product from admin bar menu
 */
@@ -74,8 +83,8 @@ if (isset($_GET['post_type']) && $_GET['post_type'] == 'product') {
 /*
 * Function to disable links in product category links if depth is 2 or more
 */
-add_filter('term_link','testing',10,3);
-function testing($link,$term_obj,$taxonomy){
+add_filter('term_link','return_parent_catlink_if_lastchild',10,3);
+function return_parent_catlink_if_lastchild($link,$term_obj,$taxonomy){
 	global $wpdb;
 	$catid = $term_obj->term_id;
 	$ancestors = get_ancestors( $term_obj->term_id, 'product_cat' );
@@ -957,4 +966,18 @@ function delete_product_cat_transient($term_id,$taxonomy){
 		$transient = 'category_'.$parent->term_id.'_transient';
 		delete_transient( $transient ); 
 		}
+	}
+add_action('woocommerce_after_cart_table','cc_delivery_options_cart');
+function cc_delivery_options_cart(){
+	global $woocommerce;
+	$has_rugs = false;
+	$has_hard_flooring = false;
+	$items = $woocommerce->cart->get_cart();
+	 foreach($items as $item => $values) { ?>
+        <?php  
+		$_product = $values['data']->post;
+		do_action('pr',$_product); 
+		 echo $_product->id; 
+		 ?>
+  <?php }
 	}
