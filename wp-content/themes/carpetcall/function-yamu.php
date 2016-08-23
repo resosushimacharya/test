@@ -967,7 +967,8 @@ function delete_product_cat_transient($term_id,$taxonomy){
 		delete_transient( $transient ); 
 		}
 	}
-add_action('woocommerce_after_cart_table','cc_delivery_options_cart');
+
+add_action('cc_checkout_delivery_custom_block','cc_delivery_options_cart');
 function cc_delivery_options_cart(){
 	global $woocommerce;
 	$has_rugs = false;
@@ -976,8 +977,160 @@ function cc_delivery_options_cart(){
 	 foreach($items as $item => $values) { ?>
         <?php  
 		$_product = $values['data']->post;
-		do_action('pr',$_product); 
-		 echo $_product->id; 
+		if(has_term('rugs','product_cat',$_product)){
+			$has_rugs = true;
+			}
+		if(has_term('hard-flooring','product_cat',$_product)){
+			$has_hard_flooring= true;
+			}
 		 ?>
-  <?php }
+  <?php }?>
+  <h3>Delivery Options</h3>
+  <p>Please select the preferred delivery option below. Hard-Flooring proudctus are only availiable through pick-up at our head offices warehouse locations.</p>
+	<?php 
+	if($has_rugs && $has_hard_flooring){
+		wc_get_template( 'delivery/both.php' );
+	}elseif($has_rugs){
+		wc_get_template( 'delivery/rugs.php' );
+	}elseif($has_hard_flooring){
+		wc_get_template( 'delivery/hardflooring.php' );
+	}
+}
+
+add_action('wp_ajax_get_nearby_stores','get_nearby_stores');
+add_action('wp_ajax_nopriv_get_nearby_stores','get_nearby_stores');
+function get_nearby_stores($args)
+{
+	
+  global $wpdb;
+if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+	  $lat=$_POST['latitude'];
+	  $long=$_POST['longitude'];
+	  if(isset($_POST['address'])){
+		  $address = str_replace(' ','+',$_POST['address']);
+		  }
+	}else{
+	  $lat=$args['latitude'];
+	  $long=$args['longitude'];
+	}
+if($lat==''|| $long == '' && $address !=''){
+	$geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$address.'&sensor=false');
+        $output= json_decode($geocode);
+        $lat = $output->results[0]->geometry->location->lat;
+        $long = $output->results[0]->geometry->location->lng;
+	}
+
+	$a=array();
+     $myArrays= array();
+  	$backarg=array('post_type'=>'wpsl_stores',
+    'posts_per_page'=>'-1'
+    );
+
+
+  $loop= new WP_Query($backarg);
+  
+  while($loop->have_posts()){
+  $loop->the_post();?>
+    <?php 
+  
+   $loc = get_post_meta(get_the_ID());
+    $latitude2=$loc['wpsl_lat'][0];
+      $longitude2=$loc['wpsl_lng'][0];
+	 
+  ?>
+        <?php if(!empty($lat)){?>
+       <?php 
+        $latlongloc = getDistanceBetweenPointsNew($lat, $long, $latitude2, $longitude2,'Km');
+        $myArrays[get_the_ID()]=array('address'=>$loc['wpsl_address'][0],'city'=>$loc['wpsl_city'][0],'state'=>$loc['wpsl_state'][0],'zip'=>$loc['wpsl_zip'][0],'distance'=>$latlongloc,'title'=>get_the_title(),'id'=>get_the_ID()); ?>
+        <?php }
+ 
+}
+ wp_reset_query();
+
+function sortByOrder($a, $b) {
+    return $a['distance'] - $b['distance'];
+}
+usort($myArrays, 'sortByOrder');
+$slice = array_slice($myArrays,0,5);
+ob_start();
+$store_ids = array();
+foreach($slice as $store){
+			$store_ids[] = $store['id'];
+			}
+              $args = array(
+                'post_type' => 'wpsl_stores',
+                'posts_per_page'=>-1,
+                'post__in' => $store_ids,
+              );
+              $loop = new WP_Query($args);
+              if($loop->have_posts()){
+                while($loop->have_posts()){
+                  $loop->the_post();
+				  $getinfo  = get_post_meta(get_the_ID());
+                  $lat = $getinfo['wpsl_lat'];
+                  $long = $getinfo['wpsl_lng'];
+                  $stoLatLong=array($lat,$long);
+                  $add = $getinfo['wpsl_address'][0];
+                  $title = get_the_title();
+                  $sll[] = array($title,$add,$stoLatLong);
+                 
+                  $phone = '-';
+                  $fax = '-';
+                  $zip ='';
+                  $state = '';
+                  $city = '';
+                  $direction = '';
+                  $country  = '';
+                  if(array_key_exists('wpsl_phone',$getinfo)){
+                  $phone = $getinfo['wpsl_phone'][0];
+                  $x=  $phone;
+                  $x = preg_replace('/\s+/', '', $x);
+                  $x = '+61'.$x;  
+                  $phone = '<a class="phone" href="tel:'.$x.'">'.$phone.' </a>';
+                  }
+                  if(array_key_exists('wpsl_fax',$getinfo)){
+                  $fax = $getinfo['wpsl_fax'][0];
+                  }
+                  if(array_key_exists('wpsl_city',$getinfo)){
+                  $city  = $getinfo['wpsl_city'][0];
+                  }
+                  if(array_key_exists('wpsl_state',$getinfo)){
+                  $state = $getinfo['wpsl_state'][0];
+                  }
+                  if(array_key_exists('wpsl_zip',$getinfo)){
+                  $zip = $getinfo['wpsl_zip'][0];
+                  }  
+                 if(array_key_exists('wpsl_address',$getinfo)){
+                  $add= $getinfo['wpsl_address'][0];
+                 } 
+    
+				 ?>
+                <div class="pickup_location_list">
+       		<input type="radio" name="pickup_store_id" value="<?php echo get_the_ID()?>">
+            <h3><?php the_title();?></h3>
+            <p class="address"><?php echo  $add .' '. $city.' '.$state.' '.$zip;?></p>
+       </div>
+                <?php
+                }
+                 wp_reset_query();
+                }
+
+$html = ob_get_clean();
+
+if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+	echo json_encode($html);die;
+	}else{
+		return $html;
+		}
+}
+/*
+Function to save the selected store for delivery during checkout in our order meta table
+*/
+add_action('woocommerce_checkout_update_order_meta','save_delivery_option_cc');
+function save_delivery_option_cc($order_id){
+	if(!empty($_POST['pickup_store_id'])){
+		update_post_meta( $order_id, 'pickup_store_id', $_POST['pickup_store_id']);
+		}
+	
+	
 	}

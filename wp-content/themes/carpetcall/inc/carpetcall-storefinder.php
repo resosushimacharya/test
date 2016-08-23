@@ -266,7 +266,7 @@ $controlzip=1;?>
       $longitude2=$loc['wpsl_lng'][0];
   ?>
  
-       <?PHP if($controlzip==1){?>
+       <?php if($controlzip==1){?>
 
         <?php if(!$lat){?>
          <h3 class="clostor-blk">Closest stores to “<?php echo $keyArray[0]; ?>” </h3>
@@ -283,7 +283,7 @@ $controlzip=1;?>
        <?php 
         $latlongloc = getDistanceBetweenPointsNew($lat, $long, $latitude2, $longitude2,'Km');
           
-        $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0],$latlongloc,get_the_title()); ?>
+        $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0],$latlongloc,get_the_title(),get_the_ID()); ?>
         <?php }
         else{?>
          <?php
@@ -291,7 +291,7 @@ $controlzip=1;?>
 
 
 
-      $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0],$latlongloc,get_the_title()); 
+      $myArrays[]=array($loc['wpsl_address'][0],$loc['wpsl_city'][0],$loc['wpsl_state'][0],$loc['wpsl_zip'][0],$latlongloc,get_the_title(),get_the_ID()); 
          }?>         
               
 
@@ -322,6 +322,7 @@ usort($myArrays, 'sortByOrder');
       $zloop++;?>
     <div class="col-md-4 no-lr">
                     <div class="str-one">
+                    <input type="hidden" name="cc-del-store-id" value="<?php echo $ma[6]?>">
                       <h4><?php echo $ma[5];?> </h4>
                         <p><?php echo $ma[0] ;?></p>
                         
