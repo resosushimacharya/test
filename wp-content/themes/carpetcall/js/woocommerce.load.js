@@ -45,6 +45,40 @@ $(function () {
   
 })
 jQuery(document).ready(function($){
+jQuery(document).on('click','#checkout_fetch_nearby_stores',function(){
+	var keyword = jQuery('#edit_dialog_keyword').val().trim();
+	
+		var data = {
+				'action': 'get_nearby_stores', 
+				'address':keyword,
+		};
+		//alert(ajaxurl);
+		jQuery.post(woo_load_autocomplete.ajax_url, data, function(response) {
+			response = jQuery.parseJSON(response);
+			jQuery('#nearby_stores_main_wrapper').html(response);
+			});
+	});
+jQuery(document).on('click','#checkout_fetch_nearby_stores_currentloc',function(){
+	navigator.geolocation.getCurrentPosition(CheckoutCurrentLocation);
+	function CheckoutCurrentLocation(position) {
+			 lat = position.coords.latitude;
+			 lon = position.coords.longitude;
+			 
+	var data = {
+				'action': 'get_nearby_stores', 
+				'latitude':lat,
+				'longitude':lon,
+		};
+		//alert(ajaxurl);
+		jQuery.post(woo_load_autocomplete.ajax_url, data, function(response) {
+			response = jQuery.parseJSON(response);
+			jQuery('#nearby_stores_main_wrapper').html(response);
+			});
+	}	
+	
+});
+
+	
 jQuery('.acc_list_item .acc_qnty .quantity select.qty').val(0).trigger('click');
 if(jQuery("input#price_range_filter").length > 0){
 	jQuery("input#price_range_filter").slider().on('slide',(function(ev){
