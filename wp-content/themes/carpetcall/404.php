@@ -47,67 +47,7 @@ get_header();
 </div>
 
 </div>
- <style>
- .body-wrapper{
- 	margin:145px 0 38px 0;
 
- }
- .error-wrapper{
-     
-    float: right;
-    
-    min-width: 100%;
-    min-height: 156px;
-    height:auto;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    overflow: hidden;
-}
- .error-wrapper{
- 	color:#000000;
- }
- .error-wrapper h1{
-	 font:bold 72px 'proxima_nova_ltsemibold', sans-serif;
-	 color:#15489f;
- 	text-transform: uppercase;
-	margin-top:75px;
-	margin-left:24px;
- }
- .error-wrapper h3{
- 	font:normal 24px 'proxima_nova_ltsemibold', sans-serif;
-	 color:#15489f;
- 	text-transform: uppercase;
-	margin-top:-8px;
-	margin-left:24px;
- }
- .error-wrapper  h4{
- 	font:normal 18px 'proxima_nova_ltsemibold', sans-serif;
-	 color:#0099ff;
- 	text-transform: uppercase;
-	margin-top:3px;
-	margin-left:24px;
-	margin-bottom:48px;
- }
- .page-sorry .error-wrapper button { background-color:#FFF; padding:0; margin-left:9px; margin-bottom:101px; }
-.page-sorry .error-wrapper button a{
-	display:inline-block;
- 	background-color:#FFF;
-	border:1px solid #15489f;
-	padding:11px 128px;
-	border-radius:0;
-	outline:0;
-	text-transform:uppercase;
-	font-size:18px;
-	text-align:center;
-	color:#15489f;
-	text-decoration:none;
- }
- .page-sorry .error-wrapper button a:hover { background-color:#15489f; color:#FFF;}
-
-
-
- </style>
 
 <?php
 get_footer();

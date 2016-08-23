@@ -62,16 +62,23 @@
 	/* Font-size 32px; End */
 
 	/* Font-size 36px; */
-	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a{
+	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .error-wrapper  h4{
 		font-size: 36px;
 	}
 	/* Font-size 36px; End */
 
 	/* Font-size 48px; */
-	.bookcbk, .calspl a{
+	.bookcbk, .calspl a, .error-wrapper h3{
 		font-size: 48px;
 	}
 	/* Font-size 48px; End */
+	
+	/* Font-size 144px; */
+	.error-wrapper h1 {
+		font-size:144px;
+	}
+	
+	/* Font-size 144px; End */
 	
 	/* Big buttons */
 	.cptinn a, .find_tbb a{
@@ -98,7 +105,7 @@
 	/* Text Transform uppercase End*/
 
 	/* Proxima Nova Font Bold */
-	.rmblk_cont h3, .inner_cont h4, .quest_cont h4, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .calspl a{
+	.rmblk_cont h3, .inner_cont h4, .quest_cont h4, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .calspl a, .error-wrapper h1, .error-wrapper h3, .error-wrapper  h4{
 		font-family: 'ProximaN Bold';
 	}
 	/* Proxima Nova Font Bold End */
@@ -846,6 +853,28 @@
 	/* Home Map End */
 
 	/* === HOME PAGE End === */
+	
+	/* === 404 PAGE === */
+	.body-wrapper .page-sorry {
+		background-image:none !important;
+	}
+	.error-wrapper {
+		text-align:center;
+	}
+	.error-wrapper h1 {
+		margin:103px 0 20px 0;
+	}
+	.error-wrapper h3 {
+		text-align:center;
+		margin:0 auto 49px;
+	}
+	.error-wrapper h4 {
+	color:#0099ff;
+	text-align:center;
+	margin:0 15% 7px;	
+	}
+	
+	/* === 404 PAGE End === */
 
 	/* ===== FOOTER ===== */	
 	.footer_nav_mobile{		
