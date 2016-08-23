@@ -79,13 +79,15 @@ if(jQuery("input#price_range_filter").length > 0){
 $ = jQuery.noConflict();
 $(document).ready(function() {
  	//$('.cc-quantiy-section #quantity-control #sel_cart').attr('selected','selected');
-        $loadref=$('#store-count-quantity').attr('href');
+       // $loadref=$('#store-count-quantity').attr('href');
+		
         $('#store-count-quantity').attr('href','javascript:void(0)');
           $('#store-count-quantity').removeClass('add_to_cart_button');
            $('#store-count-quantity').removeClass('ajax_add_to_cart');
         
           
        $(document).on('change','.cc-quantiy-section #quantity-control',function(){
+		   $loadref= jQuery('.select-design-product-image.pro-active a.select_design').attr('href');
           $stoq = $('.cc-quantiy-section  #quantity-control').val(); 
 		   var sizem2 = jQuery('#sizem2').val(); 
               if($stoq.toLowerCase()!='please select'){
@@ -100,7 +102,10 @@ $(document).ready(function() {
 				  jQuery('.total_coverage .coverage_value').text((total_cov.toFixed(2)));
 				  jQuery('.acc_list_item.underlay .acc_rec_qty').each(function(index, element) {
                     if(jQuery(this).attr('tpm_ratio')){
-						jQuery(this).text(Math.ceil(Number(total_cov)/Number(jQuery(this).attr('tpm_ratio'))));
+						var rec_qty = Math.ceil(Number(total_cov)/Number(jQuery(this).attr('tpm_ratio')));
+						jQuery(this).text(rec_qty);
+						jQuery(this).parents('.acc_qnty').find('select.qty').val(rec_qty);
+						jQuery(this).parents('.acc_qnty').find('select.qty').trigger('change');
 						}
                 });
 				  }
@@ -181,7 +186,11 @@ jQuery(document).on('click','.select-design-product-image a.select_design',funct
 	jQuery.get(url,function(response){
 		update_content_from_ajax(response);
 			 $("body, .banner ").removeClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
-			jQuery('#loading_overlay_div').hide(); // Displaying the Loading gif during ajax call
+			jQuery('#loading_overlay_div').hide();
+			jQuery('#store-count-quantity').attr('href','javascript:void(0)');
+          	jQuery('#store-count-quantity').removeClass('add_to_cart_button');
+           	jQuery('#store-count-quantity').removeClass('ajax_add_to_cart');
+		    // Displaying the Loading gif during ajax call
 
 		});
 	});	

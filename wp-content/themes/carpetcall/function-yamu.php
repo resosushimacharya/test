@@ -70,6 +70,7 @@ if (isset($_GET['post_type']) && $_GET['post_type'] == 'product') {
 //add_action('admin_menu', 'cc_disable_add_product');
 
 
+
 /*
 * Function to disable links in product category links if depth is 2 or more
 */
@@ -331,7 +332,7 @@ function show_category_slider_block($args){
 						$reqProImageId = '';
 						foreach($proGalId as $imgid){
 							$proImageName = wp_get_attachment_url($imgid);
-							if(preg_match("/\_V/i", $proImageName)){
+							if(preg_match("/\_L/i", $proImageName)){
 								$feat_image = wp_get_attachment_image_src($imgid,'full');
 								if($feat_image){
 									$feat_image = $feat_image[0];
@@ -375,7 +376,7 @@ function show_category_slider_block($args){
 						$reqProImageId = '';
 						foreach($proGalId as $imgid){
 							$proImageName = wp_get_attachment_url($imgid);
-							if(preg_match("/\_V/i", $proImageName)){
+							if(preg_match("/\_L/i", $proImageName)){
 								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
 								if($feat_image){
 									$feat_image = $feat_image[0];
@@ -556,7 +557,7 @@ function loadmore_hf($args){
 							$reqProImageId = '';
 							foreach($proGalId as $imgid){
 								$proImageName = wp_get_attachment_url($imgid);
-								if(preg_match("/\_V/i", $proImageName)){
+								if(preg_match("/\_L/i", $proImageName)){
 									$feat_image = wp_get_attachment_image_src($imgid,'full');
 									if($feat_image){
 										$feat_image = $feat_image[0];
@@ -603,7 +604,7 @@ function loadmore_hf($args){
 							$reqProImageId = '';
 							foreach($proGalId as $imgid){
 								$proImageName = wp_get_attachment_url($imgid);
-								if(preg_match("/\_V/i", $proImageName)){
+								if(preg_match("/\_L/i", $proImageName)){
 									$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
 									if($feat_image){
 										$feat_image = $feat_image[0];

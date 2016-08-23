@@ -229,10 +229,12 @@ $(document).on('click','#confirm_calc',function(){
             $(".add_to_cart_button").attr('data-quantity',$stoq);
               $(".add_to_cart_button").data('quantity',$stoq);}
 		jQuery('.underlay .acc_rec_qty').each(function(index,element){
-			console.log(element);
+			//console.log(element);
 			var tmpr = jQuery(element).attr('tpm_ratio');
-			jQuery(element).text(Math.ceil(Number(total_cov_ret)/Number(tmpr)));
-
+			var rec_qty = Math.ceil(Number(total_cov_ret)/Number(tmpr));
+			jQuery(element).text(rec_qty);
+			jQuery(this).parents('.acc_qnty').find('select.qty').val(rec_qty);
+			jQuery(this).parents('.acc_qnty').find('select.qty').trigger('change');
 		});
 		
 		$("#quantity-control").trigger('change');
