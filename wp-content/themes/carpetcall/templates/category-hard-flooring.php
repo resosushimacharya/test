@@ -117,18 +117,13 @@ $currentcat = get_queried_object();
   </div>
 </div>
 <?php get_template_part('templates/template','like');?>
-<div class="cc_background_image">
-  <div class="container clearfix cc-cat-sub-desc-sec"> <?php echo  apply_filters('the_content', get_field('product_category_description',$current_cat));?> 
-    <!--    <h3 style="">Modern Rugs</h3>
-    <p>
-   Transform your tired looking home or commercial space into a contemporary retreat with a stunning, high quality rug from Carpet Call’s modern rugs range. From vibrant floral patterns that will really make a statement, to simple neutral shades that will blend seamlessly with your existing décor, it couldn’t be any simpler for you to update your living or working space with one of our designer modern rugs.
-</p>
-     <p>
-    Our beautiful rug collections are added to and updated frequently, so make sure you check back often for our large range of contemporary carpet rugs at fantastic prices. Our modern rugs are available both in-store and online for your convenience, with free shipping Australia wide.
-    </p>
-     <p>
-    Find a Carpet Call store near you, or buy rugs online today! For more information about choosing and buying the perfect new rug for your home, check out our detailed Rugs Buying Guide or get in touch with one of our dedicated flooring specialists.
-    </p>
---> 
+
+<?php 
+if(get_field('product_category_description',$current_cat)){
+	?>
+	<div class="cc_background_image">
+  <div class="container clearfix cc-cat-sub-desc-sec"> 
+  <?php echo  apply_filters('the_content', get_field('product_category_description',$current_cat));?> 
   </div>
 </div>
+	<?php }?>

@@ -5,7 +5,7 @@ function autocomplet_dialog() {
 	var keyword = jQuery('#edit_dialog_keyword').val().trim();
 	
      if((typeof diaLocation[0] == 'undefined' || rs[0]==null)){
-     	jQuery("#edit_dialog_keyword").parent().parent().prepend('<h5 id="alert_msg">Please select the keywords.</h5>');
+     	jQuery("#edit_dialog_keyword").parent().parent().prepend('<h5 id="alert_msg">Please enter suburb or postcode.</h5>');
          
      }
       if(keyword!="" && keyword!=null && keyword.length>3 && (typeof diaLocation[0] != 'undefined')||rs[0]!=null)

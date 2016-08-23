@@ -332,7 +332,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
       maxlength:"Please enter at most 32 characters."
     },
        last_name:{
-        required:"Please enter your last name!",
+        required:"Please enter your last name.",
         maxlength:"Please enter at most 32 characters."
       } ,
        email_address:{required:"Please enter your email address.",
