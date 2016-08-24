@@ -1137,64 +1137,44 @@ add_action('woocommerce_checkout_update_order_meta','save_delivery_option_cc');
 function save_delivery_option_cc($order_id){
 	if(!empty($_POST['pickup_store_id'])){
 		update_post_meta( $order_id, 'pickup_store_id', $_POST['pickup_store_id']);
+		cc_notify_selected_store($order_id);
 		}
 	}
 
 
-
-add_action( 'woocommerce_order_status_pending', 'cc_notify_selected_store', 10, 1 ); 
+/*
+Function to send the notification email to respective store email address when order is generated
+*/
 add_action( 'woocommerce_payment_complete', 'cc_notify_selected_store', 10, 1 ); 
-
 function cc_notify_selected_store($order_id){
 	global $woocommerce;
-	 $order = new WC_Order( $order_id );
-	 do_action( 'woocommerce_email_header', $email_heading, $email ); 
-	 
-	 
-	}
-	
-add_action('test_emial_template','testing');
-function testing(){
-	global $woocommerce;
-	$order_id = 3305;
 	$order = new WC_Order( $order_id );
-	
-	$email = 'yamuaryal@gmail.com';
-	$sent_to_admin = false;
-	$plain_text = false;
 	ob_start();
-do_action( 'woocommerce_email_header', 'New Order Received', $email); ?>
-
-<p><?php _e( "New order is received for your store and is now being processed. The order details are shown below for your reference:", 'woocommerce' ); ?></p>
+wc_get_template( 'emails/email-header.php',array('email_heading'=>'New Order Received'));
+wc_get_template( 'order/order-details.php', array('order_id'=>$order_id));
+?>
+<div class="shipping_info col-md-6">
+<h3> Shipping Address </h3>
+<?php echo $order->get_formatted_shipping_address();?>
+</div>
 
 <?php
+wc_get_template( 'emails/email-footer.php');
 
-/**
- * @hooked WC_Emails::order_details() Shows the order details table.
- * @hooked WC_Emails::order_schema_markup() Adds Schema.org markup.
- * @since 2.5.0
- */
-do_action( 'woocommerce_email_order_details', $order,$sent_to_admin, $plain_text, $email );
+$selected_store = get_post_meta($order_id,'pickup_store_id',true);
+if($selected_store){
+	$to = get_post_meta($selected_store,'wpsl_email',true);
+	if($to =='' || !$to){
+		$to = get_option('admin_email');
+		}
+	$message = ob_get_clean();
+	if($to){
+	(wc_mail( $to, 'New Order Received', $message, $headers = "Content-Type: text/htmlrn", $attachments = "" ));
+	}
+}
 
-/**
- * @hooked WC_Emails::order_meta() Shows order meta data.
- */
-do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, $email );
-
-/**
- * @hooked WC_Emails::customer_details() Shows customer details
- * @hooked WC_Emails::email_address() Shows email address
- */
-do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email );
-
-/**
- * @hooked WC_Emails::email_footer() Output the email footer
- */
-do_action( 'woocommerce_email_footer', $email );
-
-  $output = ob_get_clean();   
-  echo $output;
-
-   }      
+//do_action('pr',$message);
+}
+	
 		
 		
