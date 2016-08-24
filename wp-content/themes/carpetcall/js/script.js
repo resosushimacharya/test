@@ -312,6 +312,22 @@
       });
 
     }
+    // Header Nav Scripts End
+     
+    
+    // Product Sidebar Mobile
+    if($('#product-side-filter').length){
+
+      $('.rugm-blk .open-product-sidebar').on('click', function(){        
+        $('#product-side-filter').addClass('open-sidebar');
+      });
+
+      $('.go-back-text, .mobile-apply-btn a').on('click', function(e){
+        e.preventDefault();
+        $('#product-side-filter').removeClass('open-sidebar');
+      });
+
+    }
 
   });
 

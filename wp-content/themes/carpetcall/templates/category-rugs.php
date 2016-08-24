@@ -53,16 +53,25 @@ if(get_term_meta($current_cat->term_id,'cat_top_description',true) && $depth == 
       </div>
     </div>
     <div class="container">
-      <div class="tophead_sec col-md-12 no-lr">
+      <div class="tophead_sec col-md-12 no-lr clearfix">
         <?php $term_id =  get_queried_object()->term_id;
 $currentcat = get_queried_object();
  
 ?>
         <div class="rugm-blk col-md-6 no-pl">
-          <p> <span class="cc-cat-title-count"> <span class="post_count"><?php echo $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
+
+          <p> 
+            <span class="cc-cat-title-count"> <span class="post_count"><?php echo $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products </span> 
+            <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> 
+          </p>
+          
+          <span class="open-product-sidebar">
+            +
+          </span>
+
         </div>
-        <div class="col-md-6 no-pr">
-          <div class="pull-right cc-product-sort">
+        <div class="col-md-6 no-pr clearfix cat-sort-by-cntr">
+          <div class="cc-product-sort">
             <ul>
               <li class="sort_key"> <span class="cc-count-label">Sort by:</span></li>
               <li class="sort_key"> <a href="javascript:void(0)" sort="popular">Popularity</a> </li>
@@ -73,8 +82,28 @@ $currentcat = get_queried_object();
           </div>
         </div>
       </div>
-      <div class="cc-cat-pro-section-left col-md-3 no-lr">
+
+      <div class="cc-cat-pro-section-left col-md-3 no-lr" id="product-side-filter">
+
+        <div class="filter-top-mobile">
+          <div class="filter-go-back">
+            <div class="go-back-text">
+              <span class="fa fa-angle-left"></span>
+              <span class="back-text">Back</span>
+            </div>
+          </div>
+          <div class="mobile-filter-sec">
+            <div class="filter-back-btn">
+              <span class="cc-cat-title-count"> <span class="post_count"><?php echo $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span>
+            </div>
+          </div>
+        </div>
         <?php get_sidebar('pro-subcategory');?>
+        
+        <div class="mobile-apply-btn">
+          <a href="#">Apply</a>
+        </div>
+
       </div>
       <div class="col-md-9 cc-cat-pro-section-right">
         <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) {
