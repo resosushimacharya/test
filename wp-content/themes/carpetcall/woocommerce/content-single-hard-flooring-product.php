@@ -825,7 +825,7 @@ wrapper close start */?>
     </div>
 	<?php }?>   
     
-    
+  <?php //cc_notify_selected_store(35523);?>  
 <style>
   #cc-enquiry-type{display:none;}
   .success_message_wrapper{display:none;}
