@@ -1001,7 +1001,6 @@ add_action('wp_ajax_get_nearby_stores','get_nearby_stores');
 add_action('wp_ajax_nopriv_get_nearby_stores','get_nearby_stores');
 function get_nearby_stores($args)
 {
-	
   global $wpdb;
 if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 	  $lat=$_POST['latitude'];
@@ -1012,6 +1011,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 	}else{
 	  $lat=$args['latitude'];
 	  $long=$args['longitude'];
+	  $address = str_replace(' ','+',$args['address']);
 	}
 if($lat==''|| $long == '' && $address !=''){
 	$geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$address.'&sensor=false');
@@ -1028,7 +1028,6 @@ if($lat==''|| $long == '' && $address !=''){
 
 
   $loop= new WP_Query($backarg);
-  
   while($loop->have_posts()){
   $loop->the_post();?>
     <?php 
@@ -1045,8 +1044,7 @@ if($lat==''|| $long == '' && $address !=''){
         <?php }
  
 }
- wp_reset_query();
-
+wp_reset_query();
 function sortByOrder($a, $b) {
     return $a['distance'] - $b['distance'];
 }
@@ -1123,6 +1121,15 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 		return $html;
 		}
 }
+
+add_action('wp_enqueue_scripts','overwrite_add_to_cart_js');
+function overwrite_add_to_cart_js(){
+wp_deregister_script('wc-add-to-cart');
+wp_register_script('wc-add-to-cart', get_template_directory_uri(). '/js/add-to-cart-custom.js' , array( 'jquery' ), WC_VERSION, TRUE);
+wp_enqueue_script('wc-add-to-cart');
+
+}
+
 /*
 Function to save the selected store for delivery during checkout in our order meta table
 */
@@ -1131,6 +1138,63 @@ function save_delivery_option_cc($order_id){
 	if(!empty($_POST['pickup_store_id'])){
 		update_post_meta( $order_id, 'pickup_store_id', $_POST['pickup_store_id']);
 		}
-	
-	
 	}
+
+
+
+add_action( 'woocommerce_order_status_pending', 'cc_notify_selected_store', 10, 1 ); 
+add_action( 'woocommerce_payment_complete', 'cc_notify_selected_store', 10, 1 ); 
+
+function cc_notify_selected_store($order_id){
+	global $woocommerce;
+	 $order = new WC_Order( $order_id );
+	 do_action( 'woocommerce_email_header', $email_heading, $email ); 
+	 
+	 
+	}
+	
+add_action('test_emial_template','testing');
+function testing(){
+	global $woocommerce;
+	$order_id = 3305;
+	$order = new WC_Order( $order_id );
+	
+	$email = 'yamuaryal@gmail.com';
+	$sent_to_admin = false;
+	$plain_text = false;
+	ob_start();
+do_action( 'woocommerce_email_header', 'New Order Received', $email); ?>
+
+<p><?php _e( "New order is received for your store and is now being processed. The order details are shown below for your reference:", 'woocommerce' ); ?></p>
+
+<?php
+
+/**
+ * @hooked WC_Emails::order_details() Shows the order details table.
+ * @hooked WC_Emails::order_schema_markup() Adds Schema.org markup.
+ * @since 2.5.0
+ */
+do_action( 'woocommerce_email_order_details', $order,$sent_to_admin, $plain_text, $email );
+
+/**
+ * @hooked WC_Emails::order_meta() Shows order meta data.
+ */
+do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, $email );
+
+/**
+ * @hooked WC_Emails::customer_details() Shows customer details
+ * @hooked WC_Emails::email_address() Shows email address
+ */
+do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email );
+
+/**
+ * @hooked WC_Emails::email_footer() Output the email footer
+ */
+do_action( 'woocommerce_email_footer', $email );
+
+  $output = ob_get_clean();   
+  echo $output;
+
+   }      
+		
+		
