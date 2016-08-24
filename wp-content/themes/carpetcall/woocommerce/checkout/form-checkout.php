@@ -1,3 +1,4 @@
+
 <?php
 /**
  * Checkout Form
@@ -70,3 +71,5 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 </form>
 
 <?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>
+
+

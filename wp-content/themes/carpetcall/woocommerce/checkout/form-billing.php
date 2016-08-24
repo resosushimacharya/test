@@ -43,6 +43,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php do_action('woocommerce_after_checkout_billing_form', $checkout ); ?>
 
+<?php /* ?>
+
 	<?php if ( ! is_user_logged_in() && $checkout->enable_signup ) : ?>
 
 		<?php if ( $checkout->enable_guest_checkout ) : ?>
@@ -76,4 +78,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php do_action( 'woocommerce_after_checkout_registration_form', $checkout ); ?>
 
 	<?php endif; ?>
+	
+<?php */ ?>
 </div>

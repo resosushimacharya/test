@@ -62,7 +62,7 @@
 	/* Font-size 32px; End */
 
 	/* Font-size 36px; */
-	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .error-wrapper  h4, .mobile-filter-sec .cc-cat-title-count, .cc-cat-pro-section-left .glyphicon-chevron-up:before{
+	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .error-wrapper  h4, .mobile-filter-sec .cc-cat-title-count, .cc-cat-pro-section-left .glyphicon-chevron-up:before, .meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .error-wrapper  h4, .page-sorry .error-wrapper button a{
 		font-size: 36px;
 	}
 	/* Font-size 36px; End */
@@ -111,10 +111,20 @@
 	/* Text Transform uppercase End*/
 
 	/* Proxima Nova Font Bold */
+<<<<<<< HEAD
 	.rmblk_cont h3, .inner_cont h4, .quest_cont h4, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .calspl a, .error-wrapper h1, .error-wrapper h3, .error-wrapper  h4, .back-text{
+=======
+	.rmblk_cont h3, .inner_cont h4, .quest_cont h4, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .calspl a{
+>>>>>>> 9bee6e20b4685db39ff831e560b1c41ea4b63e39
 		font-family: 'ProximaN Bold';
 	}
 	/* Proxima Nova Font Bold End */
+	
+	/* Proxima Nova Font SemiBold */
+	.error-wrapper h3, .error-wrapper  h4, .page-sorry .error-wrapper button a{
+		font-family: 'proxima_nova_ltsemibold';
+	}
+	/* Proxima Nova Font SemiBold End */
 
 	/* ===== GLOBAL End ===== */
 
@@ -895,6 +905,16 @@
 		text-align:center;
 		margin:0 15% 7px;	
 	}	
+	.page-sorry .error-wrapper button {
+		margin:38px auto 121px;
+		display:block;
+		width:100%;
+	}
+	.page-sorry .error-wrapper button a {
+		padding:33px 0;
+		display:block;
+	}
+
 	/* === 404 PAGE End === */
 
 	/* === MAIN CATEGORY PAGE === */
@@ -1159,7 +1179,7 @@
 	/* Category Body Section End */
 
 	/* === MAIN CATEGORY PAGE End === */
-
+	
 	/* ===== FOOTER ===== */	
 	.footer_nav_mobile{		
 		margin: 0 -20px;
@@ -1281,6 +1301,12 @@
 		font-size: 32px;
 	}
 	/* Font-size 32px; End */
+	
+	/* Font-size 34px; */
+	.error-wrapper h3 {
+		font-size:34px;	
+	}
+	/* Font-size 34px; End */
 
 	/* Font-size 42px; */
 	.bookcbk, .calspl a{
@@ -1587,6 +1613,39 @@
 	/* Home Map End */
 
 	/* === HOME PAGE End === */
+	
+	/* === 404 PAGE === */
+	.body-wrapper .page-sorry {
+		background-image:none !important;
+	}
+	.error-wrapper {
+		text-align:center;
+	}
+	.error-wrapper h1 {
+		margin:103px 0 20px 0;
+	}
+	.error-wrapper h3 {
+		text-align:center;
+		margin:0 auto 49px;
+	}
+	.error-wrapper h4 {
+	color:#0099ff;
+	text-align:center;
+	margin:0 5% 7px;	
+	}
+	
+	.page-sorry .error-wrapper button {
+		margin:38px auto 121px;
+		display:block;
+		width:100%;
+	}
+	.page-sorry .error-wrapper button a {
+		padding:33px 0;
+		display:block;
+	}
+	
+	/* === 404 PAGE End === */
+
 
 	/* ===== FOOTER ===== */	
 	.footer_nav_mobile .foot_mob li{

@@ -252,8 +252,9 @@ if($reqTempTerms){
                 </div>
 
                 </div>
-                  <div class="form-group col-sm-8">
-                 <div class="cc-product-page-info">
+                  <div class="provision-section col-sm-12 clearfix">
+                <div class="form-group col-sm-8">
+                 <div class="cc-product-page-info-dis">
                  <?php  
                         global $post;
                         $reqTempTerms=get_the_terms($post->ID,'product_cat');
@@ -276,9 +277,35 @@ if($reqTempTerms){
                         $resproLength = get_post_meta( $post->ID,'_length', true);
                         $resproWidth = get_post_meta( $post->ID,'_width', true);
                         $resproSKU   = get_post_meta($post->ID,'_sku',true);
-                        $resproSize ='Size : '.$resproLength.'cm'.' '.$resproWidth.' '.'cm'.' '.$resproHeight;
-                        $resproCode = 'Hard Flooring Code : '.$resproSKU;
-                        $resproProduct ='Product : '.$reserve; 
+                        $sizen    ='Size       ';
+                        $coden    ='Carpet Code   ';
+                        $productn ='Product    ';
+                        $resprodim = $resproLength.'cm'.' '.$resproWidth.' '.'cm'.' '.$resproHeight;
+                        $resproSize ='Size      : '.$resprodim;
+                        $resproCode ='Carpet Code  : '.$resproSKU;
+                        $resproProduct ='Product   : '.$reserve; 
+                        
+                        
+                        
+
+
+                 ?>
+                 <h3 class="cc-sen-head" >Product Information</h3>
+                 <ul>
+                        <li><span class="cc-sen-title"><?php echo $productn;?></span>: <span class="cc-sen-val"><?php echo $reserve;?></span></li>
+
+
+                        <li><span class="cc-sen-title"><?php echo $coden ;?></span>: <span class="cc-sen-val"><?php echo $resproSKU; ?></span></li>
+
+                        <li><span class="cc-sen-title" ><?php echo $sizen ;?></span>: <span class="cc-sen-val"><?php echo $resprodim; ?></span></li>
+                  </ul>
+                   
+                 </div>
+                 </div></div>
+                  <div class="form-group col-sm-8">
+                 <div class="cc-product-page-info">
+                 <?php  
+                      
                         
                         echo '<input type="hidden" value="'.$resproProduct.'" name="product_page_cat"/>';
                         echo '<input type="hidden" value="'.$resproCode.'" name="product_page_code"/>';
@@ -290,6 +317,7 @@ if($reqTempTerms){
                    
                  </div>
                  </div>
+                
                 
                 </div>
                 

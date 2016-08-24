@@ -159,7 +159,8 @@ $(document).ready(function() {
 		
 		$(document).on('change','.acc_qnty .quantity select',function(){
 			 if(jQuery(this).val().toLowerCase()!='please select'){
-				jQuery(this).parents('.acc_list_item').find('a.acc_add_to_cart').attr('data-quantity',jQuery(this).val());
+				 
+jQuery(this).parents('.acc_list_item').find('a.acc_add_to_cart').attr('data-quantity',jQuery(this).val());
 				 }else{
 				 
 				 }

@@ -1001,7 +1001,6 @@ add_action('wp_ajax_get_nearby_stores','get_nearby_stores');
 add_action('wp_ajax_nopriv_get_nearby_stores','get_nearby_stores');
 function get_nearby_stores($args)
 {
-	
   global $wpdb;
 if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 	  $lat=$_POST['latitude'];
@@ -1012,6 +1011,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 	}else{
 	  $lat=$args['latitude'];
 	  $long=$args['longitude'];
+	  $address = str_replace(' ','+',$args['address']);
 	}
 if($lat==''|| $long == '' && $address !=''){
 	$geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$address.'&sensor=false');
@@ -1028,7 +1028,6 @@ if($lat==''|| $long == '' && $address !=''){
 
 
   $loop= new WP_Query($backarg);
-  
   while($loop->have_posts()){
   $loop->the_post();?>
     <?php 
@@ -1045,8 +1044,7 @@ if($lat==''|| $long == '' && $address !=''){
         <?php }
  
 }
- wp_reset_query();
-
+wp_reset_query();
 function sortByOrder($a, $b) {
     return $a['distance'] - $b['distance'];
 }
@@ -1123,6 +1121,15 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 		return $html;
 		}
 }
+
+add_action('wp_enqueue_scripts','overwrite_add_to_cart_js');
+function overwrite_add_to_cart_js(){
+wp_deregister_script('wc-add-to-cart');
+wp_register_script('wc-add-to-cart', get_template_directory_uri(). '/js/add-to-cart-custom.js' , array( 'jquery' ), WC_VERSION, TRUE);
+wp_enqueue_script('wc-add-to-cart');
+
+}
+
 /*
 Function to save the selected store for delivery during checkout in our order meta table
 */
@@ -1130,7 +1137,44 @@ add_action('woocommerce_checkout_update_order_meta','save_delivery_option_cc');
 function save_delivery_option_cc($order_id){
 	if(!empty($_POST['pickup_store_id'])){
 		update_post_meta( $order_id, 'pickup_store_id', $_POST['pickup_store_id']);
+		cc_notify_selected_store($order_id);
 		}
-	
-	
 	}
+
+
+/*
+Function to send the notification email to respective store email address when order is generated
+*/
+add_action( 'woocommerce_payment_complete', 'cc_notify_selected_store', 10, 1 ); 
+function cc_notify_selected_store($order_id){
+	global $woocommerce;
+	$order = new WC_Order( $order_id );
+	ob_start();
+wc_get_template( 'emails/email-header.php',array('email_heading'=>'New Order Received'));
+wc_get_template( 'order/order-details.php', array('order_id'=>$order_id));
+?>
+<div class="shipping_info col-md-6">
+<h3> Shipping Address </h3>
+<?php echo $order->get_formatted_shipping_address();?>
+</div>
+
+<?php
+wc_get_template( 'emails/email-footer.php');
+
+$selected_store = get_post_meta($order_id,'pickup_store_id',true);
+if($selected_store){
+	$to = get_post_meta($selected_store,'wpsl_email',true);
+	if($to =='' || !$to){
+		$to = get_option('admin_email');
+		}
+	$message = ob_get_clean();
+	if($to){
+	(wc_mail( $to, 'New Order Received', $message, $headers = "Content-Type: text/htmlrn", $attachments = "" ));
+	}
+}
+
+//do_action('pr',$message);
+}
+	
+		
+		
