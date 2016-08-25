@@ -111,11 +111,7 @@
 	/* Text Transform uppercase End*/
 
 	/* Proxima Nova Font Bold */
-<<<<<<< HEAD
-	.rmblk_cont h3, .inner_cont h4, .quest_cont h4, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .calspl a, .error-wrapper h1, .error-wrapper h3, .error-wrapper  h4, .back-text{
-=======
-	.rmblk_cont h3, .inner_cont h4, .quest_cont h4, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .calspl a{
->>>>>>> 9bee6e20b4685db39ff831e560b1c41ea4b63e39
+	.rmblk_cont h3, .inner_cont h4, .quest_cont h4, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .calspl a, .error-wrapper h1, .error-wrapper h3, .error-wrapper  h4, .back-text, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .calspl a{
 		font-family: 'ProximaN Bold';
 	}
 	/* Proxima Nova Font Bold End */

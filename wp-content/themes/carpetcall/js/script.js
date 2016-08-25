@@ -326,7 +326,13 @@
         e.preventDefault();
         $('#product-side-filter').removeClass('open-sidebar');
       });
+    }
 
+    // Close accordion of Sidebar in Mobile
+    if($('#accordion-color').length){
+      if($(window).innerWidth()<=800){
+        $('#accordion-color').find('.panel-collapse').removeClass('in');
+      }
     }
 
   });
