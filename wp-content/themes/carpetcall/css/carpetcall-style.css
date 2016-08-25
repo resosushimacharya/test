@@ -710,7 +710,7 @@ ul#directory_list_id li {
 	border: 1px solid #d1ddf1;
 	background: #fff;
 	border-radius: 0;
-	z-index: 10;
+	z-index: 101;
 }
 .slider .slick-next {
 	right: 23%;
@@ -719,7 +719,7 @@ ul#directory_list_id li {
 	border: 1px solid #d1ddf1;
 	background: #fff;
 	border-radius: 0;
-	z-index: 10;
+	z-index: 101;
 }
 .slider .slick-dots li.slick-active button:before {
 	opacity: 1;
@@ -3551,7 +3551,7 @@ ul.cc-color-var-item {
 	border-bottom: 1px solid #144a9f;
 	padding-bottom: 7px;
 }
-.col-md-6.cc-cat-sub-title {
+.cc-cat-sub-title {
 	padding-left: 0;
 }
 .cc-cat-sub-title h4 {
@@ -3570,7 +3570,7 @@ ul.cc-color-var-item {
 	border: 0;
 	padding: 0;
 }
-.col-md-6.cc-cat-sub-price {
+.cc-cat-sub-price {
 	padding-right: 0;
 	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
 	color: #15489f;
@@ -3579,7 +3579,7 @@ ul.cc-color-var-item {
 	text-transform: uppercase;
 	margin: 34px 0 0px 0;
 }
-.col-md-6.cc-cat-sub-price span {
+.cc-cat-sub-price span {
 	font-size: 28px;
 }
 .row.cc-cat-sub-carousal-a {
