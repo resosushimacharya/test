@@ -101,6 +101,7 @@
         
       </h4>
     </div>
+    
     <div id="collapse_price" class="panel-collapse collapse in">
       <div class="panel-body">
         <div class="cc-price-var-items">
