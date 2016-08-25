@@ -20,7 +20,7 @@
 	}
 	
 	/* Display none goes here */
-	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i, #main nav.woocommerce-breadcrumb, .cc-color-var-section > h3{
+	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i, #main nav.woocommerce-breadcrumb, .cc-color-var-section > h3, .cc-ia-content h4, .cc-ia-banner, .inerblock_sec_a, .inerblock_clearn .breadcrumbs{
 		display: none;
 	}
 	/* Display none ends here */
@@ -44,37 +44,37 @@
 	/* Font-size 24px; End */
 
 	/* Font-size 28px; */
-	.cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a, #cssmenu ul li ul li a, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a, .ptxt h3 a, .mycrt_blk, .cc-cat-title-count, ul.guide_list_cbg li a, .cc-price-var-items form .checkbox label{
+	.cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a, #cssmenu ul li ul li a, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a, .ptxt h3 a, .mycrt_blk, .cc-cat-title-count, ul.guide_list_cbg li a, .cc-price-var-items form .checkbox label, ul.cat_list li .fa, .cc-ia-more ul li .fa{
 		font-size: 28px;
 	}
 	/* Font-size 28px; End */
 
 	/* Font-size 30px; */
-	.cptspl{
+	.cptspl, ul.cat_list li a, .cc-ia-more ul li a{
 		font-size: 30px;
 	}
 	/* Font-size 30px; End */
 
 	/* Font-size 32px; */
-	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .measr_cnt h3, .intro p, .rmoree a, #main.sec_head_cntr p, .cc-product-sort li a, .cc-count-label, .filter-go-back, .cc-pro-sub-cat-ul.guide_list_cbg h3, .panel-title>a{
+	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .measr_cnt h3, .intro p, .rmoree a, #main.sec_head_cntr p, .cc-product-sort li a, .cc-count-label, .filter-go-back, .cc-pro-sub-cat-ul.guide_list_cbg h3, .panel-title>a, .cc-ia-content p, .all-items-blk p, .inerblock_clearn p{
 		font-size: 32px;
 	}
 	/* Font-size 32px; End */
 
 	/* Font-size 36px; */
-	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .error-wrapper  h4, .mobile-filter-sec .cc-cat-title-count, .cc-cat-pro-section-left .glyphicon-chevron-up:before, .meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .error-wrapper  h4, .page-sorry .error-wrapper button a{
+	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .error-wrapper  h4, .mobile-filter-sec .cc-cat-title-count, .cc-cat-pro-section-left .glyphicon-chevron-up:before, .meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .error-wrapper h4, .page-sorry .error-wrapper button a{
 		font-size: 36px;
 	}
 	/* Font-size 36px; End */
 
 	/* Font-size 48px; */
-	.bookcbk, .calspl a, .error-wrapper h3{
+	.bookcbk, .calspl a, .error-wrapper h3, .all-items-blk a h3, .cc-ia-more .all-items-blk h3 {
 		font-size: 48px;
 	}
 	/* Font-size 48px; End */
 
 	/* Font-size 72px; */
-	.sec_head_cntr h3{
+	.sec_head_cntr h3, .cc-ia-content h1, .inerblock_clearn h3{
 		font-size: 72px;
 		border: none;
 	}
@@ -117,7 +117,7 @@
 	/* Proxima Nova Font Bold End */
 	
 	/* Proxima Nova Font SemiBold */
-	.error-wrapper h3, .error-wrapper  h4, .page-sorry .error-wrapper button a{
+	.error-wrapper h3, .error-wrapper h4, .page-sorry .error-wrapper button a{
 		font-family: 'proxima_nova_ltsemibold';
 	}
 	/* Proxima Nova Font SemiBold End */
@@ -912,6 +912,60 @@
 	}
 
 	/* === 404 PAGE End === */
+	
+	/* === Ideas & Advice PAGE === */
+	
+	.cc-ia-content {
+		padding:0 20px;
+		text-align:center;	
+	}
+	
+	 .cc-ia-content h1 {
+		margin:50px 0 37px 0; 
+		text-align:left;
+	 }
+	 .cc-ia-content p {
+		margin:0 auto 56px;
+		text-align:left;
+		color:#666666;
+		line-height:42px;
+		font-weight:normal; 
+	 }
+	 
+	 .all-items-blk p {
+		 line-height:42px;
+		 text-align:left;
+	 }
+	
+	ul.cat_list li a {
+		line-height:48px;
+	}
+	
+	.cc-ia-more {
+		width:100%;
+	}
+	
+	.cc-ia-more ul li .fa {
+		margin-top:0;
+	}
+	
+	/* === Ideas & Advice End === */
+	
+	/* === CLEARANCE PAGE === */
+	
+	.inerblock_clearn h3 {
+		margin:45px 0 36px 0;	
+	}
+	.inerblock_clearn p {
+		margin:0 0 38px 0;
+		line-height:42px;
+	}
+	.col-md-4.cc-clearance-left:nth-child(1) {
+		width:100%;	
+		padding:0;
+	}
+	
+	/* === CLEARANCE End === */
 
 	/* === MAIN CATEGORY PAGE === */
 	/* Categoty Head */
@@ -1281,16 +1335,22 @@
 	/* Font-size 24px; End */
 
 	/* Font-size 24px; */
-	.cptspl{
+	.cptspl, ul.cat_list li .fa, .cc-ia-more ul li .fa{
 		font-size: 24px;
 	}
 	/* Font-size 24px; End */
 
 	/* Font-size 26px; */
-	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .measr_cnt h3, .intro p, .rmoree a, .loplc h3{
+	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .measr_cnt h3, .intro p, .rmoree a, .loplc h3, .all-items-blk p, ul.cat_list li a, .cc-ia-more ul li a{
 		font-size: 26px;
 	}
 	/* Font-size 26px; End */
+	
+	/* Font-size 28px; */
+	.cc-ia-content p {
+		font-size:28px;	
+	}
+	/* Font-size 28px; End */
 
 	/* Font-size 32px; */
 	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a{
@@ -1299,16 +1359,28 @@
 	/* Font-size 32px; End */
 	
 	/* Font-size 34px; */
-	.error-wrapper h3 {
+	.error-wrapper h3, .error-wrapper h4 {
 		font-size:34px;	
 	}
 	/* Font-size 34px; End */
 
 	/* Font-size 42px; */
-	.bookcbk, .calspl a{
-		font-size: 40px;
+	.bookcbk, .calspl a, .error-wrapper h3, .cc-ia-content h1, .all-items-blk a h3, .cc-ia-more .all-items-blk h3{
+		font-size: 42px;
 	}
 	/* Font-size 42px; End */
+	
+	/* Font-size 48px; */
+	 .cc-ia-content h1{
+		font-size: 48px;
+	}
+	/* Font-size 48px; End */
+	
+	/* Font-size 138px; */
+	.error-wrapper h1 {
+		font-size:138px;
+	}	
+	/* Font-size 138px; End */
 	
 	/* Big buttons */
 	.cptinn a, .find_tbb a{
@@ -1631,16 +1703,26 @@
 	}
 	
 	.page-sorry .error-wrapper button {
-		margin:38px auto 121px;
+		margin:38px auto 38px;
 		display:block;
 		width:100%;
 	}
 	.page-sorry .error-wrapper button a {
-		padding:33px 0;
+		padding:25px 0;
 		display:block;
 	}
 	
 	/* === 404 PAGE End === */
+	
+	/* === Ideas & Advice PAGE === */
+	.cc-ia-content p {
+		line-height:38px;
+	}
+	.cc-ia-more ul li .fa {
+		margin-top:0;
+	}
+	
+	/* === Ideas & Advice PAGE End === */
 
 
 	/* ===== FOOTER ===== */	
@@ -1688,6 +1770,64 @@
 
 @media only screen and (max-width: 480px){
 	
+	/* === 404 PAGE === */
+	
+	/* Font-size 25px; */
+	.cc-ia-content p, .all-items-blk p, ul.cat_list li a, .cc-ia-more ul li a {
+		font-size:25px;	
+	}
+	/* Font-size 25px; End */
+	
+	/* Font-size 27px; */
+	.error-wrapper h4 {
+		font-size:27px;	
+	}
+	/* Font-size 27px; End */	
+
+	/* Font-size 34px; */
+	.error-wrapper h3, .page-sorry .error-wrapper button a, .all-items-blk a h3, .cc-ia-more .all-items-blk h3{
+		font-size: 34px;
+	}
+	/* Font-size 34px; End */	
+	
+	/* Font-size 48px; */
+	.cc-ia-content h1 {
+		font-size:48px;
+	}
+	/* Font-size 48px;  End */
+	
+	/* Font-size 128px; */
+	.error-wrapper h1 {
+		font-size:128px;
+	}	
+	/* Font-size 128px; End */
+	
+	.error-wrapper h1 {
+		margin:60px 0 20px 0;
+	}
+	
+	.error-wrapper h3 {
+		text-align:center;
+		margin:0 auto 25px;
+	}
+	
+	/* === 404 PAGE End === */
+	
+	
+	/* === Ideas & Advice PAGE === */
+	
+	.cc-ia-content h1 {
+		text-align:left;
+		margin:50px 0 20px 0;
+	}
+	
+	.cc-ia-content p, .all-items-blk p, ul.cat_list li a {
+		line-height:32px;	
+	}
+	
+	/* === Ideas & Advice PAGE End === */
+	
+	
 }
 
 /* ============= 480px Ends ============= */
@@ -1700,47 +1840,45 @@
 		margin-top: 240px;
 	}	
 
-	/* Font-size 16px; */
+	/* Font-size 14px; */
 	.cpyrt{
 		font-size: 14px;
 	}
-	/* Font-size 16px; End */
+	/* Font-size 14px; End */
 	
-	/* Font-size 18px; */
+	/* Font-size 16px; */
 	.suptlst li, .aag p, .aag_a p, .aag_c p, .ptxt h4, .ptxt h5, .nowspp a, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .searchm .form-control, .selected-link-cntr span.selected_main_link a, .crt_pname h2, .crt_pname h3, .crt_price h4, .crt_pname h5, .view_cc a, .check_crtt a{
 		font-size: 16px;
 	}
-	/* Font-size 18px; End */
+	/* Font-size 16px; End */
+	
 
-	/* Font-size 24px; */
-	.cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a, #cssmenu ul li ul li a, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a, .ptxt h3 a, .mycrt_blk, #cssmenu > ul > li > a{
+	/* Font-size 20px; */
+	.cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a, #cssmenu ul li ul li a, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a, .ptxt h3 a, .mycrt_blk, #cssmenu > ul, .cptspl > li > a, .cc-ia-content p, .all-items-blk p, ul.cat_list li a, ul.cat_list li .fa, .cc-ia-more ul li a, .cc-ia-more ul li .fa{
 		font-size: 20px;
 	}
-	/* Font-size 24px; End */
+	/* Font-size 20px; End */
+
+	
 
 	/* Font-size 24px; */
-	.cptspl{
-		font-size: 20px;
-	}
-	/* Font-size 24px; End */
-
-	/* Font-size 26px; */
-	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .measr_cnt h3, .intro p, .rmoree a, .loplc h3{
+	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .measr_cnt h3, .intro p, .rmoree a, .loplc h3, .error-wrapper h4{
 		font-size: 24px;
 	}
-	/* Font-size 26px; End */
+	/* Font-size 24px; End */
+	
 
 	/* Font-size 32px; */
-	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a{
+	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .page-sorry .error-wrapper button a{
 		font-size: 28px;
 	}
 	/* Font-size 32px; End */
 
-	/* Font-size 42px; */
-	.bookcbk, .calspl a{
+	/* Font-size 36px; */
+	.bookcbk, .calspl a, .cc-ia-content h1{
 		font-size: 36px;
 	}
-	/* Font-size 42px; End */
+	/* Font-size 36px; End */
 	
 	/* Big buttons */
 	.cptinn a, .find_tbb a{
@@ -2059,47 +2197,48 @@
 		margin-top: 240px;
 	}	
 
-	/* Font-size 16px; */
+	/* Font-size 14px; */
 	.cpyrt{
 		font-size: 14px;
 	}
-	/* Font-size 16px; End */
+	/* Font-size 14px; End */
 	
-	/* Font-size 18px; */
-	.suptlst li, .aag p, .aag_a p, .aag_c p, .ptxt h4, .ptxt h5, .nowspp a, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .searchm .form-control, .selected-link-cntr span.selected_main_link a, .crt_pname h2, .crt_pname h3, .crt_price h4, .crt_pname h5, .view_cc a, .check_crtt a{
+	/* Font-size 16px; */
+	.suptlst li, .aag p, .aag_a p, .aag_c p, .ptxt h4, .ptxt h5, .nowspp a, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .searchm .form-control, .selected-link-cntr span.selected_main_link a, .crt_pname h2, .crt_pname h3, .crt_price h4, .crt_pname h5, .view_cc a, .check_crtt a, .cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a, #cssmenu ul li ul li a, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a, .ptxt h3 a, .mycrt_blk, #cssmenu > ul > li > a, .cptspl{
 		font-size: 16px;
+	}
+	/* Font-size 16px; End */
+
+	/* Font-size 18px; */
+	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .measr_cnt h3, .intro p, .rmoree a, .loplc h3, .error-wrapper h4, .cc-ia-content p, .all-items-blk p, ul.cat_list li a, .cc-ia-more ul li a{
+		font-size: 18px;
 	}
 	/* Font-size 18px; End */
 
 	/* Font-size 24px; */
-	.cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a, #cssmenu ul li ul li a, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a, .ptxt h3 a, .mycrt_blk, #cssmenu > ul > li > a{
-		font-size: 16px;
+	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .error-wrapper h3, .page-sorry .error-wrapper button a{
+		font-size: 24px;
 	}
 	/* Font-size 24px; End */
-
-	/* Font-size 24px; */
-	.cptspl{
-		font-size: 16px;
-	}
-	/* Font-size 24px; End */
-
+	
 	/* Font-size 26px; */
-	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .measr_cnt h3, .intro p, .rmoree a, .loplc h3{
-		font-size: 18px;
+	.all-items-blk a h3, .cc-ia-more .all-items-blk h3 {
+		font-size:26px;
 	}
 	/* Font-size 26px; End */
 
-	/* Font-size 32px; */
-	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a{
-		font-size: 24px;
-	}
-	/* Font-size 32px; End */
-
-	/* Font-size 42px; */
-	.bookcbk, .calspl a{
+	/* Font-size 30px; */
+	.bookcbk, .calspl a, .cc-ia-content h1{
 		font-size: 30px;
 	}
-	/* Font-size 42px; End */
+	/* Font-size 30px; End */
+	
+	/* Font-size 100px; */
+	.error-wrapper h1 {
+		font-size:100px;
+	}	
+	/* Font-size 100px; End */
+
 	
 	/* Big buttons */
 	.cptinn a, .find_tbb a{
@@ -2216,6 +2355,36 @@
 	/* Home Map End */
 
 	/* === HOME PAGE End === */
+	
+	/* === 404 Page === */
+	.error-wrapper h1 {
+	margin:40px 0 20px 0;	
+	}
+	
+	.page-sorry .error-wrapper button {
+		margin:30px auto 20px;
+	}
+	
+	.page-sorry .error-wrapper button a {
+	padding:16px 0;	
+	}
+	
+	/* === 404 Page End === */
+	
+	/* === Ideas & Advice Page === */
+	.cc-ia-content h1 {
+	margin:20px 0 15px;	
+	}
+	
+	.cc-ia-content p {
+		line-height:26px;
+		margin-bottom:25px;
+	}
+	
+	.all-items-blk p {
+		line-height:26px;
+	}
+	/* === Ideas & Advice Page End === */
 
 	/* ===== FOOTER ===== */
 	.gtku{
