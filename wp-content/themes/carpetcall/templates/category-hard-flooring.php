@@ -53,7 +53,7 @@ if(get_term_meta($current_cat->term_id,'cat_top_description',true) && $depth == 
       </div>
     </div>
     <div class="container">
-      <div class="tophead_sec col-md-12 no-lr">
+      <div class="tophead_sec col-md-12 no-lr clearfix">
         <?php $term_id =  get_queried_object()->term_id;
 $currentcat = get_queried_object();
  
@@ -61,8 +61,8 @@ $currentcat = get_queried_object();
         <div class="rugm-blk col-md-6 no-pl">
           <p> <span class="cc-cat-title-count"> <span class="post_count"><?php echo $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
         </div>
-        <div class="col-md-6 no-pr">
-          <div class="pull-right cc-product-sort">
+        <div class="col-md-6 no-pr clearfix cat-sort-by-cntr">
+          <div class="cc-product-sort">
             <ul>
               <li class="sort_key"> <span class="cc-count-label">Sort by:</span></li>
               <li class="sort_key"> <a href="javascript:void(0)" sort="popular">Popularity</a> </li>
