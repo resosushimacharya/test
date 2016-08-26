@@ -98,6 +98,7 @@ function readCSV($csvFile)
 */
 function  csv_import_rugs($csv,$appcat)
 {
+	set_time_limit(0) ;
 	$exist = get_page_by_title( $csv[1], OBJECT, 'product' );
 
 	if($csv)
@@ -183,112 +184,62 @@ function  csv_import_rugs($csv,$appcat)
 		update_post_meta( $new_post_id, '_height', $height);
 		update_post_meta( $new_post_id, '_featured', 'no' );
 	    update_post_meta($new_post_id,'discount',$csv[17]);
-		$url= 'http://www.carpetcall.com.au/downloads/Image/products/large/';
-			$url= site_url().'/wp-content/uploads/products/';
-		$swatch = $url.$csv[20].'.jpg';
-		$life = $url.$csv[21].'.jpg';
-		$side = $url.$csv[19].'.jpg';
 		
+			$url= site_url().'/wp-content/uploads/products/';
+               
+
+				$img_arr=array(
+						'life' => $csv[21].'.jpg',
+						'side' => $csv[19].'.jpg',
+						'swatch' => $csv[20].'.jpg'						
+					);
+   
+		
+		
+	
 		require_once(ABSPATH . 'wp-admin/includes/file.php');
 		require_once(ABSPATH . 'wp-admin/includes/media.php');
 		require_once(ABSPATH . "wp-admin" . '/includes/image.php');
-		$tmp = download_url($life);
-		$x=4;
-		if ( is_wp_error( $tmp ) )
-	 	{ $tmp = download_url($side);
-	 		$life = $side;
-	 		if ( is_wp_error( $tmp ) ){
-	 			$tmp = download_url($swatch);
-	 			$life = $swatch;
-	 			
-	 		}
-	      $x=5;
-	 	}
-		$image_id=array();
-		preg_match('/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/', $life, $matches);
-		$file_array['name'] = basename($matches[0]);
-		$file_array['tmp_name'] = $tmp;
-		if ( is_wp_error( $tmp ) )
-	 	{ 
-	
-			@unlink($file_array['tmp_name']);
-
-			
-			$file_array['tmp_name'] = '';
-		}
-					
-					
-		$thumbid = media_handle_sideload( $file_array, $new_post_id, basename($matches[0], '.jpg') );
-					
-		if ( is_wp_error($thumbid) ) 
-		{
-		
-			@unlink($file_array['tmp_name']);
-					
-		}
-					
-		$set = set_post_thumbnail($new_post_id, $thumbid);
-		if(!is_wp_error($thumbid) && ($x!=5))
-		{
-			$image_id[]=$thumbid;
-		}
+		//$tmp = download_url($life);
 
 
-		$tmp = download_url( $side );
-	
+		// Get the path to the upload directory.
+$wp_upload_dir = wp_upload_dir();
+//var_dump($wp_upload_dir);
+$file_loc= $wp_upload_dir['basedir'] ."/products/";
+$set_fea_img=false;
+$image_id=array();
+foreach($img_arr as $img){
+	if(file_exists($file_loc.$img)){
 
-		preg_match('/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/',  $side , $matches);
-		$file_array['name'] = basename($matches[0]);
-		$file_array['tmp_name'] = $tmp;
-					
-		if ( is_wp_error( $tmp ) ) 
-		{
-			@unlink($file_array['tmp_name']);
-			$file_array['tmp_name'] = '';
-		}
-					
-				
-		$thumbid = media_handle_sideload( $file_array, $new_post_id, basename($matches[0], '.jpg') );
-					
-		if ( is_wp_error($thumbid) )
-	 	{
-			@unlink($file_array['tmp_name']);
-					
-		}
-					
-		if(!is_wp_error($thumbid))
-		{
-			$image_id[]=$thumbid;
-		}
+				// Check the type of file. We'll use this as the 'post_mime_type'.
+				$filetype = wp_check_filetype( basename( $url.$img ), null );
+				// Prepare an array of post data for the attachment.
+				$attachment = array(
+					'guid'           =>$url.$img, 
+					'post_mime_type' => $filetype['type'],
+					'post_title'     => preg_replace( '/\.[^.]+$/', '', $csv[19] ),
+					'post_content'   => '',
+					'post_status'    => 'inherit'
+				);
+
+				// Insert the attachment.
+				$attach_id = wp_insert_attachment( $attachment,$file_loc.$img, $new_post_id );
+				// Generate the metadata for the attachment, and update the database record.
+				$attach_data = wp_generate_attachment_metadata( $attach_id,  $file_loc.$img);
+				wp_update_attachment_metadata( $attach_id, $attach_data );
+				if(!$set_fea_img){
+					set_post_thumbnail( $new_post_id, $attach_id );
+				}
+				$set_fea_img=true;
+				$image_id[]=$attach_id ;
+
+	}
+
+}
+update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id));
 
 
-		$tmp = download_url( $swatch );
-	
-		preg_match('/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/', $swatch , $matches);
-		$file_array['name'] = basename($matches[0]);
-		$file_array['tmp_name'] = $tmp;
-					
-		if ( is_wp_error( $tmp ) )
-		{
-			@unlink($file_array['tmp_name']);
-			$file_array['tmp_name'] = '';
-		}
-					
-					
-		$thumbid = media_handle_sideload( $file_array, $new_post_id, basename($matches[0], '.jpg') );
-				
-		if ( is_wp_error($thumbid) )
-		{
-			@unlink($file_array['tmp_name']);
-					
-		}
-					
-		if(!is_wp_error($thumbid))
-		{
-			$image_id[]=$thumbid;
-		}
-	   			
-		update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id));
 		echo 'Rugs Product '.$csv[1].' imported</br>';
 
 	}
@@ -306,6 +257,7 @@ function  csv_import_rugs($csv,$appcat)
 */
 	function  csv_import_hard_flooring($csv,$appcat)
 {   
+	set_time_limit(0) ;
 	$exist = get_page_by_title( $csv[1], OBJECT, 'product' );
 
 	if($csv)
@@ -399,7 +351,7 @@ function  csv_import_rugs($csv,$appcat)
 		update_post_meta( $new_post_id, 'surface_finish', $csv[29] );
 		update_post_meta( $new_post_id, 'janka_rating', $csv[30] );
         update_post_meta( $new_post_id, 'structural_warranty', $csv[31] );
-        \update_post_meta( $new_post_id, 'wear_layer_warranty', $csv[32] );
+        update_post_meta( $new_post_id, 'wear_layer_warranty', $csv[32] );
         update_post_meta( $new_post_id, 'construction_style', $csv[33] );
         update_post_meta( $new_post_id, 'recommended_use', $csv[34] );
         update_post_meta( $new_post_id, 'care_instructions', $csv[35] );
@@ -434,112 +386,61 @@ function  csv_import_rugs($csv,$appcat)
 		update_post_meta( $new_post_id, 'product_thickness_veneer', $csv[14]);
 		update_post_meta( $new_post_id, '_featured', 'no' );
 	    update_post_meta($new_post_id,'discount',$csv[17]);
-		$url= 'http://www.carpetcall.com.au/downloads/Image/products/large/';
-		$url= site_url().'/wp-content/uploads/products/';
-		$swatch = $url.$csv[48].'.jpg';
-		$life = $url.$csv[47].'.jpg';
-		$side = $url.$csv[46].'.jpg';
-		
+	
+	  
+			$url= site_url().'/wp-content/uploads/products/';
+               
+
+				$img_arr=array(
+						'life' => $csv[47].'.jpg',
+						'side' => $csv[46].'.jpg',
+						'swatch' => $csv[48].'.jpg'						
+					);
+   
+	
+	
 		require_once(ABSPATH . 'wp-admin/includes/file.php');
 		require_once(ABSPATH . 'wp-admin/includes/media.php');
 		require_once(ABSPATH . "wp-admin" . '/includes/image.php');
-		$tmp = download_url($life);
-		$x=4;
-		if ( is_wp_error( $tmp ) )
-	 	{ $tmp = download_url($side);
-	 		$life = $side;
-	 		if ( is_wp_error( $tmp ) ){
-	 			$tmp = download_url($swatch);
-	 			$life = $swatch;
-	 			
-	 		}
-	      $x=5;
-	 	}
-		$image_id=array();
-		preg_match('/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/', $life, $matches);
-		$file_array['name'] = basename($matches[0]);
-		$file_array['tmp_name'] = $tmp;
-		if ( is_wp_error( $tmp ) )
-	 	{ 
-	
-			@unlink($file_array['tmp_name']);
-
-			
-			$file_array['tmp_name'] = '';
-		}
-					
-					
-		$thumbid = media_handle_sideload( $file_array, $new_post_id, basename($matches[0], '.jpg') );
-					
-		if ( is_wp_error($thumbid) ) 
-		{
-		
-			@unlink($file_array['tmp_name']);
-					
-		}
-					
-		$set = set_post_thumbnail($new_post_id, $thumbid);
-		if(!is_wp_error($thumbid) && ($x!=5))
-		{
-			$image_id[]=$thumbid;
-		}
+		//$tmp = download_url($life);
 
 
-		$tmp = download_url( $side );
-	
+		// Get the path to the upload directory.
+$wp_upload_dir = wp_upload_dir();
+//var_dump($wp_upload_dir);
+$file_loc= $wp_upload_dir['basedir'] ."/products/";
+$set_fea_img=false;
+$image_id=array();
+foreach($img_arr as $img){
+	if(file_exists($file_loc.$img)){
 
-		preg_match('/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/',  $side , $matches);
-		$file_array['name'] = basename($matches[0]);
-		$file_array['tmp_name'] = $tmp;
-					
-		if ( is_wp_error( $tmp ) ) 
-		{
-			@unlink($file_array['tmp_name']);
-			$file_array['tmp_name'] = '';
-		}
-					
-				
-		$thumbid = media_handle_sideload( $file_array, $new_post_id, basename($matches[0], '.jpg') );
-					
-		if ( is_wp_error($thumbid) )
-	 	{
-			@unlink($file_array['tmp_name']);
-					
-		}
-					
-		if(!is_wp_error($thumbid))
-		{
-			$image_id[]=$thumbid;
-		}
+				// Check the type of file. We'll use this as the 'post_mime_type'.
+				$filetype = wp_check_filetype( basename( $url.$img ), null );
+				// Prepare an array of post data for the attachment.
+				$attachment = array(
+					'guid'           =>$url.$img, 
+					'post_mime_type' => $filetype['type'],
+					'post_title'     => preg_replace( '/\.[^.]+$/', '', $csv[19] ),
+					'post_content'   => '',
+					'post_status'    => 'inherit'
+				);
 
+				// Insert the attachment.
+				$attach_id = wp_insert_attachment( $attachment,$file_loc.$img, $new_post_id );
+				// Generate the metadata for the attachment, and update the database record.
+				$attach_data = wp_generate_attachment_metadata( $attach_id,  $file_loc.$img);
+				wp_update_attachment_metadata( $attach_id, $attach_data );
+				if(!$set_fea_img){
+					set_post_thumbnail( $new_post_id, $attach_id );
+				}
+				$set_fea_img=true;
+				$image_id[]=$attach_id ;
 
-		$tmp = download_url( $swatch );
-	
-		preg_match('/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/', $swatch , $matches);
-		$file_array['name'] = basename($matches[0]);
-		$file_array['tmp_name'] = $tmp;
-					
-		if ( is_wp_error( $tmp ) )
-		{
-			@unlink($file_array['tmp_name']);
-			$file_array['tmp_name'] = '';
-		}
-					
-					
-		$thumbid = media_handle_sideload( $file_array, $new_post_id, basename($matches[0], '.jpg') );
-				
-		if ( is_wp_error($thumbid) )
-		{
-			@unlink($file_array['tmp_name']);
-					
-		}
-					
-		if(!is_wp_error($thumbid))
-		{
-			$image_id[]=$thumbid;
-		}
-	   			
-		update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id));
+	}
+
+}
+update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id));
+
 		echo 'Hard Flooring Product '.$csv[1].' imported</br>';
 	}
 	else  
@@ -561,7 +462,7 @@ function css_products_import()
 	       $counter=1;
     for($counter=1;$counter<=3;$counter++){
 		if($counter==1){
-			$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/wp-content/uploads/csvfolder/rugs.csv';
+			$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/csvfolder/rugs.csv';
 		   $appcat = "rugs";
 			echo $new_rugs_file;
 				
@@ -618,7 +519,7 @@ function css_products_import()
 	}
 	elseif($counter==2){
 $mimes = array('application/vnd.ms-excel');	
-		$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/wp-content/uploads/csvfolder/hard-flooring.csv';
+		$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/csvfolder/hard-flooring.csv';
 		     $appcats = "hard-flooring";
 			echo $new_rugs_file;
 				
