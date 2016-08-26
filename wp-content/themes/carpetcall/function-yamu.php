@@ -350,7 +350,7 @@ function show_category_slider_block($args){
 						}
 						if($pch==1){
 							$res = get_post_meta($filloop->post->ID ,'_regular_price',true);
-							echo '<div class="col-md-6 cc-cat-sub-price">From <span>A$'.$res.'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
+							echo '<div class="col-md-6 cc-cat-sub-price">From <span>$'.$res.'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
 						$pch++;
 						}
 						if($slidercounter<=5){
@@ -358,9 +358,11 @@ function show_category_slider_block($args){
 								echo '<div class="cat_slider">';
 							}
 							?>
+							<a href="<?php the_permalink();?>">
 							<div class="cat_slider_item ">
 							<div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image;?>)"></div>
 							</div>
+							</a>
 							<?php 
 							if($slidercounter==5 || $slidercounter==$filloop->post_count){
 								echo '</div>';
@@ -581,10 +583,10 @@ function loadmore_hf($args){
 								if($slidercounter==1){
 									echo '<div class="cat_slider">';
 								}
-								?>
+								?><a href="<?php the_permalink();?>">
 								<div class="cat_slider_item ">
 								<div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image ;?>)"></div>
-								</div>
+								</div></a>
 								<?php 
 								if($slidercounter==5 || $slidercounter==$filloop->post_count){
 									echo '</div>';

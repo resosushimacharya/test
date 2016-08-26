@@ -473,3 +473,14 @@ function custom_admin_marker_dir() {
     return $admin_marker_dir;
 }
 define( 'WPSL_MARKER_URI', dirname( get_bloginfo( 'stylesheet_url') ) . '/images/markers/' );
+
+
+// Add action to hook into the approp
+add_filter( 'woocommerce_placeholder_img_src', 'growdev_custom_woocommerce_placeholder', 10 );
+/**
+ * Function to return new placeholder image URL.
+ */
+function growdev_custom_woocommerce_placeholder( $image_url ) {
+  $image_url = get_template_directory_uri().'/images/placeholder.png';  // change this to the URL to your custom placeholder
+  return $image_url;
+}
