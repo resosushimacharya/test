@@ -128,7 +128,6 @@
 	/* ===== HEADER ===== */	
 	.banner{
 		padding-top: 0;
-		display: none;
 	}
 	.banner .col-md-12{
 		padding: 0;
@@ -1016,7 +1015,7 @@
 		font-size:32px !important;
 		line-height:38px !important;	
 	}
-	.cc-clearance-row:nth-child(1) .cc-clearance-right .nowspe {
+	.cc-clearance-row:nth-child(1) .cc-clearance-right .nowspe,  .cc-clearance-row:nth-child(3) .cc-clearance-right .nowspe, .nowspe {
 		width:100%;	
 		height:auto;
 		
@@ -1024,7 +1023,7 @@
 	.pull-right {
 		float:none !important;
 	}
-	.nowsppe a {
+	.nowsppe a, .cc-clearance-row:nth-child(3) .cc-clearance-right .nowspe a {
 		padding:13px 0;
 		text-align:center;
 		font-size:36px;
@@ -1032,6 +1031,8 @@
 	.cc-clearance-left iframe {
 		height:352px;
 	}
+	
+	
 	
 	/* === CLEARANCE End === */
 
