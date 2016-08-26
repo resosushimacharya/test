@@ -1002,15 +1002,19 @@ function get_nearby_stores($args)
 {
   global $wpdb;
 if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-	  $lat=$_POST['latitude'];
-	  $long=$_POST['longitude'];
+	  if(isset($_POST['latitude'])){ 
+	  		$lat=$_POST['latitude'];
+		}
+	   if(isset($_POST['longitude'])){
+		   $long=$_POST['longitude'];
+		}
 	  if(isset($_POST['address'])){
 		  $address = str_replace(' ','+',$_POST['address']);
 		  }
 	}else{
-	  $lat=$args['latitude'];
-	  $long=$args['longitude'];
-	  $address = str_replace(' ','+',$args['address']);
+	  $lat=isset($args['latitude'])?$args['latitude']:'';
+	  $long=isset($args['longitude'])?$args['longitude']:'';
+	  $address = isset($args['address'])?str_replace(' ','+',$args['address']):'';
 	}
 if($lat==''|| $long == '' && $address !=''){
 	$geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$address.'&sensor=false');
@@ -1193,3 +1197,9 @@ function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
 	return $url;
 }
 add_filter( 'post_type_link', 'cc_custom_proudcts_url', 10, 3 );	
+
+//global $woocommerce;
+//$order_id = 3305;
+//$shipping = '';
+//$order = new WC_Order( $order_id );
+//$order->add_shipping($shipping);

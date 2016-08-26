@@ -1762,6 +1762,16 @@ ul.guide_list_cbg li.current_page_item a {
 .ab_arrow {
 	font-size: 25px; /*margin-right:6px;*/
 }
+.ab_arrow a{
+	color: #15489f;
+	cursor: default;
+}
+.ab_arrow a:hover{
+	text-decoration: none;
+}
+.ab_arrow a b{
+	display: none;
+}
 .inerblock_serc_child h1 a  {
 	font: bold 36px 'proxima_nova_ltsemibold', sans-serif;
 	color: #15489f;
