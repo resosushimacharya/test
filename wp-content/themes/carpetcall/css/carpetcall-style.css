@@ -3546,7 +3546,7 @@ ul.cc-color-var-item {
 .proabtxt a:hover {
 	cursor: pointer;
 }
-.row.cc-cat-sub-title-price-cover {
+.cc-cat-sub-title-price-cover {
 	margin: 0;
 	border-bottom: 1px solid #144a9f;
 	padding-bottom: 7px;
@@ -3582,8 +3582,8 @@ ul.cc-color-var-item {
 .cc-cat-sub-price span {
 	font-size: 28px;
 }
-.row.cc-cat-sub-carousal-a {
-	margin: 12px 0;
+.cc-cat-sub-carousal-a {
+	margin: 12px 0 0;
 }
 .cat_slider_item_image {
 	background-repeat: no-repeat;
