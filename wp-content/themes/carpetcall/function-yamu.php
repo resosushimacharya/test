@@ -153,7 +153,6 @@ function show_category_slider_block($args){
 		'sort_by'	=>'price',
 		'sort_order'=>'DESC',
 		'depth'=>0,
-		'child_cat_count' =>1,
 		'color'	=>'',
 		'size'	=>'',
 		'price'	=>'',
@@ -187,9 +186,7 @@ function show_category_slider_block($args){
 		if(isset($_POST['price']) && ($_POST['price'] !='')){
 			$args['price'] = sanitize_text_field($_POST['price']);
 		}
-		if(isset($_POST['child_cat_count']) && ($_POST['child_cat_count'] !='')){
-			$args['child_cat_count'] = sanitize_text_field($_POST['child_cat_count']);
-		}
+		
 	}
 	extract($args);
 	global $wp_query;
@@ -443,7 +440,6 @@ function loadmore_hf($args){
 		'sort_by'	=>'price',
 		'sort_order'=>'DESC',
 		'depth'=>0,
-		'child_cat_count' =>1,
 		'color'	=>'',
 		'size'	=>'',
 		'price'	=>'',
@@ -470,9 +466,6 @@ function loadmore_hf($args){
 		}
 		if(isset($_POST['price']) && ($_POST['price'] !='')){
 		$args['price'] = sanitize_text_field($_POST['price']);
-		}
-		if(isset($_POST['child_cat_count']) && ($_POST['child_cat_count'] !='')){
-		$args['child_cat_count'] = sanitize_text_field($_POST['child_cat_count']);
 		}
 	}
 	extract($args);
