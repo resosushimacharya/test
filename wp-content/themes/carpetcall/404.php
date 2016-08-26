@@ -19,6 +19,7 @@ else{
 <?php
 
 get_header();
+
 ?>
 
  <?php
@@ -35,7 +36,7 @@ get_header();
 	    
 	    			 <h1 class="error-title"><?php echo $error_title;?></h1>
 			 <h3 class="error-info"><?php echo $error_info;?></h3>	
-			 <h4 class="error-prob"><?php echo $error_prob;?></h4>
+			 <h4 class="error-prob"><?php echo $error_prob; echo  ABSPATH .'/products/';?></h4>
 			 <?php if($oldlink!=null){?>
              <div class="col-md-12">
 			<button class="error-red-link" ><a href="<?php echo $oldlink; ?>">GO BACK</a></button>
