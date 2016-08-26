@@ -312,6 +312,28 @@
       });
 
     }
+    // Header Nav Scripts End
+     
+    
+    // Product Sidebar Mobile
+    if($('#product-side-filter').length){
+
+      $('.rugm-blk .open-product-sidebar').on('click', function(){        
+        $('#product-side-filter').addClass('open-sidebar');
+      });
+
+      $('.go-back-text, .mobile-apply-btn a').on('click', function(e){
+        e.preventDefault();
+        $('#product-side-filter').removeClass('open-sidebar');
+      });
+    }
+
+    // Close accordion of Sidebar in Mobile
+    if($('#accordion-color').length){
+      if($(window).innerWidth()<=800){
+        $('#accordion-color').find('.panel-collapse').removeClass('in');
+      }
+    }
 
   });
 

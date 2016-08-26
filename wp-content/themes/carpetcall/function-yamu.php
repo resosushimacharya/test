@@ -205,7 +205,7 @@ function show_category_slider_block($args){
 		}
 		if(!empty($cat_slice)){
 			foreach($cat_slice as &$discat){?>
-			<div>
+			<div class="cat-single-products">
 			<?php 
 			$filargs = array(
 							'post_type'=>'product',
@@ -490,7 +490,7 @@ function loadmore_hf($args){
 		if(!empty($cat_slice)){
 			foreach($cat_slice as &$discat){
 				?>
-				<div>
+				<div class="cat-single-products">
 				<?php 
 				$filargs = array(
 					'post_type'=>'product',

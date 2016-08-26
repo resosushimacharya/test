@@ -96,22 +96,22 @@ function readCSV($csvFile)
 	* function to import Rugs products
 	* will import products from uploaded CSV file
 */
-function  csv_import_rugs($csv)
+function  csv_import_rugs($csv,$appcat)
 {
 	$exist = get_page_by_title( $csv[1], OBJECT, 'product' );
 
-	if($csv && !isset($exist->ID))
+	if($csv)
 	{
 		$post = array(
 					 'post_title'   => $csv[1],
-					 'post_status'  => "publish",
+					 'post_status'  => "pending",
 					 'post_name'    => sanitize_title($csv[1]), //name/slug
 					 'post_type'    => "product",
 					 'post_content' => $csv[4],
 					 'post_excerpt' => $csv[4]
 				     );
 	 
-		$rootcatterm = $_POST['choice'];		
+		$rootcatterm = $appcat;		
 		$new_post_id = wp_insert_post( $post );
 		$slct        = $csv[3];
 		$tlct        = $csv[2];
@@ -183,10 +183,13 @@ function  csv_import_rugs($csv)
 		update_post_meta( $new_post_id, '_height', $height);
 		update_post_meta( $new_post_id, '_featured', 'no' );
 	    update_post_meta($new_post_id,'discount',$csv[17]);
-		$url= 'http://www.carpetcall.com.au/downloads/Image/products/large/';
+		
+			$url= site_url().'/products/';
+
 		$swatch = $url.$csv[20].'.jpg';
 		$life = $url.$csv[21].'.jpg';
 		$side = $url.$csv[19].'.jpg';
+		
 		
 		require_once(ABSPATH . 'wp-admin/includes/file.php');
 		require_once(ABSPATH . 'wp-admin/includes/media.php');
@@ -289,6 +292,7 @@ function  csv_import_rugs($csv)
 	   			
 		update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id));
 		echo 'Rugs Product '.$csv[1].' imported</br>';
+
 	}
 	else  
 	{
@@ -302,22 +306,22 @@ function  csv_import_rugs($csv)
 	* function to import Hard Flooring products
 	* will import products from uploaded CSV file
 */
-	function  csv_import_hard_flooring($csv)
-{
+	function  csv_import_hard_flooring($csv,$appcat)
+{   
 	$exist = get_page_by_title( $csv[1], OBJECT, 'product' );
 
-	if($csv && !isset($exist->ID))
+	if($csv)
 	{
 		$post = array(
 					 'post_title'   => $csv[1],
-					 'post_status'  => "publish",
+					 'post_status'  => "pending",
 					 'post_name'    => sanitize_title($csv[1]), //name/slug
 					 'post_type'    => "product",
 					 'post_content' => $csv[7],
 					 'post_excerpt' => $csv[7]
 				     );
 	 
-		$rootcatterm = $_POST['choice'];		
+		$rootcatterm = $appcat;		
 		$new_post_id = wp_insert_post( $post );
 		$slct        = $csv[0];
 		$tlct        = $csv[3];
@@ -397,7 +401,7 @@ function  csv_import_rugs($csv)
 		update_post_meta( $new_post_id, 'surface_finish', $csv[29] );
 		update_post_meta( $new_post_id, 'janka_rating', $csv[30] );
         update_post_meta( $new_post_id, 'structural_warranty', $csv[31] );
-        \update_post_meta( $new_post_id, 'wear_layer_warranty', $csv[32] );
+        update_post_meta( $new_post_id, 'wear_layer_warranty', $csv[32] );
         update_post_meta( $new_post_id, 'construction_style', $csv[33] );
         update_post_meta( $new_post_id, 'recommended_use', $csv[34] );
         update_post_meta( $new_post_id, 'care_instructions', $csv[35] );
@@ -432,7 +436,9 @@ function  csv_import_rugs($csv)
 		update_post_meta( $new_post_id, 'product_thickness_veneer', $csv[14]);
 		update_post_meta( $new_post_id, '_featured', 'no' );
 	    update_post_meta($new_post_id,'discount',$csv[17]);
-		$url= 'http://www.carpetcall.com.au/downloads/Image/products/large/';
+	
+	   $url= site_url() .'/products/';
+	  
 		$swatch = $url.$csv[48].'.jpg';
 		$life = $url.$csv[47].'.jpg';
 		$side = $url.$csv[46].'.jpg';
@@ -455,6 +461,7 @@ function  csv_import_rugs($csv)
 		$image_id=array();
 		preg_match('/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/', $life, $matches);
 		$file_array['name'] = basename($matches[0]);
+
 		$file_array['tmp_name'] = $tmp;
 		if ( is_wp_error( $tmp ) )
 	 	{ 
@@ -465,7 +472,7 @@ function  csv_import_rugs($csv)
 			$file_array['tmp_name'] = '';
 		}
 					
-					
+			do_action('pr',$file_array)	;	
 		$thumbid = media_handle_sideload( $file_array, $new_post_id, basename($matches[0], '.jpg') );
 					
 		if ( is_wp_error($thumbid) ) 
@@ -550,42 +557,25 @@ function  csv_import_rugs($csv)
 function css_products_import()
 {
 	echo '<h1>CSV Import</h1>';
-	if(isset($_POST['submit']) &&  isset($_POST['choice']) && ($_POST['choice']=="rugs"))
-	{
-		  
-		$mimes = array('application/vnd.ms-excel');	
-		
-		if(in_array($_FILES['importcsv']['type'],$mimes))
-		{
-			if ($_FILES["importcsv"]["error"] > 0)
-			{
-                echo "Error Code: " . $_FILES["importcsv"]["error"];
-            }
-		    else
-		    {
-				$new_file_name = strtolower($_FILES['importcsv']['name']);
-			    if(file_exists(TEMPLATEPATH.'/csv/'.$new_file_name)) unlink(TEMPLATEPATH.'/csv/'.$new_file_name);
-				if(move_uploaded_file($_FILES['importcsv']['tmp_name'], TEMPLATEPATH.'/csv/'.$new_file_name))
-				{
-					$csvFile = TEMPLATEPATH.'/csv/'.$new_file_name;
+     
+	
+
+	if(isset($_POST['submit']) && ($_POST['submit']=="updating"))
+	{    $countfileslen = 2;
+	       $counter=1;
+    for($counter=1;$counter<=3;$counter++){
+		if($counter==1){
+			$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/csvfolder/rugs.csv';
+		   $appcat = "rugs";
+			echo $new_rugs_file;
+				
+			    if(file_exists($new_rugs_file)){
 					
-					$csvs = readCSV($csvFile);
-					$fn = explode('.',$new_file_name);
+					$csvs = readCSV($new_rugs_file);
+					
 				
 					
-					if(strcasecmp($fn[0] ,"rugs")!=0){
-						echo '
-						<div class="wrap"><ul class="subsubsub">
-	<li class="all">Please select correct file to upload Hard Flooring / Rugs products .
-	</li></ul>
-<br clear="all">
-<ul>
-<li class="all">
-	<a href ="'.site_url().'/wp-admin/edit.php?post_type=product&page=css-products-import" class="modifcation-hover" >Go Back.</a>
-	</li></ul></div>';
-						die();
-
-					}
+				
 					if($csvs)
 					{
 						$args = array(
@@ -608,7 +598,7 @@ function css_products_import()
                          
      						if(strcasecmp($csv[0],'state')!=0)
      						{
-	                      		csv_import_rugs($csv);
+	                      		csv_import_rugs($csv,$appcat);
 
                      		}
 		
@@ -623,59 +613,25 @@ function css_products_import()
 						echo 'Sorry file can\'t be uploaded';
 					}
 				}
-			}
-
-		}
-		else
- 		{ 
-			if(empty($_FILES['importcsv']['type']))
-			{ 
-				echo "you haven't uploaded any file.";
-			}
-			else
-			{
-
-  			echo "Sorry, File type ".$_FILES['importcsv']['type']." is not supported";
-			}
-
-		}
-	}
-	elseif(isset($_POST['submit']) &&  isset($_POST['choice']) && ($_POST['choice']=="hard-flooring")){
-
-     $mimes = array('application/vnd.ms-excel');	
+				else{
+					echo "File doesn't exixt";
+				}
 		
-		if(in_array($_FILES['importcsv']['type'],$mimes))
-		{
-			if ($_FILES["importcsv"]["error"] > 0)
-			{
-                echo "Error Code: " . $_FILES["importcsv"]["error"];
-            }
-		    else
-		    {
-				$new_file_name = strtolower($_FILES['importcsv']['name']);
-			    if(file_exists(TEMPLATEPATH.'/csv/'.$new_file_name)) unlink(TEMPLATEPATH.'/csv/'.$new_file_name);
-				if(move_uploaded_file($_FILES['importcsv']['tmp_name'], TEMPLATEPATH.'/csv/'.$new_file_name))
-				{
-					$csvFile = TEMPLATEPATH.'/csv/'.$new_file_name;
-					$csvs = readCSV($csvFile);
-					$fn = explode('.',$new_file_name);
-				
-					
-					if(strcasecmp($fn[0] ,"hard-flooring")!=0){
-							echo '<div class="wrap"><ul class="subsubsub">
-	<li class="all">Please select correct file to upload Hard Flooring / Rugs products .
-	</li></ul>
-<br clear="all">
-<ul>
-<li class="all">
-	<a href ="'.site_url().'/wp-admin/edit.php?post_type=product&page=css-products-import" class="modifcation-hover" >Go Back.</a>
-	</li></ul></div>';
-					
-						
-						die();
 
-					}
+		
+	}
+	elseif($counter==2){
+$mimes = array('application/vnd.ms-excel');	
+		$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/csvfolder/hard-flooring.csv';
+		     $appcats = "hard-flooring";
+			echo $new_rugs_file;
+				
+			    if(file_exists($new_rugs_file)){
 					
+					$csvs = readCSV($new_rugs_file);
+					
+				
+				
 					if($csvs)
 					{
 						$args = array(
@@ -698,7 +654,7 @@ function css_products_import()
                          
      						if(strcasecmp($csv[0],'Category')!=0)
      						{
-	                      		csv_import_hard_flooring($csv);
+	                      	csv_import_hard_flooring($csv,$appcats);
 
                      		}
 		
@@ -713,29 +669,181 @@ function css_products_import()
 						echo 'Sorry file can\'t be uploaded';
 					}
 				}
-			}
+				else{
+					echo "File doesn't exixt";
+				}
+	}
+	else{
+	// start of import
+	$counter = 1;
+		$counterlength = 2;
+		for($counter=1;$counter<=2;$counter++){
+			if($counter==1){
+		$args = array(
 
+				"post_type"=>'product',
+				"post_status"=>array("pending"),
+				"posts_per_page"=>"-1",
+				'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'product_cat',
+                                    'field'    => 'slug',
+                                    'terms'    => "hard-flooring"
+                                )
+                            )
+			);
+		$loop = new WP_Query($args);
+
+		$i  = 1;
+		echo "Pending Product List : <br />";
+		while($loop->have_posts()){
+			$loop->the_post();
+			the_title();
+			echo "<br />"; 
+			$i++;
 		}
-		else
- 		{ 
-			if(empty($_FILES['importcsv']['type']))
-			{ 
-				echo "you haven't uploaded any file.";
-			}
-			else
-			{
+		echo $i;
+		wp_reset_query();
+		$args = array(
 
-  			echo "Sorry, File type ".$_FILES['importcsv']['type']." is not supported";
-			}
+				"post_type"=>'product',
+				"post_status"=>array("publish"),
+				"posts_per_page"=>"-1",
+				'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'product_cat',
+                                    'field'    => 'slug',
+                                    'terms'    => "hard-flooring"
+                                )
+                            )
+			);
+		$loop = new WP_Query($args);
 
+		$i  = 1;echo "Draft Product List : <br />";
+		while($loop->have_posts()){
+			$loop->the_post();
+			the_title();
+			echo "<br />";
+			wp_update_post(array('ID' => $loop->post->ID, 'post_status' => 'draft'));
+		}
+	
+		wp_reset_query();
+		$args = array(
+
+				"post_type"=>'product',
+				"post_status"=>array("pending"),
+				"posts_per_page"=>"-1",
+				'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'product_cat',
+                                    'field'    => 'slug',
+                                    'terms'    => "hard-flooring"
+                                )
+                            )
+			);
+		$loop = new WP_Query($args);
+
+		$i  = 1;echo "Updated Product List : <br />";
+		while($loop->have_posts()){
+			$loop->the_post();
+			the_title();
+			echo "<br />"; 
+			wp_update_post(array('ID' => $loop->post->ID, 'post_status' => 'publish'));
+			$i++;
+		}
+	
+		wp_reset_query();
+		}
+		else{
+			$args = array(
+
+				"post_type"=>'product',
+				"post_status"=>array("pending"),
+				"posts_per_page"=>"-1",
+				'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'product_cat',
+                                    'field'    => 'slug',
+                                    'terms'    => "rugs"
+                                )
+                            )
+			);
+		$loop = new WP_Query($args);
+
+		$i  = 1;
+		echo "Draft Product List : <br />";
+		while($loop->have_posts()){
+			$loop->the_post();
+			the_title();
+			echo "<br />"; 
+			$i++;
+		}
+		echo $i;
+		wp_reset_query();
+		$args = array(
+
+				"post_type"=>'product',
+				"post_status"=>array("publish"),
+				"posts_per_page"=>"-1",
+				'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'product_cat',
+                                    'field'    => 'slug',
+                                    'terms'    => "rugs"
+                                )
+                            )
+			);
+		$loop = new WP_Query($args);
+
+		$i  = 1;echo "Pending Product List : <br />";
+		while($loop->have_posts()){
+			$loop->the_post();
+			the_title();
+			echo "<br />";
+			wp_update_post(array('ID' => $loop->post->ID, 'post_status' => 'draft'));
+		}
+	
+		wp_reset_query();
+		$args = array(
+
+				"post_type"=>'product',
+				"post_status"=>array("pending"),
+				"posts_per_page"=>"-1",
+				'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'product_cat',
+                                    'field'    => 'slug',
+                                    'terms'    => "rugs"
+                                )
+                            )
+			);
+		$loop = new WP_Query($args);
+
+		$i  = 1;echo "Updated Product List : <br />";
+		while($loop->have_posts()){
+			$loop->the_post();
+			the_title();
+			echo "<br />"; 
+			wp_update_post(array('ID' => $loop->post->ID, 'post_status' => 'publish'));
+			$i++;
+		}
+	
+		wp_reset_query();
+		}
+		  
+		} // end of for loop
+		
 		}
 	}
 	
+	
+}
+	
 	?>
 <div class="container" class="import_csv_container">
-	<form method="post" enctype="multipart/form-data" class="import_csv_form">
+	<form method="post" class="import_csv_form">
 		<h2 for="">Select CSV file to import:</h2>
-    	<p>
+<!--     	<p>
     		<input type="file" name="importcsv" id="importcsv" class="import_csv_input" required>
     	</p>
         <p>
@@ -743,8 +851,11 @@ function css_products_import()
         	<input type="radio" name="choice" value="rugs" class="import_csv_radio_left" id="import_csv_radio_left" required>
      		<label for="import_csv_radio_right">Hard Flooring </label>
      		<input type="radio" name="choice" value="hard-flooring" class="import_csv_radio_right" id="import_csv_radio_right" required>
- 		</p>
-     	<input type="submit" value="Import" name="submit">
+ 		</p> -->
+     	<button type="submit" value="updating" name="submit">Update products </button>
+     	
+          
+             
      </form>
 </div>
 <?php

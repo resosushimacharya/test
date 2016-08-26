@@ -228,7 +228,7 @@ foreach($filterproGroup as $bundle){
       $proGal = get_post_meta( $key, '_product_image_gallery', TRUE );
         $proGalId = explode(',',$proGal);
         $flag= 0;
-
+      
         foreach($proGalId as $pgi):
             
             $proImageName =  wp_get_attachment_url($pgi);
@@ -271,6 +271,22 @@ foreach($filterproGroup as $bundle){
             }
 
             $displayCounter++;
+          }
+          elseif($displayCounter==1){ ?>  <div class="select-design-product-image <?php echo (array_key_exists($post->ID,$bundle))?'pro-active':null;?>">
+                         
+              
+              <a href="<?php echo get_the_permalink($key)?>" class="select_design">
+             
+            
+                
+                <img class="cc-product_no_image" src="<?php echo site_url()."/wp-content/plugins/woocommerce/assets/images/placeholder.png";?>"/>
+           
+              
+              
+              </a>
+              </div>
+          <?php
+          $displayCounter++;
           }
 
         endforeach;
