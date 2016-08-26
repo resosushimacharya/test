@@ -183,11 +183,13 @@ function  csv_import_rugs($csv,$appcat)
 		update_post_meta( $new_post_id, '_height', $height);
 		update_post_meta( $new_post_id, '_featured', 'no' );
 	    update_post_meta($new_post_id,'discount',$csv[17]);
-		$url= 'http://www.carpetcall.com.au/downloads/Image/products/large/';
-			$url= site_url().'/wp-content/uploads/products/';
+		
+			$url= site_url().'/products/';
+
 		$swatch = $url.$csv[20].'.jpg';
 		$life = $url.$csv[21].'.jpg';
 		$side = $url.$csv[19].'.jpg';
+		
 		
 		require_once(ABSPATH . 'wp-admin/includes/file.php');
 		require_once(ABSPATH . 'wp-admin/includes/media.php');
@@ -399,7 +401,7 @@ function  csv_import_rugs($csv,$appcat)
 		update_post_meta( $new_post_id, 'surface_finish', $csv[29] );
 		update_post_meta( $new_post_id, 'janka_rating', $csv[30] );
         update_post_meta( $new_post_id, 'structural_warranty', $csv[31] );
-        \update_post_meta( $new_post_id, 'wear_layer_warranty', $csv[32] );
+        update_post_meta( $new_post_id, 'wear_layer_warranty', $csv[32] );
         update_post_meta( $new_post_id, 'construction_style', $csv[33] );
         update_post_meta( $new_post_id, 'recommended_use', $csv[34] );
         update_post_meta( $new_post_id, 'care_instructions', $csv[35] );
@@ -434,8 +436,9 @@ function  csv_import_rugs($csv,$appcat)
 		update_post_meta( $new_post_id, 'product_thickness_veneer', $csv[14]);
 		update_post_meta( $new_post_id, '_featured', 'no' );
 	    update_post_meta($new_post_id,'discount',$csv[17]);
-		$url= 'http://www.carpetcall.com.au/downloads/Image/products/large/';
-		$url= site_url().'/wp-content/uploads/products/';
+	
+	   $url= site_url() .'/products/';
+	  
 		$swatch = $url.$csv[48].'.jpg';
 		$life = $url.$csv[47].'.jpg';
 		$side = $url.$csv[46].'.jpg';
@@ -458,6 +461,7 @@ function  csv_import_rugs($csv,$appcat)
 		$image_id=array();
 		preg_match('/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/', $life, $matches);
 		$file_array['name'] = basename($matches[0]);
+
 		$file_array['tmp_name'] = $tmp;
 		if ( is_wp_error( $tmp ) )
 	 	{ 
@@ -468,7 +472,7 @@ function  csv_import_rugs($csv,$appcat)
 			$file_array['tmp_name'] = '';
 		}
 					
-					
+			do_action('pr',$file_array)	;	
 		$thumbid = media_handle_sideload( $file_array, $new_post_id, basename($matches[0], '.jpg') );
 					
 		if ( is_wp_error($thumbid) ) 
@@ -561,7 +565,7 @@ function css_products_import()
 	       $counter=1;
     for($counter=1;$counter<=3;$counter++){
 		if($counter==1){
-			$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/wp-content/uploads/csvfolder/rugs.csv';
+			$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/csvfolder/rugs.csv';
 		   $appcat = "rugs";
 			echo $new_rugs_file;
 				
@@ -618,7 +622,7 @@ function css_products_import()
 	}
 	elseif($counter==2){
 $mimes = array('application/vnd.ms-excel');	
-		$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/wp-content/uploads/csvfolder/hard-flooring.csv';
+		$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/csvfolder/hard-flooring.csv';
 		     $appcats = "hard-flooring";
 			echo $new_rugs_file;
 				
