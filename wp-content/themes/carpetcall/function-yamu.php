@@ -350,7 +350,7 @@ function show_category_slider_block($args){
 						}
 						if($pch==1){
 							$res = get_post_meta($filloop->post->ID ,'_regular_price',true);
-							echo '<div class="col-md-6 cc-cat-sub-price">From <span>A$'.$res.'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
+							echo '<div class="col-md-6 cc-cat-sub-price">From <span>$'.$res.'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
 						$pch++;
 						}
 						if($slidercounter<=5){
