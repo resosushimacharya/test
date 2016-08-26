@@ -66,6 +66,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</tr>
 		<?php endforeach; ?>
 
+<?php /*?>		
+		
 		<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
 
 			<?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
@@ -75,7 +77,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
 
 		<?php endif; ?>
-
+        
+        
+<?php */?>
 		<?php foreach ( WC()->cart->get_fees() as $fee ) : ?>
 			<tr class="fee">
 				<th><?php echo esc_html( $fee->name ); ?></th>
