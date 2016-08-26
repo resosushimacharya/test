@@ -133,6 +133,7 @@
 	/* ===== HEADER ===== */	
 	.banner{
 		padding-top: 0;
+		display: none;
 	}
 	.banner .col-md-12{
 		padding: 0;
@@ -1280,6 +1281,22 @@
 	/* Category Last Sec End*/
 
 	/* === MAIN CATEGORY PAGE End === */
+
+
+	/* === STORE FINDER LANDING PAGE === */
+	.cc-bread-crumb-str{
+		display: none;
+	}
+	.cc-finder-title h3 {
+	    padding: 49px 20px;
+	    font-size: 72px;
+	    margin: 0;
+	}
+	.cc-options-wrapper-nh {
+	    margin: 0 -20px;
+	    font-size: 0;
+	}
+	/* === STORE FINDER LANDING PAGE End=== */
 	
 	/* ===== FOOTER ===== */	
 	.footer_nav_mobile{		
