@@ -990,10 +990,13 @@ function cc_delivery_options_cart(){
 	<?php 
 	if($has_rugs && $has_hard_flooring){
 		wc_get_template( 'delivery/both.php' );
+		
 	}elseif($has_rugs){
 		wc_get_template( 'delivery/rugs.php' );
+		
 	}elseif($has_hard_flooring){
 		wc_get_template( 'delivery/hardflooring.php' );
+		
 	}
 }
 
@@ -1129,7 +1132,6 @@ wp_register_script('wc-add-to-cart', get_template_directory_uri(). '/js/add-to-c
 wp_enqueue_script('wc-add-to-cart');
 
 }
-
 /*
 Function to save the selected store for delivery during checkout in our order meta table
 */
@@ -1137,7 +1139,7 @@ add_action('woocommerce_checkout_update_order_meta','save_delivery_option_cc');
 function save_delivery_option_cc($order_id){
 	if(!empty($_POST['pickup_store_id'])){
 		update_post_meta( $order_id, 'pickup_store_id', $_POST['pickup_store_id']);
-		cc_notify_selected_store($order_id);
+		//cc_notify_selected_store($order_id);
 		}
 	}
 
@@ -1177,4 +1179,21 @@ if($selected_store){
 }
 	
 		
+function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
+	if ( $post->post_type == 'product' ) {
+		$terms = wc_get_product_terms( $post->ID, 'product_cat', array( 'orderby' => 'parent', 'order' => 'DESC' ) ) ;
+		if($terms){
+			foreach($terms as $term){
+				$has_child = get_term_children($term->term_id, 'product_cat');
+				if(sizeof($has_child)==0){
+					$url = get_term_link($term,'product_cat');
+					break;
+					}
+				}
+			}
 		
+	$url.='?product='.$post->post_title;
+	}
+	return $url;
+}
+add_filter( 'post_type_link', 'cc_custom_proudcts_url', 10, 3 );	
