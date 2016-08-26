@@ -925,8 +925,8 @@ if ( ! function_exists( 'woocommerce_template_single_carpets_blinds_title' ) ) {
 
 
 function generate_catids_array($top_lvl_cat,$depth){
-	$transient = 'category_'.$top_lvl_cat.'_transient';
-	if ( false === ( get_transient( $transient ) ) ) {
+	//$transient = 'category_'.$top_lvl_cat.'_transient';
+	//if ( false === ( get_transient( $transient ) ) ) {
 		$cat_arr = array();
 		$second_lvl_cats = get_terms(array('parent'=>$top_lvl_cat,'taxonomy'=>'product_cat','hide_empty'=>false));
 		foreach($second_lvl_cats as $cat_parents){
@@ -939,14 +939,15 @@ function generate_catids_array($top_lvl_cat,$depth){
 				$cat_arr[] = $cat_parents->term_id;
 				}
 	
-			}
-	  set_transient( $transient, $cat_arr, 12 * HOUR_IN_SECONDS );
+			//}
+	 // set_transient( $transient, $cat_arr, 12 * HOUR_IN_SECONDS );
 	}
-	return get_transient($transient);
+	return $cat_arr;
+	//return get_transient($transient);
 }
 
-add_action('edited_product_cat','delete_product_cat_transient');
-add_action('delete_product_cat','delete_product_cat_transient');
+//add_action('edited_product_cat','delete_product_cat_transient');
+//add_action('delete_product_cat','delete_product_cat_transient');
 function delete_product_cat_transient($term_id,$taxonomy){
 	if('product_cat' == $taxonomy){
 		$parent  = get_term_by( 'id', $term_id, $taxonomy);
