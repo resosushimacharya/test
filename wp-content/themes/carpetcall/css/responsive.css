@@ -20,7 +20,7 @@
 	}
 	
 	/* Display none goes here */
-	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i, #main nav.woocommerce-breadcrumb, .cc-color-var-section > h3, .cc-ia-content h4, .ia-img, .inerblock_sec_a{
+	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i, #main nav.woocommerce-breadcrumb, .cc-color-var-section > h3, .cc-ia-content h4, .ia-img, .inerblock_sec_a, .inerblock_clearn .breadcrumbs{
 		display: none;
 	}
 	/* Display none ends here */
@@ -969,17 +969,67 @@
 	/* === Ideas & Advice End === */
 	
 	/* === CLEARANCE PAGE === */
-	
 	.inerblock_clearn h3 {
-		margin:45px 0 36px 0;	
+		font-size:72px;
+		margin:50px 0 38px 0;	
 	}
 	.inerblock_clearn p {
-		margin:0 0 38px 0;
-		line-height:42px;
+		font-size:32px; 
+		line-height:48px;
+		margin:0 auto 54px;
 	}
-	.col-md-4.cc-clearance-left:nth-child(1) {
+	.inerblock_clernn {
+		padding:0 20px;
+	}
+	.inerblock_clernn .col-md-12 {
+		padding:0 0;
+	}
+	.cc-clearance-wrapper .cc-clearance-row {
+		border:0;
+		clear:both;	
+		margin-bottom:100px;
+	}
+	.cc-clearance-row .cc-clearance-left:nth-child(1) {
 		width:100%;	
 		padding:0;
+	}
+	.cc-clearance-row .cc-clearance-left img {
+		width:100%;	
+	}
+	.cc-clearance-left span.cc-clearance-overlay {
+		padding:44px 40px;
+		font-family:'proxima_nova_ltsemibold', sans-serif;
+		font-size:60px;
+		font-weight:bold;
+		color:#FFF;
+		text-align:center;	
+	}
+	.cc-clearance-right:nth-child(2) {
+		width:100% !important;
+	}
+	.cc-clearance-right h4 {
+		font-size:48px;
+	}
+	.cc-clearance-right p {
+		margin:0 auto 45px;
+		font-size:32px !important;
+		line-height:38px !important;	
+	}
+	.cc-clearance-row:nth-child(1) .cc-clearance-right .nowspe {
+		width:100%;	
+		height:auto;
+		
+	}
+	.pull-right {
+		float:none !important;
+	}
+	.nowsppe a {
+		padding:13px 0;
+		text-align:center;
+		font-size:36px;
+	}
+	.cc-clearance-left iframe {
+		height:352px;
 	}
 	
 	/* === CLEARANCE End === */
