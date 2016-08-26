@@ -153,7 +153,6 @@ function show_category_slider_block($args){
 		'sort_by'	=>'price',
 		'sort_order'=>'DESC',
 		'depth'=>0,
-		'child_cat_count' =>1,
 		'color'	=>'',
 		'size'	=>'',
 		'price'	=>'',
@@ -187,9 +186,7 @@ function show_category_slider_block($args){
 		if(isset($_POST['price']) && ($_POST['price'] !='')){
 			$args['price'] = sanitize_text_field($_POST['price']);
 		}
-		if(isset($_POST['child_cat_count']) && ($_POST['child_cat_count'] !='')){
-			$args['child_cat_count'] = sanitize_text_field($_POST['child_cat_count']);
-		}
+		
 	}
 	extract($args);
 	global $wp_query;
@@ -353,7 +350,7 @@ function show_category_slider_block($args){
 						}
 						if($pch==1){
 							$res = get_post_meta($filloop->post->ID ,'_regular_price',true);
-							echo '<div class="col-md-6 cc-cat-sub-price">From <span>A$'.$res.'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
+							echo '<div class="col-md-6 cc-cat-sub-price">From <span>$'.$res.'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
 						$pch++;
 						}
 						if($slidercounter<=5){
@@ -361,9 +358,11 @@ function show_category_slider_block($args){
 								echo '<div class="cat_slider">';
 							}
 							?>
+							<a href="<?php the_permalink();?>">
 							<div class="cat_slider_item ">
 							<div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image;?>)"></div>
 							</div>
+							</a>
 							<?php 
 							if($slidercounter==5 || $slidercounter==$filloop->post_count){
 								echo '</div>';
@@ -443,7 +442,6 @@ function loadmore_hf($args){
 		'sort_by'	=>'price',
 		'sort_order'=>'DESC',
 		'depth'=>0,
-		'child_cat_count' =>1,
 		'color'	=>'',
 		'size'	=>'',
 		'price'	=>'',
@@ -470,9 +468,6 @@ function loadmore_hf($args){
 		}
 		if(isset($_POST['price']) && ($_POST['price'] !='')){
 		$args['price'] = sanitize_text_field($_POST['price']);
-		}
-		if(isset($_POST['child_cat_count']) && ($_POST['child_cat_count'] !='')){
-		$args['child_cat_count'] = sanitize_text_field($_POST['child_cat_count']);
 		}
 	}
 	extract($args);
@@ -588,10 +583,10 @@ function loadmore_hf($args){
 								if($slidercounter==1){
 									echo '<div class="cat_slider">';
 								}
-								?>
+								?><a href="<?php the_permalink();?>">
 								<div class="cat_slider_item ">
 								<div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image ;?>)"></div>
-								</div>
+								</div></a>
 								<?php 
 								if($slidercounter==5 || $slidercounter==$filloop->post_count){
 									echo '</div>';
@@ -932,8 +927,8 @@ if ( ! function_exists( 'woocommerce_template_single_carpets_blinds_title' ) ) {
 
 
 function generate_catids_array($top_lvl_cat,$depth){
-	$transient = 'category_'.$top_lvl_cat.'_transient';
-	if ( false === ( get_transient( $transient ) ) ) {
+	//$transient = 'category_'.$top_lvl_cat.'_transient';
+	//if ( false === ( get_transient( $transient ) ) ) {
 		$cat_arr = array();
 		$second_lvl_cats = get_terms(array('parent'=>$top_lvl_cat,'taxonomy'=>'product_cat','hide_empty'=>false));
 		foreach($second_lvl_cats as $cat_parents){
@@ -946,14 +941,15 @@ function generate_catids_array($top_lvl_cat,$depth){
 				$cat_arr[] = $cat_parents->term_id;
 				}
 	
-			}
-	  set_transient( $transient, $cat_arr, 12 * HOUR_IN_SECONDS );
+			//}
+	 // set_transient( $transient, $cat_arr, 12 * HOUR_IN_SECONDS );
 	}
-	return get_transient($transient);
+	return $cat_arr;
+	//return get_transient($transient);
 }
 
-add_action('edited_product_cat','delete_product_cat_transient');
-add_action('delete_product_cat','delete_product_cat_transient');
+//add_action('edited_product_cat','delete_product_cat_transient');
+//add_action('delete_product_cat','delete_product_cat_transient');
 function delete_product_cat_transient($term_id,$taxonomy){
 	if('product_cat' == $taxonomy){
 		$parent  = get_term_by( 'id', $term_id, $taxonomy);
@@ -990,10 +986,13 @@ function cc_delivery_options_cart(){
 	<?php 
 	if($has_rugs && $has_hard_flooring){
 		wc_get_template( 'delivery/both.php' );
+		
 	}elseif($has_rugs){
 		wc_get_template( 'delivery/rugs.php' );
+		
 	}elseif($has_hard_flooring){
 		wc_get_template( 'delivery/hardflooring.php' );
+		
 	}
 }
 
@@ -1003,15 +1002,19 @@ function get_nearby_stores($args)
 {
   global $wpdb;
 if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-	  $lat=$_POST['latitude'];
-	  $long=$_POST['longitude'];
+	  if(isset($_POST['latitude'])){ 
+	  		$lat=$_POST['latitude'];
+		}
+	   if(isset($_POST['longitude'])){
+		   $long=$_POST['longitude'];
+		}
 	  if(isset($_POST['address'])){
 		  $address = str_replace(' ','+',$_POST['address']);
 		  }
 	}else{
-	  $lat=$args['latitude'];
-	  $long=$args['longitude'];
-	  $address = str_replace(' ','+',$args['address']);
+	  $lat=isset($args['latitude'])?$args['latitude']:'';
+	  $long=isset($args['longitude'])?$args['longitude']:'';
+	  $address = isset($args['address'])?str_replace(' ','+',$args['address']):'';
 	}
 if($lat==''|| $long == '' && $address !=''){
 	$geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$address.'&sensor=false');
@@ -1129,7 +1132,6 @@ wp_register_script('wc-add-to-cart', get_template_directory_uri(). '/js/add-to-c
 wp_enqueue_script('wc-add-to-cart');
 
 }
-
 /*
 Function to save the selected store for delivery during checkout in our order meta table
 */
@@ -1137,7 +1139,7 @@ add_action('woocommerce_checkout_update_order_meta','save_delivery_option_cc');
 function save_delivery_option_cc($order_id){
 	if(!empty($_POST['pickup_store_id'])){
 		update_post_meta( $order_id, 'pickup_store_id', $_POST['pickup_store_id']);
-		cc_notify_selected_store($order_id);
+		//cc_notify_selected_store($order_id);
 		}
 	}
 
@@ -1177,4 +1179,27 @@ if($selected_store){
 }
 	
 		
+function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
+	if ( $post->post_type == 'product' ) {
+		$terms = wc_get_product_terms( $post->ID, 'product_cat', array( 'orderby' => 'parent', 'order' => 'DESC' ) ) ;
+		if($terms){
+			foreach($terms as $term){
+				$has_child = get_term_children($term->term_id, 'product_cat');
+				if(sizeof($has_child)==0){
+					$url = get_term_link($term,'product_cat');
+					break;
+					}
+				}
+			}
 		
+	$url.='?product='.$post->post_title;
+	}
+	return $url;
+}
+add_filter( 'post_type_link', 'cc_custom_proudcts_url', 10, 3 );	
+
+//global $woocommerce;
+//$order_id = 3305;
+//$shipping = '';
+//$order = new WC_Order( $order_id );
+//$order->add_shipping($shipping);

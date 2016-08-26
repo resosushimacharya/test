@@ -20,7 +20,7 @@
 	}
 	
 	/* Display none goes here */
-	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i, #main nav.woocommerce-breadcrumb, .cc-color-var-section > h3{
+	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i, #main nav.woocommerce-breadcrumb, .cc-color-var-section > h3, .cc-ia-content h4, .ia-img, .inerblock_sec_a{
 		display: none;
 	}
 	/* Display none ends here */
@@ -62,13 +62,13 @@
 	/* Font-size 32px; End */
 
 	/* Font-size 36px; */
-	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .error-wrapper  h4, .mobile-filter-sec .cc-cat-title-count, .cc-cat-pro-section-left .glyphicon-chevron-up:before, .meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .error-wrapper  h4, .page-sorry .error-wrapper button a, .cc-cat-sub-price, .cc-cat-pro-section-right input, h3.cc-idea-ad-title, .proabtxt h4, .cc-cat-sub-desc-sec h3{
+	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .error-wrapper  h4, .mobile-filter-sec .cc-cat-title-count, .cc-cat-pro-section-left .glyphicon-chevron-up:before, .meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .cc-cat-sub-price, .cc-cat-pro-section-right input, h3.cc-idea-ad-title, .proabtxt h4, .cc-cat-sub-desc-sec h3{
 		font-size: 36px;
 	}
 	/* Font-size 36px; End */
 
 	/* Font-size 48px; */
-	.bookcbk, .calspl a, .error-wrapper h3, .cc-cat-sub-title h3{
+	.bookcbk, .calspl a, .cc-cat-sub-title h3{
 		font-size: 48px;
 	}
 	/* Font-size 48px; End */
@@ -86,11 +86,6 @@
 	}
 	/* Font-size 72px; End */
 	
-	/* Font-size 144px; */
-	.error-wrapper h1 {
-		font-size:144px;
-	}	
-	/* Font-size 144px; End */
 	
 	/* Big buttons */
 	.cptinn a, .find_tbb a, .cc-cat-pro-section-right input, .ab_arrow{
@@ -853,6 +848,7 @@
 	}
 	.home_about_sec{
 		max-height: 350px;
+
 		overflow: hidden;
 		position: relative;
 		text-align: left;
@@ -898,27 +894,97 @@
 	}
 	.error-wrapper h1 {
 		margin:103px 0 20px 0;
+		font-size:144px;
 	}
 	.error-wrapper h3 {
 		text-align:center;
 		margin:0 auto 49px;
+		font-size:48px;
 	}
 	.error-wrapper h4 {
 		color:#0099ff;
 		text-align:center;
-		margin:0 15% 7px;	
+		margin:0 15% 7px;
+		font-size:36px;	
 	}	
 	.page-sorry .error-wrapper button {
-		margin:38px auto 121px;
+		margin:38px auto 38px;
 		display:block;
 		width:100%;
 	}
 	.page-sorry .error-wrapper button a {
 		padding:33px 0;
 		display:block;
+		font-size:36px;
 	}
 
 	/* === 404 PAGE End === */
+	
+	/* === Ideas & Advice PAGE === */
+	
+	.cc-ia-content {
+		padding:0 20px;
+		text-align:center;	
+	}
+	
+	 .cc-ia-content h1 {
+		margin:50px 0 33px 0; 
+		text-align:left;
+		font-size:72px;
+	 }
+	 .cc-ia-content p {
+		margin:0 auto 57px;
+		text-align:left;
+		color:#666666;
+		line-height:42px;
+		font-weight:normal; 
+		font-size:32px;
+	 }
+	 .all-items-blk a h3, .cc-ia-more .all-items-blk h3 {
+		 font-size:48px;
+	 }
+	 
+	 .all-items-blk p {
+		 line-height:42px;
+		 text-align:left;
+		 font-size:32px;
+	 }
+	
+	ul.cat_list li a, .cc-ia-more ul li a {
+		line-height:48px;
+		font-size:32px;
+		font-weight:normal;
+	}
+	ul.cat_list li .fa, .cc-ia-more ul li .fa {
+		font-size:25px;
+	}
+	
+	.cc-ia-more {
+		width:100%;
+	}
+	.cc-ia-more ul li .fa {
+		margin-top:9px;	
+	}
+	
+	
+	/* === Ideas & Advice End === */
+	
+	/* === CLEARANCE PAGE === */
+	
+	.inerblock_clearn h3 {
+		margin:45px 0 36px 0;	
+	}
+	.inerblock_clearn p {
+		margin:0 0 38px 0;
+		line-height:42px;
+	}
+	.col-md-4.cc-clearance-left:nth-child(1) {
+		width:100%;	
+		padding:0;
+	}
+	
+	/* === CLEARANCE End === */
+
 
 	/* === MAIN CATEGORY PAGE === */
 	/* Category Head */
@@ -1783,29 +1849,83 @@
 		text-align:center;
 	}
 	.error-wrapper h1 {
-		margin:103px 0 20px 0;
+		margin:75px 0 20px 0;
+		font-size:130px;
 	}
 	.error-wrapper h3 {
 		text-align:center;
 		margin:0 auto 49px;
+		font-size:36px;
 	}
 	.error-wrapper h4 {
 	color:#0099ff;
 	text-align:center;
-	margin:0 5% 7px;	
+	margin:0 7% 7px;
+	font-size:28px;	
 	}
 	
 	.page-sorry .error-wrapper button {
-		margin:38px auto 121px;
+		margin:38px auto 38px;
 		display:block;
 		width:100%;
 	}
 	.page-sorry .error-wrapper button a {
-		padding:33px 0;
+		padding:25px 0;
 		display:block;
+		font-size:28px;
 	}
 	
 	/* === 404 PAGE End === */
+	
+	/* === Ideas & Advice PAGE === */
+	
+	.cc-ia-content {
+		padding:0 20px;
+		text-align:center;	
+	}
+	
+	 .cc-ia-content h1 {
+		margin:50px 0 33px 0; 
+		text-align:left;
+		font-size:60px;
+	 }
+	 .cc-ia-content p {
+		margin:0 auto 57px;
+		text-align:left;
+		color:#666666;
+		line-height:38px;
+		font-weight:normal; 
+		font-size:26px;
+	 }
+	 .all-items-blk a h3, .cc-ia-more .all-items-blk h3 {
+		 font-size:38px;
+	 }
+	 
+	 .all-items-blk p {
+		 line-height:38px;
+		 text-align:left;
+		 font-size:26px;
+	 }
+	
+	ul.cat_list li a, .cc-ia-more ul li a {
+		line-height:38px;
+		font-size:26px;
+		font-weight:normal;
+	}
+	ul.cat_list li .fa, .cc-ia-more ul li .fa {
+		font-size:23px;
+	}
+	
+	.cc-ia-more {
+		width:100%;
+	}
+	.cc-ia-more ul li .fa {
+		margin-top:4px;	
+	}
+	
+	
+	/* === Ideas & Advice End === */
+
 
 	/* === MAIN CATEGORY PAGE === */
 	/* Category Head */
@@ -2032,7 +2152,96 @@
 /* ============= 480px starts ============= */
 
 @media only screen and (max-width: 480px){
+	/* === 404 PAGE === */
 	
+	/* Font-size 25px; */
+	.cc-ia-content p, .all-items-blk p, ul.cat_list li a, .cc-ia-more ul li a {
+		font-size:25px;	
+	}
+	/* Font-size 25px; End */
+	
+	/* Font-size 27px; */
+	.error-wrapper h4, .page-sorry .error-wrapper button a {
+		font-size:27px;	
+	}
+	/* Font-size 27px; End */	
+
+	/* Font-size 34px; */
+	.all-items-blk a h3, .cc-ia-more .all-items-blk h3{
+		font-size: 34px;
+	}
+	/* Font-size 34px; End */	
+	
+	/* Font-size 48px; */
+	.cc-ia-content h1 {
+		font-size:48px;
+	}
+	/* Font-size 48px;  End */
+	
+	.error-wrapper h1 {
+		margin:60px 0 20px 0;
+		font-size:126px;
+	}
+	
+	.error-wrapper h3 {
+		text-align:center;
+		margin:0 auto 25px;
+		font-size:34px;
+	}
+	
+	/* === 404 PAGE End === */
+	
+	
+	/* === Ideas & Advice PAGE === */
+	
+	.cc-ia-content {
+		padding:0 20px;
+		text-align:center;	
+	}
+	
+	 .cc-ia-content h1 {
+		margin:50px 0 33px 0; 
+		text-align:left;
+		font-size:50px;
+	 }
+	 .cc-ia-content p {
+		margin:0 auto 57px;
+		text-align:left;
+		color:#666666;
+		line-height:35px;
+		font-weight:normal; 
+		font-size:24px;
+	 }
+	 .all-items-blk a h3, .cc-ia-more .all-items-blk h3 {
+		 font-size:34px;
+	 }
+	 
+	 .all-items-blk p {
+		 line-height:35px;
+		 text-align:left;
+		 font-size:24px;
+	 }
+	
+	ul.cat_list li a, .cc-ia-more ul li a {
+		line-height:35px;
+		font-size:24px;
+		font-weight:normal;
+	}
+	ul.cat_list li .fa, .cc-ia-more ul li .fa {
+		font-size:22px;
+	}
+	
+	.cc-ia-more {
+		width:100%;
+	}
+	.cc-ia-more ul li .fa {
+		margin-top:4px;	
+	}
+	
+	
+	/* === Ideas & Advice End === */
+
+
 }
 
 /* ============= 480px Ends ============= */
@@ -2076,7 +2285,7 @@
 	/* Font-size 26px; End */
 
 	/* Font-size 32px; */
-	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .error-wrapper  h4, .page-sorry .error-wrapper button a, .cc-cat-sub-price, .cc-cat-pro-section-right input, h3.cc-idea-ad-title, .proabtxt h4, .cc-cat-sub-desc-sec h3{
+	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .cc-cat-sub-price, .cc-cat-pro-section-right input, h3.cc-idea-ad-title, .proabtxt h4, .cc-cat-sub-desc-sec h3{
 		font-size: 26px;
 	}
 	/* Font-size 32px; End */
@@ -2224,6 +2433,7 @@
 	}
 	#cssmenu > ul > li > a{
 		font-size: 16px;
+
 	}
 	#cssmenu ul li ul li.sub-menu-item, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li{
 		padding: 20px 25px 20px 20px;
@@ -2542,6 +2752,81 @@
 	/* Category Last Sec */
 
 	/* === MAIN CATEGORY PAGE End === */
+	
+	/* ===== 404 PAGE ===== */
+	.error-wrapper h1 {
+		margin: 60px 0 20px 0;
+    	font-size: 118px;
+	}
+	.error-wrapper h3 {
+		height:auto;
+		line-height:42px;
+	}
+	.error-wrapper h4 {
+		font-size:26px;
+		margin:0 5% 7px;
+	}
+	.page-sorry .error-wrapper button a {
+	font-size:26px;	
+	padding:20px 0;
+	}
+	.page-sorry .error-wrapper button {
+	margin:30px auto 30px;	
+	}
+	
+	/* ===== 404 PAGE END ===== */
+	
+	/* === Ideas & Advice PAGE === */
+	
+	.cc-ia-content {
+		padding:0 20px;
+		text-align:center;	
+	}
+	
+	 .cc-ia-content h1 {
+		margin:50px 0 15px 0; 
+		text-align:left;
+		font-size:45px;
+	 }
+	 .cc-ia-content p {
+		margin:0 auto 47px;
+		text-align:left;
+		color:#666666;
+		line-height:32px;
+		font-weight:normal; 
+		font-size:22px;
+	 }
+	 .all-items-blk a h3, .cc-ia-more .all-items-blk h3 {
+		 font-size:30px;
+	 }
+	 
+	 .all-items-blk p {
+		 line-height:29px;
+		 text-align:left;
+		 font-size:19px;
+	 }
+	
+	ul.cat_list li a, .cc-ia-more ul li a {
+		line-height:30px;
+		font-size:19px;
+		font-weight:normal;
+	}
+	ul.cat_list li .fa, .cc-ia-more ul li .fa {
+		font-size:22px;
+	}
+	
+	.cc-ia-more {
+		width:100%;
+	}
+	.cc-ia-more ul li .fa {
+		margin-top:2px;	
+	}
+	
+	
+	/* === Ideas & Advice End === */
+
+
+	
 
 	/* === MAIN SUB CATEGORY PAGE === */
 	.sub_cat_head section#main{
@@ -2750,6 +3035,81 @@
 	/* Home Map End */
 
 	/* === HOME PAGE End === */
+	
+	/* === 404 Page === */
+	.error-wrapper h1 {
+		margin:40px 0 20px 0;
+		font-size:100px;	
+	}
+	.error-wrapper h3 {
+		font-size:26px;
+		line-height:36px;	
+	}
+	.error-wrapper h4 {
+		font-size:20px;
+		margin:0 0 7px;	
+	}
+	
+	.page-sorry .error-wrapper button {
+		margin:30px auto 20px;
+	}
+	
+	.page-sorry .error-wrapper button a {
+		padding:16px 0;	
+		font-size:20px;
+	}
+	
+	/* === 404 Page End === */
+	
+	/* === Ideas & Advice PAGE === */
+	
+	.cc-ia-content {
+		padding:0 20px;
+		text-align:center;	
+	}
+	
+	 .cc-ia-content h1 {
+		margin:50px 0 15px 0; 
+		text-align:left;
+		font-size:36px;
+	 }
+	 .cc-ia-content p {
+		margin:0 auto 47px;
+		text-align:left;
+		color:#666666;
+		line-height:32px;
+		font-weight:normal; 
+		font-size:20px;
+	 }
+	 .all-items-blk a h3, .cc-ia-more .all-items-blk h3 {
+		 font-size:28px;
+	 }
+	 
+	 .all-items-blk p {
+		 line-height:26px;
+		 text-align:left;
+		 font-size:18px;
+	 }
+	
+	ul.cat_list li a, .cc-ia-more ul li a {
+		line-height:28px;
+		font-size:18px;
+		font-weight:normal;
+	}
+	ul.cat_list li .fa, .cc-ia-more ul li .fa {
+		font-size:18px;
+	}
+	
+	.cc-ia-more {
+		width:100%;
+	}
+	.cc-ia-more ul li .fa {
+		margin-top:3px;	
+	}
+	
+	
+	/* === Ideas & Advice End === */
+
 
 	/* ===== FOOTER ===== */
 	.gtku{
