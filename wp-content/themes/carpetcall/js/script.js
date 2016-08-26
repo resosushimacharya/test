@@ -20,6 +20,8 @@
         draggable:false,
         lazyLoad: 'ondemand',
         speed: 600,
+        autoplay: true,
+        autoplaySpeed: 6000,
         responsive: [
           {
             breakpoint: 801,
