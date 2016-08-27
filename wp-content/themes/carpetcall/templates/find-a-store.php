@@ -26,18 +26,22 @@
                       <form method="post" class="form-near-str">
                       <div class="cc-find-store-au <?php if($nearest) echo ' store-finder-active-tab'; ?>">
                           <input type="hidden" name="check-near-id" value="check near value"/>
-                          <input type="submit" id="cc-but-near" class="cc-but-near-con" value="FIND YOUR NEAREST STORE" name="cc-but-near-name"/>
+                          <button type="submit" id="cc-but-near" class="cc-but-near-con" name="cc-but-near-name">
+                            Find your <br/>nearest store
+                          </button>
                           </div>
                       </form >
                       <form method="post" class="form-head-off">
                       <div class="cc-find-store-au hf <?php if(!$nearest) echo ' store-finder-active-tab'; ?>">
                           <input type="hidden" name="check-head-id" value="check head value"/>
-                          <input type="submit" id="cc-but-head" class="cc-but-head-con" value="HEAD OFFICES" name="cc-but-head-name"/>
+                          <button type="submit" id="cc-but-head" class="cc-but-head-con" name="cc-but-head-name">
+                              Head Offices
+                          </button>
                           </div>
                       </form>
                   </div>
     </div>
-</div><div class="clearfix"></div><!-- upper section end here ---------------->
+</div><div class="clearfix"></div><!-- upper section end here -->
 
 <div class="cc-store-bdy-contr">
 	<div class="container">
@@ -60,7 +64,8 @@
 
                       <div class="cc-store-list-section">
 
-                          <h4>SHOWING STORES AUSTRALIA WIDE </h4>
+                          <h4>SHOWING STORES <br> AUSTRALIA WIDE </h4>
+                          <div class="store_links_wrapper">
 
                           <?php 
                             $tax = 'wpsl_store_category';
@@ -80,6 +85,7 @@
                              
                               echo '<div class="cc-state-link"><a href="'.site_url().'/find-a-store/'.strtolower($term->name).'" >'.$regions[$term->name].'</a></div>';
                               endforeach; ?>
+                              </div>
                         </div>
 
                     <?php    }
@@ -224,11 +230,12 @@
                      <div id="gmap" style="height: 500px; width:100%;"></div>
                      <div class="cc-store-list-section">
 
-                          <h4>SHOWING STORES AUSTRALIA WIDE </h4>
+                          <h4>SHOWING STORES  <br> AUSTRALIA WIDE </h4>
                           <form id="category-form-submit" method="post" action="<?php echo site_url(); ?>/find-a-store/" name="category-form-submit">
                             <input type="hidden" id="cc-wpsl-search-input-lat" name="wpsl-search-input">
                           </form>
 
+                          <div class="store_links_wrapper">
                           <?php 
                             $tax = 'wpsl_store_category';
                             $tax_terms = get_terms($tax, array('hide_empty' => true));
@@ -247,6 +254,7 @@
                              
                               echo '<div class="cc-state-link"><a data-cat_name="'.strtolower($term->name).'" class="cc-cat-lat-submit" >'.$regions[$term->name].'</a></div>';
                               endforeach; ?>
+                              </div>
                         </div>
                       <?php }
                     }
