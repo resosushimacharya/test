@@ -27,6 +27,7 @@ else{
 echo ' > ' ; ?><span class="cc-bread-parent"><a href="<?php echo get_the_permalink($post->post_parent);?>"><?php echo get_the_title($post->post_parent);?></a></span><?php 
 echo ' > ' ; ?><span class="cc-bread-current"><?php echo get_the_title().' '.get_the_title($post->post_parent);?></span>
 </div>
+
  <h1>
 <span class="ab_arrow">
             <a href="<?php echo get_permalink($post->post_parent);?>">
@@ -35,6 +36,7 @@ echo ' > ' ; ?><span class="cc-bread-current"><?php echo get_the_title().' '.get
             </a>
           </span><?php echo get_the_title().' '.get_the_title($post->post_parent);?>
           </h1> 
+
   
            
 </div>

@@ -20,7 +20,8 @@
 	}
 	
 	/* Display none goes here */
-	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i, #main nav.woocommerce-breadcrumb, .cc-color-var-section > h3, .cc-ia-content h4, .ia-img, .inerblock_sec_a, .inerblock_clearn .breadcrumbs, .cc-store-bdy-contr #gmap{
+	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i, #main nav.woocommerce-breadcrumb, .cc-color-var-section > h3, .cc-ia-content h4, .ia-img, .inerblock_sec_a, .inerblock_clearn .breadcrumbs, .breadcrumbs, .inerblock_sec ul.guide_list_cbg, .cc-store-bdy-contr #gmap{
+
 		display: none;
 	}
 	/* Display none ends here */
@@ -1032,9 +1033,20 @@
 		height:352px;
 	}
 	
-	
-	
 	/* === CLEARANCE End === */
+	
+	/* === BUYING GUIDES - STANDRAD ARTICLES === */
+	
+	.ab_arrow {
+	width:100%;
+	margin:0 auto !important;	
+	}
+	
+	.cbg_content { 
+		padding:0;
+	}
+	
+	/* === BUYING GUIDES - STANDRAD ARTICLES End === */
 
 
 	/* === MAIN CATEGORY PAGE === */
@@ -1463,7 +1475,7 @@
 		display: block;
 	}
 	.cc-options-wrapper-nh form button{
-	    padding: 0 35px!important;
+	    padding: 0 0 0 35px!important;
 	    width: 100%;
 	    height: 110px;
 	    line-height: 1.2 !important;
@@ -1472,6 +1484,7 @@
 	}
 	.cc-options-wrapper-nh form button#cc-but-head{
 		text-align: center;
+		padding: 0 20px !important;
 	}
 	.cc-find-store-au.store-finder-active-tab:before, .cc-find-store-au:hover:before{
 		height: 10px;
@@ -1485,16 +1498,41 @@
 	}
 	#wpsl-search-wrap .wpsl-input input {
 		display: inline-block;
-		background: #e7edf8;
-	}
-	#wpsl-search-wrap .wpsl-input{
-		margin: 0;
-	}
+	    background: #e7edf8;
+	    font-size: 24px;
+	    padding: 15px 35px;
+	    width: 100%;
+	}	
 	.store-finder-page-form #wpsl-search-wrap.store-finder-form-cntr > form, .store-finder-page-form .store-finder-form-cntr #wpsl-auto-locate, #wpsl-search-wrap .wpsl-search-btn-wrap{
 		float: none;
 	}
+	.store-finder-page-form #wpsl-search-wrap.store-finder-form-cntr > form{
+		font-size: 0;
+	}
+	.wpsl-no-filters #wpsl-search-wrap .wpsl-input {
+	    margin: 0;
+	    width: 85%;
+	    float: left;
+	}
+	#wpsl-search-wrap .wpsl-search-btn-wrap {
+	    width: 15%;
+	    display: inline-block;
+	    float: left;
+	}
+	div#wpsl-auto-locate .wpsl-search-btn-wrap{
+		width: 100%;
+	}
 	input#wpsl-search-input {
 	    height: 90px;
+	}
+	.wpsl-search-btn-wrap.check_wpsl #wpsl-search-btn {
+	    width: 100%;
+	    height: 90px;
+	    padding: 0;
+	}
+	.wpsl-search-btn-wrap.check_wpsl #wpsl-search-btn{
+	    background-image: url(../images/search_icon_gray.svg);
+        background-size: 44px;
 	}
 	.store-finder-form-cntr span{
 	    display: block;
@@ -2326,6 +2364,113 @@
 	    margin-bottom: 50px;
 	}
 	/* === MAIN SUB CATEGORY PAGE End === */
+
+	/* === STORE FINDER LANDING PAGE === */
+	/* Top Head */
+	.cc-finder-title h3 {
+	    font-size: 60px;
+	}
+	/* Buttons */
+	.cc-options-wrapper-nh form{
+		padding: 0 17px;
+	}
+	form.form-near-str{
+		padding-left: 0;
+	}
+	form.form-head-off{
+		float: right;
+		padding-right: 0;
+	}	
+	.cc-options-wrapper-nh form button{
+	    font-size: 24px !important;
+	}
+	.cc-find-store-au.store-finder-active-tab:before, .cc-find-store-au:hover:before{
+		height: 8px;
+	}
+	/* Form Inputs */   
+	#wpsl-search-wrap .wpsl-input input {
+	    font-size: 24px;
+	    padding: 15px 35px;
+	}	
+	.store-finder-page-form #wpsl-search-wrap.store-finder-form-cntr > form, .store-finder-page-form .store-finder-form-cntr #wpsl-auto-locate, #wpsl-search-wrap .wpsl-search-btn-wrap{
+		float: none;
+	}
+	.store-finder-page-form #wpsl-search-wrap.store-finder-form-cntr > form{
+		font-size: 0;
+	}
+	.wpsl-no-filters #wpsl-search-wrap .wpsl-input {
+	    margin: 0;
+	    width: 85%;
+	    float: left;
+	}
+	#wpsl-search-wrap .wpsl-search-btn-wrap {
+	    width: 15%;
+	    display: inline-block;
+	    float: left;
+	}
+	div#wpsl-auto-locate .wpsl-search-btn-wrap{
+		width: 100%;
+	}
+	input#wpsl-search-input {
+	    height: 90px;
+	}
+	.wpsl-search-btn-wrap.check_wpsl #wpsl-search-btn {
+	    width: 100%;
+	    height: 90px;
+	    padding: 0;
+	}
+	.wpsl-search-btn-wrap.check_wpsl #wpsl-search-btn{
+	    background-image: url(../images/search_icon_gray.svg);
+        background-size: 44px;
+	}
+	.store-finder-form-cntr span{
+	    display: block;
+	    text-align: center;
+	    font-size: 24px;
+	    margin: 0;
+	    line-height: 1;
+	    padding: 28px 20px;
+	}
+	.store-finder-page-form .store-finder-form-cntr #wpsl-auto-locate input{
+		width: 100%;
+		font-size: 24px;
+	}
+
+	/* Showing Result Section */
+	.cc-store-list-section h4 br{
+		display: block;
+	}
+	.cc-store-list-section h4 {
+	    font-size: 48px;
+	    margin: 40px 15px;
+	}
+
+	.cc-state-link{
+		border-width: 2px;
+		border-color: #e7edf8;
+	}
+	.store_links_wrapper .cc-state-link:first-child {
+	    border-top: 2px solid #e7edf8;
+	}
+	.store_links_wrapper .cc-state-link:last-child {
+	    border-bottom: 2px solid #e7edf8;
+	}
+	div.cc-state-link a {
+		font-size: 36px;
+		padding: 37px 15px;
+	}
+	.cc-state-link a::before {
+	    font-size: 40px;
+	    right: 20px;
+	    top: 50%;
+	    -webkit-transform: translateY(-50%);
+	    -moz-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	    -o-transform: translateY(-50%);
+	    transform: translateY(-50%);
+	}
+
+	/* === STORE FINDER LANDING PAGE End=== */
 
 
 	/* ===== FOOTER ===== */	
