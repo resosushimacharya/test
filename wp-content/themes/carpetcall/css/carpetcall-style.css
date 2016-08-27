@@ -4437,6 +4437,7 @@ span.cc-cat-store-item-phone {
 }
 #wpsl-wrap {
 	margin: 0;
+	overflow: visible;
 }
 #wpsl-result-list div#wpsl-stores {
 	height: auto !important;

@@ -43,7 +43,7 @@
     </div>
 </div><div class="clearfix"></div><!-- upper section end here -->
 
-<div class="cc-store-bdy-contr">
+<div class="cc-store-bdy-contr find-store-parent-page">
 	<div class="container">
     
                   <?php  
