@@ -114,7 +114,7 @@ function return_parent_catlink_if_lastchild($link,$term_obj,$taxonomy){
 	);
 	$product = new WP_Query($args);
 	if($product->post_count > 0){
-		$key_word=str_replace('.','-',get_post_meta($product->post->ID,'_sku',true));
+		$key_word=$product->post->post_name;
 		if(!strpos($link,$key_word)){
 			$link.=$key_word;
 		}
