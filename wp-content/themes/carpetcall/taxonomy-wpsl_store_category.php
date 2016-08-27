@@ -52,16 +52,20 @@ $term =  get_queried_object();
                       <h3><?php echo  $stateTitle;?></h3>
                   </div>
                   <div class="cc-options-wrapper-nh">
-                      <form method="post" action="<?php echo site_url();?>/find-a-store">
+                      <form method="post" action="<?php echo site_url();?>/find-a-store" class="form-near-str">
                       <div class="cc-find-store-au <?php if($nearest) echo ' store-finder-active-tab'; ?>">
                           <input type="hidden" name="check-near-id" value="check near value"/>
-                          <input type="submit" id="cc-but-near" class="cc-but-near-con" value="FIND YOUR NEAREST STORE" name="cc-but-near-name"/>
+                           <button type="submit" id="cc-but-near" class="cc-but-near-con" name="cc-but-near-name">
+                            Find your <br/>nearest store
+                          </button>
                           </div>
                       </form >
-                      <form method="post" action="<?php echo site_url();?>/find-a-store">
+                      <form method="post" action="<?php echo site_url();?>/find-a-store" class="form-head-off">
                       <div class="cc-find-store-au hf <?php if(!$nearest) echo ' store-finder-active-tab'; ?>">
                           <input type="hidden" name="check-head-id" value="check head value"/>
-                          <input type="submit" id="cc-but-head" class="cc-but-head-con" value="HEAD OFFICES" name="cc-but-head-name"/>
+                          <button type="submit" id="cc-but-head" class="cc-but-head-con" name="cc-but-head-name">
+                              Head Offices
+                          </button>
                           </div>
                       </form>
                   </div>
@@ -69,7 +73,7 @@ $term =  get_queried_object();
 </div><div class="clearfix"></div>
 
 
-<div class="cc-store-bdy-contr">
+<div class="cc-store-bdy-contr find_store-inner-cntr">
   <div class="container">
 <?php if (isset($_POST['wpsl-search-input'])){
   echo do_shortcode('[wpsl template="custom"  start_location="'.$_POST['wpsl-search-input'].'"]');
