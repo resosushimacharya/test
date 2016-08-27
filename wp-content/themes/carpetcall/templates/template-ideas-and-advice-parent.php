@@ -27,7 +27,15 @@
 
 </div>
 
-<h1><a href="<?php echo get_permalink($post->post_parent);?>"><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo get_the_title();?>  </a></h1>
+<!-- <h1><a href="<?php echo get_permalink($post->post_parent);?>"><span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span><?php echo get_the_title();?>  </a></h1> -->
+<h1>
+<span class="ab_arrow">
+            <a href="<?php echo get_permalink($post->post_parent);?>">
+              <i class="fa fa-angle-left" aria-hidden="true"></i>            
+              <b><?php  echo get_the_title($post->post_parent);;?></b>
+            </a>
+          </span><?php echo get_the_title();?>
+          </h1>
 </div>
 </div>
 </div>
