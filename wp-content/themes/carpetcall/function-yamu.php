@@ -174,7 +174,7 @@ function get_category_depth($catid){
 */
 add_action('wp_ajax_show_category_slider_block','show_category_slider_block');
 add_action('wp_ajax_nopriv_show_category_slider_block','show_category_slider_block');
-function show_category_slider_block($args){
+function show_category_slider_block($args=array()){
 	ob_start();
 	$defaults = array(
 		'cat_id' =>0,
@@ -216,13 +216,13 @@ function show_category_slider_block($args){
 		if(isset($_POST['price']) && ($_POST['price'] !='')){
 			$args['price'] = sanitize_text_field($_POST['price']);
 		}
-		
 	}
 	extract($args);
 	global $wp_query;
 	$product_found = 0;
 	$current_cat = get_term( $cat_id, 'product_cat');
 	$cat_arr = generate_catids_array($cat_id,$depth);
+	
 	if(!empty($cat_arr)){
 		$cat_slice = array();
 		$cat_slice_arr =  array_slice($cat_arr,$offset,$perpage);
@@ -230,6 +230,7 @@ function show_category_slider_block($args){
 		foreach($cat_slice_arr as $catid){
 			$cat_slice[] = get_term_by('id',$catid,'product_cat');
 		}
+		
 		if(!empty($cat_slice)){
 			foreach($cat_slice as &$discat){?>
 			<div class="cat-single-products">
@@ -311,23 +312,24 @@ function show_category_slider_block($args){
 			}
 			wp_reset_postdata();
 			$pch = 1;
-			$all_products = new WP_Query($filargs);
-			$product_found += $all_products->post_count;
-			if($all_products->post_count > 0){
+			$all_products = get_posts($filargs);
+			$product_found += count($all_products);
+			if($product_found > 0){
 				$grp_prods = array();
-				while($all_products->have_posts())
+				foreach ($all_products as $product)
 				{ 
-					$all_products->the_post();
-					if(get_post_meta(get_the_ID(),'_stock_status',true) =='instock'){
-						$title = get_the_title();
+					if(get_post_meta($product->ID,'_stock_status',true) =='instock'){
+						$title = $product->post_title;
 						$grp_code_arr = explode('.',$title);
-						$grp_prods[get_the_ID()] = $grp_code_arr[1];
+						$grp_prods[$product->ID] = $grp_code_arr[1];
 					}
 				}
 				wp_reset_postdata();
-				$product_ids = array_keys(array_unique($grp_prods));	
-				$grp_prod_args = array(
+				$product_ids = array_keys(array_unique($grp_prods));
+				if(!empty($product_ids)){
+					$grp_prod_args = array(
 										'post_type'	=>'product',
+										'post_status'	=>'publish',
 										'post__in' => $product_ids,
 									);	
 				if($sort_by == 'price'){
@@ -339,7 +341,13 @@ function show_category_slider_block($args){
 				$grp_prod_args['order'] = $sort_order;
 				$filloop = new WP_Query($grp_prod_args);
 			}else{
+				$filloop = '';
+				}
+				
+			}else{
 					$offset++;
+					echo $offset;
+					echo '--'.count($cat_arr);
 					if($offset < count($cat_arr)){
 						$next_cat = array_slice($cat_arr,$offset,1);
 						$next_cat =  get_term_by('id',$next_cat[0],'product_cat');
@@ -366,16 +374,32 @@ function show_category_slider_block($args){
 						$proGal = get_post_meta($filloop->post->ID, '_product_image_gallery', TRUE );
 						$proGalId = explode(',',$proGal);
 						$reqProImageId = '';
+						$imgflag = false;
 						foreach($proGalId as $imgid){
 							$proImageName = wp_get_attachment_url($imgid);
 							if(preg_match("/\_L/i", $proImageName)){
 								$feat_image = wp_get_attachment_image_src($imgid,'full');
 								if($feat_image){
 									$feat_image = $feat_image[0];
+									$imgflag = true;
+
 								}
-							}
+							}elseif(preg_match("/\_V/i", $proImageName)){
+								$feat_image = wp_get_attachment_image_src($imgid,'full');
+								if($feat_image){
+									$feat_image = $feat_image[0];
+									$imgflag = true;
+								}
+								}
+								elseif(preg_match("/\_S/i", $proImageName)){
+								$feat_image = wp_get_attachment_image_src($imgid,'full');
+								if($feat_image){
+									$feat_image = $feat_image[0];
+									$imgflag = true;
+								}
+								}
 						}
-						if($feat_image ==''){
+						if(!$imgflag){
 							$feat_image = 'http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png';
 						}
 						if($pch==1){
@@ -388,7 +412,7 @@ function show_category_slider_block($args){
 								echo '<div class="cat_slider">';
 							}
 							?>
-							<a href="<?php the_permalink();?>">
+							<a href="<?php echo get_permalink($filloop->post->ID);?>">
 							<div class="cat_slider_item ">
 							<div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image;?>)"></div>
 							</div>
@@ -428,7 +452,7 @@ function show_category_slider_block($args){
 						<div class=" cc-other-term-pro">
 						<div class="cc-img-wrapper">
 						<div class="cat-item-group-image" style="background-image:url(<?php echo $feat_image;?>)">
-						<a href ="<?php the_permalink();?>" class="cc-pro-view">VIEW</a> </div>
+						<a href ="<?php echo get_permalink($filloop->post->ID);?>" class="cc-pro-view">VIEW</a> </div>
 						</div>
 						</div>
                     <?php }?>
@@ -553,8 +577,8 @@ function loadmore_hf($args){
 				}
 				wp_reset_postdata();
 				$pch = 1;
-				$filloop = new WP_Query($filargs);
-				if($filloop->post_count==0){
+				$filloop = get_posts($filargs);
+				if(count($filloop) == 0){
 					$offset++;
 					if($offset < count($cat_arr)){
 						$next_cat = array_slice($cat_arr,$offset,1);
@@ -566,8 +590,8 @@ function loadmore_hf($args){
 				}
 				?>
 				<?php 
-				if($filloop !='' && $filloop->post_count > 0){
-					$found_count += $filloop->post_count;
+				if($filloop !='' && count($filloop) > 0){
+					$found_count += count($filloop);
 					$current_cat = get_term_by('id',$discat->parent,'product_cat');
 					?>
 					<div class="row cc-cat-sub-title-price-cover">
@@ -581,12 +605,12 @@ function loadmore_hf($args){
 					</div>
 					<?php
 					
-					if($filloop->have_posts()){
+					if(!empty($filloop)){
 						$slidercounter = 1;
-						while($filloop->have_posts()){
-							$post = $filloop->the_post();
-							$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID),'full' );
-							$proGal = get_post_meta($filloop->post->ID, '_product_image_gallery', TRUE );
+						foreach($filloop as $post){
+							
+							$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->post->ID),'full' );
+							$proGal = get_post_meta($post->post->ID, '_product_image_gallery', TRUE );
 							$proGalId = explode(',',$proGal);
 							$reqProImageId = '';
 							foreach($proGalId as $imgid){
@@ -603,7 +627,7 @@ function loadmore_hf($args){
 							}
 							
 							if($pch==1){
-								$res = get_post_meta($filloop->post->ID ,'_regular_price',true);
+								$res = get_post_meta($post->ID ,'_regular_price',true);
 								echo '<div class="col-md-6 cc-cat-sub-price">From <span>$'.$res.'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
 								
 								$pch++;
@@ -618,7 +642,7 @@ function loadmore_hf($args){
 								<div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image ;?>)"></div>
 								</div></a>
 								<?php 
-								if($slidercounter==5 || $slidercounter==$filloop->post_count){
+								if($slidercounter==5 || $slidercounter==count($filloop)){
 									echo '</div>';
 								}
 								$slidercounter++;
@@ -626,14 +650,14 @@ function loadmore_hf($args){
 						}
 						wp_reset_query();
 					}
-					if($filloop->have_posts()){?>
+					if(!empty($filloop)){?>
                         <div class=" cc-cat-sub-group-item">
                         <?php 
                         $slidercounter = 1;
-                        while($filloop->have_posts()){
-							$filloop->the_post();
-							$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID),'thumbnail' );
-							$proGal = get_post_meta($filloop->post->ID, '_product_image_gallery', TRUE );
+                        foreach($filloop as $post){
+							
+							$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID),'thumbnail' );
+							$proGal = get_post_meta($post->ID, '_product_image_gallery', TRUE );
 							$proGalId = explode(',',$proGal);
 							$reqProImageId = '';
 							foreach($proGalId as $imgid){
@@ -652,7 +676,7 @@ function loadmore_hf($args){
 							<div class=" cc-other-term-pro">
 							<div class="cc-img-wrapper">
 							<div class="cat-item-group-image" style="background-image:url(<?php echo $feat_image;?>)">
-							<a href ="<?php the_permalink();?>" class="cc-pro-view">VIEW</a> </div>
+							<a href ="<?php echo get_the_permalink();?>" class="cc-pro-view">VIEW</a> </div>
 							</div>
 							</div>
                         <?php 
@@ -792,7 +816,7 @@ function cc_custom_search($args){
                                     $categories = get_the_terms(get_the_ID(), 'product_cat' ); 
                                     if ( $categories ) : 
                                         foreach($categories as $category) :
-                                          $children = get_categories( array ('taxonomy' => 'product_cat', 'parent' => $category->term_id ));
+                                          $children = get_categories( array ('taxonomy' => 'product_cat', 'hide_empty'=>true, 'parent' => $category->term_id ));
                                           if ( count($children) == 0 ) {
 											  ?>
                                               <span class="parent_cat">
@@ -823,7 +847,7 @@ function cc_custom_search($args){
 								if(get_field('size_m2',get_the_ID())){?>
 									<div class="cc-price-control">
 
-									<h3><span class="cc-sale-price-title">A$<?php echo $product->get_regular_price().'/SQM'?></span> </h3>
+									<h3><span class="cc-sale-price-title">$<?php echo $product->get_regular_price().'/SQM'?></span> </h3>
                                    </div>
 									<?php }else{
 										echo  $product->get_price_html();
@@ -1091,6 +1115,7 @@ foreach($slice as $store){
               $args = array(
                 'post_type' => 'wpsl_stores',
                 'posts_per_page'=>-1,
+				'post_status'	=>'publish',
                 'post__in' => $store_ids,
               );
               $loop = new WP_Query($args);
