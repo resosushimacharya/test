@@ -447,7 +447,10 @@ if(is_first == 'yes'){
 	}
 	*/
 jQuery('#category_slider_block_wrapper').append(output.html);
-jQuery('.cc-cat-title-count .post_count').text(output.found_prod);
+var prev_cnt = parseInt(jQuery('.cc-cat-title-count .post_count').html());
+var new_found = parseInt(output.found_prod);
+var newsum = prev_cnt+new_found;
+jQuery('.cc-cat-title-count .post_count').html(newsum);
 jQuery("#cc_load_more").attr('first','no');	
 
 //jQuery("#child_cat_count").val(output.child_cat_count);

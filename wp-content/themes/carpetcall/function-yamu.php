@@ -610,20 +610,36 @@ function loadmore_hf($args){
 						$slidercounter = 1;
 						foreach($filloop as $post){
 							
-							$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->post->ID),'full' );
-							$proGal = get_post_meta($post->post->ID, '_product_image_gallery', TRUE );
+							$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID),'full' );
+							$proGal = get_post_meta($post->ID, '_product_image_gallery', TRUE );
 							$proGalId = explode(',',$proGal);
 							$reqProImageId = '';
+							$imgflag = false;
 							foreach($proGalId as $imgid){
 								$proImageName = wp_get_attachment_url($imgid);
 								if(preg_match("/\_L/i", $proImageName)){
 									$feat_image = wp_get_attachment_image_src($imgid,'full');
 									if($feat_image){
 										$feat_image = $feat_image[0];
+										$imgflag = true;
+	
 									}
-								}
+								}elseif(preg_match("/\_V/i", $proImageName)){
+									$feat_image = wp_get_attachment_image_src($imgid,'full');
+									if($feat_image){
+										$feat_image = $feat_image[0];
+										$imgflag = true;
+									}
+									}
+									elseif(preg_match("/\_S/i", $proImageName)){
+									$feat_image = wp_get_attachment_image_src($imgid,'full');
+									if($feat_image){
+										$feat_image = $feat_image[0];
+										$imgflag = true;
+									}
+									}
 							}
-							if($feat_image ==''){
+							if(!$imgflag){
 								$feat_image = 'http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png';
 							}
 							
@@ -669,8 +685,22 @@ function loadmore_hf($args){
 										$feat_image = $feat_image[0];
 									}
 								}
+								elseif(preg_match("/\_V/i", $proImageName)){
+									$feat_image = wp_get_attachment_image_src($imgid,'full');
+									if($feat_image){
+										$feat_image = $feat_image[0];
+										$imgflag = true;
+									}
+									}
+										elseif(preg_match("/\_S/i", $proImageName)){
+									$feat_image = wp_get_attachment_image_src($imgid,'full');
+									if($feat_image){
+										$feat_image = $feat_image[0];
+										$imgflag = true;
+									}
+									}
 							}
-							if($feat_image ==''){
+							if(!$imgflag){
 								$feat_image = 'http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png';
 							}
 							?>
