@@ -1071,7 +1071,7 @@ add_filter( "woocommerce_catalog_orderby", "patricks_woocommerce_catalog_orderby
 
 add_filter( 'woocommerce_product_bundle', 'woocommerce_product_bundle_action', 10, 1);
 function woocommerce_product_bundle_action($results){
-	
+	do_action('pr',$results);
 	$data = array();
 	$i =0 ;
 

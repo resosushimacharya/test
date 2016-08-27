@@ -90,7 +90,36 @@ function return_parent_catlink_if_lastchild($link,$term_obj,$taxonomy){
 	$ancestors = get_ancestors( $term_obj->term_id, 'product_cat' );
 	$depth = count($ancestors) ;
 	if($depth >=2){
-		//$link = '';
+		$args = array(
+		'post_type'             => 'product',
+		'post_status'           => 'publish',
+		'ignore_sticky_posts'   => 1,
+		'posts_per_page'        => '1',
+		'orderby'				=>'rand',
+		'meta_query'            => array(
+			array(
+				'key'           => '_visibility',
+				'value'         => array('catalog', 'visible'),
+				'compare'       => 'IN'
+			)
+		),
+		'tax_query'             => array(
+			array(
+				'taxonomy'      => 'product_cat',
+				'field' => 'term_id', //This is optional, as it defaults to 'term_id'
+				'terms'         => $catid,
+				'operator'      => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+			)
+		)
+	);
+	$product = new WP_Query($args);
+	if($product->post_count > 0){
+		$link = get_permalink($product->post->ID);
+		}
+
+
+
+
 		}
 	return $link;
 	}
@@ -1196,7 +1225,7 @@ function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
 	}
 	return $url;
 }
-add_filter( 'post_type_link', 'cc_custom_proudcts_url', 10, 3 );	
+//add_filter( 'post_type_link', 'cc_custom_proudcts_url', 10, 3 );	
 
 //global $woocommerce;
 //$order_id = 3305;
