@@ -20,7 +20,8 @@
 	}
 	
 	/* Display none goes here */
-	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i, #main nav.woocommerce-breadcrumb, .cc-color-var-section > h3, .cc-ia-content h4, .ia-img, .inerblock_sec_a, .inerblock_clearn .breadcrumbs, .cc-store-bdy-contr #gmap{
+	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i, #main nav.woocommerce-breadcrumb, .cc-color-var-section > h3, .cc-ia-content h4, .ia-img, .inerblock_sec_a, .inerblock_clearn .breadcrumbs, .breadcrumbs, .inerblock_sec ul.guide_list_cbg, .cc-store-bdy-contr #gmap{
+
 		display: none;
 	}
 	/* Display none ends here */
@@ -1032,9 +1033,20 @@
 		height:352px;
 	}
 	
-	
-	
 	/* === CLEARANCE End === */
+	
+	/* === BUYING GUIDES - STANDRAD ARTICLES === */
+	
+	.ab_arrow {
+	width:100%;
+	margin:0 auto !important;	
+	}
+	
+	.cbg_content { 
+		padding:0;
+	}
+	
+	/* === BUYING GUIDES - STANDRAD ARTICLES End === */
 
 
 	/* === MAIN CATEGORY PAGE === */
