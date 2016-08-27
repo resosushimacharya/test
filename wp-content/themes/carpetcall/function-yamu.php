@@ -234,6 +234,7 @@ function show_category_slider_block($args=array()){
 		if(!empty($cat_slice)){
 			foreach($cat_slice as &$discat){?>
 			<div class="cat-single-products">
+			
 			<?php 
 			$filargs = array(
 							'post_type'=>'product',
