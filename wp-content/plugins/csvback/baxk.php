@@ -427,11 +427,12 @@ foreach($img_arr as $img){
 
 				// Insert the attachment.
 				$attach_id = wp_insert_attachment( $attachment,$file_loc.$img, $new_post_id );
+				$thumbid = media_handle_sideload( $new_post_id, basename($file_loc.$img) );
 				// Generate the metadata for the attachment, and update the database record.
 				$attach_data = wp_generate_attachment_metadata( $attach_id,  $file_loc.$img);
 				wp_update_attachment_metadata( $attach_id, $attach_data );
 				if(!$set_fea_img){
-					set_post_thumbnail( $new_post_id, $attach_id );
+					set_post_thumbnail( $new_post_id, $thumbid );
 				}
 				$set_fea_img=true;
 				$image_id[]=$attach_id ;

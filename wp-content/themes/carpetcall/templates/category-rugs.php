@@ -7,7 +7,7 @@
 	?>
 <div class="contaniner clearfix category-rugs">
   <div class="inerblock_seC_mrugss">
-    <div class="container-fluid mmrugm">
+    <div class="container-fluid mmrugm <?php echo ($depth==0)?'main_cat_head':'sub_cat_head' ?> ">
     <?php
 	$url = '';
 	$cat_thumb_id = get_woocommerce_term_meta($current_cat->term_id, 'thumbnail_id', true);
@@ -31,10 +31,18 @@
 		do_action( 'woocommerce_before_main_content' );
 	?>
         <h3>
-          <?php if($depth > 0){?>
-          <span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+          <?php if($depth > 0){
+          //var_dump($depth);
+              $cat_parent = get_term_by('id',$current_cat->parent,'product_cat');
+            ?>
+          <span class="ab_arrow">
+            <a href="<?php echo get_term_link($cat_parent->term_id,'product_cat')?>">
+              <i class="fa fa-angle-left" aria-hidden="true"></i>            
+              <b><?php echo ($depth ==1)?'All '. $cat_parent->name:'Back' ?></b>
+            </a>
+          </span>
           <?php } ?>
-          <?php echo single_cat_title('',false).' '.$appafter;?>
+            <?php echo single_cat_title('',false).' '.$appafter;?>
           <?php 
 	/*
 while(have_posts()):

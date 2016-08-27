@@ -603,7 +603,7 @@ function loadmore_hf($args){
 							
 							if($pch==1){
 								$res = get_post_meta($filloop->post->ID ,'_regular_price',true);
-								echo '<div class="col-md-6 cc-cat-sub-price">From <span>A$'.$res.'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
+								echo '<div class="col-md-6 cc-cat-sub-price">From <span>$'.$res.'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
 								
 								$pch++;
 								
@@ -1221,11 +1221,31 @@ function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
 				}
 			}
 		
-	$url.='?product='.$post->post_title;
+	$url.=''.$post->post_title;
 	}
 	return $url;
 }
 //add_filter( 'post_type_link', 'cc_custom_proudcts_url', 10, 3 );	
+add_filter( 'rewrite_rules_array', function( $rules )
+{
+    $new_rules = array(
+        'shop-our-range/([^/]*?)/?$' => 'index.php?product_cat=$matches[1]',
+		'shop-our-range/([^/]*?)/([^/]*?)?$' => 'index.php?product_cat=$matches[2]',
+		'shop-our-range/([^/]*?)/([^/]*?)/([^/]*?)?$' => 'index.php?product_cat=$matches[3]',
+		
+		 'shop-our-range/([^/]*?)/page/([0-9]{1,})/?$' => 'index.php?product_cat=$matches[1]&paged=$matches[2]',
+		  'shop-our-range/([^/]*?)/([^/]*?)/page/([0-9]{1,})/?$' => 'index.php?product_cat=$matches[2]&paged=$matches[3]',
+		  'shop-our-range/([^/]*?)/([^/]*?)/([^/]*?)/page/([0-9]{1,})/?$' => 'index.php?product_cat=$matches[3]&paged=$matches[4]',
+		
+    );
+    return $new_rules + $rules;
+} );
+
+
+
+add_filter( 'post_type_link', 'cc_custom_proudcts_url', 10, 3 );	
+
+//add_rewrite_rule('^shop-our-range/([^/]*)/([^/]*)/([^/]*)/([^/]*)?','index.php?&product=$matches[4]','top');
 
 //global $woocommerce;
 //$order_id = 3305;
