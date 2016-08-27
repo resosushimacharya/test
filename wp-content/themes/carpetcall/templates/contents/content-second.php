@@ -27,7 +27,16 @@ else{
 echo ' > ' ; ?><span class="cc-bread-parent"><a href="<?php echo get_the_permalink($post->post_parent);?>"><?php echo get_the_title($post->post_parent);?></a></span><?php 
 echo ' > ' ; ?><span class="cc-bread-current"><?php echo get_the_title().' '.get_the_title($post->post_parent);?></span>
 </div>
-<h1><a href="<?php echo get_permalink($post->post_parent) ;?>"> <span class="ab_arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></span> <?php echo get_the_title();?> <?php echo get_the_title($post->post_parent);?> </h1>
+
+ <h1>
+<span class="ab_arrow">
+            <a href="<?php echo get_permalink($post->post_parent);?>">
+              <i class="fa fa-angle-left" aria-hidden="true"></i>            
+              <b><?php  echo get_the_title($post->post_parent);;?></b>
+            </a>
+          </span><?php echo get_the_title().' '.get_the_title($post->post_parent);?>
+          </h1> 
+
   
            
 </div>
