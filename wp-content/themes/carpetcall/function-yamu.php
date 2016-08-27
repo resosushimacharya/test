@@ -89,7 +89,7 @@ function return_parent_catlink_if_lastchild($link,$term_obj,$taxonomy){
 	$catid = $term_obj->term_id;
 	$ancestors = get_ancestors( $term_obj->term_id, 'product_cat' );
 	$depth = count($ancestors) ;
-	if($depth >=2){
+	if($depth >=2 && $term_obj->count > 0){
 		$args = array(
 		'post_type'             => 'product',
 		'post_status'           => 'publish',
@@ -114,12 +114,13 @@ function return_parent_catlink_if_lastchild($link,$term_obj,$taxonomy){
 	);
 	$product = new WP_Query($args);
 	if($product->post_count > 0){
-		$link = get_permalink($product->post->ID);
+		$key_word=str_replace('.','-',get_post_meta($product->post->ID,'_sku',true));
+		if(!strpos($link,$key_word)){
+			$link.=$key_word;
 		}
-
-
-
-
+		
+		//$link = get_permalink($product->post->ID);
+		}
 		}
 	return $link;
 	}
@@ -959,10 +960,10 @@ function generate_catids_array($top_lvl_cat,$depth){
 	//$transient = 'category_'.$top_lvl_cat.'_transient';
 	//if ( false === ( get_transient( $transient ) ) ) {
 		$cat_arr = array();
-		$second_lvl_cats = get_terms(array('parent'=>$top_lvl_cat,'taxonomy'=>'product_cat','hide_empty'=>false));
+		$second_lvl_cats = get_terms(array('parent'=>$top_lvl_cat,'taxonomy'=>'product_cat','hide_empty'=>true));
 		foreach($second_lvl_cats as $cat_parents){
 			if($depth==0){
-				$third_lvl_cats = get_terms(array('parent'=>$cat_parents->term_id,'taxonomy'=>'product_cat'));
+				$third_lvl_cats = get_terms(array('parent'=>$cat_parents->term_id,'taxonomy'=>'product_cat','hide_empty'=>true));
 				foreach($third_lvl_cats as $cat){
 					$cat_arr[] = $cat->term_id;
 				}
@@ -1220,12 +1221,12 @@ function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
 					}
 				}
 			}
-		
-	$url.=''.$post->post_title;
 	}
 	return $url;
 }
-//add_filter( 'post_type_link', 'cc_custom_proudcts_url', 10, 3 );	
+
+add_filter( 'post_type_link', 'cc_custom_proudcts_url', 10, 3 );	
+
 add_filter( 'rewrite_rules_array', function( $rules )
 {
     $new_rules = array(
@@ -1243,7 +1244,6 @@ add_filter( 'rewrite_rules_array', function( $rules )
 
 
 
-add_filter( 'post_type_link', 'cc_custom_proudcts_url', 10, 3 );	
 
 //add_rewrite_rule('^shop-our-range/([^/]*)/([^/]*)/([^/]*)/([^/]*)?','index.php?&product=$matches[4]','top');
 

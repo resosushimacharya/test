@@ -145,7 +145,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						{  $loop->the_post();
 							   
 								$stockcheck = get_post_meta($loop->post->ID);
-                $titlepro[$post->ID] = $stockcheck['_sku'][0];
+                $titlepro[$post->ID] = get_the_title();
 
 							?>
 						<?php 
@@ -153,6 +153,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 					wp_reset_query();
 
 }     	
+                   
+                   
+                   
                    }
                }
               //do_action('pr',$titlepro);
@@ -161,9 +164,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                 
      
      $proGroup = array();
+    
         foreach($titlepro as $key => $value){
 
-            preg_match('/([A-Z]*)\.([0-9]*)\.([0-9]*)\.([0-9]*)/',$value,$match);
+            preg_match('/([A-Z]*)\-([0-9]*)\-([0-9]*)\-([0-9]*)/',$value,$match);
               
              $proGroup[] = array($value,$match[2],$key);
              
@@ -182,6 +186,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
   
 }
+
 
 $stoKey = array();
 $xyz = array();
@@ -211,6 +216,7 @@ foreach($proGroup as $item ){
     }
   }
 }
+
 
 
 global $post;
@@ -285,8 +291,8 @@ foreach($filterproGroup as $bundle){
 
         endforeach;
 
-
     if($key == $post->ID){
+          
             $res =apply_filters('woocommerce_product_bundle',$bundle);
         
            }

@@ -27,6 +27,17 @@ class CcOrderExport {
    */
   public function __construct() {
     if (isset($_GET['export_orders'])) {
+		$rugs_order_report =  $this->generate_rugs_order_report();
+		//$hardflooring_order_report =  $this->generate_rugs_order_report();
+		
+		/*
+		$rugs_order_item_list =  $this->generate_rugs_order_report();
+		$hardflooring_order_item_list =  $this->generate_rugs_order_report();
+			
+		
+		
+		
+	
       $order_report = $this->generate_order_report();
       $order_item_list = $this->generate_order_item_list();
 	  if($order_report){
@@ -42,7 +53,7 @@ class CcOrderExport {
 				 }
 		  }
 		  
-		  
+		  */
      
 	 /*
 	  header("Pragma: public");
@@ -317,6 +328,199 @@ foreach($arrayCsv as $check):
 	endforeach;
     return $csv_output;  
 	}
+
+
+
+
+
+  public function generate_rugs_order_report() {
+    /*$rows = array (
+    array('aaa', 'bbb', 'ccc', 'dddd'),
+    array('123', '456', '789'),
+    array('"aaa"', '"bbb"')
+);*/
+$args = array(
+    'post_type'=>'shop_order',
+    'posts_per_page'=>'-1',
+    'post_status' => 'any',
+	'date_query' => array(
+     /*array(
+           'after' => strtotime('-1 hour'),
+           'before' => strtotime('now'),
+		   'inclusive' => true,
+           )
+		  */
+     )
+	
+   );
+$loop = new WP_Query($args);
+$arrayCsv_rugs = $arrayCsv_hardflooring = array();
+$arrayCsv_rugs[] = $arrayCsv_hardflooring[] =array(
+					'Order Id',
+					'Business Name',
+					'First Name',
+					'Last Name',
+					'Email',
+					'Phone',
+					'Delivery Address 1',
+					'Delivery Address 2',
+					'Delivery Zip',
+					'Delivery State',
+					'Delivery City',
+					'Delivery Country',
+					'Billing Business Name',
+					'Billing First Name',
+					'Billing Last Name',
+					'Billing Email',
+					'Billing Phone',
+					'Billing Address 1',
+					'Billing Address 2',
+					'Billing Zip',
+					'Billing State',
+					'Billing City',
+					'Billing Country',
+					'Delivery Option',
+					'Store Id',
+					'Store State',
+					'Store Address',
+					'Grand Total',
+					'Code',
+					'Shipping Cost',
+					'Payment Method',
+					'Status',
+					'Order Status',
+					'CC Name',
+					'CC Type',
+					'CC Date',
+					'CC Num',
+					'CC CCV',
+					'Timestamp',
+					'Payment Number',
+					'Bank Reference',
+					'Summary Code',
+					'Response Code',
+					'Response Text',
+					'Payment Time',
+					'Payment Reference',
+					'Invoice',
+					'Payer Id',
+					'Payment Date',
+					'Payment Status',
+					'Payer Status',
+					'Txn Id',
+					'Payment Type',
+					'Receiver Id',
+					'Receipt Id',
+					'Status Code',
+					'Status Description',
+					'Response Description',
+					'ATL',
+					'Comment'
+					);
+ 
+  while($loop->have_posts()):
+            $loop->the_post();
+			global $woocommerce;
+			 $order = new WC_Order(get_the_ID());
+			 foreach ($order->get_items() as $key => $lineItem) {
+			if(get_post($lineItem['product_id']) && get_post_status($lineItem['product_id'])=='publish'){		
+				$terms = wp_get_object_terms( $lineItem['product_id'], 'product_cat',array('fields'=>'slugs'));
+				
+				if(array_intersect(array('rugs'),$terms)){
+					echo 'rugs';
+					}
+				if(array_intersect(array('hard-flooring','accessories'),$terms)){
+					echo 'hardflooring and acc';
+					}
+				
+				
+				
+				$arrayCsv[] = array(
+									get_the_ID(),
+									get_post_meta($lineItem['product_id'],'_sku',true),
+									$lineItem['name'],
+									$lineItem['line_total'],
+									$lineItem['qty']
+									);
+									
+									
+									
+				 }
+			}
+			
+$selected_store = get_post_meta($order->id,'pickup_store_id',true);
+$selected_store_meta = get_post_meta($selected_store);
+$arrayCsv[] = array(
+ 					$order->id,
+					$order->shipping_company,
+					$order->shipping_first_name,
+					$order->shipping_last_name,
+					$order->shipping_email,
+					$order->shipping_phone,
+					$order->shipping_address_1,
+					$order->shipping_address_2,
+					$order->shipping_postcode,
+					$order->shipping_state,
+					$order->shipping_city,
+					$order->shipping_country,
+					'',
+					$order->billing_first_name,
+					$order->billing_last_name,
+					$order->billing_email,
+					$order->billing_phone,
+					$order->billing_address_1,
+					$order->billing_address_2,
+					$order->billing_postcode,
+					$order->billing_state,
+					$order->billing_city,
+					$order->billing_country,
+					$order->get_shipping_method(),
+					$selected_store,
+					$selected_store_meta['wpsl_state'][0],
+					$selected_store_meta['wpsl_address'][0],
+					$order->order_total,
+					'',//code
+					$order->get_total_shipping(),
+					$order->payment_method_title,
+					'',//order status
+					$order->get_status(),
+					'',//CC Name
+					'',//CC Type
+					'',//CC Date
+					'',//CC Num
+					'',//CC CCV
+					strtotime($order->order_date),
+					'',//payment number
+					'',
+					'',
+					'',
+					'',
+					$order->order_date,
+					'',
+					'',
+					'',
+					'',
+					'',
+					'',
+					$order->get_transaction_id(),
+					'',//payment type
+					'',
+					'',
+					'',
+					'',
+					'',
+					'',
+					$order->customer_note
+ 					);						 
+    endwhile;
+$csv_output = '';
+foreach($arrayCsv as $check):
+          $csv_output[] =$check;
+	endforeach;
+    return $csv_output;
+  }
+
+
 
 }
 
