@@ -36,9 +36,57 @@
  <div class="container clearfix">
 	<div class="inerblock_sec">
 		<div class="col-md-3 no-pl">
-        <div class="meromm">
-			<?php get_sidebar('guide');?>
-            </div>
+       <ul class="guide_list_cbg">
+            
+<?php 
+
+
+$roottitle = ' ';
+$url = site_url();
+$url = explode('/',$url);
+
+if(strcasecmp($url[2],'localhost')==0)
+{
+ if($post->ID=='1690'){
+ 	$roottitle ="GUIDE";
+ }
+ if($post->ID=='1711'){
+ 	$roottitle ="CARE";
+ }
+ if($post->ID=='1725'){
+ 	$roottitle ="FAQ";
+ }
+}
+else{
+if($post->ID=='26696'){
+ 	$roottitle ="GUIDE";
+ }
+ if($post->ID=='26709'){
+ 	$roottitle ="CARE";
+ }
+ if($post->ID=='26721'){
+ 	$roottitle ="FAQ";
+ }
+}
+$args = array(
+    'post_type'      => 'page',
+    'posts_per_page' => -1,
+    'post_parent'    => $post->ID,
+    'order'          => 'ASC',
+    'orderby'        => 'menu_order'
+ );
+
+
+$parent = new WP_Query( $args );
+
+while($parent->have_posts()){
+    $parent->the_post();
+    
+     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID) .' '.$roottitle.' ' .'<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+}
+wp_reset_query();
+ ?>
+</ul>
             <div class="clearfix"></div>
 		</div>
 		<div class="col-md-9">
@@ -58,6 +106,20 @@
 		</div>
 </div>
 </div>
+
+
+<div class="container cc-mobile-blk hidden-md hidden-lg clearfix">
+<div class="col-md-3 no-pl">
+<div class="meromm">
+			<?php get_sidebar('guide');?>
+            </div>
+      </div>      
+</div>
+
+
+
+
+
     <script>
         jQuery(document).ready(function($) {
     $('ul.guide_list_cbg li a[href^="#"]').bind('click.smoothscroll',function (e) {

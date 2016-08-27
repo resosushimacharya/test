@@ -39,6 +39,87 @@ if(have_posts()):
 </div>
 </div>
 </div>
+
+<div class="cc-mobile-blk clearfix">
+ <div class="col-md-3 no-pl">
+        <div id="stickSide">
+        <div class="meromm" >
+			
+<?php 
+ $res = get_field('buying_guide_archive', get_the_id());?>
+<ul class="guide_list_cbg">
+            
+<?php 
+
+
+$roottitle = ' ';
+$url = site_url();
+$url = explode('/',$url);
+
+$parentID = $post->post_parent;
+
+if(strcasecmp($url[2],'localhost')==0)
+{
+ if($parentID=='1690'){
+  $roottitle ="GUIDE";
+ }
+ if($parentID=='1711'){
+  $roottitle ="CARE";
+ }
+ if($parentID=='1725'){
+  $roottitle ="FAQ";
+ }
+}
+else{
+if($parentID=='26696'){
+  $roottitle ="GUIDE";
+ }
+ if($parentID=='26709'){
+  $roottitle ="CARE";
+ }
+ if($parentID=='26721'){
+  $roottitle ="FAQ";
+ }
+}
+
+$args = array(
+    'post_type'      => 'page',
+    'posts_per_page' => -1,
+    'post_parent'    => $parentID,
+    'order'          => 'ASC',
+    'orderby'        => 'menu_order'
+ );
+
+
+$parent = new WP_Query( $args );
+
+while($parent->have_posts()){
+    $parent->the_post();
+    
+     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID) .' '.$roottitle.' ' .'<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+}
+wp_reset_query();
+ ?>
+</ul>
+<?php 
+#if($post->ID==$rugID || $post->ID==$hardID){
+$button_title = get_field( 'button_title' );
+$button_link = get_field( 'button_link' );
+if( '' != $button_title && '' != $button_link ) {
+?>
+<div class="nowspe nowsppe">
+  <a href="<?php echo $button_link; ?>" title="<?php echo $button_title; ?>"><?php echo $button_title; ?></a>
+</div>
+<?php } ?>
+            </div>
+            </div>
+            <div class="clearfix"></div>
+		</div>
+            <div class="clearfix"></div>
+		</div>
+</div>
+
+
 <div class="clearfix"></div>
    <div class="inerblock_sec_a">
 
