@@ -3809,7 +3809,11 @@ div#right_col p a:hover {
 .cc-options-wrapper-nh form .cc-find-store-au.hf {
 	margin-left: 16px;
 }
-.cc-options-wrapper-nh form input#cc-but-near {
+.cc-options-wrapper-nh form button{
+	border-radius: 0;
+}
+.cc-options-wrapper-nh form button br{display: none;}
+.cc-options-wrapper-nh form button#cc-but-near{
 	border: 0;
 	background: white;
 	padding: 13px 40px 7px 40px;
@@ -3818,11 +3822,11 @@ div#right_col p a:hover {
 	color: #15489f;
 	text-transform: uppercase;
 }
-.cc-options-wrapper-nh form input#cc-but-near:hover {
-	border-top: 4px solid #0099ff;
-	padding: 9px 40px 7px 40px;
+.cc-options-wrapper-nh form button#cc-but-near:hover {
+	/*border-top: 4px solid #0099ff;*/
+	/*padding: 9px 40px 7px 40px;*/
 }
-.cc-options-wrapper-nh form input#cc-but-head {
+.cc-options-wrapper-nh form button#cc-but-head {
 	border: 0;
 	background: white;
 	padding: 13px 40px 7px 40px;
@@ -3832,9 +3836,9 @@ div#right_col p a:hover {
 	text-transform: uppercase;
 	margin-left: 0px;
 }
-.cc-options-wrapper-nh form input#cc-but-head:hover {
-	border-top: 4px solid #0099ff;
-	padding: 9px 40px 7px 40px;
+.cc-options-wrapper-nh form button#cc-but-head:hover {
+	/*border-top: 4px solid #0099ff;*/
+	/*padding: 9px 40px 7px 40px;*/
 }
 .cc-store-bdy-contr {
 	margin-bottom: 59px;
@@ -3873,6 +3877,9 @@ div#right_col p a:hover {
 	width: 100%;
 	background: #0099ff;
 	z-index: 888;
+}
+.cc-find-store-au:hover:before{
+	height: 4px;
 }
 .store-finder-page-form .store-finder-form-cntr > form input {
 	float: left;
@@ -3922,6 +3929,9 @@ input#cc_control_map {
 	color: #15489f;
 	text-transform: uppercase;
 	margin: 39px 0 47px 0;
+}
+.cc-store-list-section h4 br{
+	display: none;
 }
 .store-finder-page-form .store-finder-form-cntr #wpsl-auto-locate input {
 	border: none;

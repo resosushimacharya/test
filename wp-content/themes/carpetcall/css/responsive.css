@@ -20,7 +20,7 @@
 	}
 	
 	/* Display none goes here */
-	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i, #main nav.woocommerce-breadcrumb, .cc-color-var-section > h3, .cc-ia-content h4, .ia-img, .inerblock_sec_a, .inerblock_clearn .breadcrumbs{
+	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i, #main nav.woocommerce-breadcrumb, .cc-color-var-section > h3, .cc-ia-content h4, .ia-img, .inerblock_sec_a, .inerblock_clearn .breadcrumbs, .cc-store-bdy-contr #gmap{
 		display: none;
 	}
 	/* Display none ends here */
@@ -88,7 +88,7 @@
 	
 	
 	/* Big buttons */
-	.cptinn a, .find_tbb a, .cc-cat-pro-section-right input, .ab_arrow{
+	.cptinn a, .find_tbb a, .cc-cat-pro-section-right input, .ab_arrow, .store-finder-page-form .store-finder-form-cntr #wpsl-auto-locate input{
 		height: 90px;
 		padding: 0;
 		line-height: 90px;
@@ -1431,6 +1431,7 @@
 
 
 	/* === STORE FINDER LANDING PAGE === */
+	/* Top Head */
 	.cc-bread-crumb-str{
 		display: none;
 	}
@@ -1439,10 +1440,109 @@
 	    font-size: 72px;
 	    margin: 0;
 	}
+	/* Buttons */
 	.cc-options-wrapper-nh {
 	    margin: 0 -20px;
 	    font-size: 0;
 	}
+	.cc-options-wrapper-nh form{
+		width: 50%;
+		padding: 0 18px;
+	}
+	form.form-near-str{
+		padding-left: 0;
+	}
+	form.form-head-off{
+		float: right;
+		padding-right: 0;
+	}
+	.cc-options-wrapper-nh form .cc-find-store-au.hf{
+		margin-left: 0;
+	}
+	.cc-options-wrapper-nh form button br{
+		display: block;
+	}
+	.cc-options-wrapper-nh form button{
+	    padding: 0 35px!important;
+	    width: 100%;
+	    height: 110px;
+	    line-height: 1.2 !important;
+	    font-size: 30px !important;
+	    text-align: left;
+	}
+	.cc-options-wrapper-nh form button#cc-but-head{
+		text-align: center;
+	}
+	.cc-find-store-au.store-finder-active-tab:before, .cc-find-store-au:hover:before{
+		height: 10px;
+	}
+	/* Form Inputs */   
+	.page-template-find-a-store .cc-store-bdy-contr .wpsl-search {
+	    margin: 45px 0;
+	}
+	#wpsl-search-wrap .wpsl-input, #wpsl-search-wrap .wpsl-select-wrap {
+	    display: inline-block;
+	}
+	#wpsl-search-wrap .wpsl-input input {
+		display: inline-block;
+		background: #e7edf8;
+	}
+	#wpsl-search-wrap .wpsl-input{
+		margin: 0;
+	}
+	.store-finder-page-form #wpsl-search-wrap.store-finder-form-cntr > form, .store-finder-page-form .store-finder-form-cntr #wpsl-auto-locate, #wpsl-search-wrap .wpsl-search-btn-wrap{
+		float: none;
+	}
+	input#wpsl-search-input {
+	    height: 90px;
+	}
+	.store-finder-form-cntr span{
+	    display: block;
+	    text-align: center;
+	    font-size: 24px;
+	    margin: 0;
+	    line-height: 1;
+	    padding: 28px 20px;
+	}
+	.store-finder-page-form .store-finder-form-cntr #wpsl-auto-locate input{
+		width: 100%;
+		font-size: 24px;
+	}
+
+	/* Showing Result Section */
+	.cc-store-list-section h4 br{
+		display: block;
+	}
+	.cc-store-list-section h4 {
+	    font-size: 48px;
+	    margin: 40px 15px;
+	}
+
+	.cc-state-link{
+		border-width: 2px;
+		border-color: #e7edf8;
+	}
+	.store_links_wrapper .cc-state-link:first-child {
+	    border-top: 2px solid #e7edf8;
+	}
+	.store_links_wrapper .cc-state-link:last-child {
+	    border-bottom: 2px solid #e7edf8;
+	}
+	div.cc-state-link a {
+		font-size: 36px;
+		padding: 37px 15px;
+	}
+	.cc-state-link a::before {
+	    font-size: 40px;
+	    right: 20px;
+	    top: 50%;
+	    -webkit-transform: translateY(-50%);
+	    -moz-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	    -o-transform: translateY(-50%);
+	    transform: translateY(-50%);
+	}
+
 	/* === STORE FINDER LANDING PAGE End=== */
 	
 	/* ===== FOOTER ===== */	
@@ -2781,10 +2881,14 @@
 	/* Category Head End */
 	
 	/* Categoty Filter */
+	.rugm-blk {
+	    padding: 25px 20px;
+	}
 	.rugm-blk .open-product-sidebar{
 	    font-size: 32px;
 	    line-height: 75px;
         font-family: 'ProximaN Bold';
+        right: 5px;
 	}
 	.cc-product-sort ul li{
 		padding: 0 13px;
@@ -2865,7 +2969,7 @@
 	    padding: 30px 0;
 	}
 	.mobile-apply-btn a {
-        font-size: 24px;
+        font-size: 18px;
 	    height: 60px;
 	    line-height: 60px;
 	    padding: 0 100px;
@@ -2906,7 +3010,9 @@
 	}
 	.cc-cat-pro-section-right input{
 		width: 280px;
-		font-size: 26px;
+		font-size: 18px;
+		height: 60px;
+		line-height: 6px;
 	}
 	/* Category Body Section End */
 
@@ -2938,9 +3044,24 @@
 	.cc-cat-sub-desc-sec p {
 	    line-height: 1.4;
 	}	
+	.cc_background_image{
+		margin: 50px 0;
+	}
 	/* Category Last Sec */
 
 	/* === MAIN CATEGORY PAGE End === */
+
+	/* === MAIN SUB CATEGORY PAGE === */
+	.sub_cat_head section#main{
+		padding: 25px 20px 10px;
+	}
+	.ab_arrow {
+	    font-size: 24px;
+	    margin-bottom: 45px;
+	    height: 60px;
+	    line-height: 60px;
+	}
+	/* === MAIN SUB CATEGORY PAGE End === */
 	
 	/* ===== 404 PAGE ===== */
 	.error-wrapper h1 {
@@ -3082,17 +3203,6 @@
 	
 	/* === CLEARANCE End === */
 
-	
-
-	/* === MAIN SUB CATEGORY PAGE === */
-	.sub_cat_head section#main{
-		padding: 25px 20px 10px;
-	}
-	.ab_arrow {
-	    font-size: 26px;
-	    margin-bottom: 50px;
-	}
-	/* === MAIN SUB CATEGORY PAGE End === */
 
 	/* ===== FOOTER ===== */	
 	.footer_nav_mobile .foot_mob li{
@@ -3141,13 +3251,13 @@
 	/* Font-size 16px; End */
 	
 	/* Font-size 18px; */
-	.suptlst li, .aag p, .aag_a p, .aag_c p, .ptxt h4, .ptxt h5, .nowspp a, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .searchm .form-control, .selected-link-cntr span.selected_main_link a, .crt_pname h2, .crt_pname h3, .crt_price h4, .crt_pname h5, .view_cc a, .check_crtt a{
+	.suptlst li, .aag p, .aag_a p, .aag_c p, .ptxt h4, .ptxt h5, .nowspp a, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .searchm .form-control, .selected-link-cntr span.selected_main_link a, .crt_pname h2, .crt_pname h3, .crt_price h4, .crt_pname h5, .view_cc a, .check_crtt a, .mobile-filter-sec .cc-count-clear a, .cc-price-var-items .range_slider b{
 		font-size: 16px;
 	}
 	/* Font-size 18px; End */
 
 	/* Font-size 24px; */
-	.cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a, #cssmenu ul li ul li a, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a, .ptxt h3 a, .mycrt_blk, #cssmenu > ul > li > a{
+	.cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a, #cssmenu ul li ul li a, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a, .ptxt h3 a, .mycrt_blk, #cssmenu > ul > li > a, .cc-cat-title-count, ul.guide_list_cbg li a, .cc-price-var-items form .checkbox label, .cc-cat-sub-title h4, .proabtxt span, .mobile-filter-sec .cc-cat-title-count{
 		font-size: 16px;
 	}
 	/* Font-size 24px; End */
@@ -3159,13 +3269,13 @@
 	/* Font-size 24px; End */
 
 	/* Font-size 26px; */
-	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .measr_cnt h3, .intro p, .rmoree a, .loplc h3{
+	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .measr_cnt h3, .intro p, .rmoree a, .loplc h3, #main.sec_head_cntr p, .cc-product-sort li a, .cc-count-label, .filter-go-back, .cc-pro-sub-cat-ul.guide_list_cbg h3, .panel-title>a, .cc-cat-sub-desc-sec p{
 		font-size: 18px;
 	}
 	/* Font-size 26px; End */
 
 	/* Font-size 32px; */
-	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a{
+	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .cc-cat-sub-price, .cc-cat-pro-section-right input, h3.cc-idea-ad-title, .proabtxt h4, .cc-cat-sub-desc-sec h3{
 		font-size: 24px;
 	}
 	/* Font-size 32px; End */
@@ -3291,6 +3401,195 @@
 	/* Home Map End */
 
 	/* === HOME PAGE End === */
+
+	/* === MAIN CATEGORY PAGE === */
+	/* Category Head */
+	section#main{
+		padding: 40px 10px;
+	}
+	.sec_head_cntr h3 {
+	    font-size: 48px;
+	    margin-bottom: 15px;
+	}
+	/* Category Head End */
+	
+	/* Categoty Filter */
+	.rugm-blk {
+	    padding: 20px 15px;
+	    margin-bottom: 30px;
+	}
+	.rugm-blk .open-product-sidebar{
+        font-size: 28px;
+	    line-height: 65px;
+	    right: 0px;
+	}
+	.cc-product-sort ul li{
+		padding: 0 10px;
+	}
+	.cc-product-sort ul li:nth-child(2) {
+	    padding-left: 10px;
+	}
+	.cc-product-sort li a, .cc-count-label {
+	    font-size: 18px;
+	}
+
+	/* Mobile Pop Up filter */	
+	.filter-go-back{
+	    height: 70px;
+	    line-height: 70px;
+	}
+	.mobile-filter-sec {
+        margin: 25px 0 25px;
+	}
+	.mobile-filter-sec .cc-cat-title-count{
+		margin-right: 15px;
+	}	
+	.mobile-filter-sec .cc-count-clear a {
+	    font-size: 14px;
+	}
+	ul.guide_list_cbg {
+	    padding: 20px 15px 20px;
+	}
+	ul.guide_list_cbg li a, ul.guide_list_cbg li .fa{
+	    line-height: 40px;
+	}
+	.panel-group.cc-color-var .panel-default>.panel-heading{
+	    padding: 15px 20px;
+	}
+	.panel-title>a{
+		font-size: 20px;
+		margin-left: 25px;
+	}
+	div#accordion-color .panel-body{
+		padding: 0 15px 15px;
+	}	
+	.panel-title>a .glyphicon{
+		top: -2px;
+	}
+	.cc-cat-pro-section-left .glyphicon-chevron-up:before{
+		font-size: 24px;
+	}
+	
+	/* Color */
+	.swatch{
+		width: 30px;
+		height: 30px;
+	}
+	.cc-color-var-item li{
+		padding: 0 10px;
+		margin-bottom: 15px;
+	}
+	.cc-color-var-item label{
+		font-size: 10px;
+	}
+
+	/* Price */	
+	.cc-price-var-items .range_slider b{
+		margin-bottom: 15px;
+		font-size: 16px;
+	}
+	.cc-price-var-items .range_slider b:last-child{
+		margin-top: 15px;
+	}
+	.archive.tax-product_cat .slider.slider-horizontal{
+		width: 200px;
+	}
+
+	/* Size */
+	.cc-price-var-items form .checkbox label{
+		padding-left: 45px;
+	}
+	
+	/* Apply Btn */
+	.mobile-apply-btn {
+	    padding: 25px 0;
+	}
+	.mobile-apply-btn a {
+        font-size: 18px;
+	    height: 60px;
+	    line-height: 60px;
+	}
+	/* Mobile Pop Up filter End */
+
+	/* Categoty Filter End */
+
+	/* Category Body Section */
+	.cc-cat-sub-title{
+		width: 47%
+	}
+	.cc-cat-sub-price {
+		width: 53%;
+	}
+	.cc-cat-sub-title h3{
+		font-size: 24px;
+	}
+	.cc-cat-sub-price{
+		font-size: 20px;
+	}
+	.cc-cat-sub-price span{
+		font-size: 32px;
+	}
+	.cat-single-products {
+	    margin-bottom: 30px;
+	}
+	.cat_slider_item_image{
+		height: 250px;
+	}
+	.cat-item-group-image {
+	    height: 90px;
+	}
+	.cc-cat-pro-section-right input{
+		width: 260px;
+		font-size: 18px;
+	}
+	/* Category Body Section End */
+
+	/* Category Ideas and Advice Section */
+	.inerblock_sec_a{
+		padding-bottom: 55px;
+	}
+	h3.cc-idea-ad-title {
+	    margin: 50px 0 30px 0;
+	}
+	.pro_secone_a {		
+		padding: 20px;
+	}
+	.img_cntr_a {
+	    height: 200px;
+	}
+	.proabtxt h4, .proabtxt span{
+		padding: 0 10px;
+	}
+	/* Category Ideas and Advice Section End */
+
+	/* Category Last Sec */
+	.cc-cat-sub-desc-sec {
+	    padding: 0 30px;
+	}
+	.cc-cat-sub-desc-sec h3 {
+	    margin-bottom: 30px;
+	}
+	.cc-cat-sub-desc-sec p {
+	    line-height: 1.4;
+	}	
+	.cc_background_image{
+		margin: 50px 0;
+	}
+	/* Category Last Sec */
+
+	/* === MAIN CATEGORY PAGE End === */
+
+	/* === MAIN SUB CATEGORY PAGE === */
+	.sub_cat_head section#main{
+		padding: 25px 20px 10px;
+	}
+	.ab_arrow {
+	    font-size: 24px;
+	    margin-bottom: 45px;
+	    height: 60px;
+	    line-height: 60px;
+	}
+	/* === MAIN SUB CATEGORY PAGE End === */
 	
 	/* === 404 Page === */
 	.error-wrapper h1 {

@@ -36,7 +36,7 @@ $autoload_class = ( !$wpsl_settings['autoload'] ) ? 'class="wpsl-not-loaded"' : 
 $output .= '<div id="wpsl-wrap" class="wpsl-store-below store-finder-page-form">' . "\r\n";
 $output .= "\t" . '<div class="wpsl-search wpsl-clearfix ' . $this->get_css_classes() . '">' . "\r\n";
 $output .= "\t\t" . '<div id="wpsl-search-wrap"  class="store-finder-form-cntr">' . "\r\n";
-$output .= "\t\t\t" . '<form autocomplete="off" method="post">' . "\r\n";
+$output .= "\t\t\t" . '<form autocomplete="off" method="post" class="clearfix">' . "\r\n";
 $output .= "\t\t\t" . '<div class="wpsl-input">' . "\r\n";
 
 
