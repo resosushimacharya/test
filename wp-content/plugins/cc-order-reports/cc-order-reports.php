@@ -27,33 +27,41 @@ class CcOrderExport {
    */
   public function __construct() {
     if (isset($_GET['export_orders'])) {
-		$rugs_order_report =  $this->generate_rugs_order_report();
-		//$hardflooring_order_report =  $this->generate_rugs_order_report();
-		
-		/*
-		$rugs_order_item_list =  $this->generate_rugs_order_report();
-		$hardflooring_order_item_list =  $this->generate_rugs_order_report();
-			
-		
-		
-		
-	
-      $order_report = $this->generate_order_report();
-      $order_item_list = $this->generate_order_item_list();
-	  if($order_report){
-		  $fp_order_report = fopen(WP_CONTENT_DIR.'/order-reports/OrderReport'.strtotime("now").'.csv','w+');
-				 foreach($order_report as $report){ 
+	$cc_order_report =  $this->cc_generate_order_report();
+	$rugor = $cc_order_report['rugor'];
+	$rugol = $cc_order_report['rugol'];
+	$hfor = $cc_order_report['hfor'];
+	$hfol = $cc_order_report['hfol'];
+	$current_date_string = date( 'YmdHi', current_time( 'timestamp', 0 ));
+	   if($rugor){
+		  $fp_order_report = fopen(WP_CONTENT_DIR.'/order-reports/ORRUGS'.$current_date_string.'.csv','w+');
+				 foreach($rugor as $report){ 
 				  fputcsv($fp_order_report,$report);
 				 }
 		 }
-	  if($order_item_list){
-		 $fp_order_list = fopen(WP_CONTENT_DIR.'/order-reports/OrderList'.strtotime("now").'.csv','w+');
-		  foreach($order_item_list as $report){ 
+		
+	  if($hfor){
+		  $fp_order_report = fopen(WP_CONTENT_DIR.'/order-reports/ORHARD'.$current_date_string.'.csv','w+');
+				 foreach($hfor as $report){ 
+				  fputcsv($fp_order_report,$report);
+				 }
+		 }
+	 
+
+		if($hfol){
+		 $fp_order_list = fopen(WP_CONTENT_DIR.'/order-reports/OLHARD'.$current_date_string.'.csv','w+');
+		  foreach($hfol as $report){ 
+				 fputcsv($fp_order_list,$report);
+				 }
+		  }
+	  if($rugol){
+		 $fp_order_list = fopen(WP_CONTENT_DIR.'/order-reports/OLRUGS'.$current_date_string.'.csv','w+');
+		  foreach($rugol as $report){ 
 				 fputcsv($fp_order_list,$report);
 				 }
 		  }
 		  
-		  */
+		
      
 	 /*
 	  header("Pragma: public");
@@ -333,7 +341,7 @@ foreach($arrayCsv as $check):
 
 
 
-  public function generate_rugs_order_report() {
+  public function cc_generate_order_report() {
     /*$rows = array (
     array('aaa', 'bbb', 'ccc', 'dddd'),
     array('123', '456', '789'),
@@ -354,8 +362,19 @@ $args = array(
 	
    );
 $loop = new WP_Query($args);
-$arrayCsv_rugs = $arrayCsv_hardflooring = array();
-$arrayCsv_rugs[] = $arrayCsv_hardflooring[] =array(
+$arrayCsv_rugs_or = $arrayCsv_hardflooring_or = array();
+$arrayCsv_rugs_ol = $arrayCsv_hardflooring_ol = array();
+
+$arrayCsv_rugs_ol[] = $arrayCsv_hardflooring_ol[] =array(
+														'Order Id',
+														'Product Code',
+														'Product Name',
+														'Price',
+														'Quantity'
+														);
+
+
+$arrayCsv_rugs_or[] = $arrayCsv_hardflooring_or[] =array(
 					'Order Id',
 					'Business Name',
 					'First Name',
@@ -422,35 +441,14 @@ $arrayCsv_rugs[] = $arrayCsv_hardflooring[] =array(
             $loop->the_post();
 			global $woocommerce;
 			 $order = new WC_Order(get_the_ID());
+			 $selected_store = get_post_meta($order->id,'pickup_store_id',true);
+			 $selected_store_meta = get_post_meta($selected_store);
 			 foreach ($order->get_items() as $key => $lineItem) {
 			if(get_post($lineItem['product_id']) && get_post_status($lineItem['product_id'])=='publish'){		
 				$terms = wp_get_object_terms( $lineItem['product_id'], 'product_cat',array('fields'=>'slugs'));
 				
 				if(array_intersect(array('rugs'),$terms)){
-					echo 'rugs';
-					}
-				if(array_intersect(array('hard-flooring','accessories'),$terms)){
-					echo 'hardflooring and acc';
-					}
-				
-				
-				
-				$arrayCsv[] = array(
-									get_the_ID(),
-									get_post_meta($lineItem['product_id'],'_sku',true),
-									$lineItem['name'],
-									$lineItem['line_total'],
-									$lineItem['qty']
-									);
-									
-									
-									
-				 }
-			}
-			
-$selected_store = get_post_meta($order->id,'pickup_store_id',true);
-$selected_store_meta = get_post_meta($selected_store);
-$arrayCsv[] = array(
+					$arrayCsv_rugs_or[get_the_ID()] =array(
  					$order->id,
 					$order->shipping_company,
 					$order->shipping_first_name,
@@ -511,13 +509,108 @@ $arrayCsv[] = array(
 					'',
 					'',
 					$order->customer_note
- 					);						 
+ 					);
+					$arrayCsv_rugs_ol[] = array(
+									get_the_ID(),
+									get_post_meta($lineItem['product_id'],'_sku',true),
+									$lineItem['name'],
+									$lineItem['line_total'],
+									$lineItem['qty']
+									);
+					}
+				if(array_intersect(array('hard-flooring','accessories'),$terms)){
+					$arrayCsv_hardflooring_or[get_the_ID()] = array(
+ 					$order->id,
+					$order->shipping_company,
+					$order->shipping_first_name,
+					$order->shipping_last_name,
+					$order->shipping_email,
+					$order->shipping_phone,
+					$order->shipping_address_1,
+					$order->shipping_address_2,
+					$order->shipping_postcode,
+					$order->shipping_state,
+					$order->shipping_city,
+					$order->shipping_country,
+					'',
+					$order->billing_first_name,
+					$order->billing_last_name,
+					$order->billing_email,
+					$order->billing_phone,
+					$order->billing_address_1,
+					$order->billing_address_2,
+					$order->billing_postcode,
+					$order->billing_state,
+					$order->billing_city,
+					$order->billing_country,
+					$order->get_shipping_method(),
+					$selected_store,
+					$selected_store_meta['wpsl_state'][0],
+					$selected_store_meta['wpsl_address'][0],
+					$order->order_total,
+					'',//code
+					$order->get_total_shipping(),
+					$order->payment_method_title,
+					'',//order status
+					$order->get_status(),
+					'',//CC Name
+					'',//CC Type
+					'',//CC Date
+					'',//CC Num
+					'',//CC CCV
+					strtotime($order->order_date),
+					'',//payment number
+					'',
+					'',
+					'',
+					'',
+					$order->order_date,
+					'',
+					'',
+					'',
+					'',
+					'',
+					'',
+					$order->get_transaction_id(),
+					'',//payment type
+					'',
+					'',
+					'',
+					'',
+					'',
+					'',
+					$order->customer_note
+ 					);
+					$arrayCsv_hardflooring_ol[] = array(
+									get_the_ID(),
+									get_post_meta($lineItem['product_id'],'_sku',true),
+									$lineItem['name'],
+									$lineItem['line_total'],
+									$lineItem['qty']
+									);
+					}
+				 }
+			}
     endwhile;
-$csv_output = '';
-foreach($arrayCsv as $check):
-          $csv_output[] =$check;
-	endforeach;
-    return $csv_output;
+$HFOR = '';
+$HFOL = '';
+$RUGOR = '';
+$RUGOL = '';
+foreach($arrayCsv_hardflooring_or as $check){
+          $HFOR[] =$check;
+	}
+foreach($arrayCsv_hardflooring_ol as $check){
+          $HFOL[] =$check;
+	}
+foreach($arrayCsv_rugs_or as $check){
+          $RUGOR[] =$check;
+	}
+foreach($arrayCsv_rugs_ol as $check){
+          $RUGOL[] =$check;
+	}
+	
+$ret = array('hfor'=>$HFOR,'hfol'=>$HFOL,'rugor'=>$RUGOR,'rugol'=>$RUGOL);
+return $ret;	
   }
 
 
