@@ -41,6 +41,29 @@ $rootcheck = get_post_meta($post->ID);
 		do_action( 'woocommerce_before_main_content' );
 	?>
 			</div>
+            
+            <?php 
+			$prod_terms = get_the_terms( $post->ID, 'product_cat' );
+			foreach ($prod_terms as $prod_term) {
+				$ancestors = get_ancestors( $prod_term->term_id, 'product_cat' );
+				$depth = count($ancestors) ; 
+				if($depth == 1){
+					$back_term = $prod_term;
+					?>
+                    <span class="ab_arrow">
+            <a href="<?php echo get_term_link($prod_term->term_id,'product_cat')?>">
+              <i class="fa fa-angle-left" aria-hidden="true"></i>Back            
+            </a>
+          </span>
+					<?php
+                    break;
+					}
+				
+				}
+
+
+			?>
+            
 		</div>
 		<?php while ( have_posts() ) : the_post(); ?>
                 <?php  
