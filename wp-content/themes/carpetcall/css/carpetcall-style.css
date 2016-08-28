@@ -5584,8 +5584,8 @@ a.button.wc-forward {
 	font-weight:700 !important;
 	color:#15489f !important;
 	margin-bottom:27px !important;
-	border-bottom:1px solid #e2dfdf;
-	padding-bottom:6px; 
+	background-color:#d1ddf1;
+	padding:19px 0 19px 34px;
 }
 .bottom_faq_section table {
 	margin:15px 20px;
@@ -5736,10 +5736,13 @@ a.button.wc-forward {
 .pickup_location_list {
 	margin-left:10px;
 }
-.child-innerpg { 
-	background-color:;
-}
 .cart-collaterals .calculated_shipping table.shop_table.shop_table_responsive tbody tr:last-child th,
 .cart-collaterals .calculated_shipping table.shop_table.shop_table_responsive tbody tr:last-child td {
 	border-top:1px solid #f0f2f1;
+}
+.child-innerpg { 
+	background-color:;
+}
+.cc-page-all .col2-set .col-1 .woocommerce-billing-fields {
+	border:1px solid #f0f2f1;
 }
