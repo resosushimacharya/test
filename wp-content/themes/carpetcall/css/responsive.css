@@ -128,7 +128,7 @@
 	/* ===== HEADER ===== */	
 	.banner{
 		padding-top: 0;
-		display: none;
+		/*display: none;*/
 	}
 	.banner .col-md-12{
 		padding: 0;
