@@ -1,5 +1,22 @@
 
 <?php get_header( 'shop' );?>
+<div class="child-innerpg">
+    <div class="container clearfix">
+        <div class="inerblock_serc_child about-page">
+            <div class="cc-breadcrumb">
+              <span class="cc-bread-current">Searching Carpetcall Website</span>
+            </div><!-- end .cc-breadcrumb -->
+            <h1>Search Resutlts</h1>
+            <div class="search_header clearfix">
+				<?php get_search_form(true);?>
+			</div>
+        </div><!-- end .innerblock_serc_child -->
+    </div><!-- end .container.clearfix -->
+</div>
+
+
+
+
 <?php
  $search_query = esc_html( get_search_query( false ) );
 $perpage_var = 10;
@@ -10,11 +27,12 @@ $args = array(
 			);
 $found_prod = new WP_Query($args);
 ?>
+
+
 <div class="contaniner clearfix category-hard-flooring">
   <div class="inerblock_seC_mrugss">
     <div class="container">
       <div class="tophead_sec col-md-12 no-lr">
-      
       <div class="rugm-blk col-md-6 no-pl">
           <p> <span class="cc-cat-title-count"> <span class="post_count"><?php echo $found_prod->post_count;?></span> <?php _e('results for ','carpetcall');?>"<?php echo $search_query?>" </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
         </div>
