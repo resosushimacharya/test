@@ -4284,21 +4284,24 @@ span.cc-locator-current a {
 	margin-left: 1px;
 	cursor: text;
 }
-.inerblock_serc_cde.cc-locator-sec .col-md-12, .col-md-6.pull-left, .col-md-5.wpsl-single-left {
+.single-store-top-cntr, .col-md-6.pull-left, .col-md-5.wpsl-single-left {
 	padding: 0;
 	clear: both;
 }
-.col-md-6.pull-left h3 {
+.single-store-title{
+	padding-left: 0;
+}
+.single-store-title h3 {
 	font: 700 30px 'proxima_nova_ltsemibold', sans-serif;
 	color: #15489f;
 	text-transform: uppercase;
 	margin-bottom: 21px;
 }
-.col-md-6.pull-right {
+.view-all-link {
 	padding-right: 0;
 	text-align: right;
 }
-.col-md-6.pull-right a {
+.view-all-link a {
 	width: 196px;
 	height: 45px;
 	background: #0099ff;
@@ -4308,8 +4311,11 @@ span.cc-locator-current a {
 	color: #FFF;
 	text-decoration: none;
 }
-.col-md-6.pull-right a:hover {
+.view-all-link a:hover {
 	background: #028ce8;
+}
+.mobile{
+	display: none;
 }
 .cc-info-store {
 	background: #d1ddf1;
@@ -4415,7 +4421,7 @@ span.cc-cat-store-item-phone {
 	background: #db2a2f;
 	cursor: pointer;
 }
-.wpsl-hour-sec.clearfix {
+.wpsl-hour-sec {
 	padding: 40px 28px 15px 28px;
 }
 .wpsl-hour-sec span strong {
@@ -4423,10 +4429,10 @@ span.cc-cat-store-item-phone {
 	color: #15489f;
 	text-transform: uppercase;
 }
-.col-md-7.wpsl-single-right {
+.wpsl-single-right {
 	padding-right: 0;
 }
-.col-md-7.wpsl-single-right #wpsl-base-gmap_0 {
+.wpsl-single-right #wpsl-base-gmap_0 {
 	width: 100%;
 	height: 600px;
 }
