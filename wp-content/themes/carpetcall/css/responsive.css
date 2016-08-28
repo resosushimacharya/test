@@ -20,13 +20,13 @@
 	}
 	
 	/* Display none goes here */
-	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i, #main nav.woocommerce-breadcrumb, .cc-color-var-section > h3, .cc-ia-content h4, .ia-img, .inerblock_sec_a, .inerblock_clearn .breadcrumbs, .breadcrumbs, .inerblock_sec ul.guide_list_cbg, .cc-store-bdy-contr #gmap, .wpsl-store-below #wpsl-gmap, .cc-locator-title-sec-z, .cc-store-icon-label img, .cc-breadcrumb, .cc-mobile-blk .nowspe{
+	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i, #main nav.woocommerce-breadcrumb, .cc-color-var-section > h3, .cc-ia-content h4, .ia-img, .inerblock_sec_a, .inerblock_clearn .breadcrumbs, .breadcrumbs, .inerblock_sec ul.guide_list_cbg, .cc-store-bdy-contr #gmap, .wpsl-store-below #wpsl-gmap, .cc-locator-title-sec-z, .cc-store-icon-label img, .cc-breadcrumb, .cc-mobile-blk .nowspe, .find-store-parent-page #Map, .desktop{
 		display: none;
 	}
 	/* Display none ends here */
 
 	/* Display Block goes here */
-	.calbk-mobile, .hamro_trade h2 br, .footer_nav_mobile, .filter-top-mobile, .open-product-sidebar, .mobile-apply-btn, .ab_arrow a b{
+	.calbk-mobile, .hamro_trade h2 br, .footer_nav_mobile, .filter-top-mobile, .open-product-sidebar, .mobile-apply-btn, .ab_arrow a b,.mobile{
 		display: block;
 	}
 	/* Display Block ends here */	
@@ -88,7 +88,7 @@
 	
 	
 	/* Big buttons */
-	.cptinn a, .find_tbb a, .cc-cat-pro-section-right input, .ab_arrow, .store-finder-page-form .store-finder-form-cntr #wpsl-auto-locate input, .cc-cats-vsp-a a, .cc-cas-orr a{
+	.cptinn a, .find_tbb a, .cc-cat-pro-section-right input, .ab_arrow, .store-finder-page-form .store-finder-form-cntr #wpsl-auto-locate input, .cc-cats-vsp-a a, .cc-cas-orr a, .hfc-fcnt-orr a{
 		height: 90px;
 		padding: 0;
 		line-height: 90px;
@@ -128,6 +128,7 @@
 	/* ===== HEADER ===== */	
 	.banner{
 		padding-top: 0;
+		display: none;
 	}
 	.banner .col-md-12{
 		padding: 0;
@@ -1619,58 +1620,161 @@
 	/* === STORE FINDER LANDING PAGE End=== */
 
 	/* === STORE ACTIVATED/SEARCH RESULT PAGE === */
-	/* Find Your Nearest Store */
-	#wpsl-result-list div#wpsl-stores {
+	/* Find Your Nearest Store and Head Offices*/
+	#wpsl-result-list div#wpsl-stores, .cc-head-office-wrap {
 	    margin-top: 50px;
 	}
-	#wpsl-stores .test{
+	#wpsl-stores .test, ul.cc-head-office-list{
 		margin: 0 -20px;
 	}
-	#wpsl-wrap.wpsl-store-below #wpsl-result-list li{
+	#wpsl-wrap.wpsl-store-below #wpsl-result-list li, .cc-head-office-list li{
 		width: 100%;
 		padding: 0;
 	}	
-	.cc-cat-store-section{
+	.cc-cat-store-section, .cc-head-office-list-item{
 		border-width: 2px;
 		border-left: none;
 		border-right: none;
 		border-top: none;
 		padding: 50px 35px 55px;
 	}
-	#wpsl-wrap.wpsl-store-below #wpsl-result-list li:first-child .cc-cat-store-section{
+	#wpsl-wrap.wpsl-store-below #wpsl-result-list li:first-child .cc-cat-store-section, .cc-head-office-list li:first-child .cc-head-office-list-item{
 		border-top: 2px solid #e7edf8;
 	}
-	.cc-cat-store-item, .cc-last-con-vis-wrapper, .cc-cat-store-item span, .cc-store-icon-label strong a{
+	.cc-cat-store-item, .cc-last-con-vis-wrapper, .cc-cat-store-item span, .cc-store-icon-label strong a, .cc-head-office-label, .cc-head-office-list-item span{
 		margin: 0;
 	}
 	.cc-store-icon-label strong a{
 		font-size: 36px;
 	}
-	.cc-cat-store-item span, .cc-cat-store-section span.cc-cat-store-item-phone a{
+	.cc-cat-store-item span, .cc-cat-store-section span.cc-cat-store-item-phone a, .cc-head-office-list-item span{
 		font-size: 32px;
+		line-height: 1.4;
 	}
-	span.cc-cat-store-item-phone strong, span.cc-cat-store-item-fax strong{
+	span.cc-cat-store-item-phone strong, span.cc-cat-store-item-fax strong, span.wpsl-hf-street-b strong, span.wpsl-hf-street-c strong{
 		font-size: 36px;
 	}
-	.cc-cat-store-item .cc-phone-fax-wrapper, .cc-cat-store-item .cc-store-map-last-cover{
+	.cc-cat-store-item .cc-phone-fax-wrapper, .cc-cat-store-item .cc-store-map-last-cover, .page-template-find-a-store .cc-store-map-last-cover, .cc-head-office-list-item .cc-phone-fax-wrapper{
 		height: auto;
 	}
-	.cc-cat-store-item span.cc-store-icon-label {
+	.cc-cat-store-item span.cc-store-icon-label, .cc-head-office-label {
 	    margin-bottom: 25px;
 	}
-	.cc-cat-store-item .cc-store-map-last-cover {
+	.cc-cat-store-item .cc-store-map-last-cover, .page-template-find-a-store .cc-store-map-last-cover {
 	    margin-bottom: 50px;
 	}
-	.cc-cats-vsp-a a, .cc-cas-orr a{
+	.cc-cats-vsp-a a, .cc-cas-orr a, .hfc-fcnt-orr a{
 		font-size: 28px;
 	}
 	.cc-cats-or {
 	    margin-top: 15px;
 	}
-	.cc-cats-vsp{
+	.cc-cats-vsp, .hfc-fcnt-or{
 		margin-top: 50px;
 	}
+	.hfc-fcnt-or{
+		margin-bottom: 0;
+	}
 	/* === STORE ACTIVATED/SEARCH RESULT PAGE End === */
+
+	/* === STORE SINGLE PAGE === */
+	/* Single Store Head */
+	.single-store-top-cntr {
+	    padding: 25px 0 50px;
+	}
+	.single-store-top-cntr .view-all-link{
+		padding: 0;
+		margin-bottom: 70px;
+	}
+	.view-all-link a {
+	    width: 100%;
+	    display: block;
+	    height: 90px;
+	    line-height: 90px;
+	    padding: 0;
+	    font-size: 36px;
+	}
+	.single-store-title h3 {
+	    font-size: 72px;
+	    text-align: center;
+	    line-height: 1;
+	    margin: 0;
+	}
+	/* Single Store Head End */
+	/* Single Store Blue Box */
+	.cc-ad-map-strn {
+	    padding: 0;
+	}
+	.cc-info-store {
+	    padding: 60px 15px 65px;
+	}
+	.wpsl-address-sec h4 {
+        font-size: 36px;
+	    margin: 0 0 2px 15px;
+	}
+	.wpsl-location-address, .wpsl-locations-details span strong, .wpsl-locations-details span{
+		line-height: 48px;
+		margin: 0;
+	    font-size: 32px;
+	}
+	.wpsl-locations-details{
+		margin: 0 0 40px 15px;
+	}
+	.wpsl-address-sec a, .cc-str-cntblk-a a {
+	    height: 90px;
+	    padding: 0;
+	    margin: 0;
+	    line-height: 90px;
+	    font-size: 36px;
+	    width: 400px;
+	}
+	.cc-single-wpsl-ccstore {
+	    line-height: 1;
+	    margin-top: 80px;
+	}
+	.cc-single-wpsl-ccstore span.cc-cat-store-item-phone strong, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax strong{
+		font-size: 36px;
+		margin-left: 15px;
+	}
+	.cc-single-wpsl-ccstore span.cc-cat-store-item-phone a, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax{
+		line-height: 1;
+		font-size: 32px;
+	}
+	.cc-str-cntblk {
+	    margin: 35px 0 0;
+	}
+	/* Single Store Blue Box End*/
+	/* Single Store Bottom */
+	.wpsl-hour-sec {
+	    padding: 85px 20px 65px;
+	}
+	.wpsl-hour-sec span strong{
+		font-size: 36px;
+	}
+	.wpsl-opening-hours > tbody > tr {
+	    font-size: 32px;
+	    line-height: 1.4;
+	}
+	.wpsl-opening-hours > tbody > tr > td > time {
+	    font-size: 28px;
+	    line-height: 45px;
+	}
+	table.wpsl-opening-hours {
+	    margin-top: 5px;
+	}
+	table.wpsl-opening-hours td {
+	    padding-right: 50px;
+	}
+
+	.wpsl-single-right{
+		padding: 0;
+		margin: 0 -20px;
+	}
+	.wpsl-single-right #wpsl-base-gmap_0{
+		height: 460px;
+	}
+	/* Single Store Bottom End */
+	/* === STORE SINGLE PAGE End === */
 	
 	/* ===== FOOTER ===== */	
 	.footer_nav_mobile{		
@@ -1820,7 +1924,7 @@
 	/* Font-size 72px => 60px; End */
 	
 	/* Big buttons */
-	.cptinn a, .find_tbb a, .cc-cat-pro-section-right input, .ab_arrow, .store-finder-page-form .store-finder-form-cntr #wpsl-auto-locate input{
+	.cptinn a, .find_tbb a, .cc-cat-pro-section-right input, .ab_arrow, .store-finder-page-form .store-finder-form-cntr #wpsl-auto-locate input, .cc-cats-vsp-a a, .cc-cas-orr a, .hfc-fcnt-orr a{
 		height: 70px;
 		padding: 0;
 		line-height: 70px;
@@ -2562,6 +2666,109 @@
 
 	/* === STORE FINDER LANDING PAGE End=== */
 
+	/* === STORE ACTIVATED/SEARCH RESULT PAGE === */
+	/* Find Your Nearest Store and Head Offices*/
+	.cc-cat-store-section, .cc-head-office-list-item{
+		padding: 40px 30px 45px;
+	}
+	.cc-store-icon-label strong a, span.cc-cat-store-item-phone strong, span.cc-cat-store-item-fax strong, span.wpsl-hf-street-b strong, span.wpsl-hf-street-c strong{
+		font-size: 26px;
+	}
+	.cc-cat-store-item span, .cc-cat-store-section span.cc-cat-store-item-phone a, .cc-head-office-list-item span{
+		font-size: 24px;
+	}
+	.cc-cat-store-item .cc-store-map-last-cover, .page-template-find-a-store .cc-store-map-last-cover {
+	    margin-bottom: 35px;
+	}
+	.cc-cats-vsp-a a, .cc-cas-orr a, .hfc-fcnt-orr a{
+		font-size: 22px;
+	}
+	.cc-cats-or {
+	    margin-top: 15px;
+	}
+	.cc-cats-vsp, .hfc-fcnt-or{
+		margin-top: 40px;
+	}
+	/* === STORE ACTIVATED/SEARCH RESULT PAGE End === */
+
+	/* === STORE SINGLE PAGE === */
+	/* Single Store Head */
+	.single-store-top-cntr {
+	    padding: 25px 0 40px;
+	}
+	.single-store-top-cntr .view-all-link{
+		padding: 0;
+		margin-bottom: 50px;
+	}
+	.view-all-link a {
+	    height: 70px;
+	    line-height: 70px;
+	    font-size: 26px;
+	}
+	.single-store-title h3 {
+	    font-size: 60px;
+	}
+	/* Single Store Head End */
+	/* Single Store Blue Box */
+	.cc-info-store {
+	    padding: 50px 15px 55px;
+	}
+	.wpsl-address-sec h4 {
+        font-size: 26px;
+	    margin: 0 0 12px 15px;
+	}
+	.wpsl-location-address, .wpsl-locations-details span strong, .wpsl-locations-details span{
+		line-height: 1.4;		
+	    font-size: 24px;
+	}
+	.wpsl-locations-details{
+		margin: 0 0 40px 15px;
+	}
+	.wpsl-address-sec a, .cc-str-cntblk-a a {
+	    height: 70px;
+	    line-height: 70px;
+	    font-size: 26px;
+	    width: 360px;
+	}
+	.cc-single-wpsl-ccstore {
+	    line-height: 1.4;
+	    margin-top: 65px;
+	}
+	.cc-single-wpsl-ccstore span.cc-cat-store-item-phone strong, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax strong{
+		font-size: 26px;
+	}
+	.cc-single-wpsl-ccstore span.cc-cat-store-item-phone a, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax{
+		line-height: 1.4;
+		font-size: 24px;
+	}
+	.cc-str-cntblk {
+	    margin: 25px 0 0;
+	}
+	/* Single Store Blue Box End*/
+	/* Single Store Bottom */
+	.wpsl-hour-sec {
+	    padding: 70px 20px 55px;
+	}
+	.wpsl-hour-sec span strong{
+		font-size: 26px;
+	}
+	.wpsl-opening-hours > tbody > tr {
+	    font-size: 24px;
+	    line-height: 1.4;
+	}
+	.wpsl-opening-hours > tbody > tr > td > time {
+	    font-size: 20px;
+	    line-height: 35px;
+	}
+	table.wpsl-opening-hours {
+	    margin-top: 10px;
+	}
+	table.wpsl-opening-hours td {
+	    padding-right: 40px;
+	}
+	/* Single Store Bottom End */
+	/* === STORE SINGLE PAGE End === */
+
 
 	/* ===== FOOTER ===== */	
 	.footer_nav_mobile .foot_mob li{
@@ -2881,7 +3088,7 @@
 	/* Font-size 72px => 60px; End */
 	
 	/* Big buttons */
-	.cptinn a, .find_tbb a, .error-wrapper h3{
+	.cptinn a, .find_tbb a, .error-wrapper h3, .cc-cats-vsp-a a, .cc-cas-orr a, .hfc-fcnt-orr a{
 		height: 60px;
 		padding: 0;
 		line-height: 60px;
@@ -3406,6 +3613,113 @@
 	}
 
 	/* === STORE FINDER LANDING PAGE End=== */
+
+	/* === STORE ACTIVATED/SEARCH RESULT PAGE === */
+	/* Find Your Nearest Store and Head Offices*/
+	#wpsl-result-list div#wpsl-stores, .cc-head-office-wrap {
+	    margin-top: 40px;
+	}
+	.cc-cat-store-section, .cc-head-office-list-item{
+		padding: 35px 25px 40px;
+	}
+	.cc-store-icon-label strong a, span.cc-cat-store-item-phone strong, span.cc-cat-store-item-fax strong, span.wpsl-hf-street-b strong, span.wpsl-hf-street-c strong{
+		font-size: 22px;
+	}
+	.cc-cat-store-item span, .cc-cat-store-section span.cc-cat-store-item-phone a, .cc-head-office-list-item span{
+		font-size: 20px;
+	}
+	.cc-cat-store-item .cc-store-map-last-cover,  .page-template-find-a-store .cc-store-map-last-cover{
+	    margin-bottom: 25px;
+	}
+	.cc-cats-vsp-a a, .cc-cas-orr a, .hfc-fcnt-orr a{
+		font-size: 18px;
+	}
+	.cc-cats-or {
+	    margin-top: 15px;
+	}
+	.cc-cats-vsp{
+		margin-top: 40px;
+	}
+	/* === STORE ACTIVATED/SEARCH RESULT PAGE End === */
+
+	/* === STORE SINGLE PAGE === */
+	/* Single Store Head */
+	.single-store-top-cntr {
+	    padding: 25px 0 40px;
+	}
+	.single-store-top-cntr .view-all-link{
+		padding: 0;
+		margin-bottom: 45px;
+	}
+	.view-all-link a {
+	    height: 60px;
+	    line-height: 60px;
+	    font-size: 24px;
+	}
+	.single-store-title h3 {
+	    font-size: 52px;
+	}
+	/* Single Store Head End */
+	/* Single Store Blue Box */
+	.cc-info-store {
+	    padding: 40px 15px 45px;
+	}
+	.wpsl-address-sec h4 {
+        font-size: 22px;
+	    margin: 0 0 7px 15px;
+	}
+	.wpsl-location-address, .wpsl-locations-details span strong, .wpsl-locations-details span{		
+	    font-size: 20px;
+	}
+	.wpsl-locations-details{
+		margin: 0 0 30px 15px;
+	}
+	.wpsl-address-sec a, .cc-str-cntblk-a a {
+	    height: 60px;
+	    line-height: 60px;
+	    font-size: 18px;
+	    width: 280px;
+	}
+	.cc-single-wpsl-ccstore {
+	    margin-top: 50px;
+	}
+	.cc-single-wpsl-ccstore span.cc-cat-store-item-phone strong, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax strong{
+		font-size: 22px;
+	}
+	.cc-single-wpsl-ccstore span.cc-cat-store-item-phone a, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax{
+		line-height: 1.4;
+		font-size: 20px;
+	}
+	.cc-str-cntblk {
+	    margin: 20px 0 0;
+	}
+	/* Single Store Blue Box End*/
+	/* Single Store Bottom */
+	.wpsl-hour-sec {
+	    padding: 60px 10px 45px;
+	}
+	.wpsl-hour-sec span strong{
+		font-size: 22px;
+	}
+	.wpsl-opening-hours > tbody > tr {
+	    font-size: 20px;
+	    line-height: 1.4;
+	}
+	.wpsl-opening-hours > tbody > tr > td > time {
+	    font-size: 18px;
+	    line-height: 35px;
+	}
+	table.wpsl-opening-hours {
+	    margin-top: 10px;
+	}
+	table.wpsl-opening-hours td {
+	    padding-right: 20px;
+	}
+	.wpsl-single-right #wpsl-base-gmap_0 {
+	    height: 420px;
+	}
+	/* Single Store Bottom End */
+	/* === STORE SINGLE PAGE End === */
 	
 	/* ===== 404 PAGE ===== */
 	.error-wrapper h1 {
@@ -3975,7 +4289,7 @@
 		padding: 25px 20px 10px;
 	}
 	.ab_arrow {
-	    font-size: 24px;
+	    font-size: 22px;
 	    margin-bottom: 45px;
 	    height: 60px;
 	    line-height: 60px;
@@ -4033,6 +4347,101 @@
 	}
 
 	/* === STORE FINDER LANDING PAGE End=== */
+
+	/* === STORE ACTIVATED/SEARCH RESULT PAGE === */
+	/* Find Your Nearest Store */
+	#wpsl-result-list div#wpsl-stores, .cc-head-office-wrap {
+	    margin-top: 30px;
+	}
+	.cc-cat-store-section, .cc-head-office-list-item{
+		padding: 30px 25px 35px;
+	}
+	.cc-cat-store-item span.cc-store-icon-label, .cc-head-office-label{
+		margin-bottom: 25px;
+	}
+	.cc-store-icon-label strong a, span.cc-cat-store-item-phone strong, span.cc-cat-store-item-fax strong, span.wpsl-hf-street-b strong, span.wpsl-hf-street-c strong{
+		font-size: 18px;
+	}
+	.cc-cat-store-item span, .cc-cat-store-section span.cc-cat-store-item-phone a, .cc-head-office-list-item span{
+		font-size: 16px;
+	}
+	.cc-cat-store-item .cc-store-map-last-cover, .page-template-find-a-store .cc-store-map-last-cover {
+	    margin-bottom: 25px;
+	}
+	.cc-cats-vsp, .hfc-fcnt-or{
+		margin-top: 30px;
+	}
+	/* === STORE ACTIVATED/SEARCH RESULT PAGE End === */
+
+	/* === STORE SINGLE PAGE === */
+	/* Single Store Head */
+	.single-store-top-cntr {
+	    padding: 25px 0 30px;
+	}
+	.view-all-link a {
+	    font-size: 22px;
+	}
+	.single-store-title h3 {
+	    font-size: 48px;
+	}
+	/* Single Store Head End */
+	/* Single Store Blue Box */
+	.cc-info-store {
+	    padding: 30px 15px 35px;
+	}
+	.wpsl-address-sec h4 {
+        font-size: 18px;
+	    margin: 0 0 7px 15px;
+	}
+	.wpsl-location-address, .wpsl-locations-details span strong, .wpsl-locations-details span{		
+	    font-size: 16px;
+	}
+	.wpsl-locations-details{
+		margin: 0 0 30px 15px;
+	}
+	.wpsl-address-sec a, .cc-str-cntblk-a a {
+	    height: 50px;
+	    line-height: 50px;
+	    font-size: 18px;
+	    width: 240px;
+	}
+	.cc-single-wpsl-ccstore {
+	    margin-top: 35px;
+	}
+	.cc-single-wpsl-ccstore span.cc-cat-store-item-phone strong, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax strong{
+		font-size: 18px;
+	}
+	.cc-single-wpsl-ccstore span.cc-cat-store-item-phone a, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax{
+		line-height: 1.4;
+		font-size: 16px;
+	}
+	/* Single Store Blue Box End*/
+	/* Single Store Bottom */
+	.wpsl-hour-sec {
+	    padding: 40px 10px 35px;
+	}
+	.wpsl-hour-sec span strong{
+		font-size: 20px;
+	}
+	.wpsl-opening-hours > tbody > tr {
+	    font-size: 18px;
+	    line-height: 1.4;
+	}
+	.wpsl-opening-hours > tbody > tr > td > time {
+	    font-size: 16px;
+	    line-height: 28px;
+	}
+	table.wpsl-opening-hours {
+	    margin-top: 10px;
+	}
+	table.wpsl-opening-hours td {
+	    padding-right: 15px;
+	}
+	.wpsl-single-right #wpsl-base-gmap_0 {
+	    height: 400px;
+	}
+	/* Single Store Bottom End */
+	/* === STORE SINGLE PAGE End === */
 	
 	/* === 404 Page === */
 	.error-wrapper h1 {
