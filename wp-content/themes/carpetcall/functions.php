@@ -33,7 +33,7 @@ wp_enqueue_script('woo-load-autocomplete');
 wp_localize_script( 'woo-load-autocomplete', 'woo_load_autocomplete', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 }
   include_once TEMPLATEPATH."/inc/recaptchalib.php";
-  
+  include_once TEMPLATEPATH."/inc/carpetcall-cron-import.php";
   require_once('function-yamu.php');
   acf_add_options_sub_page('Labeling');
   acf_add_options_sub_page('Front-Page Sections');
