@@ -42,7 +42,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
           <h3><?php _e( 'Billing Details', 'woocommerce' ); ?></h3>
           <div class="collapsable collapse in" id="checkout_customer_details">
 				<?php do_action( 'woocommerce_checkout_billing' ); ?>
-              <div class="checkout_next_prev_button">
+              <div class="checkout_next_prev_button read_more">
               <a href="#checkout_delivery">Next</a>
             </div>  
 			<div class="clearfix"></div>
@@ -55,11 +55,13 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
         <h3><?php _e( 'Delivery Options', 'woocommerce' ); ?></h3>
          <div class="collapse collapsable" id="checkout_delivery">
 				<?php do_action('cc_checkout_delivery_custom_block'); ?>
-              <div class="checkout_next_prev_button">
+            <div class="checkout_next_prev_button read_more">
               <a href="#checkout_customer_details">Previous</a>
-            </div><div class="checkout_next_prev_button">
+            </div>
+            <div class="checkout_next_prev_button read_more">
               <a href="#checkout_payment">Next</a>
-            </div>  <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
 		</div>
         </div>
         <div class="col-1">
@@ -68,8 +70,8 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 			<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
             <?php do_action( 'woocommerce_checkout_order_review' ); ?>
             <?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
-              <div class="checkout_next_prev_button">
-              <a href="#checkout_payment">Previous</a>
+              <div class="checkout_next_prev_button read_more">
+              <a href="#checkout_delivery">Previous</a>
             </div> 
             <div class="clearfix"></div> 
 		</div>
