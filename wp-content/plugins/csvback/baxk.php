@@ -158,6 +158,20 @@ function  csv_import_rugs($csv,$appcat)
 	    $length = str_replace("cm","","$hh[0]");
 	    $width  =  str_replace("cm","","$hh[2]");
 	    $height =  $hh[10];
+	    $regular_price = str_replace(' ', '', $csv[16]);
+	    $sale_price = str_replace(' ', '', $csv[18]);
+	    $actual_price = str_replace(' ', '', $csv[18]);
+	     
+	    
+
+	     $regular_price = ltrim($regular_price, '0');
+	
+	
+
+	     $sale_price = ltrim($sale_price , '0');
+	     $actual_price = ltrim($actual_price, '0');
+	
+
 	  	
 		$sku_arr = explode('.',$csv[1]);
 	    update_post_meta($new_post_id,'state',$csv[0]);
@@ -173,9 +187,9 @@ function  csv_import_rugs($csv,$appcat)
 		update_post_meta($new_post_id,'construction',$csv[11]);
 		update_post_meta($new_post_id,'care_instructions',$csv[12]);   
 		update_post_meta( $new_post_id, '_weight', $csv[15] );
-		update_post_meta( $new_post_id, '_regular_price', $csv[16] );
-		update_post_meta( $new_post_id, '_sale_price', $csv[18] );
-		update_post_meta( $new_post_id, '_price', $csv[18] );
+		update_post_meta( $new_post_id, '_regular_price', $regular_price  );
+		update_post_meta( $new_post_id, '_sale_price', $sale_price );
+		update_post_meta( $new_post_id, '_price', $actual_price );
 		update_post_meta( $new_post_id, 'total_sales', 0);
 		update_post_meta($new_post_id,'state',$csv[0]);
 		update_post_meta( $new_post_id, '_visibility', 'visible' );
@@ -315,7 +329,17 @@ update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id)
 	        update_post_meta($new_post_id, '_stock_status', 'outofstock');
 	    }
 		
+	    $regular_price = str_replace(' ', '', $csv[44]);
+	  
+	  
+	     
 	    
+
+	     $regular_price = ltrim($regular_price, '0');
+	
+	
+
+	   
 	   
 	  	
 		
@@ -375,9 +399,10 @@ update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id)
        $width  =  str_replace("mm","",$csv[13]);
        $length  = str_replace("mm","",$csv[12]);
        $thick = str_replace("mm","",$csv[15]);
-		update_post_meta( $new_post_id, '_regular_price', $csv[44] );
+		update_post_meta( $new_post_id, '_regular_price', $regular_price );
+		update_post_meta( $new_post_id, '_sales_price', $regular_price );
 		update_post_meta( $new_post_id, 'total_sales', 0);
-		update_post_meta( $new_post_id, '_price', $csv[44] );
+		update_post_meta( $new_post_id, '_price', $regular_price );
 		update_post_meta($new_post_id,'state',$csv[0]);
 		update_post_meta( $new_post_id, '_visibility', 'visible' );
 		update_post_meta( $new_post_id, '_length', $length);
@@ -455,10 +480,38 @@ update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id)
 function css_products_import()
 {
 	echo '<h1>CSV Import</h1>';
-     
+    if(isset($_POST['submit']) && $_POST['submit'] =='deleting'){
+
+
+		$args = array(
+
+				"post_type"=>'product',
+				"post_status"=>array("draft"),
+				"posts_per_page"=>"-1",
+				'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'product_cat',
+                                    'field'    => 'slug',
+                                    'terms'    => array('rugs','hard-flooring')
+                                )
+                            )
+			);
+		$loop = new WP_Query($args);
+
+		$i  = 1;echo "Removed Product List : <br />";
+		while($loop->have_posts()){
+			$loop->the_post();
+			the_title();
+			echo "<br />"; 
+		wp_delete_post( $loop->post->ID, true ); 
+		}
+		wp_reset_query();
+	
+	
+}
 	
 
-	if(isset($_POST['submit']) && ($_POST['submit']=="updating"))
+	elseif(isset($_POST['submit']) && ($_POST['submit']=="updating"))
 	{    $countfileslen = 2;
 	       $counter=1;
     for($counter=1;$counter<=3;$counter++){
@@ -751,7 +804,7 @@ $mimes = array('application/vnd.ms-excel');
      		<input type="radio" name="choice" value="hard-flooring" class="import_csv_radio_right" id="import_csv_radio_right" required>
  		</p> -->
      	<button type="submit" value="updating" name="submit">Update products </button>
-     	
+     	<button type="submit" value="deleting" name="submit">Delete products </button>
           
              
      </form>
