@@ -1775,6 +1775,142 @@
 	}
 	/* Single Store Bottom End */
 	/* === STORE SINGLE PAGE End === */
+
+	/* === CONTACT US PAGE === */
+	/* Contat Head */
+	.cc-ia-banner-a{
+		display: none;
+	}
+	.inerblock_contblk {
+	    padding: 65px 20px 35px;
+	    margin: 0;
+	}
+	.inerblock_contblk.cc-wrapper-whole .col-md-6{
+		padding: 0;
+		min-height: inherit;
+	}
+	.cc-wrapper-whole h3{
+		font-size: 72px;
+	    line-height: 1;
+	    text-indent: -4px;
+	    display: block;
+	    margin-bottom: 40px;
+	}
+	.inerblock_contblk p {
+	    margin: 0;
+	    line-height: 36px;
+	    font-size: 32px;
+	    margin-bottom: 45px;
+	    max-width: 88%;
+	}
+	/* Contat Head End */
+	/* Contact Body/Form */
+	.contact_form_cntr .form-group, .fl-blk .col-sm-6:nth-child(1), .fl-blk .col-sm-6:nth-child(2){
+		margin-bottom: 45px;
+	}
+	.form-group.cc-enquiry-section h3 {
+	    font-size: 48px;
+	    padding: 80px 18px 27px;
+	}
+	.contact_form_cntr{
+		padding: 0;
+	}
+	.query-rlblk{
+		width: auto;
+		padding: 50px 20px 70px;
+	}
+	.query-rlblk .form-group{
+		width: 100%;
+		text-align: center;
+	}
+	.query-rlblk .form-group{
+		font-size: 32px;
+		margin-bottom: 0;
+	}
+	select#cc-enquiry-type {
+	    width: 100%;
+        height: 90px;
+	    margin-top: 45px;
+	    font-size: 36px;
+	    padding: 10px 90px 10px 30px;
+	    background-size: 90px;
+	}	
+
+	.details-us h3{
+		font-size: 48px;
+	    padding: 50px 0 45px;
+	    padding-left: 15px;
+	}
+	.fl-blk, .mero-blkk, .tel-blk, #cc-store-form-section{
+		padding: 0 15px;
+	}	
+	.fl-blk .col-sm-6:nth-child(2){
+		padding: 0;
+	}
+	.fl-blk .col-sm-6{
+		width: 100% !important;
+	}
+	.fl-blk label, .mero-blkk .form-group.col-sm-12 label, .tel-blk .form-group.col-sm-6 label {
+		font-size: 32px;
+		font-weight: normal;
+		margin-bottom: 30px;
+		padding-left: 10px;
+		display: block;
+	}
+	.fl-blk .form-control, .mero-blkk .form-group.col-sm-12 .form-control, .tel-blk .form-group.col-sm-6 .form-control, select#cc-state-type, select#cc-store-name {
+	    width: 100%;
+	    height: 70px;
+	    font-size: 24px;
+	    padding: 10px 40px;
+	}
+
+	#cc-store-form-section .form-group.col-sm-12 h3, .ur-msg-title .form-group.col-sm-12 h3{
+		font-size: 48px;
+		padding: 20px 0;
+	}
+	#cc-store-form-section .form-group.col-sm-12 p{
+		font-size: 32px;
+	}
+	#cc-store-form-section .form-group.col-sm-4, #cc-store-form-section .form-group.col-sm-8{
+		width: 100%;
+		padding: 0;
+	}
+	select#cc-state-type, select#cc-store-name{
+		padding-right: 70px;
+		background-size: 70px;
+	}
+	.ur-msg-title .form-group{
+		margin-bottom: 0;
+	}
+	.ur-msg-title .form-group.col-sm-12 h3{
+		padding-top: 45px;
+		padding-bottom: 35px;
+		padding-left: 15px;
+	}
+	.form-group.col-sm-12 textarea.form-control {
+	    width: 100%;
+	    height: 280px;
+	    resize: none;
+	    padding: 20px 30px;
+	    font-size: 24px;
+	}
+	.contact_form_cntr .contact-msg-cntr, .contact_form_cntr .contact-captcha-cntr{
+		padding: 0 15px;
+	}
+	.contact-submit-cntr .btn-dn{
+	    width: 440px;
+	    padding: 0;
+	    height: 90px;
+	    line-height: 90px;
+	    font-size: 36px;
+	    margin: 70px auto 0;
+	    display: block;
+	}
+	.contact_form_cntr .form-group.cc-enquiry-section {
+	    margin: 0;
+	}
+	/* Contact Body/Form End */
+	/* === CONTACT US PAGE End === */
 	
 	/* ===== FOOTER ===== */	
 	.footer_nav_mobile{		
