@@ -3,9 +3,23 @@
     <div class="container clearfix">
         <div class="inerblock_serc_child about-page">
             <div class="cc-breadcrumb">
-              <span class="cc-bread-current"><?php the_title(); ?></span>
+              <span class="cc-bread-current"><?php 
+			  if(is_cart()){
+				  echo 'Shopping Cart';
+				  }else{
+					  the_title();
+					} ?></span>
             </div><!-- end .cc-breadcrumb -->
             <h1><?php the_title(); ?></h1>
+            <?php if(is_cart()){?>
+				<div class="cart_checkout_header_subtitle">
+<p><?php _e("We've set this stock aside for 30mins to ensure you don't miss out","carpetcall");?></p>
+<p class="return-to-shop">
+	<a class="button wc-backward" href="<?php echo get_permalink( woocommerce_get_page_id( 'shop' ) );?>">
+		<?php _e('Continue Shopping','carpetcall')?>	</a>
+</p>
+</div>
+				<?php }?>
         </div><!-- end .innerblock_serc_child -->
     </div><!-- end .container.clearfix -->
 </div><!-- end .child-innerpg -->
