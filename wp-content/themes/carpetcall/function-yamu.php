@@ -3,6 +3,10 @@ if ( ! is_admin() ) {
     include ABSPATH . 'wp-admin/includes/template.php';
 }
 
+//echo get_template_directory().'inc/order-reports-cron.php';die;
+include_once(get_template_directory().'/inc/order-reports-cron.php');
+
+
 add_filter( 'woocommerce_return_to_shop_redirect', 'return_to_shop_link' );
 function return_to_shop_link() {
      $rugs_term = get_term_by('slug','rugs','product_cat');
