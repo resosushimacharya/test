@@ -50,31 +50,34 @@ $backurl=site_url().'/find-a-store/'.strtolower($cat_name);
 ?>
 
 </div>
-<div class="col-md-12 clearfix">
-<div class="col-md-6 pull-left">
-<?php 
-$url = site_url();
-$url =explode('/',$url);
+<div class="col-md-12 clearfix single-store-top-cntr">
 
-$stateID ="";
-if(strcasecmp($url[2],'localhost')==0){
-  $stateID = '1770';
- 
-}
-else{
-  $stateID ='26771';
-   }
+  <div class="col-md-6 view-all-link mobile"><?php 
+    echo '<a href="'. $backurl.'">' ;?>
+     <span class="fa fa-angle-left"></span> VIEW ALL STORES</a>
+  </div>
 
+  <div class="col-md-6 single-store-title">
+    <?php 
+      $url = site_url();
+      $url =explode('/',$url);
 
+      $stateID ="";
+      if(strcasecmp($url[2],'localhost')==0){
+        $stateID = '1770';       
+      }
+      else{
+        $stateID ='26771';
+      }
+     ?>
+     
+    <h3><?php echo get_the_title();?></h3>
+  </div>
 
- ?>
- 
-<h3><?php echo get_the_title();?></h3>
-</div>
-<div class="col-md-6 pull-right"><?php 
-echo '<a href="'. $backurl.'"><' ;?>
- VIEW ALL STORES</a>
-</div>
+  <div class="col-md-6 view-all-link desktop">
+    <?php echo '<a href="'. $backurl.'">' ;?>< VIEW ALL STORES</a>
+  </div>
+
 </div>
 
 <div class="cc-ad-map-strn col-md-12 clearfix">

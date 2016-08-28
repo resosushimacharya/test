@@ -33,14 +33,14 @@ class CcOrderExport {
 	$hfor = $cc_order_report['hfor'];
 	$hfol = $cc_order_report['hfol'];
 	$current_date_string = date( 'YmdHi', current_time( 'timestamp', 0 ));
-	   if($rugor){
+	if($rugor){
 		  $fp_order_report = fopen(WP_CONTENT_DIR.'/order-reports/ORRUGS'.$current_date_string.'.csv','w+');
 				 foreach($rugor as $report){ 
 				  fputcsv($fp_order_report,$report);
 				 }
 		 }
 		
-	  if($hfor){
+	if($hfor){
 		  $fp_order_report = fopen(WP_CONTENT_DIR.'/order-reports/ORHARD'.$current_date_string.'.csv','w+');
 				 foreach($hfor as $report){ 
 				  fputcsv($fp_order_report,$report);
@@ -48,13 +48,13 @@ class CcOrderExport {
 		 }
 	 
 
-		if($hfol){
+	if($hfol){
 		 $fp_order_list = fopen(WP_CONTENT_DIR.'/order-reports/OLHARD'.$current_date_string.'.csv','w+');
 		  foreach($hfol as $report){ 
 				 fputcsv($fp_order_list,$report);
 				 }
 		  }
-	  if($rugol){
+	if($rugol){
 		 $fp_order_list = fopen(WP_CONTENT_DIR.'/order-reports/OLRUGS'.$current_date_string.'.csv','w+');
 		  foreach($rugol as $report){ 
 				 fputcsv($fp_order_list,$report);

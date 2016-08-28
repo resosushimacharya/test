@@ -1623,10 +1623,12 @@ li.clblk_a::before {
 	margin-bottom: 73px;
 }
 .cbg_content h2 {
-	margin-bottom: 19px;
-	font: normal 18px 'proxima_nova_ltsemibold', sans-serif;
-    color: #0099ff;
+	margin-bottom: 8px;
+	font:bold 24px 'ProximaN Bold', sans-serif;
+    color: #15489f;
 	text-transform:uppercase;
+	border-bottom:1px solid #f0f2f1;
+	padding-bottom:15px;
 }
 .cbg_content h2 strong {
 	font: normal 18px 'proxima_nova_ltsemibold', sans-serif;
@@ -1690,6 +1692,9 @@ li.clblk_a::before {
 .meromm.affix {
 	top: 160px;
 	z-index:100;
+}
+.cc-mobile-blk .meromm {
+	display:none;
 }
 ul.guide_list_cbg {
 	background: #e7edf8;
@@ -1798,6 +1803,38 @@ ul.guide_list_cbg li.current_page_item a {
 	font: bold 36px 'proxima_nova_ltsemibold', sans-serif;
 	color: #15489f;
 	text-transform:uppercase;
+	display:block;
+	clear:both;
+	margin-bottom:16px;
+}
+.about-page .cart_checkout_header_subtitle {
+	display:block;
+	margin-bottom:33px;
+}
+.about-page .cart_checkout_header_subtitle p {
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	color:#666666;
+	float:left;
+	margin:0;
+}
+.about-page .cart_checkout_header_subtitle p.return-to-shop {
+	float:right;
+}
+.about-page .cart_checkout_header_subtitle p.return-to-shop a.button.wc-backward {
+	background-color:#c32327;
+	width:100%;
+	display:block;
+	padding:12px 17px;
+	text-align:center;
+	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	color: #FFFFFF;
+	text-transform:uppercase;
+	margin-top:-28px;
+}
+.child-innerpg {
+	background-color:#f0f2f1;	
 }
 img.alignright {
 	margin: 10px 0 10px 10px;
@@ -4284,21 +4321,24 @@ span.cc-locator-current a {
 	margin-left: 1px;
 	cursor: text;
 }
-.inerblock_serc_cde.cc-locator-sec .col-md-12, .col-md-6.pull-left, .col-md-5.wpsl-single-left {
+.single-store-top-cntr, .col-md-6.pull-left, .col-md-5.wpsl-single-left {
 	padding: 0;
 	clear: both;
 }
-.col-md-6.pull-left h3 {
+.single-store-title{
+	padding-left: 0;
+}
+.single-store-title h3 {
 	font: 700 30px 'proxima_nova_ltsemibold', sans-serif;
 	color: #15489f;
 	text-transform: uppercase;
 	margin-bottom: 21px;
 }
-.col-md-6.pull-right {
+.view-all-link {
 	padding-right: 0;
 	text-align: right;
 }
-.col-md-6.pull-right a {
+.view-all-link a {
 	width: 196px;
 	height: 45px;
 	background: #0099ff;
@@ -4308,8 +4348,11 @@ span.cc-locator-current a {
 	color: #FFF;
 	text-decoration: none;
 }
-.col-md-6.pull-right a:hover {
+.view-all-link a:hover {
 	background: #028ce8;
+}
+.mobile{
+	display: none;
 }
 .cc-info-store {
 	background: #d1ddf1;
@@ -4415,7 +4458,7 @@ span.cc-cat-store-item-phone {
 	background: #db2a2f;
 	cursor: pointer;
 }
-.wpsl-hour-sec.clearfix {
+.wpsl-hour-sec {
 	padding: 40px 28px 15px 28px;
 }
 .wpsl-hour-sec span strong {
@@ -4423,10 +4466,10 @@ span.cc-cat-store-item-phone {
 	color: #15489f;
 	text-transform: uppercase;
 }
-.col-md-7.wpsl-single-right {
+.wpsl-single-right {
 	padding-right: 0;
 }
-.col-md-7.wpsl-single-right #wpsl-base-gmap_0 {
+.wpsl-single-right #wpsl-base-gmap_0 {
 	width: 100%;
 	height: 600px;
 }
@@ -5405,6 +5448,7 @@ div#error_max_msg {
 	border:0;
 	border-radius:0;
 	border-spacing:0;
+	margin-top:52px;
 }
 .cbg_content.cc-condn-page {
 	 border-spacing:1px;
@@ -5423,7 +5467,9 @@ table.shop_table.shop_table_responsive.cart > thead > tr > th.product-subtotal, 
 	text-align:right;
 }
 .cbg_content.cc-condn-page .woocommerce table.shop_table th {
-	color:#000;
+	font-size:16px;
+	font-weight:700;
+	color:#666666;
 }
 .cbg_content.cc-condn-page .woocommerce input.button {
 	background-color:#15489f;
@@ -5437,16 +5483,21 @@ table.shop_table.shop_table_responsive.cart > thead > tr > th.product-subtotal, 
 	background-color:#0e48aa;
 }
 .cbg_content.cc-condn-page span.amount {
-	font: bold 16px 'proxima_nova_ltsemibold', sans-serif;
-	color:#000000; 
+	font-size:16px;
+	font-weight:normal;
+	color:#666666; 
 }
 .cbg_content.cc-condn-page .product-name a {
-	font: bold 16px 'proxima_nova_ltsemibold', sans-serif;
-	color:#15489f;
+	font-size:16px;
+	font-weight:normal;
+	color:#666666;
 	text-decoration:none; 
 }
 .cbg_content.cc-condn-page .product-name a:hover {
-	color:#000;
+	cursor:text;
+}
+.about-page .cc-breadcrumb {
+	padding-bottom:8px;
 }
 .cbg_content.cc-condn-page tr {
 	background-color:#FFF;
@@ -5550,7 +5601,22 @@ a.button.wc-forward {
 }
 .page.page-id-33 .woocommerce .cart-collaterals .cart_totals, .woocommerce-page .cart-collaterals .cart_totals {
 	width:100%;
+	-webkit-box-shadow:0px 0px 13px 4px rgba(0, 0, 0, 0.10);
+	-moz-box-shadow:0px 0px 13px 4px rgba(0, 0, 0, 0.10);
 }
+.cbg_content.cc-condn-page .woocommerce table.shop_table > tbody > tr > th {
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	color:#666666;
+	text-transform:uppercase;	
+}
+.cart-collaterals .calculated_shipping table.shop_table.shop_table_responsive {
+	margin-top:0;
+}
+.cart-collaterals .calculated_shipping table.shop_table.shop_table_responsive > tbody > tr > th, .cart-collaterals .calculated_shipping table.shop_table.shop_table_responsive > tbody > tr > td {
+	border:0;
+}
+
 .page.page-id-33 select#quantity-control {
 	width:75%;
 }
@@ -5609,13 +5675,15 @@ a.button.wc-forward {
  }
  .page-sorry .error-wrapper button a:hover { background-color:#15489f; color:#FFF;}
  .cc-condn-page .woocommerce a.remove {
-	width:20px;
-	height:20px;
-	line-height:22px;
+	width:25px;
+	height:25px;
+	line-height:23px;
+	border:2px solid #c4262a;
+	color:#c4262a !important;
 	border-radius:50%; 
  }
  .cc-condn-page .woocommerce a.remove:hover {
-	color:#FFF;
+	color:#FFF !important;
 	background-color:#b01519; 
  }
  .cc-product-page-info-dis {
@@ -5640,7 +5708,7 @@ a.button.wc-forward {
 	width:153px;
 	display:inline-block;
 }
-<<<<<<< HEAD
+
 .cc-condn-page .woocommerce .col2-set .col-1, .cc-condn-page .woocommerce .col2-set .col-2 {
 	width:100%;
 	clear:both;
@@ -5668,5 +5736,10 @@ a.button.wc-forward {
 .pickup_location_list {
 	margin-left:10px;
 }
-=======
->>>>>>> 919da7f56614319f368a45686629e0de90b69507
+.child-innerpg { 
+	background-color:;
+}
+.cart-collaterals .calculated_shipping table.shop_table.shop_table_responsive tbody tr:last-child th,
+.cart-collaterals .calculated_shipping table.shop_table.shop_table_responsive tbody tr:last-child td {
+	border-top:1px solid #f0f2f1;
+}
