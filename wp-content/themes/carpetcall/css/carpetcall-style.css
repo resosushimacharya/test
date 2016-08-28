@@ -1623,10 +1623,12 @@ li.clblk_a::before {
 	margin-bottom: 73px;
 }
 .cbg_content h2 {
-	margin-bottom: 19px;
-	font: normal 18px 'proxima_nova_ltsemibold', sans-serif;
-    color: #0099ff;
+	margin-bottom: 8px;
+	font:bold 24px 'ProximaN Bold', sans-serif;
+    color: #15489f;
 	text-transform:uppercase;
+	border-bottom:1px solid #f0f2f1;
+	padding-bottom:15px;
 }
 .cbg_content h2 strong {
 	font: normal 18px 'proxima_nova_ltsemibold', sans-serif;
@@ -5446,6 +5448,7 @@ div#error_max_msg {
 	border:0;
 	border-radius:0;
 	border-spacing:0;
+	margin-top:52px;
 }
 .cbg_content.cc-condn-page {
 	 border-spacing:1px;
@@ -5598,7 +5601,22 @@ a.button.wc-forward {
 }
 .page.page-id-33 .woocommerce .cart-collaterals .cart_totals, .woocommerce-page .cart-collaterals .cart_totals {
 	width:100%;
+	-webkit-box-shadow:0px 0px 13px 4px rgba(0, 0, 0, 0.10);
+	-moz-box-shadow:0px 0px 13px 4px rgba(0, 0, 0, 0.10);
 }
+.cbg_content.cc-condn-page .woocommerce table.shop_table > tbody > tr > th {
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	color:#666666;
+	text-transform:uppercase;	
+}
+.cart-collaterals .calculated_shipping table.shop_table.shop_table_responsive {
+	margin-top:0;
+}
+.cart-collaterals .calculated_shipping table.shop_table.shop_table_responsive > tbody > tr > th, .cart-collaterals .calculated_shipping table.shop_table.shop_table_responsive > tbody > tr > td {
+	border:0;
+}
+
 .page.page-id-33 select#quantity-control {
 	width:75%;
 }
@@ -5657,13 +5675,15 @@ a.button.wc-forward {
  }
  .page-sorry .error-wrapper button a:hover { background-color:#15489f; color:#FFF;}
  .cc-condn-page .woocommerce a.remove {
-	width:20px;
-	height:20px;
-	line-height:22px;
+	width:25px;
+	height:25px;
+	line-height:23px;
+	border:2px solid #c4262a;
+	color:#c4262a !important;
 	border-radius:50%; 
  }
  .cc-condn-page .woocommerce a.remove:hover {
-	color:#FFF;
+	color:#FFF !important;
 	background-color:#b01519; 
  }
  .cc-product-page-info-dis {
@@ -5688,7 +5708,7 @@ a.button.wc-forward {
 	width:153px;
 	display:inline-block;
 }
-<<<<<<< HEAD
+
 .cc-condn-page .woocommerce .col2-set .col-1, .cc-condn-page .woocommerce .col2-set .col-2 {
 	width:100%;
 	clear:both;
@@ -5716,5 +5736,10 @@ a.button.wc-forward {
 .pickup_location_list {
 	margin-left:10px;
 }
-=======
->>>>>>> 919da7f56614319f368a45686629e0de90b69507
+.child-innerpg { 
+	background-color:;
+}
+.cart-collaterals .calculated_shipping table.shop_table.shop_table_responsive tbody tr:last-child th,
+.cart-collaterals .calculated_shipping table.shop_table.shop_table_responsive tbody tr:last-child td {
+	border-top:1px solid #f0f2f1;
+}
