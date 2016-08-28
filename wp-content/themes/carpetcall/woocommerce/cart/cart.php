@@ -22,6 +22,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 wc_print_notices();
 
 do_action( 'woocommerce_before_cart' ); ?>
+<div class="cart_checkout_header_subtitle">
+<p><?php _e("We've set this stock aside for 30mins to ensure you don't miss out","carpetcall");?></p>
+<p class="return-to-shop">
+	<a class="button wc-backward" href="<?php echo get_permalink( woocommerce_get_page_id( 'shop' ) );?>">
+		<?php _e('Continue Shopping','carpetcall')?>	</a>
+</p>
+</div>
 
 <form action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 
@@ -31,8 +38,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 	<thead>
 		<tr>
 			<th class="product-remove">&nbsp;</th>
-			<th class="product-thumbnail">&nbsp;</th>
-			<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
+			<!--<th class="product-thumbnail">&nbsp;</th>-->
+			<th colspan="2" class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
 			<th class="product-price"><?php _e( 'Price', 'woocommerce' ); ?></th>
 			<th class="product-quantity"><?php _e( 'Quantity', 'woocommerce' ); ?></th>
 			<th class="product-subtotal"><?php _e( 'Total', 'woocommerce' ); ?></th>

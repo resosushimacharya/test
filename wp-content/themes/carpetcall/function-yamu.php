@@ -1298,7 +1298,9 @@ add_filter( 'rewrite_rules_array', function( $rules )
     return $new_rules + $rules;
 } );
 
-
+add_filter( 'woocommerce_countries_inc_tax_or_vat', function () {
+  return __( '(GST)', 'woocommerce' );
+});
 
 
 //add_rewrite_rule('^shop-our-range/([^/]*)/([^/]*)/([^/]*)/([^/]*)?','index.php?&product=$matches[4]','top');
