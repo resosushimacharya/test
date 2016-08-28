@@ -1,6 +1,14 @@
 <div class="delivery_option_both">
-<input type="radio" name="shipping_method" value="store_pickup" required>Pickup In Store(Rugs and Hard Flooring)
-<input type="radio" name="shipping_method" value="pickup_n_deliver" required>Pickup Hard Flooring and Deliver Rugs
+<div class="delivery_option_item">
+<input type="radio" name="shipping_method" value="store_pickup" required>
+<label class="deliver_option_label">Pickup In Store(Rugs and Hard Flooring)</label>
+</div>
+<div class="delivery_option_item">
+<input type="radio" name="shipping_method" value="pickup_n_deliver" required>
+<label class="deliver_option_label">Pickup Hard Flooring and Deliver Rugs</label>
+</div>
+
+
 
 
 <?php get_template_part( 'templates/delivery/pickup_head', 'office' );?>

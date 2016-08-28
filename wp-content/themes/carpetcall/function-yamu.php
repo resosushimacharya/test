@@ -1070,7 +1070,6 @@ function cc_delivery_options_cart(){
 			}
 		 ?>
   <?php }?>
-  <h3>Delivery Options</h3>
   <p>Please select the preferred delivery option below. Hard-Flooring proudctus are only availiable through pick-up at our head offices warehouse locations.</p>
 	<?php 
 	if($has_rugs && $has_hard_flooring){
