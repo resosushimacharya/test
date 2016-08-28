@@ -1691,6 +1691,9 @@ li.clblk_a::before {
 	top: 160px;
 	z-index:100;
 }
+.cc-mobile-blk .meromm {
+	display:none;
+}
 ul.guide_list_cbg {
 	background: #e7edf8;
 	padding: 28px;
@@ -1798,6 +1801,38 @@ ul.guide_list_cbg li.current_page_item a {
 	font: bold 36px 'proxima_nova_ltsemibold', sans-serif;
 	color: #15489f;
 	text-transform:uppercase;
+	display:block;
+	clear:both;
+	margin-bottom:16px;
+}
+.about-page .cart_checkout_header_subtitle {
+	display:block;
+	margin-bottom:33px;
+}
+.about-page .cart_checkout_header_subtitle p {
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	color:#666666;
+	float:left;
+	margin:0;
+}
+.about-page .cart_checkout_header_subtitle p.return-to-shop {
+	float:right;
+}
+.about-page .cart_checkout_header_subtitle p.return-to-shop a.button.wc-backward {
+	background-color:#c32327;
+	width:100%;
+	display:block;
+	padding:12px 17px;
+	text-align:center;
+	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	color: #FFFFFF;
+	text-transform:uppercase;
+	margin-top:-28px;
+}
+.child-innerpg {
+	background-color:#f0f2f1;	
 }
 img.alignright {
 	margin: 10px 0 10px 10px;
@@ -5423,7 +5458,9 @@ table.shop_table.shop_table_responsive.cart > thead > tr > th.product-subtotal, 
 	text-align:right;
 }
 .cbg_content.cc-condn-page .woocommerce table.shop_table th {
-	color:#000;
+	font-size:16px;
+	font-weight:700;
+	color:#666666;
 }
 .cbg_content.cc-condn-page .woocommerce input.button {
 	background-color:#15489f;
@@ -5437,16 +5474,21 @@ table.shop_table.shop_table_responsive.cart > thead > tr > th.product-subtotal, 
 	background-color:#0e48aa;
 }
 .cbg_content.cc-condn-page span.amount {
-	font: bold 16px 'proxima_nova_ltsemibold', sans-serif;
-	color:#000000; 
+	font-size:16px;
+	font-weight:normal;
+	color:#666666; 
 }
 .cbg_content.cc-condn-page .product-name a {
-	font: bold 16px 'proxima_nova_ltsemibold', sans-serif;
-	color:#15489f;
+	font-size:16px;
+	font-weight:normal;
+	color:#666666;
 	text-decoration:none; 
 }
 .cbg_content.cc-condn-page .product-name a:hover {
-	color:#000;
+	cursor:text;
+}
+.about-page .cc-breadcrumb {
+	padding-bottom:8px;
 }
 .cbg_content.cc-condn-page tr {
 	background-color:#FFF;
