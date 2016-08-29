@@ -484,7 +484,17 @@ function cron_func_update(){
     for($counter=1;$counter<=3;$counter++){
 
 	if($counter==1){
-			$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/csvfolder/rugs.csv';
+			$url = site_url();
+			$url = explode('/',$url);
+
+
+
+            if(strcasecmp($url[2],'localhost')==0){
+			$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/productfiles/rugs.csv';
+		      }
+			else{
+				$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/productfiles/rugs.csv';
+			}
 		   $appcat = "rugs";
 			echo $new_rugs_file;
 				
@@ -540,8 +550,19 @@ function cron_func_update(){
 		
 	}
 	elseif($counter==2){
-$mimes = array('application/vnd.ms-excel');	
-		$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/csvfolder/hard-flooring.csv';
+        $mimes = array('application/vnd.ms-excel');	
+        	$url = site_url();
+			$url = explode('/',$url);
+
+
+
+            if(strcasecmp($url[2],'localhost')==0){
+			$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/productfiles/hard-flooring.csv';
+		      }
+			else{
+				$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/productfiles/hard-flooring.csv';
+			}
+		
 		     $appcats = "hard-flooring";
 			echo $new_rugs_file;
 				
