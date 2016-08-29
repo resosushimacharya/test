@@ -66,7 +66,7 @@ $found_prod = new WP_Query($args);
         <div class="woo-added"></div>
         <input type="button" name="cc_load_more" id ="cc_load_more" callto="cc_custom_search" value="load more" />
         <input type="hidden" name="perpage_var" id="perpage_var" value="<?php echo $perpage_var;?>">
-        <input type="hidden" name="ajax_offset" id="ajax_offset" value="<?php echo ($ret['offset'])?$ret['offset']:0?>">
+        <input type="hidden" name="ajax_offset" id="ajax_offset" value="<?php echo ($search_result['offset'])?$search_result['offset']:0?>">
         <input type="hidden" name="ajax_sort_by" id="ajax_sort_by" value="price">
         <input type="hidden" name="ajax_sort_order" id="ajax_sort_order" value="ASC">
         <input type="hidden" name="search_query" id="search_query" value="<?php echo $search_query?>">

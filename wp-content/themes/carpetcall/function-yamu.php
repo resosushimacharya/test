@@ -405,7 +405,7 @@ function show_category_slider_block($args=array()){
 								}
 						}
 						if(!$imgflag){
-							$feat_image = get_template_directory_url().'/images/placeholder.png';
+							$feat_image = get_template_directory_uri().'/images/placeholder.png';
 						}
 						if($pch==1){
 							$res = get_post_meta($filloop->post->ID ,'_regular_price',true);
@@ -443,15 +443,29 @@ function show_category_slider_block($args=array()){
 						$reqProImageId = '';
 						foreach($proGalId as $imgid){
 							$proImageName = wp_get_attachment_url($imgid);
-							if(preg_match("/\_L/i", $proImageName)){
+							
+							if(preg_match("/\_V/i", $proImageName)){
+								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
+								if($feat_image){
+									$feat_image = $feat_image[0];
+								}
+							}
+							elseif(preg_match("/\_S/i", $proImageName)){
+								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
+								if($feat_image){
+									$feat_image = $feat_image[0];
+								}
+							}
+							elseif(preg_match("/\_L/i", $proImageName)){
 								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
 								if($feat_image){
 									$feat_image = $feat_image[0];
 								}
 							}
 						}
+						
 						if($feat_image ==''){
-							$feat_image = get_template_directory_url().'/images/placeholder.png';
+							$feat_image = get_template_directory_uri().'/images/placeholder.png';
 						}
 						?>
 						<div class=" cc-other-term-pro">
@@ -644,7 +658,7 @@ function loadmore_hf($args){
 									}
 							}
 							if(!$imgflag){
-								$feat_image = get_template_directory_url().'/images/placeholder.png';
+								$feat_image = get_template_directory_uri().'/images/placeholder.png';
 							}
 							
 							if($pch==1){
@@ -683,29 +697,29 @@ function loadmore_hf($args){
 							$reqProImageId = '';
 							foreach($proGalId as $imgid){
 								$proImageName = wp_get_attachment_url($imgid);
-								if(preg_match("/\_L/i", $proImageName)){
+								if(preg_match("/\_V/i", $proImageName)){
 									$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
-									if($feat_image){
-										$feat_image = $feat_image[0];
-									}
-								}
-								elseif(preg_match("/\_V/i", $proImageName)){
-									$feat_image = wp_get_attachment_image_src($imgid,'full');
 									if($feat_image){
 										$feat_image = $feat_image[0];
 										$imgflag = true;
 									}
 									}
 										elseif(preg_match("/\_S/i", $proImageName)){
-									$feat_image = wp_get_attachment_image_src($imgid,'full');
+									$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
 									if($feat_image){
 										$feat_image = $feat_image[0];
 										$imgflag = true;
 									}
 									}
+									elseif(preg_match("/\_L/i", $proImageName)){
+									$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
+									if($feat_image){
+										$feat_image = $feat_image[0];
+									}
+								}
 							}
 							if(!$imgflag){
-								$feat_image = get_template_directory_url().'/images/placeholder.png';
+								$feat_image = get_template_directory_uri().'/images/placeholder.png';
 							}
 							?>
 							<div class=" cc-other-term-pro">
@@ -787,8 +801,9 @@ function cc_custom_search($args){
 	$found_count = 0;
 	$filargs = array(
 					'post_type'=>'product',
+					'offset'	=> $offset,
 					'post_stauts' =>'publish',
-					'posts_per_page'=>-1,
+					'posts_per_page'=>$perpage,
 					's'				=>$s,
 					'meta_query'=>array(
 										array(
