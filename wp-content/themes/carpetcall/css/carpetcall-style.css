@@ -5762,7 +5762,7 @@ a.button.wc-forward {
 	border-top: 0;
 	padding: 15px 30px 22px;
 }
-.cc-condn-page .col-1 h3 {
+.cc-condn-page .col-1 > h3 {
 	background-color:#d1ddf1;
 	padding-left: 32px;
 	height: 55px;
@@ -5810,6 +5810,7 @@ a.button.wc-forward {
 }
 .checkout_next_prev_button.read_more {
 	float:right;	
+	margin-top: 30px;
 }
 .checkout_next_prev_button.read_more a{
 	width: 200px;
@@ -5819,7 +5820,7 @@ a.button.wc-forward {
 	max-width:100%;
 }
 .delivery_option_rugs .rugs_store_pickup_list {
-	padding:0 25px;
+	
 }
 h2.fyns-blk {
 	margin:0;	
@@ -5849,6 +5850,7 @@ h2.fyns-blk {
 	border: 2px solid #f0f2f1;
 	display: inline-block;
 	padding: 10px;
+	margin-right: 11px;
 }
 .delivery_option_item label.radio-label{
 	margin: 0;
@@ -5884,6 +5886,175 @@ h2.fyns-blk {
 .delivery_option_item.radio-checked label.deliver_option_label{
 	color: #fff;
 }
+.radiogroup_wrap{
+	padding-bottom: 20px;
+	border-bottom: 2px solid #f0f2f1;
+}
+.delivery_option_rugs .rugs_store_pickup_list .nearstore{
+	padding-bottom: 0;
+}
+.delivery_option_rugs .rugs_store_pickup_list .nearstore .modal-title{
+    font-size: 20px;
+}
+.delivery_option_rugs .rugs_store_pickup_list .nearstore h2.fyns-blk{
+    font-size: 18px;
+    margin-top: 5px;
+    padding-bottom: 5px;
+}
+.delivery_option_rugs .rugs_store_pickup_list .nearstore .frm-blk{
+	padding: 20px 0;
+}
+.delivery_option_rugs .rugs_store_pickup_list .nearstore .nearby_stores_main_wrapper .pickup_location_list{
+	margin: 0;
+}
+label.inner-radio-label {
+    height: 24px;
+    width: 24px;
+    background: #fff;
+    border-radius: 50%;
+    margin: 0;
+    margin-right: 25px;
+    border: 1px solid #f0f2f1;
+    position: relative;
+}
+label.inner-radio-label::after{
+	content: '';
+	position: absolute;
+    height: 12px;
+    width: 12px;
+    border-radius: 6px;
+    background: #15489f;
+    left: 5px;
+    top: 5px;
+    opacity: 0;
+}
+label.inner-radio-label.radio-check-label::after{
+	opacity: 1;
+}
+.delivery_option_rugs .rugs_store_pickup_list .nearstore h3{
+	display:inline-block;
+}	
+.delivery_option_rugs .rugs_store_pickup_list .nearstore p{
+	margin-left: 50px;
+	padding-top: 0;
+	padding-bottom: 20px;
+}
+#ship-to-different-address > label{
+	font-size: 20px;
+	font-family: 'proxima_nova_ltsemibold', sans-serif;
+    color: #15489f;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.inner-check-label{
+	height: 24px;
+	width: 24px;
+	border: 1px solid #f0f2f1;
+	position: relative;
+	margin: 0;
+}
+label.inner-check-label.radio-check-label::after{
+    content: '\f00c';
+    position: absolute;
+    font-family: FontAwesome;
+    font-size: 16px;
+    color: #c32327;
+    left: 4px;
+    top: -1px;
+}
+#ship-to-different-address{
+	margin-bottom: 20px !important;
+}
+#ship-to-different-address .ship_to_shipping{
+	text-transform: none;
+	font-weight: 300;
+	font-family: 'proxima_nova_rgregular';
+
+}
+
+.shipping_needed_checkout .woocommerce-shipping-fields .shipping_address p{
+	font: normal 18px/22px 'proxima_nova_rgregular', sans-serif;
+    color: #666666;
+    padding: 8px;
+    width: 50%;
+}
+.shipping_needed_checkout .woocommerce-shipping-fields .shipping_address p.form-row-first{
+	padding-left: 0;
+}
+.shipping_needed_checkout .woocommerce-shipping-fields .shipping_address p.form-row-last{
+	padding-right: 0;
+}
+.shipping_needed_checkout .woocommerce-shipping-fields .shipping_address p.form-row-wide {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+}
+.shipping_needed_checkout .woocommerce-shipping-fields .shipping_address input.input-text{
+    height: 35px;
+    padding: 0 13px;
+    color: #a8a8a8;
+    text-transform: uppercase;
+    font-family: 'proxima_nova_ltsemibold';
+}
+.shipping_needed_checkout .woocommerce-shipping-fields .shipping_address select {
+    padding: 5px 12px 4px 12px;
+    border: 1px solid #d1ddf1;
+    background-color: #e7edf8;
+    border-radius: 0;
+    height: 35px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url(../images/icon.jpg);
+    background-repeat: no-repeat;
+    background-position: 100% 0%;
+    background-size: 35px;
+}
+.shipping_needed_checkout .woocommerce-shipping-fields .shipping_address .select2-container .select2-choice .select2-arrow {
+    height: 33px;
+    width: 33px;
+    border-radius: 0;
+    background-color: #d1ddf1;
+}
+.shipping_needed_checkout .woocommerce-shipping-fields .shipping_address .select2-container .select2-choice .select2-arrow b:after {
+    border: 7px solid transparent;
+    border-top-color: #fff;
+    margin-left: -6px;
+    margin-top: -3px;
+}
+.shipping_needed_checkout .woocommerce-shipping-fields textarea{
+    border: 1px solid #d1ddf1;
+        color: #a8a8a8;
+        font-size: 16px;
+        background: #000;
+        background: #e7edf8 !important;
+    padding: 15px 20px;
+    height: 150px;
+    resize: none;
+}
+.shipping_needed_checkout #order_comments_field{
+	padding-bottom: 0;
+}
+
+/* Payment Form */
+
+.payment-form table{
+	display: none;
+}
+.woocommerce-checkout .payment-form  #payment {
+    background: none;
+    border-radius: 0;
+}
+
+
+
+
+
+
+
+
 #sub_content_area p {
 	width:100%;
 }

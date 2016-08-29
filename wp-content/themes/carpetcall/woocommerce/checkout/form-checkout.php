@@ -56,10 +56,9 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 
 		            <div class="checkout_next_prev_button read_more">
 		              <a href="#checkout_customer_details">Previous</a>
-		            </div>
-		            <div class="checkout_next_prev_button read_more">
 		              <a href="#checkout_payment">Next</a>
-		            </div>		            
+		            </div>
+		            	            
 				</div>
 	        </div>
 
@@ -69,7 +68,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 					<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
 		            <?php do_action( 'woocommerce_checkout_order_review' ); ?>
 		            <?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
-		              <div class="checkout_next_prev_button read_more">
+		             <div class="checkout_next_prev_button read_more">
 		              <a href="#checkout_delivery">Previous</a>
 		            </div> 		             
 				</div>
@@ -100,10 +99,10 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 
 <script type="text/javascript">
 jQuery(document).ready(function(e) {
-    jQuery(document).on('click','.checkout_next_prev_button',function(e){
+    jQuery(document).on('click','.checkout_next_prev_button a',function(e){
     	e.preventDefault();
 		jQuery('.collapsable').removeClass('in');
-		jQuery('div'+jQuery(this).find('a').attr('href')).addClass('in');
+		jQuery('div'+jQuery(this).attr('href')).addClass('in');
 		});
 });
 </script>

@@ -11,24 +11,24 @@ global $woocommerce, $product;
 	</div>
 
 	<div class="delivery_option_item"><input type="radio" name="shipping_method" value="local_delivery" required><label class="deliver_option_label">Local Delivery</label></div>
+	</div>
 
 
-	<div class="rugs_store_pickup_list" style="display:none">
+	<div class="rugs_store_pickup_list" style="opacity:0; height: 0;overflow: hidden;">
 	<?php get_template_part( 'templates/delivery/pickup_closest', 'office' );?>
 	</div>
 
-	<div class="shipping_needed_checkout" style="display:none"><?php do_action( 'woocommerce_checkout_shipping' ); ?></div>
-	</div>
+	<div class="shipping_needed_checkout" style="opacity:0; height: 0;overflow: hidden;"><?php do_action( 'woocommerce_checkout_shipping' ); ?></div>
+	
 </div>
 <script type="text/javascript">
 jQuery(document).on('change','input[name="shipping_method"]',function(){
 	if(jQuery(this).val() == 'local_delivery'){
-		jQuery('.shipping_needed_checkout').show();
-		jQuery('.rugs_store_pickup_list').hide();
-		
+			jQuery('.shipping_needed_checkout').css({'opacity': 1, 'height': 'auto', 'overflow': 'visible'});
+			jQuery('.rugs_store_pickup_list').css({'opacity': 0, 'height': 0, 'overflow': 'hidden'});		
 		}else{
-			jQuery('.shipping_needed_checkout').hide();
-			jQuery('.rugs_store_pickup_list').show();
-			}
+			jQuery('.shipping_needed_checkout').css({'opacity': 0, 'height': 0, 'overflow': 'hidden'});
+			jQuery('.rugs_store_pickup_list').css({'opacity': 1, 'height': 'auto', 'overflow': 'visible'});
+		}
 	});
 </script>
