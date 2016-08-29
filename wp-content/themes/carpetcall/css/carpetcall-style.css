@@ -1069,7 +1069,7 @@ h5.tryit.tryita {
 	color: #15489f;
 	font-weight: normal;
 }
-.img_cntr_home {
+.img_cntr_home, .img_cntr.cc-featured_no_image {
 	background-position: center center;
 	background-size: cover;
 	min-height: 148px;
@@ -2513,7 +2513,7 @@ select#cc-size {
 	content: '';
 	border: 0;
 	box-shadow: none;
-	width: 85%;
+	width: 71%;
 	left: 50%;
 	bottom: -7px;
 	background: #0099ff;
@@ -2856,6 +2856,9 @@ a.pull-right:hover {
 	background-color: #e7edf8;
 	padding: 37px 36px;
 	min-height: 412px;
+}
+.faq-cont-blka .inerblock_sec .cbg_content p {
+	width:100%;
 }
 .inerblock_sec .cbg_content p {
 	font: normal 18px/22px 'proxima_nova_rgregular', sans-serif;
@@ -5794,4 +5797,7 @@ h2.fyns-blk {
 .delivery_option_rugs .rugs_store_pickup_list .nearstore .frm-blk .input-group {
 	width:60%;
 	float:left;
+}
+#sub_content_area p {
+	width:100%;
 }
