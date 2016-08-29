@@ -405,7 +405,7 @@ function show_category_slider_block($args=array()){
 								}
 						}
 						if(!$imgflag){
-							$feat_image = 'http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png';
+							$feat_image = get_template_directory_url().'/images/placeholder.png';
 						}
 						if($pch==1){
 							$res = get_post_meta($filloop->post->ID ,'_regular_price',true);
@@ -451,7 +451,7 @@ function show_category_slider_block($args=array()){
 							}
 						}
 						if($feat_image ==''){
-							$feat_image = 'http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png';
+							$feat_image = get_template_directory_url().'/images/placeholder.png';
 						}
 						?>
 						<div class=" cc-other-term-pro">
@@ -644,7 +644,7 @@ function loadmore_hf($args){
 									}
 							}
 							if(!$imgflag){
-								$feat_image = 'http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png';
+								$feat_image = get_template_directory_url().'/images/placeholder.png';
 							}
 							
 							if($pch==1){
@@ -705,7 +705,7 @@ function loadmore_hf($args){
 									}
 							}
 							if(!$imgflag){
-								$feat_image = 'http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png';
+								$feat_image = get_template_directory_url().'/images/placeholder.png';
 							}
 							?>
 							<div class=" cc-other-term-pro">
@@ -1302,6 +1302,14 @@ add_filter( 'rewrite_rules_array', function( $rules )
 } );
 
 
+add_action( 'woocommerce_add_order_item_meta', 'cc_save_item_sku_order_itemmeta', 10, 3 );
+function cc_save_item_sku_order_itemmeta( $item_id, $values, $cart_item_key ) {
+ 
+        $item_sku  =  get_post_meta( $values[ 'product_id' ], '_sku', true );
+ 
+        wc_add_order_item_meta( $item_id, 'sku', $item_sku , false );
+ 
+}
 //add_rewrite_rule('^shop-our-range/([^/]*)/([^/]*)/([^/]*)/([^/]*)?','index.php?&product=$matches[4]','top');
 
 //global $woocommerce;
