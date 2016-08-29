@@ -222,23 +222,23 @@ get_header();
                 <input type="hidden" value="<?php echo $myemail;?>" class="btn-dn" id="send_email_address" name="send_email_address">
                 
                 <div class="ur-msg-title">
-                 <div class="form-group col-sm-12">
+                 <div class="form-group col-sm-12 ">
                   
                     <h3>Message</h3>
                 </div></div>
                 
-                <div class="form-group col-sm-12">
+                <div class="form-group col-sm-12  contact-msg-cntr">
                 
                  <textarea class="form-control" rows="5" id="cc_message" name="cc_message" placeholder="ENTER YOUR MESSAGE HERE"></textarea>
                   <div class="error_label"></div>
                 </div>
-                 <div class="form-group col-sm-12">
+                 <div class="form-group col-sm-12 contact-captcha-cntr">
              <script src='https://www.google.com/recaptcha/api.js'></script>
                       <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LdfuCMTAAAAAGhFRMwboqar9gIW_yfmWVjT7OMj"></div>
                       <input type="hidden" value="" id="check_captcha" name="check_captcha">
                       <div class="error_label"></div>
                    </div>
-                <div class="form-group col-sm-12">
+                <div class="form-group col-sm-12 contact-submit-cntr">
                  <input type="submit" value="Submit" class="btn-dn" id="cc_contact_submit">
                 </div> 
                   <div class="form-group col-sm-12 success_message_wrapper ">

@@ -533,7 +533,7 @@ function woo_new_product_tab_accesories() {
                                     </div>
                                     <?php $x=do_shortcode('[add_to_cart_url id="'.$acc_product->ID.'"]');?>
                                    
-                                    <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $acc_product->ID;?>" class="button product_type_simple col-md-12 add_to_cart_button ajax_add_to_cart acc_add_to_cart" >ADD TO CART</a>
+                                    <a link="<?php echo get_permalink($acc_product->ID)?>" href="<?php echo $x ;?>" data-quantity="0" data-product_id="<?php echo $acc_product->ID;?>" class="button product_type_simple col-md-12 add_to_cart_button ajax_add_to_cart acc_add_to_cart" >ADD TO CART</a>
                                     
                                     <div class="modal fade" tabindex="-1" role="dialog" id="accinfo_<?php echo get_the_ID()?>_<?php echo $acc_cat->slug;?>">
                                     <div class="modal-dialog" role="document">
