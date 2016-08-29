@@ -112,7 +112,7 @@ get_header();
 						}
 					 ?><h4>
                      <?php echo $category->name;?>
-					</h4></a><h6> FROM A$<?php echo get_post_meta(get_the_ID(),'_regular_price',true);?></h6></div>
+					</h4></a><h6> FROM $<?php echo get_post_meta(get_the_ID(),'_regular_price',true);?></h6></div>
 					<div class="clearfix"></div>
                            
                       </div>

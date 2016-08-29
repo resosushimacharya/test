@@ -283,7 +283,7 @@ endif;
 
                     
                     if(!empty($price)){
-                        echo '<h6> FROM A$'.$price.'</h6>';
+                        echo '<h6> FROM $'.$price.'</h6>';
                         
                         }?></div>
                     <div class="clearfix"></div>

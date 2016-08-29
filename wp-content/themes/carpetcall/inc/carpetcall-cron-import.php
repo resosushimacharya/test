@@ -250,6 +250,49 @@ foreach($img_arr as $img){
 
 	}
 
+
+}
+if(!$set_fea_img){
+	$img ='placeholder.png';
+	
+	$filetype = wp_check_filetype( basename( $url.$img ), null );
+				// Prepare an array of post data for the attachment.
+				$attachment = array(
+					'guid'           =>$url.$img, 
+					'post_mime_type' => $filetype['type'],
+					'post_title'     => preg_replace( '/\.[^.]+$/', '', $csv[19] ),
+					'post_content'   => '',
+					'post_status'    => 'inherit'
+				);
+
+				// Insert the attachment.
+				$attach_id = wp_insert_attachment( $attachment,$file_loc.$img, $new_post_id );
+				// Generate the metadata for the attachment, and update the database record.
+				$attach_data = wp_generate_attachment_metadata( $attach_id,  $file_loc.$img);
+				wp_update_attachment_metadata( $attach_id, $attach_data );
+				if(!$set_fea_img){
+					set_post_thumbnail( $new_post_id, $attach_id );
+				}
+             
+}
+$filetype = wp_check_filetype( basename( $url.$img ), null );
+				// Prepare an array of post data for the attachment.
+				$attachment = array(
+					'guid'           =>$url.$img, 
+					'post_mime_type' => $filetype['type'],
+					'post_title'     => preg_replace( '/\.[^.]+$/', '', $csv[19] ),
+					'post_content'   => '',
+					'post_status'    => 'inherit'
+				);
+
+				// Insert the attachment.
+				$attach_id = wp_insert_attachment( $attachment,$file_loc.$img, $new_post_id );
+				// Generate the metadata for the attachment, and update the database record.
+				$attach_data = wp_generate_attachment_metadata( $attach_id,  $file_loc.$img);
+				wp_update_attachment_metadata( $attach_id, $attach_data );
+				if(!$set_fea_img){
+					set_post_thumbnail( $new_post_id, $attach_id );
+				}
 }
 update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id));
 
@@ -484,7 +527,17 @@ function cron_func_update(){
     for($counter=1;$counter<=3;$counter++){
 
 	if($counter==1){
-			$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/csvfolder/rugs.csv';
+			$url = site_url();
+			$url = explode('/',$url);
+
+
+
+            if(strcasecmp($url[2],'localhost')==0){
+			$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/productfiles/rugs.csv';
+		      }
+			else{
+				$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/productfiles/rugs.csv';
+			}
 		   $appcat = "rugs";
 			echo $new_rugs_file;
 				
@@ -540,8 +593,19 @@ function cron_func_update(){
 		
 	}
 	elseif($counter==2){
-$mimes = array('application/vnd.ms-excel');	
-		$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/csvfolder/hard-flooring.csv';
+        $mimes = array('application/vnd.ms-excel');	
+        	$url = site_url();
+			$url = explode('/',$url);
+
+
+
+            if(strcasecmp($url[2],'localhost')==0){
+			$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/productfiles/hard-flooring.csv';
+		      }
+			else{
+				$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/productfiles/hard-flooring.csv';
+			}
+		
 		     $appcats = "hard-flooring";
 			echo $new_rugs_file;
 				
