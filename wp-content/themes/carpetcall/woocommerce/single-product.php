@@ -50,7 +50,7 @@ $rootcheck = get_post_meta($post->ID);
 				if($depth == 1){
 					$back_term = $prod_term;
 					?>
-                    <span class="ab_arrow">
+                    <span class="ab_arrow mobile">
             <a href="<?php echo get_term_link($prod_term->term_id,'product_cat')?>">
               <i class="fa fa-angle-left" aria-hidden="true"></i>Back            
             </a>
