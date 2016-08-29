@@ -250,6 +250,49 @@ foreach($img_arr as $img){
 
 	}
 
+
+}
+if(!$set_fea_img){
+	$img ='placeholder.png';
+	
+	$filetype = wp_check_filetype( basename( $url.$img ), null );
+				// Prepare an array of post data for the attachment.
+				$attachment = array(
+					'guid'           =>$url.$img, 
+					'post_mime_type' => $filetype['type'],
+					'post_title'     => preg_replace( '/\.[^.]+$/', '', $csv[19] ),
+					'post_content'   => '',
+					'post_status'    => 'inherit'
+				);
+
+				// Insert the attachment.
+				$attach_id = wp_insert_attachment( $attachment,$file_loc.$img, $new_post_id );
+				// Generate the metadata for the attachment, and update the database record.
+				$attach_data = wp_generate_attachment_metadata( $attach_id,  $file_loc.$img);
+				wp_update_attachment_metadata( $attach_id, $attach_data );
+				if(!$set_fea_img){
+					set_post_thumbnail( $new_post_id, $attach_id );
+				}
+             
+}
+$filetype = wp_check_filetype( basename( $url.$img ), null );
+				// Prepare an array of post data for the attachment.
+				$attachment = array(
+					'guid'           =>$url.$img, 
+					'post_mime_type' => $filetype['type'],
+					'post_title'     => preg_replace( '/\.[^.]+$/', '', $csv[19] ),
+					'post_content'   => '',
+					'post_status'    => 'inherit'
+				);
+
+				// Insert the attachment.
+				$attach_id = wp_insert_attachment( $attachment,$file_loc.$img, $new_post_id );
+				// Generate the metadata for the attachment, and update the database record.
+				$attach_data = wp_generate_attachment_metadata( $attach_id,  $file_loc.$img);
+				wp_update_attachment_metadata( $attach_id, $attach_data );
+				if(!$set_fea_img){
+					set_post_thumbnail( $new_post_id, $attach_id );
+				}
 }
 update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id));
 
