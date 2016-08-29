@@ -1021,9 +1021,7 @@
 		height:auto;
 		
 	}
-	.pull-right {
-		float:none !important;
-	}
+	
 	.nowsppe a, .cc-clearance-row:nth-child(3) .cc-clearance-right .nowspe a {
 		padding:13px 0;
 		text-align:center;
@@ -1061,9 +1059,6 @@
 		font-weight:800;
 		color:#15489f;
 		text-transform:uppercase;
-	}
-	.cc-mobile-blk {
-		margin-bottom:55px;
 	}
 	.wrap_body .inerblock_sec .cbg_content {
 		padding:0;
@@ -1118,6 +1113,25 @@
 	}
 	
 	/* === BUYING GUIDES - STANDRAD ARTICLES End === */
+	
+	/* === FAQ ALL - STANDRAD ARTICLES === */
+	.inerblock_sec .cbg_content .panel-group .panel-title > a {
+		margin:0;
+		padding:15px 0 4px 0;
+	}
+	.faq-cont-blka .inerblock_sec {
+		margin-bottom:45px;
+	}
+	.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body {
+		padding:0;
+	}
+	.faq-cont-blka .glyphicon-chevron-up:before {
+		padding-right:15px;	
+	}
+	.faq-cont-blka .glyphicon-chevron-down:before {
+		padding-right:15px;
+	}
+	/* === FAQ ALL - STANDRAD ARTICLES End === */
 
 
 	/* === MAIN CATEGORY PAGE === */
@@ -1257,7 +1271,7 @@
 	}	
 	ul.guide_list_cbg {
 	    padding: 40px 50px 30px;
-	    margin-bottom: 30px;
+		margin:0;
 	}
 	ul.guide_list_cbg li a, ul.guide_list_cbg li .fa{
 	    line-height: 68px;
@@ -2532,9 +2546,7 @@
 		height:auto;
 		
 	}
-	.pull-right {
-		float:none !important;
-	}
+	
 	.nowsppe a, .cc-clearance-row:nth-child(3) .cc-clearance-right .nowspe a {
 		padding:13px 0;
 		text-align:center;
@@ -2572,9 +2584,6 @@
 		font-weight:800;
 		color:#15489f;
 		text-transform:uppercase;
-	}
-	.cc-mobile-blk {
-		margin-bottom:55px;
 	}
 	.inerblock_sec .cbg_content {
 		padding:0 20px;
@@ -2626,10 +2635,27 @@
 		text-transform:uppercase;
 		margin-bottom:33px;
 	}
-	
-	
+		
 	/* === BUYING GUIDES - STANDRAD ARTICLES End === */
-
+	
+	/* === FAQ ALL - STANDRAD ARTICLES === */
+	.inerblock_sec .cbg_content .panel-group .panel-title > a {
+		margin:0;
+		padding:15px 0 4px 0;
+	}
+	.faq-cont-blka .inerblock_sec {
+		margin-bottom:45px;
+	}
+	.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body {
+		padding:0;
+	}
+	.faq-cont-blka .glyphicon-chevron-up:before {
+		padding-right:15px;	
+	}
+	.faq-cont-blka .glyphicon-chevron-down:before {
+	 	padding-right:15px;
+	}
+	/* === FAQ ALL - STANDRAD ARTICLES End === */
 
 
 
@@ -2666,7 +2692,7 @@
 	}
 	ul.guide_list_cbg {
 	    padding: 40px 30px 30px;
-	    margin-bottom: 30px;
+	    margin:0;
 	}
 	ul.guide_list_cbg li a, ul.guide_list_cbg li .fa{
 	    line-height: 50px;
@@ -3288,9 +3314,6 @@
 		height:auto;
 		
 	}
-	.pull-right {
-		float:none !important;
-	}
 	.nowsppe a, .cc-clearance-row:nth-child(3) .cc-clearance-right .nowspe a {
 		padding:13px 0;
 		text-align:center;
@@ -3328,9 +3351,6 @@
 		font-weight:800;
 		color:#15489f;
 		text-transform:uppercase;
-	}
-	.cc-mobile-blk {
-		margin-bottom:55px;
 	}
 	.inerblock_sec .cbg_content {
 		padding:0 20px;
@@ -3385,7 +3405,25 @@
 	
 	
 	/* === BUYING GUIDES - STANDRAD ARTICLES End === */
-
+	
+	/* === FAQ ALL - STANDRAD ARTICLES === */
+	.inerblock_sec .cbg_content .panel-group .panel-title > a {
+		margin:0;
+		padding:15px 0 4px 0;
+	}
+	.faq-cont-blka .inerblock_sec {
+		margin-bottom:45px;
+	}
+	.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body {
+		padding:0;
+	}
+	.faq-cont-blka .glyphicon-chevron-up:before {
+		padding-right:15px;	
+	}
+	.faq-cont-blka .glyphicon-chevron-down:before {
+		padding-right:15px;
+	}
+	/* === FAQ ALL - STANDRAD ARTICLES End === */
 
 
 
@@ -4214,9 +4252,6 @@
 		height:auto;
 		
 	}
-	.pull-right {
-		float:none !important;
-	}
 	.nowsppe a, .cc-clearance-row:nth-child(3) .cc-clearance-right .nowspe a {
 		padding:13px 0;
 		text-align:center;
@@ -4254,9 +4289,6 @@
 		font-weight:800;
 		color:#15489f;
 		text-transform:uppercase;
-	}
-	.cc-mobile-blk {
-		margin-bottom:55px;
 	}
 	.inerblock_sec .cbg_content {
 		padding:0 20px;
@@ -4311,7 +4343,25 @@
 	
 	
 	/* === BUYING GUIDES - STANDRAD ARTICLES End === */
-
+	
+	/* === FAQ ALL - STANDRAD ARTICLES === */
+	.inerblock_sec .cbg_content .panel-group .panel-title > a {
+		margin:0;
+		padding:15px 0 4px 0;
+	}
+	.faq-cont-blka .inerblock_sec {
+		margin-bottom:45px;
+	}
+	.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body {
+		padding:0;
+	}
+	.faq-cont-blka .glyphicon-chevron-up:before {
+		padding-right:15px;	
+	}
+	.faq-cont-blka .glyphicon-chevron-down:before {
+		padding-right:15px;
+	}
+	/* === FAQ ALL - STANDRAD ARTICLES End === */
 
 
 	/* ===== FOOTER ===== */	
@@ -4974,9 +5024,6 @@
 		height:auto;
 		
 	}
-	.pull-right {
-		float:none !important;
-	}
 	.nowsppe a, .cc-clearance-row:nth-child(3) .cc-clearance-right .nowspe a {
 		padding:13px 0;
 		text-align:center;
@@ -5014,9 +5061,6 @@
 		font-weight:800;
 		color:#15489f;
 		text-transform:uppercase;
-	}
-	.cc-mobile-blk {
-		margin-bottom:55px;
 	}
 	.inerblock_sec .cbg_content {
 		padding:0 20px;
@@ -5071,7 +5115,25 @@
 	
 	
 	/* === BUYING GUIDES - STANDRAD ARTICLES End === */
-
+	
+	/* === FAQ ALL - STANDRAD ARTICLES === */
+	.inerblock_sec .cbg_content .panel-group .panel-title > a {
+		margin:0;
+		padding:15px 0 4px 0;
+	}
+	.faq-cont-blka .inerblock_sec {
+		margin-bottom:45px;
+	}
+	.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body {
+		padding:0;
+	}
+	.faq-cont-blka .glyphicon-chevron-up:before {
+		padding-right:15px;	
+	}
+	.faq-cont-blka .glyphicon-chevron-down:before {
+		padding-right:15px;
+	}
+	/* === FAQ ALL - STANDRAD ARTICLES End === */
 
 
 

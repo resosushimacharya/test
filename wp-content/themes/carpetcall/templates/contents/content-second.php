@@ -235,11 +235,4 @@ if($post->post_parent==$faqID){?>
 <?php } #end-if ?>
 
 
-jQuery(document).ready(function(){
-	var stickWidth = jQuery('.meromm').innerWidth();
-	jQuery('.meromm').width(stickWidth);	
-	jQuery('body').scrollspy({
-	 target: "#stickSide",
-	 offset: jQuery('.banner').outerHeight(true) + 20
-  });
-   });</script>
+</script>
