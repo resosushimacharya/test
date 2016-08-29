@@ -43,7 +43,7 @@
 
  <div class="container clearfix">
 	<div class="inerblock_sec">
-		<div class="col-md-3 no-pl">
+		<div class="col-md-3 desktop no-pl">
        <ul class="guide_list_cbg">
             
 <?php 
@@ -116,7 +116,7 @@ wp_reset_query();
 </div>
 
 
-<div class="container cc-mobile-blk hidden-md hidden-lg clearfix">
+<div class="container mobile cc-mobile-blk clearfix">
 <div class="col-md-3 no-pl">
 <div class="meromm">
 			<?php get_sidebar('guide');?>
