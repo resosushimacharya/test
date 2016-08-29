@@ -5951,6 +5951,7 @@ label.inner-radio-label.radio-check-label::after{
 	border: 1px solid #f0f2f1;
 	position: relative;
 	margin: 0;
+	margin-right: 20px;
 }
 label.inner-check-label.radio-check-label::after{
     content: '\f00c';
@@ -5959,7 +5960,7 @@ label.inner-check-label.radio-check-label::after{
     font-size: 16px;
     color: #c32327;
     left: 4px;
-    top: -1px;
+    top: 2px;
 }
 #ship-to-different-address{
 	margin-bottom: 20px !important;
@@ -5968,7 +5969,7 @@ label.inner-check-label.radio-check-label::after{
 	text-transform: none;
 	font-weight: 300;
 	font-family: 'proxima_nova_rgregular';
-
+	font-size: 16px;
 }
 
 .shipping_needed_checkout .woocommerce-shipping-fields .shipping_address p{
@@ -6037,19 +6038,118 @@ label.inner-check-label.radio-check-label::after{
 
 /* Payment Form */
 
-.payment-form table{
+.payment-form table.shop_table.woocommerce-checkout-review-order-table{
 	display: none;
 }
 .woocommerce-checkout .payment-form  #payment {
     background: none;
     border-radius: 0;
 }
+.wc_payment_method.payment_method_paypal label img, .wc_payment_method.payment_method_paypal label a, .wc_payment_method.payment_method_securepay img{
+	display: none;
+}
+.woocommerce-checkout .payment-form #payment .wc_payment_methods{
+	border: none;
+	padding: 0;
+}
+.woocommerce-checkout .payment-form #payment .wc_payment_method.payment_method_paypal{
+	margin-bottom: 30px;
+}
+.woocommerce-checkout .payment-form #payment .payment_box.payment_method_paypal, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay{
+	padding: 0px;
+	margin: 0;
+	background: none;
+}
+.woocommerce-checkout .payment-form #payment .payment_box.payment_method_paypal::before, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay::before{
+	display: none;
+}
 
+.woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table{
+	width: 55%;
+	margin: 0;
+    border-collapse: collapse;
+}
+.woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr {
+    margin-bottom: 15px;
+    display: block;
+}
+.woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td{
+	display: block;
+}
+.woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td label{
+    font: normal 16px 'proxima_nova_rgregular', sans-serif;
+    color: #666;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+.woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td input, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td select{
+	border: none;
+	border: 1px solid #d1ddf1;
+    height: 35px;
+    padding: 0 13px;
+    color: #a8a8a8;
+    text-transform: uppercase;
+    font-family: 'proxima_nova_ltsemibold';
+    background-color: #e7edf8;
+    width: 100%;
+    max-width: 100%;
+}
+.woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td select{
+	width: 48.5%;
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url(../images/icon.jpg);
+    background-repeat: no-repeat;
+    background-position: 100% 0%;
+    background-size: 35px;
+}
+.woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td select:last-child {
+    float: right;
+}
 
-
-
-
-
+.woocommerce-checkout .payment-form #payment ul.payment_methods li input[type="radio"]{
+	opacity: 0;
+	position: absolute;
+}
+.woocommerce-checkout .payment-form #payment ul.payment_methods li > label{
+	position: relative;
+	padding-left: 40px;
+	font-size: 16px;
+	color: #666;
+	font-family: 'proxima_nova_rgregular', sans-serif;
+	font-family: 300;
+	margin-bottom: 15px;
+}
+.woocommerce-checkout .payment-form #payment ul.payment_methods li > label::before{
+	content: '';
+	height: 24px;
+	width: 24px;
+	border-radius: 50%;
+	border: 1px solid #f0f2f1;
+	position: absolute;
+	left: 0;
+	top: 4px;
+}
+.woocommerce-checkout .payment-form #payment ul.payment_methods li > label::after{
+	content: '';
+	position: absolute;
+    height: 12px;
+    width: 12px;
+    border-radius: 6px;
+    background: #15489f;
+    left: 6px;
+    top: 10px;
+    opacity: 0;
+}
+.woocommerce-checkout .payment-form #payment ul.payment_methods li input[type="radio"]:checked + label::after{
+	opacity: 1;
+}
+.payment-form .checkout_next_prev_button.read_more{
+    float: none;
+    margin-top: -70px;
+}
 
 
 #sub_content_area p {

@@ -434,7 +434,6 @@
     }
     slider_position();
     var slider_inner = jQuery('.hamro').show();
-
   });
   // Window Load End
 
