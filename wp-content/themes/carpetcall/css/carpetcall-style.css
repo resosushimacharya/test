@@ -2856,11 +2856,9 @@ a.pull-right:hover {
 }
 .faq-cont-blka .inerblock_sec .cbg_content p, .wrap_body .inerblock_sec .cbg_content p {
 	width:100%;
-} {
-	width:100%;
 }
 
-.inerblock_sec .cbg_content p {
+.inerblock_sec .cbg_content .billing_fields_wrapper p {
 	font: normal 18px/22px 'proxima_nova_rgregular', sans-serif;
 	color: #666666;
 	padding:8px;

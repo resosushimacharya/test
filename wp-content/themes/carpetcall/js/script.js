@@ -361,8 +361,7 @@
       
       $('.delivery_option_item').on('click', function(){
         var radBtn = $(this).find('input[type=radio]');
-        // $(radBtn).prop("selected", true);
-        $(radBtn).trigger('click');
+        $(radBtn).prop("selected", true);        
         setLabelClass();
       });
     }
