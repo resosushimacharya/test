@@ -337,6 +337,37 @@
       }
     }
 
+    // Checkout form custom radio buttons
+    if($('.radiogroup_wrap').length){
+      $('.radiogroup_wrap input[type="checkbox"]').wrap('<label class="css-label"></label>');
+      $('.radiogroup_wrap input[type="checkbox"]').css({'opacity':0});
+      $('.radiogroup_wrap input[type="radio"]').wrap('<label class="radio-label"></label>');
+      $('.radiogroup_wrap input[type="radio"]').css({'opacity':0});      
+      var checkbox_checked = 'radio-check-label',
+          radiochecked = 'radio-check-label',
+          radioParentClass = 'radio-checked',
+          checkboxParentClass = 'radio-checked',
+          elms=$('.radiogroup_wrap input[type="checkbox"], .radiogroup_wrap input[type="radio"]');
+
+      function setLabelClass() {
+        elms.each(function(i,e) {
+          $(e).parent('label')[e.checked?'addClass':'removeClass']($(e).is(':radio')?radiochecked:checkbox_checked);
+          $(e).parents('.delivery_option_item')[e.checked?'addClass':'removeClass']($(e).is(':radio')?radioParentClass:checkboxParentClass);
+        });
+      }
+
+      elms.on('change', setLabelClass);
+      setLabelClass();
+      
+      $('.delivery_option_item').on('click', function(){
+        var radBtn = $(this).find('input[type=radio]');
+        // $(radBtn).prop("selected", true);
+        $(radBtn).trigger('click');
+        setLabelClass();
+      });
+    }
+      
+
   });
 
   // Document Ready End
