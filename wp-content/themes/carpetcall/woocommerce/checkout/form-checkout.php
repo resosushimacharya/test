@@ -32,76 +32,76 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 
 ?>
 
-<form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
+<div class="checkout-main-form-cntr">
+	<form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
 
-	<?php if ( sizeof( $checkout->checkout_fields ) > 0 ) : ?>
+		<?php if ( sizeof( $checkout->checkout_fields ) > 0 ) : ?>
 
-		<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
+			<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
 
-		<div class="col-1">
-          <h3><?php _e( 'Billing Details', 'woocommerce' ); ?></h3>
-          <div class="collapsable collapse in" id="checkout_customer_details">
+			<div class="col-1 checkout-form-sec billing-details-cntr">
+	          <h3><?php _e( 'Billing Details', 'woocommerce' ); ?></h3>
+	          <div class="collapse collapsable in clearfix billing-form" id="checkout_customer_details">
 				<?php do_action( 'woocommerce_checkout_billing' ); ?>
-              <div class="checkout_next_prev_button read_more">
-              <a href="#checkout_delivery">Next</a>
-            </div>  
-			<div class="clearfix"></div>
-			<div class="col-2">
-				<?php //do_action( 'woocommerce_checkout_shipping' ); ?>
+	            <div class="checkout_next_prev_button read_more">
+	              <a href="#checkout_delivery">Next</a>
+	            </div> 		            			
+	       	  </div>
 			</div>
-        </div>
+
+	        <div class="col-1 checkout-form-sec delivery-options-cntr">
+		         <h3><?php _e( 'Delivery Options', 'woocommerce' ); ?></h3>
+		         <div class="collapse collapsable clearfix delivery-form" id="checkout_delivery">
+						<?php do_action('cc_checkout_delivery_custom_block'); ?>
+
+		            <div class="checkout_next_prev_button read_more">
+		              <a href="#checkout_customer_details">Previous</a>
+		            </div>
+		            <div class="checkout_next_prev_button read_more">
+		              <a href="#checkout_payment">Next</a>
+		            </div>		            
+				</div>
+	        </div>
+
+	        <div class="col-1 checkout-form-sec payment-options-cntr">
+		        <h3><?php _e( 'Payment Options', 'woocommerce' ); ?></h3>
+		        <div class="collapse collapsable clearfix payment-form" id="checkout_payment">
+					<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
+		            <?php do_action( 'woocommerce_checkout_order_review' ); ?>
+		            <?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
+		              <div class="checkout_next_prev_button read_more">
+		              <a href="#checkout_delivery">Previous</a>
+		            </div> 		             
+				</div>
+	        </div>
+			
+			<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
+
+		<?php endif; ?>
+
+	<?php /* ?>
+		<h3 id="order_review_heading"><?php _e( 'Your order', 'woocommerce' ); ?></h3>
+
+		<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
+
+		<div id="order_review" class="woocommerce-checkout-review-order">
+			<?php do_action( 'woocommerce_checkout_order_review' ); ?>
 		</div>
-        <div class="col-1">
-        <h3><?php _e( 'Delivery Options', 'woocommerce' ); ?></h3>
-         <div class="collapse collapsable" id="checkout_delivery">
-				<?php do_action('cc_checkout_delivery_custom_block'); ?>
-            <div class="checkout_next_prev_button read_more">
-              <a href="#checkout_customer_details">Previous</a>
-            </div>
-            <div class="checkout_next_prev_button read_more">
-              <a href="#checkout_payment">Next</a>
-            </div>
-            <div class="clearfix"></div>
-		</div>
-        </div>
-        <div class="col-1">
-        <h3><?php _e( 'Payment Options', 'woocommerce' ); ?></h3>
-        <div class="collapse collapsable" id="checkout_payment">
-			<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
-            <?php do_action( 'woocommerce_checkout_order_review' ); ?>
-            <?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
-              <div class="checkout_next_prev_button read_more">
-              <a href="#checkout_delivery">Previous</a>
-            </div> 
-            <div class="clearfix"></div> 
-		</div>
-        </div>
-		
-		<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
 
-	<?php endif; ?>
-
-<?php /* ?>
-	<h3 id="order_review_heading"><?php _e( 'Your order', 'woocommerce' ); ?></h3>
-
-	<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
-
-	<div id="order_review" class="woocommerce-checkout-review-order">
-		<?php do_action( 'woocommerce_checkout_order_review' ); ?>
-	</div>
-
-	<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
+		<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
 
 
-<?php */ ?>
+	<?php */ ?>
 
-</form>
+	</form>
+</div>
 
 <?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>
 
 <script type="text/javascript">
 jQuery(document).ready(function(e) {
-    jQuery(document).on('click','.checkout_next_prev_button',function(){
+    jQuery(document).on('click','.checkout_next_prev_button',function(e){
+    	e.preventDefault();
 		jQuery('.collapsable').removeClass('in');
 		jQuery('div'+jQuery(this).find('a').attr('href')).addClass('in');
 		});

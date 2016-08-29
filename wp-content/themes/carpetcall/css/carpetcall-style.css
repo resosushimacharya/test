@@ -2856,11 +2856,9 @@ a.pull-right:hover {
 }
 .faq-cont-blka .inerblock_sec .cbg_content p, .wrap_body .inerblock_sec .cbg_content p {
 	width:100%;
-} {
-	width:100%;
 }
 
-.inerblock_sec .cbg_content p {
+.inerblock_sec .cbg_content .billing_fields_wrapper p {
 	font: normal 18px/22px 'proxima_nova_rgregular', sans-serif;
 	color: #666666;
 	padding:8px;
@@ -3120,7 +3118,7 @@ ul.cat_list li a:hover {
 	padding: 0;
 	margin: 0;
 }
-.form-group.cc-enquiry-section {
+.col-sm-12.form-group.cc-enquiry-section {
 	padding: 40px 0 14px;
 	margin: 0;
 }
@@ -5735,10 +5733,13 @@ a.button.wc-forward {
 	max-width:47%;	
 }
 .col-1 .select2-container .select2-choice, .shipping_address select#shipping_country, .shipping_address select#shipping_state {
-	padding:5px 8px 4px 8px;
+	padding:5px 12px 4px 12px;
 	border:1px solid #d1ddf1;
 	background-color:#e7edf8;
 	border-radius:0;
+}
+.col-1 .select2-container .select2-choice:hover {
+	text-decoration: none;
 }
 .woocommerce-checkout .col-1 .select2-search input {
 	margin:5px 0 0 0;
@@ -5750,19 +5751,24 @@ a.button.wc-forward {
 .cart-collaterals .calculated_shipping table.shop_table.shop_table_responsive tbody tr:last-child td {
 	border-top:1px solid #f0f2f1;
 }
-.col-1  {
+.checkout-form-sec {	
+	margin-top:30px;
+}
+.checkout-form-sec .collapsable{ 	
 	border:1px solid #f0f2f1;
-	margin-top:27px;
+	border-top: 0;
+	padding: 15px 30px 22px;
 }
 .cc-condn-page .col-1 h3 {
 	background-color:#d1ddf1;
-	padding:19px 0 19px 32px;
+	padding-left: 32px;
+	height: 55px;
+	line-height: 55px !important;
 	font:normal 24px 'proxima_nova_ltsemibold', sans-serif;
 	 color:#15489f !important;
 }
 .billing_fields_wrapper, .shipping_address {
-	width:55%;
-	margin-left:5%;
+	width:55%;	
 }
 .inerblock_sec .cbg_content p.form-row-first {
 	padding-left:0;	
@@ -5777,11 +5783,33 @@ a.button.wc-forward {
 }
 #checkout_customer_details .woocommerce-billing-fields .billing_fields_wrapper input.input-text {
 	height:35px;
+	padding: 0 13px;
+	color: #a8a8a8;
+	text-transform: uppercase;
+	font-family: 'proxima_nova_ltsemibold';
+}
+.select2-container .select2-choice>.select2-chosen{
+	color: #a8a8a8;
+	text-transform: uppercase;
+	font-family: 'proxima_nova_ltsemibold';
+}
+.checkout-form-sec .select2-container .select2-choice .select2-arrow{
+	height: 33px;
+	width: 33px;
+	border-radius: 0;
+	background-color: #d1ddf1;	
+}
+.checkout-form-sec .select2-container .select2-choice .select2-arrow b:after{	
+    border: 7px solid transparent;
+    border-top-color: #fff;
+    margin-left: -6px;
+    margin-top: -3px;
 }
 .checkout_next_prev_button.read_more {
-	float:right;
-	margin-top:-61px;
-	margin-right:26px;	
+	float:right;	
+}
+.checkout_next_prev_button.read_more a{
+	width: 200px;
 }
 .cc-condn-page .collapse p {
 	margin:0;
@@ -5797,6 +5825,61 @@ h2.fyns-blk {
 .delivery_option_rugs .rugs_store_pickup_list .nearstore .frm-blk .input-group {
 	width:60%;
 	float:left;
+}
+
+
+/* Billing Details */
+
+.billing-details-cntr .checkout_next_prev_button.read_more{
+	margin-top: -55px;
+}
+
+
+/* Delivery Options */
+.inerblock_sec .cbg_content .delivery-form p{
+	width: auto;
+    padding: 8px 0 23px;
+}
+.delivery_option_item{
+	height: 48px;
+	width: 270px;
+	border: 2px solid #f0f2f1;
+	display: inline-block;
+	padding: 10px;
+}
+.delivery_option_item label.radio-label{
+	margin: 0;
+	height: 24px;
+	width: 24px;
+	border-radius: 50%;
+	border: 1px solid #f0f2f1;
+	position: relative;
+	background: #fff;
+}
+.delivery_option_item label.deliver_option_label {
+    margin-left: 15px;
+    font-size: 16px;
+    color: #666666;
+}
+.delivery_option_item.radio-checked{
+	background: #15489f;
+	border-color: #15489f;
+}
+.delivery_option_item label.radio-label.radio-check-label{
+	border-color: #15489f;
+}
+.delivery_option_item label.radio-label.radio-check-label:before{
+	content: '';
+	position: absolute;
+	height: 12px;
+	width: 12px;
+	border-radius: 6px;
+	background: #15489f;
+	left: 5px;
+	top: 5px;
+}
+.delivery_option_item.radio-checked label.deliver_option_label{
+	color: #fff;
 }
 #sub_content_area p {
 	width:100%;

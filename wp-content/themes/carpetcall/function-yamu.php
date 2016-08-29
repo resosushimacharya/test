@@ -3,6 +3,23 @@ if ( ! is_admin() ) {
     include ABSPATH . 'wp-admin/includes/template.php';
 }
 
+
+add_action('init','cc_create_table_for_sales_record');
+function cc_create_table_for_sales_record(){
+	global $wpdb;
+	$table_name = $wpdb->prefix.'cc_sales_records';
+	$charset_collate = $wpdb->get_charset_collate();
+	$sql = "CREATE TABLE $table_name (
+		id mediumint(9) NOT NULL AUTO_INCREMENT,
+		sku tinytext NOT NULL,
+		sales_count bigint(20) NOT NULL default '0',
+		UNIQUE KEY id (id)
+	) $charset_collate;";
+	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+	dbDelta( $sql );
+	}
+
+
 //echo get_template_directory().'inc/order-reports-cron.php';die;
 include_once(get_template_directory().'/inc/order-reports-cron.php');
 
@@ -227,6 +244,8 @@ function show_category_slider_block($args=array()){
 	$current_cat = get_term( $cat_id, 'product_cat');
 	$cat_arr = generate_catids_array($cat_id,$depth);
 	
+	//$cat_arr_popular = generate_catids_array_popular($cat_id,$depth);
+	
 	if(!empty($cat_arr)){
 		$cat_slice = array();
 		$cat_slice_arr =  array_slice($cat_arr,$offset,$perpage);
@@ -317,6 +336,8 @@ function show_category_slider_block($args=array()){
 			}
 			wp_reset_postdata();
 			$pch = 1;
+			
+			
 			$all_products = get_posts($filargs);
 			$product_found += count($all_products);
 			if($product_found > 0){
@@ -351,8 +372,6 @@ function show_category_slider_block($args=array()){
 				
 			}else{
 					$offset++;
-					echo $offset;
-					echo '--'.count($cat_arr);
 					if($offset < count($cat_arr)){
 						$next_cat = array_slice($cat_arr,$offset,1);
 						$next_cat =  get_term_by('id',$next_cat[0],'product_cat');
@@ -851,7 +870,9 @@ function cc_custom_search($args){
 				$found_count = ($prod_count_init->post_count  > 0)?$prod_count_init->post_count:0;	
 				//$filargs['posts_per_page']=$perpage;
 				//$filargs['offset']=$offset;
+				
 				$filloop = new WP_Query($filargs);
+				
 				if($filloop->have_posts()){
 					while($filloop->have_posts()){
 						$filloop->the_post();?>
@@ -1319,11 +1340,43 @@ add_filter( 'rewrite_rules_array', function( $rules )
 
 add_action( 'woocommerce_add_order_item_meta', 'cc_save_item_sku_order_itemmeta', 10, 3 );
 function cc_save_item_sku_order_itemmeta( $item_id, $values, $cart_item_key ) {
- 
+		global $wpdb;
         $item_sku  =  get_post_meta( $values[ 'product_id' ], '_sku', true );
- 
         wc_add_order_item_meta( $item_id, 'sku', $item_sku , false );
- 
+		
+$sales_record_table = $wpdb->prefix.'cc_sales_records';
+$exist =  $wpdb->get_row( "SELECT * FROM $wpdb->cc_sales_records WHERE sku =".$item_sku );
+if($item_sku){
+	if($exist){
+	$wpdb->update(
+					$wpdb->cc_sales_records,
+					array(
+						'sales_count'=>$exist->sales_count + 1
+					),
+					array(
+						'sku'=>$item_sku
+					),
+					array(
+					'%d'
+					)
+				);
+	}else{
+		$wpdb->insert( 
+					$wpdb->prefix.'cc_sales_records', 
+					array(
+						'id'=>'', 
+						'sku' =>$item_sku, 
+						'sales_count' => 1 
+					), 
+					array( 
+						'%d',
+						'%s', 
+						'%d' 
+					) 
+				);
+		
+		}
+}
 }
 //add_rewrite_rule('^shop-our-range/([^/]*)/([^/]*)/([^/]*)/([^/]*)?','index.php?&product=$matches[4]','top');
 
