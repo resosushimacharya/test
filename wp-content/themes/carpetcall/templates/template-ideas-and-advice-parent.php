@@ -144,7 +144,7 @@ wp_reset_query();
 } );
 
     </script>
-    <div class="inerblock_sec_a">
+    <div class="inerblock_sec_a iA_parent">
 
     <div class="container clearfix you_may_link_cntr">
   

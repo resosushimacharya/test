@@ -1228,7 +1228,7 @@ div#right_col ol li, .cbg_content ol li, .cbg_content ul li {
 	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
 	color: #0099ff;
 }
-.cbg_content h3 {
+/*.cbg_content h3 {
 	color: #666666 !important;
 	margin: 0;
 	font-family: 'proxima_nova_ltsemibold', sans-serif;
@@ -1237,7 +1237,7 @@ div#right_col ol li, .cbg_content ol li, .cbg_content ul li {
 	font-weight: 700 !important;
 	text-transform: uppercase;
 	margin-bottom: 0 !important;
-}
+}*/
 .page-template.page-template-template-ideas-and-advice-parent .ab_arrow {
 	margin-right: 6px;
 }
@@ -2956,19 +2956,19 @@ ul.cat_list li a:hover {
 	margin-bottom: 12px;
 	line-height: 26px;
 }
-.cbg_content #guide_item_1, .cbg_content #guide_item_2, .cbg_content #guide_item_3 {
+/*.cbg_content #guide_item_1, .cbg_content #guide_item_2, .cbg_content #guide_item_3 {
 	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
 	color: #0099ff;
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
 	margin-bottom: 24px;
-}
-.cbg_content p {
+}*/
+/*.cbg_content p {
 	font-family: 'proxima_nova_rgregular', sans-serif;
 	font-size: 16px !important;
 	line-height: 24px !important;
 	color: #666666;
-}
+}*/
 .cbg_content p a {
 	font-family: 'proxima_nova_rgregular', sans-serif;
 	font-size: 16px !important;
@@ -5749,9 +5749,6 @@ a.button.wc-forward {
 .cart-collaterals .calculated_shipping table.shop_table.shop_table_responsive tbody tr:last-child th,
 .cart-collaterals .calculated_shipping table.shop_table.shop_table_responsive tbody tr:last-child td {
 	border-top:1px solid #f0f2f1;
-}
-.child-innerpg { 
-	background-color:;
 }
 .col-1  {
 	border:1px solid #f0f2f1;

@@ -40,7 +40,7 @@ if(have_posts()):
 </div>
 </div>
 
-<div class="cc-mobile-blk clearfix">
+<div class="cc-mobile-blk mobile clearfix">
  <div class="col-md-3 no-pl">
         <div id="stickSide">
         <div class="meromm" >
@@ -121,7 +121,7 @@ if( '' != $button_title && '' != $button_link ) {
 
 
 <div class="clearfix"></div>
-   <div class="inerblock_sec_a">
+   <div class="inerblock_sec_a iA_parent">
 
     <div class="container clearfix you_may_link_cntr">
   
