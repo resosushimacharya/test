@@ -15,7 +15,7 @@
             <h1><?php the_title(); ?></h1>
             <?php if(is_cart() || is_checkout()){?>
 				<div class="cart_checkout_header_subtitle clearfix">
-<p><?php _e("We've set this stock aside for 30mins to ensure you don't miss out","carpetcall");?></p>
+<?php /*?><p><?php _e("We've set this stock aside for 30mins to ensure you don't miss out","carpetcall");?></p><?php */?>
 <?php if(is_cart()){?>
 <p class="return-to-shop">
 	<a class="button wc-backward" href="<?php echo get_permalink( woocommerce_get_page_id( 'shop' ) );?>">

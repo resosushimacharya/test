@@ -1021,9 +1021,7 @@
 		height:auto;
 		
 	}
-	.pull-right {
-		float:none !important;
-	}
+	
 	.nowsppe a, .cc-clearance-row:nth-child(3) .cc-clearance-right .nowspe a {
 		padding:13px 0;
 		text-align:center;
@@ -1045,6 +1043,7 @@
 		border:0;
 		font-size:72px;
 		text-align:center;
+		line-height:1;
 	}
 	.child-innerpg .inerblock_serc_child h1 {
 		font-size:62px;	
@@ -1060,9 +1059,6 @@
 		font-weight:800;
 		color:#15489f;
 		text-transform:uppercase;
-	}
-	.cc-mobile-blk {
-		margin-bottom:55px;
 	}
 	.wrap_body .inerblock_sec .cbg_content {
 		padding:0;
@@ -1080,9 +1076,62 @@
 	.page-template-template-ideas-and-advice-child .nowsppe a {
 		padding:23px 0;
 	}
+	.inerblock_sec_a.iA_parent {
+		display:block;	
+	}
+	.inerblock_sec_a h3 {
+		font-size:48px;	
+	}
+	.pro_secone {
+		margin-bottom:32px;
+		padding:36px 25px;
+	}
+	.img_cntr {
+		min-height:358px;
+	}
+	.pro_secone .proabtxt h4 {
+		margin:46px 0 0 0;	
+	}
+	.proabtxt h6 {
+		margin:-3px 0 12px 20px;
+		font-family:'proxima_nova_ltsemibold', sans-serif;
+		font-size:24px;
+		color:#666666;
+	}
+	.faq-cont-blka .inerblock_sec .col-md-9, .faq-cont-blka .inerblock_sec .cbg_content p {
+		padding:0;
+		font-size:32px;
+		line-height:40px;
+	}
 	
+	.faq-cont-blka .inerblock_sec .cbg_content h3 {
+		font-size:48px;
+		font-family:'proxima_nova_ltsemibold', sans-serif;
+		color:#0099ff;
+		text-transform:uppercase;
+		margin-bottom:33px;
+	}
 	
 	/* === BUYING GUIDES - STANDRAD ARTICLES End === */
+	
+	/* === FAQ ALL - STANDRAD ARTICLES === */
+	.inerblock_sec .cbg_content .panel-group .panel-title > a {
+		margin:0;
+		padding:15px 0 4px 0;
+	}
+	.faq-cont-blka .inerblock_sec {
+		margin-bottom:45px;
+	}
+	.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body {
+		padding:0;
+	}
+	.faq-cont-blka .glyphicon-chevron-up:before {
+		padding-right:15px;	
+	}
+	.faq-cont-blka .glyphicon-chevron-down:before {
+		padding-right:15px;
+	}
+	/* === FAQ ALL - STANDRAD ARTICLES End === */
 
 
 	/* === MAIN CATEGORY PAGE === */
@@ -1222,7 +1271,7 @@
 	}	
 	ul.guide_list_cbg {
 	    padding: 40px 50px 30px;
-	    margin-bottom: 30px;
+		margin:0;
 	}
 	ul.guide_list_cbg li a, ul.guide_list_cbg li .fa{
 	    line-height: 68px;
@@ -2497,9 +2546,7 @@
 		height:auto;
 		
 	}
-	.pull-right {
-		float:none !important;
-	}
+	
 	.nowsppe a, .cc-clearance-row:nth-child(3) .cc-clearance-right .nowspe a {
 		padding:13px 0;
 		text-align:center;
@@ -2521,6 +2568,7 @@
 		border:0;
 		font-size:62px;
 		text-align:center;
+		line-height:1;
 	}
 	.child-innerpg .inerblock_serc_child h1 {
 		font-size:48px;	
@@ -2537,9 +2585,6 @@
 		color:#15489f;
 		text-transform:uppercase;
 	}
-	.cc-mobile-blk {
-		margin-bottom:55px;
-	}
 	.inerblock_sec .cbg_content {
 		padding:0 20px;
 	}
@@ -2555,10 +2600,62 @@
 	.page-template-template-ideas-and-advice-child .nowsppe a {
 		padding:23px 0;
 	}
+	.inerblock_sec_a.iA_parent {
+		display:block;	
+	}
+	.inerblock_sec_a h3 {
+		font-size:46px;	
+	}
+	.pro_secone {
+		margin-bottom:32px;
+		padding:36px 25px;
+	}
+	.img_cntr {
+		min-height:358px;
+	}
+	.pro_secone .proabtxt h4 {
+		margin:46px 0 0 0;	
+	}
+	.proabtxt h6 {
+		margin:-3px 0 12px 20px;
+		font-family:'proxima_nova_ltsemibold', sans-serif;
+		font-size:24px;
+		color:#666666;
+	}
+	.faq-cont-blka .inerblock_sec .col-md-9, .faq-cont-blka .inerblock_sec .cbg_content p {
+		padding:0;
+		font-size:28px;
+		line-height:36px;
+	}
 	
-	
+	.faq-cont-blka .inerblock_sec .cbg_content h3 {
+		font-size:40px;
+		font-family:'proxima_nova_ltsemibold', sans-serif;
+		color:#0099ff;
+		text-transform:uppercase;
+		margin-bottom:33px;
+	}
+		
 	/* === BUYING GUIDES - STANDRAD ARTICLES End === */
-
+	
+	/* === FAQ ALL - STANDRAD ARTICLES === */
+	.inerblock_sec .cbg_content .panel-group .panel-title > a {
+		margin:0;
+		padding:15px 0 4px 0;
+	}
+	.faq-cont-blka .inerblock_sec {
+		margin-bottom:45px;
+	}
+	.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body {
+		padding:0;
+	}
+	.faq-cont-blka .glyphicon-chevron-up:before {
+		padding-right:15px;	
+	}
+	.faq-cont-blka .glyphicon-chevron-down:before {
+	 	padding-right:15px;
+	}
+	/* === FAQ ALL - STANDRAD ARTICLES End === */
 
 
 
@@ -2595,7 +2692,7 @@
 	}
 	ul.guide_list_cbg {
 	    padding: 40px 30px 30px;
-	    margin-bottom: 30px;
+	    margin:0;
 	}
 	ul.guide_list_cbg li a, ul.guide_list_cbg li .fa{
 	    line-height: 50px;
@@ -3217,9 +3314,6 @@
 		height:auto;
 		
 	}
-	.pull-right {
-		float:none !important;
-	}
 	.nowsppe a, .cc-clearance-row:nth-child(3) .cc-clearance-right .nowspe a {
 		padding:13px 0;
 		text-align:center;
@@ -3241,6 +3335,7 @@
 		border:0;
 		font-size:52px;
 		text-align:center;
+		line-height:1;
 	}
 	.child-innerpg .inerblock_serc_child h1 {
 		font-size:38px;	
@@ -3257,9 +3352,6 @@
 		color:#15489f;
 		text-transform:uppercase;
 	}
-	.cc-mobile-blk {
-		margin-bottom:55px;
-	}
 	.inerblock_sec .cbg_content {
 		padding:0 20px;
 	}
@@ -3275,10 +3367,63 @@
 	.page-template-template-ideas-and-advice-child .nowsppe a {
 		padding:23px 0;
 	}
+	.inerblock_sec_a.iA_parent {
+		display:block;	
+	}
+	.inerblock_sec_a h3 {
+		font-size:40px;	
+	}
+	.pro_secone {
+		margin-bottom:32px;
+		padding:36px 25px;
+	}
+	.img_cntr {
+		min-height:275px;
+	}
+	.pro_secone .proabtxt h4 {
+		margin:35px 0 0 0;	
+	}
+	.proabtxt h6 {
+		margin:-3px 0 0px 20px;
+		font-family:'proxima_nova_ltsemibold', sans-serif;
+		font-size:24px;
+		color:#666666;
+	}
+	.faq-cont-blka .inerblock_sec .col-md-9, .faq-cont-blka .inerblock_sec .cbg_content p {
+		padding:0;
+		font-size:24px;
+		line-height:32px;
+	}
+	
+	.faq-cont-blka .inerblock_sec .cbg_content h3 {
+		font-size:36px;
+		font-family:'proxima_nova_ltsemibold', sans-serif;
+		color:#0099ff;
+		text-transform:uppercase;
+		margin-bottom:33px;
+	}
 	
 	
 	/* === BUYING GUIDES - STANDRAD ARTICLES End === */
-
+	
+	/* === FAQ ALL - STANDRAD ARTICLES === */
+	.inerblock_sec .cbg_content .panel-group .panel-title > a {
+		margin:0;
+		padding:15px 0 4px 0;
+	}
+	.faq-cont-blka .inerblock_sec {
+		margin-bottom:45px;
+	}
+	.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body {
+		padding:0;
+	}
+	.faq-cont-blka .glyphicon-chevron-up:before {
+		padding-right:15px;	
+	}
+	.faq-cont-blka .glyphicon-chevron-down:before {
+		padding-right:15px;
+	}
+	/* === FAQ ALL - STANDRAD ARTICLES End === */
 
 
 
@@ -4107,9 +4252,6 @@
 		height:auto;
 		
 	}
-	.pull-right {
-		float:none !important;
-	}
 	.nowsppe a, .cc-clearance-row:nth-child(3) .cc-clearance-right .nowspe a {
 		padding:13px 0;
 		text-align:center;
@@ -4131,6 +4273,7 @@
 		border:0;
 		font-size:42px;
 		text-align:center;
+		line-height:1;
 	}
 	.child-innerpg .inerblock_serc_child h1 {
 		font-size:34px;	
@@ -4147,9 +4290,6 @@
 		color:#15489f;
 		text-transform:uppercase;
 	}
-	.cc-mobile-blk {
-		margin-bottom:55px;
-	}
 	.inerblock_sec .cbg_content {
 		padding:0 20px;
 	}
@@ -4165,10 +4305,63 @@
 	.page-template-template-ideas-and-advice-child .nowsppe a {
 		padding:23px 0;
 	}
+	.inerblock_sec_a.iA_parent {
+		display:block;	
+	}
+	.inerblock_sec_a h3 {
+		font-size:38px;	
+	}
+	.pro_secone {
+		margin-bottom:32px;
+		padding:36px 25px;
+	}
+	.img_cntr {
+		min-height:300px;
+	}
+	.pro_secone .proabtxt h4 {
+		margin:35px 0 0 0;	
+	}
+	.proabtxt h6 {
+		margin:-3px 0 0px 11px;
+		font-family:'proxima_nova_ltsemibold', sans-serif;
+		font-size:24px;
+		color:#666666;
+	}
+	.faq-cont-blka .inerblock_sec .col-md-9, .faq-cont-blka .inerblock_sec .cbg_content p {
+		padding:0;
+		font-size:20px;
+		line-height:28px;
+	}
+	
+	.faq-cont-blka .inerblock_sec .cbg_content h3 {
+		font-size:32px;
+		font-family:'proxima_nova_ltsemibold', sans-serif;
+		color:#0099ff;
+		text-transform:uppercase;
+		margin-bottom:33px;
+	}
 	
 	
 	/* === BUYING GUIDES - STANDRAD ARTICLES End === */
-
+	
+	/* === FAQ ALL - STANDRAD ARTICLES === */
+	.inerblock_sec .cbg_content .panel-group .panel-title > a {
+		margin:0;
+		padding:15px 0 4px 0;
+	}
+	.faq-cont-blka .inerblock_sec {
+		margin-bottom:45px;
+	}
+	.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body {
+		padding:0;
+	}
+	.faq-cont-blka .glyphicon-chevron-up:before {
+		padding-right:15px;	
+	}
+	.faq-cont-blka .glyphicon-chevron-down:before {
+		padding-right:15px;
+	}
+	/* === FAQ ALL - STANDRAD ARTICLES End === */
 
 
 	/* ===== FOOTER ===== */	
@@ -4831,9 +5024,6 @@
 		height:auto;
 		
 	}
-	.pull-right {
-		float:none !important;
-	}
 	.nowsppe a, .cc-clearance-row:nth-child(3) .cc-clearance-right .nowspe a {
 		padding:13px 0;
 		text-align:center;
@@ -4855,6 +5045,7 @@
 		border:0;
 		font-size:32px;
 		text-align:center;
+		line-height:1;
 	}
 	.child-innerpg .inerblock_serc_child h1 {
 		font-size:25px;	
@@ -4871,9 +5062,6 @@
 		color:#15489f;
 		text-transform:uppercase;
 	}
-	.cc-mobile-blk {
-		margin-bottom:55px;
-	}
 	.inerblock_sec .cbg_content {
 		padding:0 20px;
 	}
@@ -4889,10 +5077,63 @@
 	.page-template-template-ideas-and-advice-child .nowsppe a {
 		padding:23px 0;
 	}
+	.inerblock_sec_a.iA_parent {
+		display:block;	
+	}
+	.inerblock_sec_a h3 {
+		font-size:30px;	
+	}
+	.pro_secone {
+		margin-bottom:32px;
+		padding:36px 25px;
+	}
+	.img_cntr {
+		min-height:200px;
+	}
+	.pro_secone .proabtxt h4 {
+		margin:25px 0 0 0;	
+	}
+	.proabtxt h6 {
+		margin:-3px 0 0px 11px;
+		font-family:'proxima_nova_ltsemibold', sans-serif;
+		font-size:24px;
+		color:#666666;
+	}
+	.faq-cont-blka .inerblock_sec .col-md-9, .faq-cont-blka .inerblock_sec .cbg_content p {
+		padding:0;
+		font-size:18px;
+		line-height:25px;
+	}
+	
+	.faq-cont-blka .inerblock_sec .cbg_content h3 {
+		font-size:26px;
+		font-family:'proxima_nova_ltsemibold', sans-serif;
+		color:#0099ff;
+		text-transform:uppercase;
+		margin-bottom:33px;
+	}
 	
 	
 	/* === BUYING GUIDES - STANDRAD ARTICLES End === */
-
+	
+	/* === FAQ ALL - STANDRAD ARTICLES === */
+	.inerblock_sec .cbg_content .panel-group .panel-title > a {
+		margin:0;
+		padding:15px 0 4px 0;
+	}
+	.faq-cont-blka .inerblock_sec {
+		margin-bottom:45px;
+	}
+	.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body {
+		padding:0;
+	}
+	.faq-cont-blka .glyphicon-chevron-up:before {
+		padding-right:15px;	
+	}
+	.faq-cont-blka .glyphicon-chevron-down:before {
+		padding-right:15px;
+	}
+	/* === FAQ ALL - STANDRAD ARTICLES End === */
 
 
 
