@@ -90,9 +90,9 @@ $(document).ready(function() {
  	//$('.cc-quantiy-section #quantity-control #sel_cart').attr('selected','selected');
        // $loadref=$('#store-count-quantity').attr('href');
 		
-        $('#store-count-quantity').attr('href','javascript:void(0)');
-          $('#store-count-quantity').removeClass('add_to_cart_button');
-           $('#store-count-quantity').removeClass('ajax_add_to_cart');
+        $('#store-count-quantity, .acc_add_to_cart').attr('href','javascript:void(0)');
+          $('#store-count-quantity, .acc_add_to_cart').removeClass('add_to_cart_button');
+           $('#store-count-quantity, .acc_add_to_cart').removeClass('ajax_add_to_cart');
         
           
        $(document).on('change','.cc-quantiy-section #quantity-control',function(){
@@ -134,8 +134,17 @@ $(document).ready(function() {
 		
 		$(document).on('change','.acc_qnty .quantity select',function(){
 			 if(jQuery(this).val().toLowerCase()!='please select'){
+				 var target_atc = jQuery(this).parents('.acc_list_item').find('a.acc_add_to_cart');
+				 jQuery(target_atc).attr('data-quantity',jQuery(this).val());
+				
+				jQuery(target_atc).addClass('add_to_cart_button');
+           		jQuery(target_atc).addClass('ajax_add_to_cart');
+            
+			
+				 jQuery(target_atc).attr('href', jQuery(target_atc).attr('link'));
 				 
-jQuery(this).parents('.acc_list_item').find('a.acc_add_to_cart').attr('data-quantity',jQuery(this).val());
+//jQuery(this).parents('.acc_list_item').find('a.acc_add_to_cart').attr('data-quantity',jQuery(this).val());
+//jQuery(this).parents('.acc_list_item').find('a.acc_add_to_cart').attr('data-quantity',jQuery(this).val());
 				 }else{
 				 
 				 }

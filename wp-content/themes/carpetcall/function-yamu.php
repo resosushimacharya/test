@@ -405,7 +405,7 @@ function show_category_slider_block($args=array()){
 								}
 						}
 						if(!$imgflag){
-							$feat_image = 'http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png';
+							$feat_image = get_template_directory_uri().'/images/placeholder.png';
 						}
 						if($pch==1){
 							$res = get_post_meta($filloop->post->ID ,'_regular_price',true);
@@ -443,15 +443,29 @@ function show_category_slider_block($args=array()){
 						$reqProImageId = '';
 						foreach($proGalId as $imgid){
 							$proImageName = wp_get_attachment_url($imgid);
-							if(preg_match("/\_L/i", $proImageName)){
+							
+							if(preg_match("/\_V/i", $proImageName)){
+								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
+								if($feat_image){
+									$feat_image = $feat_image[0];
+								}
+							}
+							elseif(preg_match("/\_S/i", $proImageName)){
+								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
+								if($feat_image){
+									$feat_image = $feat_image[0];
+								}
+							}
+							elseif(preg_match("/\_L/i", $proImageName)){
 								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
 								if($feat_image){
 									$feat_image = $feat_image[0];
 								}
 							}
 						}
+						
 						if($feat_image ==''){
-							$feat_image = 'http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png';
+							$feat_image = get_template_directory_uri().'/images/placeholder.png';
 						}
 						?>
 						<div class=" cc-other-term-pro">
@@ -644,7 +658,7 @@ function loadmore_hf($args){
 									}
 							}
 							if(!$imgflag){
-								$feat_image = 'http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png';
+								$feat_image = get_template_directory_uri().'/images/placeholder.png';
 							}
 							
 							if($pch==1){
@@ -683,29 +697,29 @@ function loadmore_hf($args){
 							$reqProImageId = '';
 							foreach($proGalId as $imgid){
 								$proImageName = wp_get_attachment_url($imgid);
-								if(preg_match("/\_L/i", $proImageName)){
+								if(preg_match("/\_V/i", $proImageName)){
 									$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
-									if($feat_image){
-										$feat_image = $feat_image[0];
-									}
-								}
-								elseif(preg_match("/\_V/i", $proImageName)){
-									$feat_image = wp_get_attachment_image_src($imgid,'full');
 									if($feat_image){
 										$feat_image = $feat_image[0];
 										$imgflag = true;
 									}
 									}
 										elseif(preg_match("/\_S/i", $proImageName)){
-									$feat_image = wp_get_attachment_image_src($imgid,'full');
+									$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
 									if($feat_image){
 										$feat_image = $feat_image[0];
 										$imgflag = true;
 									}
 									}
+									elseif(preg_match("/\_L/i", $proImageName)){
+									$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
+									if($feat_image){
+										$feat_image = $feat_image[0];
+									}
+								}
 							}
 							if(!$imgflag){
-								$feat_image = 'http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png';
+								$feat_image = get_template_directory_uri().'/images/placeholder.png';
 							}
 							?>
 							<div class=" cc-other-term-pro">
@@ -787,8 +801,9 @@ function cc_custom_search($args){
 	$found_count = 0;
 	$filargs = array(
 					'post_type'=>'product',
+					'offset'	=> $offset,
 					'post_stauts' =>'publish',
-					'posts_per_page'=>-1,
+					'posts_per_page'=>$perpage,
 					's'				=>$s,
 					'meta_query'=>array(
 										array(
@@ -1302,6 +1317,14 @@ add_filter( 'rewrite_rules_array', function( $rules )
 } );
 
 
+add_action( 'woocommerce_add_order_item_meta', 'cc_save_item_sku_order_itemmeta', 10, 3 );
+function cc_save_item_sku_order_itemmeta( $item_id, $values, $cart_item_key ) {
+ 
+        $item_sku  =  get_post_meta( $values[ 'product_id' ], '_sku', true );
+ 
+        wc_add_order_item_meta( $item_id, 'sku', $item_sku , false );
+ 
+}
 //add_rewrite_rule('^shop-our-range/([^/]*)/([^/]*)/([^/]*)/([^/]*)?','index.php?&product=$matches[4]','top');
 
 //global $woocommerce;

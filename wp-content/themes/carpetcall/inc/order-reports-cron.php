@@ -154,8 +154,25 @@ $arrayCsv_rugs_or[] = $arrayCsv_hardflooring_or[] =array(
 			 $selected_store = get_post_meta($order->id,'pickup_store_id',true);
 			 $selected_store_meta = get_post_meta($selected_store);
 			 foreach ($order->get_items() as $key => $lineItem) {
-			if(get_post($lineItem['product_id']) && get_post_status($lineItem['product_id'])=='publish'){		
-				$terms = wp_get_object_terms( $lineItem['product_id'], 'product_cat',array('fields'=>'slugs'));
+				$sku = $lineItem['sku'];
+				
+				$args = array(
+						'post_type'=>'product',
+						'post_status'=>'publish',
+						'posts_per_page'=>1,
+					   'meta_query' => array(
+						   array(
+							   'key' => '_sku',
+							   'value' => $sku,
+							   'compare' => '=',
+						   )
+					   )
+					);
+ 			$product = get_posts($args);
+			foreach($product as $post){
+				setup_postdata($post);
+						
+				$terms = wp_get_object_terms( $post->ID, 'product_cat',array('fields'=>'slugs'));
 				
 				if(array_intersect(array('rugs'),$terms)){
 					$arrayCsv_rugs_or[get_the_ID()] =array(
@@ -222,7 +239,7 @@ $arrayCsv_rugs_or[] = $arrayCsv_hardflooring_or[] =array(
  					);
 					$arrayCsv_rugs_ol[] = array(
 									get_the_ID(),
-									get_post_meta($lineItem['product_id'],'_sku',true),
+									get_post_meta($post->ID,'_sku',true),
 									$lineItem['name'],
 									$lineItem['line_total'],
 									$lineItem['qty']
@@ -293,13 +310,14 @@ $arrayCsv_rugs_or[] = $arrayCsv_hardflooring_or[] =array(
  					);
 					$arrayCsv_hardflooring_ol[] = array(
 									get_the_ID(),
-									get_post_meta($lineItem['product_id'],'_sku',true),
+									get_post_meta($post->ID,'_sku',true),
 									$lineItem['name'],
 									$lineItem['line_total'],
 									$lineItem['qty']
 									);
 					}
-				 }
+				 
+				}
 			}
     endwhile;
 $HFOR = '';

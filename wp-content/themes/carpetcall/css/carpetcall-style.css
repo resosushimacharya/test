@@ -1069,7 +1069,7 @@ h5.tryit.tryita {
 	color: #15489f;
 	font-weight: normal;
 }
-.img_cntr_home {
+.img_cntr_home, .img_cntr.cc-featured_no_image {
 	background-position: center center;
 	background-size: cover;
 	min-height: 148px;
@@ -1692,9 +1692,6 @@ li.clblk_a::before {
 .meromm.affix {
 	top: 160px;
 	z-index:100;
-}
-.cc-mobile-blk .meromm {
-	display:none;
 }
 ul.guide_list_cbg {
 	background: #e7edf8;
@@ -2513,7 +2510,7 @@ select#cc-size {
 	content: '';
 	border: 0;
 	box-shadow: none;
-	width: 85%;
+	width: 71%;
 	left: 50%;
 	bottom: -7px;
 	background: #0099ff;
@@ -2857,6 +2854,12 @@ a.pull-right:hover {
 	padding: 37px 36px;
 	min-height: 412px;
 }
+.faq-cont-blka .inerblock_sec .cbg_content p, .wrap_body .inerblock_sec .cbg_content p {
+	width:100%;
+} {
+	width:100%;
+}
+
 .inerblock_sec .cbg_content p {
 	font: normal 18px/22px 'proxima_nova_rgregular', sans-serif;
 	color: #666666;
@@ -3032,6 +3035,9 @@ ul.cat_list li a:hover {
 	color: #15489f;
 	text-transform: uppercase;
 	margin: 32px 0 12px 0;
+}
+.cc-clearance-row .cc-clearance-right p {
+	margin:0;	
 }
 .cc-clearance-right p {
 	font: normal 16px/21px 'proxima_nova_rgregular', sans-serif;
@@ -5094,7 +5100,7 @@ a.btn-employment:hover {
 }
 .acc_qnty .rec_qty_wrap {
 	float: left;
-	margin-right: 30px;
+	margin-right: 20px;
 }
 .acc_qnty .quantity.col-md-12 {
 	width: 100px;
@@ -5826,6 +5832,7 @@ h2.fyns-blk {
 	float:left;
 }
 
+
 /* Billing Details */
 
 .billing-details-cntr .checkout_next_prev_button.read_more{
@@ -5878,4 +5885,7 @@ h2.fyns-blk {
 }
 .delivery_option_item.radio-checked label.deliver_option_label{
 	color: #fff;
+}
+#sub_content_area p {
+	width:100%;
 }

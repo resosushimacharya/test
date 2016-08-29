@@ -77,7 +77,7 @@ $table_prefix  = 'as_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', false);
+define('WP_DEBUG', true);
 //define('DISABLE_WP_CRON', true);
 
 /* That's all, stop editing! Happy blogging. */
