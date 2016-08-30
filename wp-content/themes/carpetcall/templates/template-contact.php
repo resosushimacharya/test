@@ -47,7 +47,7 @@ get_header();
   <div class="contact_form_cntr col-md-12">
         <form action="" method="post" id="contact_form" role="form">
             <div class="contact_block_cntr">
-                <div class="form-group cc-enquiry-section  col-sm-12">
+                <div class="col-sm-12 form-group cc-enquiry-section">
                   <h3> Enquiry Type</h3>
                 </div>
                 

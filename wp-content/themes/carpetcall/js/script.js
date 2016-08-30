@@ -337,6 +337,71 @@
       }
     }
 
+    // Checkout form custom radio buttons
+    if($('.radiogroup_wrap').length){
+      $('.radiogroup_wrap input[type="checkbox"]').wrap('<label class="css-label"></label>');
+      $('.radiogroup_wrap input[type="checkbox"]').css({'opacity':0});
+      $('.radiogroup_wrap input[type="radio"]').wrap('<label class="radio-label"></label>');
+      $('.radiogroup_wrap input[type="radio"]').css({'opacity':0});      
+      var checkbox_checked = 'radio-check-label',
+          radiochecked = 'radio-check-label',
+          radioParentClass = 'radio-checked',
+          checkboxParentClass = 'radio-checked',
+          elms=$('.radiogroup_wrap input[type="checkbox"], .radiogroup_wrap input[type="radio"]');
+
+      function setLabelClass() {
+        elms.each(function(i,e) {
+          $(e).parent('label')[e.checked?'addClass':'removeClass']($(e).is(':radio')?radiochecked:checkbox_checked);
+          $(e).parents('.delivery_option_item')[e.checked?'addClass':'removeClass']($(e).is(':radio')?radioParentClass:checkboxParentClass);
+        });
+      }
+
+      elms.on('change', setLabelClass);
+      setLabelClass();
+      
+      $('.delivery_option_item').on('click', function(){
+        var radBtn = $(this).find('input[type=radio]');
+        $(radBtn).prop("selected", true);        
+        setLabelClass();
+      });
+    }
+
+    // Custom Radio
+    if($('.pickup_location_list').length){
+      $('.delivery_option_rugs #nearby_stores_main_wrapper .pickup_location_list input[type=radio]').wrap('<label class="inner-radio-label"></label>');
+      $('.delivery_option_rugs #nearby_stores_main_wrapper .pickup_location_list input[type=radio]').css({'opacity':0});
+      var innerradiochecked = 'radio-check-label'; 
+      elm=$('.delivery_option_rugs #nearby_stores_main_wrapper .pickup_location_list input[type=radio]');
+
+      function setRadioClass() {
+        elm.each(function(i,e) {
+          $(e).parent('label')[e.checked?'addClass':'removeClass']($(e).is(':radio')?innerradiochecked:innercheckbox_checked);          
+        });
+      }
+
+      elm.on('change', setRadioClass);
+      setRadioClass();  
+    }
+
+    // Custom Checkbox
+    if($('#ship-to-different-address').length){
+      $('.delivery_option_rugs #ship-to-different-address input[type=checkbox]').wrap('<label class="inner-check-label"></label>');
+      $('.delivery_option_rugs #ship-to-different-address input[type=checkbox]').css({'opacity':0});
+      var innercheckchecked = 'radio-check-label'; 
+      chk=$('.delivery_option_rugs #ship-to-different-address input[type=checkbox]');
+
+      function setCheckClass() {
+        chk.each(function(i,e) {
+          $(e).parent('label')[e.checked?'addClass':'removeClass']($(e).is(':radio')?innerradiochecked:innercheckchecked);          
+        });
+      }
+
+      chk.on('change', setCheckClass);
+      setCheckClass();  
+    } 
+    
+      
+
   });
 
   // Document Ready End
@@ -369,7 +434,6 @@
     }
     slider_position();
     var slider_inner = jQuery('.hamro').show();
-
   });
   // Window Load End
 
