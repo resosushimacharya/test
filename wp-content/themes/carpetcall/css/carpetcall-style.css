@@ -3049,13 +3049,9 @@ ul.cat_list li a:hover {
 	text-transform: uppercase;
 	margin: 32px 0 12px 0;
 }
-.cc-clearance-row .cc-clearance-right p {
-	margin:0;	
-}
-.cc-clearance-right p {
+.cc-clearance-wrapper .cc-clearance-row .cc-clearance-right p {
 	font: normal 16px/21px 'proxima_nova_rgregular', sans-serif;
 	color: #666666;
-	margin-right: 15%;
 	margin-bottom: 26px;
 }
 .cc-clearance-row:nth-child(1) .cc-clearance-right .nowspe {
