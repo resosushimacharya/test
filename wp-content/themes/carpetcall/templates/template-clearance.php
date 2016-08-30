@@ -38,7 +38,7 @@ get_header();
 	<div class="inerblock_clernn">
 		
 		
-			<div class="cbg_content cc-clearance-wrapper">
+			<div class="cbg_content cc-clearance-wrapper clearfix">
             <?php 
 
              	$rows = get_field('clearance__posts',$post->ID);
