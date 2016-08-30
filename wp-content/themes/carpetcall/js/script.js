@@ -116,13 +116,13 @@
       postoptbox = postoptbox + 100;
       var posleftbox = jQuery("#storefinder_btn").offset().left + jQuery("#after_dropdown").width();
       compare = compare + bannerHeight;
-      if($(window).innerWidth() <= 800){
+      if($(window).innerWidth() >= 800){
         if ((yclick > 900 )|| (xclick > posleftbox || xclick < jQuery("#storefinder_btn").offset().left)) {
           jQuery('#after_dropdown').hide();
           jQuery('.storefinder_cntr').removeClass('click-open');
         }
       }else{
-        if (yclick > 900) {
+        if (yclick > 2000) {
           jQuery('#after_dropdown').hide();
           jQuery('.storefinder_cntr').removeClass('click-open');
         }
@@ -197,9 +197,9 @@
     if($('#mywoosection').length){
       function cloneCartDrop(){
         if( $(window).width() <= 800 ){
-          var toClone = $('#mywoosection');
-          toClone.clone().appendTo('.top-mobile-icons .top-cart-icon');
-          toClone.remove();          
+          var toCartClone = $('#mywoosection');
+          toCartClone.clone().appendTo('.top-mobile-icons .top-cart-icon');
+          toCartClone.remove();          
         }else{
 
         }
@@ -399,6 +399,16 @@
       chk.on('change', setCheckClass);
       setCheckClass();  
     } 
+
+    // To Top
+    if($('.cc_to_top_cntr').length){
+      $('.to_top_btn').on('click', function (e) {
+          e.preventDefault();
+          $('html,body').stop().animate({
+              scrollTop: 0
+          }, 600);
+      });
+    }
     
       
 

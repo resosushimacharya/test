@@ -25,9 +25,11 @@
 @font-face {
 	font-family: 'Brush Script MT';
 	src: url('../fonts/BrushScriptMT.eot');
-	src: url('../fonts/BrushScriptMT.eot?#iefix') format('embedded-opentype'), url('../fonts/BrushScriptMT.woff') format('woff'), url('../fonts/BrushScriptMT.ttf') format('truetype'), url('../fonts/BrushScriptMT.svg#BrushScriptMT') format('svg');
+	src: url('../fonts/BrushScriptMT.eot?#iefix') format('embedded-opentype'), 
+		 url('../fonts/BrushScriptMT.woff') format('woff'), 
+		 url('../fonts/BrushScriptMT.ttf') format('truetype'), 
+		 url('../fonts/BrushScriptMT.svg') format('svg');
 	font-weight: normal;
-	font-style: italic;
 }
 @font-face {
 	font-family: 'Proxima Nova Bl';
@@ -71,11 +73,6 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 }
 
-/*h1 {margin:0; font-size:36px; color:#15489f;}
-h2 {margin:0; font-size:24px; color:#0099ff;}
-h3 {margin:0; font-size:18px; color:#0099ff;}
-h4 {margin:0; font-size:16px; color:#0099ff;} 
-h5 {margin:0; font-size:12px; color:#0099ff;}*/
 a {
 	cursor: pointer;
 }
@@ -320,6 +317,7 @@ ul#mywoosection ul.dropdown-menu {
 	margin-left: 18px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+	line-height: 50px;
 }
 .rnkct {
 	position: absolute;
@@ -999,6 +997,7 @@ h5.tryit.tryita {
 	text-transform: uppercase;
 	padding-left: 16px;
 	text-decoration:none;
+	display:block;
 }
 .ptxt h3 a:hover {
 	color:#000;
@@ -3673,6 +3672,7 @@ ul.cc-color-var-item {
 }
 .cc-img-wrapper {
 	position: relative;
+	cursor: pointer;
 }
 .cc-img-wrapper:after {
 	content: '';
@@ -6161,8 +6161,48 @@ label.inner-check-label.radio-check-label::after{
     float: none;
     margin-top: -70px;
 }
-
-
 #sub_content_area p {
 	width:100%;
 }
+
+
+/* To Top */
+.cc_to_top_cntr{
+	padding: 10px;
+}
+.cc_to_top_cntr .to_top_btn{
+	height: 72px;
+	width: 72px;
+	text-align: center;
+	line-height: 72px;
+	color: #fff;
+	font-size: 36px;
+    background: #7fccff;
+    float: right;
+    cursor: pointer;
+}
+.cc_to_top_cntr::after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+}
+.search_header form .input-group {
+	border:1px solid #c5d2e6;	
+	border-radius:0;
+}
+.search_header form .input-group .form-control{
+	background-color:#e7edf8;
+	border:0;
+	height:35px;
+	box-shadow:none;
+	outline:0;
+}
+ .search_header form .input-group span.input-group-btn .btn-default  {
+	 color:inherit;
+	 background-color:#e7edf8;
+	 border-color:transparent;
+	 box-shadow:none;
+	outline:0;
+	height:35px;
+ }

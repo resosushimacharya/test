@@ -1,3 +1,0 @@
-List of error files 
-VTLAOLS.csv
-WTLAOLS.csv

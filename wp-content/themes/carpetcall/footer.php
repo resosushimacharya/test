@@ -1,3 +1,9 @@
+<div class="mobile cc_to_top_cntr cearfix">
+  <div class="to_top_btn">
+    <i class="fa fa-angle-up"></i>
+  </div>
+</div>
+
 <div class="footer_c">
     <div class="container">
         <div class="row">
