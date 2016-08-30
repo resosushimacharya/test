@@ -31,6 +31,21 @@ add_action('admin_menu', 'import_css_products');
 	* function to make sub-menu in side bar navigation 
 	* it comes inside product menu
 */
+	if( ! ( function_exists( 'wp_get_attachment_by_post_name' ) ) ) {
+    function wp_get_attachment_by_post_name( $post_name ) {
+        $args = array(
+            'post_per_page' => 1,
+            'post_type'     => 'attachment',
+            'name'          => trim ( $post_name ),
+        );
+        $get_posts = new Wp_Query( $args );
+
+        if ( $get_posts->posts[0] )
+            return $get_posts->posts[0]->ID;
+        else
+          return false;
+    }
+}
 
 function import_css_products()
 {
@@ -40,7 +55,7 @@ function import_css_products()
  *checking whether to presence of second level category term in product_cat
   *it will add term if not present...
 */
-function category_second_level($csvitem,$rootcatterm)
+function cc_category_second_level($csvitem,$rootcatterm)
 {
 	$sluglower = strtolower($csvitem);
 	$second_level_cat = array('name' => $csvitem,'description' => ' ','slug' =>$sluglower ,'parent'=>$rootcatterm);
@@ -99,6 +114,7 @@ function readCSV($csvFile)
 function  csv_import_rugs($csv,$appcat)
 {
 	set_time_limit(0) ;
+	global $wpdb;
 	$exist = get_page_by_title( $csv[1], OBJECT, 'product' );
 
 	if($csv)
@@ -118,7 +134,7 @@ function  csv_import_rugs($csv,$appcat)
 		$tlct        = $csv[2];
 		if(!term_exists( $slct, 'product_cat', $rootcatterm ))
 		{  
-		   category_second_level($slct ,$rootcatterm) ;
+		   cc_category_second_level($slct ,$rootcatterm) ;
 		   category_third_level($tlct ,$slct);
 		}
 		elseif(!term_exists($tlct,'product_cat',$tlct ))
@@ -176,6 +192,43 @@ function  csv_import_rugs($csv,$appcat)
 		$sku_arr = explode('.',$csv[1]);
 	    update_post_meta($new_post_id,'state',$csv[0]);
 		update_post_meta( $new_post_id, '_sku', $csv[1]);
+				$item_sku =  $csv[1];
+
+		$sales_record_table = $wpdb->prefix.'cc_sales_records';
+		$x = "SELECT * FROM ".$sales_record_table." WHERE sku = '".$item_sku."'";
+		
+$exist =  $wpdb->get_row($x);
+if($item_sku){
+ if($exist){
+ $wpdb->update(
+     $wpdb->cc_sales_records,
+     array(
+      'sales_count'=>$exist->sales_count + 1
+     ),
+     array(
+      'sku'=>$item_sku
+     ),
+     array(
+     '%d'
+     )
+    );
+ }else{
+  $wpdb->insert( 
+     $wpdb->prefix.'cc_sales_records', 
+     array(
+      'id'=>'', 
+      'sku' =>$item_sku, 
+      'sales_count' => 0 
+     ), 
+     array( 
+      '%d',
+      '%s', 
+      '%d' 
+     ) 
+    );
+  
+  }
+}
 		update_post_meta( $new_post_id, 'color', $sku_arr[2]);
 		update_post_meta( $new_post_id, 'size_code', $sku_arr[3]);
 		update_post_meta($new_post_id,'description_1',$csv[4]);
@@ -225,9 +278,24 @@ $set_fea_img=false;
 $image_id=array();
 foreach($img_arr as $img){
 	if(file_exists($file_loc.$img)){
-
+         $imgret = explode('.',$img);
+         $imgname = $imgret[0];  
 				// Check the type of file. We'll use this as the 'post_mime_type'.
-				$filetype = wp_check_filetype( basename( $url.$img ), null );
+				
+
+                 $attachment_ID = wp_get_attachment_by_post_name($imgname );
+                 if($attachment_ID){
+                 	
+                 	if(!$set_fea_img){
+					set_post_thumbnail( $new_post_id, $attachment_ID );
+
+				}
+			      $set_fea_img=true;
+			      $attach_id =$attachment_ID;
+
+                 }
+                 else{
+                 	$filetype = wp_check_filetype( basename( $url.$img ), null );
 				// Prepare an array of post data for the attachment.
 				$attachment = array(
 					'guid'           =>$url.$img, 
@@ -236,17 +304,21 @@ foreach($img_arr as $img){
 					'post_content'   => '',
 					'post_status'    => 'inherit'
 				);
-
-				// Insert the attachment.
 				$attach_id = wp_insert_attachment( $attachment,$file_loc.$img, $new_post_id );
 				// Generate the metadata for the attachment, and update the database record.
 				$attach_data = wp_generate_attachment_metadata( $attach_id,  $file_loc.$img);
 				wp_update_attachment_metadata( $attach_id, $attach_data );
 				if(!$set_fea_img){
 					set_post_thumbnail( $new_post_id, $attach_id );
+
 				}
-				$set_fea_img=true;
+			      $set_fea_img=true;
+                 }
+				// Insert the attachment.
+				
+				
 				$image_id[]=$attach_id ;
+
 
 	}
 
@@ -271,6 +343,7 @@ update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id)
 */
 	function  csv_import_hard_flooring($csv,$appcat)
 {   
+	global $wpdb;
 	set_time_limit(0) ;
 	$exist = get_page_by_title( $csv[1], OBJECT, 'product' );
 
@@ -294,7 +367,7 @@ update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id)
 		$rootcatterm   = ucwords($rootcatterm);*/
 		if(!term_exists( $slct, 'product_cat', $rootcatterm ))
 		{  
-		   category_second_level($slct ,$rootcatterm) ;
+		   cc_category_second_level($slct ,$rootcatterm) ;
 		   category_third_level($tlct ,$slct);
 		}
 		elseif(!term_exists($tlct,'product_cat',$tlct ))
@@ -345,6 +418,41 @@ update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id)
 		
 	    
 		update_post_meta( $new_post_id, '_sku', $csv[1]);
+		$item_sku =  $csv[1];
+		$sales_record_table = $wpdb->prefix.'cc_sales_records';
+		$x = "SELECT * FROM ".$sales_record_table." WHERE sku = '".$item_sku."'";
+$exist =  $wpdb->get_row( $x);
+if($item_sku){
+ if($exist){
+ $wpdb->update(
+     $wpdb->cc_sales_records,
+     array(
+      'sales_count'=>$exist->sales_count + 1
+     ),
+     array(
+      'sku'=>$item_sku
+     ),
+     array(
+     '%d'
+     )
+    );
+ }else{
+  $wpdb->insert( 
+     $wpdb->prefix.'cc_sales_records', 
+     array(
+      'id'=>'', 
+      'sku' =>$item_sku, 
+      'sales_count' => 0 
+     ), 
+     array( 
+      '%d',
+      '%s', 
+      '%d' 
+     ) 
+    );
+  
+  }
+}
 		
 		
 		update_post_meta($new_post_id,'description_1',$csv[7]);
@@ -437,10 +545,24 @@ $file_loc= $wp_upload_dir['basedir'] ."/products/";
 $set_fea_img=false;
 $image_id=array();
 foreach($img_arr as $img){
-	if(file_exists($file_loc.$img)){
-
+		if(file_exists($file_loc.$img)){
+         $imgret = explode('.',$img);
+         $imgname = $imgret[0];  
 				// Check the type of file. We'll use this as the 'post_mime_type'.
-				$filetype = wp_check_filetype( basename( $url.$img ), null );
+				
+
+                 $attachment_ID = wp_get_attachment_by_post_name($imgname );
+                 if($attachment_ID){
+                 	 $attach_id =$attachment_ID;
+                 	if(!$set_fea_img){
+					set_post_thumbnail( $new_post_id, $attachment_ID );
+
+				}
+			      $set_fea_img=true;
+
+                 }
+                 else{
+                 	$filetype = wp_check_filetype( basename( $url.$img ), null );
 				// Prepare an array of post data for the attachment.
 				$attachment = array(
 					'guid'           =>$url.$img, 
@@ -449,18 +571,21 @@ foreach($img_arr as $img){
 					'post_content'   => '',
 					'post_status'    => 'inherit'
 				);
-
-				// Insert the attachment.
 				$attach_id = wp_insert_attachment( $attachment,$file_loc.$img, $new_post_id );
-				$thumbid = media_handle_sideload( $new_post_id, basename($file_loc.$img) );
 				// Generate the metadata for the attachment, and update the database record.
 				$attach_data = wp_generate_attachment_metadata( $attach_id,  $file_loc.$img);
 				wp_update_attachment_metadata( $attach_id, $attach_data );
 				if(!$set_fea_img){
-					set_post_thumbnail( $new_post_id, $thumbid );
+					set_post_thumbnail( $new_post_id, $attach_id );
+
 				}
-				$set_fea_img=true;
+			      $set_fea_img=true;
+                 }
+				// Insert the attachment.
+				
+				
 				$image_id[]=$attach_id ;
+
 
 	}
 
@@ -516,7 +641,16 @@ function css_products_import()
 	       $counter=1;
     for($counter=1;$counter<=3;$counter++){
 		if($counter==1){
-			$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/csvfolder/rugs.csv';
+			$url = site_url();
+			$url = explode('/',$url);
+
+
+
+            if(strcasecmp($url[2],'localhost')==0){
+			$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/productfiles/rugs.csv';}
+			else{
+				$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/productfiles/rugs.csv';
+			}
 		   $appcat = "rugs";
 			echo $new_rugs_file;
 				
@@ -572,8 +706,18 @@ function css_products_import()
 		
 	}
 	elseif($counter==2){
-$mimes = array('application/vnd.ms-excel');	
-		$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/csvfolder/hard-flooring.csv';
+			$mimes = array('application/vnd.ms-excel');	
+			$url = site_url();
+			$url = explode('/',$url);
+
+
+
+            if(strcasecmp($url[2],'localhost')==0){
+			$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/productfiles/hard-flooring.csv';}
+			else{
+				$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/productfiles/hard-flooring.csv';
+			}
+			
 		     $appcats = "hard-flooring";
 			echo $new_rugs_file;
 				

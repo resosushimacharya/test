@@ -37,7 +37,7 @@ $size      = count( $ancestors );
 ?>
 
 
-<div class="child-innerpg">
+<div class="child-innerpg mobile-inpage">
     <div class="container clearfix">
         <div class="inerblock_serc_child about-page">
             <div class="cc-breadcrumb">
@@ -73,7 +73,7 @@ $size      = count( $ancestors );
 <div class="faq-cont-blka">
     <div class="container clearfix">
         <div class="inerblock_sec">
-            <div class="col-md-3 no-pl">
+            <div class="col-md-3 desktop no-pl">
             <?php
                 // show top-level navigation for About Us page
                 if( $size == 1 || $aboutID == $id) {
@@ -117,7 +117,7 @@ $size      = count( $ancestors );
                 <div class="clearfix"></div>
             </div><!-- end .col-md-3.no-pl -->
 
-            <div class="col-md-9">
+            <div class="col-md-9 about-cont-employment">
                 <div class="cbg_content">
                 <?php the_content();  ?>
                 <?php if($size==1){
@@ -150,7 +150,55 @@ $loop = new WP_Query($args);
         </div><!--end .innerblock_sec -->
     </div><!-- end .container.clearfix -->
 </div><!-- end .faq-cont-blka -->
-<div class="inerblock_sec_a">
+
+
+<div class="container mobile cc-mobile-blk clearfix">
+<div class="col-md-3 no-pl">
+            <?php
+                // show top-level navigation for About Us page
+                if( $size == 1 || $aboutID == $id) {
+            ?>
+                <div class="meromm">
+                    <ul class="guide_list_cbg">
+                        <?php
+                            $ancestor_id = (!empty( $ancestors )) ? $ancestors[0] : $id;
+                            $all_about_pages = array(
+                                'child_of'      => $ancestor_id,
+                                #'include'      => $children,
+                                'depth'         => 1,
+                                'sort_column'   => 'menu_order',
+                                'link_after'    => '<i class="fa fa-caret-right" aria-hidden="true"></i>',
+                                'title_li'      => ''
+                            );
+                            wp_list_pages( $all_about_pages );
+                        ?>                        
+                    </ul><!-- end .guide_list_cbg -->
+                </div><!-- end .meromm -->
+            <?php } #end-if 
+
+                // show inner-page navigation
+                else {
+            ?>
+                <div class="meromm">
+                    <ul class="guide_list_cbg">
+                        <?php
+                            $ancestor_id = (!empty( $ancestors )) ? $ancestors[$size-1] : $id;
+                            $all_about_pages = array(
+                                'child_of'  => $ancestor_id ,
+                                'depth'     => 1,
+                                'link_after'=> '<i class="fa fa-caret-right" aria-hidden="true"></i>',
+                                'title_li'  => ''
+                            );
+                            wp_list_pages( $all_about_pages );
+                        ?>                        
+                    </ul><!-- end .guide_list_cbg -->
+                </div><!-- end .meromm -->
+            <?php } #end-if ?>
+                <div class="clearfix"></div>
+            </div><!-- end .col-md-3.no-pl -->      
+</div>
+
+<div class="inerblock_sec_a iA_parent">
 
     <div class="container clearfix you_may_link_cntr">
   

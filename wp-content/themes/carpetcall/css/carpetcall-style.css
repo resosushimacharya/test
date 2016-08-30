@@ -73,11 +73,6 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 }
 
-/*h1 {margin:0; font-size:36px; color:#15489f;}
-h2 {margin:0; font-size:24px; color:#0099ff;}
-h3 {margin:0; font-size:18px; color:#0099ff;}
-h4 {margin:0; font-size:16px; color:#0099ff;} 
-h5 {margin:0; font-size:12px; color:#0099ff;}*/
 a {
 	cursor: pointer;
 }
@@ -1002,6 +997,7 @@ h5.tryit.tryita {
 	text-transform: uppercase;
 	padding-left: 16px;
 	text-decoration:none;
+	display:block;
 }
 .ptxt h3 a:hover {
 	color:#000;
@@ -1207,10 +1203,21 @@ ul.guide_list .fa {
 	display: inline-block;
 	margin:0 0 23px 0;
 }
-h2.sub_page_title {
+.faq-cont-blka .cbg_content h2.sub_page_title {
 	font: normal 18px 'proxima_nova_ltsemibold', sans-serif;
 	color: #0099ff;
 	margin-bottom: 33px;
+	border:0;
+	padding:0;
+}
+.faq-cont-blka .inerblock_sec .cbg_content h3 {
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	font-weight:700;
+	color:#666666;
+	line-height:24px;
+	margin-bottom:1px;
+	text-transform:uppercase;
 }
 div#right_col ol, .cbg_content ol, .cbg_content ul {
 	margin-left: 17px;
@@ -2104,9 +2111,13 @@ ul.guide_list_cfaq li a {
 	margin-top: 200px;
 	width: 815px;
 }
-.single.single-product .modal-header {
-	padding: 18px 29px 14px 40px;
+.cc-product-pick-location-section .modal-header {
+	padding: 18px 29px 14px 34px;
 }
+
+/*.single.single-product .modal-header {
+	padding: 18px 29px 14px 40px;
+}*/
 .modal-content {
 	border-radius: 0;
 	border-color: #e7edf8;
@@ -2513,7 +2524,7 @@ select#cc-size {
 	content: '';
 	border: 0;
 	box-shadow: none;
-	width: 71%;
+	width: 76%;
 	left: 50%;
 	bottom: -7px;
 	background: #0099ff;
@@ -3037,13 +3048,9 @@ ul.cat_list li a:hover {
 	text-transform: uppercase;
 	margin: 32px 0 12px 0;
 }
-.cc-clearance-row .cc-clearance-right p {
-	margin:0;	
-}
-.cc-clearance-right p {
+.cc-clearance-wrapper .cc-clearance-row .cc-clearance-right p {
 	font: normal 16px/21px 'proxima_nova_rgregular', sans-serif;
 	color: #666666;
-	margin-right: 15%;
 	margin-bottom: 26px;
 }
 .cc-clearance-row:nth-child(1) .cc-clearance-right .nowspe {
@@ -3797,7 +3804,7 @@ h3.cc-idea-ad-title {
 .all-items-blk a h3:hover {
 	cursor: pointer;
 }
-.sub_page_title {
+#sub_content_area h3, #sub_content_area h3.sub_page_title {
 	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
 	color: #0099ff;
 	text-transform: uppercase;
@@ -6154,11 +6161,10 @@ label.inner-check-label.radio-check-label::after{
     float: none;
     margin-top: -70px;
 }
-
-
 #sub_content_area p {
 	width:100%;
 }
+
 
 /* To Top */
 .cc_to_top_cntr{
@@ -6181,3 +6187,22 @@ label.inner-check-label.radio-check-label::after{
     height: 0;
     clear: both;
 }
+.search_header form .input-group {
+	border:1px solid #c5d2e6;	
+	border-radius:0;
+}
+.search_header form .input-group .form-control{
+	background-color:#e7edf8;
+	border:0;
+	height:35px;
+	box-shadow:none;
+	outline:0;
+}
+ .search_header form .input-group span.input-group-btn .btn-default  {
+	 color:inherit;
+	 background-color:#e7edf8;
+	 border-color:transparent;
+	 box-shadow:none;
+	outline:0;
+	height:35px;
+ }
