@@ -233,6 +233,7 @@ function readCSV($csvFile)
 {
 	$file_handle = fopen($csvFile, 'r');
 	$i=0;
+	$line_of_text=array();
 
  	while (!feof($file_handle) )
  	 {
