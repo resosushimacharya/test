@@ -88,7 +88,7 @@
 	
 	
 	/* Big buttons */
-	.cptinn a, .find_tbb a, .cc-cat-pro-section-right input, .ab_arrow, .store-finder-page-form .store-finder-form-cntr #wpsl-auto-locate input, .cc-cats-vsp-a a, .cc-cas-orr a, .hfc-fcnt-orr a{
+	.cptinn a, .find_tbb a, .cc-cat-pro-section-right input, .ab_arrow, .store-finder-page-form .store-finder-form-cntr #wpsl-auto-locate input, .cc-cats-vsp-a a, .cc-cas-orr a, .hfc-fcnt-orr a, a.btn-employment{
 		height: 90px;
 		padding: 0;
 		line-height: 90px;
@@ -679,7 +679,7 @@
 	    right: 30px;
 	    bottom: 30px;
 	}
-	.responsive .pro_for .img_cntr_home{
+	.responsive .pro_for .img_cntr_home, .img_cntr.cc-featured_no_image{
 		height: 190px;
 	}
 	.responsive .sublk_prom{
@@ -1132,6 +1132,21 @@
 		padding-right:15px;
 	}
 	/* === FAQ ALL - STANDRAD ARTICLES End === */
+	
+	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES === */
+	
+	.child-innerpg.mobile-inpage {
+		background-color:#FFF;
+	}
+	.faq-cont-blka .cbg_content h2.sub_page_title {
+		font-size:36px;
+		margin-bottom:20px;
+	}
+	.about-cont-employment {
+		display:block;
+	}
+	
+	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES End === */
 
 
 	/* === MAIN CATEGORY PAGE === */
@@ -1713,7 +1728,7 @@
 	.cc-cat-store-item .cc-store-map-last-cover, .page-template-find-a-store .cc-store-map-last-cover {
 	    margin-bottom: 50px;
 	}
-	.cc-cats-vsp-a a, .cc-cas-orr a, .hfc-fcnt-orr a{
+	.cc-cats-vsp-a a, .cc-cas-orr a, .hfc-fcnt-orr a, a.btn-employment{
 		font-size: 28px;
 	}
 	.cc-cats-or {
@@ -2110,7 +2125,7 @@
 	/* Font-size 72px => 60px; End */
 	
 	/* Big buttons */
-	.cptinn a, .find_tbb a, .cc-cat-pro-section-right input, .ab_arrow, .store-finder-page-form .store-finder-form-cntr #wpsl-auto-locate input, .cc-cats-vsp-a a, .cc-cas-orr a, .hfc-fcnt-orr a{
+	.cptinn a, .find_tbb a, .cc-cat-pro-section-right input, .ab_arrow, .store-finder-page-form .store-finder-form-cntr #wpsl-auto-locate input, .cc-cats-vsp-a a, .cc-cas-orr a, .hfc-fcnt-orr a, a.btn-employment{
 		height: 70px;
 		padding: 0;
 		line-height: 70px;
@@ -2656,7 +2671,27 @@
 	 	padding-right:15px;
 	}
 	/* === FAQ ALL - STANDRAD ARTICLES End === */
-
+	
+	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES === */
+	
+	.child-innerpg.mobile-inpage {
+		background-color:#FFF;
+	}
+	.faq-cont-blka .cbg_content h2.sub_page_title {
+		font-size:32px;
+		margin-bottom:15px;
+	}
+	.about-cont-employment {
+		display:block;
+	}
+	.inerblock_serc_child.about-page { 
+		margin:0;
+	}
+	.faq-cont-blka .inerblock_sec {
+		margin-top:0;	
+	}
+	
+	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES End === */
 
 
 	/* === MAIN CATEGORY PAGE === */
@@ -2914,7 +2949,7 @@
 	.cc-cat-store-item .cc-store-map-last-cover, .page-template-find-a-store .cc-store-map-last-cover {
 	    margin-bottom: 35px;
 	}
-	.cc-cats-vsp-a a, .cc-cas-orr a, .hfc-fcnt-orr a{
+	.cc-cats-vsp-a a, .cc-cas-orr a, .hfc-fcnt-orr a, a.btn-employment{
 		font-size: 22px;
 	}
 	.cc-cats-or {
@@ -3424,6 +3459,27 @@
 		padding-right:15px;
 	}
 	/* === FAQ ALL - STANDRAD ARTICLES End === */
+	
+	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES === */
+	
+	.child-innerpg.mobile-inpage {
+		background-color:#FFF;
+	}
+	.faq-cont-blka .cbg_content h2.sub_page_title {
+		font-size:28px;
+		margin-bottom:12px;
+	}
+	.about-cont-employment {
+		display:block;
+	}
+	.inerblock_serc_child.about-page { 
+		margin:0;
+	}
+	.faq-cont-blka .inerblock_sec {
+		margin-top:0;	
+	}
+	
+	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES End === */
 
 
 
@@ -3495,7 +3551,7 @@
 	/* Font-size 72px => 60px; End */
 	
 	/* Big buttons */
-	.cptinn a, .find_tbb a, .error-wrapper h3, .cc-cats-vsp-a a, .cc-cas-orr a, .hfc-fcnt-orr a{
+	.cptinn a, .find_tbb a, .error-wrapper h3, .cc-cats-vsp-a a, .cc-cas-orr a, .hfc-fcnt-orr a, a.btn-employment{
 		height: 60px;
 		padding: 0;
 		line-height: 60px;
@@ -4038,7 +4094,7 @@
 	.cc-cat-store-item .cc-store-map-last-cover,  .page-template-find-a-store .cc-store-map-last-cover{
 	    margin-bottom: 25px;
 	}
-	.cc-cats-vsp-a a, .cc-cas-orr a, .hfc-fcnt-orr a{
+	.cc-cats-vsp-a a, .cc-cas-orr a, .hfc-fcnt-orr a, a.btn-employment{
 		font-size: 18px;
 	}
 	.cc-cats-or {
@@ -4362,6 +4418,27 @@
 		padding-right:15px;
 	}
 	/* === FAQ ALL - STANDRAD ARTICLES End === */
+	
+	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES === */
+	
+	.child-innerpg.mobile-inpage {
+		background-color:#FFF;
+	}
+	.faq-cont-blka .cbg_content h2.sub_page_title {
+		font-size:24px;
+		margin-bottom:10px;
+	}
+	.about-cont-employment {
+		display:block;
+	}
+	.inerblock_serc_child.about-page { 
+		margin:0;
+	}
+	.faq-cont-blka .inerblock_sec {
+		margin-top:0;	
+	}
+	
+	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES End === */
 
 
 	/* ===== FOOTER ===== */	
@@ -5134,6 +5211,27 @@
 		padding-right:15px;
 	}
 	/* === FAQ ALL - STANDRAD ARTICLES End === */
+	
+	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES === */
+	
+	.child-innerpg.mobile-inpage {
+		background-color:#FFF;
+	}
+	.faq-cont-blka .cbg_content h2.sub_page_title {
+		font-size:20px;
+		margin-bottom:10px;
+	}
+	.about-cont-employment {
+		display:block;
+	}
+	.inerblock_serc_child.about-page { 
+		margin:0;
+	}
+	.faq-cont-blka .inerblock_sec {
+		margin-top:0;	
+	}
+	
+	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES End === */
 
 
 
