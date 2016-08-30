@@ -1204,10 +1204,21 @@ ul.guide_list .fa {
 	display: inline-block;
 	margin:0 0 23px 0;
 }
-h2.sub_page_title {
+.faq-cont-blka .cbg_content h2.sub_page_title {
 	font: normal 18px 'proxima_nova_ltsemibold', sans-serif;
 	color: #0099ff;
 	margin-bottom: 33px;
+	border:0;
+	padding:0;
+}
+.faq-cont-blka .inerblock_sec .cbg_content h3 {
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	font-weight:700;
+	color:#666666;
+	line-height:24px;
+	margin-bottom:1px;
+	text-transform:uppercase;
 }
 div#right_col ol, .cbg_content ol, .cbg_content ul {
 	margin-left: 17px;
@@ -2101,9 +2112,13 @@ ul.guide_list_cfaq li a {
 	margin-top: 200px;
 	width: 815px;
 }
-.single.single-product .modal-header {
-	padding: 18px 29px 14px 40px;
+.cc-product-pick-location-section .modal-header {
+	padding: 18px 29px 14px 34px;
 }
+
+/*.single.single-product .modal-header {
+	padding: 18px 29px 14px 40px;
+}*/
 .modal-content {
 	border-radius: 0;
 	border-color: #e7edf8;
@@ -2510,7 +2525,7 @@ select#cc-size {
 	content: '';
 	border: 0;
 	box-shadow: none;
-	width: 71%;
+	width: 76%;
 	left: 50%;
 	bottom: -7px;
 	background: #0099ff;
@@ -3793,7 +3808,7 @@ h3.cc-idea-ad-title {
 .all-items-blk a h3:hover {
 	cursor: pointer;
 }
-.sub_page_title {
+#sub_content_area h3, #sub_content_area h3.sub_page_title {
 	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
 	color: #0099ff;
 	text-transform: uppercase;
