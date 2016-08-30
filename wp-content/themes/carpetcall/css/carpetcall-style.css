@@ -6157,8 +6157,25 @@ label.inner-check-label.radio-check-label::after{
     float: none;
     margin-top: -70px;
 }
-
-
 #sub_content_area p {
 	width:100%;
 }
+.search_header form .input-group {
+	border:1px solid #c5d2e6;	
+	border-radius:0;
+}
+.search_header form .input-group .form-control{
+	background-color:#e7edf8;
+	border:0;
+	height:35px;
+	box-shadow:none;
+	outline:0;
+}
+ .search_header form .input-group span.input-group-btn .btn-default  {
+	 color:inherit;
+	 background-color:#e7edf8;
+	 border-color:transparent;
+	 box-shadow:none;
+	outline:0;
+	height:35px;
+ }
