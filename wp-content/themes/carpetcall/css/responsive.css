@@ -1149,6 +1149,65 @@
 	}
 	
 	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES End === */
+	
+	/* === SEARCH PAGE === */
+	.child-innerpg .cc-search-allprd h1 {
+		font-size:72px;	
+		text-align:left;
+		margin:25px 0;
+	}
+	.cc-search-allprd .search_header {
+	background-color:#e7edf8;	
+	}
+	.cc-search-allprd .search_header form .input-group .form-control{
+	background-color:#e7edf8;
+	border:0;
+	height:68px;
+	box-shadow:none;
+	outline:0;
+	}
+ 	.cc-search-allprd .search_header form .input-group span.input-group-btn .btn-default  {
+	 color:inherit;
+	 background-color:#e7edf8;
+	 border-color:transparent;
+	 box-shadow:none;
+	 outline:0;
+	 height:68px;
+	 }
+	 .search_prod_wrapper, .cc-search-tps {
+		width:100%;
+	 }
+	 .search_prod_wrapper .search_thumb {
+		height:280px; 
+	 }
+	 .cc-search-tps {
+		 padding:0 20px;
+	 }
+	 .search_title {
+		margin-top:47px; 
+	 }
+	 .search_title span.parent_cat a {
+		font-size:36px; 
+	 }
+	 .search_price .cc-price-control h3 span.cc-sale-price-title {
+		font-size:28px; 
+	 }
+	 .cc-price-control .cc-line-through {
+		 font-size:24px;
+	 }
+	 .cc-price-control {
+		margin-top:20px; 
+		margin-bottom:31px;
+	 }
+	 .search_shop_now .read_more a {
+		 width:100%;
+		 height:90px;
+		 line-height:90px;
+		 font-size:36px;
+		 text-align:center;
+	 }
+	  
+	/* === SEARCH PAGE End === */
 
 
 	/* === MAIN CATEGORY PAGE === */
@@ -2694,6 +2753,66 @@
 	}
 	
 	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES End === */
+	
+	/* === SEARCH PAGE === */
+	.child-innerpg .cc-search-allprd h1 {
+		font-size:72px;	
+		text-align:left;
+		line-height:69px;
+		margin:34px 0;
+	}
+	.cc-search-allprd .search_header {
+	background-color:#e7edf8;	
+	}
+	.cc-search-allprd .search_header form .input-group .form-control{
+	background-color:#e7edf8;
+	border:0;
+	height:68px;
+	box-shadow:none;
+	outline:0;
+	}
+ 	.cc-search-allprd .search_header form .input-group span.input-group-btn .btn-default  {
+	 color:inherit;
+	 background-color:#e7edf8;
+	 border-color:transparent;
+	 box-shadow:none;
+	 outline:0;
+	 height:68px;
+	 }
+	 .search_prod_wrapper, .cc-search-tps {
+		width:100%;
+	 }
+	 .search_prod_wrapper .search_thumb {
+		height:280px; 
+	 }
+	 .cc-search-tps {
+		 padding:0 20px;
+	 }
+	 .search_title {
+		margin-top:47px; 
+	 }
+	 .search_title span.parent_cat a {
+		font-size:36px; 
+	 }
+	 .search_price .cc-price-control h3 span.cc-sale-price-title {
+		font-size:28px; 
+	 }
+	 .cc-price-control .cc-line-through {
+		 font-size:24px;
+	 }
+	 .cc-price-control {
+		margin-top:20px; 
+		margin-bottom:31px;
+	 }
+	 .search_shop_now .read_more a {
+		 width:100%;
+		 height:90px;
+		 line-height:90px;
+		 font-size:36px;
+		 text-align:center;
+	 }
+	  
+	/* === SEARCH PAGE End === */
 
 
 	/* === MAIN CATEGORY PAGE === */
@@ -3468,7 +3587,65 @@
 	}
 	
 	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES End === */
-
+	
+	/* === SEARCH PAGE === */
+	.child-innerpg .cc-search-allprd h1 {
+		font-size:46px;	
+		text-align:left;
+		margin:25px 0 26px;
+	}
+	.cc-search-allprd .search_header {
+	background-color:#e7edf8;	
+	}
+	.cc-search-allprd .search_header form .input-group .form-control{
+	background-color:#e7edf8;
+	border:0;
+	height:68px;
+	box-shadow:none;
+	outline:0;
+	}
+ 	.cc-search-allprd .search_header form .input-group span.input-group-btn .btn-default  {
+	 color:inherit;
+	 background-color:#e7edf8;
+	 border-color:transparent;
+	 box-shadow:none;
+	 outline:0;
+	 height:68px;
+	 }
+	 .search_prod_wrapper, .cc-search-tps {
+		width:100%;
+	 }
+	 .search_prod_wrapper .search_thumb {
+		height:250px; 
+	 }
+	 .cc-search-tps {
+		 padding:0 20px;
+	 }
+	 .search_title {
+		margin-top:32px; 
+	 }
+	 .search_title span.parent_cat a {
+		font-size:32px; 
+	 }
+	 .search_price .cc-price-control h3 span.cc-sale-price-title {
+		font-size:26px; 
+	 }
+	 .cc-price-control .cc-line-through {
+		 font-size:19px;
+	 }
+	 .cc-price-control {
+		margin-top:16px; 
+		margin-bottom:21px;
+	 }
+	 .search_shop_now .read_more a {
+		 width:100%;
+		 height:70px;
+		 line-height:70px;
+		 font-size:32px;
+		 text-align:center;
+	 }
+	  
+	/* === SEARCH PAGE End === */
 
 
 }
@@ -4430,6 +4607,65 @@
 	}
 	
 	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES End === */
+	
+	/* === SEARCH PAGE === */
+	.child-innerpg .cc-search-allprd h1 {
+		font-size:42px;	
+		text-align:left;
+		margin:20px 0 21px;
+	}
+	.cc-search-allprd .search_header {
+	background-color:#e7edf8;	
+	}
+	.cc-search-allprd .search_header form .input-group .form-control{
+	background-color:#e7edf8;
+	border:0;
+	height:68px;
+	box-shadow:none;
+	outline:0;
+	}
+ 	.cc-search-allprd .search_header form .input-group span.input-group-btn .btn-default  {
+	 color:inherit;
+	 background-color:#e7edf8;
+	 border-color:transparent;
+	 box-shadow:none;
+	 outline:0;
+	 height:68px;
+	 }
+	 .search_prod_wrapper, .cc-search-tps {
+		width:100%;
+	 }
+	 .search_prod_wrapper .search_thumb {
+		height:250px; 
+	 }
+	 .cc-search-tps {
+		 padding:0 20px;
+	 }
+	 .search_title {
+		margin-top:32px; 
+	 }
+	 .search_title span.parent_cat a {
+		font-size:28px; 
+	 }
+	 .search_price .cc-price-control h3 span.cc-sale-price-title {
+		font-size:22px; 
+	 }
+	 .cc-price-control .cc-line-through {
+		 font-size:16px;
+	 }
+	 .cc-price-control {
+		margin-top:16px; 
+		margin-bottom:21px;
+	 }
+	 .search_shop_now .read_more a {
+		 width:100%;
+		 height:60px;
+		 line-height:60px;
+		 font-size:28px;
+		 text-align:center;
+	 }
+	  
+	/* === SEARCH PAGE End === */
 
 
 	/* ===== FOOTER ===== */	
@@ -5235,7 +5471,66 @@
 	}
 	
 	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES End === */
-
+	
+	/* === SEARCH PAGE === */
+	.child-innerpg .cc-search-allprd h1 {
+		font-size:30px;	
+		text-align:left;
+		margin:0;
+	}
+	.cc-search-allprd .search_header {
+	background-color:#e7edf8;	
+	}
+	.cc-search-allprd .search_header form .input-group .form-control{
+	background-color:#e7edf8;
+	border:0;
+	height:68px;
+	box-shadow:none;
+	outline:0;
+	}
+ 	.cc-search-allprd .search_header form .input-group span.input-group-btn .btn-default  {
+	 color:inherit;
+	 background-color:#e7edf8;
+	 border-color:transparent;
+	 box-shadow:none;
+	 outline:0;
+	 height:68px;
+	 padding:6px 10px;
+	 }
+	 .search_prod_wrapper, .cc-search-tps {
+		width:100%;
+	 }
+	 .search_prod_wrapper .search_thumb {
+		height:200px; 
+	 }
+	 .cc-search-tps {
+		 padding:0 20px;
+	 }
+	 .search_title {
+		margin-top:25px; 
+	 }
+	 .search_title span.parent_cat a {
+		font-size:22px; 
+	 }
+	 .search_price .cc-price-control h3 span.cc-sale-price-title {
+		font-size:19px; 
+	 }
+	 .cc-price-control .cc-line-through {
+		 font-size:13px;
+	 }
+	 .cc-price-control {
+		margin-top:16px; 
+		margin-bottom:21px;
+	 }
+	 .search_shop_now .read_more a {
+		 width:100%;
+		 height:55px;
+		 line-height:55px;
+		 font-size:25px;
+		 text-align:center;
+	 }
+	  
+	/* === SEARCH PAGE End === */
 
 
 	/* ===== FOOTER ===== */
