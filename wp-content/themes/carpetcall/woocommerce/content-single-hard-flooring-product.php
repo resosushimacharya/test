@@ -176,7 +176,7 @@ if($reqTempTerms){
 		?>
         <div class="select-design-product-image <?php echo  (get_the_ID() == $curr_post->ID)?'pro-active':null?>"> 
             <a href="<?php echo the_permalink()?>" class="select_design"> 
-                <img class="cc-product_no_image" src="<?php echo $proImageName?>"> 
+                <span class="mobile"><?php echo $post->post_name;?></span><img class="cc-product_no_image" src="<?php echo $proImageName?>"> 
             </a> 
         </div>
         <?php
