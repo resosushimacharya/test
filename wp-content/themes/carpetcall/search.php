@@ -6,7 +6,7 @@
             <div class="cc-breadcrumb">
               <span class="cc-bread-current">Searching Carpetcall Website</span>
             </div><!-- end .cc-breadcrumb -->
-            <h1>Search Resutlts</h1>
+            <h1>Search Results</h1>
             <div class="search_header clearfix">
 				<?php get_search_form(true);?>
 			</div>

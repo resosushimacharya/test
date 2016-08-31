@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-wc_print_notices();
+//wc_print_notices();
 
 do_action( 'woocommerce_before_checkout_form', $checkout );
 
@@ -44,7 +44,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 	          <div class="collapse collapsable in clearfix billing-form" id="checkout_customer_details">
 				<?php do_action( 'woocommerce_checkout_billing' ); ?>
 	            <div class="checkout_next_prev_button read_more">
-	              <a href="#checkout_delivery">Next</a>
+	              <a class="next" href="#checkout_delivery">Next</a>
 	            </div> 		            			
 	       	  </div>
 			</div>
@@ -56,7 +56,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 
 		            <div class="checkout_next_prev_button read_more">
 		              <a href="#checkout_customer_details">Previous</a>
-		              <a href="#checkout_payment">Next</a>
+		              <a class="next" href="#checkout_payment">Next</a>
 		            </div>
 		            	            
 				</div>
@@ -101,8 +101,21 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 jQuery(document).ready(function(e) {
     jQuery(document).on('click','.checkout_next_prev_button a',function(e){
     	e.preventDefault();
+		if(jQuery(this).hasClass('next')){
+			var validator = $( ".checkout.woocommerce-checkout" ).validate();
+			
+			
+			var error_flag = false;
+			jQuery(this).parents('.checkout-form-sec').find('input').each(function(index, el) {
+                alert(el.id);
+				//validator.element();
+            });
+			
+			return false;
+			}
 		jQuery('.collapsable').removeClass('in');
 		jQuery('div'+jQuery(this).attr('href')).addClass('in');
+
 		});
 });
 </script>
