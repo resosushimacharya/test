@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 */
 ?>
 <div class="container">
-<div class="col-md-12 no-lr">
+<div class="col-md-12 no-lr product-content-wrapper">
 
 <?php /*before-wrapper open  end */  ?>
 <div itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>

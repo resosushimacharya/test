@@ -57,26 +57,3 @@ if ( ! defined( 'ABSPATH' ) ) {
     } 
     }?>
 </div>
-<style>
-     #quantity-control{width: 60%;}
-     .cc-quantiy-section
-     {
-      margin-top:5px;
-      margin-bottom:5px;
-     }
-     .cc-size-section{
-      margin-top:5px;
-      margin-bottom:5px;
-     }
-     .cc-quantiy-section-inner
-     {
-       margin-top:5px;
-      margin-bottom:5px;
-      }
-      .quantity{
-        margin-top:5px;
-      margin-bottom:5px;
-      }
-      .mod-social , .mod-social a{float:left;padding-right:5px;}
-
-</style>

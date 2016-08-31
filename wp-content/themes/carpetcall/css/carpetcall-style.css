@@ -2033,12 +2033,13 @@ ul.guide_list_cfaq li a {
 }
 .woocommerce-page div.product div.cc_custom_gal_thumb  a {
 	width: 33.33%;
-	margin: 0 0 30px 0;
+	margin: 0;
 	border: 10px solid #fff;
 }
 .mod-social {
 	display: inline-block;
 	padding: 0;
+	margin-top: 30px
 }
 .mod-social .cc-share-title {
 	float: left;
@@ -6206,3 +6207,23 @@ label.inner-check-label.radio-check-label::after{
 	outline:0;
 	height:35px;
  }
+#quantity-control{width: 60%;}
+.cc-quantiy-section
+{
+	margin-top:5px;
+	margin-bottom:5px;
+}
+.cc-size-section{
+	margin-top:5px;
+	margin-bottom:5px;
+}
+.cc-quantiy-section-inner
+{
+	margin-top:5px;
+	margin-bottom:5px;
+}
+.quantity{
+	margin-top:5px;
+	margin-bottom:5px;
+}
+.mod-social , .mod-social a{float:left;padding-right:5px;}

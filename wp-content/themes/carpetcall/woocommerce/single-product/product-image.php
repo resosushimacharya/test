@@ -88,10 +88,10 @@ global $post, $woocommerce, $product;
 			$image_thumb = wp_get_attachment_image_src($attachment_id,'thumbnail');
 			?>
         <div>
-        <a href="<?php echo  $image_link?>">
+        <a href="<?php echo  $image_link?>" class="single-product-thumb-img">
         
-        	<img src="<?php echo get_template_directory_uri()?>/images/placeholder.png">
-        	<!--<img src="<?php echo $image_thumb[0]?>">-->
+        	<!--<img src="<?php //echo get_template_directory_uri()?>/images/placeholder.png">-->
+        	<img src="<?php echo $image_thumb[0]?>">
             
             
         </a></div>
@@ -142,7 +142,7 @@ global $post, $woocommerce, $product;
 </div>
 <script type="text/javascript">
 jQuery('.product_single_thumb_slider').slick({
-  dots: false,
+  dots: true,
   infinite: true,
   speed: 300,
   slidesToShow: 1,
