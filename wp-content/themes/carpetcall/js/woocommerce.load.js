@@ -48,6 +48,13 @@ jQuery(document).on('click','#checkout_fetch_nearby_stores_currentloc',function(
 		jQuery.post(woo_load_autocomplete.ajax_url, data, function(response) {
 			response = jQuery.parseJSON(response);
 			jQuery('#nearby_stores_main_wrapper').html(response);
+			jQuery('#nearby_store_main_wrapper').find('input[type=radio]').each(function(index, element) {
+				alert(element.value);
+				alert(jQuery(this).parent().hasClass('inner-radio-label'));
+                if(!jQuery(this).parent().hasClass('inner-radio-label')){
+					jQUery(this).wrap('<label class="inner-radio-label"></label>')
+					}
+            });
 			});
 	}	
 	

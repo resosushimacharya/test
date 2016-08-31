@@ -69,9 +69,19 @@
         ?>
         
        <div class="pickup_location_list">
-       		<input type="radio" name="pickup_store_id" value="<?php echo get_the_ID()?>">
-            <h3><?php the_title();?></h3>
+       		
+            <?php
+				woocommerce_form_field("pickup_store_id", array(
+											'type'              => 'radio',
+											'required'			=> true,
+											'options'           => array( 'get_the_ID()' => '<h3>'.the_title().'></h3>
+            <p class="address">'.$add .' '. $city.' '.$state.' '.$zip.'</p>' ),
+										), '' );
+			?>
+            
+<?php /*?>   <input type="radio" name="pickup_store_id" value="<?php echo get_the_ID()?>">         <h3><?php the_title();?></h3>
             <p class="address"><?php echo  $add .' '. $city.' '.$state.' '.$zip;?></p>
+<?php */?>            
        </div>
         
          <!-- store one end -->

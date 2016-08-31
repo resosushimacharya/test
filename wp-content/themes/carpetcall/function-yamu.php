@@ -1232,10 +1232,19 @@ foreach($slice as $store){
     
 				 ?>
                 <div class="pickup_location_list">
-       		<input type="radio" name="pickup_store_id" value="<?php echo get_the_ID()?>">
+                <?php
+				woocommerce_form_field("pickup_store_id", array(
+											'type'              => 'radio',
+											'required'			=> true,
+											'custom_attributes'	=>array('required'=>'required'),
+											'options'           => array( get_the_ID() => '<h3>'.get_the_title().'</h3>
+            <p class="address">'.$add .' '. $city.' '.$state.' '.$zip.'</p>' ),
+										), '' );
+			?>
+<?php /*?>       		<input type="radio" name="pickup_store_id" value="<?php echo get_the_ID()?>">
             <h3><?php the_title();?></h3>
             <p class="address"><?php echo  $add .' '. $city.' '.$state.' '.$zip;?></p>
-       </div>
+<?php */?>       </div>
                 <?php
                 }
                  wp_reset_query();

@@ -7,14 +7,38 @@ global $woocommerce, $product;
 <div class="delivery_option_rugs">
 <div class="radiogroup_wrap">
 	<div class="delivery_option_item">
-	<input type="radio" name="shipping_method" value="store_pickup" required><label class="deliver_option_label">Pickup In Store</label>
-	</div>
+    <?php 
+	
+	woocommerce_form_field("shipping_method", array(
+    'type'              => 'radio',
+	'required'			=> true,
+    'options'           => array( 'store_pickup' => 'Pickup In Store' ),
+), 'store_pickup' );
 
-	<div class="delivery_option_item"><input type="radio" name="shipping_method" value="local_delivery" required><label class="deliver_option_label">Local Delivery</label></div>
-	</div>
+	?>
+  <!--  
+	<input type="radio" name="shipping_method" value="store_pickup" required>
+    <label class="deliver_option_label">Pickup In Store</label>
+	-->
+    </div>
+
+	<div class="delivery_option_item">
+    <?php
+    woocommerce_form_field("shipping_method", array(
+    'type'              => 'radio',
+	'required'			=>true,
+    'options'           => array( 'local_delivery' => 'Local Delivery'),
+), '' );
+	
+?>
+   <!-- 
+    <input type="radio" name="shipping_method" value="local_delivery" required>
+    <label class="deliver_option_label">Local Delivery</label></div>
+	-->
+    </div>
 
 
-	<div class="rugs_store_pickup_list" style="opacity:0; height: 0;overflow: hidden;">
+	<div class="rugs_store_pickup_list">
 	<?php get_template_part( 'templates/delivery/pickup_closest', 'office' );?>
 	</div>
 

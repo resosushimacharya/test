@@ -66,10 +66,23 @@ if(get_term_meta($current_cat->term_id,'cat_top_description',true) && $depth == 
 $currentcat = get_queried_object();
  
 ?>
-        <div class="rugm-blk col-md-6 no-pl">
+ <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) {
+	$args = array(
+		'cat_id' =>$current_cat->term_id,
+		'offset'=>0,
+		'perpage'=>$perpage_var,
+		'sort_by'	=>'price',
+		'sort_order'=>'ASC',
+		'depth'	=>$depth,
+		'child_cat_count'=>1
+	);
+	$ret = show_category_slider_block($args);
+	
+	 ?>
+            <div class="rugm-blk col-md-6 no-pl">
 
           <p> 
-            <span class="cc-cat-title-count"> <span class="post_count"><?php echo $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products </span> 
+            <span class="cc-cat-title-count"> <span class="post_count"><?php echo $ret['found_prod']// $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products </span> 
             <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> 
           </p>
           
@@ -114,19 +127,9 @@ $currentcat = get_queried_object();
 
       </div>
       <div class="col-md-9 cc-cat-pro-section-right">
-        <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) {
-	$args = array(
-		'cat_id' =>$current_cat->term_id,
-		'offset'=>0,
-		'perpage'=>$perpage_var,
-		'sort_by'	=>'price',
-		'sort_order'=>'ASC',
-		'depth'	=>$depth,
-		'child_cat_count'=>1
-	);
-	 ?>
+        
         <div id="category_slider_block_wrapper">
-          <?php $ret = show_category_slider_block($args);
+          <?php 
 	
 	echo $ret['html'];
 	?>
@@ -253,7 +256,8 @@ $currentcat = get_queried_object();
 						*/
 			  ?>
         <div class="woo-added"></div>
-        <input type="button" name="cc_load_more" id ="cc_load_more" callto="show_category_slider_block" value="load more" first="<?php echo (($depth==0) && $ret['offset'] > $perpage_var)?'yes':'no'?>"/>
+        <input type="button" name="cc_load_more" id ="cc_load_more" callto="show_category_slider_block" value="load more" first="<?php echo (($depth==0) && $ret['offset'] > $perpage_var)?'yes':'no'?>" <?php echo ($ret['found_prod'] >=$perpage_var)?'':'style="display:none" disabled'?>/>
+        
         <input type="hidden" name="perpage_var" id="perpage_var" value="<?php echo $perpage_var;?>">
         <input type="hidden" name="ajax_cat_id" id="ajax_cat_id" value="<?php echo $current_cat->term_id?>">
         <input type="hidden" name="ajax_offset" id="ajax_offset" value="<?php echo ($ret['offset'])?$ret['offset']:0?>">

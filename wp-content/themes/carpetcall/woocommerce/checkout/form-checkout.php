@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-//wc_print_notices();
+wc_print_notices();
 
 do_action( 'woocommerce_before_checkout_form', $checkout );
 
@@ -101,20 +101,24 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 jQuery(document).ready(function(e) {
     jQuery(document).on('click','.checkout_next_prev_button a',function(e){
     	e.preventDefault();
+		var error_flag = false;
 		if(jQuery(this).hasClass('next')){
-			var validator = $( ".checkout.woocommerce-checkout" ).validate();
-			
-			
-			var error_flag = false;
-			jQuery(this).parents('.checkout-form-sec').find('input').each(function(index, el) {
-                alert(el.id);
-				//validator.element();
-            });
-			
-			return false;
+			var validator = jQuery( ".checkout.woocommerce-checkout" ).validate();
+			jQuery(this).parents('.checkout-form-sec').find('p.validate-required').find('input:visible').each(function(index, el) {
+				
+				validator.element("#"+el.id);
+				if(jQuery(el).parent('.form-row').hasClass('woocommerce-invalid')){
+					error_flag = true;
+					jQuery('#'+el.id).focus();
+					}
+				});
 			}
-		jQuery('.collapsable').removeClass('in');
-		jQuery('div'+jQuery(this).attr('href')).addClass('in');
+		if(error_flag){
+				return false;
+				}else{
+					jQuery('.collapsable').removeClass('in');
+					jQuery('div'+jQuery(this).attr('href')).addClass('in');
+				}
 
 		});
 });

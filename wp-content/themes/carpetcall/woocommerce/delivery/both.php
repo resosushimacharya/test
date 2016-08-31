@@ -1,13 +1,33 @@
 <div class="radiogroup_wrap">
 	<div class="delivery_option_both">
 	<div class="delivery_option_item">
-	<input type="radio" name="shipping_method" value="store_pickup" required>
+		<?php
+			woocommerce_form_field("shipping_method", array(
+			'type'              => 'radio',
+			'required'			=> true,
+			'options'           => array( 'store_pickup' => 'Pickup In Store(Rugs and Hard Flooring)' ),
+		), 'store_pickup' );
+		
+		?>
+
+<!--	<input type="radio" name="shipping_method" value="store_pickup" required>
 	<label class="deliver_option_label">Pickup In Store(Rugs and Hard Flooring)</label>
+-->    
 	</div>
 	<div class="delivery_option_item">
-	<input type="radio" name="shipping_method" value="pickup_n_deliver" required>
+			<?php
+			woocommerce_form_field("shipping_method", array(
+			'type'              => 'radio',
+			'required'			=>true,
+			'options'           => array( 'pickup_n_deliver' => 'Pickup Hard Flooring and Deliver Rugs' ),
+		), '' );
+		
+		?>
+
+    
+<!--    <input type="radio" name="shipping_method" value="pickup_n_deliver" required>
 	<label class="deliver_option_label">Pickup Hard Flooring and Deliver Rugs</label>
-	</div>
+-->	</div>
 </div>
 
 
