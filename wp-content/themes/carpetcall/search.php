@@ -2,11 +2,11 @@
 <?php get_header( 'shop' );?>
 <div class="child-innerpg">
     <div class="container clearfix">
-        <div class="inerblock_serc_child about-page">
+        <div class="inerblock_serc_child about-page cc-search-allprd">
             <div class="cc-breadcrumb">
               <span class="cc-bread-current">Searching Carpetcall Website</span>
             </div><!-- end .cc-breadcrumb -->
-            <h1>Search Resutlts</h1>
+            <h1>Search Results</h1>
             <div class="search_header clearfix">
 				<?php get_search_form(true);?>
 			</div>
@@ -35,9 +35,12 @@ $found_prod = new WP_Query($args);
       <div class="tophead_sec col-md-12 no-lr">
       <div class="rugm-blk col-md-6 no-pl">
           <p> <span class="cc-cat-title-count"> <span class="post_count"><?php echo $found_prod->post_count;?></span> <?php _e('results for ','carpetcall');?>"<?php echo $search_query?>" </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
+          <span class="open-product-sidebar">
+            +
+          </span>
         </div>
         <div class="col-md-6 no-pr">
-          <div class="pull-right cc-product-sort">
+          <div class="cc-product-sort">
             <ul>
               <li class="sort_key"> <span class="cc-count-label">Sort by:</span></li>
               <li class="sort_key"> <a href="javascript:void(0)" sort="popular">Popularity</a> </li>
@@ -49,7 +52,20 @@ $found_prod = new WP_Query($args);
         </div>
       </div>
       
-      <div class="cc-cat-pro-section-left col-md-3 no-lr">
+      <div class="cc-cat-pro-section-left col-md-3 no-lr" id="product-side-filter">
+      <div class="filter-top-mobile">
+          <div class="filter-go-back">
+            <div class="go-back-text">
+              <span class="fa fa-angle-left"></span>
+              <span class="back-text">Back</span>
+            </div>
+          </div>
+          <div class="mobile-filter-sec">
+            <div class="filter-back-btn">
+              <span class="cc-cat-title-count"> <span class="post_count"><?php echo $found_prod->post_count;?></span> <?php _e('results for ','carpetcall');?>"<?php echo $search_query?>" </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </span>
+            </div>
+          </div>
+        </div>
         <?php //get_sidebar('pro-subcategory');?>
         <?php get_sidebar('cc-search');?>
       </div>

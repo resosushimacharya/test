@@ -214,10 +214,8 @@ foreach($proGroup as $item ){
 
 
 global $post;
-
 foreach($filterproGroup as $bundle){
   $i=1;  $displayCounter = 1 ; 
-  
   foreach($bundle as $key => $value){
       $proGal = get_post_meta( $key, '_product_image_gallery', TRUE );
         $proGalId = explode(',',$proGal);
@@ -297,7 +295,7 @@ foreach($filterproGroup as $bundle){
 
 }
 
-foreach($resList as $mainId):
+foreach($resList as $mainId){
   global $post;
   
      
@@ -305,7 +303,7 @@ foreach($resList as $mainId):
      
                 $displayCounter = 1 ; 
     
-    foreach($mainId as $val):
+    foreach($mainId as $val){
 
            if($post->ID == $val){
           
@@ -315,10 +313,10 @@ foreach($resList as $mainId):
        
        
        
-      endforeach; 
+      }
  
 
-endforeach;
+}
                  ?>
                  </div>
       </div>

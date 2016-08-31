@@ -44,7 +44,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 	          <div class="collapse collapsable in clearfix billing-form" id="checkout_customer_details">
 				<?php do_action( 'woocommerce_checkout_billing' ); ?>
 	            <div class="checkout_next_prev_button read_more">
-	              <a href="#checkout_delivery">Next</a>
+	              <a class="next" href="#checkout_delivery">Next</a>
 	            </div> 		            			
 	       	  </div>
 			</div>
@@ -56,7 +56,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 
 		            <div class="checkout_next_prev_button read_more">
 		              <a href="#checkout_customer_details">Previous</a>
-		              <a href="#checkout_payment">Next</a>
+		              <a class="next" href="#checkout_payment">Next</a>
 		            </div>
 		            	            
 				</div>
@@ -101,8 +101,25 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 jQuery(document).ready(function(e) {
     jQuery(document).on('click','.checkout_next_prev_button a',function(e){
     	e.preventDefault();
-		jQuery('.collapsable').removeClass('in');
-		jQuery('div'+jQuery(this).attr('href')).addClass('in');
+		var error_flag = false;
+		if(jQuery(this).hasClass('next')){
+			var validator = jQuery( ".checkout.woocommerce-checkout" ).validate();
+			jQuery(this).parents('.checkout-form-sec').find('p.validate-required').find('input:visible').each(function(index, el) {
+				
+				validator.element("#"+el.id);
+				if(jQuery(el).parent('.form-row').hasClass('woocommerce-invalid')){
+					error_flag = true;
+					jQuery('#'+el.id).focus();
+					}
+				});
+			}
+		if(error_flag){
+				return false;
+				}else{
+					jQuery('.collapsable').removeClass('in');
+					jQuery('div'+jQuery(this).attr('href')).addClass('in');
+				}
+
 		});
 });
 </script>
