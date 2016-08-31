@@ -62,8 +62,9 @@ global $post, $woocommerce, $product;
 			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<div class="main-image-wrapper"><a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '">%s</a><div class="main-image-over-wrapper"><img src="%s" class="main-image-over" /></div></div>', $image_link, $image_caption, $image,$imgurl ), $post->ID );
 
 		} else {
-
+			echo '<div class="no-product-image">';
 			echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" />', wc_placeholder_img_src(), __( 'Placeholder', 'woocommerce' ) ), $post->ID );
+			echo '</div>';
 
 		}
 	?>
@@ -87,10 +88,10 @@ global $post, $woocommerce, $product;
 			$image_thumb = wp_get_attachment_image_src($attachment_id,'thumbnail');
 			?>
         <div>
-        <a href="<?php echo  $image_link?>">
+        <a href="<?php echo  $image_link?>" class="single-product-thumb-img">
         
-        	<img src="<?php echo get_template_directory_uri()?>/images/placeholder.png">
-        	<!--<img src="<?php echo $image_thumb[0]?>">-->
+        	<!--<img src="<?php //echo get_template_directory_uri()?>/images/placeholder.png">-->
+        	<img src="<?php echo $image_thumb[0]?>">
             
             
         </a></div>
@@ -141,7 +142,7 @@ global $post, $woocommerce, $product;
 </div>
 <script type="text/javascript">
 jQuery('.product_single_thumb_slider').slick({
-  dots: false,
+  dots: true,
   infinite: true,
   speed: 300,
   slidesToShow: 1,

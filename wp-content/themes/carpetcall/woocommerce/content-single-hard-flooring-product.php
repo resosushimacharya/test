@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 */
 ?>
 <div class="container">
-<div class="col-md-12 no-lr">
+<div class="col-md-12 no-lr product-content-wrapper">
 
 
 <?php

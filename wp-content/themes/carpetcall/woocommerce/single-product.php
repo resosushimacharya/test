@@ -52,7 +52,7 @@ $rootcheck = get_post_meta($post->ID);
 					?>
                     <span class="ab_arrow mobile">
             <a href="<?php echo get_term_link($prod_term->term_id,'product_cat')?>">
-              <i class="fa fa-angle-left" aria-hidden="true"></i>Back            
+              <i class="fa fa-angle-left" aria-hidden="true"></i><b>BACK</b>
             </a>
           </span>
 					<?php
