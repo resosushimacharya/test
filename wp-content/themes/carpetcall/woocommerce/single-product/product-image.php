@@ -72,17 +72,29 @@ global $post, $woocommerce, $product;
 	<?php //do_action( 'woocommerce_product_thumbnails' ); ?>
    
     <div class="cc_custom_gal_thumb thumbnails columns-3">
+    
+    <?php
+		if(wp_is_mobile()){
+			echo '<div class="product_single_thumb_slider">';
+			}
+	
+	?>
     	<?php 
 		 $attachment_ids = $product->get_gallery_attachment_ids();
 		
 		foreach( $attachment_ids as $attachment_id ) 
 		{
 			$image_link = wp_get_attachment_url( $attachment_id );
-			$image_thumb = wp_get_attachment_image_src($attachment_id,array('150','150'));
+			$image_thumb = wp_get_attachment_image_src($attachment_id,'thumbnail');
 			?>
+        <div>
         <a href="<?php echo  $image_link?>">
-        	<img src="<?php echo $image_thumb[0]?>">
-        </a>
+        
+        	<img src="<?php echo get_template_directory_uri()?>/images/placeholder.png">
+        	<!--<img src="<?php echo $image_thumb[0]?>">-->
+            
+            
+        </a></div>
 		<?php
         }
 
@@ -104,7 +116,12 @@ global $post, $woocommerce, $product;
 			} 
 			*/
 			?>
-    
+    <?php
+		if(wp_is_mobile()){
+			echo '</div>';
+			}
+	
+	?>
     </div>
     
 		<div class="mod-social">
@@ -123,3 +140,13 @@ global $post, $woocommerce, $product;
 
          </div>
 </div>
+<script type="text/javascript">
+jQuery('.product_single_thumb_slider').slick({
+  dots: false,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  adaptiveHeight: true
+});
+
+</script>

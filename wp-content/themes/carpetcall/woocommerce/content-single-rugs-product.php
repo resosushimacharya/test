@@ -249,12 +249,12 @@ foreach($filterproGroup as $bundle){
 						 $proImageName = $proImageName[0];
 						 }
                      ?>
-                      <img class="cc-product_no_image" src="<?php echo $proImageName ;?>"/>
+                      <span class="mobile"><?php echo $post->post_name;?></span><img name="<?php echo $post->post_name?>" class="cc-product_no_image" src="<?php echo $proImageName ;?>"/>
                      <?php 
                 } 
                 else{
                   ?>
-                <img class="cc-product_no_image" src="<?php echo get_template_directory_uri();?>/plugins/woocommerce/assets/images/placeholder.png"/>
+                <span class="mobile"><?php echo $post->post_name;?></span><img name="<?php echo $post->post_name?>" class="cc-product_no_image" src="<?php echo get_template_directory_uri();?>/plugins/woocommerce/assets/images/placeholder.png"/>
               <?php } ?>
               
               
@@ -269,11 +269,11 @@ foreach($filterproGroup as $bundle){
           elseif($displayCounter==1){ ?>  <div class="select-design-product-image <?php echo (array_key_exists($post->ID,$bundle))?'pro-active':null;?>">
                          
               
-              <a href="<?php echo get_the_permalink($key)?>" class="select_design">
+              <a name="<?php echo $post->post_name?>" href="<?php echo get_the_permalink($key)?>" class="select_design">
              
             
                 
-                <img class="cc-product_no_image" src="<?php echo site_url()."/wp-content/plugins/woocommerce/assets/images/placeholder.png";?>"/>
+                <span class="mobile"><?php echo $post->post_name;?></span><img name="<?php echo $post->post_name?>" class="cc-product_no_image" src="<?php echo site_url()."/wp-content/plugins/woocommerce/assets/images/placeholder.png";?>"/>
            
               
               
@@ -694,7 +694,7 @@ endforeach;
               $args = array(
                 'post_type' => 'wpsl_stores',
                 'posts_per_page'=>'3',
-                'orderby' => 'rand'
+                //'orderby' => 'rand'
 
                      
               );
