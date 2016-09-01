@@ -6005,7 +6005,7 @@ label.inner-check-label.radio-check-label::after{
     font-size: 16px;
     color: #c32327;
     left: 4px;
-    top: 2px;
+    top: -2px;
 }
 #ship-to-different-address{
 	margin-bottom: 20px !important;
