@@ -20,6 +20,7 @@ function cc_create_table_for_sales_record(){
 	}
 
 
+
 //echo get_template_directory().'inc/order-reports-cron.php';die;
 include_once(get_template_directory().'/inc/order-reports-cron.php');
 

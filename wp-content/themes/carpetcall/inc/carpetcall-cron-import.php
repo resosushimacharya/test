@@ -865,12 +865,12 @@ function cron_func_update(){
 ///////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////Delete Draft Product //////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-add_action('admin_init','cron_func_delete');
+//add_action('admin_init','cron_func_delete');
 function cron_func_delete(){
 $args = array(
 
 				"post_type"=>'product',
-				"post_status"=>array("draft","pending"),
+				"post_status"=>array("draft"),
 				"posts_per_page"=>"-1",
 				'tax_query' => array(
                                 array(
