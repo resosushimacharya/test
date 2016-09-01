@@ -5,7 +5,7 @@
 			woocommerce_form_field("shipping_method", array(
 			'type'              => 'radio',
 			'required'			=> true,
-			'options'           => array( 'store_pickup' => 'Pickup In Store(Rugs and Hard Flooring)' ),
+			'options'           => array( 'store_pickup' => '<span>Pickup In Store(Rugs and Hard Flooring)</span>' ),
 		), 'store_pickup' );
 		
 		?>
@@ -19,7 +19,7 @@
 			woocommerce_form_field("shipping_method", array(
 			'type'              => 'radio',
 			'required'			=>true,
-			'options'           => array( 'pickup_n_deliver' => 'Pickup Hard Flooring and Deliver Rugs' ),
+			'options'           => array( 'pickup_n_deliver' => '<span>Pickup Hard Flooring and Deliver Rugs</span>' ),
 		), '' );
 		
 		?>
