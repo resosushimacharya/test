@@ -5756,7 +5756,7 @@ a.button.wc-forward {
 .woocommerce-checkout .col-1 .select2-search input {
 	margin:5px 0 0 0;
 }
-.pickup_location_list {
+.nearby_stores_main_wrapper .pickup_location_list {
 	margin-left:10px;
 }
 .cart-collaterals .calculated_shipping table.shop_table.shop_table_responsive tbody tr:last-child th,
@@ -5858,10 +5858,10 @@ h2.fyns-blk {
 	width: 270px;
 	border: 2px solid #f0f2f1;
 	display: inline-block;
-	padding: 10px;
+	padding: 0;
 	margin-right: 11px;
 }
-.delivery_option_item label.radio-label{
+.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item label.radio-label{
 	margin: 0;
 	height: 24px;
 	width: 24px;
@@ -5869,20 +5869,25 @@ h2.fyns-blk {
 	border: 1px solid #f0f2f1;
 	position: relative;
 	background: #fff;
+	display: inline-block;
+	margin-right: 15px;
 }
-.delivery_option_item label.deliver_option_label {
+.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item label{
+	display: inline-block !important;
+}
+.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item label.deliver_option_label {
     margin-left: 15px;
     font-size: 16px;
     color: #666666;
 }
-.delivery_option_item.radio-checked{
+.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item.radio-checked{
 	background: #15489f;
 	border-color: #15489f;
 }
-.delivery_option_item label.radio-label.radio-check-label{
+.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item label.radio-label.radio-check-label{
 	border-color: #15489f;
 }
-.delivery_option_item label.radio-label.radio-check-label:before{
+.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item label.radio-label.radio-check-label:before{
 	content: '';
 	position: absolute;
 	height: 12px;
@@ -5892,7 +5897,7 @@ h2.fyns-blk {
 	left: 5px;
 	top: 5px;
 }
-.delivery_option_item.radio-checked label.deliver_option_label{
+.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item.radio-checked label.radio{
 	color: #fff;
 }
 .radiogroup_wrap{
@@ -5904,6 +5909,7 @@ h2.fyns-blk {
 }
 .delivery_option_rugs .rugs_store_pickup_list .nearstore .modal-title{
     font-size: 20px;
+    margin-bottom: 20px;
 }
 .delivery_option_rugs .rugs_store_pickup_list .nearstore h2.fyns-blk{
     font-size: 18px;
@@ -5916,6 +5922,9 @@ h2.fyns-blk {
 .delivery_option_rugs .rugs_store_pickup_list .nearstore .nearby_stores_main_wrapper .pickup_location_list{
 	margin: 0;
 }
+.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item > p{
+	padding: 0 10px;
+} 
 label.inner-radio-label {
     height: 24px;
     width: 24px;
@@ -5924,7 +5933,9 @@ label.inner-radio-label {
     margin: 0;
     margin-right: 25px;
     border: 1px solid #f0f2f1;
-    position: relative;
+	position: relative;
+    display: inline-block !important;
+    margin-bottom: 0 !important;
 }
 label.inner-radio-label::after{
 	content: '';
@@ -5940,6 +5951,7 @@ label.inner-radio-label::after{
 label.inner-radio-label.radio-check-label::after{
 	opacity: 1;
 }
+
 .delivery_option_rugs .rugs_store_pickup_list .nearstore h3{
 	display:inline-block;
 }	
@@ -5948,6 +5960,23 @@ label.inner-radio-label.radio-check-label::after{
 	padding-top: 0;
 	padding-bottom: 20px;
 }
+#nearby_stores_main_wrapper .pickup_location_list{
+	margin-bottom: 15px;
+}
+.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p{
+	margin-left: 0;
+	padding-bottom: 0;
+	display: inline-block;
+}
+.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p.address{
+	display: block;
+	margin-left: 50px;
+}
+.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p label.radio{
+	margin: 0;
+}
+
+
 #ship-to-different-address > label{
 	font-size: 20px;
 	font-family: 'proxima_nova_ltsemibold', sans-serif;
