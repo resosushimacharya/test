@@ -20,7 +20,16 @@
                       <span>CARPET CALL STORES</span>
                   </div>
                   <div class="cc-finder-title">
-                      <h3>STORE FINDER</h3>
+                    
+                          <?php  
+                  if(isset($_POST['wpsl-search-input'])){
+                    echo    '<h3>'.$_POST['wpsl-search-input'].'</h3>';
+                  }
+                  else{
+                   echo    '<h3>STORE FINDER</h3>';
+                  }
+            
+                    ?>
                   </div>
                   <div class="cc-options-wrapper-nh">
                       <form method="post" class="form-near-str">
@@ -302,12 +311,13 @@
 <script type="text/javascript">
 jQuery( document ).ajaxComplete(function( event, xhr, settings ) {
   if(settings.url.indexOf('action=store_search') !== -1){
+    <?php if(!isset($_POST['wpsl-search-input'])){ ?>
     if(typeof xhr.responseJSON!=="undefined"){
  
       jQuery('.cc-finder-title h3').html(jQuery('#wpsl-search-input').val());
  
   }
-
+<?php } ?>
   }
 });
 </script>
