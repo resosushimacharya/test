@@ -42,7 +42,7 @@ $tax = 'product_cat';
                     <div class="sublk_prom">
                       		<div class="ptxt">
 					<h3><a href="<?php echo the_permalink(); ?>" ><?php
-					the_title();?></h3></a><?php 
+					the_title();?></a></h3><?php 
 
 					$reqTempTerms=get_the_terms($post->ID,'product_cat');
 					
@@ -61,7 +61,7 @@ $tax = 'product_cat';
 
 					
 					if(!empty($price)){
-						echo '<h5>A'.$price;?>
+						echo '<h5> $'.$price;?>
 						<?php /*if(!empty($prounit)){
  	echo '/'.$prounit;
  }*/

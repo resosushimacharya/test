@@ -131,9 +131,8 @@ if($reqTempTerms){
       <h3>SELECT A DESIGN</h3>
       <div class="cc-select-design-pro-all col-md-12">
       <?php
-	  global $post;
-	  $curr_post = $post;
-	  
+	 // global $post;
+	  //$curr_post = the_post();
 	  $second_lvl_cat = get_term_by('id',$current_post_term_id,'product_cat');
 	/*  
 	$terms = wp_get_post_terms( $post->ID, 'product_cat' );
@@ -144,12 +143,50 @@ if($reqTempTerms){
 	}
   }
   */
-  $query_args = array( 'posts_per_page' => -1, 'no_found_rows' => 1, 'post_status' => 'publish', 'post_type' => 'product', 'tax_query' => array( 
+  $query_args = array( 'posts_per_page' => -1, 'no_found_rows' => 1, 'order_by'=>'title', 'post_status' => 'publish', 'post_type' => 'product', 'tax_query' => array( 
     array(
       'taxonomy' => 'product_cat',
       'field' => 'id',
       'terms' => $second_lvl_cat->term_id
     )));
+
+  $related_prods = get_posts($query_args);
+  if(!empty($related_prods)){
+	  foreach($related_prods as $relprod){
+		  //global $product;
+		 // do_action('pr',$relprod);
+		  //do_action('pr',get_permalink('55730'));
+		//  do_action('pr',$relprod->ID.'->'.get_permalink($relprod->ID));
+		  $stockcheck = get_post_meta($relprod->ID);
+         if(strcasecmp($stockcheck['_stock_status'][0],'instock')==0){ 
+		 $proGal = get_post_meta($relprod->ID, '_product_image_gallery', TRUE );
+         $proGalId = explode(',',$proGal);
+		 foreach($proGalId as $pgi){
+			  $proImageName =  has_post_thumbnail($relprod->ID)?wp_get_attachment_url($pgi):get_template_directory_uri().'/images/placeholder.png';
+				if(preg_match("/\_V/i", $proImageName))
+				{
+					$reqProImageId = $pgi;
+					$proImageName =  wp_get_attachment_image_src($pgi,'thumbnail');
+					if($proImageName){
+						$proImageName = $proImageName[0];
+						}
+					break;
+				}
+			 
+			 }?>
+		  <div class="select-design-product-image <?php echo  ($relprod->ID == $post->ID)?'pro-active':null?>"> 
+            <a href="<?php echo get_the_permalink($relprod->ID)?>" class="select_design"><span class="mobile"><?php echo $relprod->post_name;?></span><img class="cc-product_no_image" src="<?php echo $proImageName?>"> 
+            </a> 
+        </div>
+		  <?php }
+		wp_reset_postdata();  
+		  }
+	  }
+	  		wp_reset_postdata();  
+	  		wp_reset_query();  
+
+/*
+
   $related_prods = new WP_Query($query_args);
   if ( $related_prods->have_posts() ) {
 		while ( $related_prods->have_posts() ) {
@@ -175,15 +212,17 @@ if($reqTempTerms){
 			 }
 		?>
         <div class="select-design-product-image <?php echo  (get_the_ID() == $curr_post->ID)?'pro-active':null?>"> 
-            <a href="<?php echo the_permalink()?>" class="select_design"> 
+            <a href="<?php echo get_permalink(get_the_ID())?>" class="select_design"> 
                 <span class="mobile"><?php echo $post->post_name;?></span><img class="cc-product_no_image" src="<?php echo $proImageName?>"> 
             </a> 
         </div>
         <?php
 		 }
 		}
-		wp_reset_postdata();
+		//wp_reset_postdata();
   }// Reset Post Data
+  
+  */
 wp_reset_postdata();
 
 	?>
@@ -807,7 +846,7 @@ wrapper close start */?>
 					echo $term->name;?>
 					</h4></a><?php 
 					if(!empty($price)){
-						echo '<h6> FROM A$'.$price.'</h6>';
+						echo '<h6> FROM $'.$price.'</h6>';
 						}?></div>
 					<div class="clearfix"></div>
                       </div>

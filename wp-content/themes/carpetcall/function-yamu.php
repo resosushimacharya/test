@@ -650,36 +650,33 @@ function loadmore_hf($args){
 							$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID),'full' );
 							$proGal = get_post_meta($post->ID, '_product_image_gallery', TRUE );
 							$proGalId = explode(',',$proGal);
-							$reqProImageId = '';
-							$imgflag = false;
-							foreach($proGalId as $imgid){
-								$proImageName = wp_get_attachment_url($imgid);
-								if(preg_match("/\_L/i", $proImageName)){
-									$feat_image = wp_get_attachment_image_src($imgid,'full');
-									if($feat_image){
-										$feat_image = $feat_image[0];
-										$imgflag = true;
-	
-									}
-								}elseif(preg_match("/\_V/i", $proImageName)){
-									$feat_image = wp_get_attachment_image_src($imgid,'full');
-									if($feat_image){
-										$feat_image = $feat_image[0];
-										$imgflag = true;
-									}
-									}
-									elseif(preg_match("/\_S/i", $proImageName)){
-									$feat_image = wp_get_attachment_image_src($imgid,'full');
-									if($feat_image){
-										$feat_image = $feat_image[0];
-										$imgflag = true;
-									}
-									}
-							}
-							if(!$imgflag){
-								$feat_image = get_template_directory_uri().'/images/placeholder.png';
-							}
+						$reqProImageId = '';
+						foreach($proGalId as $imgid){
+							$proImageName = wp_get_attachment_url($imgid);
 							
+							if(preg_match("/\_V/i", $proImageName)){
+								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
+								if($feat_image){
+									$feat_image = $feat_image[0];
+								}
+							}
+							elseif(preg_match("/\_S/i", $proImageName)){
+								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
+								if($feat_image){
+									$feat_image = $feat_image[0];
+								}
+							}
+							elseif(preg_match("/\_L/i", $proImageName)){
+								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
+								if($feat_image){
+									$feat_image = $feat_image[0];
+								}
+							}
+						}
+						
+						if($feat_image ==''){
+							$feat_image = get_template_directory_uri().'/images/placeholder.png';
+						}
 							if($pch==1){
 								$res = get_post_meta($post->ID ,'_regular_price',true);
 								echo '<div class="col-md-6 cc-cat-sub-price">From <span>$'.$res.'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
@@ -713,33 +710,33 @@ function loadmore_hf($args){
 							$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID),'thumbnail' );
 							$proGal = get_post_meta($post->ID, '_product_image_gallery', TRUE );
 							$proGalId = explode(',',$proGal);
-							$reqProImageId = '';
-							foreach($proGalId as $imgid){
-								$proImageName = wp_get_attachment_url($imgid);
-								if(preg_match("/\_V/i", $proImageName)){
-									$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
-									if($feat_image){
-										$feat_image = $feat_image[0];
-										$imgflag = true;
-									}
-									}
-										elseif(preg_match("/\_S/i", $proImageName)){
-									$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
-									if($feat_image){
-										$feat_image = $feat_image[0];
-										$imgflag = true;
-									}
-									}
-									elseif(preg_match("/\_L/i", $proImageName)){
-									$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
-									if($feat_image){
-										$feat_image = $feat_image[0];
-									}
+						$reqProImageId = '';
+						foreach($proGalId as $imgid){
+							$proImageName = wp_get_attachment_url($imgid);
+							
+							if(preg_match("/\_V/i", $proImageName)){
+								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
+								if($feat_image){
+									$feat_image = $feat_image[0];
 								}
 							}
-							if(!$imgflag){
-								$feat_image = get_template_directory_uri().'/images/placeholder.png';
+							elseif(preg_match("/\_S/i", $proImageName)){
+								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
+								if($feat_image){
+									$feat_image = $feat_image[0];
+								}
 							}
+							elseif(preg_match("/\_L/i", $proImageName)){
+								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
+								if($feat_image){
+									$feat_image = $feat_image[0];
+								}
+							}
+						}
+						
+						if($feat_image ==''){
+							$feat_image = get_template_directory_uri().'/images/placeholder.png';
+						}
 							?>
 							<div class=" cc-other-term-pro">
 							<div class="cc-img-wrapper">
@@ -1190,7 +1187,9 @@ foreach($slice as $store){
               );
               $loop = new WP_Query($args);
               if($loop->have_posts()){
-                while($loop->have_posts()){
+				  $count = 0;
+                while($loop->have_posts() && $count < 5){
+					$count++;
                   $loop->the_post();
 				  $getinfo  = get_post_meta(get_the_ID());
                   $lat = $getinfo['wpsl_lat'];
@@ -1316,6 +1315,38 @@ if($selected_store){
 function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
 	if ( $post->post_type == 'product' ) {
 		$terms = wc_get_product_terms( $post->ID, 'product_cat', array( 'orderby' => 'parent', 'order' => 'DESC' ) ) ;
+		if(is_single()){
+			
+		$temp_url = site_url().'/shop-our-range';
+		$url_parts = array();
+		if($terms){
+			foreach($terms as $term){
+				$url_parts[]=$term->slug;
+				}
+		$url_parts = array_reverse($url_parts);
+		foreach($url_parts as $part){
+			$temp_url.='/'.$part;
+			}
+		$temp_url.='/'.$post->post_name;
+			}
+		}else{
+		if($terms){
+			foreach($terms as $term){
+				$has_child = get_term_children($term->term_id, 'product_cat');
+				if(sizeof($has_child)==0){
+					$temp_url = get_term_link($term,'product_cat');
+					break;
+					}
+				}
+			}
+	
+			}
+	}
+	return $temp_url;
+}
+/*function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
+	if ( $post->post_type == 'product' ) {
+		$terms = wc_get_product_terms( $post->ID, 'product_cat', array( 'orderby' => 'parent', 'order' => 'DESC' ) ) ;
 		if($terms){
 			foreach($terms as $term){
 				$has_child = get_term_children($term->term_id, 'product_cat');
@@ -1329,7 +1360,7 @@ function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
 	return $url;
 }
 
-add_filter( 'post_type_link', 'cc_custom_proudcts_url', 10, 3 );	
+*/add_filter( 'post_type_link', 'cc_custom_proudcts_url', 10, 3 );	
 
 add_filter( 'rewrite_rules_array', function( $rules )
 {
