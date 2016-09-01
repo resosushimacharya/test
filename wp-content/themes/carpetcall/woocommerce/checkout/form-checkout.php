@@ -111,6 +111,7 @@ jQuery(document).ready(function(e) {
 			var validator = jQuery( ".checkout.woocommerce-checkout" ).validate();
 			jQuery(this).parents('.checkout-form-sec').find('p.validate-required').find('input:visible').each(function(index, el) {
 				validator.element("#"+el.id);
+				console.log(el.id+'-->'+validator.element("#"+el.id));
 				if(jQuery(el).parent('.form-row').hasClass('woocommerce-invalid')){
 					error_flag = true;
 					jQuery('#'+el.id).focus();
