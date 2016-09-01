@@ -216,6 +216,18 @@ jQuery(document).on('click','.select-design-product-image a.select_design',funct
 			jQuery('#store-count-quantity').attr('href','javascript:void(0)');
           	jQuery('#store-count-quantity').removeClass('add_to_cart_button');
            	jQuery('#store-count-quantity').removeClass('ajax_add_to_cart');
+			
+			jQuery('.product_single_thumb_slider').slick({
+			  dots: true,
+			  infinite: true,
+			  speed: 300,
+			  slidesToShow: 1,
+			  adaptiveHeight: true
+			});
+      		largeImgMob();
+			
+	
+	
 		    // Displaying the Loading gif during ajax call
 
 		});
