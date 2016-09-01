@@ -5860,6 +5860,7 @@ h2.fyns-blk {
 	display: inline-block;
 	padding: 0;
 	margin-right: 11px;
+	position: relative;
 }
 .inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item label.radio-label{
 	margin: 0;
@@ -5871,6 +5872,7 @@ h2.fyns-blk {
 	background: #fff;
 	display: inline-block;
 	margin-right: 15px;
+	margin-top: 8px;
 }
 .inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item label{
 	display: inline-block !important;
@@ -6077,6 +6079,19 @@ label.inner-check-label.radio-check-label::after{
 }
 .shipping_needed_checkout #order_comments_field{
 	padding-bottom: 0;
+}
+
+.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item label.radio{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+    margin: 0;
+    line-height: 48px;
+}
+.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item label.radio span{
+	padding-left: 50px;
 }
 
 /* Payment Form */
