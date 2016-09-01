@@ -74,7 +74,7 @@
 				woocommerce_form_field("pickup_store_id", array(
 											'type'              => 'radio',
 											'required'			=> true,
-											'options'           => array( 'get_the_ID()' => '<h3>'.the_title().'></h3>
+											'options'           => array( 'get_the_ID()' => '<h3>'.the_title().'</h3>
             <p class="address">'.$add .' '. $city.' '.$state.' '.$zip.'</p>' ),
 										), '' );
 			?>
