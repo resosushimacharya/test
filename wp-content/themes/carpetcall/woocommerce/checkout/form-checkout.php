@@ -44,7 +44,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 	          <div class="collapse collapsable in clearfix billing-form" id="checkout_customer_details">
 				<?php do_action( 'woocommerce_checkout_billing' ); ?>
 	            <div class="checkout_next_prev_button read_more">
-	              <a class="next" href="#checkout_delivery">Next</a>
+	              <a class="next fetch_locations" href="#checkout_delivery">Next</a>
 	            </div> 		            			
 	       	  </div>
 			</div>
@@ -102,10 +102,14 @@ jQuery(document).ready(function(e) {
     jQuery(document).on('click','.checkout_next_prev_button a',function(e){
     	e.preventDefault();
 		var error_flag = false;
+		if(jQuery(this).hasClass('fetch_locations')){
+			var address = jQuery('#billing_postcode').val()+', '+jQuery('#billing_address_2').val()+', '+jQuery('#billing_address_1').val()+', '+jQuery('#billing_city').val()+', '+jQuery('#billing_state').val()+', '+jQuery('#billing_country').val();
+			jQuery('#edit_dialog_keyword').val(address);
+			jQuery('#checkout_fetch_nearby_stores').trigger('click');
+			};
 		if(jQuery(this).hasClass('next')){
 			var validator = jQuery( ".checkout.woocommerce-checkout" ).validate();
 			jQuery(this).parents('.checkout-form-sec').find('p.validate-required').find('input:visible').each(function(index, el) {
-				
 				validator.element("#"+el.id);
 				if(jQuery(el).parent('.form-row').hasClass('woocommerce-invalid')){
 					error_flag = true;
