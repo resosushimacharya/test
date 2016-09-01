@@ -59,12 +59,12 @@ $list = get_field('buying_guide_archive',$faqid );
 
 
 
-			 <div class="panel-group" id="accordion1">
+			 <div class="panel-group single-produc-acc-cntr" id="single-product-acc">
 		
 		 <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion1" href="#deatials_mobile"> Details
+                        <a data-toggle="collapse" data-parent="#single-product-acc" href="#deatials_mobile"> Details
                         </a>
                     </h4>
                 </div>
@@ -110,7 +110,7 @@ $list = get_field('buying_guide_archive',$faqid );
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne"> Care Instructions
+                        <a data-toggle="collapse" data-parent="#single-product-acc" href="#collapseOne"> Care Instructions
                         </a>
                     </h4>
                 </div>
@@ -126,7 +126,7 @@ if(!empty($careins)){
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">FAQ'S
+                        <a data-toggle="collapse" data-parent="#single-product-acc" href="#collapseTwo">FAQ'S
                         </a>
                     </h4>
                 </div>
@@ -169,7 +169,7 @@ if(!empty($careins)){
                   <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion1" href="#return_mobile"> Return Policy 
+                        <a data-toggle="collapse" data-parent="#single-product-acc" href="#return_mobile"> Return Policy 
                         </a>
                     </h4>
                 </div>

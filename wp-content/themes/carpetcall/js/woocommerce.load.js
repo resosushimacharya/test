@@ -224,7 +224,11 @@ jQuery(document).on('click','.select-design-product-image a.select_design',funct
 			  slidesToShow: 1,
 			  adaptiveHeight: true
 			});
-      		largeImgMob();
+      		var bigImg = $(".single-product-thumb-img");      
+	        $(bigImg).each(function() {
+	          var bigImgHref = $(this).attr('href');
+	          $(this).find("img").attr("src", bigImgHref);
+	        });
 			
 	
 	

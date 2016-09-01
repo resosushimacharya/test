@@ -422,6 +422,16 @@
       largeImgMob();
     }
     
+    // Accordion Add and Remove Active class on heading
+    $(function() {
+      $('.single-produc-acc-cntr')
+      .on('show.bs.collapse', function(e) {
+        $(e.target).prev('.panel-heading').addClass('active');
+      })
+      .on('hide.bs.collapse', function(e) {
+        $(e.target).prev('.panel-heading').removeClass('active');
+      });          
+    });
       
 
   });
