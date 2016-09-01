@@ -1203,12 +1203,15 @@ ul.guide_list .fa {
 	display: inline-block;
 	margin:0 0 23px 0;
 }
-.faq-cont-blka .cbg_content h2.sub_page_title {
+.faq-cont-blka .cbg_content h2.sub_page_title, .wrap_body .inerblock_sec .cbg_content h2.sub_page_title {
 	font: normal 18px 'proxima_nova_ltsemibold', sans-serif;
 	color: #0099ff;
 	margin-bottom: 33px;
 	border:0;
 	padding:0;
+}
+.wrap_body .inerblock_sec .cbg_content h2.sub_page_title {
+	margin-bottom:25px;
 }
 .faq-cont-blka .inerblock_sec .cbg_content h3 {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
@@ -2204,6 +2207,9 @@ ul.guide_list_cfaq li a {
 }
 .nearstore .pul-sec-cc {
 	padding: 0 10px 22px;
+}
+.cc-product-pick-location-section .nearstore {
+	display:block;	
 }
 .nearstore, .nearstore-a {
 	padding: 0 0 35px 0;
