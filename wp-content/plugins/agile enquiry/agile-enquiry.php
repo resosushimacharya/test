@@ -12,10 +12,10 @@
  *
  * @wordpress-plugin
  * Plugin Name:       CSV Export
- * Plugin URI:        http://example.com/plugin-name-uri/
- * Description:       exports csvs derrr
- * Version:           1.0.0
- * Author:            Your Name or Your Company
+ * Plugin URI:        http://agileitsoultions.net
+ * Description:       Export  Enquiry message details
+ * Version:           1.0.0 
+ * Author:            Agile IT Solutions Pvt. Ltd.
  * Author URI:        http://example.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
