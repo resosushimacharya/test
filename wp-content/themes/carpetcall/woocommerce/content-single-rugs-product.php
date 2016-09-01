@@ -123,7 +123,7 @@ if ( ! defined( 'ABSPATH' ) ) {
               if(count($has_sub_cat)==0){
 						$current_post_term_id = $cat->term_id;
 						wp_reset_query();
-						$args = array('post_type'=>'product','posts_per_page'=>'-1',
+						$args = array('post_type'=>'product','posts_per_page'=>'-1','order_by'=>'title',
                           /*'meta_key'=>'_sale_price',
                           'orderby' => 'meta_value_num',
                            'order'     => 'ASC',*/
@@ -240,7 +240,7 @@ foreach($filterproGroup as $bundle){
               
               //echo '<br>';$post->ID;?>
               
-              <a href="<?php echo get_the_permalink($key)?>" class="select_design">
+              <a href="<?php echo get_permalink($key)?>" class="select_design">
               <?php if($flag==1){
                      $proImageName =  wp_get_attachment_image_src($reqProImageId,'thumbnail');
 					 if($proImageName){
@@ -267,7 +267,7 @@ foreach($filterproGroup as $bundle){
           elseif($displayCounter==1){ ?>  <div class="select-design-product-image <?php echo (array_key_exists($post->ID,$bundle))?'pro-active':null;?>">
                          
               
-              <a name="<?php echo $post->post_name?>" href="<?php echo get_the_permalink($key)?>" class="select_design">
+              <a name="<?php echo $post->post_name?>" href="<?php echo get_permalink($key)?>" class="select_design">
              
             
                 
@@ -846,7 +846,7 @@ wrapper close start */?>
 					echo $term->name;?>
 					</h4></a><?php 
 					if(!empty($price)){
-						echo '<h6> FROM A$'.$price.'</h6>';
+						echo '<h6> FROM $'.$price.'</h6>';
 						}?></div>
 					<div class="clearfix"></div>
                       </div>

@@ -12,7 +12,7 @@ global $woocommerce, $product;
 	woocommerce_form_field("shipping_method", array(
     'type'              => 'radio',
 	'required'			=> true,
-    'options'           => array( 'store_pickup' => 'Pickup In Store' ),
+    'options'           => array( 'store_pickup' => '<span>Pickup In Store</span>' ),
 ), 'store_pickup' );
 
 	?>
@@ -27,7 +27,7 @@ global $woocommerce, $product;
     woocommerce_form_field("shipping_method", array(
     'type'              => 'radio',
 	'required'			=>true,
-    'options'           => array( 'local_delivery' => 'Local Delivery'),
+    'options'           => array( 'local_delivery' => '<span>Local Delivery</span>'),
 ), '' );
 	
 ?>

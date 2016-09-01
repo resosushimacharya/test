@@ -132,7 +132,7 @@ if(!empty($careins)){
                 </div>
                 <div id="collapseTwo" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <div class="panel-body">
+                        
                            
                             <div class="panel-group" id="accordion21">
                              <?php
@@ -149,8 +149,10 @@ if(!empty($careins)){
 					
 					?>
                                 <div class="panel">
+                                    <div class="panel-heading">
                                     <a data-toggle="collapse" data-parent="#accordion21" href="#collapse_mobile_<?php echo $faqcounter ;?>"><?php echo $listitem['title'];?>
                                     </a>
+                                    </div>
                                     <div id="collapse_mobile_<?php echo $faqcounter ;?>" class="panel-collapse collapse">
                                         <div class="panel-body"><?php echo $listitem['description']; ?></div>
                                     </div>
@@ -162,7 +164,7 @@ if(!empty($careins)){
                             } ?>
                             
                             </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

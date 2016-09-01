@@ -5,7 +5,7 @@
 	woocommerce_form_field("shipping_method", array(
     'type'              => 'radio',
 	'required'			=> true,
-    'options'           => array( 'store_pickup' => 'Pickup In Store(Rugs and Hard Flooring' ),
+    'options'           => array( 'store_pickup' => '<span>Pickup In Store(Rugs and Hard Flooring</span>' ),
 ), 'store_pickup' );
 
 ?>

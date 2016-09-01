@@ -434,9 +434,11 @@ jQuery(document).on('change','.delivery_option_rugs #nearby_stores_main_wrapper 
     $(function() {
       $('.single-produc-acc-cntr')
       .on('show.bs.collapse', function(e) {
+        $(e.target).parent('.panel-default').addClass('active');
         $(e.target).prev('.panel-heading').addClass('active');
       })
       .on('hide.bs.collapse', function(e) {
+        $(e.target).parent('.panel-default').removeClass('active');
         $(e.target).prev('.panel-heading').removeClass('active');
       });          
     });
