@@ -5975,7 +5975,9 @@ label.inner-radio-label.radio-check-label::after{
 .delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p label.radio{
 	margin: 0;
 }
-
+.delivery_option_rugs .rugs_store_pickup_list .nearstore .cc-pul-headoff{
+	margin: 0;
+}
 
 #ship-to-different-address > label{
 	font-size: 20px;
