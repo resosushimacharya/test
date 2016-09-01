@@ -1045,6 +1045,7 @@ h5.tryit.tryita {
 	border: 1px solid #d1ddf1;
 	background: #fff;
 	border-radius: 0;
+	z-index: 10;
 }
 .responsive .slick-next {
 	right: -1.3%;
@@ -1053,6 +1054,7 @@ h5.tryit.tryita {
 	border: 1px solid #d1ddf1;
 	background: #fff;
 	border-radius: 0;
+	z-index: 10;
 }
 .responsive .slick-prev:before {
 	content: '\f104';
