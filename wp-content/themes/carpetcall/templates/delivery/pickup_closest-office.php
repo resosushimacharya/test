@@ -4,6 +4,8 @@
         <h4 class="modal-title">PICK UP LOCATIONS</h4>
       </div>
       <div>
+     
+<?php /*?>     
         	<h2 class="fyns-blk"> FIND YOUR NEAREST STORE </h2>
             
             <div class="frm-blk clearfix">
@@ -21,6 +23,9 @@
                           <button type="button" class="btn btn-default" id="checkout_fetch_nearby_stores_currentloc" >USE CURRENT LOCATION</button>
                       
             </div>
+           
+<?php */?>           
+           
             <!-- <div id="dialog_list_id_s"></div> -->
             
             <div class="nearstore" id="dialog_list_id_s"> 
