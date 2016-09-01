@@ -17,24 +17,25 @@ $(function () {
 		$('[data-toggle="tooltip"]').tooltip({html:true});
 		}
     init_slick_slider();
-  
-})
+
+ 
+});
 jQuery(document).ready(function($){
 jQuery(document).on('click','#checkout_fetch_nearby_stores',function(){
 	var keyword = jQuery('#edit_dialog_keyword').val().trim();
 	
-		var data = {
-				'action': 'get_nearby_stores', 
-				'address':keyword,
-		};
-		//alert(ajaxurl);
-		jQuery.post(woo_load_autocomplete.ajax_url, data, function(response) {
-			response = jQuery.parseJSON(response);
-			jQuery('#nearby_stores_main_wrapper').html(response);
-			jQuery('#nearby_stores_main_wrapper').find('.input-radio').wrap('<label class="inner-radio-label"></label');
-			jQuery('#nearby_stores_main_wrapper').find('.input-radio').css('opacity','0');
-			});
+	var data = {
+			'action': 'get_nearby_stores', 
+			'address':keyword,
+	};
+	//alert(ajaxurl);
+	jQuery.post(woo_load_autocomplete.ajax_url, data, function(response) {
+		response = jQuery.parseJSON(response);
+		jQuery('#nearby_stores_main_wrapper').html(response);
+		jQuery('#nearby_stores_main_wrapper').find('.input-radio').wrap('<label class="inner-radio-label"></label');
+		jQuery('#nearby_stores_main_wrapper').find('.input-radio').css('opacity','0');
 	});
+});
 jQuery(document).on('click','#checkout_fetch_nearby_stores_currentloc',function(){
 	navigator.geolocation.getCurrentPosition(CheckoutCurrentLocation);
 	function CheckoutCurrentLocation(position) {
