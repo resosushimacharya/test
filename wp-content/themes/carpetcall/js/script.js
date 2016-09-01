@@ -366,6 +366,7 @@
       });
     }
 
+/*
     // Custom Radio
     if($('.pickup_location_list').length){
       $('.delivery_option_rugs #nearby_stores_main_wrapper .pickup_location_list input[type=radio]').wrap('<label class="inner-radio-label"></label>');
@@ -373,17 +374,24 @@
       var innerradiochecked = 'radio-check-label'; 
       elm=$('.delivery_option_rugs #nearby_stores_main_wrapper .pickup_location_list input[type=radio]');
 
-      function setRadioClass() {
+     
+
+     // elm.on('change', setRadioClass);
+     // setRadioClass();  
+    }
+jQuery(document).on('change','.delivery_option_rugs #nearby_stores_main_wrapper .pickup_location_list input[type=radio]',function(){
+	setRadioClass();
+	});
+
+ function setRadioClass() {
         elm.each(function(i,e) {
           $(e).parent('label')[e.checked?'addClass':'removeClass']($(e).is(':radio')?innerradiochecked:innercheckbox_checked);          
         });
-      }
-
-      elm.on('change', setRadioClass);
-      setRadioClass();  
-    }
-
-    // Custom Checkbox
+      } 
+	  
+	  */
+	  
+	     // Custom Checkbox
     if($('#ship-to-different-address').length){
       $('.delivery_option_rugs #ship-to-different-address input[type=checkbox]').wrap('<label class="inner-check-label"></label>');
       $('.delivery_option_rugs #ship-to-different-address input[type=checkbox]').css({'opacity':0});
