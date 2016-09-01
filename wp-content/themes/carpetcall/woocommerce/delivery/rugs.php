@@ -36,7 +36,7 @@ global $woocommerce, $product;
     <label class="deliver_option_label">Local Delivery</label></div>
 	-->
     </div>
-
+</div>
 
 	<div class="rugs_store_pickup_list">
 	<?php get_template_part( 'templates/delivery/pickup_closest', 'office' );?>

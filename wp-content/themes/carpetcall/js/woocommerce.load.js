@@ -31,6 +31,8 @@ jQuery(document).on('click','#checkout_fetch_nearby_stores',function(){
 		jQuery.post(woo_load_autocomplete.ajax_url, data, function(response) {
 			response = jQuery.parseJSON(response);
 			jQuery('#nearby_stores_main_wrapper').html(response);
+			jQuery('#nearby_stores_main_wrapper').find('.input-radio').wrap('<label class="inner-radio-label"></label');
+			jQuery('#nearby_stores_main_wrapper').find('.input-radio').css('opacity','0');
 			});
 	});
 jQuery(document).on('click','#checkout_fetch_nearby_stores_currentloc',function(){
@@ -49,8 +51,6 @@ jQuery(document).on('click','#checkout_fetch_nearby_stores_currentloc',function(
 			response = jQuery.parseJSON(response);
 			jQuery('#nearby_stores_main_wrapper').html(response);
 			jQuery('#nearby_store_main_wrapper').find('input[type=radio]').each(function(index, element) {
-				alert(element.value);
-				alert(jQuery(this).parent().hasClass('inner-radio-label'));
                 if(!jQuery(this).parent().hasClass('inner-radio-label')){
 					jQUery(this).wrap('<label class="inner-radio-label"></label>')
 					}
@@ -217,15 +217,19 @@ jQuery(document).on('click','.select-design-product-image a.select_design',funct
           	jQuery('#store-count-quantity').removeClass('add_to_cart_button');
            	jQuery('#store-count-quantity').removeClass('ajax_add_to_cart');
 			
-			jQuery('.product_single_thumb_slider').slick({
-			  dots: true,
-			  infinite: true,
-			  speed: 300,
-			  slidesToShow: 1,
-			  adaptiveHeight: true
+		jQuery('.product_single_thumb_slider').slick({
+		  dots: true,
+		  infinite: true,
+		  speed: 300,
+		  slidesToShow: 1,
+		  adaptiveHeight: true
+		});
+      		//largeImgMob();
+			var bigImg = $(".single-product-thumb-img");      
+			$(bigImg).each(function() {
+			  var bigImgHref = $(this).attr('href');
+			  $(this).find("img").attr("src", bigImgHref);
 			});
-      		largeImgMob();
-			
 	
 	
 		    // Displaying the Loading gif during ajax call
