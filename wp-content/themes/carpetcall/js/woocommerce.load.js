@@ -19,7 +19,6 @@ $(function () {
     init_slick_slider();
   
 })
-jQuery(document).ready(function($){
 jQuery(document).on('click','#checkout_fetch_nearby_stores',function(){
 	var keyword = jQuery('#edit_dialog_keyword').val().trim();
 	
@@ -52,7 +51,9 @@ jQuery(document).on('click','#checkout_fetch_nearby_stores_currentloc',function(
 			jQuery('#nearby_stores_main_wrapper').html(response);
 			jQuery('#nearby_store_main_wrapper').find('input[type=radio]').each(function(index, element) {
                 if(!jQuery(this).parent().hasClass('inner-radio-label')){
-					jQUery(this).wrap('<label class="inner-radio-label"></label>')
+					jQUery(this).wrap('<label class="inner-radio-label"></label>');
+					jQuery(element).parent('label')[element.checked?'addClass':'removeClass'](jQuery(element).is(':radio')?'radio-check-label':''); 
+					
 					}
             });
 			});
@@ -60,7 +61,16 @@ jQuery(document).on('click','#checkout_fetch_nearby_stores_currentloc',function(
 	
 });
 
-	
+jQuery(document).on('change','.delivery_option_rugs #nearby_stores_main_wrapper .pickup_location_list input[type=radio]',function(e){
+			jQuery('.delivery_option_rugs #nearby_stores_main_wrapper .pickup_location_list .inner-radio-label.radio-check-label').removeClass('radio-check-label');
+			if(jQuery(this).is(':checked')){
+				 jQuery(this).parent('label').addClass('radio-check-label');
+				}else{
+					jQuery(this).parent('label').removeClass('radio-check-label');
+					}
+        
+	});
+
 jQuery('.acc_list_item .acc_qnty .quantity select.qty').val(0).trigger('click');
 if(jQuery("input#price_range_filter").length > 0){
 	jQuery("input#price_range_filter").slider().on('slide',(function(ev){

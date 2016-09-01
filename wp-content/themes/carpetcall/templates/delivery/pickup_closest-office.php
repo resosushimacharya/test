@@ -5,7 +5,7 @@
       </div>
       <div>
      
-<?php /*?>     
+<div class="nearest_loc_search_form" style="opacity:0; height: 0; overflow: hidden; ">    
         	<h2 class="fyns-blk"> FIND YOUR NEAREST STORE </h2>
             
             <div class="frm-blk clearfix">
@@ -24,7 +24,7 @@
                       
             </div>
            
-<?php */?>           
+</div>           
            
             <!-- <div id="dialog_list_id_s"></div> -->
             
