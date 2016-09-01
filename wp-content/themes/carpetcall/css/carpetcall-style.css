@@ -5861,7 +5861,7 @@ h2.fyns-blk {
 }
 .delivery_option_item{
 	height: 48px;
-	width: 270px;
+	width: 340px;
 	border: 2px solid #f0f2f1;
 	display: inline-block;
 	padding: 0;
@@ -6011,7 +6011,7 @@ label.inner-check-label.radio-check-label::after{
     font-size: 16px;
     color: #c32327;
     left: 4px;
-    top: 2px;
+    top: -2px;
 }
 #ship-to-different-address{
 	margin-bottom: 20px !important;
@@ -6094,7 +6094,7 @@ label.inner-check-label.radio-check-label::after{
 	top: 0;
 	left: 0;
     margin: 0;
-    line-height: 48px;
+    line-height: 46px;
 }
 .inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item label.radio span{
 	padding-left: 50px;
