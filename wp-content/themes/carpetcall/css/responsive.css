@@ -3597,7 +3597,7 @@
 	.details-us h3{
 	    font-size: 32px;
 	    padding: 40px 0 25px;
-	    padding-left: 15px;
+	    padding-left: 12px;
 	}
 	.fl-blk, .mero-blkk, .tel-blk, #cc-store-form-section{
 		padding: 0;
@@ -3656,11 +3656,11 @@
 		padding: 0 15px;
 	}
 	.contact-submit-cntr .btn-dn{
-	    width: 440px;
+	    width: 360px;
 	    padding: 0;
-	    height: 90px;
-	    line-height: 90px;
-	    font-size: 36px;
+	    height: 70px;
+	    line-height: 70px;
+	    font-size: 26px;
 	    margin: 70px auto 0;
 	    display: block;
 	}
@@ -4046,6 +4046,76 @@
 	 }
 	  
 	/* === SEARCH PAGE End === */
+	
+	/* === CONTACT US PAGE === */
+	.cc-wrapper-whole h3 {
+		font-size:50px;	
+		margin-bottom:20px;
+	}
+	.inerblock_contblk p {
+		font-size:22px;
+		margin-bottom:20px;
+		max-width:100%;	
+	}
+	.form-group.cc-enquiry-section h3, .details-us h3, #cc-store-form-section .form-group.col-sm-12 p {
+		font-size:28px;	
+	}
+	.query-rlblk .form-group {
+		font-size:26px;	
+		margin-bottom:0;
+	}
+	select#cc-enquiry-type {
+		height:55px;
+		margin-top:22px;
+		font-size:20px;
+		background-size:55px;	
+		padding: 10px 65px 10px 20px;
+	}
+	.fl-blk label, .mero-blkk .form-group.col-sm-12 label, .tel-blk .form-group.col-sm-6 label {
+		font-size:28px;	
+		font-weight:normal;
+		margin-bottom:20px;
+		padding-left:10px;
+		display:block;
+	}
+	.fl-blk .form-control, .mero-blkk .form-group.col-sm-12 .form-control, .tel-blk .form-group.col-sm-6 .form-control {
+		height:55px;
+		font-size:20px;
+		padding:10px 30px;
+		width:100%;
+	}
+	#cc-store-form-section .form-group.col-sm-12 h3, .ur-msg-title .form-group.col-sm-12 h3 {
+		font-size:38px;
+		padding:20px 0;	
+	}
+	select#cc-state-type, select#cc-store-name {
+		padding-right:50px;
+		background-size:50px;	
+		width:100%;
+		height:50px;
+		font-size:20px;
+		padding:10px 30px;
+	}
+	.contact_form_cntr .contact-msg-cntr, .contact_form_cntr .contact-captcha-cntr {
+	padding:0;	
+	}
+	.form-group.col-sm-12 textarea.form-control {
+		width:100%;
+		height:250px;
+		resize:none;
+		padding:20px 20px;
+		font-size:20px;	
+	}
+	.contact-submit-cntr .btn-dn {
+		width:360px;
+		height:60px;
+		padding:0;
+		line-height:60px;
+		font-size:26px;
+		display:block;
+		margin:50px auto 0;
+	}
+	/* === CONTACT US PAGE End === */
 
 
 }
@@ -5066,6 +5136,80 @@
 	 }
 	  
 	/* === SEARCH PAGE End === */
+	
+	/* === CONTACT US PAGE === */
+	.cc-wrapper-whole h3 {
+		font-size:45px;	
+		margin-bottom:15px;
+	}
+	.inerblock_contblk p {
+		font-size:20px;
+		margin-bottom:15px;
+		max-width:100%;	
+	}
+	.form-group.cc-enquiry-section h3, .details-us h3, #cc-store-form-section .form-group.col-sm-12 p {
+		font-size:25px;	
+		padding:25px 15px 20px 0;		
+	}
+	#cc-store-form-section .form-group.col-sm-12 p {
+		margin:0;	
+	}
+	.query-rlblk .form-group {
+		font-size:24px;	
+		margin-bottom:0;
+	}
+	select#cc-enquiry-type {
+		height:50px;
+		margin-top:22px;
+		font-size:20px;
+		background-size:50px;	
+		padding: 10px 65px 10px 20px;
+	}
+	.fl-blk label, .mero-blkk .form-group.col-sm-12 label, .tel-blk .form-group.col-sm-6 label {
+		font-size:24px;	
+		font-weight:normal;
+		margin-bottom:17px;
+		padding-left:10px;
+		display:block;
+	}
+	.fl-blk .form-control, .mero-blkk .form-group.col-sm-12 .form-control, .tel-blk .form-group.col-sm-6 .form-control {
+		height:50px;
+		font-size:18px;
+		padding:10px 25px;
+		width:100%;
+	}
+	#cc-store-form-section .form-group.col-sm-12 h3, .ur-msg-title .form-group.col-sm-12 h3 {
+		font-size:32px;
+		padding:15px 0;	
+	}
+	select#cc-state-type, select#cc-store-name {
+		padding-right:50px;
+		background-size:50px;	
+		width:100%;
+		height:50px;
+		font-size:20px;
+		padding:10px 30px;
+	}
+	.contact_form_cntr .contact-msg-cntr, .contact_form_cntr .contact-captcha-cntr {
+	padding:0;	
+	}
+	.form-group.col-sm-12 textarea.form-control {
+		width:100%;
+		height:250px;
+		resize:none;
+		padding:20px 20px;
+		font-size:18px;	
+	}
+	.contact-submit-cntr .btn-dn {
+		width:280px;
+		height:60px;
+		padding:0;
+		line-height:60px;
+		font-size:18px;
+		display:block;
+		margin:50px auto 0;
+	}
+	/* === CONTACT US PAGE End === */
 
 
 	/* ===== FOOTER ===== */	
@@ -5931,6 +6075,80 @@
 	 }
 	  
 	/* === SEARCH PAGE End === */
+	
+	/* === CONTACT US PAGE === */
+	.cc-wrapper-whole h3 {
+		font-size:45px;	
+		margin-bottom:15px;
+	}
+	.inerblock_contblk p {
+		font-size:20px;
+		margin-bottom:15px;
+		max-width:100%;	
+	}
+	.form-group.cc-enquiry-section h3, .details-us h3, #cc-store-form-section .form-group.col-sm-12 p {
+		font-size:25px;	
+		padding:25px 15px 20px 0;		
+	}
+	#cc-store-form-section .form-group.col-sm-12 p {
+		margin:0;	
+	}
+	.query-rlblk .form-group {
+		font-size:24px;	
+		margin-bottom:0;
+	}
+	select#cc-enquiry-type {
+		height:50px;
+		margin-top:22px;
+		font-size:20px;
+		background-size:50px;	
+		padding: 10px 65px 10px 20px;
+	}
+	.fl-blk label, .mero-blkk .form-group.col-sm-12 label, .tel-blk .form-group.col-sm-6 label {
+		font-size:24px;	
+		font-weight:normal;
+		margin-bottom:17px;
+		padding-left:10px;
+		display:block;
+	}
+	.fl-blk .form-control, .mero-blkk .form-group.col-sm-12 .form-control, .tel-blk .form-group.col-sm-6 .form-control {
+		height:50px;
+		font-size:18px;
+		padding:10px 25px;
+		width:100%;
+	}
+	#cc-store-form-section .form-group.col-sm-12 h3, .ur-msg-title .form-group.col-sm-12 h3 {
+		font-size:32px;
+		padding:15px 0;	
+	}
+	select#cc-state-type, select#cc-store-name {
+		padding-right:50px;
+		background-size:50px;	
+		width:100%;
+		height:50px;
+		font-size:20px;
+		padding:10px 30px;
+	}
+	.contact_form_cntr .contact-msg-cntr, .contact_form_cntr .contact-captcha-cntr {
+	padding:0;	
+	}
+	.form-group.col-sm-12 textarea.form-control {
+		width:100%;
+		height:250px;
+		resize:none;
+		padding:20px 20px;
+		font-size:18px;	
+	}
+	.contact-submit-cntr .btn-dn {
+		width:260px;
+		height:60px;
+		padding:0;
+		line-height:60px;
+		font-size:18px;
+		display:block;
+		margin:50px auto 0;
+	}
+	/* === CONTACT US PAGE End === */
 
 
 	/* ===== FOOTER ===== */
