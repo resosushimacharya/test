@@ -5190,6 +5190,9 @@ a.btn-employment:hover {
 	min-width: 201px;
 	overflow: visible;
 }
+.range_slider b {
+	display:block;	
+}
 .archive.tax-product_cat .slider.slider-horizontal {
 	width: 184px;
 	height: 20px;
