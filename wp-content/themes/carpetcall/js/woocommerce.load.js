@@ -17,9 +17,10 @@ $(function () {
 		$('[data-toggle="tooltip"]').tooltip({html:true});
 		}
     init_slick_slider();
+
  
 });
-
+jQuery(document).ready(function($){
 jQuery(document).on('click','#checkout_fetch_nearby_stores',function(){
 	var keyword = jQuery('#edit_dialog_keyword').val().trim();
 	
