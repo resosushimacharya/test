@@ -27,7 +27,7 @@ get_header();
 
 		<div class="gpf-block clearfix">
         <div class="container">
-        <div class="cc-rugs-sor-cntr">
+        <div class="cc-rugs-sor-cntr clearfix">
 		<?php 
         $shop_ranges = get_field('shopping_ranges',get_the_ID());
 		if(!empty($shop_ranges)){
