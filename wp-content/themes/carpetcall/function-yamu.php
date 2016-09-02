@@ -791,6 +791,9 @@ function loadmore_hf($args){
 		return $ret;
 	}
 }
+
+	
+	
 add_action('wp_ajax_cc_custom_search','cc_custom_search');
 add_action('wp_ajax_nopriv_cc_custom_search','cc_custom_search');
 function cc_custom_search($args){
