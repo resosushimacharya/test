@@ -870,7 +870,7 @@ function cron_func_delete(){
 $args = array(
 
 				"post_type"=>'product',
-				//"post_status"=>array("draft",),
+				"post_status"=>array("draft"),
 				"posts_per_page"=>"-1",
 				'tax_query' => array(
                                 array(

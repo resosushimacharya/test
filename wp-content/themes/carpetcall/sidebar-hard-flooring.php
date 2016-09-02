@@ -19,7 +19,7 @@
     foreach($prosubcats as $psc)
     {
 		$term = get_term_by( 'id', $psc, $taxonomy );
-		if($term->parent == $term_id){
+		if($term->parent == $term_id && $term->count >0){
 		 echo '<li><a href="'.get_term_link($term,$taxonomy).'">'.$term->name.'<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
 		}
        } ?>
