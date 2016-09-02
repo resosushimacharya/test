@@ -98,7 +98,7 @@ get_header();
                   </div>
                 </div>
                 </div>                
-        <div class="inerblock_sec_a">
+        <?php /*?><div class="inerblock_sec_a">
     <div class="container clearfix you_may_link_cntr">
         <h3 style="text-align:center">Popular Products</h3>
 <div class="you_may_like-content">
@@ -160,7 +160,7 @@ get_header();
 </div>
                
     </div>
-    </div>        
+    </div><?php */?>        
         
 
 
