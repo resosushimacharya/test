@@ -8,17 +8,24 @@ get_header();
 <div class="body-wrapper">
 <div class="ia-block clearfix">
 <div class="container">
-        <div class="col-md-6 no-pl cc-ia-content">
+        <div class="col-md-12 no-pl cc-ia-content">
+        <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
+    <?php if(function_exists('bcn_display'))
+    {
+        bcn_display();
+    }?>
+
+</div>
         <h1><?php the_title();?> </h1>
         <p><?php echo $post->post_content;?> </p>
         </div>
         <?php
 		$feat_image = has_post_thumbnail()?get_the_post_thumbnail_url(get_the_ID(),'full'):get_template_directory_uri().'/images/placeholder.png';
 		?>
-        <div class="col-md-6 ia-img">
+        <!--<div class="col-md-6 ia-img">
          <div class="cc-ia-banner" style="background-image: url(<?php echo $feat_image ;?>);">	
          </div>
-        </div>
+        </div>-->
 </div>
 </div><!-- uppper section end here -->
 
@@ -28,11 +35,33 @@ get_header();
         <div class="container">
         <div class="row cc-ia-item-cover">
 		<?php 
-        $top_lvl_cats = array('rugs','hard-flooring','carpets','blinds','accessories');
+        $top_lvl_cats = array('carpets','rugs','hard-flooring','blinds','awnings','shutters');
         foreach($top_lvl_cats as $top_cat){
             $term = get_term_by('slug',$top_cat,'product_cat');
-            if($term){?>
-                  <div class="col-md-6 cc-ia-item">
+            if($term){
+				
+				
+            $img_url = '';
+			$cat_thumb_id = get_woocommerce_term_meta($term->term_id, 'thumbnail_id', true);
+			if($cat_thumb_id){
+				$img_url = wp_get_attachment_url($cat_thumb_id);
+				}else{
+					$img_url = get_template_directory_uri().'/images/placeholder.png';
+				}
+			?>
+            <div class="shop_range_cat_block" style="background-image:url('<?php echo $img_url ?>')">
+            	
+            
+            </div>
+            <h3><a href="<?php echo get_term_link($term->term_id,'product_cat') ?>"><?php _e($term->name,'carpetcall')?></a></h3>
+<?php /*?>            <div class="read_more"><a href="<?php echo get_term_link($term->term_id,'product_cat') ?>"><?php _e($term->name,'carpetcall')?></a></div> 
+<?php */?>            
+            <div class="clearfix"></div>
+            
+            
+            
+            
+                 <?php /*<div class="col-md-6 cc-ia-item">
   <div class="all-items-blk"> <a href="<?php echo get_term_link($term->term_id)?>">
       <h3><?php echo $term->name?></h3>
     </a>
@@ -60,7 +89,9 @@ get_header();
    
     <div class="read_more"><a href="<?php echo get_term_link($term->term_id) ?>"><?php _e('View All','carpetcall')?></a></div> <div class="clearfix"></div>
   </div>
-</div>
+</div>*/ ?>
+
+
                 <?php }?>
                 
             <?php } ?>
