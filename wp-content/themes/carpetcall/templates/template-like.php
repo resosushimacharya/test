@@ -6,14 +6,14 @@
 
      
 $listcat=get_the_terms($post->ID,'product_cat');
-
+if($listcat){
 foreach($listcat as $cat){
   if($cat->parent==0){
     //echo "that's the correct answer";
     $root = $cat->slug;
     $rootname = $cat->name;
     if(strcasecmp($root,"hard-flooring")==0){
-      $root ="hard-floor";
+      $root ="hard-flooring";
     }
   }
   else{
@@ -75,6 +75,7 @@ while($parent->have_posts()){
 
     
 
+}
 }?>
   </div>
 
