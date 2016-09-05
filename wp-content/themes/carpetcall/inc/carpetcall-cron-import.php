@@ -23,7 +23,7 @@ function data_database_read($termslug){
    $data = array(); 
    $args = array(
    			'post_type' => 'product',
-   			'post_status' => 'publish',
+   			/*'post_status' => 'publish',*/
    			'posts_per_page' => '-1',
    			'tax_query' => array(
                                 array(
@@ -522,7 +522,7 @@ if($item_sku){
 /////////////////////////////Import Product Function //////////////////
 ////////////////////////////////////////////////////////////////////////
 
-//add_action("admin_init",'cron_func_update');
+add_action("admin_init",'cron_func_update');
 function cron_func_update(){
 
 $rugsadmin = data_database_read("hardflooring");
