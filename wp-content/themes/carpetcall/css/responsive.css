@@ -21,7 +21,7 @@
 	}
 	
 	/* Display none goes here */
-	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i, #main nav.woocommerce-breadcrumb, .cc-color-var-section > h3, .cc-ia-content h4, .ia-img, .inerblock_clearn .breadcrumbs, .breadcrumbs, .inerblock_sec ul.guide_list_cbg, .cc-store-bdy-contr #gmap, .wpsl-store-below #wpsl-gmap, .cc-locator-title-sec-z, .cc-store-icon-label img, .cc-breadcrumb, .cc-mobile-blk .nowspe, .find-store-parent-page #Map, .desktop{
+	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i, #main nav.woocommerce-breadcrumb, .cc-color-var-section > h3, .cc-ia-content h4, .ia-img, .inerblock_clearn .breadcrumbs, .breadcrumbs, .inerblock_sec ul.guide_list_cbg, .cc-store-bdy-contr #gmap, .wpsl-store-below #wpsl-gmap, .cc-locator-title-sec-z, .cc-store-icon-label img, .cc-breadcrumb, .cc-mobile-blk .nowspe, .find-store-parent-page #Map, .desktop, table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-thumbnail{
 		display: none;
 	}
 	/* Display none ends here */
@@ -1233,6 +1233,45 @@
 	}
 	
 	/* === SHOP OUR RANGE -- PAGE End === */
+	
+	/* === MY CART - PAGE === */
+	
+	.about-page .cart_checkout_header_subtitle {
+		margin-bottom:0;	
+	}
+	.about-page .cart_checkout_header_subtitle p.return-to-shop a.button.wc-backward {
+		margin-top:10px;	
+	}
+	table.shop_table.shop_table_responsive.cart > tbody > tr > td {
+		display: block;
+		width: 100%;
+		padding: 5px 0;
+		position: relative;
+		text-align: left;
+		padding-left: 95px;
+		max-width: 100%;
+		white-space: normal;
+		background-color:transparent;
+	}
+	table.shop_table.shop_table_responsive.cart > tbody tr td:before {
+		content: attr(data-title);
+		position: absolute;
+		left: 0;	
+	}
+	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-remove {
+		padding-left:0;
+	}
+	.page.page-id-33 select#quantity-control {
+		width:25%;
+	}
+	.cbg_content.cc-condn-page .woocommerce input.button {
+		height:50px;
+		line-height:1px;
+		font-size:24px;	
+		margin-right:0;
+	}
+	
+	/* === MY CART - PAGE End === */
 
 
 	/* === MAIN CATEGORY PAGE === */
@@ -3324,6 +3363,45 @@
 	}
 	
 	/* === SHOP OUR RANGE -- PAGE End === */
+	
+	/* === MY CART - PAGE === */
+	
+	.about-page .cart_checkout_header_subtitle {
+		margin-bottom:0;	
+	}
+	.about-page .cart_checkout_header_subtitle p.return-to-shop a.button.wc-backward {
+		margin-top:10px;	
+	}
+	table.shop_table.shop_table_responsive.cart > tbody > tr > td {
+		display: block;
+		width: 100%;
+		padding: 5px 0;
+		position: relative;
+		text-align: left;
+		padding-left: 95px;
+		max-width: 100%;
+		white-space: normal;
+		background-color:transparent;
+	}
+	table.shop_table.shop_table_responsive.cart > tbody tr td:before {
+		content: attr(data-title);
+		position: absolute;
+		left: 0;	
+	}
+	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-remove {
+		padding-left:0;
+	}
+	.page.page-id-33 select#quantity-control {
+		width:25%;
+	}
+	.cbg_content.cc-condn-page .woocommerce input.button {
+		height:50px;
+		line-height:1px;
+		font-size:20px;	
+		margin-right:0;
+	}
+	
+	/* === MY CART - PAGE End === */
 
 
 	/* === MAIN CATEGORY PAGE === */
@@ -4503,6 +4581,48 @@
 	}
 	
 	/* === SHOP OUR RANGE -- PAGE End === */
+	
+	/* === MY CART - PAGE === */
+	
+	.about-page .cart_checkout_header_subtitle {
+		margin-bottom:0;	
+	}
+	.about-page .cart_checkout_header_subtitle p.return-to-shop a.button.wc-backward {
+		margin-top:10px;	
+	}
+	table.shop_table.shop_table_responsive.cart > tbody > tr > td {
+		display: block;
+		width: 100%;
+		padding: 5px 0;
+		position: relative;
+		text-align: left;
+		padding-left: 95px;
+		max-width: 100%;
+		white-space: normal;
+		background-color:transparent;
+	}
+	table.shop_table.shop_table_responsive.cart > tbody tr td:before {
+		content: attr(data-title);
+		position: absolute;
+		left: 0;	
+	}
+	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-remove {
+		padding-left:0;
+	}
+	.page.page-id-33 select#quantity-control {
+		width:35%;
+	}
+	.cbg_content.cc-condn-page .woocommerce input.button {
+		height:45px;
+		line-height:1px;
+		font-size:18px;	
+		margin-right:0;
+	}
+	.cbg_content.cc-condn-page .woocommerce input {
+		width:75% !important;
+	}
+	
+	/* === MY CART - PAGE End === */
 
 
 }
@@ -5621,6 +5741,48 @@
 	}
 	
 	/* === SHOP OUR RANGE -- PAGE End === */
+	
+	/* === MY CART - PAGE === */
+	
+	.about-page .cart_checkout_header_subtitle {
+		margin-bottom:0;	
+	}
+	.about-page .cart_checkout_header_subtitle p.return-to-shop a.button.wc-backward {
+		margin-top:10px;	
+	}
+	table.shop_table.shop_table_responsive.cart > tbody > tr > td {
+		display: block;
+		width: 100%;
+		padding: 5px 0;
+		position: relative;
+		text-align: left;
+		padding-left: 95px;
+		max-width: 100%;
+		white-space: normal;
+		background-color:transparent;
+	}
+	table.shop_table.shop_table_responsive.cart > tbody tr td:before {
+		content: attr(data-title);
+		position: absolute;
+		left: 0;	
+	}
+	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-remove {
+		padding-left:0;
+	}
+	.page.page-id-33 select#quantity-control {
+		width:35%;
+	}
+	.cbg_content.cc-condn-page .woocommerce input.button {
+		height:45px;
+		line-height:1px;
+		font-size:18px;	
+		margin-right:0;
+	}
+	.cbg_content.cc-condn-page .woocommerce input {
+		width:75% !important;
+	}
+	
+	/* === MY CART - PAGE End === */
 
 
 	/* ===== FOOTER ===== */	
@@ -6584,6 +6746,48 @@
 	}
 	
 	/* === SHOP OUR RANGE -- PAGE End === */
+	
+	/* === MY CART - PAGE === */
+	
+	.about-page .cart_checkout_header_subtitle {
+		margin-bottom:0;	
+	}
+	.about-page .cart_checkout_header_subtitle p.return-to-shop a.button.wc-backward {
+		margin-top:10px;	
+	}
+	table.shop_table.shop_table_responsive.cart > tbody > tr > td {
+		display: block;
+		width: 100%;
+		padding: 5px 0;
+		position: relative;
+		text-align: left;
+		padding-left: 95px;
+		max-width: 100%;
+		white-space: normal;
+		background-color:transparent;
+	}
+	table.shop_table.shop_table_responsive.cart > tbody tr td:before {
+		content: attr(data-title);
+		position: absolute;
+		left: 0;	
+	}
+	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-remove {
+		padding-left:0;
+	}
+	.page.page-id-33 select#quantity-control {
+		width:65%;
+	}
+	.cbg_content.cc-condn-page .woocommerce input.button {
+		height:45px;
+		line-height:1px;
+		font-size:16px;	
+		margin-right:0;
+	}
+	.cbg_content.cc-condn-page .woocommerce input {
+		width:100% !important;
+	}
+	
+	/* === MY CART - PAGE End === */
 
 
 	/* ===== FOOTER ===== */
