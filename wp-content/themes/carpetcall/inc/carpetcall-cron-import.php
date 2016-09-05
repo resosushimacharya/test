@@ -552,7 +552,7 @@ if($item_sku){
 /////////////////////////////Import Product Function //////////////////
 ////////////////////////////////////////////////////////////////////////
 
-add_action("admin_init",'cron_func_update');
+//add_action("admin_init",'cron_func_update');
 function cron_func_update(){
 
 $rugsadmin = data_database_read("rugs");
