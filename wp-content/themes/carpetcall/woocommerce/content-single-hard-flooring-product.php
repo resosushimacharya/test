@@ -159,6 +159,28 @@ if($reqTempTerms){
 		//  do_action('pr',$relprod->ID.'->'.get_permalink($relprod->ID));
 		  $stockcheck = get_post_meta($relprod->ID);
          if(strcasecmp($stockcheck['_stock_status'][0],'instock')==0){ 
+		
+		
+		$imgflag = false;
+		$feat_image = get_template_directory_uri().'/images/placeholder.png';
+		$sku = explode('.',get_post_meta($relprod->ID,'_sku',true));
+		$image_names = array(
+								strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_L.jpg'),
+								strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_V.jpg'),
+								strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_S.jpg'),
+							);
+							
+		foreach($image_names as $imgname){
+			$img_path =  WP_CONTENT_DIR.'/uploads/products/small/'.$imgname;
+			if(file_exists($img_path)){
+				$feat_image = content_url('uploads/products/small/'.$imgname);
+				$imgflag = true;
+				break;
+			}
+		}
+						
+						
+		/*
 		 $proGal = get_post_meta($relprod->ID, '_product_image_gallery', TRUE );
          $proGalId = explode(',',$proGal);
 		 foreach($proGalId as $pgi){
@@ -173,9 +195,13 @@ if($reqTempTerms){
 					break;
 				}
 			 
-			 }?>
+			 }
+			 
+			 */?>
+             
+             
 		  <div class="select-design-product-image <?php echo  ($relprod->ID == $post->ID)?'pro-active':null?>"> 
-            <a href="<?php echo get_the_permalink($relprod->ID)?>" class="select_design"><span class="mobile"><?php echo $relprod->post_name;?></span><img class="cc-product_no_image" src="<?php echo $proImageName?>"> 
+            <a href="<?php echo get_the_permalink($relprod->ID)?>" class="select_design"><span class="mobile"><?php echo $relprod->post_name;?></span><img class="cc-product_no_image" src="<?php echo $feat_image?>"> 
             </a> 
         </div>
 		  <?php }
