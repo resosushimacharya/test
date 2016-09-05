@@ -48,40 +48,8 @@
         <div id="category_slider_block_wrapper">
 		<?php 
 		$term_id =  get_queried_object()->term_id;
-		$prosubcats=get_term_children($term_id,'product_cat');
-		$taxonomy = 'product_cat';
-		foreach($prosubcats as $psc)
-		{
-			$term = get_term_by( 'id', $psc, $taxonomy );
-			if($term->parent == $term_id && $term->count >0){
-			$patterns = get_field('product_slider_photos',$term);
-			if(!empty($patterns)){
-				$count = 0;
-				foreach($patterns as $pattern){
-					$count++;
-					if($count == 1){?>
-						<div class="row cc-cat-sub-title-price-cover">
-                        <div class="col-md-6 cc-cat-sub-title">
-                        <h3><?php echo $term->name?></h3><br/>
-                        </div>
-                        </div>
-						
-						<?php }else{
-							
-							}
-					}
-				}
-			
-			
-			}
-		   } 		
-		
-		
-		
-		
-		
-			
-			
+		$ret = load_more_carpet_blinds(array('cat_id'=>$term_id,'depth'=>$depth));
+		echo $ret['html'];
 		?>
         </div>
         <div class="woo-added"></div>
