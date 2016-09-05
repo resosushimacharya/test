@@ -215,6 +215,54 @@ foreach($proGroup as $item ){
 
 global $post;
 foreach($filterproGroup as $bundle){
+$count = 1;
+foreach($bundle as $key=>$value){
+	
+	$imgflag = false;
+	$feat_image = get_template_directory_uri().'/images/placeholder.png';
+	$sku = explode('.',get_post_meta($key,'_sku',true));
+	$image_names = array(
+					strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_L.jpg'),
+					strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_V.jpg'),
+					strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_S.jpg'),
+				);
+				
+		foreach($image_names as $imgname){
+			$img_path =  WP_CONTENT_DIR.'/uploads/products/small/'.$imgname;
+			if(file_exists($img_path)){
+			$feat_image = content_url('uploads/products/small/'.$imgname);
+			break;
+		}
+	}
+	$stockcheck = get_post_meta($post->ID);
+	if(strcasecmp($stockcheck['_stock_status'][0],'instock')==0 && $count == 1){
+		$count++;
+		?>
+		<div class="select-design-product-image <?php echo (array_key_exists($post->ID,$bundle))?'pro-active':null;?>">
+              <a href="<?php echo get_permalink($key)?>" class="select_design">
+              
+              
+              <span class="mobile"><?php echo $post->post_name;?></span><img name="<?php echo $post->post_name?>" class="cc-product_no_image" src="<?php echo $feat_image ;?>"/>
+              
+              
+              
+              
+              </a>
+              </div>
+		<?php } 
+	
+	
+if($key == $post->ID){
+            $res =apply_filters('woocommerce_product_bundle',$bundle);
+        
+           }
+	}
+
+
+
+	
+	
+	/*
   $i=1;  $displayCounter = 1 ; 
   foreach($bundle as $key => $value){
       $proGal = get_post_meta( $key, '_product_image_gallery', TRUE );
@@ -291,8 +339,7 @@ foreach($filterproGroup as $bundle){
 
     
     }
-  
-
+*/
 }
 
 foreach($resList as $mainId){
