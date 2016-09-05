@@ -1209,6 +1209,30 @@
 	 }
 	  
 	/* === SEARCH PAGE End === */
+	
+	/* === SHOP OUR RANGE -- PAGE === */
+	
+	.body-wrapper .gpf-block {
+		margin:58px 0 0;	
+	}
+	.ia-block .cc-ia-content h1 {
+		margin:47px 0 34px 0;	
+	}
+	.ia-block .cc-ia-content p {
+		margin:0 auto 55px;
+	}
+	.gpf-block .cc-rugs-sor-cntr .shop_range {
+		width:50%;
+		padding-bottom:25px;
+	}
+	.shop_range_cat_block {
+		height:272px;	
+	}
+	.sor-single-wrap h3 a {
+		font-size:37px;
+	}
+	
+	/* === SHOP OUR RANGE -- PAGE End === */
 
 
 	/* === MAIN CATEGORY PAGE === */
@@ -3276,6 +3300,30 @@
 	 }
 	  
 	/* === SEARCH PAGE End === */
+	
+	/* === SHOP OUR RANGE -- PAGE === */
+	
+	.body-wrapper .gpf-block {
+		margin:58px 0 0;	
+	}
+	.ia-block .cc-ia-content h1 {
+		margin:47px 0 34px 0;	
+	}
+	.ia-block .cc-ia-content p {
+		margin:0 auto 55px;
+	}
+	.gpf-block .cc-rugs-sor-cntr .shop_range {
+		width:100%;
+		padding-bottom:25px;
+	}
+	.shop_range_cat_block {
+		height:272px;	
+	}
+	.sor-single-wrap h3 a {
+		font-size:35px;
+	}
+	
+	/* === SHOP OUR RANGE -- PAGE End === */
 
 
 	/* === MAIN CATEGORY PAGE === */
@@ -3461,7 +3509,7 @@
 	/* === SINGLE PRODUCT PAGE === */
 	/* Product Head */
 	.single-product .ab_arrow{
-		margin: 0 0 50px;
+		margin: 25px 0 50px;
 	}
 	/* Product Head End */
 	/* Product Slider */
@@ -3655,15 +3703,14 @@
 	    padding: 20px 0 70px;
 	}
 	.summary.entry-summary .nearstore > h3 {
-	    font-size: 36px;
-	    padding-left: 20px;
-	    margin-bottom: 15px;
+	    font-size: 18px;
+	    padding-left: 15px;
 	}
 	.review-form{
 		padding: 0 10px 100px;
 	}
 	.flsm-blk .form-group.col-sm-6 label, .meroi-blka .form-group.col-sm-12 label, .tela-blkb .form-group.col-sm-6 label {
-	    font-size: 24px;
+	    font-size: 18px;
 	    margin: 20px 0 10px;
 	    display: block;
 	}
@@ -4432,6 +4479,30 @@
 		margin:50px auto 0;
 	}
 	/* === CONTACT US PAGE End === */
+	
+	/* === SHOP OUR RANGE -- PAGE === */
+	
+	.body-wrapper .gpf-block {
+		margin:58px 0 0;	
+	}
+	.ia-block .cc-ia-content h1 {
+		margin:37px 0 24px 0;	
+	}
+	.ia-block .cc-ia-content p {
+		margin:0 auto 55px;
+	}
+	.gpf-block .cc-rugs-sor-cntr .shop_range {
+		width:100%;
+		padding-bottom:25px;
+	}
+	.shop_range_cat_block {
+		height:250px;	
+	}
+	.sor-single-wrap h3 a {
+		font-size:32px;
+	}
+	
+	/* === SHOP OUR RANGE -- PAGE End === */
 
 
 }
@@ -4478,25 +4549,25 @@
 
 	/* Font-size 32px; */
 	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .cc-cat-sub-price, .cc-cat-pro-section-right input, h3.cc-idea-ad-title, .proabtxt h4, .cc-cat-sub-desc-sec h3{
-		font-size: 26px;
+		font-size: 24px;
 	}
 	/* Font-size 32px; End */
 
 	/* Font-size 42px; */
 	.bookcbk, .calspl a{
-		font-size: 34px;
+		font-size: 28px;
 	}
 	/* Font-size 42px; End */
 
 	/* Font-size 56px => 42px; */
 	.cc-cat-sub-price span{
-		font-size: 42px;
+		font-size: 38px;
 	}
 	/* Font-size 56px => 42px; End */
 
 	/* Font-size 72px => 60px; */
 	.sec_head_cntr h3{
-		font-size: 52px;
+		font-size: 48px;
 		border: none;
 	}
 	/* Font-size 72px => 60px; End */
@@ -4634,7 +4705,7 @@
 		font-size: 18px;
 	}
 	#cssmenu ul li ul li.sub-menu-item span.right_arrow{
-	    font-size: 28px;
+	    font-size: 26px;
 	    right: 10px;
 	    line-height: 58px;
 	}
@@ -4643,7 +4714,7 @@
 		height: 60px;
 	}
 	.selected-link-cntr span.go-back{
-		font-size: 30px;
+		font-size: 28px;
 	    line-height: 60px;
 	}
 	.selected-link-cntr span.selected_link_text {
@@ -4664,7 +4735,7 @@
 		right: 20px;
 	}
 	.hamro h3{
-		font-size: 30px;
+		font-size: 28px;
 	}
 	.hamro h4{
 		font-size: 22px;
@@ -4791,7 +4862,7 @@
 	    padding: 25px 20px;
 	}
 	.rugm-blk .open-product-sidebar{
-	    font-size: 32px;
+	    font-size: 30px;
 	    line-height: 75px;
         font-family: 'ProximaN Bold';
         right: 5px;
@@ -4892,7 +4963,7 @@
 		width: 53%;
 	}
 	.cc-cat-sub-title h3{
-		font-size: 26px;
+		font-size: 24px;
 		line-height: 1;
 		margin-top: 5px;
 	}
@@ -4900,7 +4971,7 @@
 		font-size: 22px;
 	}
 	.cc-cat-sub-price span{
-		font-size: 34px;
+		font-size: 30px;
 	}
 	.cc-cat-sub-title h4{
 		margin-top: 13px;
@@ -5526,6 +5597,30 @@
 		margin:50px auto 0;
 	}
 	/* === CONTACT US PAGE End === */
+	
+	/* === SHOP OUR RANGE -- PAGE === */
+	
+	.body-wrapper .gpf-block {
+		margin:58px 0 0;	
+	}
+	.ia-block .cc-ia-content h1 {
+		margin:37px 0 24px 0;	
+	}
+	.ia-block .cc-ia-content p {
+		margin:0 auto 55px;
+	}
+	.gpf-block .cc-rugs-sor-cntr .shop_range {
+		width:100%;
+		padding-bottom:25px;
+	}
+	.shop_range_cat_block {
+		height:245px;	
+	}
+	.sor-single-wrap h3 a {
+		font-size:30px;
+	}
+	
+	/* === SHOP OUR RANGE -- PAGE End === */
 
 
 	/* ===== FOOTER ===== */	
@@ -5612,7 +5707,7 @@
 
 	/* Font-size 42px; */
 	.bookcbk, .calspl a{
-		font-size: 26px;
+		font-size: 22px;
 	}
 	/* Font-size 42px; End */
 	
@@ -6465,6 +6560,30 @@
 		margin:50px auto 0;
 	}
 	/* === CONTACT US PAGE End === */
+	
+	/* === SHOP OUR RANGE -- PAGE === */
+	
+	.body-wrapper .gpf-block {
+		margin:58px 0 0;	
+	}
+	.ia-block .cc-ia-content h1 {
+		margin:27px 0 15px 0;	
+	}
+	.ia-block .cc-ia-content p {
+		margin:0 auto 55px;
+	}
+	.gpf-block .cc-rugs-sor-cntr .shop_range {
+		width:100%;
+		padding-bottom:25px;
+	}
+	.shop_range_cat_block {
+		height:215px;	
+	}
+	.sor-single-wrap h3 a {
+		font-size:26px;
+	}
+	
+	/* === SHOP OUR RANGE -- PAGE End === */
 
 
 	/* ===== FOOTER ===== */

@@ -111,13 +111,24 @@ function return_parent_catlink_if_lastchild($link,$term_obj,$taxonomy){
 	$catid = $term_obj->term_id;
 	$ancestors = get_ancestors( $term_obj->term_id, 'product_cat' );
 	$depth = count($ancestors) ;
-	if($depth >=2 && $term_obj->count > 0){
+	$last_cat_depth = 2;
+/*	$top_cat = smart_category_top_parent_id($term_obj->term_id,'product_cat');
+	if($top_cat){
+		$top_cat_obj = get_term_by('id',$top_cat,'product_cat');
+		$top_cat_slug = $top_cat_obj->slug;
+		if($top_cat_slug == 'rugs'){
+			$last_cat_depth = 2;
+		}else if($top_cat_slug == 'hard-flooring'){
+			$last_cat_depth = 2;
+		}
+	}
+*/	if($depth >= $last_cat_depth && $term_obj->count > 0){
 		$args = array(
 		'post_type'             => 'product',
 		'post_status'           => 'publish',
 		'ignore_sticky_posts'   => 1,
 		'posts_per_page'        => '1',
-		'orderby'				=>'rand',
+		//'orderby'				=>'rand',
 		'meta_query'            => array(
 			array(
 				'key'           => '_visibility',
@@ -143,6 +154,9 @@ function return_parent_catlink_if_lastchild($link,$term_obj,$taxonomy){
 		
 		//$link = get_permalink($product->post->ID);
 		}
+		
+		
+		
 		}
 	return $link;
 	}
@@ -244,6 +258,7 @@ function show_category_slider_block($args=array()){
 	$product_found = 0;
 	$current_cat = get_term( $cat_id, 'product_cat');
 	$cat_arr = generate_catids_array($cat_id,$depth);
+	$found_cat = 0;
 	
 	//$cat_arr_popular = generate_catids_array_popular($cat_id,$depth);
 	
@@ -342,6 +357,8 @@ function show_category_slider_block($args=array()){
 			$all_products = get_posts($filargs);
 			$product_found += count($all_products);
 			if($product_found > 0){
+				$found_cat ++;
+				
 				$grp_prods = array();
 				foreach ($all_products as $product)
 				{ 
@@ -373,7 +390,7 @@ function show_category_slider_block($args=array()){
 				
 			}else{
 					$offset++;
-					if($offset < count($cat_arr)){
+					if($offset < count($cat_arr) && $found_cats < $perpage ){
 						$next_cat = array_slice($cat_arr,$offset,1);
 						$next_cat =  get_term_by('id',$next_cat[0],'product_cat');
 						$cat_slice[] = $next_cat;
@@ -566,6 +583,7 @@ function loadmore_hf($args){
 	extract($args);
 	global $wp_query;
 	$found_count = 0;
+	$found_cat = 0;
 	$current_cat = get_term( $cat_id, 'product_cat');
 	$cat_arr = generate_catids_array($cat_id,$depth);
 	if(!empty($cat_arr)){
@@ -681,15 +699,13 @@ function loadmore_hf($args){
 							if($pch==1){
 								$res = get_post_meta($post->ID ,'_regular_price',true);
 								echo '<div class="col-md-6 cc-cat-sub-price">From <span>$'.$res.'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
-								
 								$pch++;
-								
 							}
 							if($slidercounter<=5){
 								if($slidercounter==1){
 									echo '<div class="cat_slider">';
 								}
-								?><a href="<?php the_permalink();?>">
+								?><a href="<?php echo get_permalink($post->ID);?>">
 								<div class="cat_slider_item ">
 								<div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image ;?>)"></div>
 								</div></a>
@@ -742,7 +758,7 @@ function loadmore_hf($args){
 							<div class=" cc-other-term-pro">
 							<div class="cc-img-wrapper">
 							<div class="cat-item-group-image" style="background-image:url(<?php echo $feat_image;?>)">
-							<a href ="<?php echo get_the_permalink();?>" class="cc-pro-view">VIEW</a> </div>
+							<a href ="<?php echo get_permalink($post->ID);?>" class="cc-pro-view">VIEW</a> </div>
 							</div>
 							</div>
                         <?php 
@@ -775,6 +791,9 @@ function loadmore_hf($args){
 		return $ret;
 	}
 }
+
+	
+	
 add_action('wp_ajax_cc_custom_search','cc_custom_search');
 add_action('wp_ajax_nopriv_cc_custom_search','cc_custom_search');
 function cc_custom_search($args){
@@ -1316,8 +1335,25 @@ if($selected_store){
 function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
 	if ( $post->post_type == 'product' ) {
 		$terms = wc_get_product_terms( $post->ID, 'product_cat', array( 'orderby' => 'parent', 'order' => 'DESC' ) ) ;
+		
+		
+		$temp_url = site_url().'/shop-our-range';
+		$url_parts = array();
+		if($terms){
+			foreach($terms as $term){
+				$url_parts[]=$term->slug;
+				}
+		$url_parts = array_reverse($url_parts);
+		foreach($url_parts as $part){
+			$temp_url.='/'.$part;
+			}
+		$temp_url.='/'.$post->post_name;
+			}
+		
+		
+		
+		/*
 		if(is_single()){
-			
 		$temp_url = site_url().'/shop-our-range';
 		$url_parts = array();
 		if($terms){
@@ -1340,8 +1376,10 @@ function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
 					}
 				}
 			}
-	
 			}
+			
+			
+			*/
 	}
 	return $temp_url;
 }

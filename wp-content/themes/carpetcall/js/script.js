@@ -454,8 +454,10 @@ jQuery(document).on('change','.delivery_option_rugs #nearby_stores_main_wrapper 
 
 
   jQuery(window).scroll(function(event) {
-    jQuery('#after_dropdown').hide();
-    jQuery('.storefinder_cntr').removeClass('click-open');
+    if($(window).width() > 800){
+      jQuery('#after_dropdown').hide();
+      jQuery('.storefinder_cntr').removeClass('click-open');
+    }
   });
 
 
