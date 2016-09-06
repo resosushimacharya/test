@@ -1,0 +1,50 @@
+In 2016-09-06-09-07-56
+ prdouctfiles folder is empty 
+
+In 2016-09-06-09-07-22
+ prdouctfiles folder is empty 
+
+
+ Import has been started  
+in 2016-09-06-09-07-10
+In 2016-09-06-07-26-10
+ prdouctfiles folder is empty 
+
+
+ Import has been finished 
+in 2016-09-06-07-26-10
+
+ Import has been started in 2016-09-06-09-07-25 
+
+In 2016-09-06-07-28-25
+ prdouctfiles folder is empty 
+
+
+ Import has been finished in 2016-09-06-07-28-25
+
+
+ Import has been started in 2016-09-06-09-07-47 
+
+In 2016-09-06-07-31-47
+ prdouctfiles folder is empty 
+
+
+ Import has been finished in 2016-09-06-07-31-47
+
+In 2016-09-06-09-07-05
+List of error files 
+NTLAOLS.csv
+NTLUOLS.csv
+QTLAOLS.csv
+QTLUOLS.csv
+STLAOLS.csv
+STLUOLS.csv
+VTLAOLS.csv
+VTLUOLS.csv
+WTLAOLS.csv
+WTLUOLS.csv
+log.txt
+
+
+ Import has been finished in 2016-09-06-07-56-44
+
