@@ -74,7 +74,6 @@
   </p>
   <h3><?php echo get_the_title()?></h3>
   <p class="address"><?php echo $add .' '. $city.' '.$state.' '.$zip?></p>
-  <p></p>
 </div>
             
             
