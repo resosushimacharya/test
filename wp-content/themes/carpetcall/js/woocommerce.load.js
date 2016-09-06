@@ -21,12 +21,6 @@ $(function () {
  
 });
 jQuery(document).ready(function($){
-
-jQuery('abbr.required').each(function(index, element) {
-    jQuery(this).html('* Requird Field');
-});
-
-
 jQuery(document).on('focusout','#billing_postcode, #shipping_postcode',function(){
 	var postcode = jQuery(this).val();
 	if(postcode.match(/^\d{4}$/)){
@@ -600,4 +594,10 @@ jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax
 			});
 
 	}
+});
+jQuery(document).ready(function(e) {
+    jQuery('abbr.required').each(function(index, element) {
+   // jQuery(this).html('* Requird Field');
+});
+
 });
