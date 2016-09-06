@@ -24,14 +24,16 @@ jQuery(document).ready(function($){
 jQuery(document).on('focusout','#billing_postcode, #shipping_postcode',function(){
 	var postcode = jQuery(this).val();
 	if(postcode.match(/^\d{4}$/)){
-		jQuery(this).parent('.validate-postcode').removeClass('woocommerce-invalid');
-		jQuery(this).parent('.validate-postcode').addClass('woocommerce-validated');
-		jQuery(this).parent('.validate-postcode').find('.required').html('*');
+			
+			jQuery(this).parent('.validate-postcode').removeClass('woocommerce-invalid');
+			jQuery(this).parent('.validate-postcode').addClass('woocommerce-validated');
+			jQuery(this).parent().find('label#'+jQuery(this).attr('id')+'-error').remove();
 		}else{
-		jQuery(this).parent('.validate-postcode').addClass('woocommerce-invalid');
-		jQuery(this).parent('.validate-postcode').find('.required').html('* Invalid Postcode');
-		jQuery(this).parent('.validate-postcode').removeClass('woocommerce-validated');
-		return false;
+			jQuery(this).parent('.validate-postcode').addClass('woocommerce-invalid');
+			jQuery('label#'+jQuery(this).attr('id')+'-error').remove();
+			jQuery(this).parent().append('<label id="'+jQuery(this).attr("id")+'-error" class="error" for="'+jQuery(this).attr("id")+'">Please enter a valid Postcode.</label>').show();
+			jQuery(this).parent('.validate-postcode').removeClass('woocommerce-validated');
+			return false;
 		}
 	});
 	
@@ -42,10 +44,12 @@ jQuery(document).on('focusout','#billing_phone:visible, #shipping_phone:visible'
 	   {
 			jQuery(this).parent('.validate-phone').removeClass('woocommerce-invalid');
 			jQuery(this).parent('.validate-phone').addClass('woocommerce-validated');
-			jQuery(this).parent('.validate-phone').find('.required').html('* Required Field');
+			jQuery(this).parent().find('label#'+jQuery(this).attr('id')+'-error').remove();
+			
 	   }else{
 			jQuery(this).parent('.validate-phone').addClass('woocommerce-invalid');
-			jQuery(this).parent('.validate-phone').find('.required').html('* Invalid Phone');
+			jQuery('label#'+jQuery(this).attr('id')+'-error').remove();
+			jQuery(this).parent().append('<label id="'+jQuery(this).attr("id")+'-error" class="error" for="'+jQuery(this).attr("id")+'">Please enter a valid Phone Number.</label>').show();
 			jQuery(this).parent('.validate-phone').removeClass('woocommerce-validated');
 			return false;
 		}
