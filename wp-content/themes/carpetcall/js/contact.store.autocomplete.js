@@ -1,16 +1,13 @@
 jQuery(document).ready(function($){
 
 jQuery(document).on('change',"#cc-state-type", function(e) {
-
-
 var state = jQuery("#cc-state-type").val();
-
-
 	jQuery.ajax({
 			url: wp_contact_store_autocomplete.ajax_url,
 			type: 'POST',
 			data: {
 				state:state,
+				page_id: jQuery('#current_page_id').val(),
 				action: 'contact_store_control'
 				
 			},

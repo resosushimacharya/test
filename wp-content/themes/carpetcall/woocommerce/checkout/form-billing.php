@@ -38,6 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     
 <?php */?>
 	<?php do_action( 'woocommerce_before_checkout_billing_form', $checkout ); ?>
+<span class="required" title="required">* Required Field</span>
 <div class="billing_fields_wrapper">
 	<?php foreach ( $checkout->checkout_fields['billing'] as $key => $field ) :?>
 		

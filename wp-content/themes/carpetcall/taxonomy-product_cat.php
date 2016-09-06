@@ -26,7 +26,7 @@ get_header( 'shop' ); ?>
 	$depth = count($ancestors) ; 
 	if($depth >= 2 ){
 		//We will only have template for depth level 0 and 1, third level category won't be listed here
-		return ;
+		//return ;
 		}
 
 $top_cat = smart_category_top_parent_id($current_cat->term_id,'product_cat');

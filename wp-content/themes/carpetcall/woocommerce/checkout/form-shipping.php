@@ -44,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</h3>
 
 		<div class="shipping_address">
-
+		<span class="required clearfix" title="required">* Required Field</span>
 			<?php do_action( 'woocommerce_before_checkout_shipping_form', $checkout ); ?>
 
 			<?php foreach ( $checkout->checkout_fields['shipping'] as $key => $field ) : ?>

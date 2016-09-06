@@ -43,8 +43,11 @@ get_header();
 
              	$rows = get_field('clearance__posts',$post->ID);
                 if( $rows ) {
+                    $i = 1;
+                    $lencount = count($rows);
              	foreach($rows as $row):?>
-             	<div class="col-md-12 cc-clearance-row">
+
+             	<div class="col-md-12 cc-clearance-row <?php echo ($i==$lencount)?"cc-mod-bord-feat":"";?>">
              	<?php
                       if(strcasecmp($row['ad_type'],'video')!=0){?>
                    	<div class="col-md-4 cc-clearance-left">
@@ -107,6 +110,7 @@ src="<?php echo $videolink;?>
                     </div>
                    
 </div>
+<?php $i++; ?>
 
             <?php  endforeach;
         }# end-if
@@ -120,30 +124,6 @@ src="<?php echo $videolink;?>
 </div>
 </div>
 
-<style>
-.cc-clearance-row{
-	padding:10px 5px;
-}
-.cc-clearance-overlay{
-	position: absolute;
-  
-    top:10%;
-    padding:5px;
-    cursor: pointer;
-    background:#a9191c;
-    z-index:2;
-    color:#ffffff;
-}
-
-.cc-clearance-whole h3{
-	text-decoration:none !important;
-	border:none;
-
-}
-.cc-wrapper-blk{
-	background:#f0f2f1 !important;
-}
-</style>
 <?php 
 get_footer();
 ?>
