@@ -40,7 +40,9 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 			<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
 
 			<div class="col-1 checkout-form-sec billing-details-cntr">
-	          <h3><?php _e( 'Billing Details', 'woocommerce' ); ?></h3>
+	          <h3><?php _e( 'Billing Details', 'woocommerce' ); ?><span class="checkout_next_prev_button">
+		              <a href="#checkout_customer_details">Edit</a>
+		            </span></h3>
 	          <div class="collapse collapsable in clearfix billing-form" id="checkout_customer_details">
 				<?php do_action( 'woocommerce_checkout_billing' ); ?>
 	            <div class="checkout_next_prev_button read_more">
@@ -50,12 +52,13 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 			</div>
 
 	        <div class="col-1 checkout-form-sec delivery-options-cntr">
-		         <h3><?php _e( 'Delivery Options', 'woocommerce' ); ?></h3>
+		         <h3><?php _e( 'Delivery Options', 'woocommerce' ); ?><span class="checkout_next_prev_button">
+		              <a href="#checkout_delivery">Edit</a>
+		            </span></h3>
 		         <div class="collapse collapsable clearfix delivery-form" id="checkout_delivery">
 						<?php do_action('cc_checkout_delivery_custom_block'); ?>
 
 		            <div class="checkout_next_prev_button read_more">
-		              <a href="#checkout_customer_details">Previous</a>
 		              <a class="next" href="#checkout_payment">Next</a>
 		            </div>
 		            	            
@@ -63,13 +66,14 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 	        </div>
 
 	        <div class="col-1 checkout-form-sec payment-options-cntr">
-		        <h3><?php _e( 'Payment Options', 'woocommerce' ); ?></h3>
+		        <h3><?php _e( 'Payment Options', 'woocommerce' ); ?><span class="checkout_next_prev_button">
+		              <a href="#checkout_payment">Edit</a>
+		            </span></h3>
 		        <div class="collapse collapsable clearfix payment-form" id="checkout_payment">
 					<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
 		            <?php do_action( 'woocommerce_checkout_order_review' ); ?>
 		            <?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
 		             <div class="checkout_next_prev_button read_more">
-		              <a href="#checkout_delivery">Previous</a>
 		            </div> 		             
 				</div>
 	        </div>
