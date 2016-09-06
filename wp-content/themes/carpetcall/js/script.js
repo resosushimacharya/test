@@ -460,10 +460,15 @@ jQuery(document).on('change','.delivery_option_rugs #nearby_stores_main_wrapper 
       var $activeText = $($activePro).find(".selected-pro-name").text();
       var $activeImage = $($activePro).find("img");
       
-      $(".selected-product-img").html($activeImage);
+      $activeImage.clone().appendTo(".selected-product-img");
       $(".selected-product-name span").html($activeText);
 
+      $('.select-dropdown-wrap').on('click', function(){
+        $(this).parent().find('.cc-select-design-pro-all').toggle();
+      });
     }	
+
+
       
 
   });

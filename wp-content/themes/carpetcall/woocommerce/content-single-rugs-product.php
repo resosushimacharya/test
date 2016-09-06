@@ -254,7 +254,8 @@ foreach($bundle as $key=>$value){
               <a href="<?php echo get_permalink($key)?>" class="select_design">
               
               
-              <span class="selected-pro-name" style=""><?php echo $post->post_name;?></span><img name="<?php echo $post->post_name?>" class="cc-product_no_image" src="<?php echo $feat_image ;?>"/>
+             <img name="<?php echo $post->post_name?>" class="cc-product_no_image" src="<?php echo $feat_image ;?>"/>
+              <span class="selected-pro-name" style=""><?php echo $post->post_name;?></span>
               
               
               
