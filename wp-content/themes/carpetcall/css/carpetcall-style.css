@@ -6798,3 +6798,20 @@ label.inner-check-label.radio-check-label::after{
 	background:#f0f2f1 !important;
 }
 .inerblock_clernn .col-md-12.cc-mod-bord-feat{border: none;}
+span.required {
+    color: #f00;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 18px;
+}
+.faq-cont-blka .inerblock_sec .cbg_content h3 span.checkout_next_prev_button {
+    float: right;
+    margin-right: 30px;
+}
+.faq-cont-blka .inerblock_sec .cbg_content h3 span.checkout_next_prev_button a{
+  color: #15489f;
+  text-decoration: underline;
+}
+.faq-cont-blka .inerblock_sec .cbg_content h3 span.checkout_next_prev_button a:hover{
+  color: #0099ff;
+}
