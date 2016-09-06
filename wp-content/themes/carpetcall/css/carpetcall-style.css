@@ -6090,17 +6090,23 @@ a.btn-employment:hover {
 	margin-top: -9px;
 }
 .single.single-product .cc-price-control h3 span.cc-sale-price-title {
-	font: bold 30px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:30px;
+	font-weight:normal;
 	color: #0099ff;
 	text-transform: uppercase;
 }
 .accessories_innner_wrap span.acc_price.small_price .cc-price-control h3 span.cc-sale-price-title {
-	font: bold 14px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
+	font-weight:normal;
 	color: #087bda;
 	text-transform: uppercase;
 }
 .single.single-product .cc-price-control h3 span.low {
-	font: normal 18px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #0099ff;
 	text-transform: uppercase;
 }
@@ -6110,7 +6116,9 @@ a.btn-employment:hover {
 	line-height: 45px;
 }
 .acc_qnty span.acc_qty_lbl, .acc_qnty span.acc_rec_qty {
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #666666;
 }
 .acc_qnty .rec_qty_wrap {
@@ -6130,7 +6138,9 @@ a.btn-employment:hover {
 }
 .single.single-product  select#quantity-control {
 	width: 100% !important;
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #1853bb;
 }
 .single.single-product .panel-body.panel-body-faq.hf-faq {
@@ -6164,7 +6174,10 @@ a.btn-employment:hover {
 }
 .single.single-product table.product_specifications_table {
 	width: 100%;
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:24px;
 	color: #666666;
 }
 .single.single-product table.product_specifications_table tbody tr td {
@@ -6226,7 +6239,9 @@ ul.page-list >li {
     border-bottom: 1px solid #CCC;
 }
 .sitemap-wrap ul li strong a {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #0099ff;
 	text-transform: uppercase;
 	text-decoration:none;
@@ -6236,7 +6251,10 @@ ul.page-list >li {
 	cursor:pointer;
 }
 .sitemap-wrap ul.page-list li > ul.children li a {
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:24px;
 	color: #666666;
 	text-decoration:none;
 }
@@ -6245,7 +6263,9 @@ ul.page-list >li {
 }
 
 .sitemap-wrap ul.page-list li a {
-font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #0099ff;
 	text-transform: uppercase;
 	text-decoration:none;	
@@ -6269,7 +6289,9 @@ font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
 	width: 100%;
 	margin-left: 4px;
 	color: #FF0000;
-	font: normal 14px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:14px;
+	font-weight:normal;
 }
 div#error_max_msg {
 	font-size: 18px;
@@ -6302,7 +6324,10 @@ div#error_max_msg {
 	text-align:center;
 	width:220px;
 	height:45px;
-	font: bold 18px/45px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
+	line-height:45px;
 	color:#FFF;
 	text-transform:uppercase;
 	text-decoration:none;
@@ -6348,7 +6373,9 @@ div#error_max_msg {
 	margin:0;
 }
 .carpet_blinds_single_right h3.calspl.calspll a {
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
 	color:#c32327;
 	text-transform:uppercase;
 	text-decoration:none;
@@ -6358,7 +6385,9 @@ div#error_max_msg {
 	cursor:pointer;	
 }
 .carpet_blinds_single_right h4.bcwfsp {
-	font: bold 16px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color:#15489f;
 	margin-top:-3px;
 }
@@ -6375,7 +6404,9 @@ div#error_max_msg {
 .carpet_blinds_single_right .againlt ul li {
 	list-style:none;
 	display:block;
-	font:normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color:#666;
 	text-decoration:none;
 	text-transform:uppercase;
@@ -6388,7 +6419,9 @@ div#error_max_msg {
 	height:45px;
 	background-color:#c32327;
 	text-align:center;
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color:#FFF;
 	text-decoration:none;
 	text-transform:uppercase;
@@ -6402,14 +6435,18 @@ div#error_max_msg {
 	background-color:#b01519;
 }
 .page-id-26726 .panel-body .panel-body-table {
-	font:normal 18px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color:#666;
 }
 .cc-product-sub-category-list h3 {
 	margin-top:3px;
 	text-transform:none;
 	width:100%;	
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
 	color:#666666;
 	border-bottom:1px solid #efefef;
 	padding-bottom:10px;
@@ -6439,7 +6476,9 @@ div#error_max_msg {
 	margin-top:18px;	
 }
 .search_title span.parent_cat a {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color:#15489f; 
 	text-transform:uppercase;
 	text-decoration:none;
@@ -6454,7 +6493,9 @@ div#error_max_msg {
 	border:0;	
 }
 .search_price .cc-price-control h3 span.cc-sale-price-title {
-	font: bold 14px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
+	font-weight:normal;
 	color:#087bda; 
 	text-transform:uppercase;
 	border:0;
@@ -6532,7 +6573,6 @@ table.shop_table.shop_table_responsive.cart > thead > tr > th.product-subtotal, 
 .cbg_content.cc-condn-page p a.shipping-calculator-button {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
 	font-size:18px !important;
-	font-weight:700 !important;
 	color:#15489f !important;
 	text-decoration:none;
 	text-transform:uppercase;
@@ -6577,7 +6617,9 @@ table.shop_table.shop_table_responsive.cart > thead > tr > th.product-subtotal, 
 	outline:0;
 }
  .woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
-	font: bold 16px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color:#FFFFFF;
 	float:right;
 	width:285px;
@@ -6609,7 +6651,6 @@ a.button.wc-forward {
 .col-1 .woocommerce-billing-fields h3 {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
 	font-size:24px !important;
-	font-weight:700 !important;
 	color:#15489f !important;
 	margin-bottom:27px !important;
 	background-color:#d1ddf1;
@@ -6617,7 +6658,10 @@ a.button.wc-forward {
 }
 .bottom_faq_section table {
 	margin:15px 20px;
-	font:normal 16px/30px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:30px;
 	color:#666;	
 	width:98%;
 }
@@ -6666,21 +6710,27 @@ a.button.wc-forward {
     overflow: hidden;
 }
 .error-wrapper h1{
-	 font:bold 72px 'proxima_nova_ltsemibold', sans-serif;
+	 font-family:'proxima_nova_ltsemibold', sans-serif;
+	 font-size:72px;
+	 font-weight:normal;
 	 color:#15489f;
  	text-transform: uppercase;
 	margin-top:75px;
 	margin-left:24px;
  }
  .error-wrapper h3{
- 	font:normal 24px 'proxima_nova_ltsemibold', sans-serif;
+	 font-family:'proxima_nova_ltsemibold', sans-serif;
+	 font-size:24px;
+	 font-weight:normal;
 	 color:#15489f;
  	text-transform: uppercase;
 	margin-top:-8px;
 	margin-left:24px;
  }
  .error-wrapper  h4{
- 	font:normal 18px 'proxima_nova_ltsemibold', sans-serif;
+	 font-family:'proxima_nova_ltsemibold', sans-serif;
+	 font-size:18px;
+	 font-weight:normal;
 	 color:#0099ff;
  	text-transform: uppercase;
 	margin-top:3px;
@@ -6728,7 +6778,9 @@ a.button.wc-forward {
 }
 .cc-product-page-info-dis ul li {
 	list-style:none;
-	font:normal 16px 'proxima_nova_rgregular', sans-serif;
+	 font-family:'proxima_nova_rgregular', sans-serif;
+	 font-size:16px;
+	 font-weight:normal;
 	color:#666;	
 	display:block;	
 }
@@ -6742,7 +6794,9 @@ a.button.wc-forward {
 	clear:both;
 }
 .cc-condn-page .woocommerce form .form-row label {
-	font:normal 16px 'proxima_nova_rgregular', sans-serif;
+	 font-family:'proxima_nova_rgregular', sans-serif;
+	 font-size:16px;
+	 font-weight:normal;
 	color:#666;	
 	margin-bottom:10px;
 }
@@ -6785,7 +6839,9 @@ a.button.wc-forward {
 	padding-left: 32px;
 	height: 55px;
 	line-height: 55px !important;
-	font:normal 24px 'proxima_nova_ltsemibold', sans-serif;
+	 font-family:'proxima_nova_ltsemibold', sans-serif;
+	 font-size:24px;
+	 font-weight:normal;
 	 color:#15489f !important;
 }
 .billing_fields_wrapper, .shipping_address {
@@ -7029,7 +7085,10 @@ label.inner-check-label.radio-check-label::after{
 }
 
 .shipping_needed_checkout .woocommerce-shipping-fields .shipping_address p{
-	font: normal 18px/22px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:18px;
+	font-weight:normal;
+	line-height:22px;
     color: #666666;
     padding: 8px;
     width: 50%;
@@ -7147,7 +7206,9 @@ label.inner-check-label.radio-check-label::after{
 	display: block;
 }
 .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td label{
-    font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
     color: #666;
     margin-bottom: 10px;
     font-weight: normal;
