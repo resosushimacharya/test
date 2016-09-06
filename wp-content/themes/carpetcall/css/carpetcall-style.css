@@ -7537,6 +7537,7 @@ p.req_info_wrap span {
 }
 p.req_info_wrap span.req_text {
 font-size:14px;
-
 }
-
+.show{
+	display:block;
+	}
