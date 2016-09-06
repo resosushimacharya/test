@@ -1,10 +1,12 @@
+<?php $term_id =  get_queried_object()->term_id;
+if(!is_last_cat($term_id)){?>
 
     <div class="cc-product-sub-category-list">
     <?php 
     /**
     *shpw the sub-category list of the  product category
     */
-    $term_id =  get_queried_object()->term_id;
+    
    
     $prosubcats=get_term_children($term_id,'product_cat');
   $taxonomy = 'product_cat';
@@ -30,8 +32,7 @@
     </div><div class="clearfix"></div>
 
 
-
-
+<?php } ?>
 
 <div class="cc-color-var-section">
 <h3>Refine by</h3>
@@ -109,6 +110,7 @@
     
     $args_min = array(
               'post_type'=>'product',
+			  'post_status'=>'publish',
               'posts_per_page'  =>1,
               'tax_query' =>array(
                    array(
@@ -125,6 +127,7 @@
             );
     $args_max = array(
               'post_type'=>'product',
+			  'post_status'=>'publish',
               'posts_per_page'  =>1,
               'tax_query' =>array(
                    array(
@@ -146,10 +149,10 @@
     $min_price_prod = new WC_Product($min_prod[0]->ID);
     $max_price_prod = new WC_Product($max_prod[0]->ID); 
     
-    
-    $max = (int)$max_price_prod->get_regular_price();
-    $min = (int)$min_price_prod->get_regular_price();
+    $max = (int)$max_price_prod->get_sale_price();
+    $min = (int)$min_price_prod->get_sale_price();
     ?>
+     
         
       <div class="range_slider"><b>$ <span class="price_from"><?php echo $min?></span> </b><input id="price_range_filter" type="text" data-slider-min="<?php echo $min?>" data-slider-max="<?php echo $max?>" data-slider-step="1" data-slider-value="[<?php echo $min?>,<?php echo $max?>]"/><b> $ <span class="price_to"><?php echo $max?></span></b></div> 
       

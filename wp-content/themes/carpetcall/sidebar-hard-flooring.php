@@ -1,13 +1,15 @@
-
+<?php $term_id =  get_queried_object()->term_id;
+if(!is_last_cat($term_id)){?>
     <div class="cc-product-sub-category-list">
     <?php 
     /**
     *shpw the sub-category list of the  product category
     */
-    $term_id =  get_queried_object()->term_id;
+    
    
     $prosubcats=get_term_children($term_id,'product_cat');
 	$taxonomy = 'product_cat';
+	
 	//$prosubcats=get_terms(array('child'=>$term_id,'taxonomy'=>'product_cat'));
 	?>
     
@@ -32,7 +34,7 @@
     </div><div class="clearfix"></div>
 
 
-
+<?php } ?>
 
 
 <div class="cc-color-var-section">
@@ -111,7 +113,8 @@
         <?php 
 		
 		$args_min = array(
-							'post_type'=>'product',
+						    'post_type'=>'product',
+						    'post_status'=>'publish',
 							'posts_per_page'	=>1,
 							'tax_query'	=>array(
 									 array(
@@ -127,7 +130,8 @@
 							'order'			=>'ASC'
 						);
 		$args_max = array(
-							'post_type'=>'product',
+						  'post_type'=>'product',
+						  'post_status'=>'publish',
 							'posts_per_page'	=>1,
 							'tax_query'	=>array(
 									 array(
