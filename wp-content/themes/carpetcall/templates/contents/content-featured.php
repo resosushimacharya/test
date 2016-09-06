@@ -15,12 +15,15 @@ $tax = 'product_cat';
 					$my_query = new WP_Query($args);
 					while ($my_query->have_posts()) : $my_query->the_post();
 					$woo=get_post_meta($post->ID);
-					
 					$price=$woo['_regular_price'][0];
 					
 				
-					$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+					$feat_image = cc_custom_get_feat_img(get_the_ID(),'medium');
+						
+								
+								//$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 				
+				//$feat_image = get_template_directory_uri().'/images/placeholder.png';
 				
 					/*if(!empty(unserialize($woo['_product_attributes'][0])))
 				$prounits=unserialize($woo['_product_attributes'][0]);*/

@@ -14,118 +14,58 @@
 /////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////// Rugs file read ///////////////////////
 /////////////////////////////////////////////////////////////////////////////////
-function  cc_rugs_file_read($rfa){
-$url = site_url();
-		$url = explode('/',$url);
-		$rugs_new_post_id=array();
-		$rugs_old_post_id=array();
-		 if(strcasecmp($url[2],'localhost')==0){
-			$new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/productfiles/'.$rfa;}
-		else{
-               $new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/productfiles/'.$rfa;
-			}
-			    if(file_exists($new_rugs_file)){
-					$file_handle = fopen($new_rugs_file, 'r');
-					$i=0;
-					$line_of_text=array();
-					
-					while (!feof($file_handle) )
-					 {
-						 $csv= fgetcsv($file_handle, 0);
-     						if(strcasecmp($csv[0],'state')!=0)
-     						{
-	                      		$csv_ids=csv_import_rugs($csv,"rugs");
-								if($csv_ids['rugs_new_post_id'][0]){
-									$rugs_new_post_id[]=$csv_ids['rugs_new_post_id'][0];
-								}
-								if($csv_ids['rugs_old_post_id'][0]){
-									$rugs_old_post_id[]=$csv_ids['rugs_old_post_id'][0];
-								}
-                     		}
-					 }
-					fclose($file_handle);
-				}
-				else{
-					echo "File doesn't exixt";
-				}
-	return  array(
-		'rugs_new_post_id'=>$rugs_new_post_id,
-		'rugs_old_post_id'=>$rugs_old_post_id,
-		);
-	
-				
-		}
+
 /////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////// HArdfloor file read ///////////////////////
 /////////////////////////////////////////////////////////////////////////////////		
 		
-function cc_hard_floor_file_read($hfa){
-				$url = site_url();
-		        $url = explode('/',$url);
-				$hardfloor_old_post_id=array();
-				$hardfloor_new_post_id=array();
-            $mimes = array('application/vnd.ms-excel');	
-            if(strcasecmp($url[2],'localhost')==0){
-			   $new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/productfiles/'.$hfa;}
-		    else{
-               $new_rugs_file = $_SERVER['DOCUMENT_ROOT'].'/productfiles/'.$hfa;
-			}
-			    if(file_exists($new_rugs_file)){
-					$file_handle = fopen($new_rugs_file, 'r');
-					$i=0;
-					$line_of_text=array();
-					
-					
-				
-					while (!feof($file_handle) )
-					 {
-						 $csv= fgetcsv($file_handle, 0);
-     						if(strcasecmp($csv[0],'Category')!=0)
-     						{
-	                      		$csv_ids=csv_import_hard_flooring($csv,"hard-flooring");
-								if($csv_ids['hardfloor_old_post_id'][0]){
-									$hardfloor_old_post_id[]=$csv_ids['hardfloor_old_post_id'][0];
-								}
-								if($csv_ids['hardfloor_new_post_id'][0]){
-									$hardfloor_new_post_id[]=$csv_ids['hardfloor_new_post_id'][0];
-								}
-                     		}
-					 }
-					fclose($file_handle);
-				}
-				else{
-					echo "File doesn't exixt";
-				}
-				
-		return array(
-			'hardfloor_old_post_id'=>$hardfloor_old_post_id,
-			'hardfloor_new_post_id'=>$hardfloor_new_post_id
-		);
-}
-       
+function data_database_read($termslug){
+   $data = array(); 
+   $args = array(
+   			'post_type' => 'product',
+   			'post_status' => 'publish',
+   			'posts_per_page' => '-1',
+   			'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'product_cat',
+                                    'field'    => 'slug',
+                                    'terms'    => array($termslug)
+                                )
+                            )
+   	);
+   $loop = new WP_Query($args);
+   while($loop->have_posts()){
+   		$loop->the_post();
+   		$sku = get_post_meta($loop->post->ID,'_sku',true);
+   		$id = $loop->post->ID;
+        $data[$sku] = array($sku,$id);
 
-if( ! ( function_exists( 'wp_get_attachment_by_post_name' ) ) ) {
-    function wp_get_attachment_by_post_name( $post_name ) {
-        $args = array(
-            'post_per_page' => 1,
-            'post_type'     => 'attachment',
-            'name'          => trim ( $post_name ),
-        );
-        $get_posts = new Wp_Query( $args );
+   }
+   wp_reset_query();
+   return $data;
 
-        if ( $get_posts->posts[0] )
-            return $get_posts->posts[0]->ID;
-        else
-          return false;
-    }
 }
+function readCSV($csvFile)
+{
+	$file_handle = fopen($csvFile, 'r');
+	$i=0;
+
+ 	while (!feof($file_handle) )
+ 	 {   
+ 	 	$temp = fgetcsv($file_handle, 0);
+		$line_of_text[$temp[1]] = $temp;
+ 	 }
+ 	fclose($file_handle);
+ 	return $line_of_text;
+}     
+
 
 ///////////////////////////////////////////////////////////////////////////
 ////////////////////////// cron fucntions ///////////////////////////////
 ////////////////////////////////////////////////////////////////////////
-add_action( 'init', 'import_rugs_hard_schedule');
+//add_action( 'init', 'import_rugs_hard_schedule');
 add_action('update_import_rugs_hard_hook','update_import_rugs_hard_function');
-add_action('remove_import_rugs_hard_hook','remove_import_rugs_hard_function');
+
 // Function which will register the event
 function import_rugs_hard_schedule() {
 	$zone = new DateTimeZone('Australia/Sydney'); // Or your own definition of "here"
@@ -136,21 +76,14 @@ function import_rugs_hard_schedule() {
 		// Schedule the event
 		wp_schedule_event($timestamp, 'daily', 'update_import_rugs_hard_hook' );
 	}
-	if( !wp_next_scheduled( 'remove_import_rugs_hard_hook' ) ) {
-		
-		// Schedule the event
-		wp_schedule_event( $timestamp+60 , 'weekly', 'remove_import_rugs_hard_hook' );
-	}
+	
 }
 function update_import_rugs_hard_function(){
    cron_func_update();
 
 }
 
-function remove_import_rugs_hard_function(){
-cron_func_delete();
 
-}
 ////////////////////////////////////////////////////
 
 function category_second_level($csvitem,$rootcatterm)
@@ -197,74 +130,48 @@ function category_third_level($csvitem,$slct)
 	* function to import Rugs products
 	* will import products from uploaded CSV file
 */
-function  csv_import_rugs($csv,$appcat)
-{
-	//set_time_limit(0) ;
+/*
+	* function to import Rugs products
+	* will import products from uploaded CSV file
+*/
+function  csv_import_rugs($csv,$appcat,$resrugs)
+{ 
+	
+					 
+	set_time_limit(0) ;
+
 	global $wpdb;
-	
-	$rugs_old_post_id=array();
-	$rugs_new_post_id=array();
+	$exist = get_page_by_title( $csv[1], OBJECT, 'product' );
 
-	$product_id = $wpdb->get_var($wpdb->prepare( "SELECT p.id FROM as_postmeta as m , as_posts as p WHERE m.meta_key='_sku' AND m.meta_value='%s' and p.post_status='publish' and p.Id=m.post_id LIMIT 1", $csv[1] ));
-	if($product_id){
-		$rugs_old_post_id[]=$product_id;
-	}
-	
 	if($csv)
-	{   
-        $condimp = false;
-		$query = array(
-		    'post_type' => 'product',
-		    'post_status' => array( 'pending') ,
-		    'tax_query' => array(
-		                            array(
-		                                'taxonomy' => 'product_cat',
-		                                'field'    => 'slug',
-		                                'terms'    => $appcat
-		                            )
-		                        ),
-			'meta_query' =>array(
-		                            array(
-		                                'key' => '_sku',
-		                                'value'    => $csv[1],
-		                            )
-		                        ),
-		);
-		$loop_posts =get_posts($query );
-		$count_post=count($loop_posts);
-		if($count_post>0){
-			$post_csv=$loop_posts[0];
-			$skucomp = get_post_meta($post_csv->ID,'_sku',true);
-		 		if(strcasecmp($skucomp,$csv[1])==0){
-		              $temp = ltrim($csv[13], ' ');
-		              $temp = rtrim($temp,' ') ;
-		              $stockquantity = get_post_meta($post_csv->ID, '_stock',true);
-		              $stockquantity = intval($stockquantity) + intval($temp);
-		             update_post_meta($post_csv->ID, '_stock', $stockquantity);
-		             $condimp = true;
-		 		}
-			
-		};
-			
-		if(!$condimp){
+	{
 
-		$post = array(
+		if(array_key_exists($csv[1], $resrugs)){
+			
+		
+               $new_post_id =   $resrugs[$csv[1]][1];
+		
+	}
+	else{
+			$post = array(
 					 'post_title'   => $csv[1],
-					 'post_status'  => "pending",
+					 'post_status'  => "publish",
 					 'post_name'    => sanitize_title($csv[1]), //name/slug
 					 'post_type'    => "product",
 					 'post_content' => $csv[4],
 					 'post_excerpt' => $csv[4]
 				     );
 	 
-		$rootcatterm = $appcat;		
+			
 		$new_post_id = wp_insert_post( $post );
-		$rugs_new_post_id[]=$new_post_id;
+
+	}
+	    $rootcatterm = $appcat;	
 		$slct        = $csv[3];
 		$tlct        = $csv[2];
 		if(!term_exists( $slct, 'product_cat', $rootcatterm ))
 		{  
-		   category_second_level($slct ,$rootcatterm) ;
+		   cc_category_second_level($slct ,$rootcatterm) ;
 		   category_third_level($tlct ,$slct);
 		}
 		elseif(!term_exists($tlct,'product_cat',$tlct ))
@@ -278,56 +185,86 @@ function  csv_import_rugs($csv,$appcat)
   
 		$sub_cat  = get_term_by( 'name', $tlct, 'product_cat');
 		$root_cat = get_term_by( 'name', ucfirst($rootcatterm), 'product_cat');
-		
-		
-		$catarr=array($main_cat->slug,  $sub_cat->slug,$root_cat->slug);
-		wp_set_object_terms( $new_post_id,$catarr, 'product_cat',true);
-		//$transient_name = 'wc_product_children_ids_' . $new_post_id;
-	//	delete_transient( $transient_name );					
-		if($csv[13])
-		{    $stockvar = intval($csv[13]);
+		wp_set_object_terms( $new_post_id, $main_cat->slug, 'product_cat',true);
+		wp_set_object_terms( $new_post_id, $sub_cat->slug, 'product_cat',true);
+		wp_set_object_terms( $new_post_id, $root_cat->slug, 'product_cat',true);
+
+							
+			
+						
+					
+		if($csv[13]!=0)
+		{
 	 		update_post_meta($new_post_id, '_stock_status', 'instock');
-	        update_post_meta($new_post_id, '_stock', $stockvar);
+	        update_post_meta($new_post_id, '_stock', $csv[13]);
 	        update_post_meta($new_post_id, '_manage_stock', 'yes');
 	    }
+	    else
+	    {
+	        update_post_meta($new_post_id, '_stock_status', 'outofstock');
+	    }
 		$hhh = $csv[14];
+				
 		$hh=explode(' ',$hhh);
+	    
 	    $length = str_replace("cm","","$hh[0]");
 	    $width  =  str_replace("cm","","$hh[2]");
 	    $height =  $hh[10];
 	    $regular_price = str_replace(' ', '', $csv[16]);
 	    $sale_price = str_replace(' ', '', $csv[18]);
 	    $actual_price = str_replace(' ', '', $csv[18]);
-		$regular_price = ltrim($regular_price, '0');
-		$sale_price = ltrim($sale_price , '0');
-		$actual_price = ltrim($actual_price, '0');
+	     
+	    
+
+	     $regular_price = ltrim($regular_price, '0');
+	
+	
+
+	     $sale_price = ltrim($sale_price , '0');
+	     $actual_price = ltrim($actual_price, '0');
+	
+
+	  	
 		$sku_arr = explode('.',$csv[1]);
-		update_post_meta($new_post_id,'state',$csv[0]);
+	    update_post_meta($new_post_id,'state',$csv[0]);
 		update_post_meta( $new_post_id, '_sku', $csv[1]);
-		$item_sku =  $csv[1];
+				$item_sku =  $csv[1];
 
 		$sales_record_table = $wpdb->prefix.'cc_sales_records';
 		$x = "SELECT * FROM ".$sales_record_table." WHERE sku = '".$item_sku."'";
-
-		$exist =  $wpdb->get_row($x);
-		if($item_sku){
-		if(!$exist){
-			$wpdb->insert( 
-				$wpdb->prefix.'cc_sales_records', 
-					array(
-						'id'=>'', 
-						'sku' =>$item_sku, 
-						'sales_count' => 0 
-					), 
-					array( 
-						'%d',
-						'%s', 
-						'%d' 
-					) 
-			);
-
-		}
-		}
+		
+$exist =  $wpdb->get_row($x);
+if($item_sku){
+ if($exist){
+ $wpdb->update(
+     $wpdb->cc_sales_records,
+     array(
+      'sales_count'=>$exist->sales_count + 1
+     ),
+     array(
+      'sku'=>$item_sku
+     ),
+     array(
+     '%d'
+     )
+    );
+ }else{
+  $wpdb->insert( 
+     $wpdb->prefix.'cc_sales_records', 
+     array(
+      'id'=>'', 
+      'sku' =>$item_sku, 
+      'sales_count' => 0 
+     ), 
+     array( 
+      '%d',
+      '%s', 
+      '%d' 
+     ) 
+    );
+  
+  }
+}
 		update_post_meta( $new_post_id, 'color', $sku_arr[2]);
 		update_post_meta( $new_post_id, 'size_code', $sku_arr[3]);
 		update_post_meta($new_post_id,'description_1',$csv[4]);
@@ -350,70 +287,27 @@ function  csv_import_rugs($csv,$appcat)
 		update_post_meta( $new_post_id, '_height', $height);
 		update_post_meta( $new_post_id, '_featured', 'no' );
 	    update_post_meta($new_post_id,'discount',$csv[17]);
+	   /* update_post_meta($new_post_id,'lateral_image_name',$csv[21]);
+	    update_post_meta($new_post_id,'vertical_image_name',$csv[19]);
+	    update_post_meta($new_post_id,'swatch_image_name',$csv[20]);*/
+		
 			$url= site_url().'/wp-content/uploads/products/';
-				$img_arr=array(
-						'life' => $csv[21].'.jpg',
-						'side' => $csv[19].'.jpg',
-						'swatch' => $csv[20].'.jpg'						
-					);
+               
+
+			
    
+		
+		
+	
 		require_once(ABSPATH . 'wp-admin/includes/file.php');
 		require_once(ABSPATH . 'wp-admin/includes/media.php');
 		require_once(ABSPATH . "wp-admin" . '/includes/image.php');
-		//$tmp = download_url($life);
+	
 
 
-		// Get the path to the upload directory.
-		$wp_upload_dir = wp_upload_dir();
-		//var_dump($wp_upload_dir);
-		$file_loc= $wp_upload_dir['basedir'] ."/products/";
-		$set_fea_img=false;
-		$image_id=array();
-		foreach($img_arr as $img){
-				if(file_exists($file_loc.$img)){
-		         $imgret = explode('.',$img);
-		         $imgname = $imgret[0];  
-						// Check the type of file. We'll use this as the 'post_mime_type'.
-		                 $attachment_ID = wp_get_attachment_by_post_name($imgname );
-		                 if($attachment_ID){
-		                 	 $attach_id =$attachment_ID;
-		                 	if(!$set_fea_img){
-							set_post_thumbnail( $new_post_id, $attachment_ID );
-
-						}
-					      $set_fea_img=true;
-
-		                 }
-		                 else{
-		                 	$filetype = wp_check_filetype( basename( $url.$img ), null );
-						// Prepare an array of post data for the attachment.
-						$attachment = array(
-							'guid'           =>$url.$img, 
-							'post_mime_type' => $filetype['type'],
-							'post_title'     => preg_replace( '/\.[^.]+$/', '', $mgname  ),
-							'post_content'   => '',
-							'post_status'    => 'inherit'
-						);
-						$attach_id = wp_insert_attachment( $attachment,$file_loc.$img, $new_post_id );
-						// Generate the metadata for the attachment, and update the database record.
-						$attach_data = wp_generate_attachment_metadata( $attach_id,  $file_loc.$img);
-						wp_update_attachment_metadata( $attach_id, $attach_data );
-						if(!$set_fea_img){
-							set_post_thumbnail( $new_post_id, $attach_id );
-
-						}
-					      $set_fea_img=true;
-		                 }
-						// Insert the attachment.
-						$image_id[]=$attach_id ;
-
-			}
-
-		}
-		update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id));
 		echo 'Rugs Product '.$csv[1].' imported</br>';
+
 	}
-}
 	else  
 	{
 		if(isset($exist->ID))
@@ -421,12 +315,6 @@ function  csv_import_rugs($csv,$appcat)
 			echo $csv[1].'Rugs Item already exists';
 		}
 	}
-	return  array(
-		'rugs_new_post_id'=>$rugs_new_post_id,
-		'rugs_old_post_id'=>$rugs_old_post_id,
-		);
-	
-
 }
 
 
@@ -437,64 +325,44 @@ function  csv_import_rugs($csv,$appcat)
 	* function to import Hard Flooring products
 	* will import products from uploaded CSV file
 */
-	function  csv_import_hard_flooring($csv,$appcat)
+	/*
+	* function to import Hard Flooring products
+	* will import products from uploaded CSV file
+*/
+	function  csv_import_hard_flooring($csv,$appcat,$reshardflooring)
 {   
-//	set_time_limit(0) ;
 	global $wpdb;
-	//$exist = get_page_by_title( $csv[1], OBJECT, 'product' );
-	$hardfloor_old_post_id=array();
-	$hardfloor_new_post_id=array();
-	$product_id = $wpdb->get_var($wpdb->prepare( "SELECT p.id FROM as_postmeta as m , as_posts as p WHERE m.meta_key='_sku' AND m.meta_value='%s' and p.post_status='publish' and p.Id=m.post_id LIMIT 1", $csv[1] ));
-	if($product_id){
-		$hardfloor_old_post_id[]=$product_id;
-	}
+	set_time_limit(0) ;
+	$exist = get_page_by_title( $csv[1], OBJECT, 'product' );
+    
 	if($csv)
-	{   
-        $condimp = false;
-		$query = array(
-		    'post_type' => 'product',
-		    
-		    'post_status' => array( 'pending') ,
-		    'tax_query' => array(
-		                            array(
-		                                'taxonomy' => 'product_cat',
-		                                'field'    => 'slug',
-		                                'terms'    => $appcat
-		                            )
-		                        ),
+	{
 
-		);
-		$loop_posts =get_posts($query );
-		$count_post=count($loop_posts);
-		if($count_post>0){
-			$post_csv=$loop_posts[0];
-			 $skucomp = get_post_meta($post_csv->ID,'_sku',true);
-		 	  
-		 		if(strcasecmp($skucomp,$csv[1])==0){
-		              $temp = ltrim($csv[2], ' ');
-		              $temp = rtrim($csv[2],' ') ;
-		              $stockquantity = get_post_meta($post_csv->ID, '_stock',true);
-		              $stockquantity = intval($stockquantity) + intval($temp);
-		             update_post_meta($post_csv->ID, '_stock', $stockquantity);
-		             $condimp = true;
-		 		}
-			
-		};
+		if(array_key_exists($csv[1], $reshardflooring)){
+			 
+			 $new_post_id = $reshardflooring[$csv[1]][1];
+		
 
-		if(!$condimp){
+		
+	 }
+		else{
+				$post = array(
+						 'post_title'   => $csv[1],
+						 'post_status'  => "publish",
+						 'post_name'    => sanitize_title($csv[1]), //name/slug
+						 'post_type'    => "product",
+						 'post_content' => $csv[4],
+						 'post_excerpt' => $csv[4]
+					     );
+		 
+				
+			$new_post_id = wp_insert_post( $post );
 
-		$post = array(
-					 'post_title'   => $csv[1],
-					 'post_status'  => "pending",
-					 'post_name'    => sanitize_title($csv[1]), //name/slug
-					 'post_type'    => "product",
-					 'post_content' => $csv[7],
-					 'post_excerpt' => $csv[7]
-				     );
+		}
+
 	 
 		$rootcatterm = $appcat;		
-		$new_post_id = wp_insert_post( $post );
-		$hardfloor_new_post_id[]=$new_post_id;
+		
 		$slct        = $csv[0];
 		$tlct        = $csv[3];
 		
@@ -502,7 +370,7 @@ function  csv_import_rugs($csv,$appcat)
 		$rootcatterm   = ucwords($rootcatterm);*/
 		if(!term_exists( $slct, 'product_cat', $rootcatterm ))
 		{  
-		   category_second_level($slct ,$rootcatterm) ;
+		   cc_category_second_level($slct ,$rootcatterm) ;
 		   category_third_level($tlct ,$slct);
 		}
 		elseif(!term_exists($tlct,'product_cat',$tlct ))
@@ -516,55 +384,77 @@ function  csv_import_rugs($csv,$appcat)
   
 		$sub_cat  = get_term_by( 'name', $tlct, 'product_cat');
 		$root_cat = get_term_by( 'name',$rootcatterm , 'product_cat');
+		wp_set_object_terms( $new_post_id, $rootcatterm, 'product_cat',true);
+		wp_set_object_terms( $new_post_id, $main_cat->slug, 'product_cat',true);
+		wp_set_object_terms( $new_post_id, $sub_cat->slug, 'product_cat',true);
 		
-		
-		
-		$catarr=array($rootcatterm, $main_cat->slug,$sub_cat->slug);
-		wp_set_object_terms( $new_post_id,$catarr, 'product_cat',true);
-		//wp_set_object_terms( $new_post_id, $rootcatterm, 'product_cat',true);
-		//wp_set_object_terms( $new_post_id, $main_cat->slug, 'product_cat',true);
-		//wp_set_object_terms( $new_post_id, $sub_cat->slug, 'product_cat',true);
-		//$transient_name = 'wc_product_children_ids_' . $new_post_id;
-	//	delete_transient( $transient_name );	
+
+							
+						
 					
-		if($csv[2]){			
-		      $stockvar = intval($csv[2]);
+		if($csv[2]!=0)
+		{
 	 		update_post_meta($new_post_id, '_stock_status', 'instock');
-	        update_post_meta($new_post_id, '_stock', $stockvar);
+	        update_post_meta($new_post_id, '_stock', $csv[2]);
 	        update_post_meta($new_post_id, '_manage_stock', 'yes');
-	  
-	}
+	    }
+	    else
+	    {
+	        update_post_meta($new_post_id, '_stock_status', 'outofstock');
+	    }
 		
-	    $regular_price = (str_replace(' ', '', $csv[44]));
+	    $regular_price = str_replace(' ', '', $csv[44]);
+	  
+	  
+	     
+	    
 
-	     $regular_price =floatval(ltrim($regular_price, '0'));
+	     $regular_price = ltrim($regular_price, '0');
+	
+	
 
+	   
+	   
+	  	
+		
 	    
 		update_post_meta( $new_post_id, '_sku', $csv[1]);
-					$item_sku =  $csv[1];
-
+		$item_sku =  $csv[1];
 		$sales_record_table = $wpdb->prefix.'cc_sales_records';
 		$x = "SELECT * FROM ".$sales_record_table." WHERE sku = '".$item_sku."'";
+$exist =  $wpdb->get_row( $x);
+if($item_sku){
+ if($exist){
+ $wpdb->update(
+     $wpdb->cc_sales_records,
+     array(
+      'sales_count'=>$exist->sales_count + 1
+     ),
+     array(
+      'sku'=>$item_sku
+     ),
+     array(
+     '%d'
+     )
+    );
+ }else{
+  $wpdb->insert( 
+     $wpdb->prefix.'cc_sales_records', 
+     array(
+      'id'=>'', 
+      'sku' =>$item_sku, 
+      'sales_count' => 0 
+     ), 
+     array( 
+      '%d',
+      '%s', 
+      '%d' 
+     ) 
+    );
+  
+  }
+}
 		
-			$exist =  $wpdb->get_row($x);
-			if($item_sku){
-			 if(!$exist){
-			  $wpdb->insert( 
-				 $wpdb->prefix.'cc_sales_records', 
-				 array(
-				  'id'=>'', 
-				  'sku' =>$item_sku, 
-				  'sales_count' => 0 
-				 ), 
-				 array( 
-				  '%d',
-				  '%s', 
-				  '%d' 
-				 ) 
-				);
-			  
-			  }
-			}
 		
 		update_post_meta($new_post_id,'description_1',$csv[7]);
 		update_post_meta($new_post_id,'description_2',$csv[8]);
@@ -607,7 +497,9 @@ function  csv_import_rugs($csv,$appcat)
         update_post_meta( $new_post_id, 'anti_slip_test', $csv[42] );
         update_post_meta( $new_post_id, 'trim_options', $csv[43] );
         update_post_meta( $new_post_id, 'discount', $csv[45] );
-      
+        /*update_post_meta($new_post_id,'lateral_image_name',$csv[47]);
+	    update_post_meta($new_post_id,'vertical_image_name',$csv[46]);
+	    update_post_meta($new_post_id,'swatch_image_name',$csv[48]);*/
        
  
         	update_post_meta( $new_post_id, 'instructional_video',$csv[49]);
@@ -635,76 +527,16 @@ function  csv_import_rugs($csv,$appcat)
 			$url= site_url().'/wp-content/uploads/products/';
                
 
-				$img_arr=array(
-						'life' => $csv[47].'.jpg',
-						'side' => $csv[46].'.jpg',
-						'swatch' => $csv[48].'.jpg'						
-					);
+			
    
 	
 	
 		require_once(ABSPATH . 'wp-admin/includes/file.php');
 		require_once(ABSPATH . 'wp-admin/includes/media.php');
 		require_once(ABSPATH . "wp-admin" . '/includes/image.php');
-		//$tmp = download_url($life);
 
-
-		// Get the path to the upload directory.
-$wp_upload_dir = wp_upload_dir();
-//var_dump($wp_upload_dir);
-$file_loc= $wp_upload_dir['basedir'] ."/products/";
-$set_fea_img=false;
-$image_id=array();
-foreach($img_arr as $img){
-		if(file_exists($file_loc.$img)){
-         $imgret = explode('.',$img);
-         $imgname = $imgret[0];  
-				// Check the type of file. We'll use this as the 'post_mime_type'.
-				
-
-                 $attachment_ID = wp_get_attachment_by_post_name($imgname );
-                 if($attachment_ID){
-                 	 $attach_id =$attachment_ID;
-                 	if(!$set_fea_img){
-					set_post_thumbnail( $new_post_id, $attachment_ID );
-
-				}
-			      $set_fea_img=true;
-
-                 }
-                 else{
-                 	$filetype = wp_check_filetype( basename( $url.$img ), null );
-				// Prepare an array of post data for the attachment.
-				$attachment = array(
-					'guid'           =>$url.$img, 
-					'post_mime_type' => $filetype['type'],
-					'post_title'     => preg_replace( '/\.[^.]+$/', '', $mgname  ),
-					'post_content'   => '',
-					'post_status'    => 'inherit'
-				);
-				$attach_id = wp_insert_attachment( $attachment,$file_loc.$img, $new_post_id );
-				// Generate the metadata for the attachment, and update the database record.
-				$attach_data = wp_generate_attachment_metadata( $attach_id,  $file_loc.$img);
-				wp_update_attachment_metadata( $attach_id, $attach_data );
-				if(!$set_fea_img){
-					set_post_thumbnail( $new_post_id, $attach_id );
-
-				}
-			      $set_fea_img=true;
-                 }
-				// Insert the attachment.
-				
-				
-				$image_id[]=$attach_id ;
-
-
-	}
-
-}
-update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id));
 
 		echo 'Hard Flooring Product '.$csv[1].' imported</br>';
-	}
 	}
 	else  
 	{
@@ -713,12 +545,8 @@ update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id)
 			echo $csv[1].'Hard Flooring Item already exists';
 		}
 	}
-	return array(
-		'hardfloor_old_post_id'=>$hardfloor_old_post_id,
-		'hardfloor_new_post_id'=>$hardfloor_new_post_id
-	)	;
 }
-
+// end of hard flooring read section //
 
 /////////////////////////////////////////////////////////////////////////
 /////////////////////////////Import Product Function //////////////////
@@ -726,151 +554,226 @@ update_post_meta( $new_post_id, '_product_image_gallery', implode(",",$image_id)
 
 //add_action("admin_init",'cron_func_update');
 function cron_func_update(){
-	set_time_limit(0);
-	    $url = site_url();
-		$url = explode('/',$url);
-		$countfileslen = 2;
-		$counter=1;
-		$rugfilesearray =array();
-		$hardfloorfilesarray = array();
-		$errorfilesarray = array();
-		$errorflag = false;
-		// to write a file and save in folder 
-		 $time = current_time('mysql');
- 
-		if(strcasecmp($url[2],'localhost')==0){
-			$desfolder = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/history/';}
-		else{
-               $desfolder= $_SERVER['DOCUMENT_ROOT'].'/history/';
-			}
-			  $time =  current_time('Y-m-d-m-h-s');
-			$newfilename = $desfolder.'log'.$time.'.txt';
-		
-		
 
-		 if(strcasecmp($url[2],'localhost')==0){
-			$directory = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/productfiles';}
-		else{
-               $directory = $_SERVER['DOCUMENT_ROOT'].'/productfiles';
-			}
-		
-	$csc_rugs_flag=$csc_hardfloor_flag=false;
-	
-	$rugs_post_ids= $hardfloor_ids=array();
-		$filecols = array_diff(scandir($directory), array('..', '.'));
-		foreach($filecols as $fileitem){
-			if (strpos(strtolower($fileitem), 'rugols') !== false) {
-				$fileextension = explode('.',$fileitem);
-				if($fileextension[1]=='csv'){
-					 	//$rugfilesearray[] = $fileitem ;
-						   $rugs_post_ids[]=cc_rugs_file_read($fileitem );
-						   $csc_rugs_flag=true;
-				}
-				else{
-					echo "undefined file($fileitem) for rugs.";
-				}
-		
-			}
-			elseif(strpos(strtolower($fileitem), 'lols') !== false){
-				$fileextension = explode('.',$fileitem);
-				if($fileextension[1]=='csv'){
-					 	//$hardfloorfilesarray[] = $fileitem;
-						 $hardfloor_ids[]=cc_hard_floor_file_read( $fileitem);
-						  $csc_hardfloor_flag=true;
-				}
-				else{
-					echo "undefined file($fileitem) for hardflooring.";
-				}
-			}
-			else{
-				$errorfilesarray[] = $fileitem;
-                 $errorflag = true;
-			}
-		}
-		
-				
-		$rug_new_ids=$rug_old_ids=array();
-		foreach($rugs_post_ids as $ids){
-			$rug_new_ids=array_merge($rug_new_ids,$ids['rugs_new_post_id']);
-			$rug_old_ids=array_merge($rug_old_ids,$ids['rugs_old_post_id']);
-		}
-		
-		
-		$hardfloor_new_ids=$hardfloor_old_ids=array();
-		foreach($hardfloor_ids as $ids){
-			$hardfloor_new_ids=array_merge($hardfloor_new_ids,$ids['hardfloor_new_post_id']);
-			$hardfloor_old_ids=array_merge($hardfloor_old_ids,$ids['hardfloor_old_post_id']);
-		}
-		$old_product=array_merge($rug_old_ids,$hardfloor_old_ids);
-		$new_product=array_merge($rug_new_ids,$hardfloor_new_ids);
-		//////////////////////////////// //////////////////////
-		////////////// Draft Product///////////////////////
-		//////////////////// ////////////////////////////
-		if(strcasecmp($url[2],'localhost')==0){
-			$srcfolder = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/productfiles/';
-		    $desfolder = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/history/';}
-		else{
-              $srcfolder= $_SERVER['DOCUMENT_ROOT'].'/productfiles/';
-              $desfolder = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/history/';
-			}
-         foreach($filecols as $bfa){ 
-			 copy($srcfolder.$bfa, $desfolder.$bfa);
-			 unlink($srcfolder.$bfa);
-		 }
-		 
-		 $scv_arr=array();
-		 if($csc_rugs_flag){
-			 $scv_arr[]="rugs";
-		 }
-		 if($csc_hardfloor_flag){
-			 $scv_arr[]="hard-flooring";
-		 }
-		 
-		  wp_reset_query(); 
-		global $wpdb;
-		foreach($old_product as $id){
-				$my_post = array(
-				  'ID'           => $id,
-				  'post_status'   => 'draft',
-			  );
-				// Update the post into the database
-				 wp_update_post( $my_post );	
-				
-			}
-			foreach($new_product as $id){
-				$my_post = array(
-				  'ID'           => $id,
-				  'post_status'   => 'publish',
-			  );
-			  
-				// Update the post into the database
-				 wp_update_post( $my_post );	
-				
-			}
-		 wp_reset_query(); 
-		////////////////////////////////////////////////////
-		$txt = "List of error files \r\n";
-		if($errorflag){
-		foreach($errorfilesarray as $efa){
-			$txt .= $efa."\r\n" ;
-		   }
-	     } else{
-           $txt .= "No error files ." ;
-	     }
-		 $myfile = fopen($newfilename, "w") or die("Unable to open file!");
-		fwrite($myfile, $txt);
-		fclose($myfile);
+$rugsadmin = data_database_read("rugs");
+$hardflooringadmin = data_database_read("hard-flooring");
+do_action('pr', $rugsadmin);
+do_action('pr',$hardflooringadmin);
+
+
+$url = site_url();
+$url = explode('/',$url);
+$countfileslen = 2;
+$counter=1;
+$rugfilesearray =array();
+$hardfloorfilesarray = array();
+$errorfilesarray = array();
+$errorflag = false;
+// to write a file and save in folder 
+$time = current_time('mysql');
+
+if(strcasecmp($url[2],'localhost')==0){
+    $desfolder = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/history/';}
+else{
+    $desfolder= $_SERVER['DOCUMENT_ROOT'].'/history/';
+}
+$time =  current_time('Y-m-d-m-h-s');
+$newfilename = $desfolder.'log'.$time.'.txt';
+
+
+
+if(strcasecmp($url[2],'localhost')==0){
+    $directory = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/productfiles';}
+else{
+    $directory = $_SERVER['DOCUMENT_ROOT'].'/productfiles';
 }
 
-///////////////////////////////////////////////////////////////////////////////////////
-///////////////////////Delete Draft Product //////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-//add_action('admin_init','cron_func_delete');
-function cron_func_delete(){
-$args = array(
+$csc_rugs_flag=$csc_hardfloor_flag=false;
+
+$rugs_post_ids= $hard_post_ids=array();
+$filecols = array_diff(scandir($directory), array('..', '.'));
+foreach($filecols as $fileitem){
+    if (strpos(strtolower($fileitem), 'rugols') !== false) {
+        $fileextension = explode('.',$fileitem);
+        if($fileextension[1]=='csv'){
+        //$rugfilesearray[] = $fileitem ;
+            $rugs_post_ids[]=cc_csv_conv_array($fileitem );
+            $csc_rugs_flag=true;
+        }
+        else{
+            echo "undefined file($fileitem) for rugs.";
+        }
+
+    }
+    elseif(strpos(strtolower($fileitem), 'lols') !== false){
+        $fileextension = explode('.',$fileitem);
+        if($fileextension[1]=='csv'){
+            //$hardfloorfilesarray[] = $fileitem;
+            $hards_post_ids[]=cc_csv_conv_array( $fileitem);
+            $csc_hardfloor_flag=true;
+        }
+        else{
+            echo "undefined file($fileitem) for hardflooring.";
+        }
+    }
+    else{
+        $errorfilesarray[] = $fileitem;
+        $errorflag = true;
+    }
+} 
+if($csc_hardfloor_flag){
+$new_rugs_file = cc_res_csv_hards($hards_post_ids,'NETLOLS');
+$appcat = "hard-flooring";
+if(file_exists($new_rugs_file)){
+					
+					
+					$reshardflooring = array();
+				    	
+				
+
+					 $csvs = readCSV($new_rugs_file);
+					
+					 foreach($hardflooringadmin as $key=>$value){
+					
+
+
+					 	if(array_key_exists($key, $csvs))
+					 	{
+					 		
+					 		 	$reshardflooring[$key] = $value;
+					 	}
+					 	else{
+					 		
+					 		wp_delete_post($value[1]);
+
+					 	}
+					 	
+					 }
+				
+					if($csvs)
+					{
+						$args = array(
+						             'taxonomy'     => 'product_cat',
+							         'hide_empty'               => 0,
+						         );
+						$cats = array();
+						  
+						$procats = get_categories( $args );
+						foreach ($procats as $cat)
+						{
+							 $cats[$cat->name][0] = (int) $cat->term_id;
+						}
+						global $wpdb;
+						$i =0;
+                       
+						foreach($csvs as $csv)
+						{
+
+                         
+     						if(strcasecmp($csv[0],'Category')!=0)
+     						{
+	                      	csv_import_hard_flooring($csv,$appcat,$hardflooringadmin);
+
+                     		}
+		
+		
+						}
+
+
+
+					} 
+					else
+					{
+						echo 'Sorry file can\'t be uploaded';
+					}
+				}
+				else{
+					echo "File doesn't exixt";
+				}
+				
+
+}
+
+
+
+if($csc_rugs_flag){
+$new_rugs_file = cc_res_csv_rugs($rugs_post_ids,'NETRUGOLS');
+ $appcat = "rugs";
+    if(file_exists($new_rugs_file)){
+					 $resrugs = array();
+
+					 $csvs = readCSV($new_rugs_file);
+					
+					 foreach($rugsadmin as $key=>$value){
+					
+
+
+					 	if(array_key_exists($key, $csvs))
+					 	{
+					 	
+					 		 	
+					 		 	$resrugs[$key] = $value;
+					 	}
+					 	else{
+					 	
+					 		wp_delete_post($value[1]);
+
+					 	}
+					 	
+					 }
+					
+					
+				
+					
+				
+					if($csvs)
+					{
+						$args = array(
+						             'taxonomy'     => 'product_cat',
+							         'hide_empty'               => 0,
+						         );
+						$cats = array();
+						  
+						$procats = get_categories( $args );
+						foreach ($procats as $cat)
+						{
+							 $cats[$cat->name][0] = (int) $cat->term_id;
+						}
+						global $wpdb;
+						$i =0;
+                       
+						foreach($csvs as $csv)
+						{
+
+                         
+     						if(strcasecmp($csv[0],'state')!=0)
+     						{
+	                      		csv_import_rugs($csv,$appcat,$resrugs);
+
+                     		}
+		
+		
+						}
+
+
+
+					} 
+					else
+					{
+						echo 'Sorry file can\'t be uploaded';
+					}
+				}
+				else{
+					echo "File doesn't exixt";
+				}
+
+
+			}
+			
+			$args = array(
 
 				"post_type"=>'product',
-				"post_status"=>array("draft"),
+				"post_status"=>array("publish"),
 				"posts_per_page"=>"-1",
 				'tax_query' => array(
                                 array(
@@ -885,9 +788,179 @@ $args = array(
 		$i  = 1;echo "Removed Product List : <br />";
 		while($loop->have_posts()){
 			$loop->the_post();
-				wp_delete_post( $loop->post->ID, true ); 
+			$my_post = array(
+							      'ID'           => $loop->post->ID,
+							      'post_stauts'  =>'draft'
+      
+							);
+
+
+  			wp_update_post( $my_post);
+		}
+		wp_reset_query();
+					////////////////////////////////////////////////////
+
+        	$args = array(
+
+				'post_type'=>'product',
+				'post_status'=>array('pending'),
+				'posts_per_page'=>'-1',
+				'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'product_cat',
+                                    'field'    => 'slug',
+                                    'terms'    => array('rugs','hard-flooring')
+                                )
+                            )
+			);
+		$loop = new WP_Query($args);
+
+		$i  = 1;echo "Removed Product List : <br />";
+		while($loop->have_posts()){
+			$loop->the_post();
+			$my_post = array(
+							      'ID'           => $loop->post->ID,
+							      'post_stauts'  =>'publish'
+      
+							);
+
+
+  			wp_update_post( $my_post);
 		}
 		wp_reset_query();
 
 
+		//////////////////////////////////////////
+		$txt = "List of error files \r\n";
+		if($errorflag){
+		foreach($errorfilesarray as $efa){
+			$txt .= $efa."\r\n" ;
+		   }
+	     } else{
+           $txt .= "No error files ." ;
+	     }
+		 $myfile = fopen($newfilename, "w") or die("Unable to open file!");
+		fwrite($myfile, $txt);
+		fclose($myfile);
+
 }
+function cc_csv_conv_array($filename){
+$filename = site_url().'/productfiles/'.$filename;
+$file = fopen($filename,"r");
+$count_csv = 0;
+$arraycsv = array();
+while(! feof($file))
+{
+$arraycsv[] =fgetcsv($file);
+$count_csv++;
+}
+fclose($file); 
+$arraycsvff = array();
+foreach($arraycsv as $arraycsvu){
+$arraycsvff[$arraycsvu[1]]=$arraycsvu;
+}
+return  $arraycsvff;
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////csv file reads ///////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+function cc_res_csv_rugs ( $rugs_post_ids,$filename ) {
+
+    $new_rugs_ids=array();
+    foreach($rugs_post_ids as $rugs_ids){
+
+        foreach($rugs_ids as $rugs){
+            if(strcasecmp($rugs[0],'state')==0){
+                continue;
+            }
+
+            if(array_key_exists($rugs[1],$new_rugs_ids)){
+                $old_item=$new_rugs_ids[$rugs[1]];
+                $qty= intval($old_item[13])+intval($rugs[13]);
+                $old_item[13]=$qty;
+                $new_rugs_ids[$rugs[1]]=$old_item;
+
+            }else{
+                $new_rugs_ids[$rugs[1]]=$rugs;
+            }
+
+
+      }
+
+    }
+    $url = site_url();
+    $url = explode('/',$url);
+    if(strcasecmp($url[2],'localhost')==0){
+        $desfolder = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/netcsvs/';
+    }else{
+        $desfolder= $_SERVER['DOCUMENT_ROOT'].'/netcsvs/';
+    }
+        $time =  current_time('Y-m-d-m-h-s');
+        $resfile = $desfolder.$filename.$time.'.csv';
+    $fp = fopen($desfolder.$filename.$time.'.csv', 'w');
+    foreach($new_rugs_ids as $writeline){
+        fputcsv($fp, $writeline);
+
+    }
+    fclose($fp);
+
+   
+    return $resfile;
+
+}
+
+function cc_res_csv_hards($hards_post_ids,$filename){ 
+     $new_hards_ids=array();
+      foreach($hards_post_ids as $hards_ids){
+
+          foreach($hards_ids as $hards){
+              if(strcasecmp($hards[0],'category')==0){
+                  continue;
+              }
+
+              if(array_key_exists($hards[1],$new_hards_ids)){
+                  $old_item=$new_hards_ids[$hards[1]];
+                  $qty= intval($old_item[2])+intval($hards[2]);
+                  $old_item[2]=$qty;
+                  $new_hards_ids[$hards[2]]=$old_item;
+
+              }else{
+                  $new_hards_ids[$hards[2]]=$hards;
+              }
+
+
+        }
+
+      }
+      $url = site_url();
+      $url = explode('/',$url);
+      if(strcasecmp($url[2],'localhost')==0){
+          $desfolder = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/netcsvs/';
+      }else{
+          $desfolder= $_SERVER['DOCUMENT_ROOT'].'/netcsvs/';
+      }
+          $time =  current_time('Y-m-d-m-h-s');
+      $resfile = $desfolder.$filename.$time.'.csv';
+      $fp = fopen($desfolder.$filename.$time.'.csv', 'w');
+      foreach($new_hards_ids as $writeline){
+          fputcsv($fp, $writeline);
+
+      }
+      fclose($fp);
+      return $resfile;
+
+
+}
+
+
+
+
+
+
+
+?>
+
+

@@ -41,8 +41,52 @@ global $post, $woocommerce, $product;
                 
               	}
               	}
-              	}?>
+              	}
+				
+				$feat_image = get_template_directory_uri().'/images/placeholder.png';
+				$sku = explode('.',get_post_meta($post->ID,'_sku',true));
+				$image_names = array(
+								strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_L.jpg'),
+								strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_V.jpg'),
+								strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_S.jpg'),
+							);
+							
+					foreach($image_names as $imgname){
+						$img_path =  WP_CONTENT_DIR.'/uploads/products/large/'.$imgname;
+						if(file_exists($img_path)){
+						$feat_image = content_url('uploads/products/large/'.$imgname);
+						break;
+					}
+				}
+				
+				
+				
+				?>
+                
+                <div class="main-image-wrapper">
+                <a href="<?php echo $feat_image?>" 
+                itemprop="image" 
+                class="woocommerce-main-image zoom" 
+                title="<?php echo strtoupper( $post->post_name )?>">
+                <img 
+                width="560" 
+                height="373" 
+                src="<?php echo $feat_image?>" 
+                class="attachment-full size-full wp-post-image" alt="<?php echo strtoupper( $post->post_name )?>" 
+                title="<?php echo strtoupper( $post->post_name )?>" 
+                srcset="<?php echo $feat_image?>" 
+                sizes="(max-width: 560px) 100vw, 560px">
+                </a>
+                <div class="main-image-over-wrapper">
+                <img src="http://localhost/carpetcall/wp-content/themes/carpetcall/images/magnify1.png" 
+                class="main-image-over">
+                </div>
+                </div>
+                
+                
+                
 	<?php
+	/*
 	$imgurl =get_template_directory_uri().'/images/magnify1.png';
 		if ( has_post_thumbnail() ) {
 			$image_caption = get_post( get_post_thumbnail_id() )->post_excerpt;
@@ -67,7 +111,8 @@ global $post, $woocommerce, $product;
 			echo '</div>';
 
 		}
-	?>
+	
+	*/?>
 
 	<?php //do_action( 'woocommerce_product_thumbnails' ); ?>
    
@@ -80,7 +125,8 @@ global $post, $woocommerce, $product;
 	
 	?>
     	<?php 
-		 $attachment_ids = $product->get_gallery_attachment_ids();
+		if(has_term('carpets','product_cat',get_the_ID())){
+		$attachment_ids = $product->get_gallery_attachment_ids();
 		
 		foreach( $attachment_ids as $attachment_id ) 
 		{
@@ -90,13 +136,51 @@ global $post, $woocommerce, $product;
         <div>
         <a href="<?php echo  $image_link?>" class="single-product-thumb-img">
         
-        	<!--<img src="<?php //echo get_template_directory_uri()?>/images/placeholder.png">-->
+        	
         	<img src="<?php echo $image_thumb[0]?>">
             
             
         </a></div>
 		<?php
         }
+
+			
+						
+		}else{
+		$sku = explode('.',get_post_meta(get_the_ID(),'_sku',true));
+		$image_names = array(
+								strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_L.jpg'),
+								strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_V.jpg'),
+								strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_S.jpg'),
+							);
+							
+		foreach($image_names as $imgname){
+			$feat_image = $feat_image_full = get_template_directory_uri().'/images/placeholder.png';
+			$img_path =  WP_CONTENT_DIR.'/uploads/products/large/'.$imgname;
+			$thumb_path =  WP_CONTENT_DIR.'/uploads/products/medium/'.$imgname;
+			if(file_exists($img_path)){
+				$feat_image_full = content_url('uploads/products/large/'.$imgname);
+				if(file_exists($thumb_path)){
+					$feat_image = content_url('uploads/products/medium/'.$imgname);
+				} ?>
+				<div>
+        <a href="<?php echo  $feat_image_full ?>" class="single-product-thumb-img">
+        	<img src="<?php echo $feat_image?>">
+        </a></div>
+		<?php
+
+			}
+		}
+			
+			}				
+		
+		
+		
+		
+		
+		
+
+
 
 
 		//do_action('pr',get_post_meta(get_the_ID()));

@@ -17,7 +17,7 @@ function cc_create_table_for_sales_record(){
 	) $charset_collate;";
 	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 	dbDelta( $sql );
-	}
+}
 
 
 
@@ -112,7 +112,7 @@ function return_parent_catlink_if_lastchild($link,$term_obj,$taxonomy){
 	$ancestors = get_ancestors( $term_obj->term_id, 'product_cat' );
 	$depth = count($ancestors) ;
 	$last_cat_depth = 2;
-/*	$top_cat = smart_category_top_parent_id($term_obj->term_id,'product_cat');
+	$top_cat = smart_category_top_parent_id($term_obj->term_id,'product_cat');
 	if($top_cat){
 		$top_cat_obj = get_term_by('id',$top_cat,'product_cat');
 		$top_cat_slug = $top_cat_obj->slug;
@@ -120,9 +120,11 @@ function return_parent_catlink_if_lastchild($link,$term_obj,$taxonomy){
 			$last_cat_depth = 2;
 		}else if($top_cat_slug == 'hard-flooring'){
 			$last_cat_depth = 2;
+		}else if($top_cat_slug == 'carpets'){
+			$last_cat_depth = 1;
 		}
 	}
-*/	if($depth >= $last_cat_depth && $term_obj->count > 0){
+	if($depth >= $last_cat_depth && $term_obj->count > 0){
 		$args = array(
 		'post_type'             => 'product',
 		'post_status'           => 'publish',
@@ -409,21 +411,21 @@ function show_category_slider_block($args=array()){
 				</div>
 				<?php
 				if($filloop->have_posts()){
+					
 					$slidercounter = 1;
 					while($filloop->have_posts()){
 						$post = $filloop->the_post();
-						$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
-						$proGal = get_post_meta($filloop->post->ID, '_product_image_gallery', TRUE );
-						$proGalId = explode(',',$proGal);
-						$reqProImageId = '';
 						$imgflag = false;
-						foreach($proGalId as $imgid){
+						$feat_image = cc_custom_get_feat_img(get_the_ID(),'large');
+						
+						
+						/*die;
 							$proImageName = wp_get_attachment_url($imgid);
-							if(preg_match("/\_L/i", $proImageName)){
+							if(preg_match("/\_L/i", $image_full)){
 								$feat_image = wp_get_attachment_image_src($imgid,'full');
 								if($feat_image){
 									$feat_image = $feat_image[0];
-									$imgflag = true;
+									
 
 								}
 							}elseif(preg_match("/\_V/i", $proImageName)){
@@ -440,10 +442,11 @@ function show_category_slider_block($args=array()){
 									$imgflag = true;
 								}
 								}
-						}
-						if(!$imgflag){
-							$feat_image = get_template_directory_uri().'/images/placeholder.png';
-						}
+						
+						
+						*/
+						
+						
 						if($pch==1){
 							$res = get_post_meta($filloop->post->ID ,'_regular_price',true);
 							echo '<div class="col-md-6 cc-cat-sub-price">From <span>$'.$res.'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
@@ -474,6 +477,8 @@ function show_category_slider_block($args=array()){
                     $slidercounter = 1;
                     while($filloop->have_posts()){
 						$filloop->the_post();
+						$feat_image = cc_custom_get_feat_img(get_the_ID(),'small');
+						/*
 						$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID),'thumbnail');
 						$proGal = get_post_meta($filloop->post->ID, '_product_image_gallery', TRUE );
 						$proGalId = explode(',',$proGal);
@@ -500,10 +505,8 @@ function show_category_slider_block($args=array()){
 								}
 							}
 						}
+						*/
 						
-						if($feat_image ==''){
-							$feat_image = get_template_directory_uri().'/images/placeholder.png';
-						}
 						?>
 						<div class=" cc-other-term-pro">
 						<div class="cc-img-wrapper">
@@ -665,37 +668,9 @@ function loadmore_hf($args){
 					if(!empty($filloop)){
 						$slidercounter = 1;
 						foreach($filloop as $post){
-							
-							$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID),'full' );
-							$proGal = get_post_meta($post->ID, '_product_image_gallery', TRUE );
-							$proGalId = explode(',',$proGal);
-						$reqProImageId = '';
-						foreach($proGalId as $imgid){
-							$proImageName = wp_get_attachment_url($imgid);
-							
-							if(preg_match("/\_V/i", $proImageName)){
-								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
-								if($feat_image){
-									$feat_image = $feat_image[0];
-								}
-							}
-							elseif(preg_match("/\_S/i", $proImageName)){
-								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
-								if($feat_image){
-									$feat_image = $feat_image[0];
-								}
-							}
-							elseif(preg_match("/\_L/i", $proImageName)){
-								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
-								if($feat_image){
-									$feat_image = $feat_image[0];
-								}
-							}
-						}
+
+						$feat_image = cc_custom_get_feat_img($post->ID,'large');
 						
-						if($feat_image ==''){
-							$feat_image = get_template_directory_uri().'/images/placeholder.png';
-						}
 							if($pch==1){
 								$res = get_post_meta($post->ID ,'_regular_price',true);
 								echo '<div class="col-md-6 cc-cat-sub-price">From <span>$'.$res.'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
@@ -723,37 +698,9 @@ function loadmore_hf($args){
                         <?php 
                         $slidercounter = 1;
                         foreach($filloop as $post){
-							
-							$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID),'thumbnail' );
-							$proGal = get_post_meta($post->ID, '_product_image_gallery', TRUE );
-							$proGalId = explode(',',$proGal);
-						$reqProImageId = '';
-						foreach($proGalId as $imgid){
-							$proImageName = wp_get_attachment_url($imgid);
-							
-							if(preg_match("/\_V/i", $proImageName)){
-								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
-								if($feat_image){
-									$feat_image = $feat_image[0];
-								}
-							}
-							elseif(preg_match("/\_S/i", $proImageName)){
-								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
-								if($feat_image){
-									$feat_image = $feat_image[0];
-								}
-							}
-							elseif(preg_match("/\_L/i", $proImageName)){
-								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
-								if($feat_image){
-									$feat_image = $feat_image[0];
-								}
-							}
-						}
 						
-						if($feat_image ==''){
-							$feat_image = get_template_directory_uri().'/images/placeholder.png';
-						}
+						$feat_image = cc_custom_get_feat_img($post->ID,'small');
+						
 							?>
 							<div class=" cc-other-term-pro">
 							<div class="cc-img-wrapper">
@@ -792,7 +739,143 @@ function loadmore_hf($args){
 	}
 }
 
+function load_more_carpet_blinds($args){
+	ob_start();
+	$defaults = array(
+		'cat_id' =>0,
+		'depth'=>0,
+	);
+	$args = wp_parse_args( $args, $defaults);
+	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+		if(isset($_POST['cat_id'])){
+		$args['cat_id'] = sanitize_text_field($_POST['cat_id']);
+		}
+	}
+	extract($args);
+	global $wp_query;
+	$cat_arr = generate_catids_array($cat_id,1);
+	$cat_slice = array();
+	if(!empty($cat_arr)){
+		foreach($cat_arr as $catid){
+			$cat_slice[] = get_term_by('id',$catid,'product_cat');
+		}
+		if(!empty($cat_slice)){
+			foreach($cat_slice as &$discat){
+				?>
+				<div class="cat-single-products">
+				<?php 
+				$filargs = array(
+					'post_type'=>'product',
+					'posts_per_page'=>-1,
+					'post_stauts' =>'publish',
+					'meta_query'=>array(
+										array(
+											'key'	=>'_stock_status',
+											'value'	=>'instock',
+										),
+									),
+					'tax_query' => array(
+										array(
+											'taxonomy' => 'product_cat',
+											'field'    => 'term_id',
+											'terms'    => $discat->term_id,
+										),
+									),
+				);
+
+				wp_reset_postdata();
+				$pch = 1;
+				$filloop = get_posts($filargs);
+				if(count($filloop) == 0){
+					$filloop = '';
+					}
+				?>
+				<?php 
+				if($filloop !='' && count($filloop) > 0){
+					$current_cat = get_term_by('id',$discat->parent,'product_cat');
+					?>
+					<div class="row cc-cat-sub-title-price-cover">
+					<div class="col-md-6 cc-cat-sub-title">
+					<h3><?php echo $discat->name?></h3><br/>
+					</div>
+					<?php
+					
+					if(!empty($filloop)){
+						foreach($filloop as $post){
+						
+						$feat_image = cc_custom_get_feat_img($post->ID,'large');
+						
+							if($pch==1){
+								$pch++;?>
+								</div> 
+                                <div class="row cc-cat-sub-carousal-a">
+                                <div class="carpets_top_img">
+                                <a href="<?php echo get_permalink($post->ID);?>">
+								<div class="cat_slider_items">
+								<div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image ;?>)"></div>
+								</div></a>
+								
+							<?php break;
+							}
+						}
+						wp_reset_query();
+					}
+					if(!empty($filloop)){?>
+                        <div class=" cc-cat-sub-group-item">
+                        <?php 
+                        $slidercounter = 1;
+                        foreach($filloop as $post){
+							$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID),'thumbnail' );
+							$proGal = get_post_meta($post->ID, '_product_image_gallery', TRUE );
+							$proGalId = explode(',',$proGal);
+						$reqProImageId = '';
+						foreach($proGalId as $imgid){
+							$proImageName = wp_get_attachment_url($imgid);
+							$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
+								if($feat_image){
+									$feat_image = $feat_image[0];
+								}
+								
+							if($feat_image =='' || !$feat_image){
+								$feat_image = get_template_directory_uri().'/images/placeholder.png';
+							}
+							?>
+                            <div class=" cc-other-term-pro">
+							<div class="cc-img-wrapper">
+							<div class="cat-item-group-image" style="background-image:url(<?php echo $feat_image;?>)">
+							<a href ="<?php echo get_permalink($post->ID);?>" class="cc-pro-view">VIEW</a> </div>
+							</div>
+							</div>
+                            <?php
+						}
+						}
+                        wp_reset_query(); ?>
+                        </div>
+					<?php }
+					?>
+					</div>
+				<?php }
+				?>
+				</div>
+			<?php 
+			}
+		}else{
+			$html = '';
+			$offset = 0;
+			$found_count = 0;
+		}
+	}
+	$html = ob_get_contents();
+	ob_end_clean();
+	$ret['html'] = $html;
+	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+		echo json_encode($ret);
+		die;
+	}else{
+		return $ret;
+	}
 	
+	}	
 	
 add_action('wp_ajax_cc_custom_search','cc_custom_search');
 add_action('wp_ajax_nopriv_cc_custom_search','cc_custom_search');
@@ -892,13 +975,16 @@ function cc_custom_search($args){
 				
 				if($filloop->have_posts()){
 					while($filloop->have_posts()){
-						$filloop->the_post();?>
+						$filloop->the_post();
+						
+						$feat_image = cc_custom_get_feat_img(get_the_ID(),'medium');
+						?>
 						<div class="search_prod_wrapper col-md-4">
                             	<?php
 								//$imgurl = (has_post_thumbnail())?the_post_thumbnail_url('thumbnail'):get_template_directory_uri().'/images/placeholder.png';
 								 ?>
                                  
-<div class="cc-search-inner-wrap">                            <div class="search_thumb" style="background-image:url(<?php echo (has_post_thumbnail())?the_post_thumbnail_url('thumbnail'):get_template_directory_uri().'/images/placeholder.png'?>)"></div>
+<div class="cc-search-inner-wrap">                            <div class="search_thumb" style="background-image:url(<?php echo $feat_image ?>)"></div>
 <div class="cc-search-tps">                            <div class="search_title">
 								<?php 
                                     $categories = get_the_terms(get_the_ID(), 'product_cat' ); 
@@ -944,7 +1030,7 @@ function cc_custom_search($args){
                             </div>
                             <div class="search_shop_now">
                             	<div class="read_more">
-                                <a href="<?php echo get_term_link($temp_parent->term_id,"product_cat")?>">Shop Now</a>
+                                <a href="<?php echo get_the_permalink(get_the_ID())?>">Shop Now</a>
                                 </div>
                             </div>
 </div></div>                        </div>
@@ -1404,17 +1490,22 @@ function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
 add_filter( 'rewrite_rules_array', function( $rules )
 {
     $new_rules = array(
+	    'shop-our-range/carpets/([^/]*?)/([^/]*?)/?$' => 'index.php?product=$matches[2]',
         'shop-our-range/([^/]*?)/?$' => 'index.php?product_cat=$matches[1]',
 		'shop-our-range/([^/]*?)/([^/]*?)?$' => 'index.php?product_cat=$matches[2]',
 		'shop-our-range/([^/]*?)/([^/]*?)/([^/]*?)?$' => 'index.php?product_cat=$matches[3]',
-		
+
 		 'shop-our-range/([^/]*?)/page/([0-9]{1,})/?$' => 'index.php?product_cat=$matches[1]&paged=$matches[2]',
 		  'shop-our-range/([^/]*?)/([^/]*?)/page/([0-9]{1,})/?$' => 'index.php?product_cat=$matches[2]&paged=$matches[3]',
 		  'shop-our-range/([^/]*?)/([^/]*?)/([^/]*?)/page/([0-9]{1,})/?$' => 'index.php?product_cat=$matches[3]&paged=$matches[4]',
+		   
+		 
 		
     );
     return $new_rules + $rules;
 } );
+
+
 
 
 add_action( 'woocommerce_add_order_item_meta', 'cc_save_item_sku_order_itemmeta', 10, 3 );
@@ -1457,6 +1548,59 @@ if($item_sku){
 		}
 }
 }
+
+/*
+* Function to reutun the images from the upload folder for the given product and given size
+*/
+
+function cc_custom_get_feat_img($post_id,$size='small'){
+	if(has_term('hard-flooring','product_cat',$post_id) || has_term('rugs','product_cat',$post_id)){
+							if(has_term('hard-flooring','product_cat',$post_id)){
+							$sku = get_post_meta($post_id,'_sku',true);
+							$image_names = array(
+											strtoupper($sku.'_L.jpg'),
+											strtoupper($sku.'_V.jpg'),
+											strtoupper($sku.'_S.jpg'),
+										);
+							}
+						if(has_term('rugs','product_cat',$post_id)){
+							
+							$sku = explode('.',get_post_meta($post_id,'_sku',true));
+							$image_names = array(
+											strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_L.jpg'),
+											strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_V.jpg'),
+											strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_S.jpg'),
+										);
+	
+							}
+									
+							foreach($image_names as $imgname){
+								$img_path =  WP_CONTENT_DIR.'/uploads/products/'.$size.'/'.$imgname;
+								if(file_exists($img_path)){
+								$feat_image = content_url('uploads/products/'.$size.'/'.$imgname);
+								break;
+							}
+						}
+							}else{
+								if($size == 'small'){
+									$size = 'thumbnail';
+									}elseif($size=='large'){
+										$size = 'full';
+										}
+								$feat_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $size ); 
+								if(!$feat_image){
+									$feat_image = get_template_directory_uri().'/images/placeholder.png';
+									}else{
+										$feat_image = $feat_image[0];
+										}
+								}
+								
+		if($feat_image == '' || !$feat_image){
+			$feat_image = get_template_directory_uri().'/images/placeholder.png';
+		}
+	return $feat_image;
+	}
+	
 //add_rewrite_rule('^shop-our-range/([^/]*)/([^/]*)/([^/]*)/([^/]*)?','index.php?&product=$matches[4]','top');
 
 //global $woocommerce;

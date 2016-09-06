@@ -442,6 +442,18 @@ jQuery(document).on('change','.delivery_option_rugs #nearby_stores_main_wrapper 
         $(e.target).prev('.panel-heading').removeClass('active');
       });          
     });
+	
+	// Table Responsive function
+	function resTable(tableName){
+		var $th = $(this).find("th");
+		var $td = $(this).find("tbody tr td");
+		$($td).attr('data-attr', function () {
+			return $th.eq($(this).index()).text();
+		});
+	}
+	
+	resTable(".cbg_content.cc-condn-page .woocommerce table.shop_table");
+	
       
 
   });
@@ -482,3 +494,5 @@ jQuery(document).on('change','.delivery_option_rugs #nearby_stores_main_wrapper 
   // Window Load End
 
 })(jQuery);
+
+
