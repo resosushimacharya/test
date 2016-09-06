@@ -3,6 +3,7 @@ function contact_store_control(){
 $terms = get_terms('wpsl_store_category');
 wp_reset_query();
 $slug = sanitize_text_field($_POST['state']);
+$pageid = sanitize_text_field($_POST['page_id']);
 wp_reset_query();
 $args = array(
 				'post_type' =>'wpsl_stores',
@@ -17,6 +18,20 @@ $args = array(
 											)
 										)
 				 );
+if(get_post_type($pageid) == 'product'){
+	
+	$args['meta_query'] = array(
+								array(
+									'key'=>'store_type',
+									'value'=>'franchise_store',
+									'compare'=>'!=',
+									)
+								);
+	
+	}else{
+		
+		}
+	
 $loop = new WP_Query($args);
 $html = '<option class="col-md-12" value="default">SELECT A STORE</option>';
 if($loop->have_posts()){
