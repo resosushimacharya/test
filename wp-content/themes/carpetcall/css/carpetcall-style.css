@@ -70,6 +70,7 @@ a {
 p {
 	margin: 2px 0;
 	font: normal 0.875em/150% 'proxima_nova_rgregular', sans-serif;
+	
 	color: #333333;
 }
 html, body {
@@ -199,8 +200,9 @@ html, body {
 	color: #faf9f9;
 }
 .subcl {
-	font-size: 12px;
-	font-family:  'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #FFF;
 	margin: 0;
 	text-transform: uppercase;
@@ -273,7 +275,10 @@ ul#mywoosection ul.dropdown-menu {
 	overflow: auto;
 }
 .sfind {
-	font: bold 28px/148% 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:28px;
+	font-weight:normal;
+	line-height:148%;
 	color: #FFF;
 }
 .sfind .col-md-8 {
@@ -282,7 +287,9 @@ ul#mywoosection ul.dropdown-menu {
 }
 
 .sfind address strong {
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #666;
 	text-decoration:underline;
 }
@@ -294,7 +301,9 @@ ul#mywoosection ul.dropdown-menu {
 	padding-right: 0;
 }
 #directory_list_id_s p strong {
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #666;
 	font-size: 12px;
 	text-transform: uppercase;
@@ -304,8 +313,10 @@ ul#mywoosection ul.dropdown-menu {
 	margin: 10px 0 0 0;
 }
 .crrt {
-	font-size: 18px;
-	font-family: 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
+	line-height:150%;
 	color: #FFF;
 	margin-left: 18px;
 	text-transform: uppercase;
@@ -370,8 +381,6 @@ ul#mywoosection ul.dropdown-menu {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-weight: normal;
-  font-family: 'proxima_nova_ltsemibold';
 }
 #cssmenu ul li ul {
   position: absolute;
@@ -428,6 +437,7 @@ ul#mywoosection ul.dropdown-menu {
 }
 #cssmenu ul li ul li a {
   font-size: 16px;
+  font-weight: 700;
   text-transform: uppercase;
   color: #1858b8;
   letter-spacing: 0;
@@ -541,6 +551,7 @@ ul#mywoosection ul.dropdown-menu {
 #cssmenu > ul > li > a {
   color: #ffffff;
   padding: 16px 18px;
+  font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 18px;
@@ -768,8 +779,6 @@ ul#mywoosection ul.dropdown-menu {
 	outline: none;
 	padding-left: 10px;
 	padding-right: 10px;
-	font-weight: normal;
-	font-family: 'proxima_nova_ltsemibold';
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -788,7 +797,9 @@ ul#mywoosection ul.dropdown-menu {
 	min-width: 359px;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	padding: 10px;
-	font: normal 12px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #15489f;
 }
 
@@ -798,7 +809,9 @@ ul#mywoosection ul.dropdown-menu {
 	padding: 13px 0 3px 0;
 	text-decoration: none;
 	display: inline-block;
-	font: normal 12px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	cursor: pointer;
 }
 .dropdown-content a:hover {
@@ -827,7 +840,9 @@ ul#mywoosection ul.dropdown-menu {
 	padding: 15px 20px;
 	text-align: center;
 	color: #FFF;
-	font: bold 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	text-decoration: none;
 }
 .curlocate input:hover {
@@ -888,7 +903,10 @@ ul#directory_list_id li {
 	border-bottom: 1px solid #e2e2e2;
 }
 .mycrt_blk {
-	font: bold 16px/300% 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:300%;
 	color: #1858b8;
 	text-transform: uppercase;
 	padding-left: 20px;
@@ -906,7 +924,9 @@ ul#directory_list_id li {
 }
 .crt_pname h2, .crt_pname h3 {
 	margin: 0;
-	font: bold 12px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #666666;
 	text-transform: uppercase;
 }
@@ -920,13 +940,17 @@ ul#directory_list_id li {
 	margin: 12px 0;
 }
 .crt_price h4 {
-	font: bold 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #666666;
 	text-transform: uppercase;
 	text-align: center;
 }
 .crt_pname h5 {
-	font: bold 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #1858b8;
 	text-transform: uppercase;
 	margin-left: 150px;
@@ -945,7 +969,9 @@ ul#directory_list_id li {
 	padding: 8px 16px;
 	display: block;
 	text-align: center;
-	font: normal 13px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:13px;
+	font-weight:normal;
 	color: #FFF;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -969,24 +995,36 @@ ul#directory_list_id li {
 	color: #666666;
 }
 .loctitle, .loplc h3 {
-	font: bold 15px/150% 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:15px;
+	font-weight:normal;
+	line-height:150%;
 	color: #15489f;
 	text-align: left;
 }
 .sfind address {
-	font: normal 12px/150% 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
+	line-height:150%;
 	color: #333333;
 	text-align: left;
 	text-transform: uppercase;
 	margin: 15px 0 0 0;
 }
 .sfind p {
-	font: normal 13px/150% 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:13px;
+	font-weight:normal;
+	line-height:150%;
 	color: #666666;
 	margin-top: 15px;
 }
 .morepl a {
-	font: normal 13px/150% 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:13px;
+	font-weight:normal;
+	line-height:150%;
 	color: #003399;
 	text-align: left;
 	margin-bottom: 10px;
@@ -1052,7 +1090,9 @@ ul#directory_list_id li {
 	padding: 15px 20px;
 	text-align: center;
 	color: #FFF;
-	font: bold 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	text-decoration: none;
 	width: 100%;
 	background: #15489f;
@@ -1159,7 +1199,9 @@ ul#directory_list_id li {
 	display: none;
 }
 .hamro h3, .hamro h4 {
-	font: 700 36px 'Proxima Nova Bl', sans-serif;
+	font-family:'Proxima Nova Bl', sans-serif;
+	font-size:36px;
+	font-weight:normal;
 	color: #0a71cf;
 	text-shadow: 0px 0.1px 1px #fff;
 }
@@ -1180,7 +1222,9 @@ h5.tryit.tryita {
 	display: block;
 	text-align: center;
 	color: #FFF;
-	font: normal 18px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	text-decoration: none;
 	text-transform: uppercase;
 }
@@ -1268,7 +1312,9 @@ h5.tryit.tryita {
 }
 .so_title, .aag p {
 	margin-left: 70px;
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
     color: #1858b8;
     text-decoration: none;
 }
@@ -1277,7 +1323,9 @@ h5.tryit.tryita {
 }
 
 .aag p, .aag_a p, .aag_c p {
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #666;
 }
 .merof {
@@ -1345,7 +1393,9 @@ h5.tryit.tryita {
 	min-height: 129px;
 }
 .bookcbk, .cptspl {
-	font: bold 36px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:36px;
+	font-weight:normal;
 	color: #c32327;
 	text-transform: uppercase;
 }
@@ -1363,7 +1413,9 @@ h5.tryit.tryita {
 	content: '-';
 }
 .suptlst li a, .suptlst li {
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #666;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -1380,7 +1432,9 @@ h5.tryit.tryita {
 	display: block;
 	padding: 10px 51px 11px 50px;
 	background: #C32327;
-	font: bold 18px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	text-decoration: none;
 	color: #FFF;
 	text-transform: uppercase;
@@ -1399,7 +1453,9 @@ h5.tryit.tryita {
 	margin: 0 0 71px 0;
 }
 .meropro_blk h1 {
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
 	color: #15489f;
 	margin: 36px 0 9px 0;
 	text-align: center;
@@ -1417,7 +1473,9 @@ h5.tryit.tryita {
 	min-height: 103px;
 }
 .ptxt h3 a {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	padding-left: 16px;
@@ -1433,7 +1491,9 @@ h5.tryit.tryita {
 	box-shadow:none;
 }
 .ptxt h4, .ptxt h5 {
-	font: normal 14px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:14px;
+	font-weight:normal;
 	color: #087bda;
 	text-transform: uppercase;
 	padding-left: 16px;
@@ -1452,7 +1512,9 @@ h5.tryit.tryita {
 	display: block;
 	padding: 12px 19px;
 	text-align: center;
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #FFF;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -1511,7 +1573,9 @@ h5.tryit.tryita {
 	min-height: 148px;
 }
 .proabtxt span {
-	font: normal 14px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:14px;
+	font-weight:normal;
 	color: #087bda;
 	margin-left: 3px;
 	text-transform: uppercase;
@@ -1543,7 +1607,9 @@ h5.tryit.tryita {
 	margin: 42px 0 61px 0;
 }
 .thought_blk h2, .hamro_trade h2 {
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
 	color: #15489f;
 	text-align: center;
 	text-transform: uppercase;
@@ -1567,17 +1633,24 @@ h5.tryit.tryita {
 	min-height:232px;	
 }
 .rmblk_cont h3, .inner_cont h4, .quest_cont h4 {
-	font: bold 20px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:20px;
+	font-weight:normal;
 	color: #fff;
 	margin: 0 0 10px 0;
 }
 .rmblk_cont p {
-	font: normal 16px/150% 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:150%;
 	color: #fff;
 	margin: 10px 171px 10px 0;
 }
 .trynow {
-	font: bold 16px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #fff;
 }
 .trynoww a {
@@ -1599,7 +1672,10 @@ ul.guide_list li {
 	display: block;
 }
 ul.guide_list li a {
-	font: normal 16px/150% 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:150%;
 	color: #fff;
 	text-decoration: none;
 }
@@ -1631,7 +1707,9 @@ ul.guide_list .fa {
 	margin:0 0 23px 0;
 }
 .faq-cont-blka .cbg_content h2.sub_page_title, .wrap_body .inerblock_sec .cbg_content h2.sub_page_title {
-	font: normal 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #0099ff;
 	margin-bottom: 33px;
 	border:0;
@@ -1643,7 +1721,7 @@ ul.guide_list .fa {
 .faq-cont-blka .inerblock_sec .cbg_content h3 {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
 	font-size:16px;
-	font-weight:700;
+	font-weight:normal;
 	color:#666666;
 	line-height:24px;
 	margin-bottom:1px;
@@ -1654,7 +1732,10 @@ div#right_col ol, .cbg_content ol, .cbg_content ul {
 	margin-bottom: 35px;
 }
 div#right_col ol li, .cbg_content ol li, .cbg_content ul li {
-	font: normal 16px/25px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	line-height:25px;
+	font-weight:normal;
 	color: #666;
 	text-decoration: none;
 }
@@ -1665,7 +1746,9 @@ div#right_col ol li, .cbg_content ol li, .cbg_content ul li {
 	margin-bottom: 22px;
 }
 .cbg_content h5 span strong {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #0099ff;
 }
 /*.cbg_content h3 {
@@ -1682,7 +1765,10 @@ div#right_col ol li, .cbg_content ol li, .cbg_content ul li {
 	margin-right: 6px;
 }
 .panel-body.panel-body-faq .panel-body-table{
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	line-height:24px;
+	font-weight:normal;
 	color: #666;
 	padding:0 39px 0 20px !important;
 }
@@ -1726,7 +1812,9 @@ div#right_col ol li, .cbg_content ol li, .cbg_content ul li {
 	min-height: 155px;
 }
 .measr_cnt h3 {
-	font: bold 20px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:20px;
+	font-weight:normal;
 	color: #1858b8;
 	margin-bottom: 12px;
 }
@@ -1734,7 +1822,10 @@ div#right_col ol li, .cbg_content ol li, .cbg_content ul li {
 	color: #c32327;
 }
 .measr_cnt p {
-	font: normal 16px/150% 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	line-height:150%;
+	font-weight:normal;
 	color: #666666;
 	margin: 10px 0;
 }
@@ -1750,7 +1841,9 @@ div#right_col ol li, .cbg_content ol li, .cbg_content ul li {
 	padding: 12px 0;
 	text-align: center;
 	color: #FFF;
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	text-decoration: none;
 }
 .find_tbb a:hover {
@@ -1763,13 +1856,18 @@ div#right_col ol li, .cbg_content ol li, .cbg_content ul li {
 	max-width: 90%;
 }
 .intro h1, .stmap h2 {
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
 	color: #15489f;
 	margin: 0 0 22px 0;
 	text-transform: uppercase;
 }
 .intro p {
-	font: normal 16px/150% 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	line-height:150%;
+	font-weight:normal;
 	color: #666666;
 	margin: 6px 0 12px 0;
 }
@@ -1777,7 +1875,9 @@ div#right_col ol li, .cbg_content ol li, .cbg_content ul li {
 	margin: 15px 0;
 }
 .rmoree a {
-	font: 600 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #1858b8;
 	text-decoration: none;
 }
@@ -1822,11 +1922,16 @@ div#right_col ol li, .cbg_content ol li, .cbg_content ul li {
 	content: '-';
 }
 .sourblk, .clbk {
-	font: normal 13px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:13px;
+	font-weight:normal;
 	color: #fff;
 }
 .carptfot li a, .carptfot_aa li a {
-	font: normal 12px/174% 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
+	line-height:174%;
 	color: #fff;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -1864,7 +1969,9 @@ li.clblk_a::before {
 	background: #c32327;
 	padding: 12px 55px;
 	text-align: center;
-	font: 700 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	text-transform: uppercase;
 	color: #fff;
 	text-decoration: none;
@@ -1916,7 +2023,10 @@ li.clblk_a::before {
 	margin-right: 7px;
 }
 .calcall {
-	font: normal 30px/100% 'Brush Script MT', sans-serif;
+	font-family:'Brush Script MT', sans-serif;
+	font-size:30px;
+	font-weight:normal;
+	line-height:100%;
 	color: #FFF;
 	text-align: center;
 	margin: 44px 0 10px 0;
@@ -1929,7 +2039,9 @@ li.clblk_a::before {
 	margin: 22px 0 14px 0;
 }
 .calspll a {
-	font: bold 17px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:17px;
+	font-weight:normal;
 	color: #fff;
 	text-decoration: none;
 }
@@ -1937,7 +2049,9 @@ li.clblk_a::before {
 	color: #FFF;
 }
 .bcwfsp {
-	font: normal 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #fff;
 	text-transform: uppercase;
 }
@@ -1954,7 +2068,9 @@ li.clblk_a::before {
 	color: #FFF;
 }
 .againlt li a, .againlt li {
-	font: normal 12px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #fff;
 	text-decoration: none;
 }
@@ -1970,7 +2086,10 @@ li.clblk_a::before {
 	margin: -2px;
 }
 .fot_cpy li a {
-	font: normal 11px/150% 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:11px;
+	font-weight:normal;
+	line-height:150%;
 	color: #fff;
 	text-decoration: none;
 	padding: 0 5px;
@@ -1984,7 +2103,10 @@ li.clblk_a::before {
 	color: #FF0;
 }
 .cpyrt {
-	font: normal 11px/150% 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:11px;
+	font-weight:normal;
+	line-height:150%;
 	color: #fff;
 	text-transform: uppercase;
 	border-right: 1px solid #FFF;
@@ -2028,7 +2150,9 @@ li.clblk_a::before {
 	margin-bottom: 12px;
 }
 .inerblock_serc h3, .inerblock_seC_mrugss h3 {
-	font: normal 36px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:36px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	border-bottom: 1px solid #627ab2;
@@ -2049,7 +2173,9 @@ li.clblk_a::before {
 	display: block;
 	padding: 12px 19px;
 	text-align: center;
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #FFF;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -2064,19 +2190,26 @@ li.clblk_a::before {
 }
 .cbg_content h2 {
 	margin-bottom: 8px;
-	font:bold 24px 'ProximaN Bold', sans-serif;
+	font-family:'ProximaN Bold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
     color: #15489f;
 	text-transform:uppercase;
 	border-bottom:1px solid #f0f2f1;
 	padding-bottom:15px;
 }
 .cbg_content h2 strong {
-	font: normal 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
     color: #0099ff;
 	text-transform:uppercase;
 }
 .cbg_content p {
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	line-height:24px;
+	font-weight:normal;
 	color: #666666;
 	margin: 0 0 24px 0;
 }
@@ -2086,7 +2219,9 @@ li.clblk_a::before {
 	padding-bottom: 61px;
 }
 .inerblock_sec_a h3 {
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
 	color: #15489f;
 	margin: 33px 0 26px 0;
 	text-transform: uppercase;
@@ -2114,14 +2249,18 @@ li.clblk_a::before {
 	clear: both;
 }
 .proabtxt h4 {
-	font: bolder 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin-left: 3px;
 	margin-bottom: -6px;
 }
 .proabtxt h6 {
-	font: normal 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #666666;
 	text-transform: uppercase;
 	margin-left: 3px;
@@ -2147,7 +2286,10 @@ ul.guide_list_cbg li .fa {
 	color: #c32327;
 }
 ul.guide_list_cbg li a {
-	font: normal 14px/29px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
+	font-weight:normal;
+	line-height:29px;
 	color: #15489f;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -2193,7 +2335,9 @@ ul.guide_list_cbg li.current_page_item a {
 	margin:18px 0 12px 0;
 }
 .inerblock_serc h1, .inerblock_serc_child h1 {
-	font: bold 36px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:36px;
+	font-weight:normal;
     color: #15489f;
     text-transform: uppercase;
     border-bottom: 1px solid #6383b9;
@@ -2203,7 +2347,9 @@ ul.guide_list_cbg li.current_page_item a {
 	line-height:1px;
 }
 .inerblock_sec_faq h3 {
-	font: normal 36px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:36px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	border-bottom: 1px solid #627ab2;
@@ -2225,7 +2371,9 @@ ul.guide_list_cbg li.current_page_item a {
 	display: none;
 }
 .inerblock_serc_child h1 a  {
-	font: bold 36px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:36px;
+	font-weight:normal;
 	color: #15489f;
 	display: inline-block;
 	line-height: 26px;
@@ -2237,7 +2385,9 @@ ul.guide_list_cbg li.current_page_item a {
 
 .inerblock_serc_child.about-page h1 {
 	border-bottom: none;
-	font: bold 36px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:36px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform:uppercase;
 	display:block;
@@ -2266,7 +2416,9 @@ ul.guide_list_cbg li.current_page_item a {
 	display:block;
 	padding:12px 17px;
 	text-align:center;
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #FFFFFF;
 	text-transform:uppercase;
 	margin-top:-28px;
@@ -2308,7 +2460,10 @@ ul.guide_list_cfaq li .fa {
 }
 ul.guide_list_cfaq li a {
 	display: block;
-	font: bold 14px/29px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
+	font-weight:normal;
+	line-height:29px;
 	color: #15489f;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -2344,7 +2499,9 @@ ul.guide_list_cfaq li a {
 	font-size: 18px;
 	line-height: 21px;
 	margin-top: 10px;
-	font: normal 18px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #666666;
 }
 .faq-cont-blka .panel-default>.panel-heading a {
@@ -2354,11 +2511,16 @@ ul.guide_list_cfaq li a {
 	padding: 15px 15px 4px 15px;
 	text-decoration: none;
 	color: #0099ff;
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	text-transform: uppercase;
 }
 .faq-cont-blka .panel-body p {
-	font: normal 18px/21px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:18px;
+	font-weight:normal;
+	line-height:21px;
 	color: #666666;
 	margin-right: 30px;
 }
@@ -2390,7 +2552,9 @@ ul.guide_list_cfaq li a {
 	margin: 0 0 0 0;
 }
 .woocommerce-breadcrumb a.breadcrum-link-2, .woocommerce-breadcrumb a.breadcrum-link-3, .woocommerce-breadcrumb a.breadcrum-link-4, .woocommerce-breadcrumb a.breadcrum-link-5 {
-	font: normal 12px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #15489f;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -2402,7 +2566,9 @@ ul.guide_list_cfaq li a {
 	margin: 16px 0 9px 0;
 }
 #main nav.woocommerce-breadcrumb {
-	font: normal 12px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #666;
 	text-transform: uppercase;
 }
@@ -2413,7 +2579,9 @@ ul.guide_list_cfaq li a {
 	cursor: pointer;
 }
 .images .cc-category-show {
-	font: bold 30px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:30px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin-bottom: 11px;
@@ -2467,14 +2635,16 @@ ul.guide_list_cfaq li a {
 	border: 10px solid #fff;
 }
 .mod-social {
-	display: block;
+	display: inline-block;
 	padding: 0;
-	margin-top: 30px;
-	float: none;
+	margin-top: 30px
 }
 .mod-social .cc-share-title {
 	float: left;
-	font: bold 16px/25px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:25px;
 	color: #666666;
 	margin-right: 5px;
 }
@@ -2490,39 +2660,53 @@ ul.guide_list_cfaq li a {
 	margin-top: 43px;
 }
 .cc-price-control .cc-sale-price-title {
-	font: bold 30px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:30px;
+	font-weight:normal;
 	color: #0099ff;
 	text-decoration: none;
 	text-transform: uppercase;
 }
 .cc-price-control .cc-line-through {
-	font: normal 14px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:14px;
+	font-weight:normal;
 	color: #c32327;
 	text-decoration: line-through;
 	text-transform: uppercase;
 }
 .summary.entry-summary h3 {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 }
 .summary.entry-summary h3.online_price_subhead {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #0099ff;
 	text-transform: uppercase;
 }
 .summary.entry-summary h3.price_per_pack_subhead {
-	font: bold 14px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
+	font-weight:normal;
 	color: #0099ff;
 	text-transform: uppercase;
 }
 .summary.entry-summary .product_title.entry-title {
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #666666;
 	text-transform: uppercase;
 }
 .summary.entry-summary .cc-related-product-design-section h3 {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin: 18px 0 3px 0;
@@ -2555,13 +2739,17 @@ ul.guide_list_cfaq li a {
 	border-color: #e7edf8;
 }
 .modal-title {
-	font: bold 30px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:30px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin-top: 9px;
 }
 .modal-a-title {
-	font: bold 30px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:30px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin-top: 9px;
@@ -2574,7 +2762,9 @@ ul.guide_list_cfaq li a {
 	padding: 0 29px 0 24px;
 }
 .fyns-blk {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin-left: 15px;
@@ -2592,7 +2782,9 @@ ul.guide_list_cfaq li a {
 	border-radius: 0;
 }
 .frm-blk .input-group .form-control {
-	font: normal 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #666666;
 	width: 100%;
 	height: 45px;
@@ -2613,14 +2805,18 @@ ul.guide_list_cfaq li a {
 	background-color: #e7edf8;
 }
 .midlt {
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #a8a8a8;
 	text-transform: uppercase;
 	text-align: center;
 	padding: 0 16px;
 }
 .frm-blk .btn {
-	font: bold 14px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
+	font-weight:normal;
 	color: #fff;
 	text-transform: uppercase;
 	text-align: center;
@@ -2647,7 +2843,9 @@ ul.guide_list_cfaq li a {
 	min-height: 125px;
 }
 .clostor-blk {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	padding-bottom: 10px;
@@ -2665,13 +2863,17 @@ ul.guide_list_cfaq li a {
 	min-height: 250px;
 }
 .str-one h4 {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #0099ff;
 	text-transform: uppercase;
 	margin-bottom: 10px;
 }
 .str-one p {
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #666666;
 	line-height: 24px;
 	margin: 0;
@@ -2694,19 +2896,25 @@ ul.guide_list_cfaq li a {
 	min-height: 216px;
 }
 .str-two h4 {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #0099ff;
 	text-transform: uppercase;
 	margin-bottom: 10px;
 }
 .str-two p {
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #666666;
 	line-height: 24px;
 	margin: 0;
 }
 .str-two h5 {
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #144a9f;
 	line-height: 24px;
 	margin: 0;
@@ -2759,7 +2967,9 @@ ul.guide_list_cfaq li a {
 	display: block;
 }
 .cc-size-quantity-section .cc-size-section h3 {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin: 9px 0 16px 0;
@@ -2780,7 +2990,9 @@ select#cc-size {
 	background-position: 100% 0%;
 }
 .cc-size-quantity-section .cc-quantiy-section h3 {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin: 10px 0 0 0;
@@ -2814,7 +3026,7 @@ select#cc-size {
 	border-radius: 0;
 	font-family: 'proxima_nova_ltsemibold', sans-serif;
 	font-size: 18px;
-	font-weight: 700;
+	font-weight: normal;
 	letter-spacing: 1px;
 }
 .woocommerce a.button:hover {
@@ -2827,7 +3039,9 @@ select#cc-size {
 	border-radius: 0;
 	border: 1px solid #15489f;
 	text-align: center;
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin: 0 0 16px 0;
@@ -2845,7 +3059,9 @@ select#cc-size {
 	box-shadow: none;
 }
 .cc-product-ship {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin-bottom: 22px;
@@ -2861,7 +3077,9 @@ select#cc-size {
 	cursor: pointer;
 }
 .cc-product-free {
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #3aaa35;
 	text-transform: uppercase;
 	line-height: 34px;
@@ -2871,7 +3089,9 @@ select#cc-size {
 	cursor: pointer;
 }
 .cc-product-pick .btn {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #666666;
 	text-transform: uppercase;
 	text-align: left;
@@ -2906,7 +3126,7 @@ select#cc-size {
 	border: 1px solid #15489f;
 	font-family: 'proxima_nova_ltsemibold', sans-serif;
 	font-size: 12px;
-	font-weight: 700;
+	font-weight: normal;
 	box-shadow: none;
 	outline: 0;
 }
@@ -2973,7 +3193,9 @@ select#cc-size {
 	color: #15479c;
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs li a {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15479c;
 	padding: 0;
 }
@@ -2991,7 +3213,10 @@ select#cc-size {
 }
 div#tab-additional_information p {
 	margin: 13px 0 24px 0;
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:24px;
 	color: #666;
 }
 .panel {
@@ -3002,19 +3227,26 @@ div#tab-additional_information p {
 	outline: none;
 }
 .detail-heading-item {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #0099ff;
 	text-transform: uppercase;
 	margin: 41px 0 0 0;
 }
 .detail-heading-item-spec {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #0099ff;
 	text-transform: uppercase;
 	margin: 36px 0 21px 0;
 }
 .panel.entry-content.wc-tab p {
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:24px;
 	color: #666;
 	margin: 41px 0 0 0;
 }
@@ -3025,7 +3257,10 @@ ul.specific-list {
 ul.specific-list li {
 	list-style: none;
 	display: block;
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:24px;
 	color: #666666;
 }
 .panel.entry-content.wc-tab .panel-default>.panel-heading {
@@ -3041,7 +3276,9 @@ ul.specific-list li {
 	padding: 15px 0px;
 	text-decoration: none;
 	color: #0099ff;
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	text-transform: uppercase;
 }
 .panel.entry-content.wc-tab .panel-default>.panel-heading+.panel-collapse>.panel-body {
@@ -3051,7 +3288,9 @@ ul.specific-list li {
 }
 .bottom_faq_section {
 	margin-left:20px; 
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #666666;
 }
 .bottom_faq_section p.faq_textarea {
@@ -3062,7 +3301,9 @@ ul.specific-list li {
 	padding:0;	
 }
 .bottom_faq_section ul li {
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #666666;
 }
 .panel.entry-content.wc-tab .glyphicon-chevron-down:before {
@@ -3105,14 +3346,19 @@ ul.specific-list li {
 	background-position: center top;
 }
 .cc-product-term {
-	font: normal 12px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #666666;
 	text-transform: uppercase;
 	text-decoration: none;
 }
 #main p {
 	margin: 16px 0 50px 0;
-	font: normal 16px/18px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:18px;
 	color: #666666;
 	margin-right: 57%;
 }
@@ -3128,12 +3374,16 @@ section#main {
 	padding-bottom: 12px;
 }
 .rugm-blk p {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #666666;
 	text-transform: uppercase;
 }
 .cc-count-clear a {
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	text-decoration: underline;
@@ -3143,7 +3393,9 @@ section#main {
 	text-decoration: none;
 }
 .cc-count-label {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #666666;
 }
 .cc-product-sort li {
@@ -3154,7 +3406,9 @@ section#main {
 	border-bottom: 3px solid #0099ff;
 }
 .cc-product-sort li a {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #666666;
 	text-decoration: none;
 }
@@ -3173,13 +3427,17 @@ section#main {
 	width: 76.5%;
 }
 .cc-pro-sub-cat-ul.guide_list_cbg h3 {
-	font: bold 16px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #0099ff;
 	text-transform: uppercase;
 	border: 0;
 }
 .cc-color-var-section h3 {
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
 	color: #666666;
 	text-decoration: none;
 	border-bottom: 1px solid #efefef;
@@ -3208,14 +3466,18 @@ section#main {
 	font-weight: normal;
 }
 .panel-title>a {
-	font: bold 16px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #0099ff;
 	text-transform: uppercase;
 	text-decoration: none;
 	margin-left: 25px;
 }
 a.pull-right {
-	font: bold 10px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:10px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	text-decoration: underline;
@@ -3250,20 +3512,27 @@ a.pull-right:hover {
 	background-color: #f0f2f1;
 }
 .cc-ia-content h4 {
-	font: normal 12px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #666666;
 	text-transform: uppercase;
 	margin-top: 23px;
 }
 .cc-ia-content h1 {
-	font: bold 36px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:36px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin-top: 7px;
 	margin-bottom: 22px;
 }
 .cc-ia-content p {
-	font: normal 16px/20px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:20px;
 	color: #666666;
 	margin: 0 80px 47px 0;
 }
@@ -3276,14 +3545,18 @@ a.pull-right:hover {
 	min-height: 366px;
 }
 .all-items-blk h3 {
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin-top: -5px;
 	margin-bottom: 20px;
 }
 .all-items-blk a, .fq-blk-a a {
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
 	color: #15489f;
 	margin-top: -5px;
 	margin-bottom: 20px;
@@ -3293,7 +3566,10 @@ a.pull-right:hover {
 	cursor: pointer;
 }
 .all-items-blk p, .fq-blk-a p {
-	font: normal 16px/22px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:22px;
 	color: #666666;
 	margin: 0 0 20px 0;
 }
@@ -3308,7 +3584,10 @@ a.pull-right:hover {
 }
 
 .inerblock_sec .cbg_content .billing_fields_wrapper p {
-	font: normal 18px/22px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:18px;
+	font-weight:normal;
+	line-height:22px;
 	color: #666666;
 	padding:8px;
 	width:50%;
@@ -3336,7 +3615,10 @@ ul.cat_list li .fa {
 	color: #c32327;
 }
 ul.cat_list li a {
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:24px;
 	color: #15489f;
 	text-decoration: none;
 }
@@ -3357,7 +3639,10 @@ ul.cat_list li a:hover {
 	margin-top: 3px;
 }
 .cc-ia-more ul li a {
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:24px;
 	color: #15489f;
 	text-decoration: none;
 }
@@ -3395,7 +3680,9 @@ ul.cat_list li a:hover {
 	margin: 0 2px;
 }
 .inerblock_serc_child h3 {
-	font: bold 36px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:36px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	border-bottom: 1px solid #6383b9;
@@ -3433,7 +3720,9 @@ ul.cat_list li a:hover {
 	margin: 0px 0 20px 0;
 }
 .inerblock_clearn span {
-	font: normal 12px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #666666;
 	margin: 26px 0 30px 0;
 }
@@ -3442,13 +3731,18 @@ ul.cat_list li a:hover {
 	margin: 0;
 }
 .inerblock_clearn h3, .inerblock_contblk h3 {
-	font: bold 36px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:36px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin-bottom: 22px;
 }
 .inerblock_clearn p {
-	font: normal 16px/21px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:21px;
 	color: #666666;
 	margin-right: 28%;
 	margin-bottom: 15px;
@@ -3478,13 +3772,18 @@ ul.cat_list li a:hover {
 	width: 59.5%;
 }
 .cc-clearance-right h4 {
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin: 32px 0 12px 0;
 }
 .cc-clearance-wrapper .cc-clearance-row .cc-clearance-right p {
-	font: normal 16px/21px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:21px;
 	color: #666666;
 	margin-bottom: 26px;
 }
@@ -3521,7 +3820,9 @@ ul.cat_list li a:hover {
 	margin: 0;
 }
 .inerblock_contblk span {
-	font: normal 12px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #666666;
 	margin: 26px 0 30px 0;
 }
@@ -3529,7 +3830,9 @@ ul.cat_list li a:hover {
 	margin-bottom: 20px;
 }
 .inerblock_contblk p {
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #666666;
 	margin: 0 67px 19px 0;
 }
@@ -3587,7 +3890,9 @@ ul.cat_list li a:hover {
 }
 .query-rlblk .form-group {
 	margin: 0;
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #666666;
 	line-height: 45px;
 	width: 310px;
@@ -3599,7 +3904,9 @@ select#cc-enquiry-type {
 	height: 45px;
 	text-transform: uppercase;
 	color: #144a9f;
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	background-image: url(../images/icon1.jpg);
 	background-repeat: no-repeat;
 	background-position: right;
@@ -3608,7 +3915,9 @@ select#cc-enquiry-type {
 	appearance: none;
 }
 .details-us h3 {
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
 	color: #144a9f;
 	margin: 0;
 	clear: both;
@@ -3634,7 +3943,9 @@ select#cc-enquiry-type {
 	margin-bottom: 9px;
 }
 .fl-blk .form-control {
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #a8a8a8;
 	border: 1px solid #d1ddf1;
 	background-color: #e7edf8;
@@ -3655,7 +3966,9 @@ select#cc-enquiry-type {
 	margin-bottom: 9px;
 }
 .mero-blkk .form-group.col-sm-12 .form-control {
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #a8a8a8;
 	border: 1px solid #d1ddf1;
 	background-color: #e7edf8;
@@ -3673,7 +3986,9 @@ select#cc-enquiry-type {
 	margin-bottom: 9px;
 }
 .tel-blk .form-group.col-sm-6 .form-control {
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #a8a8a8;
 	border: 1px solid #d1ddf1;
 	background-color: #e7edf8;
@@ -3686,13 +4001,17 @@ select#cc-enquiry-type {
 	outline: 0;
 }
 #cc-store-form-section .form-group.col-sm-12 h3, #cc-state-form-section .form-group.col-sm-12 h3 {
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	padding: 27px 0 10px 0;
 }
 #cc-store-form-section .form-group.col-sm-12 p {
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #666666;
 	margin: 0 0 7px;
 }
@@ -3700,7 +4019,9 @@ select#cc-enquiry-type {
 	padding-left: 0;
 }
 select#cc-state-type {
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #a8a8a8;
 	border: 1px solid #d1ddf1;
 	background-color: #e7edf8;
@@ -3720,7 +4041,9 @@ select#cc-state-type {
 	text-transform: uppercase;
 }
 select#cc-store-name {
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #a8a8a8;
 	border: 1px solid #d1ddf1;
 	background-color: #e7edf8;
@@ -3746,7 +4069,9 @@ select#cc-store-name {
 	padding: 0 0 0 8px;
 }
 .ur-msg-title .form-group.col-sm-12 h3 {
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
 	color: #15489f;
 	padding: 29px 0 2px 0;
 	text-transform: uppercase;
@@ -3767,7 +4092,9 @@ textarea.form-control {
 	text-decoration: none;
 	width: 220px;
 	height: 45px;
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #fff;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -3811,7 +4138,9 @@ label#email_address-error {
 	border: 0;
 }
 .querynow .yd-title h3 {
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
 	color: #15489f;
 	margin-top: -3px;
 }
@@ -3820,7 +4149,9 @@ label#email_address-error {
 	margin: 0;
 }
 .flsm-blk .form-group.col-sm-6 label, .meroi-blka .form-group.col-sm-12 label, .tela-blkb .form-group.col-sm-6 label {
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #666666;
 	margin-bottom: 10px;
 }
@@ -3845,7 +4176,9 @@ label#email_address-error {
 	margin: 15px 0 0 0;
 }
 .flsm-blk .form-group.col-sm-6 .form-control {
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #a8a8a8;
 	border: 1px solid #cdd9ed;
 	background-color: #e7edf8;
@@ -3859,7 +4192,9 @@ label#email_address-error {
 	margin-top: 20px;
 }
 .meroi-blka .form-group.col-sm-12 .form-control {
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #a8a8a8;
 	border: 1px solid #cdd9ed;
 	background-color: #e7edf8;
@@ -3870,7 +4205,9 @@ label#email_address-error {
 	height: 35px;
 }
 .tela-blkb .form-group.col-sm-6 .form-control {
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #a8a8a8;
 	border: 1px solid #cdd9ed;
 	background-color: #e7edf8;
@@ -3894,7 +4231,9 @@ label#email_address-error {
 	margin: 0;
 }
 .form-group.col-sm-12 textarea.form-control {
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #a8a8a8;
 	width: 96%;
 	height: 139px;
@@ -3909,19 +4248,25 @@ label#email_address-error {
 	margin: 0 45px 0 0 !important;
 }
 #alert_msg {
-	font: normal 14px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:14px;
+	font-weight:normal;
 	color: #FF0000;
 	margin-bottom: 2px;
 }
 
 /*...... Rugs Sub Category section start here ...............*/
 .cc-cat-title-count {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #666666;
 	text-transform: uppercase;
 }
 .cc-count-clear {
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	display: none;
@@ -3930,7 +4275,9 @@ div#collapse_color .panel-body {
 	margin-top: 6px;
 }
 .cc-color-var-item label {
-	font: bold 10px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:10px;
+	font-weight:normal;
 	color: #666666;
 	text-align: center;
 	margin: 0 0 8px 4px;
@@ -3964,7 +4311,9 @@ ul.cc-color-var-item {
 	margin: 9px 0 10px 0;
 }
 .panel.entry-content.wc-tab .cc-tab-faq-read-more p {
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #666666;
 	margin-left: 22px;
 }
@@ -3977,7 +4326,9 @@ ul.cc-color-var-item {
 	padding-left: 31px;
 	vertical-align: 0;
 	margin: 0;
-	font: normal 14px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:14px;
+	font-weight:normal;
 	color: #666666;
 }
 .cc-price-var-items form .checkbox input[type="checkbox"] {
@@ -4022,7 +4373,9 @@ ul.cc-color-var-item {
 	z-index: 9999;
 }
 .cc-tab-faq-read-more p a, .panel.entry-content.wc-tab p a {
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #15489f;
 	text-decoration: underline;
 }
@@ -4033,7 +4386,9 @@ ul.cc-color-var-item {
 	padding: 0;
 }
 .proabtxt a {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #1853bb;
 	text-decoration: none;
 }
@@ -4049,14 +4404,18 @@ ul.cc-color-var-item {
 	padding-left: 0;
 }
 .cc-cat-sub-title h4 {
-	font: bold 16px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #0099ff;
 	text-decoration: none;
 	text-transform: uppercase;
 	margin: 17px 0 0px 0;
 }
 .cc-cat-sub-title h3 {
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
 	color: #15489f;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -4066,7 +4425,9 @@ ul.cc-color-var-item {
 }
 .cc-cat-sub-price {
 	padding-right: 0;
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 	text-align: right;
 	text-decoration: none;
@@ -4130,7 +4491,9 @@ ul.cc-color-var-item {
 	background-color: #0099ff;
 	padding: 9px 16px;
 	text-align: center;
-	font: normal 13px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:13px;
+	font-weight:normal;
 	color: #FFFFFF;
 	text-decoration: none;
 	opacity: 0;
@@ -4177,7 +4540,9 @@ ul.cc-color-var-item {
 	display: block;
 	text-align: center;
 	color: #FFF;
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	text-transform: uppercase;
 }
 .cc-cat-pro-section-right input:hover {
@@ -4188,13 +4553,17 @@ ul.cc-color-var-item {
 	margin: 68px 0 68px 0;
 }
 .cc-cat-sub-desc-sec h3 {
-	font: bold 20px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:20px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin-bottom: 22px;
 }
 .cc-cat-sub-desc-sec p {
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #666666;
 	margin-bottom: 20px;
 	margin-top: 0;
@@ -4211,7 +4580,9 @@ ul.cc-color-var-item {
 	border: 1px solid #ececea;
 }
 .success_message_wrapper .success_message {
-	font: normal 16px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #009900;
 }
 .success_message_wrapper .close_box {
@@ -4230,7 +4601,9 @@ h3.cc-idea-ad-title {
 	margin: 46px 0 34px 0;
 }
 .all-items-blk a h3 {
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin-bottom: 20px;
@@ -4240,13 +4613,18 @@ h3.cc-idea-ad-title {
 	cursor: pointer;
 }
 #sub_content_area h3, #sub_content_area h3.sub_page_title {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #0099ff;
 	text-transform: uppercase;
 	margin-bottom: 24px;
 }
 div#right_col p {
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:24px;
 	color: #666666;
 }
 div#right_col ul {
@@ -4255,11 +4633,16 @@ div#right_col ul {
 }
 div#right_col ul li {
 	list-style: disc;
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:24px;
 	color: #666666;
 }
 div#right_col p a {
-	font: bold 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #15489f;
 	text-decoration: none;
 }
@@ -4275,12 +4658,16 @@ div#right_col p a:hover {
 	margin: 17px 0 3px 0;
 }
 .cc-bread-crumb-str span {
-	font: normal 12px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #666666;
 	text-transform: uppercase;
 }
 .cc-finder-title h3 {
-	font: bold 36px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:36px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin-bottom: 16px;
@@ -4302,7 +4689,9 @@ div#right_col p a:hover {
 	border: 0;
 	background: white;
 	padding: 13px 40px 7px 40px;
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
 	line-height: 35px;
 	color: #15489f;
 	text-transform: uppercase;
@@ -4315,7 +4704,9 @@ div#right_col p a:hover {
 	border: 0;
 	background: white;
 	padding: 13px 40px 7px 40px;
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:324px;
+	font-weight:normal;
 	line-height: 35px;
 	color: #15489f;
 	text-transform: uppercase;
@@ -4373,7 +4764,9 @@ div#right_col p a:hover {
 input#wpsl-search-input {
 	width: 618px;
 	height: 45px;
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #a8a8a8;
 	text-transform: uppercase;
 }
@@ -4387,7 +4780,10 @@ input#wpsl-search-input {
 	background-position: center center;
 }
 .store-finder-form-cntr span {
-	font: bold 12px/45px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
+	line-height:45px;
 	color: #a8a8a8;
 	margin: 0 18px;
 }
@@ -4395,7 +4791,9 @@ input#cc_control_map {
 	background: #c32428;
 	width: 267px;
 	height: 45px;
-	font: bold 14px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
+	font-weight:normal;
 	color: #FFFFFF;
 	text-align: center;
 	text-transform: uppercase;
@@ -4410,7 +4808,9 @@ input#cc_control_map {
 #wpsl-search-wrap form {
 }
 .cc-store-list-section h4 {
-	font: bold 24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin: 39px 0 47px 0;
@@ -4429,7 +4829,9 @@ input#cc_control_map {
 	border: none;
 }
 .cc-state-link a {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #0099ff;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -4459,12 +4861,16 @@ input#cc_control_map {
 	transition: 0.3s ease-in-out;
 }
 .page-template-find-a-store #gmap .contents h5 {
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #0099ff;
 	line-height: 9px;
 }
 .page-template-find-a-store #gmap .contents h6 {
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #0099ff !important;
 }
 .inerblock_serc.cc-store-nsw-blk {
@@ -4476,12 +4882,16 @@ input#cc_control_map {
 	cursor: text;
 }
 .inerblock_serc.cc-store-nsw-blk .breadcrumbs h4 {
-	font: normal 12px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #666666;
 	text-transform: uppercase;
 }
 .cc-locator-sub a {
-	font: normal 12px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #15489f;
 	text-decoration: none;
 	margin-right: 5px;
@@ -4492,7 +4902,9 @@ input#cc_control_map {
 	cursor: pointer;
 }
 .cc-locator-root a {
-	font: normal 12px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #333333;
 	text-decoration: none;
 	margin-left: 2px;
@@ -4510,7 +4922,12 @@ input#cc_control_map {
 	margin: 0 -10px;
 	font-size: 0;
 }
-#wpsl-stores .test li{ font-size:16px;font-weight:700;color:#FF0000; }
+#wpsl-stores .test li{
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	color:#FF0000; 
+	 }
 #wpsl-wrap #wpsl-result-list li {
 	border-bottom: none;
 }
@@ -4528,7 +4945,9 @@ input#cc_control_map {
 	padding: 10px;
 }
 .cc-store-icon-label strong a {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #0099ff;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -4546,12 +4965,17 @@ input#cc_control_map {
 }
 .cc-cat-store-item span {
 	margin-left: 32px;
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #666666;
 	display: block;
 }
 span.wpsl-hf-street-b {
-	font: normal 16px/45px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:45px;
 	color: #666666;
 	margin: 0;
 	padding-left: 32px;
@@ -4579,7 +5003,9 @@ span.wpsl-hf-street-b {
 	line-height: 46px;
 }
 .cc-cat-store-section span.cc-cat-store-item-phone a {
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #1858b8;
 	margin: 0;
 	padding-left: 32px;
@@ -4594,7 +5020,10 @@ span.wpsl-hf-street-b {
 	cursor: pointer;
 }
 span.cc-cat-store-item-phone a {
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:24px;
 	color: #1858b8;
 	margin: 0;
 	padding-left: 32px;
@@ -4608,7 +5037,10 @@ span.cc-cat-store-item-phone a:hover, span.wpsl-hf-street-b:hover {
 	cursor: pointer;
 }
 span.wpsl-hf-street-b {
-	font: normal 16px/45px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:45px;
 	color: #1858b8;
 	margin: 0;
 	padding-left: 32px;
@@ -4638,7 +5070,9 @@ span.cc-cat-store-item-phone strong, span.cc-cat-store-item-fax strong {
 	background: #c32327;
 	padding: 12px 55px;
 	text-align: center;
-	font: 700 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	text-transform: uppercase;
 	color: #fff;
 	text-decoration: none;
@@ -4655,7 +5089,9 @@ span.cc-cat-store-item-phone strong, span.cc-cat-store-item-fax strong {
 	background: #FFFFFF;
 	padding: 12px 75px;
 	text-align: center;
-	font: 700 14px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
+	font-weight:normal;
 	text-transform: uppercase;
 	color: #144a9f;
 	text-decoration: none;
@@ -4718,7 +5154,9 @@ span.wpsl-hf-street-b strong, span.wpsl-hf-street-c strong {
 	background: #c32327;
 	padding: 12px 55px;
 	text-align: center;
-	font: 700 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	text-transform: uppercase;
 	color: #fff;
 	text-decoration: none;
@@ -4735,7 +5173,9 @@ span.wpsl-hf-street-b strong, span.wpsl-hf-street-c strong {
 	background: #FFFFFF;
 	padding: 12px 75px;
 	text-align: center;
-	font: 700 14px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
+	font-weight:normal;
 	text-transform: uppercase;
 	color: #144a9f;
 	text-decoration: none;
@@ -4757,7 +5197,9 @@ span.wpsl-hf-street-b strong, span.wpsl-hf-street-c strong {
 	line-height: 12px;
 }
 span.cc-locator-root a {
-	font: normal 12px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #15489f;
 	text-decoration: none;
 	margin: 0 3px;
@@ -4768,7 +5210,9 @@ span.cc-locator-root a:hover {
 	cursor: pointer;
 }
 span.cc-locator-current a {
-	font: normal 12px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #333;
 	text-decoration: none;
 	margin-left: 1px;
@@ -4782,7 +5226,9 @@ span.cc-locator-current a {
 	padding-left: 0;
 }
 .single-store-title h3 {
-	font: 700 30px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:30px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin-bottom: 21px;
@@ -4797,7 +5243,9 @@ span.cc-locator-current a {
 	background: #0099ff;
 	padding: 12px 16px;
 	text-align: center;
-	font: 700 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #FFF;
 	text-decoration: none;
 }
@@ -4812,13 +5260,17 @@ span.cc-locator-current a {
 	padding: 27px;
 }
 .wpsl-address-sec h4 {
-	font: 700 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	margin: 5px 0 2px 0;
 }
 .wpsl-locations-details span strong, .wpsl-location-address {
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #666666;
 	margin-bottom: 5px;
 }
@@ -4830,7 +5282,10 @@ span.cc-locator-current a {
 	background: #c32428;
 	text-align: center;
 	padding: 0;
-	font: 700 18px/45px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
+	line-height:45px;
 	color: #FFFFFF;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -4847,12 +5302,17 @@ span.cc-locator-current a {
 	line-height: 47px;
 }
 .cc-single-wpsl-ccstore span.cc-cat-store-item-phone strong, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax strong {
-	font: 700 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 }
 .cc-single-wpsl-ccstore span.cc-cat-store-item-phone a {
-	font: 700 16px/24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:24px;
 	color: #0099ff;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -4862,17 +5322,25 @@ span.cc-locator-current a {
 	cursor: pointer;
 }
 .cc-single-wpsl-ccstore span.cc-cat-store-item-fax-abs {
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif !important;
+	font-family: 'proxima_nova_rgregular', sans-serif !important;
+	font-size:16px !important;
+	line-height:24px !important;
 	color: #666666 !important;
 }
 .cc-single-wpsl-ccstore span.cc-cat-store-item-fax {
-	font: 700 16px/24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:24px;
 	color: #0099ff;
 	text-transform: uppercase;
 	text-decoration: none;
 }
 p.wpsl-no-margin strong {
-	font: 700 18px/35px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
+	line-height:35px;
 	color: #0099ff;
 	text-transform: uppercase;
 }
@@ -4883,11 +5351,15 @@ span.cc-cat-store-item-phone {
 }
 .wpsl-contact-details {
 	margin-top: 15px;
-	font: 700 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 }
 .wpsl-contact-details span {
-	font: 700 16px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #0099ff;
 }
 .cc-str-cntblk {
@@ -4898,7 +5370,10 @@ span.cc-cat-store-item-phone {
 	background: #c32428;
 	text-align: center;
 	padding: 0;
-	font: 700 18px/45px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
+	line-height:45px;
 	color: #FFFFFF;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -4915,7 +5390,9 @@ span.cc-cat-store-item-phone {
 	padding: 40px 28px 15px 28px;
 }
 .wpsl-hour-sec span strong {
-	font: 700 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 }
@@ -4934,11 +5411,17 @@ span.cc-cat-store-item-phone {
 	height: auto !important;
 }
 .wpsl-opening-hours > tbody > tr {
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:24px;
 	color: #666666;
 }
 .wpsl-opening-hours > tbody > tr > td > time {
-	font: 700 14px/24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:14px;
+	font-weight:normal;
+	line-height:24px;
 	color: #0099ff;
 }
 .page-template-find-a-store .cc-store-bdy-contr .wpsl-search {
@@ -4954,7 +5437,10 @@ span.cc-cat-store-item-phone {
 	display: none;
 }
 .cc-store-cat-page-heading {
-	font: 700 24px/35px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:24px;
+	font-weight:normal;
+	line-height:35px;
 	color: #15489f;
 	text-transform: uppercase;
 	margin: 36px 0 8px 0;
@@ -4985,7 +5471,10 @@ span.cc-cat-store-item-phone {
 	max-width: none !important;
 }
 .wpsl-info-window p strong a, .cc-head-wpsl-title {
-	font: 700 18px/35px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
+	line-height:35px;
 	color: #0099ff;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -4995,20 +5484,32 @@ span.cc-cat-store-item-phone {
 	cursor: pointer;
 }
 .wpsl-info-window p span {
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:24px;
 	color: #666666;
 }
 .cc-head-wpsl-adrs, .cc-head-wpsl-csz, li.cc-head-wpsl-fax {
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:24px;
 	color: #666666;
 }
 li.cc-head-wpsl-phone span, li.cc-head-wpsl-fax span {
-	font: 700 18px/24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
+	line-height:24px;
 	color: #0099ff;
 	text-transform: uppercase;
 }
 li.cc-head-wpsl-phone {
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:24px;
 	color: #666666;
 	text-decoration: none;
 }
@@ -5027,7 +5528,10 @@ li.cc-head-wpsl-phone:hover {
 	display: inline-block;
 	color: #15489f;
 	text-align: center;
-	font: 700 14px/38px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
+	font-weight:normal;
+	line-height:38px;
 	text-decoration: none;
 }
 .cc-head-wpsl-dir a:hover {
@@ -5035,12 +5539,18 @@ li.cc-head-wpsl-phone:hover {
 	color: #FFF;
 }
 .wpsl-info-window span {
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:24px;
 	color: #666666;
 	text-decoration: none;
 }
 .wpsl-info-window span strong {
-	font: 700 18px/24px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
+	line-height:24px;
 	color: #0099ff;
 	text-transform: uppercase;
 }
@@ -5053,7 +5563,10 @@ li.cc-head-wpsl-phone:hover {
 	display: inline-block;
 	color: #15489f;
 	text-align: center;
-	font: 700 14px/38px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
+	font-weight:normal;
+	line-height:38px;
 	text-decoration: none;
 	text-transform: uppercase;
 }
@@ -5062,7 +5575,10 @@ li.cc-head-wpsl-phone:hover {
 	color: #FFF;
 }
 li.cc-head-wpsl-phone a {
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:24px;
 	color: #666666;
 	text-decoration: none;
 }
@@ -5082,7 +5598,9 @@ li.cc-head-wpsl-phone a:hover {
 	background-repeat: no-repeat;
 }
 .cc-cat-sub-desc-sec p span strong {
-	font: 700 20px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:20px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 }
@@ -5090,14 +5608,18 @@ li.cc-head-wpsl-phone a:hover {
 	margin: 0 0 0 17px;
 }
 .cc-cat-sub-desc-sec ul li {
-	font: normal 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #666666;
 	margin-bottom: 23px;
 }
 .panel-body-table table, .cbg_content table {
 	width: 100%;
 	margin: 15px 0;
-	font: normal 15px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:15px;
+	font-weight:normal;
 	color: #666666;
 	border-spacing: 4px;
 	text-align: left;
@@ -5124,7 +5646,7 @@ li.cc-head-wpsl-phone a:hover {
 .cc-smc-blk-title h3 {
 	font-family: 'proxima_nova_ltsemibold', sans-serif;
 	font-size: 30px !important;
-	font-weight: bold;
+	font-weight: normal;
 	color: #15489f !important;
 	text-transform: uppercase;
 	margin: 9px 0 10px 1px !important;
@@ -5135,7 +5657,9 @@ li.cc-head-wpsl-phone a:hover {
 	width: 47.5%;
 }
 .cal_pro .container_1 .col-md-6 label {
-	font: 700 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	padding-left: 19px;
@@ -5157,7 +5681,9 @@ li.cc-head-wpsl-phone a:hover {
 	margin-top: 7px;
 }
 .cal_pro .container_1 .col-md-6.no-lr .form-control::-webkit-input-placeholder {
-	font: 700 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #a8a8a8;
 	text-transform: uppercase;
 }
@@ -5171,7 +5697,9 @@ div#calculator_container {
 	box-shadow: none;
 	margin-top: 35px;
 	width: 150px;
-	font: 700 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #666666;
 }
 .single.single-product .item_indivisual_total span {
@@ -5194,7 +5722,9 @@ div#calculator_container {
 	border-radius: 0;
 	width: 170px;
 	height: 45px;
-	font: normal 14px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
+	font-weight:normal;
 	color: #144a9f;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -5211,7 +5741,9 @@ div#calculator_container {
 	border-radius: 0;
 	width: 170px;
 	height: 45px;
-	font: 700 14px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
+	font-weight:normal;
 	color: #FFFFFF;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -5223,7 +5755,9 @@ div#calculator_container {
 	color: #144a9f;
 }
 .single.single-product p.pull-right {
-	font: 700 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #0099ff;
 	text-transform: uppercase;
 	margin: 9px 0 -1px 0;
@@ -5235,7 +5769,9 @@ div#calculator_container {
 	border-radius: 0;
 	width: 170px;
 	height: 45px;
-	font: 700 14px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
+	font-weight:normal;
 	color: #144a9f;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -5254,7 +5790,9 @@ div#calculator_container {
 	border-radius: 0;
 	width: 170px;
 	height: 45px;
-	font: 700 14px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
+	font-weight:normal;
 	color: #FFFFFF;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -5267,7 +5805,9 @@ div#calculator_container {
 	color: #144a9f;
 }
 .single.single-product span.cc-cal-showup {
-	font: 700 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #666666;
 	text-transform: uppercase;
 	display: inline-block;
@@ -5282,7 +5822,9 @@ span#exceess_area_percent, span#total_area, span#no_of_packs {
 	outline: 0;
 	display: inline-block;
 	vertical-align: -8px;
-	font: 700 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 }
@@ -5307,7 +5849,9 @@ a.btn-employment:hover {
 	color: #FFF;
 }
 .cc-size-quantity-section .stock_info_wrap h3 {
-	font: 700 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #009900;
 	text-transform: uppercase;
 	margin-top: 66px;
@@ -5320,7 +5864,9 @@ a.btn-employment:hover {
 	cursor: pointer;
 }
 .cc-size-quantity-section .total_coverage h3 {
-	font: 700 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #666666;
 	text-transform: uppercase;
 }
@@ -5331,7 +5877,9 @@ a.btn-employment:hover {
 	margin-top: 5px;
 }
 .cc-size-quantity-section .sq_mtr_calc_wrap i {
-	font: italic 16px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-style:italic;
 	color: #666666;
 }
 .cc-sq-mtr-calc-wrap button.btn.btn-default.col-md-12 {
@@ -5340,7 +5888,9 @@ a.btn-employment:hover {
 	box-shadow: none;
 	text-align: left;
 	padding: 0;
-	font: 700 16px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	font-weight:normal;
 	color: #1853bb;
 	text-transform: uppercase;
 }
@@ -5396,7 +5946,9 @@ a.btn-employment:hover {
 	border: 0;
 }
 .single.single-product .cc-product-ship {
-	font: 700 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #666666;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -5407,7 +5959,9 @@ a.btn-employment:hover {
 }
 .single.single-product .cc-product-free {
 	padding-left: 22px;
-	font: bold 12px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:12px;
+	font-weight:normal;
 	color: #c32327;
 	text-transform: uppercase;
 	line-height: 26px;
@@ -5425,13 +5979,19 @@ a.btn-employment:hover {
 }
 .single.single-product .hf_product_details table > tbody > tr.odd > td {
 	background: #e7edf8;
-	font: normal 16px/26px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:26px;
 	color: #666666;
 	padding-left: 5px;
 	width: 50%;
 }
 .single.single-product .hf_product_details table > tbody > tr.even > td {
-	font: normal 16px/26px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:26px;
 	color: #666666;
 	padding-left: 5px;
 	width: 50%;
@@ -5443,14 +6003,21 @@ a.btn-employment:hover {
 	margin-top: 25px;
 }
 .single.single-product .recommended_acc_static span {
-	font: normal 16px/24px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	line-height:26px;
 	color: #666666;
 }
 .single.single-product .recommended_acc_static img {
 	margin: 13px 0 9px 0;
 }
 .single.single-product .recommended_acc_static span.cc-rec-acc-underlay {
-	font: normal 12px/24px 'proxima_nova_rgregular', sans-serif !important;
+	font-family:'proxima_nova_rgregular', sans-serif !important;
+	font-size:12px !important;
+	font-weight:normal;
+	line-height:24px;
+	line-height:26px;
 	color: #666666;
 }
 .cc-loader-cntr {
@@ -5496,7 +6063,9 @@ a.btn-employment:hover {
 	overflow:hidden;
 }
 .cont-panl.cc-pro-det-fb h3.acc_title_n_cat span.acc_title a {
-	font: bold 18px 'proxima_nova_ltsemibold', sans-serif;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -5506,7 +6075,9 @@ a.btn-employment:hover {
 	cursor: pointer;
 }
 .cont-panl.cc-pro-det-fb h3.acc_title_n_cat span.acc_subcat a {
-	font: normal 14px 'proxima_nova_rgregular', sans-serif;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:14px;
+	font-weight:normal;
 	color: #087bda;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -6715,9 +7286,7 @@ label.inner-check-label.radio-check-label::after{
 	margin-bottom:5px;
 }
 .mod-social , .mod-social a{float:left;padding-right:5px;}
-.mod-social {
-	float: none;
-}
+
 .cc-ad-map-strn { 
 	padding:0;
 }
@@ -6774,4 +7343,8 @@ label.inner-check-label.radio-check-label::after{
 }
 .woocommerce form .form-row.woocommerce-invalid input.input-text {
 	border-color:#F00;
+}
+span.required {
+	font-size:15px;
+	color:#F00;
 }
