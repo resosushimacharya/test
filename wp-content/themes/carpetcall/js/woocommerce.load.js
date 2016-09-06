@@ -99,7 +99,15 @@ jQuery(document).on('click','#checkout_fetch_nearby_stores_currentloc',function(
 	
 });
 
-jQuery(document).on('change','.delivery_option_rugs #nearby_stores_main_wrapper .pickup_location_list input[type=radio]',function(e){
+jQuery(document).on('change','.delivery_option_both .pickup_location_list input[type=radio]',function(e){
+			jQuery('.delivery_option_both .pickup_location_list .inner-radio-label.radio-check-label').removeClass('radio-check-label');
+			if(jQuery(this).is(':checked')){
+				 jQuery(this).parent('label').addClass('radio-check-label');
+				}else{
+					jQuery(this).parent('label').removeClass('radio-check-label');
+					}
+        
+	});jQuery(document).on('change','.delivery_option_rugs #nearby_stores_main_wrapper .pickup_location_list input[type=radio]',function(e){
 			jQuery('.delivery_option_rugs #nearby_stores_main_wrapper .pickup_location_list .inner-radio-label.radio-check-label').removeClass('radio-check-label');
 			if(jQuery(this).is(':checked')){
 				 jQuery(this).parent('label').addClass('radio-check-label');
