@@ -21,6 +21,44 @@ $(function () {
  
 });
 jQuery(document).ready(function($){
+
+jQuery('abbr.required').each(function(index, element) {
+    jQuery(this).html('* Requird Field');
+});
+
+
+jQuery(document).on('focusout','#billing_postcode, #shipping_postcode',function(){
+	var postcode = jQuery(this).val();
+	if(postcode.match(/^\d{4}$/)){
+		jQuery(this).parent('.validate-postcode').removeClass('woocommerce-invalid');
+		jQuery(this).parent('.validate-postcode').addClass('woocommerce-validated');
+		jQuery(this).parent('.validate-postcode').find('.required').html('*');
+		}else{
+		jQuery(this).parent('.validate-postcode').addClass('woocommerce-invalid');
+		jQuery(this).parent('.validate-postcode').find('.required').html('* Invalid Postcode');
+		jQuery(this).parent('.validate-postcode').removeClass('woocommerce-validated');
+		return false;
+		}
+	});
+	
+jQuery(document).on('focusout','#billing_phone:visible, #shipping_phone:visible',function(){
+	var phoneNumber = jQuery(this).val();
+	var phoneExpression = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+	if (phoneNumber.match(phoneExpression))
+	   {
+			jQuery(this).parent('.validate-phone').removeClass('woocommerce-invalid');
+			jQuery(this).parent('.validate-phone').addClass('woocommerce-validated');
+			jQuery(this).parent('.validate-phone').find('.required').html('* Required Field');
+	   }else{
+			jQuery(this).parent('.validate-phone').addClass('woocommerce-invalid');
+			jQuery(this).parent('.validate-phone').find('.required').html('* Invalid Phone');
+			jQuery(this).parent('.validate-phone').removeClass('woocommerce-validated');
+			return false;
+		}
+   
+	});
+	
+	
 jQuery(document).on('click','#checkout_fetch_nearby_stores',function(){
 	var keyword = jQuery('#edit_dialog_keyword').val().trim();
 	

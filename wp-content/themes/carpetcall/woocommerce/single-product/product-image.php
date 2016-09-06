@@ -135,7 +135,11 @@ global $post, $woocommerce, $product;
 			?>
         <div>
         <a href="<?php echo  $image_link?>" class="single-product-thumb-img">
+        
+        	
         	<img src="<?php echo $image_thumb[0]?>">
+            
+            
         </a></div>
 		<?php
         }

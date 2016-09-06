@@ -163,11 +163,11 @@ if($reqTempTerms){
 		
 		$imgflag = false;
 		$feat_image = get_template_directory_uri().'/images/placeholder.png';
-		$sku = explode('.',get_post_meta($relprod->ID,'_sku',true));
+		$sku = get_post_meta($relprod->ID,'_sku',true);
 		$image_names = array(
-								strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_L.jpg'),
-								strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_V.jpg'),
-								strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_S.jpg'),
+												strtoupper($sku.'_L.jpg'),
+												strtoupper($sku.'_V.jpg'),
+												strtoupper($sku.'_S.jpg'),
 							);
 							
 		foreach($image_names as $imgname){
