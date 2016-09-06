@@ -35,8 +35,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			}
 		?>
-
-		
         <h3 id="ship-to-different-address">
             <label for="ship-to-different-address-checkbox" class="checkbox"><?php _e( 'Ship to a different address?', 'woocommerce' ); ?></label>
             <span class="ship_to_shipping">
@@ -44,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</h3>
 
 		<div class="shipping_address">
-		<span class="required clearfix" title="required">* Required Field</span>
+		<p class="req_info_wrap"><span class="required" title="required">* </span><span class="req_text">Required Field</span></p>
 			<?php do_action( 'woocommerce_before_checkout_shipping_form', $checkout ); ?>
 
 			<?php foreach ( $checkout->checkout_fields['shipping'] as $key => $field ) : ?>

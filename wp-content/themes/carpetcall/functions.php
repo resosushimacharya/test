@@ -39,7 +39,7 @@ wp_localize_script( 'woo-load-autocomplete', 'woo_load_autocomplete', array( 'aj
 
 
 
-  include_once TEMPLATEPATH."/inc/carpetcall-cron-import.php";
+  //include_once TEMPLATEPATH."/inc/carpetcall-cron-import.php";
 
   include_once TEMPLATEPATH."/function-yamu.php";
   //require_once('function-yamu.php');
