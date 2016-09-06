@@ -7450,8 +7450,16 @@ span.required {
 .faq-cont-blka .inerblock_sec .cbg_content h3 span.checkout_next_prev_button a:hover{
   color: #0099ff;
 }
+
 .billing_fields_wrapper strong {
 	font-size:18px;
 	color:#000;
 	text-transform:uppercase;
+}
+p.req_info_wrap span {
+    display: inline-block;
+}
+p.req_info_wrap span.req_text {
+font-size:14px;
+
 }
