@@ -7413,7 +7413,8 @@ label.inner-check-label.radio-check-label::after{
 .cc-condn-page .woocommerce form .form-row label.error {
     color: #f00;
     font-size: 14px;
-    margin-top: 3px;
+    margin-top: 0px;
+    position: absolute;
 }
 .woocommerce form .form-row.woocommerce-invalid input.input-text {
 	border-color:#F00;
