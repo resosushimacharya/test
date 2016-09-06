@@ -6815,3 +6815,9 @@ span.required {
 .faq-cont-blka .inerblock_sec .cbg_content h3 span.checkout_next_prev_button a:hover{
   color: #0099ff;
 }
+.selected-pro-name{
+  height: 0;
+  display: block;
+  overflow: hidden;
+  opacity: 0;
+}

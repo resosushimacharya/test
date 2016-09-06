@@ -443,17 +443,27 @@ jQuery(document).on('change','.delivery_option_rugs #nearby_stores_main_wrapper 
       });          
     });
 	
-	// Table Responsive function
-	function resTable(tableName){
-		var $th = $(this).find("th");
-		var $td = $(this).find("tbody tr td");
-		$($td).attr('data-attr', function () {
-			return $th.eq($(this).index()).text();
-		});
-	}
-	
-	resTable(".cbg_content.cc-condn-page .woocommerce table.shop_table");
-	
+  	// Table Responsive function
+  	function resTable(tableName){
+  		var $th = $(this).find("th");
+  		var $td = $(this).find("tbody tr td");
+  		$($td).attr('data-attr', function () {
+  			return $th.eq($(this).index()).text();
+  		});
+  	}
+  	
+  	resTable(".cbg_content.cc-condn-page .woocommerce table.shop_table");
+
+    // Select a product dropdown in Mobile
+    if($('.select-design-wrapper').length){
+      var $activePro = $('.pro-active');
+      var $activeText = $($activePro).find(".selected-pro-name").text();
+      var $activeImage = $($activePro).find("img");
+      
+      $(".selected-product-img").html($activeImage);
+      $(".selected-product-name span").html($activeText);
+
+    }	
       
 
   });
