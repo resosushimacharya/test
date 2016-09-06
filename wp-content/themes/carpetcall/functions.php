@@ -16,6 +16,8 @@ show_admin_bar(true);
       * global variable for store listing counter
       * used on file: inc/carpetcall-contact-information.php
     */
+
+add_filter('wpseo_canonical','__return_false');
 	
 add_action( 'wp_enqueue_scripts', 'wooocommerce_scripts' );
 function wooocommerce_scripts(){
