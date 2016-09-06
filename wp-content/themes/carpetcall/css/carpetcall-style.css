@@ -6181,6 +6181,7 @@ a.button.wc-forward {
 	border:1px solid #d1ddf1;
 	background-color:#e7edf8;
 	border-radius:0;
+	font-size:14px;
 }
 .col-1 .select2-container .select2-choice:hover {
 	text-decoration: none;
@@ -6231,11 +6232,13 @@ a.button.wc-forward {
 	color: #a8a8a8;
 	text-transform: uppercase;
 	font-family: 'proxima_nova_ltsemibold';
+	font-size:12px;
 }
 .select2-container .select2-choice>.select2-chosen{
 	color: #a8a8a8;
 	text-transform: uppercase;
 	font-family: 'proxima_nova_ltsemibold';
+	font-size:12px;
 }
 .checkout-form-sec .select2-container .select2-choice .select2-arrow{
 	height: 33px;
@@ -6472,6 +6475,7 @@ label.inner-check-label.radio-check-label::after{
     color: #a8a8a8;
     text-transform: uppercase;
     font-family: 'proxima_nova_ltsemibold';
+	font-size:12px;
 }
 .shipping_needed_checkout .woocommerce-shipping-fields .shipping_address select {
     padding: 5px 12px 4px 12px;
@@ -6755,4 +6759,12 @@ label.inner-check-label.radio-check-label::after{
 }
 .body-wrapper .gpf-block {
 	margin:42px 0 57px 0;	
+}
+.cc-condn-page .woocommerce form .form-row label.error {
+    color: #f00;
+    font-size: 14px;
+    margin-top: 3px;
+}
+.woocommerce form .form-row.woocommerce-invalid input.input-text {
+	border-color:#F00;
 }
