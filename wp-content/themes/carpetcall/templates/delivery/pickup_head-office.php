@@ -65,8 +65,20 @@
                          } 
 
                 ?>
-                
-               <div class="pickup_location_list">
+                <div class="pickup_location_list">
+  <p class="form-row form-row validate-required" id="pickup_store_id_field">
+    <label class="inner-radio-label">
+      <input type="radio" class="input-radio " value="<?php echo get_the_ID()?>" name="pickup_store_id" id="pickup_store_id_<?php echo get_the_ID()?>" style="opacity: 0;">
+    </label>
+    <label for="pickup_store_id_<?php echo get_the_ID()?>" class="radio "></label>
+  </p>
+  <h3><?php echo get_the_title()?></h3>
+  <p class="address"><?php echo $add .' '. $city.' '.$state.' '.$zip?></p>
+  <p></p>
+</div>
+            
+            
+               <?php /*?><div class="pickup_location_list">
                		
                     <?php
                 				woocommerce_form_field("pickup_store_id", array(
@@ -76,9 +88,8 @@
                             <p class="address">'.$add .' '. $city.' '.$state.' '.$zip.'</p>' ),
                 										), '' );
                 			?>           
-               </div>
+               </div><?php */?>
         
-         <!-- store one end -->
       
     <?php endwhile;
     wp_reset_query(); ?>
