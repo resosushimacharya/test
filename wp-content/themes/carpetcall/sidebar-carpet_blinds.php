@@ -1,10 +1,11 @@
+<?php $term_id =  get_queried_object()->term_id;
+if(!is_last_cat($term_id)){?>
 
     <div class="cc-product-sub-category-list">
     <?php 
     /**
     *shpw the sub-category list of the  product category
     */
-    $term_id =  get_queried_object()->term_id;
    
     $prosubcats=get_term_children($term_id,'product_cat');
 	$taxonomy = 'product_cat';
@@ -30,6 +31,7 @@
     
    
     </div><div class="clearfix"></div>
+<?php } ?>
 
 
 

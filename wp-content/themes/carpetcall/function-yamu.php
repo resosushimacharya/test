@@ -105,7 +105,7 @@ if (isset($_GET['post_type']) && $_GET['post_type'] == 'product') {
 /*
 * Function to disable links in product category links if depth is 2 or more
 */
-add_filter('term_link','return_parent_catlink_if_lastchild',10,3);
+//add_filter('term_link','return_parent_catlink_if_lastchild',10,3);
 function return_parent_catlink_if_lastchild($link,$term_obj,$taxonomy){
 	global $wpdb;
 	$catid = $term_obj->term_id;
@@ -259,11 +259,15 @@ function show_category_slider_block($args=array()){
 	global $wp_query;
 	$product_found = 0;
 	$current_cat = get_term( $cat_id, 'product_cat');
-	$cat_arr = generate_catids_array($cat_id,$depth);
+	if(is_last_cat($cat_id)){
+		$cat_arr = array($cat_id);
+		}else{
+		$cat_arr = generate_catids_array($cat_id,$depth);
+		}
 	$found_cat = 0;
 	
 	//$cat_arr_popular = generate_catids_array_popular($cat_id,$depth);
-	
+do_action('pr',$cat_arr);die;	
 	if(!empty($cat_arr)){
 		$cat_slice = array();
 		$cat_slice_arr =  array_slice($cat_arr,$offset,$perpage);
@@ -448,7 +452,8 @@ function show_category_slider_block($args=array()){
 						
 						
 						if($pch==1){
-							$res = get_post_meta($filloop->post->ID ,'_regular_price',true);
+							$res = get_post_meta($filloop->post->ID ,'_sale_price',true);
+							//$res = get_post_meta($filloop->post->ID ,'_regular_price',true);
 							echo '<div class="col-md-6 cc-cat-sub-price">From <span>$'.$res.'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
 						$pch++;
 						}
@@ -588,7 +593,13 @@ function loadmore_hf($args){
 	$found_count = 0;
 	$found_cat = 0;
 	$current_cat = get_term( $cat_id, 'product_cat');
-	$cat_arr = generate_catids_array($cat_id,$depth);
+	if(is_last_cat($cat_id)){
+		$cat_arr = array($cat_id);
+		}else{
+		$cat_arr = generate_catids_array($cat_id,$depth);
+		}
+		
+	//$cat_arr = generate_catids_array($cat_id,$depth);
 	if(!empty($cat_arr)){
 		$cat_slice = array();
 		$cat_slice_arr =  array_slice($cat_arr,$offset,$perpage);
@@ -1600,7 +1611,17 @@ function cc_custom_get_feat_img($post_id,$size='small'){
 		}
 	return $feat_image;
 	}
-	
+
+
+function is_last_cat($cat_id){
+	$current_cat = get_term( $cat_id, 'product_cat');
+	$children = get_categories( array ('taxonomy' => 'product_cat', 'hide_empty'=>false, 'parent' => $current_cat->term_id ));
+	if ( count($children) == 0 ) {
+		return true;
+		}else{
+			return false;
+			}
+	}
 //add_rewrite_rule('^shop-our-range/([^/]*)/([^/]*)/([^/]*)/([^/]*)?','index.php?&product=$matches[4]','top');
 
 //global $woocommerce;

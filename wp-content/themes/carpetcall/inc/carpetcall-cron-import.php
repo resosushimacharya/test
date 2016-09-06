@@ -63,7 +63,7 @@ function readCSV($csvFile)
 ///////////////////////////////////////////////////////////////////////////
 ////////////////////////// cron fucntions ///////////////////////////////
 ////////////////////////////////////////////////////////////////////////
-//add_action( 'init', 'import_rugs_hard_schedule');
+add_action( 'init', 'import_rugs_hard_schedule');
 add_action('update_import_rugs_hard_hook','update_import_rugs_hard_function');
 
 // Function which will register the event
@@ -603,7 +603,13 @@ foreach($filecols as $fileitem){
         else{
             echo "undefined file($fileitem) for rugs.";
         }
-
+          if(!copy($directory.'/'.$fileitem, $desfolder.$fileitem)){
+          	echo "file ".$fileitem." hasn't been copied.";
+			
+          }
+           if(!unlink($directory.'/'.$fileitem)){
+           	echo "file".$fileitem."hasn't been deleted.";
+           }
     }
     elseif(strpos(strtolower($fileitem), 'lols') !== false){
         $fileextension = explode('.',$fileitem);
@@ -611,15 +617,31 @@ foreach($filecols as $fileitem){
             //$hardfloorfilesarray[] = $fileitem;
             $hards_post_ids[]=cc_csv_conv_array( $fileitem);
             $csc_hardfloor_flag=true;
+
         }
         else{
             echo "undefined file($fileitem) for hardflooring.";
         }
+       if(!copy($directory.'/'.$fileitem, $desfolder.$fileitem)){
+          	echo "file ".$fileitem." hasn't been copied.";
+			
+          }
+           if(!unlink($directory.'/'.$fileitem)){
+           	echo "file".$fileitem."hasn't been deleted.";
+           }
     }
     else{
         $errorfilesarray[] = $fileitem;
         $errorflag = true;
+          if(!copy($directory.'/'.$fileitem, $desfolder.$fileitem)){
+          	echo "file ".$fileitem." hasn't been copied.";
+			
+          }
+           if(!unlink($directory.'/'.$fileitem)){
+           	echo "file".$fileitem."hasn't been deleted.";
+           }
     }
+
 } 
 if($csc_hardfloor_flag){
 $new_rugs_file = cc_res_csv_hards($hards_post_ids,'NETLOLS');
@@ -672,7 +694,7 @@ if(file_exists($new_rugs_file)){
                          
      						if(strcasecmp($csv[0],'Category')!=0)
      						{
-	                      	csv_import_hard_flooring($csv,$appcat,$hardflooringadmin);
+	                      	csv_import_hard_flooring($csv,$appcat,$reshardflooring);
 
                      		}
 		

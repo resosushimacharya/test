@@ -107,8 +107,13 @@ $currentcat = get_queried_object();
 		?>
         </div>
         <div class="woo-added"></div>
+       <?php
+	   if(!is_last_cat($current_cat->term_id)){?>
+		 <input type="button" name="cc_load_more" id ="cc_load_more" callto="loadmore_hf" value="load more" first="<?php echo (($depth==0) && $ret['offset'] > $perpage_var)?'yes':'no'?>" <?php echo ($ret['found_prod'] >=$perpage_var)?'':'style="display:none" disabled'?>/>
+		<?php }
+	   
+	   ?>
        
-        <input type="button" name="cc_load_more" id ="cc_load_more" callto="loadmore_hf" value="load more" first="<?php echo (($depth==0) && $ret['offset'] > $perpage_var)?'yes':'no'?>" <?php echo ($ret['found_prod'] >=$perpage_var)?'':'style="display:none" disabled'?>/>
         <input type="hidden" name="perpage_var" id="perpage_var" value="<?php echo $perpage_var;?>">
         <input type="hidden" name="ajax_cat_id" id="ajax_cat_id" value="<?php echo $current_cat->term_id?>">
         <input type="hidden" name="ajax_offset" id="ajax_offset" value="<?php echo ($ret['offset'])?$ret['offset']:0?>">
