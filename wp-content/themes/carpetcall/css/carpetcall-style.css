@@ -7452,6 +7452,7 @@ span.required {
 }
 
 
+
 .select-design-wrapper {
     position: relative;
 }
@@ -7510,10 +7511,18 @@ span.required {
 }
 
 
+
+.billing_fields_wrapper strong {
+	font-size:18px;
+	color:#000;
+	text-transform:uppercase;
+}
+
 p.req_info_wrap span {
     display: inline-block;
 }
 p.req_info_wrap span.req_text {
 font-size:14px;
+
 }
 
