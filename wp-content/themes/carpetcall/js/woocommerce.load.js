@@ -42,10 +42,12 @@ jQuery(document).on('focusout','#billing_phone:visible, #shipping_phone:visible'
 	   {
 			jQuery(this).parent('.validate-phone').removeClass('woocommerce-invalid');
 			jQuery(this).parent('.validate-phone').addClass('woocommerce-validated');
-			jQuery(this).parent('.validate-phone').find('.required').html('* Required Field');
+			jQuery('label#'+jQuery(this).attr('id')+'-error').remove();
+			
 	   }else{
 			jQuery(this).parent('.validate-phone').addClass('woocommerce-invalid');
-			jQuery(this).parent('.validate-phone').find('.required').html('* Invalid Phone');
+			jQuery('label#'+jQuery(this).attr('id')+'-error').remove();
+			jQuery(this).append('<label id="'+jQuery(this).attr("id")+'-error" class="error" for="'+jQuery(this).attr("id")+'">Please enter a Phone Number.</label>').show();
 			jQuery(this).parent('.validate-phone').removeClass('woocommerce-validated');
 			return false;
 		}
