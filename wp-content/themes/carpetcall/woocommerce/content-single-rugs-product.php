@@ -105,6 +105,18 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="cc-related-product-design-section">
         
       <h3>SELECT A DESIGN</h3>
+      <div class="select-design-wrapper">
+        <div class="mobile select-dropdown-wrap">
+          <div class="selected-product-img">
+            
+          </div>
+          <div class="selected-product-name">
+            <span></span>
+          </div>
+          <div class="select-product-droparrow">
+            
+          </div>
+        </div>
       <div class="cc-select-design-pro-all col-md-12">
       <?php 
 
@@ -242,7 +254,8 @@ foreach($bundle as $key=>$value){
               <a href="<?php echo get_permalink($key)?>" class="select_design">
               
               
-              <span class="mobile"><?php echo $post->post_name;?></span><img name="<?php echo $post->post_name?>" class="cc-product_no_image" src="<?php echo $feat_image ;?>"/>
+             <img name="<?php echo $post->post_name?>" class="cc-product_no_image" src="<?php echo $feat_image ;?>"/>
+              <span class="selected-pro-name" style=""><?php echo $post->post_name;?></span>
               
               
               
@@ -365,6 +378,7 @@ foreach($resList as $mainId){
 
 }
                  ?>
+                 </div>
                  </div>
       </div>
       <?php $pro = get_post_meta($post->ID);

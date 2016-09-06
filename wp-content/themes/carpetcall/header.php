@@ -7,8 +7,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="Cache-Control" content="no-store" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<?php 
-if(is_singular('product')){
+
+<?php /* if(is_singular('product')){
+
 	
                                     $categories = get_the_terms(get_the_ID(), 'product_cat' ); 
                                     if ( $categories ){
@@ -18,9 +19,12 @@ if(is_singular('product')){
 											  <link rel="canonical" href="<?php echo get_term_link($category->term_id,"product_cat")?>">
 											  
 											 <?php }
-										}
-									}
-	}?> 
+
+                                        endforeach;
+                                    endif;
+	
+	} */?> 
+
 
 
 <link rel="shortcut icon" href="<?php
