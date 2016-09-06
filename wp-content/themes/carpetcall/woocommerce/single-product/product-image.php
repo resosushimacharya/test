@@ -208,7 +208,7 @@ global $post, $woocommerce, $product;
 	?>
     </div>
     
-		<div class="mod-social">
+		<div class="mod-social clearfix">
 		<div class="cc-share-title">SHARE: </div>
 		<a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink($post->ID);?>" target="_blank">
           <i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i>
