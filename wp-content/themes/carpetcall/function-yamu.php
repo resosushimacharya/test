@@ -267,7 +267,6 @@ function show_category_slider_block($args=array()){
 	$found_cat = 0;
 	
 	//$cat_arr_popular = generate_catids_array_popular($cat_id,$depth);
-do_action('pr',$cat_arr);die;	
 	if(!empty($cat_arr)){
 		$cat_slice = array();
 		$cat_slice_arr =  array_slice($cat_arr,$offset,$perpage);

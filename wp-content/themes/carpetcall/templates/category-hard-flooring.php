@@ -108,9 +108,11 @@ $currentcat = get_queried_object();
         </div>
         <div class="woo-added"></div>
        <?php
-	   if(!is_last_cat($current_cat->term_id)){?>
+	   //if(!is_last_cat($current_cat->term_id)){?>
+       
 		 <input type="button" name="cc_load_more" id ="cc_load_more" callto="loadmore_hf" value="load more" first="<?php echo (($depth==0) && $ret['offset'] > $perpage_var)?'yes':'no'?>" <?php echo ($ret['found_prod'] >=$perpage_var)?'':'style="display:none" disabled'?>/>
-		<?php }
+		
+		<?php //}
 	   
 	   ?>
        
