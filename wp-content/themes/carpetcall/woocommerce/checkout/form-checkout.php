@@ -41,7 +41,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 
 			<div class="col-1 checkout-form-sec billing-details-cntr">
 	          <h3><?php _e( 'Billing Details', 'woocommerce' ); ?><span class="checkout_next_prev_button">
-		              <a href="#checkout_customer_details" class="edit_section" style="display:block">Edit</a>
+		              <a href="#checkout_customer_details" class="edit_section" style="display:none">Edit</a>
 		            </span></h3>
 	          <div class="collapse collapsable in clearfix billing-form" id="checkout_customer_details">
 				<?php do_action( 'woocommerce_checkout_billing' ); ?>
@@ -53,7 +53,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 
 	        <div class="col-1 checkout-form-sec delivery-options-cntr">
 		         <h3><?php _e( 'Delivery Options', 'woocommerce' ); ?><span class="checkout_next_prev_button">
-		              <a href="#checkout_delivery" class="edit_section" style="display:block">Edit</a>
+		              <a href="#checkout_delivery" class="edit_section" style="display:none">Edit</a>
 		            </span></h3>
 		         <div class="collapse collapsable clearfix delivery-form" id="checkout_delivery">
 						<?php do_action('cc_checkout_delivery_custom_block'); ?>
@@ -66,7 +66,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 
 	        <div class="col-1 checkout-form-sec payment-options-cntr">
 		        <h3><?php _e( 'Payment Options', 'woocommerce' ); ?><span class="checkout_next_prev_button">
-		              <a href="#checkout_payment" class="edit_section" style="display:block">Edit</a>
+		              <a href="#checkout_payment" class="edit_section" style="display:none">Edit</a>
 		            </span></h3>
 		        <div class="collapse collapsable clearfix payment-form" id="checkout_payment">
 					<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
@@ -124,15 +124,18 @@ jQuery(document).ready(function(e) {
 				});
 			}
 		if(jQuery(this).hasClass('edit_section')){
-			
-			//jQuery(this).parents('.checkout-form-sec').nextAll('.checkout-form-sec .edit_section').hide();
+			jQuery(this).parents('.checkout-form-sec').nextAll('.checkout-form-sec').find('.edit_section').hide();
 			}
 		if(error_flag){
 				return false;
 				}else{
 					jQuery('.collapsable').removeClass('in');
 					jQuery('div'+jQuery(this).attr('href')).addClass('in');
-					//jQuery(this).parents('.checkout-form-sec').find('a.edit_section').show();
+					if(!jQuery(this).hasClass('edit_section')){
+				jQuery(this).parents('.checkout-form-sec').next('.checkout-form-sec').find('.edit_section').show();
+				jQuery(this).parents('.checkout-form-sec').find('.edit_section').show();
+					}
+					
 					
 					
 				}

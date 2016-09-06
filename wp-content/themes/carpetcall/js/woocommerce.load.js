@@ -21,6 +21,7 @@ $(function () {
  
 });
 jQuery(document).ready(function($){
+	  
 jQuery(document).on('focusout','#billing_postcode, #shipping_postcode',function(){
 	var postcode = jQuery(this).val();
 	if(postcode.match(/^\d{4}$/)){
@@ -289,7 +290,14 @@ jQuery(document).on('click','.select-design-product-image a.select_design',funct
 	
 	
 		    // Displaying the Loading gif during ajax call
-
+ 	  var $activePro = jQuery('.pro-active');
+      var $activeText = jQuery($activePro).find(".selected-pro-name").text();
+      var $activeImage = jQuery($activePro).find("img");
+      
+      $activeImage.clone().appendTo(".selected-product-img");
+      jQuery(".selected-product-name span").html($activeText);
+	  
+	  
 		});
 	});	
 	
@@ -606,6 +614,10 @@ jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax
 			});
 
 	}
+ jQuery(document).on('click','.select-dropdown-wrap', function(){
+        jQuery(this).next('.cc-select-design-pro-all').toggleClass('show');
+      });
+	  
 });
 jQuery(document).ready(function(e) {
     jQuery('abbr.required').each(function(index, element) {
