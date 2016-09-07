@@ -837,13 +837,14 @@ ul#mywoosection ul.dropdown-menu {
 	background: #15489f;
 	border: 0;
 	width: 100%;
-	padding: 15px 20px;
+	padding: 2px 20px;
 	text-align: center;
 	color: #FFF;
-	font-family:'proxima_nova_rgregular', sans-serif;
-	font-size:16px;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
 	font-weight:normal;
 	text-decoration: none;
+	margin-top:8px;
 }
 .curlocate input:hover {
 	background: #0a71cf;
@@ -963,10 +964,10 @@ ul#directory_list_id li {
 	background: #0a71cf;
 	display: inline-block;
 	float: left;
-	margin-left: 65px;
+	margin-left: 78px;
 }
 .view_cc a, .check_crtt a {
-	padding: 8px 16px;
+	padding: 2px 19px;
 	display: block;
 	text-align: center;
 	font-family:'proxima_nova_rgregular', sans-serif;
@@ -1053,10 +1054,11 @@ ul#directory_list_id li {
 	border: 0;
 	border-radius: 0;
 	padding: 10px 12px;
-	height: 48px;
+	height: 45px;
 	text-transform: uppercase;
 	text-align: left;
 	outline: none;
+	box-shadow:none;
 }
 .srch_pro .btn-default {
 	background-color: #FFF;
@@ -1074,7 +1076,7 @@ ul#directory_list_id li {
 	border-radius: 0;
 	padding: 12px 12px;
 	outline: none;
-	height: 48px;
+	height: 45px;
 }
 .srch_pro .input-group-btn {
 	margin: 0;
@@ -1082,16 +1084,16 @@ ul#directory_list_id li {
 	box-shadow: none;
 }
 .curnloc {
-	margin: 10px 0;
+	margin: 17px 0 0;
 	display: block;	
 	text-align: center;
 }
 .curnloca a {
-	padding: 15px 20px;
+	padding: 2px 20px;
 	text-align: center;
 	color: #FFF;
-	font-family:'proxima_nova_rgregular', sans-serif;
-	font-size:16px;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
 	font-weight:normal;
 	text-decoration: none;
 	width: 100%;
@@ -4490,7 +4492,7 @@ ul.cc-color-var-item {
 	z-index: 10;
 	cursor: pointer;
 	background-color: #0099ff;
-	padding: 9px 16px;
+	padding: 2px 16px;
 	text-align: center;
 	font-family:'proxima_nova_rgregular', sans-serif;
 	font-size:13px;
