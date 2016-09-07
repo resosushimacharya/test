@@ -2,7 +2,7 @@
 <div class="radiogroup_wrap">
 <div class="delivery_option_item">
 <?php
-	woocommerce_form_field("shipping_method", array(
+	woocommerce_form_field("cc_shipping_method", array(
     'type'              => 'radio',
 	'required'			=> true,
     'options'           => array( 'store_pickup' => '<span>Pickup In Store(Rugs and Hard Flooring</span>' ),
@@ -16,7 +16,7 @@
 </div>
 </div>
 
-<div class="pickup_head_offices_list" style="display:none"><?php get_template_part( 'templates/delivery/pickup_head', 'office' );?></div>
+<div class="pickup_head_offices_list"><?php get_template_part( 'templates/delivery/pickup_head', 'office' );?></div>
 </div>
 
 

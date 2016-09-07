@@ -9,7 +9,7 @@ global $woocommerce, $product;
 	<div class="delivery_option_item">
     <?php 
 	
-	woocommerce_form_field("shipping_method", array(
+	woocommerce_form_field("cc_shipping_method", array(
     'type'              => 'radio',
 	'required'			=> true,
     'options'           => array( 'store_pickup' => '<span>Pickup In Store</span>' ),
@@ -24,7 +24,7 @@ global $woocommerce, $product;
 
 	<div class="delivery_option_item">
     <?php
-    woocommerce_form_field("shipping_method", array(
+    woocommerce_form_field("cc_shipping_method", array(
     'type'              => 'radio',
 	'required'			=>true,
     'options'           => array( 'local_delivery' => '<span>Local Delivery</span>'),

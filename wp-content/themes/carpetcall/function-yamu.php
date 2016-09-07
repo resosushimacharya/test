@@ -763,7 +763,16 @@ function load_more_carpet_blinds($args){
 	}
 	extract($args);
 	global $wp_query;
-	$cat_arr = generate_catids_array($cat_id,1);
+	
+	$current_cat = get_term( $cat_id, 'product_cat');
+	if(is_last_cat($cat_id)){
+		$cat_arr = array($cat_id);
+		}else{
+		$cat_arr = generate_catids_array($cat_id,$depth);
+		}
+		
+		
+	//$cat_arr = generate_catids_array($cat_id,1);
 	$cat_slice = array();
 	if(!empty($cat_arr)){
 		foreach($cat_arr as $catid){
@@ -812,8 +821,20 @@ function load_more_carpet_blinds($args){
 					
 					if(!empty($filloop)){
 						foreach($filloop as $post){
-						
-						$feat_image = cc_custom_get_feat_img($post->ID,'large');
+							$product = new WC_Product($post->ID);
+						$attachment_ids = $product->get_gallery_attachment_ids();
+					//do_action('pr',$attachment_ids);
+					foreach( $attachment_ids as $attachment_id ) 
+					{
+						$image_link = wp_get_attachment_url( $attachment_id );
+						$feat_image_obj = wp_get_attachment_image_src($attachment_id,'full');
+						$feat_image = $feat_image_obj[0];
+						break;
+						?>
+					
+					<?php
+					}
+						//$feat_image = cc_custom_get_feat_img($post->ID,'large');
 						
 							if($pch==1){
 								$pch++;?>
@@ -1388,8 +1409,19 @@ add_action('woocommerce_checkout_update_order_meta','save_delivery_option_cc');
 function save_delivery_option_cc($order_id){
 	if(!empty($_POST['pickup_store_id'])){
 		update_post_meta( $order_id, 'pickup_store_id', $_POST['pickup_store_id']);
+		
 		//cc_notify_selected_store($order_id);
 		}
+	if(!empty($_POST['cc_shipping_method'])){
+		$shipping_method = $_POST['shipping_method'];
+		$shipping_arr = array(	'local_delivery'=>'Local Delivery',
+								'store_pickup'=>'Pickup From Head Offices',
+								'pickup_n_deliver'=>'Pickup Hard Flooring and Deliver Rugs'
+								);
+		update_post_meta( $order_id, 'cc_shipping_method', $shipping_arr[$_POST['cc_shipping_method']]);
+	
+	}
+	
 	}
 
 
@@ -1430,8 +1462,11 @@ if($selected_store){
 		
 function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
 	if ( $post->post_type == 'product' ) {
+		$temp_url = $url;
+		if(has_term('carpets','product_cat',$post->ID) || has_term('rugs','product_cat',$post->ID) || has_term('hard-flooring','product_cat',$post->ID)){
+			
 		$terms = wc_get_product_terms( $post->ID, 'product_cat', array( 'orderby' => 'parent', 'order' => 'DESC' ) ) ;
-		
+		//do_action('pr',$terms);
 		
 		$temp_url = site_url().'/shop-our-range';
 		$url_parts = array();
@@ -1446,6 +1481,7 @@ function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
 		$temp_url.='/'.$post->post_name;
 			}
 		
+		}
 		
 		
 		/*
@@ -1495,7 +1531,8 @@ function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
 	return $url;
 }
 
-*/add_filter( 'post_type_link', 'cc_custom_proudcts_url', 10, 3 );	
+*/
+add_filter( 'post_type_link', 'cc_custom_proudcts_url', 10, 3 );	
 
 add_filter( 'rewrite_rules_array', function( $rules )
 {
@@ -1568,26 +1605,26 @@ function cc_custom_get_feat_img($post_id,$size='small'){
 							if(has_term('hard-flooring','product_cat',$post_id)){
 							$sku = get_post_meta($post_id,'_sku',true);
 							$image_names = array(
-											strtoupper($sku.'_L.jpg'),
-											strtoupper($sku.'_V.jpg'),
-											strtoupper($sku.'_S.jpg'),
+											strtoupper($sku).'_L.jpg',
+											strtoupper($sku).'_V.jpg',
+											strtoupper($sku).'_S.jpg',
 										);
 							}
 						if(has_term('rugs','product_cat',$post_id)){
 							
 							$sku = explode('.',get_post_meta($post_id,'_sku',true));
 							$image_names = array(
-											strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_L.jpg'),
-											strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_V.jpg'),
-											strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2].'_S.jpg'),
+											strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_L.jpg',
+											strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_V.jpg',
+											strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_S.jpg',
 										);
 	
 							}
 									
 							foreach($image_names as $imgname){
-								$img_path =  WP_CONTENT_DIR.'/uploads/products/'.$size.'/'.$imgname;
+								$img_path =  WP_CONTENT_DIR.'/uploads/images/'.$size.'/'.$imgname;
 								if(file_exists($img_path)){
-								$feat_image = content_url('uploads/products/'.$size.'/'.$imgname);
+								$feat_image = content_url('uploads/images/'.$size.'/'.$imgname);
 								break;
 							}
 						}

@@ -104,7 +104,7 @@ html, body {
 .wrapper, .banner, .tstore, .cartblk, .calus, .wellblk, .crpchoose, .rtfloblk, .crptslide, .pont, .mystor, .expert, .footer_c, .sor_blk, .againlt, .fot_cpy, .limblk, .rugpro_blk, .rugspro_blk, .rug_size, .carpetcall_slide, .parcel_blk, .feature_pro, .trade, .cbg_blk, .mmrugm, .page-sorry {
 	padding: 0;
 }
-.wrap_body { margin: 145px 0 0 0; }
+.wrap_body { margin: 143px 0 0 0; }
 
 /* banner section start here ---*/
 .banner {
@@ -381,6 +381,7 @@ ul#mywoosection ul.dropdown-menu {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: 'proxima_nova_ltsemibold';
 }
 #cssmenu ul li ul {
   position: absolute;
@@ -401,34 +402,12 @@ ul#mywoosection ul.dropdown-menu {
   padding-right:30px;
   margin-right: -30px;
 }
-/*#cssmenu ul li ul li.has-sub:after {
-  display: block;
-  position: absolute;
-  content: "";
-  height: 10px;
-  width: 10px;
-  border-radius: 5px;
-  background: #000000;
-  z-index: 1;
-  top: 13px;
-  right: 15px;
-}*/
+
 #cssmenu.align-right ul li ul li.has-sub:after {
   right: auto;
   left: 15px;
 }
-/*#cssmenu ul li ul li.has-sub:before {
-  display: block;
-  position: absolute;
-  content: "";
-  height: 0;
-  width: 0;
-  border: 3px solid transparent;
-  border-left-color: #ffffff;
-  z-index: 2;
-  top: 15px;
-  right: 15px;
-}*/
+
 #cssmenu.align-right ul li ul li.has-sub:before {
   right: auto;
   left: 15px;
@@ -437,7 +416,6 @@ ul#mywoosection ul.dropdown-menu {
 }
 #cssmenu ul li ul li a {
   font-size: 16px;
-  font-weight: 700;
   text-transform: uppercase;
   color: #1858b8;
   letter-spacing: 0;
@@ -446,6 +424,7 @@ ul#mywoosection ul.dropdown-menu {
   padding: 7px 10px;
   position: relative;
   margin-bottom:10px;
+  font-family: 'proxima_nova_ltsemibold';
 }
 #cssmenu > ul >li > ul> li:hover > a,
 #cssmenu ul li ul li.active > a {
@@ -520,29 +499,7 @@ ul#mywoosection ul.dropdown-menu {
 #cssmenu > ul > li.has-sub > a {
 
 }
-/*#cssmenu > ul > li.has-sub > a:after {
-  display: block;
-  content: "";
-  background: #ffffff;
-  height: 12px;
-  width: 12px;
-  position: absolute;
-  border-radius: 13px;
-  right: 14px;
-  top: 16px;
-}
-#cssmenu > ul > li.has-sub > a:before {
-  display: block;
-  content: "";
-  border: 4px solid transparent;
-  border-top-color: #4cb6ea;
-  z-index: 2;
-  height: 0;
-  width: 0;
-  position: absolute;
-  right: 16px;
-  top: 21px;
-}*/
+
 #cssmenu > ul > li:nth-child(1) { width:215px; margin-right:16px;}
 #cssmenu > ul > li:nth-child(2) {width:195px; margin-right:14px;}
 #cssmenu > ul > li:nth-child(3) {width:154px; margin-right:0;}
@@ -551,7 +508,6 @@ ul#mywoosection ul.dropdown-menu {
 #cssmenu > ul > li > a {
   color: #ffffff;
   padding: 16px 18px;
-  font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 18px;
@@ -631,136 +587,7 @@ ul#mywoosection ul.dropdown-menu {
 #cssmenu > ul#menu-main  li.menu-item-depth-0:nth-child(2) ul.sub-menu { height:auto;}
 #cssmenu > ul#menu-main  li.menu-item-depth-0:nth-child(2) ul.sub-menu li.menu-item-depth-1 ul.sub-menu{ height:auto; left:98.5%; width:75%;}
 
-/*@media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
-  #cssmenu > ul {
-    max-height: 0;
-    overflow: hidden;
-    -webkit-transition: max-height 0.35s ease-out;
-    -moz-transition: max-height 0.35s ease-out;
-    -ms-transition: max-height 0.35s ease-out;
-    -o-transition: max-height 0.35s ease-out;
-    transition: max-height 0.35s ease-out;
-  }
-  #cssmenu > ul > li > ul {
-    width: 100%;
-    display: block;
-  }
-  #cssmenu.align-right ul li a {
-    text-align: left;
-  }
-  #cssmenu > ul > li > ul > li {
-    width: 100%;
-    display: block;
-  }
-  #cssmenu.align-right ul ul li a {
-    text-align: left;
-  }
-  #cssmenu > ul > li > ul > li > a {
-    width: 100%;
-    display: block;
-  }
-  #cssmenu ul li ul li a {
-    width: 100%;
-  }
-  #cssmenu.align-center > ul {
-    text-align: left;
-  }
-  #cssmenu.align-center > ul > li {
-    display: block;
-  }
-  #cssmenu > ul.open {
-    max-height: 1000px;
-    border-top: 1px solid rgba(110, 110, 110, 0.25);
-  }
-  #cssmenu ul {
-    width: 100%;
-  }
-  #cssmenu ul > li {
-    float: none;
-    width: 100%;
-  }
-  #cssmenu ul li a {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 12px 20px;
-  }
-  #cssmenu ul > li:after {
-    display: none;
-  }
-  #cssmenu ul li.has-sub > a:after,
-  #cssmenu ul li.has-sub > a:before,
-  #cssmenu ul li ul li.has-sub:after,
-  #cssmenu ul li ul li.has-sub:before {
-    display: none;
-  }
-  #cssmenu ul li ul,
-  #cssmenu ul li ul li ul,
-  #cssmenu ul li ul li:hover > ul,
-  #cssmenu.align-right ul li ul,
-  #cssmenu.align-right ul li ul li ul,
-  #cssmenu.align-right ul li ul li:hover > ul {
-    left: 0;
-    position: relative;
-    right: auto;
-  }
-  #cssmenu ul li ul li,
-  #cssmenu ul li:hover > ul > li {
-    max-height: 999px;
-    position: relative;
-    background: none;
-  }
-  #cssmenu ul li ul li a {
-    padding: 8px 20px 8px 35px;
-    color: #ffffff;
-  }
-  #cssmenu ul li ul ul li a {
-    padding: 8px 20px 8px 50px;
-  }
-  #cssmenu ul li ul li:hover > a {
-    color: #000000;
-  }
-  #cssmenu #menu-button {
-    display: block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 15px 20px;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    color: #ffffff;
-    cursor: pointer;
-  }
-  #cssmenu #menu-button:after {
-    display: block;
-    content: '';
-    position: absolute;
-    height: 3px;
-    width: 22px;
-    border-top: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
-    right: 20px;
-    top: 16px;
-  }
-  #cssmenu #menu-button:before {
-    display: block;
-    content: '';
-    position: absolute;
-    height: 3px;
-    width: 22px;
-    border-top: 2px solid #ffffff;
-    right: 20px;
-    top: 26px;
-  }
-}
-#cssmenu ul li ul li a span i {
-  padding-right:5px;
-  color:#0099ff;
-}*/
+
 
 /*............ store finder menu css ..............*/
 
@@ -779,6 +606,8 @@ ul#mywoosection ul.dropdown-menu {
 	outline: none;
 	padding-left: 10px;
 	padding-right: 10px;
+  font-family: 'proxima_nova_ltsemibold';
+  font-weight: normal;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -837,13 +666,14 @@ ul#mywoosection ul.dropdown-menu {
 	background: #15489f;
 	border: 0;
 	width: 100%;
-	padding: 15px 20px;
+	padding: 2px 20px;
 	text-align: center;
 	color: #FFF;
-	font-family:'proxima_nova_rgregular', sans-serif;
-	font-size:16px;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
 	font-weight:normal;
 	text-decoration: none;
+	margin-top:8px;
 }
 .curlocate input:hover {
 	background: #0a71cf;
@@ -958,15 +788,14 @@ ul#directory_list_id li {
 .crt_clear {
 	background: #e7edf8;
 	padding: 20px;
+  text-align: right;
 }
 .view_c {
 	background: #0a71cf;
 	display: inline-block;
-	float: left;
-	margin-left: 65px;
 }
 .view_cc a, .check_crtt a {
-	padding: 8px 16px;
+	padding: 2px 19px;
 	display: block;
 	text-align: center;
 	font-family:'proxima_nova_rgregular', sans-serif;
@@ -982,7 +811,7 @@ ul#directory_list_id li {
 .check_crt {
 	background: #c02226;
 	display: inline-block;
-	float: right;
+	margin-left: 11px;
 }
 .check_crtt a:hover {
 	background: #a60a0e;
@@ -1053,10 +882,11 @@ ul#directory_list_id li {
 	border: 0;
 	border-radius: 0;
 	padding: 10px 12px;
-	height: 48px;
+	height: 45px;
 	text-transform: uppercase;
 	text-align: left;
 	outline: none;
+	box-shadow:none;
 }
 .srch_pro .btn-default {
 	background-color: #FFF;
@@ -1074,7 +904,7 @@ ul#directory_list_id li {
 	border-radius: 0;
 	padding: 12px 12px;
 	outline: none;
-	height: 48px;
+	height: 45px;
 }
 .srch_pro .input-group-btn {
 	margin: 0;
@@ -1082,16 +912,16 @@ ul#directory_list_id li {
 	box-shadow: none;
 }
 .curnloc {
-	margin: 10px 0;
+	margin: 17px 0 0;
 	display: block;	
 	text-align: center;
 }
 .curnloca a {
-	padding: 15px 20px;
+	padding: 2px 20px;
 	text-align: center;
 	color: #FFF;
-	font-family:'proxima_nova_rgregular', sans-serif;
-	font-size:16px;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
 	font-weight:normal;
 	text-decoration: none;
 	width: 100%;
@@ -2394,6 +2224,7 @@ ul.guide_list_cbg li.current_page_item a {
 	clear:both;
 	margin-bottom:16px;
 	margin-top:1px;
+	line-height:normal;
 }
 .about-page .cart_checkout_header_subtitle {
 	display:block;
@@ -2647,6 +2478,10 @@ ul.guide_list_cfaq li a {
 	line-height:25px;
 	color: #666666;
 	margin-right: 5px;
+}
+.mod-social{
+  float: none !important;
+  display: block;
 }
 .images .mod-social a {
 	padding: 0 10px 0 0;
@@ -4489,7 +4324,7 @@ ul.cc-color-var-item {
 	z-index: 10;
 	cursor: pointer;
 	background-color: #0099ff;
-	padding: 9px 16px;
+	padding: 2px 16px;
 	text-align: center;
 	font-family:'proxima_nova_rgregular', sans-serif;
 	font-size:13px;
@@ -5620,10 +5455,9 @@ li.cc-head-wpsl-phone a:hover {
 	font-family:'proxima_nova_rgregular', sans-serif;
 	font-size:15px;
 	font-weight:normal;
-	color: #666666;
-	border-spacing: 4px;
-	text-align: left;
-	border-collapse: separate;
+	color: #666666 !important;
+	text-align:left;
+	border-collapse: collapse;
 	-webkit-margin-start: auto;
 	-webkit-margin-end: auto;
 	border-top-width: 0px;
@@ -5631,9 +5465,37 @@ li.cc-head-wpsl-phone a:hover {
 	border-bottom-width: 0px;
 	border-left-width: 0px;
 }
-.panel-body-table tr.bg_table, .cbg_content tr {
-	background-color: #d0ebfd;
+.cbg_content .panel-body .panel-body-table table > tbody tr.bg_table:nth-child(1)  {
+	border-bottom:1px solid #efefef;
+	padding-bottom:6px;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	color:#15489f;
+	text-transform:uppercase;
 }
+.cbg_content .panel-body .panel-body-table table > tbody tr.bg_table:nth-child(1) td {
+	text-align:center;
+}
+.cbg_content .panel-body .panel-body-table table > tbody tr td::before {
+	content: '\f00c';
+	font-family: FontAwesome;
+	font-size: 15px;
+	color: #666666;
+	font-weight: normal;
+	position:absolute;
+	left:0;
+}
+.cbg_content .panel-body .panel-body-table table > tbody tr.bg_table:nth-child(1) td::before,  {
+	display:none;
+}
+.panel-body-table table {
+	border:0;
+}
+.panel-body-table table td {
+	padding-left:30px;
+	position:relative;
+}
+
 .panel-body-table td, .cbg_content td {
 	vertical-align: top;
 	line-height: 30px;
@@ -6057,7 +5919,7 @@ a.btn-employment:hover {
 .cont-panl.cc-pro-det-fb h3.acc_title_n_cat {
 	margin-top: 18px;
 	display: inline-block;
-	line-height: 0;
+	line-height: 1;
 	height: 65px;
 	width: 100%;
 	overflow:hidden;
@@ -7030,7 +6892,7 @@ label.inner-radio-label.radio-check-label::after{
 	opacity: 1;
 }
 
-.delivery_option_rugs .rugs_store_pickup_list .nearstore h3, .delivery_option_both .nearstore .pickup_location_list h3{
+.delivery_option_rugs .rugs_store_pickup_list .nearstore h3, .delivery_option_both .nearstore .pickup_location_list h3, .delivery_option_hardflooring .nearstore .pickup_location_list h3{
 	display:inline-block;
   position: relative;
   top: -4px;
@@ -7044,12 +6906,12 @@ label.inner-radio-label.radio-check-label::after{
 #nearby_stores_main_wrapper .pickup_location_list, #checkout_delivery .pickup_location_list {
 	margin-bottom: 15px;
 }
-.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p, .delivery_option_both .nearstore .pickup_location_list > p{
+.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p, .delivery_option_both .nearstore .pickup_location_list > p, .delivery_option_hardflooring .nearstore .pickup_location_list > p{
 	margin-left: 0;
 	padding-bottom: 0;
 	display: inline-block;
 }
-.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p.address, .delivery_option_both .nearstore .pickup_location_list > p.address{
+.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p.address, .delivery_option_both .nearstore .pickup_location_list > p.address, .delivery_option_hardflooring .nearstore .pickup_location_list > p.address{
 	display: block;
 	margin-left: 50px;
   padding-top: 0;
@@ -7410,7 +7272,7 @@ label.inner-check-label.radio-check-label::after{
 .body-wrapper .gpf-block {
 	margin:42px 0 57px 0;	
 }
-.cc-condn-page .woocommerce form .form-row label.error {
+.cc-condn-page .woocommerce form .form-row label.error, .cc-condn-page .woocommerce form .form-row label.cc_error {
     color: #f00;
     font-size: 14px;
     margin-top: 0px;
@@ -7419,6 +7281,14 @@ label.inner-check-label.radio-check-label::after{
 .woocommerce form .form-row.woocommerce-invalid input.input-text {
 	border-color:#F00;
 }
+
+.woocommerce form .form-row.woocommerce-validated .select2-container .select2-choice, .woocommerce form .form-row.woocommerce-validated input.input-text, .woocommerce form .form-row.woocommerce-validated select{
+  border-color: #69bf29;
+}
+.woocommerce-billing-fields .billing_fields_wrapper p.woocommerce-invalid .select2-container .select2-choice, .woocommerce-billing-fields .billing_fields_wrapper p.woocommerce-invalid select{
+   border-color:#F00;
+}
+
 
 span.required {
 	font-size:15px;
@@ -7541,3 +7411,27 @@ font-size:14px;
 .show{
 	display:block;
 	}
+span.all-field-req {
+    color: #f00;
+    position: relative;
+    top: -24px;
+}
+.shop-our-range-cntr .breadcrumbs {
+    padding: 20px 0;
+    margin: 0;
+    line-height: 1;
+}
+.shop-our-range-cntr .breadcrumbs span{
+      font-size: 12px;
+    text-transform: uppercase;
+    color: #666666;
+    text-decoration: none;
+    margin: 0;
+}
+.shop-our-range-cntr .breadcrumbs span:hover{
+  cursor: text;
+}
+span.cart-pro-size {
+    display: block;
+    line-height: 1;
+}
