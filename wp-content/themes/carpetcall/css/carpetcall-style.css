@@ -959,12 +959,11 @@ ul#directory_list_id li {
 .crt_clear {
 	background: #e7edf8;
 	padding: 20px;
+  text-align: right;
 }
 .view_c {
 	background: #0a71cf;
 	display: inline-block;
-	float: left;
-	margin-left: 78px;
 }
 .view_cc a, .check_crtt a {
 	padding: 2px 19px;
@@ -983,7 +982,7 @@ ul#directory_list_id li {
 .check_crt {
 	background: #c02226;
 	display: inline-block;
-	float: right;
+	margin-left: 11px;
 }
 .check_crtt a:hover {
 	background: #a60a0e;
@@ -7413,7 +7412,7 @@ label.inner-check-label.radio-check-label::after{
 .body-wrapper .gpf-block {
 	margin:42px 0 57px 0;	
 }
-.cc-condn-page .woocommerce form .form-row label.error {
+.cc-condn-page .woocommerce form .form-row label.error, .cc-condn-page .woocommerce form .form-row label.cc_error {
     color: #f00;
     font-size: 14px;
     margin-top: 0px;
@@ -7422,6 +7421,14 @@ label.inner-check-label.radio-check-label::after{
 .woocommerce form .form-row.woocommerce-invalid input.input-text {
 	border-color:#F00;
 }
+
+.woocommerce form .form-row.woocommerce-validated .select2-container .select2-choice, .woocommerce form .form-row.woocommerce-validated input.input-text, .woocommerce form .form-row.woocommerce-validated select{
+  border-color: #69bf29;
+}
+.woocommerce-billing-fields .billing_fields_wrapper p.woocommerce-invalid .select2-container .select2-choice, .woocommerce-billing-fields .billing_fields_wrapper p.woocommerce-invalid select{
+   border-color:#F00;
+}
+
 
 span.required {
 	font-size:15px;
