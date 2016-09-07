@@ -50,7 +50,8 @@ function css_products_import()
 
   if(isset($_POST['submit']) && ($_POST['submit']=="updating"))
 	{ 
-   cron_func_update();
+		
+		cron_func_update();
 	}   
 	
 	?>

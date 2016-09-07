@@ -6,7 +6,7 @@ get_header();
 <?php while(have_posts()){
 	the_post();?>
 <div class="body-wrapper">
-<div class="ia-block clearfix">
+<div class="ia-block clearfix shop-our-range-cntr">
 <div class="container">
         <div class="col-md-12 no-pl cc-ia-content">
         <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">

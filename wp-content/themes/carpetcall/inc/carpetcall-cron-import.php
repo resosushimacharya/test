@@ -230,41 +230,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs)
 		update_post_meta( $new_post_id, '_sku', $csv[1]);
 				$item_sku =  $csv[1];
 
-		$sales_record_table = $wpdb->prefix.'cc_sales_records';
-		$x = "SELECT * FROM ".$sales_record_table." WHERE sku = '".$item_sku."'";
-		
-$exist =  $wpdb->get_row($x);
-if($item_sku){
- if($exist){
- $wpdb->update(
-     $wpdb->cc_sales_records,
-     array(
-      'sales_count'=>$exist->sales_count + 1
-     ),
-     array(
-      'sku'=>$item_sku
-     ),
-     array(
-     '%d'
-     )
-    );
- }else{
-  $wpdb->insert( 
-     $wpdb->prefix.'cc_sales_records', 
-     array(
-      'id'=>'', 
-      'sku' =>$item_sku, 
-      'sales_count' => 0 
-     ), 
-     array( 
-      '%d',
-      '%s', 
-      '%d' 
-     ) 
-    );
-  
-  }
-}
+	
 		update_post_meta( $new_post_id, 'color', $sku_arr[2]);
 		update_post_meta( $new_post_id, 'size_code', $sku_arr[3]);
 		update_post_meta($new_post_id,'description_1',$csv[4]);
@@ -420,40 +386,7 @@ if($item_sku){
 	    
 		update_post_meta( $new_post_id, '_sku', $csv[1]);
 		$item_sku =  $csv[1];
-		$sales_record_table = $wpdb->prefix.'cc_sales_records';
-		$x = "SELECT * FROM ".$sales_record_table." WHERE sku = '".$item_sku."'";
-$exist =  $wpdb->get_row( $x);
-if($item_sku){
- if($exist){
- $wpdb->update(
-     $wpdb->cc_sales_records,
-     array(
-      'sales_count'=>$exist->sales_count + 1
-     ),
-     array(
-      'sku'=>$item_sku
-     ),
-     array(
-     '%d'
-     )
-    );
- }else{
-  $wpdb->insert( 
-     $wpdb->prefix.'cc_sales_records', 
-     array(
-      'id'=>'', 
-      'sku' =>$item_sku, 
-      'sales_count' => 0 
-     ), 
-     array( 
-      '%d',
-      '%s', 
-      '%d' 
-     ) 
-    );
-  
-  }
-}
+	
 		
 		
 		update_post_meta($new_post_id,'description_1',$csv[7]);
@@ -557,8 +490,7 @@ function cron_func_update(){
 
 $rugsadmin = data_database_read("rugs");
 $hardflooringadmin = data_database_read("hard-flooring");
-do_action('pr', $rugsadmin);
-do_action('pr',$hardflooringadmin);
+
 
 
 $url = site_url();
@@ -578,8 +510,9 @@ else{
     $desfolder= $_SERVER['DOCUMENT_ROOT'].'/history/';
 }
 $time =  current_time('Y-m-d-m-h-s');
-$newfilename = $desfolder.'log'.$time.'.txt';
-
+$newfilename = $desfolder.'log.txt';
+$txt = "\r\n Import has been started in ".$time." \r\n";
+file_put_contents($newfilename, $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
 
 
 if(strcasecmp($url[2],'localhost')==0){
@@ -592,6 +525,10 @@ $csc_rugs_flag=$csc_hardfloor_flag=false;
 
 $rugs_post_ids= $hard_post_ids=array();
 $filecols = array_diff(scandir($directory), array('..', '.'));
+
+if($filecols){
+
+
 foreach($filecols as $fileitem){
     if (strpos(strtolower($fileitem), 'rugols') !== false) {
         $fileextension = explode('.',$fileitem);
@@ -643,6 +580,9 @@ foreach($filecols as $fileitem){
     }
 
 } 
+
+
+
 if($csc_hardfloor_flag){
 $new_rugs_file = cc_res_csv_hards($hards_post_ids,'NETLOLS');
 $appcat = "hard-flooring";
@@ -791,83 +731,49 @@ $new_rugs_file = cc_res_csv_rugs($rugs_post_ids,'NETRUGOLS');
 
 
 			}
-			
-			$args = array(
 
-				"post_type"=>'product',
-				"post_status"=>array("publish"),
-				"posts_per_page"=>"-1",
-				'tax_query' => array(
-                                array(
-                                    'taxonomy' => 'product_cat',
-                                    'field'    => 'slug',
-                                    'terms'    => array('rugs','hard-flooring')
-                                )
-                            )
-			);
-		$loop = new WP_Query($args);
-
-		$i  = 1;echo "Removed Product List : <br />";
-		while($loop->have_posts()){
-			$loop->the_post();
-			$my_post = array(
-							      'ID'           => $loop->post->ID,
-							      'post_stauts'  =>'draft'
-      
-							);
-
-
-  			wp_update_post( $my_post);
-		}
-		wp_reset_query();
-					////////////////////////////////////////////////////
-
-        	$args = array(
-
-				'post_type'=>'product',
-				'post_status'=>array('pending'),
-				'posts_per_page'=>'-1',
-				'tax_query' => array(
-                                array(
-                                    'taxonomy' => 'product_cat',
-                                    'field'    => 'slug',
-                                    'terms'    => array('rugs','hard-flooring')
-                                )
-                            )
-			);
-		$loop = new WP_Query($args);
-
-		$i  = 1;echo "Removed Product List : <br />";
-		while($loop->have_posts()){
-			$loop->the_post();
-			$my_post = array(
-							      'ID'           => $loop->post->ID,
-							      'post_stauts'  =>'publish'
-      
-							);
-
-
-  			wp_update_post( $my_post);
-		}
-		wp_reset_query();
-
-
-		//////////////////////////////////////////
-		$txt = "List of error files \r\n";
+		$txt = "In ".$time."\r\nList of error files \r\n";
 		if($errorflag){
 		foreach($errorfilesarray as $efa){
+
 			$txt .= $efa."\r\n" ;
 		   }
 	     } else{
            $txt .= "No error files ." ;
 	     }
-		 $myfile = fopen($newfilename, "w") or die("Unable to open file!");
-		fwrite($myfile, $txt);
-		fclose($myfile);
+	     $time =  current_time('Y-m-d-h-i-s');
+		 file_put_contents($newfilename, $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
+			
+}
+else{
+	$time =  current_time('Y-m-d-h-i-s');
+$txt = "In ".$time."\r\n prdouctfiles folder is empty \r\n";
+		
+		 file_put_contents($newfilename, $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
+
+}
+// this else condition is for empy folders
+
+
+
+$time =  current_time('Y-m-d-h-i-s');
+
+$txt = "\r\n Import has been finished in ".$time."\r\n";
+file_put_contents($newfilename, $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
+		
 
 }
 function cc_csv_conv_array($filename){
-$filename = site_url().'/productfiles/'.$filename;
+
+	$url = site_url();
+$url = explode('/',$url);
+
+if(strcasecmp($url[2],'localhost')==0){
+    $desfolder = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/productfiles/';}
+else{
+    $desfolder= $_SERVER['DOCUMENT_ROOT'].'/productfiles/';
+}
+$filename = $desfolder.$filename;
 $file = fopen($filename,"r");
 $count_csv = 0;
 $arraycsv = array();
@@ -920,7 +826,7 @@ function cc_res_csv_rugs ( $rugs_post_ids,$filename ) {
     }else{
         $desfolder= $_SERVER['DOCUMENT_ROOT'].'/netcsvs/';
     }
-        $time =  current_time('Y-m-d-m-h-s');
+        $time =  current_time('Y-m-d-h-i-s');
         $resfile = $desfolder.$filename.$time.'.csv';
     $fp = fopen($desfolder.$filename.$time.'.csv', 'w');
     foreach($new_rugs_ids as $writeline){
@@ -964,7 +870,7 @@ function cc_res_csv_hards($hards_post_ids,$filename){
       }else{
           $desfolder= $_SERVER['DOCUMENT_ROOT'].'/netcsvs/';
       }
-          $time =  current_time('Y-m-d-m-h-s');
+          $time =  current_time('Y-m-d-h-i-s');
       $resfile = $desfolder.$filename.$time.'.csv';
       $fp = fopen($desfolder.$filename.$time.'.csv', 'w');
       foreach($new_hards_ids as $writeline){
