@@ -162,7 +162,9 @@ if($reqTempTerms){
 		
 		
 		$imgflag = false;
-		$feat_image = get_template_directory_uri().'/images/placeholder.png';
+		$feat_image = cc_custom_get_feat_img($relprod->ID,'small');
+		
+		/*$feat_image = get_template_directory_uri().'/images/placeholder.png';
 		$sku = get_post_meta($relprod->ID,'_sku',true);
 		$image_names = array(
 												strtoupper($sku).'_L.jpg',
@@ -178,6 +180,7 @@ if($reqTempTerms){
 				break;
 			}
 		}
+		*/
 						
 						
 		/*
@@ -859,7 +862,8 @@ wrapper close start */?>
 					setup_postdata($post);
 					$woo=get_post_meta($post->ID);
 					$price=$woo['_regular_price'][0];
-					$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+					$feat_image = cc_custom_get_feat_img($post->ID,'medium');
+					//$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 									?> <div class="col-md-4">
                   		<div class="pro_secone">
                   		<a href="<?php the_permalink();?>" class="cc-product-item-image-link"><div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
