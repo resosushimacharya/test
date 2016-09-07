@@ -35,9 +35,9 @@ get_header();
            
             <div class="cc-ia-item-cover shop_range col-sm-2">
              <div class="sor-single-wrap">
-				<div class="shop_range_cat_block" style="background-image:url('<?php echo $shop['shop_range_image'] ?>')">
+				<a href="<?php echo $shop['shop_range_url']?>"><div class="shop_range_cat_block" style="background-image:url('<?php echo $shop['shop_range_image'] ?>')">
             </div>
-            <h3><a href="<?php echo $shop['shop_range_url']?>"><?php _e( $shop['shop_range_title'],'carpetcall')?></a></h3><div class="clearfix"></div>
+            <h3><?php _e( $shop['shop_range_title'],'carpetcall')?></h3></a><div class="clearfix"></div>
             </div>
             </div>
             

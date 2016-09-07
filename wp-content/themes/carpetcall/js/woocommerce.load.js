@@ -22,9 +22,9 @@ $(function () {
 });
 jQuery(document).ready(function($){
 	  
-jQuery(document).on('focusout','#billing_postcode, #shipping_postcode',function(){
+/*jQuery(document).on('focusout','#billing_postcode, #shipping_postcode',function(){
 	var postcode = jQuery(this).val();
-	if(postcode.match(/^\d{4}$/)){
+	if(postcode.match()){
 			
 			jQuery(this).parent('.validate-postcode').removeClass('woocommerce-invalid');
 			jQuery(this).parent('.validate-postcode').addClass('woocommerce-validated');
@@ -36,26 +36,104 @@ jQuery(document).on('focusout','#billing_postcode, #shipping_postcode',function(
 			jQuery(this).parent('.validate-postcode').removeClass('woocommerce-validated');
 			return false;
 		}
-	});
+	});	*/
 	
-jQuery(document).on('focusout','#billing_phone:visible, #shipping_phone:visible',function(){
+	
+	jQuery(document).on('focusout','#billing_postcode, #shipping_postcode',function(){
+		var postcode = jQuery(this).val();
+		if('' !=postcode){
+		var postcodeExpression = /^\d{4}$/;
+		if (postcode.match(postcodeExpression))
+		   {
+			   	jQuery(this).parent('.validate-postcode').removeClass('woocommerce-invalid');
+				jQuery(this).parent('.validate-postcode').addClass('woocommerce-validated');
+			   	jQuery(document).find('label#'+jQuery(this).attr('id')+'-errormessage').hide();
+		   }else{
+			  if(jQuery(document).find('label#'+jQuery(this).attr('id')+'-errormessage').length){
+				  jQuery(document).find('label#'+jQuery(this).attr('id')+'-errormessage').show();
+				  }else{
+					  jQuery(this).parent().append('<label id="'+jQuery(this).attr("id")+'-errormessage" class="cc_error" for="'+jQuery(this).attr("id")+'">Please enter a valid Post Code.</label>').show();
+					  }
+			 jQuery(this).parent('.validate-postcode').addClass('woocommerce-invalid');
+			   return false;
+			   }
+		}
+		
+		
+		});
+		
+		
+	jQuery(document).on('focusout','#billing_phone:visible, #shipping_phone:visible',function(){
+		var phoneNumber = jQuery(this).val();
+		if('' !=phoneNumber){
+		var phoneExpression = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+		if (phoneNumber.match(phoneExpression))
+		   {
+			   	jQuery(this).parent('.validate-phone').removeClass('woocommerce-invalid');
+				jQuery(this).parent('.validate-phone').addClass('woocommerce-validated');
+			   	jQuery(document).find('label#'+jQuery(this).attr('id')+'-errormessage').hide();
+		   }else{
+			  if(jQuery(document).find('label#'+jQuery(this).attr('id')+'-errormessage').length){
+				  jQuery(document).find('label#'+jQuery(this).attr('id')+'-errormessage').show();
+				  }else{
+					  jQuery(this).parent().append('<label id="'+jQuery(this).attr("id")+'-errormessage" class="cc_error" for="'+jQuery(this).attr("id")+'">Please enter a valid Phone Number.</label>').show();
+					  }
+			 jQuery(this).parent('.validate-phone').addClass('woocommerce-invalid');
+			   return false;
+			   }
+		}
+		
+		
+		});
+		
+	jQuery(document).on('focusout','#billing_state, #shipping_state',function(){
+		var selected = jQuery(this).val();
+		alert(selected);
+		});
+	
+/*jQuery(document).on('focusout','#billing_phone:visible, #shipping_phone:visible',function(){
 	var phoneNumber = jQuery(this).val();
-	var phoneExpression = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+	if('' !=phoneNumber){
+		var phoneExpression = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
 	if (phoneNumber.match(phoneExpression))
 	   {
 			jQuery(this).parent('.validate-phone').removeClass('woocommerce-invalid');
 			jQuery(this).parent('.validate-phone').addClass('woocommerce-validated');
-			jQuery(this).parent().find('label#'+jQuery(this).attr('id')+'-error').remove();
+			jQuery(this).parent().find('label#'+jQuery(this).attr('id')+'-error').hide();
 			
 	   }else{
-			jQuery(this).parent('.validate-phone').addClass('woocommerce-invalid');
-			jQuery('label#'+jQuery(this).attr('id')+'-error').remove();
-			jQuery(this).parent().append('<label id="'+jQuery(this).attr("id")+'-error" class="error" for="'+jQuery(this).attr("id")+'">Please enter a valid Phone Number.</label>').show();
-			jQuery(this).parent('.validate-phone').removeClass('woocommerce-validated');
+		  // jQuery(this).parent('.validate-phone').addClass('woocommerce-invalid');
+		   
+		   if(jQuery(document).find('label#'+jQuery(this).attr('id')+'-error').length){
+			   alert('cha');
+			   
+			   
+			   
+			   }else{
+				   jQuery(this).parent().append('<label id="'+jQuery(this).attr("id")+'-error" class="error" for="'+jQuery(this).attr("id")+'">Please enter a valid Phone Number.</label>').show();
+				  
+				   }
+		jQuery(this).parent('.validate-phone').removeClass('woocommerce-validated');
 			return false;
+			
+			
+			
+			//jQuery('label#'+jQuery(this).attr('id')+'-error').remove();
+			//alert(jQuery('#billing_phone-error').text());
+			//console.log(jQuery('#billing_phone-error'));
+			if(jQuery(this).parent().find('label#'+jQuery(this).attr('id')+'-error').length){
+				jQuery(this).parent().find('label#'+jQuery(this).attr('id')+'-error').html('Please Enter Valid Phone').show();
+				}else{
+			jQuery(this).parent().append('<label id="'+jQuery(this).attr("id")+'-error" class="error" for="'+jQuery(this).attr("id")+'">Please enter a valid Phone Number.</label>').show();
+				}
+			
+			
+			
 		}
-   
-	});
+		}else{
+			return false;
+			}
+	});*/
 	
 	
 jQuery(document).on('click','#checkout_fetch_nearby_stores',function(){
@@ -108,7 +186,17 @@ jQuery(document).on('change','.delivery_option_both .pickup_location_list input[
 					jQuery(this).parent('label').removeClass('radio-check-label');
 					}
         
-	});jQuery(document).on('change','.delivery_option_rugs #nearby_stores_main_wrapper .pickup_location_list input[type=radio]',function(e){
+	});
+jQuery(document).on('change','.delivery_option_hardflooring .pickup_location_list input[type=radio]',function(e){
+			jQuery('.delivery_option_hardflooring .pickup_location_list .inner-radio-label.radio-check-label').removeClass('radio-check-label');
+			if(jQuery(this).is(':checked')){
+				 jQuery(this).parent('label').addClass('radio-check-label');
+				}else{
+					jQuery(this).parent('label').removeClass('radio-check-label');
+					}
+        
+	});
+	jQuery(document).on('change','.delivery_option_rugs #nearby_stores_main_wrapper .pickup_location_list input[type=radio]',function(e){
 			jQuery('.delivery_option_rugs #nearby_stores_main_wrapper .pickup_location_list .inner-radio-label.radio-check-label').removeClass('radio-check-label');
 			if(jQuery(this).is(':checked')){
 				 jQuery(this).parent('label').addClass('radio-check-label');

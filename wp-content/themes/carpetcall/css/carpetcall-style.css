@@ -7030,7 +7030,7 @@ label.inner-radio-label.radio-check-label::after{
 	opacity: 1;
 }
 
-.delivery_option_rugs .rugs_store_pickup_list .nearstore h3, .delivery_option_both .nearstore .pickup_location_list h3{
+.delivery_option_rugs .rugs_store_pickup_list .nearstore h3, .delivery_option_both .nearstore .pickup_location_list h3, .delivery_option_hardflooring .nearstore .pickup_location_list h3{
 	display:inline-block;
   position: relative;
   top: -4px;
@@ -7044,12 +7044,12 @@ label.inner-radio-label.radio-check-label::after{
 #nearby_stores_main_wrapper .pickup_location_list, #checkout_delivery .pickup_location_list {
 	margin-bottom: 15px;
 }
-.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p, .delivery_option_both .nearstore .pickup_location_list > p{
+.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p, .delivery_option_both .nearstore .pickup_location_list > p, .delivery_option_hardflooring .nearstore .pickup_location_list > p{
 	margin-left: 0;
 	padding-bottom: 0;
 	display: inline-block;
 }
-.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p.address, .delivery_option_both .nearstore .pickup_location_list > p.address{
+.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p.address, .delivery_option_both .nearstore .pickup_location_list > p.address, .delivery_option_hardflooring .nearstore .pickup_location_list > p.address{
 	display: block;
 	margin-left: 50px;
   padding-top: 0;

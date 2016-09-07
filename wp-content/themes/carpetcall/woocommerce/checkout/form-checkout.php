@@ -112,10 +112,10 @@ jQuery(document).ready(function(e) {
 			};
 		if(jQuery(this).hasClass('next')){
 			var validator = jQuery( ".checkout.woocommerce-checkout" ).validate();
-			jQuery(this).parents('.checkout-form-sec').find('p.validate-required').find('input:visible').each(function(index, el) {
+			jQuery(this).parents('.checkout-form-sec').find('p.validate-required').find('input:visible, select').each(function(index, el) {
 				jQuery("#"+el.id).focus();
 				});
-			jQuery(this).parents('.checkout-form-sec').find('p.validate-required').find('input:visible').each(function(index, el) {
+			jQuery(this).parents('.checkout-form-sec').find('p.validate-required').find('input:visible, select').each(function(index, el) {
 				validator.element("#"+el.id);
 				if(jQuery(el).parent('.form-row').hasClass('woocommerce-invalid')){
 					error_flag = true;
