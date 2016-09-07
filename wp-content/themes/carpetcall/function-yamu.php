@@ -1430,8 +1430,11 @@ if($selected_store){
 		
 function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
 	if ( $post->post_type == 'product' ) {
+		$temp_url = $url;
+		if(has_term('carpets','product_cat',$post->ID) || has_term('rugs','product_cat',$post->ID) || has_term('hard-flooring','product_cat',$post->ID)){
+			
 		$terms = wc_get_product_terms( $post->ID, 'product_cat', array( 'orderby' => 'parent', 'order' => 'DESC' ) ) ;
-		
+		//do_action('pr',$terms);
 		
 		$temp_url = site_url().'/shop-our-range';
 		$url_parts = array();
@@ -1446,6 +1449,7 @@ function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
 		$temp_url.='/'.$post->post_name;
 			}
 		
+		}
 		
 		
 		/*
