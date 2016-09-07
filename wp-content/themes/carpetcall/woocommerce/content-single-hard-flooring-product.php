@@ -165,15 +165,15 @@ if($reqTempTerms){
 		$feat_image = get_template_directory_uri().'/images/placeholder.png';
 		$sku = get_post_meta($relprod->ID,'_sku',true);
 		$image_names = array(
-												strtoupper($sku.'_L.jpg'),
-												strtoupper($sku.'_V.jpg'),
-												strtoupper($sku.'_S.jpg'),
+												strtoupper($sku).'_L.jpg',
+												strtoupper($sku).'_V.jpg',
+												strtoupper($sku).'_S.jpg',
 							);
 							
 		foreach($image_names as $imgname){
-			$img_path =  WP_CONTENT_DIR.'/uploads/products/small/'.$imgname;
+			$img_path =  WP_CONTENT_DIR.'/uploads/images/small/'.$imgname;
 			if(file_exists($img_path)){
-				$feat_image = content_url('uploads/products/small/'.$imgname);
+				$feat_image = content_url('uploads/images/small/'.$imgname);
 				$imgflag = true;
 				break;
 			}

@@ -62,12 +62,12 @@ $args = array(
     'posts_per_page'=>'-1',
     'post_status' => 'any',
 	'date_query' => array(
-     /*array(
+     array(
            'after' => strtotime('-1 hour'),
            'before' => strtotime('now'),
 		   'inclusive' => true,
            )
-		  */
+		  
      )
 	
    );
