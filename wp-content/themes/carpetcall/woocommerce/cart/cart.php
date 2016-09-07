@@ -90,8 +90,9 @@ do_action( 'woocommerce_before_cart' ); ?>
 							if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
 								echo '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>';
 							}
+
 						?>
-						Size Something
+						<span class="cart-pro-size">Size: <?php echo $_product->get_dimensions()?></span>
 					</td>
 
 					<td class="product-price" data-title="<?php _e( 'Price', 'woocommerce' ); ?>">

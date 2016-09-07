@@ -3650,7 +3650,7 @@
 		margin-bottom: 30px;
 	}
 	.product_single_thumb_slider.slick-slider.slick-dotted{
-		margin: 0 -15px;
+		margin: 0 -20px;
 		margin-bottom: 50px;
 	}
 	.product_single_thumb_slider .slick-next, .product_single_thumb_slider .slick-prev{
@@ -5042,7 +5042,7 @@
         right: 5px;
 	}
 	.cc-product-sort ul li{
-		padding: 0 13px;
+		padding: 0 10px;
 	}
 	.cat-sort-by-cntr{
 		padding: 0;
