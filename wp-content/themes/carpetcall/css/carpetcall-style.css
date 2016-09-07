@@ -7541,3 +7541,8 @@ font-size:14px;
 .show{
 	display:block;
 	}
+span.all-field-req {
+    color: #f00;
+    position: relative;
+    top: -24px;
+}
