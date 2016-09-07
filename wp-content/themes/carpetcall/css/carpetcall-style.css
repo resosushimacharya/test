@@ -104,7 +104,7 @@ html, body {
 .wrapper, .banner, .tstore, .cartblk, .calus, .wellblk, .crpchoose, .rtfloblk, .crptslide, .pont, .mystor, .expert, .footer_c, .sor_blk, .againlt, .fot_cpy, .limblk, .rugpro_blk, .rugspro_blk, .rug_size, .carpetcall_slide, .parcel_blk, .feature_pro, .trade, .cbg_blk, .mmrugm, .page-sorry {
 	padding: 0;
 }
-.wrap_body { margin: 145px 0 0 0; }
+.wrap_body { margin: 143px 0 0 0; }
 
 /* banner section start here ---*/
 .banner {
@@ -2394,6 +2394,7 @@ ul.guide_list_cbg li.current_page_item a {
 	clear:both;
 	margin-bottom:16px;
 	margin-top:1px;
+	line-height:normal;
 }
 .about-page .cart_checkout_header_subtitle {
 	display:block;
@@ -6057,7 +6058,7 @@ a.btn-employment:hover {
 .cont-panl.cc-pro-det-fb h3.acc_title_n_cat {
 	margin-top: 18px;
 	display: inline-block;
-	line-height: 0;
+	line-height: 1;
 	height: 65px;
 	width: 100%;
 	overflow:hidden;
