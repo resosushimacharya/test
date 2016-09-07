@@ -162,7 +162,9 @@ if($reqTempTerms){
 		
 		
 		$imgflag = false;
-		$feat_image = get_template_directory_uri().'/images/placeholder.png';
+		$feat_image = cc_custom_get_feat_img($relprod->ID,'small');
+		
+		/*$feat_image = get_template_directory_uri().'/images/placeholder.png';
 		$sku = get_post_meta($relprod->ID,'_sku',true);
 		$image_names = array(
 												strtoupper($sku).'_L.jpg',
@@ -178,6 +180,7 @@ if($reqTempTerms){
 				break;
 			}
 		}
+		*/
 						
 						
 		/*

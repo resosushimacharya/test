@@ -231,6 +231,9 @@ $count = 1;
 foreach($bundle as $key=>$value){
 	
 	$imgflag = false;
+	$feat_image = cc_custom_get_feat_img($key,'small');
+	
+	/*
 	$feat_image = get_template_directory_uri().'/images/placeholder.png';
 	$sku = explode('.',get_post_meta($key,'_sku',true));
 	$image_names = array(
@@ -246,6 +249,7 @@ foreach($bundle as $key=>$value){
 			break;
 		}
 	}
+	*/
 	$stockcheck = get_post_meta($post->ID);
 	if(strcasecmp($stockcheck['_stock_status'][0],'instock')==0 && $count == 1){
 		$count++;
