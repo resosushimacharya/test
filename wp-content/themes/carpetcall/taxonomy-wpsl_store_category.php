@@ -81,8 +81,8 @@ $term =  get_queried_object();
 else{
 
  
-  $_POST['wpsl-search-input'] =$cc_data_cat;
- echo do_shortcode('[wpsl template="custom" start_location="'.strtoupper($cc_data_cat).'"]');
+  //$_POST['wpsl-search-input'] =$cc_data_cat;
+ echo do_shortcode('[wpsl template="custom" start_location="'.strtoupper($cc_data_cat).'" category="'.$cc_data_cat.'"]' );
 }
 ?>
 
@@ -100,6 +100,30 @@ else{
 
 <?php get_footer();?>
 <script type="text/javascript">
+var fc = 0;
+
+jQuery( document ).ajaxSend(function( event, jqxhr, settings ) 
+{
+  fc = fc + 1;
+   var $urldata = settings.url.split('&');
+  if(fc >2){
+    $new_array=[];
+    $.each($urldata, function( key, value ) {
+      if(value.indexOf('filter=')==-1){
+        $new_array.push(value);
+      }
+    });
+    $new_url_latest=$new_array.join('&');
+
+ 
+  if(settings.url.indexOf('action=store_search') !== -1){
+   settings.url= $new_url_latest;
+  }
+}
+
+});
+
+
 jQuery( document ).ajaxComplete(function( event, xhr, settings ) {
   if(settings.url.indexOf('action=store_search') !== -1){
     if(typeof xhr.responseJSON!=="undefined"){
