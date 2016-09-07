@@ -1412,10 +1412,13 @@ function save_delivery_option_cc($order_id){
 		
 		//cc_notify_selected_store($order_id);
 		}
-	if(!empty($_POST['shipping_method'])){
+	if(!empty($_POST['cc_shipping_method'])){
 		$shipping_method = $_POST['shipping_method'];
-		
-		update_post_meta( $order_id, 'shipping_method', $_POST['shipping_method']);
+		$shipping_arr = array(	'local_delivery'=>'Local Delivery',
+								'store_pickup'=>'Pickup From Head Offices',
+								'pickup_n_deliver'=>'Pickup Hard Flooring and Deliver Rugs'
+								);
+		update_post_meta( $order_id, 'cc_shipping_method', $shipping_arr[$_POST['cc_shipping_method']]);
 	
 	}
 	

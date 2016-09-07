@@ -152,6 +152,7 @@ $arrayCsv_rugs_or[] = $arrayCsv_hardflooring_or[] =array(
 			global $woocommerce;
 			 $order = new WC_Order(get_the_ID());
 			 $selected_store = get_post_meta($order->id,'pickup_store_id',true);
+			 $shipping_method = get_post_meta($order->id,'cc_shipping_method',true); 
 			 $selected_store_meta = get_post_meta($selected_store);
 			 foreach ($order->get_items() as $key => $lineItem) {
 				$sku = $lineItem['sku'];
@@ -199,13 +200,13 @@ $arrayCsv_rugs_or[] = $arrayCsv_hardflooring_or[] =array(
 					$order->billing_state,
 					$order->billing_city,
 					$order->billing_country,
-					$order->get_shipping_method(),
+					$shipping_method,
 					$selected_store,
 					$selected_store_meta['wpsl_state'][0],
 					$selected_store_meta['wpsl_address'][0],
 					$order->order_total,
 					'',//code
-					$order->get_total_shipping(),
+					0,
 					$order->payment_method_title,
 					'',//order status
 					$order->get_status(),
@@ -270,13 +271,13 @@ $arrayCsv_rugs_or[] = $arrayCsv_hardflooring_or[] =array(
 					$order->billing_state,
 					$order->billing_city,
 					$order->billing_country,
-					$order->get_shipping_method(),
+					$shipping_method,
 					$selected_store,
 					$selected_store_meta['wpsl_state'][0],
 					$selected_store_meta['wpsl_address'][0],
 					$order->order_total,
 					'',//code
-					$order->get_total_shipping(),
+					0,
 					$order->payment_method_title,
 					'',//order status
 					$order->get_status(),

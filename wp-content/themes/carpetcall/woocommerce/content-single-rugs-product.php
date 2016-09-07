@@ -255,7 +255,7 @@ foreach($bundle as $key=>$value){
               
               
              <img name="<?php echo $post->post_name?>" class="cc-product_no_image" src="<?php echo $feat_image ;?>"/>
-              <span class="selected-pro-name" style=""><?php echo $post->post_name;?></span>
+              <span class="selected-pro-name" style=""><?php echo get_the_title($key)?></span>
               
               
               

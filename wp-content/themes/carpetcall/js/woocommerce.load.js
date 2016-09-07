@@ -390,7 +390,18 @@ jQuery(document).on('click','.select-design-product-image a.select_design',funct
 	});	
 	
 	
+jQuery(document).on('click','#store-count-quantity',function(){
+	var qty_el = jQuery(this).parents('.cc-quantiy-section').find('#quantity-control');
+	var sel_qty = jQuery(qty_el).val();
+	if(0 == sel_qty || '' == sel_qty || 'PLEASE SELECT' == sel_qty){
+		jQuery(qty_el).addClass('error').focus();
+		return false;
+		}else{
+			jQuery(qty_el).removeClass('error');
+			}
 	
+	
+	});
 jQuery(document).on('change','select#cc-size',function(e){
 	var url = jQuery(this).val();
 	window.history.pushState("object or string", "Title", url);
@@ -400,7 +411,34 @@ jQuery(document).on('change','select#cc-size',function(e){
 	jQuery.get(url,function(response){
 		update_content_from_ajax(response);
 			  $("body, .banner ").removeClass('ovelay_hidden_class');// Disabling the Scroll while ajax is loading
-			jQuery('#loading_overlay_div').hide(); // Displaying the Loading gif during ajax call
+			jQuery('#loading_overlay_div').hide();
+			jQuery('#store-count-quantity').attr('href','javascript:void(0)');
+          	jQuery('#store-count-quantity').removeClass('add_to_cart_button');
+           	jQuery('#store-count-quantity').removeClass('ajax_add_to_cart');
+			jQuery('.product_single_thumb_slider').slick({
+		  dots: true,
+		  infinite: true,
+		  speed: 300,
+		  slidesToShow: 1,
+		  adaptiveHeight: true
+		});
+      		//largeImgMob();
+			var bigImg = $(".single-product-thumb-img");      
+			$(bigImg).each(function() {
+			  var bigImgHref = $(this).attr('href');
+			  $(this).find("img").attr("src", bigImgHref);
+			});
+	
+	
+		    // Displaying the Loading gif during ajax call
+ 	  var $activePro = jQuery('.pro-active');
+      var $activeText = jQuery($activePro).find(".selected-pro-name").text();
+      var $activeImage = jQuery($activePro).find("img");
+      
+      $activeImage.clone().appendTo(".selected-product-img");
+      jQuery(".selected-product-name span").html($activeText);
+
+ // Displaying the Loading gif during ajax call
 
 		//jQuery(document).find(".main-image-wrapper a.zoom").removeAttr('data-rel').prettyPhoto({hook:"data-rel",social_tools:!1,theme:"pp_woocommerce",horizontal_padding:20,opacity:.8,deeplinking:!1});
 		});
