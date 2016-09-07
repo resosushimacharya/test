@@ -91,6 +91,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 								echo '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>';
 							}
 						?>
+						Size Something
 					</td>
 
 					<td class="product-price" data-title="<?php _e( 'Price', 'woocommerce' ); ?>">
