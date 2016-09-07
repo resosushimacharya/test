@@ -5623,10 +5623,9 @@ li.cc-head-wpsl-phone a:hover {
 	font-family:'proxima_nova_rgregular', sans-serif;
 	font-size:15px;
 	font-weight:normal;
-	color: #666666;
-	border-spacing: 4px;
-	text-align: left;
-	border-collapse: separate;
+	color: #666666 !important;
+	text-align:left;
+	border-collapse: collapse;
 	-webkit-margin-start: auto;
 	-webkit-margin-end: auto;
 	border-top-width: 0px;
@@ -5634,9 +5633,37 @@ li.cc-head-wpsl-phone a:hover {
 	border-bottom-width: 0px;
 	border-left-width: 0px;
 }
-.panel-body-table tr.bg_table, .cbg_content tr {
-	background-color: #d0ebfd;
+.cbg_content .panel-body .panel-body-table table > tbody tr.bg_table:nth-child(1)  {
+	border-bottom:1px solid #efefef;
+	padding-bottom:6px;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	color:#15489f;
+	text-transform:uppercase;
 }
+.cbg_content .panel-body .panel-body-table table > tbody tr.bg_table:nth-child(1) td {
+	text-align:center;
+}
+.cbg_content .panel-body .panel-body-table table > tbody tr td::before {
+	content: '\f00c';
+	font-family: FontAwesome;
+	font-size: 15px;
+	color: #666666;
+	font-weight: normal;
+	position:absolute;
+	left:0;
+}
+.cbg_content .panel-body .panel-body-table table > tbody tr.bg_table:nth-child(1) td::before,  {
+	display:none;
+}
+.panel-body-table table {
+	border:0;
+}
+.panel-body-table table td {
+	padding-left:30px;
+	position:relative;
+}
+
 .panel-body-table td, .cbg_content td {
 	vertical-align: top;
 	line-height: 30px;
