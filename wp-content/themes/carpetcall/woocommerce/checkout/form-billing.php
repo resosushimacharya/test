@@ -42,6 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="billing_fields_wrapper">
 	<?php foreach ( $checkout->checkout_fields['billing'] as $key => $field ) :?>
 		<?php 
+		/*
 		$field['placeholder'] = '';
 		do_action('pr',$key);
 		do_action('pr',$field);
@@ -65,6 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		if($key == 'billing_email'){
 			$field['placeholder'] = 'EG JOHN@CARPETCALL.COM.AU';
 			}
+			*/
 		?>
 		<?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
 

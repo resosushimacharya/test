@@ -21,8 +21,19 @@ $(function () {
  
 });
 jQuery(document).ready(function($){
+// ========== Prevent page reload when user click enter key in pickup location popup starts========//
+$('#pickup_location_form').on('keyup keypress', function(e) {
+  var keyCode = e.keyCode || e.which;
+  if (keyCode === 13) { 
+  	jQuery(this).find('#check_control_dialog').trigger('click');
+    e.preventDefault();
+    //return false;
+  }
+});
+// ========== Prevent page reload when user click enter key in pickup location popup ends=============//
 	  
-/*jQuery(document).on('focusout','#billing_postcode, #shipping_postcode',function(){
+
+	jQuery(document).on('focusout','#billing_postcode, #shipping_postcode',function(){
 	var postcode = jQuery(this).val();
 	if(postcode.match()){
 			
@@ -36,7 +47,7 @@ jQuery(document).ready(function($){
 			jQuery(this).parent('.validate-postcode').removeClass('woocommerce-validated');
 			return false;
 		}
-	});	*/
+	});	
 	
 	
 	jQuery(document).on('focusout','#billing_postcode, #shipping_postcode',function(){
