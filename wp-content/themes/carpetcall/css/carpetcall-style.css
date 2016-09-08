@@ -7455,3 +7455,12 @@ div#checkout_delivery {
 }
 #checkout_delivery .cc_error{position: absolute; bottom: 30px; left: 30px;    color: #f00;
     font-size: 14px; font-family: 'proxima_nova_rgregular', sans-serif; font-weight: normal; line-height: 1;}
+.search_list_wrapper .search_prod_wrapper {
+	padding:10px;	
+}
+.search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h3 {
+	border:0;
+	margin:0;
+	display:block;
+	line-height:19px;
+}
