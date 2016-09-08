@@ -49,7 +49,7 @@
 	outline: none;
 	box-shadow:none;
 }
-focus {
+:focus {
 	outline: none;
 }
 img {
@@ -109,7 +109,7 @@ html, body {
 /* banner section start here ---*/
 .banner {
 	background: #15489f;
-	padding: 17px 0 0 0;
+	padding-top: 17px;
 	position: fixed;
 	z-index: 1000;
 	width: 100%;
@@ -142,6 +142,7 @@ html, body {
 	text-align: left;
 	text-transform: uppercase;
 	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
 	box-shadow: none;
 }
 .searchm .btn {
@@ -169,7 +170,7 @@ html, body {
 }
 .searchm .input-group-btn {
 	width: auto;
-	margin: 0
+	margin: 0;
 }
 .searchm .btn:active, .searchm .btn:focus {
 	outline: none;
@@ -212,7 +213,7 @@ html, body {
 .contblk {
 	position: absolute;
 	bottom: -1px;
-	right: 0px;
+	right: 0;
 	display: inline-block
 }
 .contblk a {
@@ -326,10 +327,16 @@ ul#mywoosection ul.dropdown-menu {
 .rnkct {
 	position: absolute;
 	left: 20px;
-	top: -7px;
+	top: 9px;
+	line-height: 1;
 }
 .rnkct .badge {
 	background: #c32327;
+	    height: 20px;
+    width: 20px;
+    padding: 0;
+    line-height: 20px;
+    border-radius: 50%;
 }
 
 /* NAVIGATOn */
@@ -1105,7 +1112,8 @@ h5.tryit.tryita {
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=1); /* IE6-9 */
 }
 .tryitwob a {
-	font-weight: 700;
+	font-weight: normal;
+	font-family: 'proxima_nova_ltsemibold';
 	color: #14489c;
 	text-transform: lowercase;
 	font-size: 24px;
@@ -1160,7 +1168,8 @@ h5.tryit.tryita {
 }
 .merof {
 	font-size: 16px;
-	font-weight: 700;
+	font-weight: normal;
+	font-family: 'proxima_nova_ltsemibold';
 	color: #c32327;
 }
 .aag_cd, .aag_c p {
@@ -1329,7 +1338,8 @@ h5.tryit.tryita {
 	padding-left: 16px;
 }
 .ptxt h5 {
-	font-weight: 700;
+	font-weight: normal;
+	font-family: 'proxima_nova_ltsemibold';
 }
 .nowsp {	
 	display: inline-block;
@@ -1780,7 +1790,8 @@ li.clblk_a::before {
 	-webkit-column-count: 2;
 }
 .footlist li .clblk_a a {
-	font-weight: bold;
+	font-weight: normal;
+	font-family: '';
 	cursor: text;
 	letter-spacing: 1px;
 }
@@ -2755,21 +2766,10 @@ ul.guide_list_cfaq li a {
 	margin: 0;
 }
 .pclt {
-	font-weight: 700;
+	font-weight: normal;
+	font-family: 'proxima_nova_ltsemibold';
 	color: #0296ff;
 }
-
-/*.summary.entry-summary .col-md-12 .select-design-product-image:nth-child(1) { width:18%; margin:0 10px 10px 0; float:left;text-decoration:none;}
-.summary.entry-summary .col-md-12 .select-design-product-image:nth-child(4) { width:18%; margin:0 10px 10px 0; float:left; text-decoration:none;}
-.summary.entry-summary .col-md-12 .select-design-product-image:nth-child(5) { width:17.9%; margin:0 0 10px 0; float:left; text-decoration:none;}
-.xt-decoration:none; }
-.summary.entry-summary .col-md-12 .select-design-product-image:nth-child(2) { width:18%; margin:0 10px 10px 0; float:left; text-decoration:none;}
-.summary.entry-summary .col-md-12 .select-design-product-image:nth-child(3) { width:18%; margin:0 10px 10px 0; float:left; tesummary.entry-summary .col-md-12 .select-design-product-image:nth-child(6) { width:18%; margin:0 10px 10px 0; float:left; text-decoration:none;}
-.summary.entry-summary .col-md-12 .select-design-product-image:nth-child(7) { width:18%; margin:0 10px 10px 0; float:left; text-decoration:none;}
-.summary.entry-summary .col-md-12 .select-design-product-image:nth-child(8) { width:18%; margin:0 10px 10px 0; float:left; text-decoration:none;}
-.summary.entry-summary .col-md-12 .select-design-product-image:nth-child(9) { width:18%; margin:0 10px 10px 0; float:left; text-decoration:none;}
-.summary.entry-summary .col-md-12 .select-design-product-image:nth-child(10) { width:17.9%; margin:0 0 10px 0; float:left; text-decoration:none;}
-*/
 .summary.entry-summary .col-md-12 .select-design-product-image {
 	width: 20%;
 	float: none;
@@ -2815,7 +2815,8 @@ select#cc-size {
 	background: #e7edf8;
 	font-size: 16px;
 	color: #1858b8;
-	font-weight: 700;
+	font-weight: normal;
+	font-family: 'proxima_nova_ltsemibold';
 	width: 84.7%;
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -2839,7 +2840,8 @@ select#cc-size {
 	background: #e7edf8;
 	font-size: 16px;
 	color: #666666;
-	font-weight: 700;
+	font-weight: normal;
+	font-family: 'proxima_nova_ltsemibold';
 	padding-left: 15px;
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -3706,7 +3708,8 @@ ul.cat_list li a:hover {
 	margin: 0;
 }
 .form-group.cc-enquiry-section h3 {
-	font-weight: 700;
+	font-weight: normal;
+	font-family: 'proxima_nova_ltsemibold';
 	font-size: 24px;
 	color: #15489f;
 	text-transform: uppercase;
@@ -3884,7 +3887,8 @@ select#cc-store-name {
 	background-color: #e7edf8;
 	border-radius: 0;
 	outline: 0;
-	height: 35px outline:0;
+	height: 35px;
+	outline:0;
 	box-shadow: none;
 	-webkit-appearance: none;
 	background-image: url(../images/icon1.jpg);
@@ -5485,7 +5489,7 @@ li.cc-head-wpsl-phone a:hover {
 	position:absolute;
 	left:0;
 }
-.cbg_content .panel-body .panel-body-table table > tbody tr.bg_table:nth-child(1) td::before,  {
+.cbg_content .panel-body .panel-body-table table > tbody tr.bg_table:nth-child(1) td::before  {
 	display:none;
 }
 .panel-body-table table {
@@ -5501,7 +5505,8 @@ li.cc-head-wpsl-phone a:hover {
 	line-height: 30px;
 }
 .panel-body-table td strong, .cbg_content td strong {
-	font-weight: 700;
+	font-weight: normal;
+	font-family: 'proxima_nova_ltsemibold';
 	color: #0e0e0e;
 	padding-left: 2px;
 }
@@ -5701,7 +5706,8 @@ a.btn-employment {
 	font-size: 18px;
 	text-align: center;
 	color: #15489f;
-	font-weight: bold;
+	font-weight: normal;
+	font-family: 'proxima_nova_ltsemibold';
 	font-size: 16px;
 	text-decoration: none;
 	cursor: pointer;
@@ -5859,7 +5865,8 @@ a.btn-employment:hover {
 	width: 50%;
 }
 .single.single-product .hf_product_details > table > tbody > tr > td:nth-child(2) {
-	font-weight: bold;
+	font-weight: normal;
+	font-family: 'proxima_nova_ltsemibold';
 }
 .single.single-product .recommended_acc_static {
 	margin-top: 25px;
@@ -6046,7 +6053,8 @@ a.btn-employment:hover {
 	width: 35%;
 	position:relative;
 	padding-left:10px;
-	font-weight:700;
+	font-weight:normal;
+	font-family: 'proxima_nova_ltsemibold';
 }
 .single.single-product table.product_specifications_table tbody tr td.specs_value::before {
 	content: '\:';
@@ -6157,7 +6165,8 @@ ul.page-list >li {
 }
 div#error_max_msg {
 	font-size: 18px;
-	font-weight: 700;
+	font-weight: normal;
+	font-family: 'proxima_nova_ltsemibold';
 	margin: 15px auto;
 	text-align: center;
 	color: #FF0000;
@@ -6398,7 +6407,8 @@ table.shop_table.shop_table_responsive.cart > thead > tr > th.product-subtotal, 
 }
 .cbg_content.cc-condn-page .woocommerce table.shop_table th {
 	font-size:16px;
-	font-weight:700;
+	font-weight:normal;
+	font-family: 'proxima_nova_ltsemibold';
 	color:#666666;
 }
 .cbg_content.cc-condn-page .woocommerce input.button {
@@ -6661,6 +6671,7 @@ a.button.wc-forward {
 	 font-weight:normal;
 	color:#666;	
 	margin-bottom:10px;
+	line-height: 1;
 }
 .cc-condn-page .woocommerce form .form-row.woocommerce-invalid input.input-text {
 	float:none;
@@ -6954,7 +6965,6 @@ label.inner-check-label.radio-check-label::after{
 }
 #ship-to-different-address .ship_to_shipping{
 	text-transform: none;
-	font-weight: 300;
 	font-family: 'proxima_nova_rgregular';
 	font-size: 16px;
 }
@@ -7083,7 +7093,6 @@ label.inner-check-label.radio-check-label::after{
 .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td label{
 	font-family:'proxima_nova_rgregular', sans-serif;
 	font-size:16px;
-	font-weight:normal;
     color: #666;
     margin-bottom: 10px;
     font-weight: normal;
@@ -7275,7 +7284,7 @@ label.inner-check-label.radio-check-label::after{
 .cc-condn-page .woocommerce form .form-row label.error, .cc-condn-page .woocommerce form .form-row label.cc_error {
     color: #f00;
     font-size: 14px;
-    margin-top: 0px;
+    margin-top: 3px;
     position: absolute;
 }
 .woocommerce form .form-row.woocommerce-invalid input.input-text {
@@ -7434,4 +7443,24 @@ span.all-field-req {
 span.cart-pro-size {
     display: block;
     line-height: 1;
+}
+div#gmap > div{
+	background-color: transparent !important;
+}
+.quantity select#quantity-control.error {
+    border-color: #f00;
+}
+div#checkout_delivery {
+    position: relative;
+}
+#checkout_delivery .cc_error{position: absolute; bottom: 30px; left: 30px;    color: #f00;
+    font-size: 14px; font-family: 'proxima_nova_rgregular', sans-serif; font-weight: normal; line-height: 1;}
+.search_list_wrapper .search_prod_wrapper {
+	padding:10px;	
+}
+.search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h3 {
+	border:0;
+	margin:0;
+	display:block;
+	line-height:19px;
 }

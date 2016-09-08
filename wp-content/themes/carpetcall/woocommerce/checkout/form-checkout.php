@@ -57,9 +57,10 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 		            </span></h3>
 		         <div class="collapse collapsable clearfix delivery-form" id="checkout_delivery">
 						<?php do_action('cc_checkout_delivery_custom_block'); ?>
+   					<label id="pickup_error_msg" class="cc_error" style="display:none">Please select a store for pickup.</label>
 
 		            <div class="checkout_next_prev_button read_more">
-		              <a class="next" href="#checkout_payment">Next</a>
+		              <a class="next delivery_options" href="#checkout_payment">Next</a>
 		            </div>
 				</div>
 	        </div>
@@ -123,8 +124,21 @@ jQuery(document).ready(function(e) {
 					}
 				});
 			}
-		if(jQuery(this).hasClass('edit_section')){
-			jQuery(this).parents('.checkout-form-sec').nextAll('.checkout-form-sec').find('.edit_section').hide();
+		if(jQuery(this).hasClass('fetch_locations')){
+			var address = jQuery('#billing_postcode').val()+', '+jQuery('#billing_address_2').val()+', '+jQuery('#billing_address_1').val()+', '+jQuery('#billing_city').val()+', '+jQuery('#billing_state').val()+', '+jQuery('#billing_country').val();
+			jQuery('#edit_dialog_keyword').val(address);
+			jQuery('#checkout_fetch_nearby_stores').trigger('click');
+			};	
+		if(jQuery(this).hasClass('delivery_options')){
+			if(jQuery('input[name=cc_shipping_method]:checked').val() == 'store_pickup' || jQuery('input[name=cc_shipping_method]:checked').val() == 'pickup_n_deliver'){
+if(jQuery(this).parents('.checkout-form-sec').find('input[name=pickup_store_id]:visible:checked').val()){
+					jQuery('#checkout_delivery #pickup_error_msg').hide();
+					}else{
+						error_flag = true;
+						jQuery('#checkout_delivery #pickup_error_msg').show();
+						return false;
+						}
+				}
 			}
 		if(error_flag){
 				return false;
@@ -140,6 +154,9 @@ jQuery(document).ready(function(e) {
 					
 				}
 
+		});
+	jQuery(document).on('click','input[name=pickup_store_id]',function(){
+		jQuery('#checkout_delivery #pickup_error_msg').hide();
 		});
 });
 </script>

@@ -1272,6 +1272,38 @@
 	}
 	
 	/* === MY CART - PAGE End === */
+	
+	/* === CHECKOUT - PAGE === */
+	.cc-condn-page .checkout-main-form-cntr .checkout-form-sec h3 {
+		margin-bottom:0;
+		font-size:36px;	
+	}
+	.billing_fields_wrapper { 
+		width:100%;
+	}
+	.inerblock_sec .cbg_content .billing_fields_wrapper p {
+		width:49%;
+		margin-bottom:20px;	
+	}
+	.inerblock_sec .cbg_content p.form-row-wide {
+		width:100%;	
+	}
+	#checkout_customer_details .woocommerce-billing-fields .billing_fields_wrapper input.input-text {
+		display:block;	
+	}
+	.billing-details-cntr .checkout_next_prev_button.read_more {
+		margin-top:0;
+	}
+	.faq-cont-blka .inerblock_sec .cbg_content p {
+		margin-bottom:25px;	
+	}
+	.delivery_option_item {
+		width:275px;
+	}
+	.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p {
+		margin-bottom:0;
+	}
+	/* === CHECKOUT - PAGE End === */
 
 
 	/* === MAIN CATEGORY PAGE === */

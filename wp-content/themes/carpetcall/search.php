@@ -72,7 +72,7 @@ $found_prod = new WP_Query($args);
       
       <div class="col-md-9 cc-cat-pro-section-right">
 
-        <div id="category_slider_block_wrapper" class="search_sidebar">
+        <div id="category_slider_block_wrapper" class="search_sidebar search_list_wrapper">
         <?php 
 			$args = array('s'=>$search_query,'perpage'=>$perpage_var);
 			$search_result = cc_custom_search($args);

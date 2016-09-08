@@ -18,9 +18,12 @@
 <?php /*?><p><?php _e("We've set this stock aside for 30mins to ensure you don't miss out","carpetcall");?></p><?php */?>
 <?php if(is_cart()){?>
 <p class="return-to-shop">
-	<a class="button wc-backward" href="<?php echo get_permalink( woocommerce_get_page_id( 'shop' ) );?>">
-		<?php _e('Continue Shopping','carpetcall')?>	</a>
+	<a class="button wc-backward" href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
+		<?php _e( 'Continue Shopping', 'woocommerce' ) ?>
+	</a>
 </p>
+
+
 <?php }?>
 </div>
 				<?php }?>

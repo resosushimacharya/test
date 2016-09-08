@@ -41,7 +41,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 <p class="req_info_wrap"><span class="required" title="required">* </span><span class="req_text">Required Field</span></p>
 <div class="billing_fields_wrapper">
 	<?php foreach ( $checkout->checkout_fields['billing'] as $key => $field ) :?>
-		
+		<?php 
+		$field['placeholder'] = '';
+		do_action('pr',$key);
+		do_action('pr',$field);
+		if($key == 'billing_address_1'){
+			$field['label'] = 'Address Line 1';
+			$field['placeholder'] = '';
+			}
+		if($key == 'billing_address_2'){
+			$field['label'] = 'Address Line 2';
+			$field['placeholder'] = '';
+			}
+		if($key == 'billing_first_name'){
+			$field['placeholder'] = 'EG JOHN';
+			}
+		if($key == 'billing_last_name'){
+			$field['placeholder'] = 'EG SMITH';
+			}
+		if($key == 'billing_company'){
+			$field['placeholder'] = 'EG CARPET CALL';
+			}
+		if($key == 'billing_email'){
+			$field['placeholder'] = 'EG JOHN@CARPETCALL.COM.AU';
+			}
+		?>
 		<?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
 
 	<?php endforeach; ?>
