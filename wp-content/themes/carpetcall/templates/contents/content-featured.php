@@ -41,7 +41,6 @@ $tax = 'product_cat';
                   <div class="img_cntr cc-featured_no_image" style="background-image:url('http://staging.carpetcall.com.au/wp-content/plugins/woocommerce/assets/images/placeholder.png');"></div>
                   <?php }?>
                   </a>
-                    <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
                     <div class="sublk_prom">
                       		<div class="ptxt">
 					<h3><a href="<?php echo the_permalink(); ?>" ><?php
@@ -50,7 +49,8 @@ $tax = 'product_cat';
 					$reqTempTerms=get_the_terms($post->ID,'product_cat');
 					
 
-					foreach($reqTempTerms as $reqTerm){ 
+					if(!empty($reqTempTerms)){
+						foreach($reqTempTerms as $reqTerm){ 
 						  if($reqTerm->term_id!=20)
 						  { 
 						  	echo '<h4>'.$reqTerm->name;?><?php 
@@ -60,6 +60,7 @@ $tax = 'product_cat';
 					 }
 						  	
 						  }
+					}
 						  
 
 					

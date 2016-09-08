@@ -1005,10 +1005,48 @@ function cc_custom_search($args){
 				if($filloop->have_posts()){
 					while($filloop->have_posts()){
 						$filloop->the_post();
-						
-						$feat_image = cc_custom_get_feat_img(get_the_ID(),'medium');
-						?>
-						<div class="search_prod_wrapper col-md-4">
+						$woo=get_post_meta(get_the_ID());
+						if(strcasecmp($woo['_stock_status'][0],'instock')==0){
+							$feat_image = cc_custom_get_feat_img(get_the_ID(),'medium');
+							$price=$woo['_regular_price'][0];
+							?>
+                            
+                            
+                            
+                            <div class="search_prod_wrapper col-md-4">
+                            <a href="<?php echo get_permalink(get_the_ID()) ?>">
+                                    <div class="img_cntr_home" style="background-image:url('<?php echo $feat_image?>');"></div>
+                                    </a>
+                   
+                    <div class="sublk_prom">
+                      		<div class="ptxt">
+					<h3><a href="<?php echo get_permalink(get_the_ID()) ?>"><?php echo get_the_title()?></a></h3>
+                    
+                    <?php
+                    $reqTempTerms=get_the_terms(get_the_ID(),'product_cat');
+					
+
+					if(!empty($reqTempTerms)){
+						foreach($reqTempTerms as $reqTerm){ 
+						  	echo '<h4>'.$reqTerm->name.'</h4>';
+						  }
+					}
+					
+                    if(!empty($price)){
+						echo '<h5> $'.$price.'</h5>';
+					}?>
+                    
+                    </div>
+					<div class="clearfix"></div>
+                           <div class="nowsp nowspp"><a href="<?php echo get_the_permalink(get_the_ID())?>"> SHOP NOW </a></div><div class="clearfix"></div> 
+                      </div><div class="clearfix"></div>
+                      </div>
+                      
+                      
+                      
+                      
+                      
+                            <?php /*?><div class="search_prod_wrapper col-md-4">
                             	<?php
 								//$imgurl = (has_post_thumbnail())?the_post_thumbnail_url('thumbnail'):get_template_directory_uri().'/images/placeholder.png';
 								 ?>
@@ -1062,7 +1100,12 @@ function cc_custom_search($args){
                                 <a href="<?php echo get_the_permalink(get_the_ID())?>">Shop Now</a>
                                 </div>
                             </div>
-</div></div>                        </div>
+</div></div>                        </div><?php */?>
+
+							<?php }
+						
+						?>
+						
 						<?php
                         }
 			$html = ob_get_clean();
