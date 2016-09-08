@@ -7284,7 +7284,7 @@ label.inner-check-label.radio-check-label::after{
 .cc-condn-page .woocommerce form .form-row label.error, .cc-condn-page .woocommerce form .form-row label.cc_error {
     color: #f00;
     font-size: 14px;
-    margin-top: 0px;
+    margin-top: 3px;
     position: absolute;
 }
 .woocommerce form .form-row.woocommerce-invalid input.input-text {
@@ -7450,5 +7450,8 @@ div#gmap > div{
 .quantity select#quantity-control.error {
     border-color: #f00;
 }
-#checkout_delivey .cc_error{position: absolute; bottom: 30px; left: 30px;    color: #f00;
+div#checkout_delivery {
+    position: relative;
+}
+#checkout_delivery .cc_error{position: absolute; bottom: 30px; left: 30px;    color: #f00;
     font-size: 14px; font-family: 'proxima_nova_rgregular', sans-serif; font-weight: normal; line-height: 1;}
