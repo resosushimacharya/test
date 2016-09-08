@@ -82,7 +82,7 @@ else{
 
  
   //$_POST['wpsl-search-input'] =$cc_data_cat;
- echo do_shortcode('[wpsl template="custom" start_location="'.strtoupper($cc_data_cat).'" category="'.$cc_data_cat.'"]' );
+ echo do_shortcode('[wpsl template="custom"  category="'.$cc_data_cat.'"]' );
 }
 ?>
 
