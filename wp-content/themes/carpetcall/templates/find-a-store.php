@@ -240,9 +240,7 @@
                      <div class="cc-store-list-section">
 
                           <h4>SHOWING STORES  <br> AUSTRALIA WIDE </h4>
-                          <form id="category-form-submit" method="post" action="<?php echo site_url(); ?>/find-a-store/" name="category-form-submit">
-                            <input type="hidden" id="cc-wpsl-search-input-lat" name="wpsl-search-input">
-                          </form>
+                        
 
                           <div class="store_links_wrapper">
                           <?php 
@@ -261,7 +259,7 @@
                               );
                             foreach($tax_terms as $term):
                              
-                              echo '<div class="cc-state-link"><a data-cat_name="'.strtolower($term->name).'" class="cc-cat-lat-submit" >'.$regions[$term->name].'</a></div>';
+                              echo '<div class="cc-state-link"><a href="'.site_url().'/find-a-store/'.strtolower($term->name).'" class="cc-cat-lat-submit" >'.$regions[$term->name].'</a></div>';
                               endforeach; ?>
                               </div>
                         </div>
@@ -270,17 +268,7 @@
                       ?>
     </div>
 
-    <script>
-    jQuery(document).on('click','.cc-cat-lat-submit',function(e){
-      e.preventDefault();
-      var url="<?php echo site_url('/find-a-store/'); ?>";
-      var append_cat=jQuery(this).data('cat_name');
-      var new_url=url+append_cat;
-      jQuery('#cc-wpsl-search-input-lat').val(append_cat);
-      jQuery('#category-form-submit').attr('action',new_url)
-      jQuery('form#category-form-submit').submit();
-    })
-    </script>
+  
 </div><div class="clearfix"></div><!-- main content end here -->
 
 <?php get_footer(); ?>
