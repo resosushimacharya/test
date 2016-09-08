@@ -27,10 +27,8 @@ include_once(get_template_directory().'/inc/order-reports-cron.php');
 
 add_filter( 'woocommerce_return_to_shop_redirect', 'return_to_shop_link' );
 function return_to_shop_link() {
-     $rugs_term = get_term_by('slug','rugs','product_cat');
-	 return get_term_link($rugs_term->term_id,'product_cat');
-	 
-	  // change to the link you want
+	$shop_page = get_page_by_title('Shop our range');
+	return get_permalink($shop_page->ID);
 }
 
 
@@ -1461,8 +1459,8 @@ if($selected_store){
 	
 		
 function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
+	$temp_url = $url;
 	if ( $post->post_type == 'product' ) {
-		$temp_url = $url;
 		if(has_term('carpets','product_cat',$post->ID) || has_term('rugs','product_cat',$post->ID) || has_term('hard-flooring','product_cat',$post->ID)){
 			
 		$terms = wc_get_product_terms( $post->ID, 'product_cat', array( 'orderby' => 'parent', 'order' => 'DESC' ) ) ;
