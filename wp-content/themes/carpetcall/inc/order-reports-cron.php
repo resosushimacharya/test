@@ -53,12 +53,6 @@ if($cc_order_report !=''){
 }
 	
 function cc_cron_generate_order_report(){
-	
-    /*$rows = array (
-    array('aaa', 'bbb', 'ccc', 'dddd'),
-    array('123', '456', '789'),
-    array('"aaa"', '"bbb"')
-);*/
 $args = array(
     'post_type'=>'shop_order',
     'posts_per_page'=>'-1',
