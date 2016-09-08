@@ -53,9 +53,7 @@ $tax = 'product_cat';
 						foreach($reqTempTerms as $reqTerm){ 
 						  if($reqTerm->term_id!=20)
 						  { 
-						  	echo '<h4>'.$reqTerm->name;?><?php 
- 
-						  	echo '</h4>';
+						  	echo '<h4>'.$reqTerm->name.'</h4>';
 					 	
 					 }
 						  	
