@@ -27,10 +27,8 @@ include_once(get_template_directory().'/inc/order-reports-cron.php');
 
 add_filter( 'woocommerce_return_to_shop_redirect', 'return_to_shop_link' );
 function return_to_shop_link() {
-     $rugs_term = get_term_by('slug','rugs','product_cat');
-	 return get_term_link($rugs_term->term_id,'product_cat');
-	 
-	  // change to the link you want
+	$shop_page = get_page_by_title('Shop our range');
+	return get_permalink($shop_page->ID);
 }
 
 
@@ -1007,10 +1005,48 @@ function cc_custom_search($args){
 				if($filloop->have_posts()){
 					while($filloop->have_posts()){
 						$filloop->the_post();
-						
-						$feat_image = cc_custom_get_feat_img(get_the_ID(),'medium');
-						?>
-						<div class="search_prod_wrapper col-md-4">
+						$woo=get_post_meta(get_the_ID());
+						if(strcasecmp($woo['_stock_status'][0],'instock')==0){
+							$feat_image = cc_custom_get_feat_img(get_the_ID(),'medium');
+							$price=$woo['_regular_price'][0];
+							?>
+                            
+                            
+                            
+                            <div class="search_prod_wrapper col-md-4">
+                            <a href="<?php echo get_permalink(get_the_ID()) ?>">
+                                    <div class="img_cntr_home" style="background-image:url('<?php echo $feat_image?>');"></div>
+                                    </a>
+                   
+                    <div class="sublk_prom">
+                      		<div class="ptxt">
+					<h3><a href="<?php echo get_permalink(get_the_ID()) ?>"><?php echo get_the_title()?></a></h3>
+                    
+                    <?php
+                    $reqTempTerms=get_the_terms(get_the_ID(),'product_cat');
+					
+
+					if(!empty($reqTempTerms)){
+						foreach($reqTempTerms as $reqTerm){ 
+						  	echo '<h4>'.$reqTerm->name.'</h4>';
+						  }
+					}
+					
+                    if(!empty($price)){
+						echo '<h5> $'.$price.'</h5>';
+					}?>
+                    
+                    </div>
+					<div class="clearfix"></div>
+                           <div class="nowsp nowspp"><a href="<?php echo get_the_permalink(get_the_ID())?>"> SHOP NOW </a></div><div class="clearfix"></div> 
+                      </div><div class="clearfix"></div>
+                      </div>
+                      
+                      
+                      
+                      
+                      
+                            <?php /*?><div class="search_prod_wrapper col-md-4">
                             	<?php
 								//$imgurl = (has_post_thumbnail())?the_post_thumbnail_url('thumbnail'):get_template_directory_uri().'/images/placeholder.png';
 								 ?>
@@ -1064,7 +1100,12 @@ function cc_custom_search($args){
                                 <a href="<?php echo get_the_permalink(get_the_ID())?>">Shop Now</a>
                                 </div>
                             </div>
-</div></div>                        </div>
+</div></div>                        </div><?php */?>
+
+							<?php }
+						
+						?>
+						
 						<?php
                         }
 			$html = ob_get_clean();
@@ -1461,8 +1502,8 @@ if($selected_store){
 	
 		
 function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
+	$temp_url = $url;
 	if ( $post->post_type == 'product' ) {
-		$temp_url = $url;
 		if(has_term('carpets','product_cat',$post->ID) || has_term('rugs','product_cat',$post->ID) || has_term('hard-flooring','product_cat',$post->ID)){
 			
 		$terms = wc_get_product_terms( $post->ID, 'product_cat', array( 'orderby' => 'parent', 'order' => 'DESC' ) ) ;

@@ -101,7 +101,7 @@
     // Store Finder Btn Header End
 
     
-    jQuery(document).on("click",function(e) {
+   /* jQuery(document).on("click",function(e) {
      // e.preventDefault();
       var container = jQuery("#after_dropdown");
       var bannerHeight = jQuery('.banner').outerHeight(true);
@@ -127,7 +127,7 @@
           jQuery('.storefinder_cntr').removeClass('click-open');
         }
       }
-    });
+    });*/
 
     jQuery(document).on('click','.product-remove a',function(){
       setTimeout(function(){ load_minicart(); }, 1500);

@@ -88,7 +88,7 @@ jQuery(document).ready(function($){
 		
 	jQuery(document).on('focusout','#billing_state, #shipping_state',function(){
 		var selected = jQuery(this).val();
-		alert(selected);
+		
 		});
 	
 /*jQuery(document).on('focusout','#billing_phone:visible, #shipping_phone:visible',function(){
