@@ -833,7 +833,7 @@ foreach($resList as $mainId){
 		
 	?>
   <?php
-    if(wp_is_mobile()){ get_template_part('templates/contents/content','tab-woocommerce');}?>
+    if(wp_is_mobile()){ get_template_part('templates/contents/content','tab-woocommerce-rugs');}?>
 
 	<meta itemprop="url" content="<?php the_permalink(); ?>" />
 
