@@ -30,7 +30,7 @@
 </div>
 
 <script type="text/javascript">
-	jQuery(document).on('change','input[name="shipping_method"]',function(){
+	jQuery(document).on('change','input[name="cc_shipping_method"]',function(){
 		if(jQuery(this).val() == 'pickup_n_deliver'){
 			jQuery('.shipping_needed_checkout').show();
 		}else{
