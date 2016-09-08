@@ -1699,6 +1699,46 @@ function is_last_cat($cat_id){
 			return false;
 			}
 	}
+	
+	
+
+/*
+/* Filter to change the placeholder and labels for shipping and billing address fields
+*/
+add_filter( 'woocommerce_checkout_fields' , 'cc_checkout_fields_customize' );
+function cc_checkout_fields_customize( $fields ) {
+     $fields['billing']['billing_first_name']['placeholder'] = 'EG. JOHN';
+     $fields['billing']['billing_last_name']['placeholder'] = 'EG. SMITH';
+     $fields['billing']['billing_company']['placeholder'] = 'EG. CARPET CALL';
+     $fields['billing']['billing_email']['placeholder'] = 'EG. JOHN@GMAIL.COM';
+     $fields['billing']['billing_phone']['placeholder'] = 'EG. 02 1234 5678';
+     $fields['billing']['billing_address_1']['placeholder'] = '';
+     $fields['billing']['billing_address_1']['label'] = 'Address Line 1';
+     $fields['billing']['billing_address_2']['placeholder'] = '';
+     $fields['billing']['billing_address_2']['label'] = 'Address Line 2';
+     $fields['billing']['billing_city']['placeholder'] = '';
+     $fields['billing']['billing_city']['label'] = 'Suburb/City';
+     $fields['billing']['billing_postcode']['placeholder'] = '';
+
+
+     $fields['shipping']['shipping_first_name']['placeholder'] = 'EG. JOHN';
+     $fields['shipping']['shipping_last_name']['placeholder'] = 'EG. SMITH';
+     $fields['shipping']['shipping_company']['placeholder'] = 'EG. CARPET CALL';
+    // $fields['shipping']['shipping_email']['placeholder'] = 'EG. JOHN@GMAIL.COM';
+    // $fields['shipping']['shipping_phone']['placeholder'] = 'EG. 02 1234 5678';
+     $fields['shipping']['shipping_address_1']['placeholder'] = '';
+     $fields['shipping']['shipping_address_1']['label'] = 'Address Line 1';
+     $fields['shipping']['shipping_address_2']['placeholder'] = '';
+     $fields['shipping']['shipping_address_2']['label'] = 'Address Line 2';
+     $fields['shipping']['shipping_city']['placeholder'] = '';
+     $fields['shipping']['shipping_city']['label'] = 'Suburb/City';
+     $fields['shipping']['shipping_postcode']['placeholder'] = '';
+    
+	 
+     return $fields;
+}
+
+
 //add_rewrite_rule('^shop-our-range/([^/]*)/([^/]*)/([^/]*)/([^/]*)?','index.php?&product=$matches[4]','top');
 
 //global $woocommerce;
