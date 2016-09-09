@@ -19,7 +19,7 @@
 
 <?php
  $search_query = esc_html( get_search_query( false ) );
-$perpage_var = 10;
+$perpage_var = 9;
 $args = array(
 				'post_type'			=> 'product',
 				'posts_per_page'	=> -1,

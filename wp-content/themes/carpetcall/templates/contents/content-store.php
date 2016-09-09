@@ -105,7 +105,7 @@
                                                 return;
                                       }
 
-                                  
+                          rs='';        
                           altcomplet();
 
                           
@@ -149,7 +149,7 @@
                                       google.maps.event.clearListeners(input, "blur");
                                       google.maps.event.clearListeners(input, "keydown");
                                       $(".pac-container").hide();
-                                      autocomplet_dialog();
+                                  rs='';autocomplet_dialog();
                           }
                           
                           $("#check_control_dialog").addClass("store-key-control");
@@ -169,8 +169,7 @@
                                       return;
                                       }
                                       
-                          
-                          
+                          rs='';autocomplet_dialog();
                           });
                           document.addEventListener("keydown", KeyCheck);
            
