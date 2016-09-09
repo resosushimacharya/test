@@ -740,7 +740,7 @@ foreach($resList as $mainId){
                     <div class="input-group">
                       <input type="text"  placeholder="SUBURB OR POSTCODE" id="edit_dialog_keyword" name="edit_dialog_keyword" type="text" class="form-control controls"  onkeyup="customDialog(event);">
                       <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" onclick="rs='';autocomplet_dialog();" id="check_control_dialog"><img src="<?php echo get_template_directory_uri().'/images/icon2.jpg';?>" style="float:right; margin-top:-5px;"></button>
+                        <button class="btn btn-default" type="button" onclick="" id="check_control_dialog"><img src="<?php echo get_template_directory_uri().'/images/icon2.jpg';?>" style="float:right; margin-top:-5px;"></button>
                       </span>
                     </div>
                          
