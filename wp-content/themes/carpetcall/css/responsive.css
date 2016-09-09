@@ -1178,34 +1178,34 @@
 	 .search_prod_wrapper, .cc-search-tps {
 		width:100%;
 	 }
-	 .search_prod_wrapper .search_thumb {
-		height:280px; 
+	 .search_prod_wrapper .img_cntr_home {
+		height:350px; 
 	 }
-	 .cc-search-tps {
-		 padding:0 20px;
+	 .sublk_prom {
+		padding:0 30px; 
 	 }
-	 .search_title {
-		margin-top:47px; 
+	 .sublk_prom .nowsp {
+			display:block;
+			margin-top:36px; 
 	 }
-	 .search_title span.parent_cat a {
-		font-size:36px; 
+	 .sublk_prom .nowsp a {
+		height:90px;
+		line-height:90px;
+		font-size:48px; 
 	 }
-	 .search_price .cc-price-control h3 span.cc-sale-price-title {
-		font-size:28px; 
+	 .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h3 {
+		line-height:21px; 
+		margin-bottom:11px;
+		margin-top:54px;
 	 }
-	 .cc-price-control .cc-line-through {
-		 font-size:24px;
-	 }
-	 .cc-price-control {
-		margin-top:20px; 
-		margin-bottom:31px;
-	 }
-	 .search_shop_now .read_more a {
-		 width:100%;
-		 height:90px;
-		 line-height:90px;
+	 .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h3 a {
 		 font-size:36px;
-		 text-align:center;
+	 }
+	 .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h4, .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h5 {
+			font-size:28px; 
+	 }
+	 .search_list_wrapper .search_prod_wrapper {
+		 margin-bottom:64px;
 	 }
 	  
 	/* === SEARCH PAGE End === */
@@ -1276,7 +1276,9 @@
 	/* === CHECKOUT - PAGE === */
 	.cc-condn-page .checkout-main-form-cntr .checkout-form-sec h3 {
 		margin-bottom:0;
-		font-size:36px;	
+		font-size:36px;
+		height:90px;
+		line-height:90px !important;	
 	}
 	.billing_fields_wrapper { 
 		width:100%;
@@ -1302,6 +1304,26 @@
 	}
 	.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p {
 		margin-bottom:0;
+	}
+	.read_more a {
+		height:60px;
+		line-height:60px;
+		font-size:40px;
+	}
+	#checkout_customer_details .woocommerce-billing-fields .billing_fields_wrapper input.input-text {
+		height:50px;
+		font-size:16px;	
+	}
+	.col-1 .select2-container .select2-choice {
+		height:50px;	
+	}
+	.checkout-form-sec .select2-container .select2-choice .select2-arrow {
+		width:50px;
+		height:50px;	
+	}
+	.select2-container .select2-choice>.select2-chosen {
+		font-size:16px;
+		line-height:38px;
 	}
 	/* === CHECKOUT - PAGE End === */
 
@@ -3370,8 +3392,7 @@
 	.child-innerpg .cc-search-allprd h1 {
 		font-size:72px;	
 		text-align:left;
-		line-height:69px;
-		margin:34px 0;
+		margin:25px 0;
 	}
 	.cc-search-allprd .search_header {
 	background-color:#e7edf8;	
@@ -3394,34 +3415,34 @@
 	 .search_prod_wrapper, .cc-search-tps {
 		width:100%;
 	 }
-	 .search_prod_wrapper .search_thumb {
-		height:280px; 
+	 .search_prod_wrapper .img_cntr_home {
+		height:325px; 
 	 }
-	 .cc-search-tps {
-		 padding:0 20px;
+	 .sublk_prom {
+		padding:0 30px; 
 	 }
-	 .search_title {
-		margin-top:47px; 
+	 .sublk_prom .nowsp {
+			display:block;
+			margin-top:36px; 
 	 }
-	 .search_title span.parent_cat a {
-		font-size:36px; 
+	 .sublk_prom .nowsp a {
+		height:70px;
+		line-height:70px;
+		font-size:42px; 
 	 }
-	 .search_price .cc-price-control h3 span.cc-sale-price-title {
-		font-size:28px; 
+	 .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h3 {
+		line-height:21px; 
+		margin-bottom:11px;
+		margin-top:44px;
 	 }
-	 .cc-price-control .cc-line-through {
-		 font-size:24px;
+	 .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h3 a {
+		 font-size:32px;
 	 }
-	 .cc-price-control {
-		margin-top:20px; 
-		margin-bottom:31px;
+	 .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h4, .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h5 {
+			font-size:26px; 
 	 }
-	 .search_shop_now .read_more a {
-		 width:100%;
-		 height:90px;
-		 line-height:90px;
-		 font-size:36px;
-		 text-align:center;
+	 .search_list_wrapper .search_prod_wrapper {
+		 margin-bottom:64px;
 	 }
 	  
 	/* === SEARCH PAGE End === */
@@ -4517,9 +4538,9 @@
 	
 	/* === SEARCH PAGE === */
 	.child-innerpg .cc-search-allprd h1 {
-		font-size:46px;	
+		font-size:72px;	
 		text-align:left;
-		margin:25px 0 26px;
+		margin:25px 0;
 	}
 	.cc-search-allprd .search_header {
 	background-color:#e7edf8;	
@@ -4542,34 +4563,34 @@
 	 .search_prod_wrapper, .cc-search-tps {
 		width:100%;
 	 }
-	 .search_prod_wrapper .search_thumb {
-		height:250px; 
+	 .search_prod_wrapper .img_cntr_home {
+		height:290px; 
 	 }
-	 .cc-search-tps {
-		 padding:0 20px;
+	 .sublk_prom {
+		padding:0 30px; 
 	 }
-	 .search_title {
-		margin-top:32px; 
+	 .sublk_prom .nowsp {
+			display:block;
+			margin-top:30px; 
 	 }
-	 .search_title span.parent_cat a {
-		font-size:32px; 
+	 .sublk_prom .nowsp a {
+		height:60px;
+		line-height:60px;
+		font-size:36px; 
 	 }
-	 .search_price .cc-price-control h3 span.cc-sale-price-title {
-		font-size:26px; 
+	 .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h3 {
+		line-height:21px; 
+		margin-bottom:5px;
+		margin-top:40px;
 	 }
-	 .cc-price-control .cc-line-through {
-		 font-size:19px;
+	 .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h3 a {
+		 font-size:28px;
 	 }
-	 .cc-price-control {
-		margin-top:16px; 
-		margin-bottom:21px;
+	 .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h4, .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h5 {
+			font-size:24px; 
 	 }
-	 .search_shop_now .read_more a {
-		 width:100%;
-		 height:70px;
-		 line-height:70px;
-		 font-size:32px;
-		 text-align:center;
+	 .search_list_wrapper .search_prod_wrapper {
+		 margin-bottom:50px;
 	 }
 	  
 	/* === SEARCH PAGE End === */
@@ -5673,9 +5694,9 @@
 	
 	/* === SEARCH PAGE === */
 	.child-innerpg .cc-search-allprd h1 {
-		font-size:42px;	
+		font-size:72px;	
 		text-align:left;
-		margin:20px 0 21px;
+		margin:25px 0;
 	}
 	.cc-search-allprd .search_header {
 	background-color:#e7edf8;	
@@ -5698,34 +5719,34 @@
 	 .search_prod_wrapper, .cc-search-tps {
 		width:100%;
 	 }
-	 .search_prod_wrapper .search_thumb {
-		height:250px; 
+	 .search_prod_wrapper .img_cntr_home {
+		height:265px; 
 	 }
-	 .cc-search-tps {
-		 padding:0 20px;
+	 .sublk_prom {
+		padding:0 30px; 
 	 }
-	 .search_title {
-		margin-top:32px; 
+	 .sublk_prom .nowsp {
+			display:block;
+			margin-top:30px; 
 	 }
-	 .search_title span.parent_cat a {
-		font-size:28px; 
+	 .sublk_prom .nowsp a {
+		height:60px;
+		line-height:60px;
+		font-size:36px; 
 	 }
-	 .search_price .cc-price-control h3 span.cc-sale-price-title {
-		font-size:22px; 
+	 .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h3 {
+		line-height:21px; 
+		margin-bottom:3px;
+		margin-top:35px;
 	 }
-	 .cc-price-control .cc-line-through {
-		 font-size:16px;
+	 .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h3 a {
+		 font-size:26px;
 	 }
-	 .cc-price-control {
-		margin-top:16px; 
-		margin-bottom:21px;
+	 .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h4, .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h5 {
+			font-size:22px; 
 	 }
-	 .search_shop_now .read_more a {
-		 width:100%;
-		 height:60px;
-		 line-height:60px;
-		 font-size:28px;
-		 text-align:center;
+	 .search_list_wrapper .search_prod_wrapper {
+		 margin-bottom:50px;
 	 }
 	  
 	/* === SEARCH PAGE End === */
@@ -6677,9 +6698,9 @@
 	
 	/* === SEARCH PAGE === */
 	.child-innerpg .cc-search-allprd h1 {
-		font-size:30px;	
+		font-size:72px;	
 		text-align:left;
-		margin:0;
+		margin:25px 0;
 	}
 	.cc-search-allprd .search_header {
 	background-color:#e7edf8;	
@@ -6698,39 +6719,39 @@
 	 box-shadow:none;
 	 outline:0;
 	 height:68px;
-	 padding:6px 10px;
+	 padding: 6px 9px;
 	 }
 	 .search_prod_wrapper, .cc-search-tps {
 		width:100%;
 	 }
-	 .search_prod_wrapper .search_thumb {
-		height:200px; 
+	 .search_prod_wrapper .img_cntr_home {
+		height:225px; 
 	 }
-	 .cc-search-tps {
-		 padding:0 20px;
+	 .sublk_prom {
+		padding:0 30px; 
 	 }
-	 .search_title {
-		margin-top:25px; 
+	 .sublk_prom .nowsp {
+			display:block;
+			margin-top:30px; 
 	 }
-	 .search_title span.parent_cat a {
-		font-size:22px; 
+	 .sublk_prom .nowsp a {
+		height:60px;
+		line-height:60px;
+		font-size:28px; 
 	 }
-	 .search_price .cc-price-control h3 span.cc-sale-price-title {
-		font-size:19px; 
+	 .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h3 {
+		line-height:21px; 
+		margin-bottom:3px;
+		margin-top:28px;
 	 }
-	 .cc-price-control .cc-line-through {
-		 font-size:13px;
+	 .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h3 a {
+		 font-size:24px;
 	 }
-	 .cc-price-control {
-		margin-top:16px; 
-		margin-bottom:21px;
+	 .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h4, .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h5 {
+			font-size:18px; 
 	 }
-	 .search_shop_now .read_more a {
-		 width:100%;
-		 height:55px;
-		 line-height:55px;
-		 font-size:25px;
-		 text-align:center;
+	 .search_list_wrapper .search_prod_wrapper {
+		 margin-bottom:30px;
 	 }
 	  
 	/* === SEARCH PAGE End === */

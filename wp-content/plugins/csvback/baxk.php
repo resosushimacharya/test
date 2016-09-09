@@ -51,8 +51,8 @@ function css_products_import()
   if(isset($_POST['submit']) && ($_POST['submit']=="updating"))
 	{ 
 		
-		//cron_func_update();
-        $args = array(
+		cron_func_update();
+     /*   $args = array(
 
                 "post_type"=>'product',
                 "post_status"=>array("publish"),
@@ -76,7 +76,7 @@ function css_products_import()
             wp_delete_post($loop->post->ID, true );
         }
     
-        wp_reset_query();
+        wp_reset_query();*/
 	}   
 	
 	?>
