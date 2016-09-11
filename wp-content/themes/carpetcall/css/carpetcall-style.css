@@ -7491,7 +7491,45 @@ div#checkout_delivery {
 	margin-bottom:23px;
 }
 .cc-condn-page .woocommerce .title h3 {
-	font-family:proxima_nova_ltsemibold;
+	font-family:'proxima_nova_ltsemibold', sans-serif ;
 	font-size:24px;
-	color:red;
+	color:#15489f;
+	margin:35px 0;
+}
+.cc-condn-page .woocommerce .cc-checkout-title h3 {
+	margin-bottom:12px;
+}
+ul.cc-woocommerce-thankyou-order-details {
+	padding:0;
+	margin:0;	
+}
+ul.cc-woocommerce-thankyou-order-details li {
+	list-style:none;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	color:#666666;
+	line-height:18px;
+}
+.cc-condn-page .woocommerce .cc-checkout-od h3 {
+	margin:31px 0 10px 0;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord {
+	margin:0 0 0 0;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr {
+	background-color:#e7edf8;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th {
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	color:#666666;
+	text-transform:uppercase;
+	padding:5px 28px;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td {
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	color:#666666;
+	padding:5px 28px;
+	line-height:1;
 }
