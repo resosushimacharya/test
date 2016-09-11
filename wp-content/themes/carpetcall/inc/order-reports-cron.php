@@ -57,17 +57,26 @@ $args = array(
     'post_type'=>'shop_order',
     'posts_per_page'=>'-1',
     'post_status' => 'any',
-	'date_query' => array(
+	'meta_query'	=>array(
+							array(
+								'key'=>'cc_order_date',
+								'value'=>array(strtotime('-1 hour'),strtotime('now')),
+								'compare'=>'BETWEEN'
+								)
+	
+							)
+	
+	/*'date_query' => array(
      array(
-           'after' => strtotime('-1 hour'),
-           'before' => strtotime('now'),
+           'after' => date('Y/m/d H:i:s',strtotime('-1 hour')),
+           'before' => date('Y/m/d H:i:s',strtotime('now')),
 		   'inclusive' => true,
            )
-		   
-		  
      )
+	 */
    );
 $loop = new WP_Query($args);
+
 if($loop->have_posts()){
 $arrayCsv_rugs_or = $arrayCsv_hardflooring_or = array();
 $arrayCsv_rugs_ol = $arrayCsv_hardflooring_ol = array();

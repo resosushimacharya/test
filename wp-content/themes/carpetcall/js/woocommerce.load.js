@@ -25,7 +25,7 @@ jQuery(document).ready(function($){
 $('#pickup_location_form').on('keyup keypress', function(e) {
   var keyCode = e.keyCode || e.which;
   if (keyCode === 13) { 
-  	jQuery(this).find('#check_control_dialog').trigger('click');
+  	//jQuery(this).find('#check_control_dialog').trigger('click');
     e.preventDefault();
     //return false;
   }
@@ -219,31 +219,23 @@ jQuery(document).on('change','.delivery_option_hardflooring .pickup_location_lis
 
 jQuery('.acc_list_item .acc_qnty .quantity select.qty').val(0).trigger('click');
 if(jQuery("input#price_range_filter").length > 0){
-	jQuery("input#price_range_filter").slider().on('slide',(function(ev){
+	jQuery("input#price_range_filter").slider().on('slideStop',function(ev){
 		value = ev.value;
-		 jQuery('.range_slider .price_from').text(value[0]);
-		 jQuery('.range_slider .price_to').text(value[1]);
-		  })
-		  ).on('slideStop',function(){
-			  		jQuery('.cc-count-clear').show();
-					jQuery("#ajax_offset").val(0);
-					//jQuery("#child_cat_count").val(1);
-					jQuery('#cc_load_more').attr('first','yes');
-
-			  	jQuery('#price_range_filter').val(jQuery('#price_range_filter').attr('data-value'));
-	
-	  	
-				cc_trigger_ajax_load(function(output){
-					output = jQuery.parseJSON(output);
-					jQuery('#category_slider_block_wrapper').html(output.html);
-					jQuery('.cc-cat-title-count .post_count').text(output.found_prod);
-						jQuery("#ajax_offset").val(output.offset);
-						//jQuery("#child_cat_count").val(output.child_cat_count);
-						jQuery('.cat_slider.slick-slider').slick('unslick');
-						init_slick_slider();
-					});
-				
-	
+		jQuery('.range_slider .price_from').text(value[0]);
+		jQuery('.range_slider .price_to').text(value[1]);
+		jQuery('.cc-count-clear').show();
+		jQuery("#ajax_offset").val(0);
+		jQuery('#cc_load_more').attr('first','yes');
+		jQuery('#price_range_filter').val(jQuery('#price_range_filter').attr('data-value'));
+		cc_trigger_ajax_load(function(output){
+			output = jQuery.parseJSON(output);
+			jQuery('#category_slider_block_wrapper').html(output.html);
+			jQuery('.cc-cat-title-count .post_count').text(output.found_prod);
+			jQuery("#ajax_offset").val(output.offset);
+			//jQuery("#child_cat_count").val(output.child_cat_count);
+			jQuery('.cat_slider.slick-slider').slick('unslick');
+			init_slick_slider();
+		});
 	});
 }
 
