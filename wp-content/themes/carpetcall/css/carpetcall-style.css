@@ -7470,8 +7470,15 @@ div#gmap > div{
 div#checkout_delivery {
     position: relative;
 }
-#checkout_delivery .cc_error{position: absolute; bottom: 30px; left: 30px;    color: #f00;
-    font-size: 14px; font-family: 'proxima_nova_rgregular', sans-serif; font-weight: normal; line-height: 1;
+#checkout_delivery .cc_error{
+	position: absolute; 
+	bottom: 30px; 
+	left: 30px;    
+	color: #f00;
+    font-size: 14px; 
+	font-family: 'proxima_nova_rgregular', sans-serif; 
+	font-weight: normal; 
+	line-height: 1;
 }
 .wrap_body .child-innerpg .about-page {
 	margin-bottom:12px;	
@@ -7482,4 +7489,9 @@ div#checkout_delivery {
 }
 .wrap_body .about-page .cart_checkout_header_subtitle {
 	margin-bottom:23px;
+}
+.cc-condn-page .woocommerce .title h3 {
+	font-family:proxima_nova_ltsemibold;
+	font-size:24px;
+	color:red;
 }
