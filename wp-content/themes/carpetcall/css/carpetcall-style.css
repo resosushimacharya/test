@@ -7473,4 +7473,13 @@ div#checkout_delivery {
 #checkout_delivery .cc_error{position: absolute; bottom: 30px; left: 30px;    color: #f00;
     font-size: 14px; font-family: 'proxima_nova_rgregular', sans-serif; font-weight: normal; line-height: 1;
 }
-
+.wrap_body .child-innerpg .about-page {
+	margin-bottom:12px;	
+}
+.wrap_body .child-innerpg .inerblock_serc_child.about-page h1 {
+	margin-bottom:0;
+	margin-top:-2px;	
+}
+.wrap_body .about-page .cart_checkout_header_subtitle {
+	margin-bottom:23px;
+}

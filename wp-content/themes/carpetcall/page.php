@@ -6,15 +6,18 @@
               <span class="cc-bread-current"><?php 
 			  if(is_cart()){
 				  echo 'Shopping Cart';
-				  }elseif(is_checkout()){
-					  
-					  }else{
+				  }elseif(is_checkout()){?>
+					  <?php  if(is_checkout() && ! empty( $wp->query_vars['order-received'] )){
+            ?>
+           <?php  the_title(); ?>
+            <?php }?>
+					 <?php }else{
 					  the_title();
 					} ?></span>
             </div><!-- end .cc-breadcrumb -->
           <?php  if(is_checkout() && ! empty( $wp->query_vars['order-received'] )){
             ?>
-            <h5><?php the_title(); ?></h5>
+            
             <h1><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Your order has been received.', 'woocommerce' ), $order ); ?></h1>
          <?php } else{ ?>
             <h1><?php the_title(); ?></h1>
