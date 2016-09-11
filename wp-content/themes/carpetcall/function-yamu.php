@@ -1397,6 +1397,14 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 		}
 }
 
+add_action('wp_enqueue_scripts','add_prettyphoto_for_custom_rugs');
+function add_prettyphoto_for_custom_rugs(){
+	if(is_page('custom-rugs')){
+		wp_enqueue_style('prettyphoto-css',plugins_url().'/woocommerce/assets/css/prettyPhoto.css');
+		wp_enqueue_script('prettyphoto-js',plugins_url().'/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.min.js','','',true);
+	}
+}
+
 add_action('wp_enqueue_scripts','overwrite_add_to_cart_js');
 function overwrite_add_to_cart_js(){
 wp_deregister_script('wc-add-to-cart');
@@ -1699,6 +1707,11 @@ function cc_checkout_fields_customize( $fields ) {
      return $fields;
 }
 
+add_action('wpsl_address','cc_custom_address',10,1);
+function cc_custom_address($atts){
+	global $post, $wpsl_settings, $wpsl;
+	echo 'afasf';die;
+	}
 
 //add_rewrite_rule('^shop-our-range/([^/]*)/([^/]*)/([^/]*)/([^/]*)?','index.php?&product=$matches[4]','top');
 
