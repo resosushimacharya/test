@@ -36,7 +36,7 @@ if ( $order ) : ?>
 
 		
          <header class="title"><h3>ORDER #<?php echo $order->get_order_number(); ?></h3></header>
-          <header class="title"><h3>CUSTOMER DETAILS</h3></header>
+          <header class="title cc-checkout-title"><h3>CUSTOMER DETAILS</h3></header>
 		<ul class="cc-woocommerce-thankyou-order-details cc-order_details">
 		<li class="cc-woo-order-email">
 				<?php _e( 'Email:', 'woocommerce' ); ?>
