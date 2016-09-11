@@ -14,19 +14,22 @@ function cc_create_order_export_schedule(){
 add_action( 'cc_order_export_daily_schedule', 'hourly_order_export_func' );
 function hourly_order_export_func(){
 $cc_order_report = cc_cron_generate_order_report();
+
+if($cc_order_report !=''){
 	$rugor = $cc_order_report['rugor'];
 	$rugol = $cc_order_report['rugol'];
 	$hfor = $cc_order_report['hfor'];
 	$hfol = $cc_order_report['hfol'];
+	
 	$current_date_string = date( 'YmdHi', current_time( 'timestamp', 0 ));
-	if($rugor){
+	if($rugor && count($rugor) > 1){
 		  $fp_order_report = fopen(WP_CONTENT_DIR.'/order-reports/ORRUGS'.$current_date_string.'.csv','w+');
 				 foreach($rugor as $report){ 
 				  fputcsv($fp_order_report,$report);
 				 }
 		 }
 		
-	if($hfor){
+	if($hfor && count($hfor) > 1){
 		  $fp_order_report = fopen(WP_CONTENT_DIR.'/order-reports/ORHARD'.$current_date_string.'.csv','w+');
 				 foreach($hfor as $report){ 
 				  fputcsv($fp_order_report,$report);
@@ -34,44 +37,47 @@ $cc_order_report = cc_cron_generate_order_report();
 		 }
 	 
 
-	if($hfol){
+	if($hfol && count($hfol) > 1){
 		 $fp_order_list = fopen(WP_CONTENT_DIR.'/order-reports/OLHARD'.$current_date_string.'.csv','w+');
 		  foreach($hfol as $report){ 
 				 fputcsv($fp_order_list,$report);
 				 }
 		  }
-	if($rugol){
+	if($rugol && count($rugol) > 1){
 		 $fp_order_list = fopen(WP_CONTENT_DIR.'/order-reports/OLRUGS'.$current_date_string.'.csv','w+');
 		  foreach($rugol as $report){ 
 				 fputcsv($fp_order_list,$report);
 				 }
-		  }
-	
-	
+		  }	
 	}
+}
 	
 function cc_cron_generate_order_report(){
-	
-    /*$rows = array (
-    array('aaa', 'bbb', 'ccc', 'dddd'),
-    array('123', '456', '789'),
-    array('"aaa"', '"bbb"')
-);*/
 $args = array(
     'post_type'=>'shop_order',
     'posts_per_page'=>'-1',
     'post_status' => 'any',
-	'date_query' => array(
+	'meta_query'	=>array(
+							array(
+								'key'=>'cc_order_date',
+								'value'=>array(strtotime('-1 hour'),strtotime('now')),
+								'compare'=>'BETWEEN'
+								)
+	
+							)
+	
+	/*'date_query' => array(
      array(
-           'after' => strtotime('-1 hour'),
-           'before' => strtotime('now'),
+           'after' => date('Y/m/d H:i:s',strtotime('-1 hour')),
+           'before' => date('Y/m/d H:i:s',strtotime('now')),
 		   'inclusive' => true,
            )
-		  
      )
-	
+	 */
    );
 $loop = new WP_Query($args);
+
+if($loop->have_posts()){
 $arrayCsv_rugs_or = $arrayCsv_hardflooring_or = array();
 $arrayCsv_rugs_ol = $arrayCsv_hardflooring_ol = array();
 
@@ -147,7 +153,7 @@ $arrayCsv_rugs_or[] = $arrayCsv_hardflooring_or[] =array(
 					'Comment'
 					);
  
-  while($loop->have_posts()):
+while($loop->have_posts()){
             $loop->the_post();
 			global $woocommerce;
 			 $order = new WC_Order(get_the_ID());
@@ -320,7 +326,8 @@ $arrayCsv_rugs_or[] = $arrayCsv_hardflooring_or[] =array(
 				 
 				}
 			}
-    endwhile;
+	}
+	
 $HFOR = '';
 $HFOL = '';
 $RUGOR = '';
@@ -338,7 +345,10 @@ foreach($arrayCsv_rugs_ol as $check){
           $RUGOL[] =$check;
 	}
 	
-$ret = array('hfor'=>$HFOR,'hfol'=>$HFOL,'rugor'=>$RUGOR,'rugol'=>$RUGOL);
+$ret = array('hfor'=>$HFOR,'hfol'=>$HFOL,'rugor'=>$RUGOR,'rugol'=>$RUGOL);	
+	}else{
+		$ret = '';
+		}
 return $ret;	
   
 	}

@@ -19,7 +19,7 @@
 
 <?php
  $search_query = esc_html( get_search_query( false ) );
-$perpage_var = 10;
+$perpage_var = 9;
 $args = array(
 				'post_type'			=> 'product',
 				'posts_per_page'	=> -1,
@@ -72,7 +72,7 @@ $found_prod = new WP_Query($args);
       
       <div class="col-md-9 cc-cat-pro-section-right">
 
-        <div id="category_slider_block_wrapper" class="search_sidebar">
+        <div id="category_slider_block_wrapper" class="search_sidebar search_list_wrapper">
         <?php 
 			$args = array('s'=>$search_query,'perpage'=>$perpage_var);
 			$search_result = cc_custom_search($args);

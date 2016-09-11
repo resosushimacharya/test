@@ -47,6 +47,7 @@ global $woocommerce, $product;
 </div>
 <script type="text/javascript">
 jQuery(document).on('change','input[name="cc_shipping_method"]',function(){
+	jQuery('#checkout_delivery #pickup_error_msg').hide();
 	if(jQuery(this).val() == 'local_delivery'){
 			jQuery('.shipping_needed_checkout').css({'opacity': 1, 'height': 'auto', 'overflow': 'visible'});
 			jQuery('.rugs_store_pickup_list').css({'opacity': 0, 'height': 0, 'overflow': 'hidden'});		

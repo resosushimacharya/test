@@ -57,7 +57,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 		            </span></h3>
 		         <div class="collapse collapsable clearfix delivery-form" id="checkout_delivery">
 						<?php do_action('cc_checkout_delivery_custom_block'); ?>
-   					<label id="pickup_error_msg" class="cc_error" style="display:none">Please Select Store For Pickup.</label>
+   					<label id="pickup_error_msg" class="cc_error" style="display:none">Please select a store for pickup.</label>
 
 		            <div class="checkout_next_prev_button read_more">
 		              <a class="next delivery_options" href="#checkout_payment">Next</a>
@@ -130,7 +130,7 @@ jQuery(document).ready(function(e) {
 			jQuery('#checkout_fetch_nearby_stores').trigger('click');
 			};	
 		if(jQuery(this).hasClass('delivery_options')){
-			if(jQuery('input[name=cc_shipping_method]:checked').val() == 'store_pickup'){
+			if(jQuery('input[name=cc_shipping_method]:checked').val() == 'store_pickup' || jQuery('input[name=cc_shipping_method]:checked').val() == 'pickup_n_deliver'){
 if(jQuery(this).parents('.checkout-form-sec').find('input[name=pickup_store_id]:visible:checked').val()){
 					jQuery('#checkout_delivery #pickup_error_msg').hide();
 					}else{
@@ -154,6 +154,9 @@ if(jQuery(this).parents('.checkout-form-sec').find('input[name=pickup_store_id]:
 					
 				}
 
+		});
+	jQuery(document).on('click','input[name=pickup_store_id]',function(){
+		jQuery('#checkout_delivery #pickup_error_msg').hide();
 		});
 });
 </script>

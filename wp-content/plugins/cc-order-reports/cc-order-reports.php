@@ -33,14 +33,14 @@ class CcOrderExport {
 	$hfor = $cc_order_report['hfor'];
 	$hfol = $cc_order_report['hfol'];
 	$current_date_string = date( 'YmdHi', current_time( 'timestamp', 0 ));
-	if($rugor){
+	if($rugor && count($rugor) > 1){
 		  $fp_order_report = fopen(WP_CONTENT_DIR.'/order-reports/ORRUGS'.$current_date_string.'.csv','w+');
 				 foreach($rugor as $report){ 
 				  fputcsv($fp_order_report,$report);
 				 }
 		 }
 		
-	if($hfor){
+	if($hfor && count($hfor) > 1){
 		  $fp_order_report = fopen(WP_CONTENT_DIR.'/order-reports/ORHARD'.$current_date_string.'.csv','w+');
 				 foreach($hfor as $report){ 
 				  fputcsv($fp_order_report,$report);
@@ -48,13 +48,13 @@ class CcOrderExport {
 		 }
 	 
 
-	if($hfol){
+	if($hfol && count($hfol) > 1){
 		 $fp_order_list = fopen(WP_CONTENT_DIR.'/order-reports/OLHARD'.$current_date_string.'.csv','w+');
 		  foreach($hfol as $report){ 
 				 fputcsv($fp_order_list,$report);
 				 }
 		  }
-	if($rugol){
+	if($rugol && count($rugol) > 1){
 		 $fp_order_list = fopen(WP_CONTENT_DIR.'/order-reports/OLRUGS'.$current_date_string.'.csv','w+');
 		  foreach($rugol as $report){ 
 				 fputcsv($fp_order_list,$report);
@@ -125,6 +125,7 @@ class CcOrderExport {
    * Creating Data for order Information
    */
   public function generate_order_report() {
+	
     /*$rows = array (
     array('aaa', 'bbb', 'ccc', 'dddd'),
     array('123', '456', '789'),
@@ -134,18 +135,39 @@ $args = array(
     'post_type'=>'shop_order',
     'posts_per_page'=>'-1',
     'post_status' => 'any',
-	'date_query' => array(
+	'meta_query'	=>array(
+							array(
+								'key'=>'cc_order_date',
+								'value'=>array(strtotime('-1 hour'),strtotime('now')),
+								'compare'=>'BETWEEN'
+								)
+	
+							)
+	
+	/*'date_query' => array(
      array(
-           'after' => strtotime('-1 hour'),
-           'before' => strtotime('now'),
+           'after' => date('Y/m/d H:i:s',strtotime('-1 hour')),
+           'before' => date('Y/m/d H:i:s',strtotime('now')),
 		   'inclusive' => true,
            )
      )
+	 */
    );
 $loop = new WP_Query($args);
+if($loop->have_posts()){
+$arrayCsv_rugs_or = $arrayCsv_hardflooring_or = array();
+$arrayCsv_rugs_ol = $arrayCsv_hardflooring_ol = array();
 
-$arrayCsv = array();
-$arrayCsv[] = array(
+$arrayCsv_rugs_ol[] = $arrayCsv_hardflooring_ol[] =array(
+														'Order Id',
+														'Product Code',
+														'Product Name',
+														'Price',
+														'Quantity'
+														);
+
+
+$arrayCsv_rugs_or[] = $arrayCsv_hardflooring_or[] =array(
 					'Order Id',
 					'Business Name',
 					'First Name',
@@ -208,13 +230,36 @@ $arrayCsv[] = array(
 					'Comment'
 					);
  
-  while($loop->have_posts()):
+while($loop->have_posts()){
             $loop->the_post();
 			global $woocommerce;
 			 $order = new WC_Order(get_the_ID());
-$selected_store = get_post_meta($order->id,'pickup_store_id',true);
-$selected_store_meta = get_post_meta($selected_store);
-$arrayCsv[] = array(
+			 $selected_store = get_post_meta($order->id,'pickup_store_id',true);
+			 $shipping_method = get_post_meta($order->id,'cc_shipping_method',true); 
+			 $selected_store_meta = get_post_meta($selected_store);
+			 foreach ($order->get_items() as $key => $lineItem) {
+				$sku = $lineItem['sku'];
+				
+				$args = array(
+						'post_type'=>'product',
+						'post_status'=>'publish',
+						'posts_per_page'=>1,
+					   'meta_query' => array(
+						   array(
+							   'key' => '_sku',
+							   'value' => $sku,
+							   'compare' => '=',
+						   )
+					   )
+					);
+ 			$product = get_posts($args);
+			foreach($product as $post){
+				setup_postdata($post);
+						
+				$terms = wp_get_object_terms( $post->ID, 'product_cat',array('fields'=>'slugs'));
+				
+				if(array_intersect(array('rugs'),$terms)){
+					$arrayCsv_rugs_or[get_the_ID()] =array(
  					$order->id,
 					$order->shipping_company,
 					$order->shipping_first_name,
@@ -238,13 +283,13 @@ $arrayCsv[] = array(
 					$order->billing_state,
 					$order->billing_city,
 					$order->billing_country,
-					$order->get_shipping_method(),
+					$shipping_method,
 					$selected_store,
 					$selected_store_meta['wpsl_state'][0],
 					$selected_store_meta['wpsl_address'][0],
 					$order->order_total,
 					'',//code
-					$order->get_total_shipping(),
+					0,
 					$order->payment_method_title,
 					'',//order status
 					$order->get_status(),
@@ -275,14 +320,115 @@ $arrayCsv[] = array(
 					'',
 					'',
 					$order->customer_note
- 					);						 
-    endwhile;
-$csv_output = '';
-foreach($arrayCsv as $check):
-          $csv_output[] =$check;
-	endforeach;
-    return $csv_output;
-  }
+ 					);
+					$arrayCsv_rugs_ol[] = array(
+									get_the_ID(),
+									get_post_meta($post->ID,'_sku',true),
+									$lineItem['name'],
+									$lineItem['line_total'],
+									$lineItem['qty']
+									);
+					}
+				if(array_intersect(array('hard-flooring','accessories'),$terms)){
+					$arrayCsv_hardflooring_or[get_the_ID()] = array(
+ 					$order->id,
+					$order->shipping_company,
+					$order->shipping_first_name,
+					$order->shipping_last_name,
+					$order->shipping_email,
+					$order->shipping_phone,
+					$order->shipping_address_1,
+					$order->shipping_address_2,
+					$order->shipping_postcode,
+					$order->shipping_state,
+					$order->shipping_city,
+					$order->shipping_country,
+					'',
+					$order->billing_first_name,
+					$order->billing_last_name,
+					$order->billing_email,
+					$order->billing_phone,
+					$order->billing_address_1,
+					$order->billing_address_2,
+					$order->billing_postcode,
+					$order->billing_state,
+					$order->billing_city,
+					$order->billing_country,
+					$shipping_method,
+					$selected_store,
+					$selected_store_meta['wpsl_state'][0],
+					$selected_store_meta['wpsl_address'][0],
+					$order->order_total,
+					'',//code
+					0,
+					$order->payment_method_title,
+					'',//order status
+					$order->get_status(),
+					'',//CC Name
+					'',//CC Type
+					'',//CC Date
+					'',//CC Num
+					'',//CC CCV
+					strtotime($order->order_date),
+					'',//payment number
+					'',
+					'',
+					'',
+					'',
+					$order->order_date,
+					'',
+					'',
+					'',
+					'',
+					'',
+					'',
+					$order->get_transaction_id(),
+					'',//payment type
+					'',
+					'',
+					'',
+					'',
+					'',
+					'',
+					$order->customer_note
+ 					);
+					$arrayCsv_hardflooring_ol[] = array(
+									get_the_ID(),
+									get_post_meta($post->ID,'_sku',true),
+									$lineItem['name'],
+									$lineItem['line_total'],
+									$lineItem['qty']
+									);
+					}
+				 
+				}
+			}
+	}
+	
+$HFOR = '';
+$HFOL = '';
+$RUGOR = '';
+$RUGOL = '';
+foreach($arrayCsv_hardflooring_or as $check){
+          $HFOR[] =$check;
+	}
+foreach($arrayCsv_hardflooring_ol as $check){
+          $HFOL[] =$check;
+	}
+foreach($arrayCsv_rugs_or as $check){
+          $RUGOR[] =$check;
+	}
+foreach($arrayCsv_rugs_ol as $check){
+          $RUGOL[] =$check;
+	}
+	
+$ret = array('hfor'=>$HFOR,'hfol'=>$HFOL,'rugor'=>$RUGOR,'rugol'=>$RUGOL);	
+	}else{
+		$ret = '';
+		}
+return $ret;	
+  
+	}
   /**
    * Creating Data for order Items list
    */

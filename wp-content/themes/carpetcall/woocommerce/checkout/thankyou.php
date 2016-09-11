@@ -34,25 +34,30 @@ if ( $order ) : ?>
 
 	<?php else : ?>
 
-		<p class="woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); ?></p>
-
-		<ul class="woocommerce-thankyou-order-details order_details">
+		
+         <header class="title"><h3>ORDER #<?php echo $order->get_order_number(); ?></h3></header>
+          <header class="title cc-checkout-title"><h3>CUSTOMER DETAILS</h3></header>
+		<ul class="cc-woocommerce-thankyou-order-details cc-order_details">
+		<li class="cc-woo-order-email">
+				<?php _e( 'Email:', 'woocommerce' ); ?>
+				<?php echo $order->billing_email; ?>
+			</li>
+			<li class="cc-woo-order-phone">
+				<?php _e( 'Tel:', 'woocommerce' ); ?>
+				<?php echo $order->billing_phone; ?>
+			</li>
 			<li class="order">
-				<?php _e( 'Order Number:', 'woocommerce' ); ?>
-				<strong><?php echo $order->get_order_number(); ?></strong>
+		    Order Number: #<?php echo $order->get_order_number(); ?>
 			</li>
 			<li class="date">
-				<?php _e( 'Date:', 'woocommerce' ); ?>
-				<strong><?php echo date_i18n( get_option( 'date_format' ), strtotime( $order->order_date ) ); ?></strong>
+				<?php _e( 'Order Date:', 'woocommerce' ); ?>
+				<?php echo date_i18n( get_option( 'date_format' ), strtotime( $order->order_date ) ); ?>
 			</li>
-			<li class="total">
-				<?php _e( 'Total:', 'woocommerce' ); ?>
-				<strong><?php echo $order->get_formatted_order_total(); ?></strong>
-			</li>
+			
 			<?php if ( $order->payment_method_title ) : ?>
 			<li class="method">
 				<?php _e( 'Payment Method:', 'woocommerce' ); ?>
-				<strong><?php echo $order->payment_method_title; ?></strong>
+			<?php echo $order->payment_method_title; ?>
 			</li>
 			<?php endif; ?>
 		</ul>
@@ -62,9 +67,32 @@ if ( $order ) : ?>
 
 	<?php do_action( 'woocommerce_thankyou_' . $order->payment_method, $order->id ); ?>
 	<?php do_action( 'woocommerce_thankyou', $order->id ); ?>
+<div class="cc-bil-ship-woo-wrap">
+<div class="col-sm-6 ">
+	<header class="title">
+	<h3><?php _e( 'Billing Address', 'woocommerce' ); ?></h3>
+</header>
+<address>
+	<?php echo ( $address = $order->get_formatted_billing_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
+</address>
+</div>
+<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() ) : ?>
+
+
+	<div class="col-sm-6">
+		<header class="title">
+			<h3><?php _e( 'Shipping Address', 'woocommerce' ); ?></h3>
+		</header>
+		<address>
+			<?php echo ( $address = $order->get_formatted_shipping_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
+		</address>
+	</div><!-- /.col-2 -->
+</div><!-- /.col2-set -->
+
+<?php endif; ?>
 
 <?php else : ?>
 
-	<p class="woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), null ); ?></p>
+	<p class="woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Your order has been received.', 'woocommerce' ), null ); ?></p>
 
 <?php endif; ?>

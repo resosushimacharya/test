@@ -641,7 +641,7 @@ wp_reset_postdata();
         	<h2 class="fyns-blk"> FIND YOUR NEAREST STORE </h2>
             
             <div class="frm-blk clearfix">
-            		<form class="form-inline">
+            		<form class="form-inline" id="pickup_location_form">
                     
                     <div class="input-group">
                       <input type="text"  placeholder="SUBURB OR POSTCODE" id="edit_dialog_keyword" name="edit_dialog_keyword" type="text" class="form-control controls"  onkeyup="customDialog(event);">

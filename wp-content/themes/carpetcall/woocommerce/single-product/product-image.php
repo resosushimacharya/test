@@ -61,8 +61,9 @@ global $post, $woocommerce, $product;
 			
 						
 		}else{
-			
-				
+				$feat_image = cc_custom_get_feat_img(get_the_ID(),'large');
+				$sku = explode('.',get_post_meta($post->ID,'_sku',true));
+				/*
 				$sku = explode('.',get_post_meta($post->ID,'_sku',true));
 				$image_names = array(
 								strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_L.jpg',
@@ -77,7 +78,7 @@ global $post, $woocommerce, $product;
 						break;
 					}
 				}
-				
+				*/
 				}
 				
 				?>
@@ -166,12 +167,22 @@ global $post, $woocommerce, $product;
 			
 						
 		}else{
-		$sku = explode('.',get_post_meta(get_the_ID(),'_sku',true));
-		$image_names = array(
+		if(has_term('rugs','product_cat',get_the_ID())){
+			$image_names = array(
 								strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_L.jpg',
 								strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_V.jpg',
 								strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_S.jpg',
 							);
+			}
+		if(has_term('hard-flooring','product_cat',get_the_ID())){
+			$image_names = array(
+								strtoupper($sku[0]).'_L.jpg',
+								strtoupper($sku[0]).'_V.jpg',
+								strtoupper($sku[0]).'_S.jpg',
+							);
+			}	
+		//$sku = explode('.',get_post_meta(get_the_ID(),'_sku',true));
+		
 							
 		foreach($image_names as $imgname){
 			$feat_image = $feat_image_full = get_template_directory_uri().'/images/placeholder.png';

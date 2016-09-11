@@ -52,6 +52,31 @@ function css_products_import()
 	{ 
 		
 		cron_func_update();
+     /*   $args = array(
+
+                "post_type"=>'product',
+                "post_status"=>array("publish"),
+                "posts_per_page"=>"-1",
+                'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'product_cat',
+                                    'field'    => 'slug',
+                                    'terms'    => array("hard-flooring","rugs")
+                                )
+                            )
+            );
+        $loop = new WP_Query($args);
+
+        $i  = 1;echo "Draft Product List : <br />";
+        while($loop->have_posts()){
+            $loop->the_post();
+            the_title();
+            echo "<br />";
+            
+            wp_delete_post($loop->post->ID, true );
+        }
+    
+        wp_reset_query();*/
 	}   
 	
 	?>

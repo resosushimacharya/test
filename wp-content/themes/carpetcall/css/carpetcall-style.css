@@ -753,7 +753,7 @@ ul#directory_list_id li {
 }
 .crt_pname {
 	float: left;
-	max-width: 100%;
+	max-width:60%;
 	margin: 12px 0;
 }
 .crt_price {
@@ -1307,6 +1307,7 @@ h5.tryit.tryita {
 }
 .sublk_prom {
 	margin: 22px 0 16px 0;
+	padding:0 15px;
 }
 .ptxt {
 	min-height: 103px;
@@ -1317,7 +1318,6 @@ h5.tryit.tryita {
 	font-weight:normal;
 	color: #15489f;
 	text-transform: uppercase;
-	padding-left: 16px;
 	text-decoration:none;
 	display:block;
 }
@@ -1335,7 +1335,7 @@ h5.tryit.tryita {
 	font-weight:normal;
 	color: #087bda;
 	text-transform: uppercase;
-	padding-left: 16px;
+	margin-bottom:3px;
 }
 .ptxt h5 {
 	font-weight: normal;
@@ -1345,7 +1345,6 @@ h5.tryit.tryita {
 	display: inline-block;
 	width: 181px;
 	height: 45px;
-	margin-left: 17px;
 }
 .nowspp a {
 	background: #bb2225;
@@ -6317,7 +6316,21 @@ div#error_max_msg {
 }
 .search_sidebar {
 	font-size:0;
-	margin:0 -10px;
+	margin:0 -5px;
+}
+.search_list_wrapper .search_prod_wrapper {
+	padding:5px;
+	margin-bottom:15px;	
+}
+.search_result_inner_wrap {
+	padding:10px;
+	border:1px solid #efefef;	
+}
+.search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h3 {
+	border:0;
+	margin:0 0 3px 0;
+	display:block;
+	line-height:19px;
 }
 .search_prod_wrapper {
 	padding:0 10px;
@@ -6375,6 +6388,7 @@ div#error_max_msg {
 }
 table.shop_table.shop_table_responsive.cart > tbody > tr > td {
 	padding-left:0;	
+	padding-right:0;
 }
 table.shop_table.shop_table_responsive.cart > thead > tr > th.product-subtotal, table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-subtotal {
 	text-align:right;	
@@ -6398,7 +6412,7 @@ table.shop_table.shop_table_responsive.cart > thead > tr > th.product-subtotal, 
 	text-transform:uppercase;
 	letter-spacing:1px;
 	border-radius:0;
-	margin-right:3px;
+	margin-right:0;
 }
 .cbg_content.cc-condn-page .woocommerce input.button:hover {
 	background-color:#0e48aa;
@@ -6546,7 +6560,7 @@ a.button.wc-forward {
 	width:75%;
 }
 .page.page-id-33 .woocommerce table.shop_table th {
-	padding:6px 12px 6px 0;
+	padding:6px 0 6px 0;
 }
 .woocommerce-cart .cart-collaterals .cart_totals table th {
 	width:10%;
@@ -7182,6 +7196,9 @@ label.inner-check-label.radio-check-label::after{
 	height:35px;
 	box-shadow:none;
 	outline:0;
+	text-transform:uppercase;
+	font-family:'proxima_nova_ltsemibold';
+	font-size:16px;
 }
  .search_header form .input-group span.input-group-btn .btn-default  {
 	 color:inherit;
@@ -7501,4 +7518,67 @@ span.access_active_text {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+#checkout_delivery .cc_error{
+	position: absolute; 
+	bottom: 30px; 
+	left: 30px;    
+	color: #f00;
+    font-size: 14px; 
+	font-family: 'proxima_nova_rgregular', sans-serif; 
+	font-weight: normal; 
+	line-height: 1;
+}
+.wrap_body .child-innerpg .about-page {
+	margin-bottom:12px;	
+}
+.wrap_body .child-innerpg .inerblock_serc_child.about-page h1 {
+	margin-bottom:0;
+	margin-top:-2px;	
+}
+.wrap_body .about-page .cart_checkout_header_subtitle {
+	margin-bottom:23px;
+}
+.cc-condn-page .woocommerce .title h3 {
+	font-family:'proxima_nova_ltsemibold', sans-serif ;
+	font-size:24px;
+	color:#15489f;
+	margin:35px 0;
+}
+.cc-condn-page .woocommerce .cc-checkout-title h3 {
+	margin-bottom:12px;
+}
+ul.cc-woocommerce-thankyou-order-details {
+	padding:0;
+	margin:0;	
+}
+ul.cc-woocommerce-thankyou-order-details li {
+	list-style:none;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	color:#666666;
+	line-height:18px;
+}
+.cc-condn-page .woocommerce .cc-checkout-od h3 {
+	margin:31px 0 10px 0;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord {
+	margin:0 0 0 0;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr {
+	background-color:#e7edf8;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th {
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	color:#666666;
+	text-transform:uppercase;
+	padding:5px 28px;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td {
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	color:#666666;
+	padding:5px 28px;
+	line-height:1;
 }
