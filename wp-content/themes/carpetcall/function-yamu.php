@@ -1013,95 +1013,36 @@ function cc_custom_search($args){
                             
                             
                             
-                            <div class="search_prod_wrapper col-md-4">
-                            <a href="<?php echo get_permalink(get_the_ID()) ?>">
-                                    <div class="img_cntr_home" style="background-image:url('<?php echo $feat_image?>');"></div>
-                                    </a>
-                   
-                    <div class="sublk_prom">
-                      		<div class="ptxt">
-					<h3><a href="<?php echo get_permalink(get_the_ID()) ?>"><?php echo get_the_title()?></a></h3>
-                    
-                    <?php
-                    $reqTempTerms=get_the_terms(get_the_ID(),'product_cat');
-					
-
-					if(!empty($reqTempTerms)){
-						foreach($reqTempTerms as $reqTerm){ 
-						  	echo '<h4>'.$reqTerm->name.'</h4>';
-						  }
-					}
-					
-                    if(!empty($price)){
-						echo '<h5> $'.$price.'</h5>';
-					}?>
-                    
-                    </div>
-					<div class="clearfix"></div>
-                           <div class="nowsp nowspp"><a href="<?php echo get_the_permalink(get_the_ID())?>"> SHOP NOW </a></div><div class="clearfix"></div> 
-                      </div><div class="clearfix"></div>
+                            <div class="search_prod_wrapper col-md-4 clearfix">
+                            <div class="search_result_inner_wrap">
+                                <a href="<?php echo get_permalink(get_the_ID()) ?>">
+                                        <div class="img_cntr_home" style="background-image:url('<?php echo $feat_image?>');"></div>
+                                        </a>
+                                <div class="sublk_prom">
+                                        <div class="ptxt">
+                                <h3><a href="<?php echo get_permalink(get_the_ID()) ?>"><?php echo get_the_title()?></a></h3>
+                                
+                                <?php
+                                $reqTempTerms=get_the_terms(get_the_ID(),'product_cat');
+                                
+            
+                                if(!empty($reqTempTerms)){
+                                    foreach($reqTempTerms as $reqTerm){ 
+                                        echo '<h4>'.$reqTerm->name.'</h4>';
+                                      }
+                                }
+                                
+                                if(!empty($price)){
+                                    echo '<h5> $'.$price.'</h5>';
+                                }?>
+                                
+                                </div>
+                                <div class="clearfix"></div>
+                                       <div class="nowsp nowspp"><a href="<?php echo get_the_permalink(get_the_ID())?>"> SHOP NOW </a></div><div class="clearfix"></div> 
+                                  </div>
+                            </div>
                       </div>
                       
-                      
-                      
-                      
-                      
-                            <?php /*?><div class="search_prod_wrapper col-md-4">
-                            	<?php
-								//$imgurl = (has_post_thumbnail())?the_post_thumbnail_url('thumbnail'):get_template_directory_uri().'/images/placeholder.png';
-								 ?>
-                                 
-<div class="cc-search-inner-wrap">                            <div class="search_thumb" style="background-image:url(<?php echo $feat_image ?>)"></div>
-<div class="cc-search-tps">                            <div class="search_title">
-								<?php 
-                                    $categories = get_the_terms(get_the_ID(), 'product_cat' ); 
-                                    if ( $categories ) : 
-                                        foreach($categories as $category) :
-                                          $children = get_categories( array ('taxonomy' => 'product_cat', 'hide_empty'=>true, 'parent' => $category->term_id ));
-                                          if ( count($children) == 0 ) {
-											  ?>
-                                              <span class="parent_cat">
-                                              
-											  <?php 
-											  $temp_parent = get_term_by('id',$category->parent,'product_cat'); 
-											  if($temp_parent){?>
-												  <a href="<?php echo get_term_link($temp_parent->term_id,"product_cat")?>"><?php echo $temp_parent->name?></a>
-												  <?php }
-											  ?>
-                                              
-                                              </span>
-                                              
-                                              <span class="cat_third">
-                                              <a href="<?php echo get_term_link($category->term_id,"product_cat")?>"><?php echo $category->name?></a>
-                                              </span>
-                                            
-                                             <?php break;
-                                          }
-                                        endforeach;
-                                    endif;
-                                    ?>
-                                    
-                            </div>
-                            <div class="search_price">
-                            	<?php
-								$product = wc_get_product( get_the_ID() );
-								if(get_field('size_m2',get_the_ID())){?>
-									<div class="cc-price-control">
-
-									<h3><span class="cc-sale-price-title">$<?php echo $product->get_regular_price().'/SQM'?></span> </h3>
-                                   </div>
-									<?php }else{
-										echo  $product->get_price_html();
-										}
-								?>
-                            </div>
-                            <div class="search_shop_now">
-                            	<div class="read_more">
-                                <a href="<?php echo get_the_permalink(get_the_ID())?>">Shop Now</a>
-                                </div>
-                            </div>
-</div></div>                        </div><?php */?>
-
 							<?php }
 						
 						?>
@@ -1229,9 +1170,20 @@ if ( ! function_exists( 'woocommerce_template_single_carpets_blinds_title' ) ) {
 function generate_catids_array($top_lvl_cat,$depth){
 	//$transient = 'category_'.$top_lvl_cat.'_transient';
 	//if ( false === ( get_transient( $transient ) ) ) {
-		$cat_arr = array();
-		$second_lvl_cats = get_terms(array('parent'=>$top_lvl_cat,'taxonomy'=>'product_cat','hide_empty'=>true));
-		foreach($second_lvl_cats as $cat_parents){
+	
+	
+	$cat_arr = array();
+	$second_lvl_cats = get_terms(array('parent'=>$top_lvl_cat,'taxonomy'=>'product_cat','hide_empty'=>true));
+		
+		
+	$top_cat = smart_category_top_parent_id($top_lvl_cat,'product_cat');
+	if($top_cat){
+		$top_cat_obj = get_term_by('id',$top_cat,'product_cat');
+		$top_cat_slug = $top_cat_obj->slug;
+		if($top_cat_slug == 'rugs' || $top_cat_slug == 'hard-flooring'){
+			
+			
+			foreach($second_lvl_cats as $cat_parents){
 			if($depth==0){
 				$third_lvl_cats = get_terms(array('parent'=>$cat_parents->term_id,'taxonomy'=>'product_cat','hide_empty'=>true));
 				foreach($third_lvl_cats as $cat){
@@ -1240,10 +1192,19 @@ function generate_catids_array($top_lvl_cat,$depth){
 			}else{
 				$cat_arr[] = $cat_parents->term_id;
 				}
-	
-			//}
-	 // set_transient( $transient, $cat_arr, 12 * HOUR_IN_SECONDS );
 	}
+			
+			
+		}else if($top_cat_slug == 'carpets'){
+			foreach($second_lvl_cats as $cat_parents){
+				$cat_arr[] = $cat_parents->term_id;
+			}
+		}
+	}
+	
+	
+		
+		
 	return $cat_arr;
 	//return get_transient($transient);
 }
@@ -1454,7 +1415,7 @@ function save_delivery_option_cc($order_id){
 		//cc_notify_selected_store($order_id);
 		}
 	if(!empty($_POST['cc_shipping_method'])){
-		$shipping_method = $_POST['shipping_method'];
+		$shipping_method = $_POST['cc_shipping_method'];
 		$shipping_arr = array(	'local_delivery'=>'Local Delivery',
 								'store_pickup'=>'Pickup From Head Offices',
 								'pickup_n_deliver'=>'Pickup Hard Flooring and Deliver Rugs'
@@ -1462,7 +1423,7 @@ function save_delivery_option_cc($order_id){
 		update_post_meta( $order_id, 'cc_shipping_method', $shipping_arr[$_POST['cc_shipping_method']]);
 	
 	}
-	
+		update_post_meta( $order_id, 'cc_order_date', strtotime("now"));
 	}
 
 
@@ -1641,7 +1602,7 @@ if($item_sku){
 * Function to reutun the images from the upload folder for the given product and given size
 */
 
-function cc_custom_get_feat_img($post_id,$size='small'){
+function cc_custom_get_feat_img($post_id,$size='small',$pattern='L'){
 	if(has_term('hard-flooring','product_cat',$post_id) || has_term('rugs','product_cat',$post_id)){
 							if(has_term('hard-flooring','product_cat',$post_id)){
 							$sku = get_post_meta($post_id,'_sku',true);
