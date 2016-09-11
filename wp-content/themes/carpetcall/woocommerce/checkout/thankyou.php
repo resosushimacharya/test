@@ -35,8 +35,8 @@ if ( $order ) : ?>
 	<?php else : ?>
 
 		
-         <h3>ORDER #<?php echo $order->get_order_number(); ?></h3>
-          <h3>CUSTOMER DETAILS</h3>
+         <header class="title"><h3>ORDER #<?php echo $order->get_order_number(); ?></h3></header>
+          <header class="title"><h3>CUSTOMER DETAILS</h3></header>
 		<ul class="cc-woocommerce-thankyou-order-details cc-order_details">
 		<li class="cc-woo-order-email">
 				<?php _e( 'Email:', 'woocommerce' ); ?>
@@ -67,19 +67,19 @@ if ( $order ) : ?>
 
 	<?php do_action( 'woocommerce_thankyou_' . $order->payment_method, $order->id ); ?>
 	<?php do_action( 'woocommerce_thankyou', $order->id ); ?>
-
-
+<div class="cc-bil-ship-woo-wrap">
+<div class="col-sm-6 ">
 	<header class="title">
 	<h3><?php _e( 'Billing Address', 'woocommerce' ); ?></h3>
 </header>
 <address>
 	<?php echo ( $address = $order->get_formatted_billing_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
 </address>
-
+</div>
 <?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() ) : ?>
 
-	</div><!-- /.col-1 -->
-	<div class="col-2">
+
+	<div class="col-sm-6">
 		<header class="title">
 			<h3><?php _e( 'Shipping Address', 'woocommerce' ); ?></h3>
 		</header>
