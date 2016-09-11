@@ -18,7 +18,7 @@
           <?php  if(is_checkout() && ! empty( $wp->query_vars['order-received'] )){
             ?>
             
-            <h1><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Your order has been received.', 'woocommerce' ), $order ); ?></h1>
+            <h1><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Your order has been received', 'woocommerce' ), $order ); ?></h1>
          <?php } else{ ?>
             <h1><?php the_title(); ?></h1>
             <?php  }?>
