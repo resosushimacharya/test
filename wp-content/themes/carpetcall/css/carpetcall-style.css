@@ -5582,7 +5582,7 @@ div#calculator_container {
 .single.single-product .form-group.col-item-price {
 	text-align: right;
 }
-.single.single-product button#cal_more {
+.single.single-product button#cal_more, .single.single-product button#cal_id {
 	display: inline-block;
 	border-color: #144a9f;
 	background: none;
@@ -5602,19 +5602,9 @@ div#calculator_container {
 	color: #FFF;
 }
 .single.single-product button#cal_id {
-	display: inline-block;
 	border-color: transparent;
 	background: #144a9f;
-	border-radius: 0;
-	width: 170px;
-	height: 45px;
-	font-family:'proxima_nova_ltsemibold', sans-serif;
-	font-size:14px;
-	font-weight:normal;
 	color: #FFFFFF;
-	text-transform: uppercase;
-	text-decoration: none;
-	margin-left: 14px;
 }
 .single.single-product button#cal_id:hover {
 	border-color: #144a9f;
@@ -5629,7 +5619,7 @@ div#calculator_container {
 	text-transform: uppercase;
 	margin: 9px 0 -1px 0;
 }
-.single.single-product button#cancel_calc {
+.single.single-product button#cancel_calc, .single.single-product button#confirm_calc {
 	display: inline-block;
 	border-color: #144a9f;
 	background: none;
@@ -5651,18 +5641,9 @@ div#calculator_container {
 	color: #FFF;
 }
 .single.single-product button#confirm_calc {
-	display: inline-block;
 	border-color: transparent;
 	background: #c32428;
-	border-radius: 0;
-	width: 170px;
-	height: 45px;
-	font-family:'proxima_nova_ltsemibold', sans-serif;
-	font-size:14px;
-	font-weight:normal;
 	color: #FFFFFF;
-	text-transform: uppercase;
-	text-decoration: none;
 	margin-left: 15px;
 	margin-top: 24px;
 }
@@ -7358,7 +7339,7 @@ span.required {
 .select-dropdown-wrap {
     height: 90px;
     font-size: 32px;
-    padding: 10px 90px 10px 30px;
+    padding: 10px 90px 10px 25px;
     width: 100%;
     background-size: 90px;
     border: 1px solid #d1ddf1;
@@ -7455,3 +7436,69 @@ div#checkout_delivery {
 }
 #checkout_delivery .cc_error{position: absolute; bottom: 30px; left: 30px;    color: #f00;
     font-size: 14px; font-family: 'proxima_nova_rgregular', sans-serif; font-weight: normal; line-height: 1;}
+    .calculator_container .remove_row_calc {
+    display: none;
+}
+
+
+/* Hard Flooring Mobile tab inside accordion */
+.accessories_select_mobile_cntr{
+	padding: 0 35px;
+}
+.access_active_type_cntr {    
+    position: relative;
+    margin-bottom: 50px;
+    margin-top: 15px;
+}
+.access_tab_active{
+	height: 90px;
+    font-size: 32px;
+    padding: 10px 90px 10px 30px;
+    width: 100%;    
+    border: 1px solid #d1ddf1;
+    background: #e7edf8;
+    position: relative;
+    background-image: url(../images/icon.jpg);
+    background-repeat: no-repeat;
+    background-position: 100% 0%;
+    font-family: 'proxima_nova_ltsemibold', sans-serif;
+    color: #0099ff;
+    text-transform: uppercase;
+    padding-left: 30px;
+    font-size: 32px;
+    line-height: 73px;
+    background-size: 90px;
+}
+.accessories_inner_tab_select {
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    background: #d1ddf1;
+    display: none;
+}
+.accessories_inner_tab_select li {
+    display: block;
+    float: none;    
+    display: block;
+}
+.accessories_inner_tab_select li a{
+    font-family: 'proxima_nova_ltsemibold', sans-serif;
+    color: #15489f;
+    text-transform: uppercase;
+    font-size: 32px;
+    line-height: 68px;
+    padding: 10px 30px;
+    margin: 0;	
+    border: none !important;
+    border-radius: 0;
+}
+.accessories_inner_tab_select li.active a{
+	color: #fff !important;	
+	background: #15489f !important;
+}
+span.access_active_text {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

@@ -20,7 +20,7 @@ $ = jQuery.noConflict();
               	+'" readonly> </div> <div class="form-group col-md-4"> m<sup>2</sup> </div> </div> </div> ');
 				*/
 			var $html="";	
-		$html+='<div class="row" id="row_cal_'+count+'">';
+		$html+='<div class="row single-room-sec" id="row_cal_'+count+'">';
            $html+='<div class="col-md-8 col-item-price">';
                 $html+='<div class="cal_pro" id="cal_pro_'+count+'">';
                     $html+='<div class="container_1">';
@@ -32,7 +32,7 @@ $ = jQuery.noConflict();
                                 $html+='<input type="text" class="form-control width_check" id="width_'+count+'" placeholder=" Width (m)" name="width_'+count+'" required>';
                             $html+='</div>';
                         $html+='</div>';
-                        $html+='<div class="form-group col-md-6">';
+                        $html+='<div class="form-group col-md-6 for-length">';
                            $html+=' <div class="col-md-6 no-lr">';
                                $html+='<label for="legth_'+count+'"></label>';
                             $html+='</div>';
