@@ -114,31 +114,6 @@ global $post;
            </a>
          </div>
 </div>
-		
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
         <div class="summary entry-summary">
           <div class="carpet_blinds_single_right">
             <h3 class="calspl calspll">
