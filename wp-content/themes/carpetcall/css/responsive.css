@@ -1274,6 +1274,31 @@
 	}
 	
 	/* === MY CART - PAGE End === */
+	
+	/* === ORDER RECEIVED - PAGE === */
+	.wrap_body .child-innerpg .inerblock_serc_child.about-page h1 {
+		text-align:left;
+		font-size:72px;	
+	}
+	.cc-condn-page .woocommerce .title h3 {
+	    color: #15489f !important;	
+		margin:74px 0;
+	}
+	.cc-condn-page .woocommerce .cc-checkout-title h3 {
+		margin:0 0 42px 0;
+	}
+	ul.cc-woocommerce-thankyou-order-details li {
+		font-size:32px;
+		line-height:35px;
+	}
+	.cc-condn-page .woocommerce .cc-checkout-od h3 {
+		margin:93px 0 51px 0;	
+	}
+	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td span.mobile {
+		display:block;
+		margin:12px 0;
+	}
+	/* === ORDER RECEIVED - PAGE End === */
 
 
 	/* === MAIN CATEGORY PAGE === */

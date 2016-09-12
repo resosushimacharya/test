@@ -61,6 +61,7 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 				<tr class="order_item">
 					<td><?php echo $item['name'];?>
 					<span>SKU:<?php echo $item['item_meta']['sku'][0]; ?></span>
+                    <span class="mobile">QTY: <?php echo $qty;?></span>
 					</td>
 					<td><?php echo $qty;?></td> 
 					<td><?php echo '$'.$item_price;?></td>
@@ -91,10 +92,10 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 					}
 				?>
 				<tr class="mod-table-calc-res"><td></td>
+					<td></td>
 					<td><?php 
 					 $label = rtrim($total['label'],":");
 					 echo $label; ?></td>
-					<td></td>
 					<td><?php echo $total['value']; ?></td>
 				</tr>
 				<?php

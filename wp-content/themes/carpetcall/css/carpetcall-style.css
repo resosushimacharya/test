@@ -7495,6 +7495,7 @@ div#checkout_delivery {
 	font-size:24px;
 	color:#15489f;
 	margin:35px 0;
+	font-weight:normal;
 }
 .cc-condn-page .woocommerce .cc-checkout-title h3 {
 	margin-bottom:12px;
@@ -7509,6 +7510,7 @@ ul.cc-woocommerce-thankyou-order-details li {
 	font-size:16px;
 	color:#666666;
 	line-height:18px;
+	font-weight:normal;
 }
 .cc-condn-page .woocommerce .cc-checkout-od h3 {
 	margin:31px 0 10px 0;
@@ -7525,11 +7527,50 @@ ul.cc-woocommerce-thankyou-order-details li {
 	color:#666666;
 	text-transform:uppercase;
 	padding:5px 28px;
+	font-weight:normal;
 }
 .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td {
 	font-family:'proxima_nova_rgregular', sans-serif;
 	font-size:16px;
 	color:#666666;
-	padding:5px 28px;
+	padding:25px 28px 12px 28px;
 	line-height:1;
+	border-top:0;
+	border-bottom:1px solid #e7edf8;
+	font-weight:normal;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td span {
+	display:block;
+	line-height:1;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td span.mobile {
+	display:none;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tfoot > tr > td {
+	border-top:0;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	color:#666666;
+	text-transform:uppercase;
+	font-weight:normal;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tfoot > tr > td:last-child {
+	text-transform:none;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	color:#666666;
+	font-weight:normal;
+	padding:10px 12px 0 12px;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tfoot > tr.mod-table-calc-res:last-child {
+	background-color:#e7edf8;
+}
+.cc-condn-page .woocommerce .cc-bil-ship-woo-wrap .cc-ship-adbill h3, .cc-condn-page .woocommerce .cc-bil-ship-woo-wrap .cc-bil-addr h3 {
+	margin:55px 0 15px 0;
+}
+.cc-condn-page .woocommerce .cc-bil-ship-woo-wrap address {
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	color:#666666;
+	margin-bottom:66px;
 }
