@@ -67,9 +67,9 @@ if ( $order ) : ?>
 
 	<?php do_action( 'woocommerce_thankyou_' . $order->payment_method, $order->id ); ?>
 	<?php do_action( 'woocommerce_thankyou', $order->id ); ?>
-<div class="cc-bil-ship-woo-wrap">
+<div class="cc-bil-ship-woo-wrap clearfix">
 
-<div class="col-sm-6 no-pl">
+<div class="col-sm-6 no-pl cc-checkout-sbadr">
 		<header class="title cc-ship-adbill">
 			<h3><?php _e( 'Shipping Address', 'woocommerce' ); ?></h3>
 		</header>
@@ -78,7 +78,7 @@ if ( $order ) : ?>
 		</address>
 	</div>
 
-<div class="col-sm-6 no-pr">
+<div class="col-sm-6 no-pr cc-checkout-sbadrs">
 	<header class="title cc-bil-addr">
 	<h3><?php _e( 'Billing Address', 'woocommerce' ); ?></h3>
 </header>
