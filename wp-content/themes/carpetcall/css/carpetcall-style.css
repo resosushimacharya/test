@@ -5105,6 +5105,19 @@ span.cc-locator-current a {
 	text-transform: uppercase;
 	margin: 5px 0 2px 0;
 }
+.wpsl-address-sec h1 span {
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:22px;
+	font-weight:normal;
+	color:#15489f;
+	text-transform:uppercase;
+}
+.wpsl-address-sec span {
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	color:#666666;
+	line-height:24px;
+}
 .wpsl-locations-details span strong, .wpsl-location-address {
 	font-family:'proxima_nova_rgregular', sans-serif;
 	font-size:16px;
@@ -5129,7 +5142,7 @@ span.cc-locator-current a {
 	text-transform: uppercase;
 	width: 196px;
 	height: 45px;
-	margin-top: 2px;
+	margin-top: 17px;
 	margin-bottom: 20px;
 }
 .wpsl-address-sec a:hover {
