@@ -33,10 +33,10 @@ global $post, $woocommerce, $product;
               if(count($has_sub_cat)==0){
                   if( $cat->parent != 0){
 					   $parent_term = get_term( $cat->parent, 'product_cat');
-					   echo '<h4 class="cc-category-show">'.$cat->name.' - '.$parent_term->name.'</h4>';
+					   echo '<h1 class="cc-category-show"><span itemprop="name">'.$cat->name.' - '.$parent_term->name.'</span></h1>';
 					  }else{
 					   $parent_term = $cat;
-					   echo '<h4 class="cc-category-show">'.$cat->name.'</h4>';
+					   echo '<h1 class="cc-category-show"><span itemprop="name">'.$cat->name.'</span></h1>';
 					  }
                 
               	}
@@ -91,6 +91,7 @@ global $post, $woocommerce, $product;
                 <img 
                 width="560" 
                 height="373" 
+                itemprop="image" 
                 src="<?php echo $feat_image?>" 
                 class="attachment-full size-full wp-post-image" alt="<?php echo strtoupper( $post->post_name )?>" 
                 title="<?php echo strtoupper( $post->post_name )?>" 
