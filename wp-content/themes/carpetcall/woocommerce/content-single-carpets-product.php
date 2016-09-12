@@ -1,5 +1,7 @@
 <div class="product_single_container">
+
 <?php
+
 /**
  * The template for displaying product content in the single-product.php template
  *

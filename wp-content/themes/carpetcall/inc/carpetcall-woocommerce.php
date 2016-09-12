@@ -1,4 +1,5 @@
 <?php 
+
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
@@ -236,6 +237,9 @@ foreach($listcat as $cat){
 		if(strcasecmp($root,'hard-flooring')==0){
 		$root =	'hard-floor';
 		}
+		if(strcasecmp($root,'carpets')==0){
+		$root =	'carpet';
+		}
 	}
 	else{
 		//echo "that's the bullshit answer";
@@ -332,6 +336,10 @@ foreach($listcat as $cat){
 		if(strcasecmp($root,'hard-flooring')==0){
 		$root =	'hard-floor';
 		}
+		if(strcasecmp($root,'carpets')==0){
+		$root =	'carpet';
+		}
+
 	}
 	else{
 		//echo "that's the bullshit answer";
