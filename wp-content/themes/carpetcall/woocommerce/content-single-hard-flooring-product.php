@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	?>
     <div class="container">
-<div class="col-md-12">
+<div class="col-md-12 no-lr cc-checkout-woerrors">
 <?php 
 	 do_action( 'woocommerce_before_single_product' );
 

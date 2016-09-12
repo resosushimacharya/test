@@ -2512,7 +2512,7 @@ ul.guide_list_cfaq li a {
 	text-decoration: none;
 	text-transform: uppercase;
 }
-.cc-price-control .cc-line-through {
+.single.single-product .cc-price-control h3 span.cc-line-through {
 	font-family:'proxima_nova_rgregular', sans-serif;
 	font-size:14px;
 	font-weight:normal;
@@ -5105,6 +5105,32 @@ span.cc-locator-current a {
 	text-transform: uppercase;
 	margin: 5px 0 2px 0;
 }
+.wpsl-address-sec h1 span {
+	font-family: 'proxima_nova_rgregular', sans-serif;
+    font-size: 16px;
+    color: #666666;
+	text-transform:uppercase;
+}
+.wpsl-address-sec span {
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	color:#666666;
+	line-height:24px;
+}
+.cc-storef-phnum {
+	display:block;
+	line-height:1;
+}
+.cc-storef-phnum strong {
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:18px;
+	color:#15489f;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+.cc-storef-phnum span.cc-cat-store-item-phone, .cc-storef-phnum span.cc-cat-store-item-fax {
+	display:inline-block;
+}
 .wpsl-locations-details span strong, .wpsl-location-address {
 	font-family:'proxima_nova_rgregular', sans-serif;
 	font-size:16px;
@@ -5129,7 +5155,7 @@ span.cc-locator-current a {
 	text-transform: uppercase;
 	width: 196px;
 	height: 45px;
-	margin-top: 2px;
+	margin-top: 17px;
 	margin-bottom: 20px;
 }
 .wpsl-address-sec a:hover {
@@ -5139,6 +5165,28 @@ span.cc-locator-current a {
 .cc-single-wpsl-ccstore {
 	line-height: 47px;
 }
+.wpsl-hour-sec .opeaning_list {
+	display:block;
+}
+.wpsl-hour-sec .opeaning_list span.opeaning_day_label {
+	width:25%;
+	font-family: 'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	color:#666666;
+	font-weight:normal;
+	line-height:24px;
+	display:inline-block;
+}
+.wpsl-hour-sec .opeaning_list time.opeaning_day_time {
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:14px;
+	color:#0099ff;
+	font-weight:normal;
+	line-height:24px;
+	margin-left:2px;
+	display:inline-block;
+}
+
 .cc-single-wpsl-ccstore span.cc-cat-store-item-phone strong, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax strong {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
 	font-size:18px;
@@ -5156,7 +5204,7 @@ span.cc-locator-current a {
 	text-decoration: none;
 }
 .cc-single-wpsl-ccstore span.cc-cat-store-item-phone a:hover {
-	color: #006;
+	color: #575758;
 	cursor: pointer;
 }
 .cc-single-wpsl-ccstore span.cc-cat-store-item-fax-abs {
@@ -5239,7 +5287,8 @@ span.cc-cat-store-item-phone {
 }
 .wpsl-single-right #wpsl-base-gmap_0 {
 	width: 100%;
-	height: 600px;
+	height: 622px;
+	margin-bottom:134px;
 }
 #wpsl-wrap {
 	margin: 0;
@@ -5938,7 +5987,7 @@ a.btn-employment:hover {
 .accessories_innner_wrap .cc-price-control {
 	margin-top: -9px;
 }
-.single.single-product .cc-price-control h3 span.cc-sale-price-title {
+.single.single-product .cc-price-control h3 span {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
 	font-size:30px;
 	font-weight:normal;
@@ -7544,6 +7593,7 @@ span.access_active_text {
 	font-size:24px;
 	color:#15489f;
 	margin:35px 0;
+	font-weight:normal;
 }
 .cc-condn-page .woocommerce .cc-checkout-title h3 {
 	margin-bottom:12px;
@@ -7558,6 +7608,7 @@ ul.cc-woocommerce-thankyou-order-details li {
 	font-size:16px;
 	color:#666666;
 	line-height:18px;
+	font-weight:normal;
 }
 .cc-condn-page .woocommerce .cc-checkout-od h3 {
 	margin:31px 0 10px 0;
@@ -7574,13 +7625,15 @@ ul.cc-woocommerce-thankyou-order-details li {
 	color:#666666;
 	text-transform:uppercase;
 	padding:5px 28px;
+	font-weight:normal;
 }
 .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td {
 	font-family:'proxima_nova_rgregular', sans-serif;
 	font-size:16px;
 	color:#666666;
-	padding:5px 28px;
+	padding:25px 28px 12px 28px;
 	line-height:1;
+<<<<<<< HEAD
 }
 
 .cateogry-carpets-main-cntr {
@@ -7621,4 +7674,44 @@ ul.cc-woocommerce-thankyou-order-details li {
 }
 .cc-carpet-subcat-list ul.guide_list_cbg li a, .cc-carpet-subcat-list ul.guide_list_cbg li .fa{
 	color: #fff;
+=======
+	border-top:0;
+	border-bottom:1px solid #e7edf8;
+	font-weight:normal;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td span {
+	display:block;
+	line-height:1;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td span.mobile {
+	display:none;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tfoot > tr > td {
+	border-top:0;
+	font-family:'proxima_nova_ltsemibold', sans-serif;
+	font-size:16px;
+	color:#666666;
+	text-transform:uppercase;
+	font-weight:normal;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tfoot > tr > td:last-child {
+	text-transform:none;
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	color:#666666;
+	font-weight:normal;
+	padding:10px 12px 0 12px;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tfoot > tr.mod-table-calc-res:last-child {
+	background-color:#e7edf8;
+}
+.cc-condn-page .woocommerce .cc-bil-ship-woo-wrap .cc-ship-adbill h3, .cc-condn-page .woocommerce .cc-bil-ship-woo-wrap .cc-bil-addr h3 {
+	margin:55px 0 15px 0;
+}
+.cc-condn-page .woocommerce .cc-bil-ship-woo-wrap address {
+	font-family:'proxima_nova_rgregular', sans-serif;
+	font-size:16px;
+	color:#666666;
+	margin-bottom:66px;
+>>>>>>> 89d89f52fe48e28050c9dfc51b5c0e02de3badfe
 }

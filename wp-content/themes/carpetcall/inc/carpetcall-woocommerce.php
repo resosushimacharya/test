@@ -905,7 +905,7 @@ function woo_custom_information_tab_content() {
 	$height= get_post_meta( $post->ID, '_height', TRUE );
 	$weight= get_post_meta( $post->ID, '_weight', TRUE );
 if(!empty($d1)){
-	echo '<p>'.$d1.'</p>';
+	echo '<p><span itemprop="description">'.$d1.'</span></p>';
 }
 if(!empty($d2)){
 	echo '<p>'.$d2.'</p>';
@@ -921,11 +921,23 @@ echo '<p>'.$d4.'</p>';
 		<?php if(!empty($yarn)){?>
 		<li><span>Yarn Type : </span><?php echo $yarn; ?></li><?php }?>
 		<?php if(!empty($length) && !empty($width) && !empty($height)) {?>
-		<li><span>Size : </span><?php echo $length.'cm x '.$width." ".$height;?> 
+		<li><span>Size : </span><span itemprop="length" itemscope itemtype="http://schema.org/QuantitativeValue">
+ <span itemprop="value"><?php echo $length?></span>cm
+ <meta itemprop="unitCode" content="CMT">
+</span>x<span itemprop="width" itemscope itemtype="http://schema.org/QuantitativeValue">
+ <span itemprop="value"><?php echo $width?></span>cm
+ <meta itemprop="unitCode" content="CMT">
+</span><span itemprop="height" itemscope itemtype="http://schema.org/QuantitativeValue">
+ <span itemprop="value"><?php echo $height?></span>cm
+ <meta itemprop="unitCode" content="CMT">
+</span>
 		</li>
 		<?php }?>
 		<?php if(!empty($weight)){?>
-		<li><span>Weight : </span><?php echo $weight." kg"; ?> </li>
+		<li><span>Weight : </span><span itemprop="weight" itemscope itemtype="http://schema.org/QuantitativeValue">
+ <span itemprop="value"><?php echo $weight?></span>kg
+ <meta itemprop="unitCode" content="CMT">
+</span></li>
 		<?php }?>
 		</ul>
 		<?php 
@@ -1031,15 +1043,15 @@ function sv_change_product_price_display( $price ) {
 	global $post;
 	$pro = get_post_meta($post->ID);
 	if (array_key_exists("_sale_price",$pro) && $pro['_sale_price'][0]!=''){
-		$prosale = '$'.number_format($pro['_sale_price'][0],2,'.','');
+		$prosale = '<span itemprop="priceCurrency" content="AUD">$</span><span class="cc-sale-price-title" itemprop="price" content="'.number_format($pro['_sale_price'][0],2,'.','').'">'.number_format($pro['_sale_price'][0],2,'.','').'</span>';
 		$price =  '<div class="cc-price-control">
-	<h3><span class="cc-sale-price-title">'.$prosale.'</span> <i>-</i> <span class="cc-line-through">$'.$pro['_regular_price'][0].'</span></h3></div>';
+	<h3>'.$prosale.'<i>-</i> <span class="cc-line-through">$'.$pro['_regular_price'][0].'</span></h3></div>';
 	}
 	else{
-		$prosale = $prosale = '$'.number_format($pro['_regular_price'][0],2,'.','');
+		$prosale = $prosale = '<span itemprop="priceCurrency" content="AUD">$</span>'.number_format($pro['_regular_price'][0],2,'.','');
 		$price =  '<div class="cc-price-control">
 
-	<h3><span class="cc-sale-price-title">'.$prosale.'</span> </h3></div>';
+	<h3>'.$prosale.'</h3></div>';
 	}
 
 	return $price;

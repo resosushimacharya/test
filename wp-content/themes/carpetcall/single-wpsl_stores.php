@@ -148,12 +148,12 @@ if(array_key_exists('wpsl_fax',$getinfo)){
        <a href="https://maps.google.com/maps?saddr=<?php echo $res;?>&daddr=<?php echo $url['wpsl_address'][0].' '.$url['wpsl_city'][0];?>" target="_blank">GET DIRECTIONS</a>
        </div>
        <div class="wpsl-phone-sec cc-single-wpsl-ccstore">
-       <?php if(array_key_exists('wpsl_phone',$getinfo)){ ?>
-       <strong>Phone: </strong><span class="cc-cat-store-item-phone" itemprop="telephone"><?php echo $phone ;?></span>
-       <?php } ?>
-       <?php if(array_key_exists('wpsl_fax',$getinfo)){?>
+       <div class="cc-storef-phnum"><?php if(array_key_exists('wpsl_phone',$getinfo)){ ?>
+       <strong>Phone:  </strong><span class="cc-cat-store-item-phone" itemprop="telephone"> <?php echo $phone ;?></span>
+       <?php } ?></div>
+       <div class="cc-storef-phnum"><?php if(array_key_exists('wpsl_fax',$getinfo)){?>
       <strong>Fax: </strong><span class="cc-cat-store-item-fax" itemprop="faxNumber"> <?php echo $fax ;?></span>  
-      <?php  } ?>
+      <?php  } ?></div>
      
 
        <div class="cc-str-cntblk cc-str-cntblk-a cc-str-cntblk-a-map clearfix">
