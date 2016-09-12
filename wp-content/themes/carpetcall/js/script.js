@@ -468,6 +468,22 @@ jQuery(document).on('change','.delivery_option_rugs #nearby_stores_main_wrapper 
       });
     }	
 
+    // Active Accessories Text
+    if($(".access_active_type_cntr").length){
+      var activeAccText  = $(".accessories_inner_tab_select").find("li.active a").text();
+      $('.access_tab_active span').text(activeAccText);
+
+      $(".access_tab_active").on("click", function(){
+        $(this).parent().find("ul.accessories_inner_tab_select").toggle();
+      });
+
+      $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        var activeAccText = $(e.target).text() // activated tab
+        $('.access_tab_active span').text(activeAccText);
+        $(this).parents("ul.accessories_inner_tab_select").hide();
+      });
+    }
+
 
       
 

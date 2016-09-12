@@ -129,6 +129,18 @@ if($reqTempTerms){
       <div class="cc-related-product-design-section">
         
       <h3>SELECT A DESIGN</h3>
+      <div class="select-design-wrapper">
+      <div class="mobile select-dropdown-wrap">
+          <div class="selected-product-img">
+            
+          </div>
+          <div class="selected-product-name">
+            <span></span>
+          </div>
+          <div class="select-product-droparrow">
+            
+          </div>
+        </div>
       <div class="cc-select-design-pro-all col-md-12">
       <?php
 	 // global $post;
@@ -204,7 +216,9 @@ if($reqTempTerms){
              
              
 		  <div class="select-design-product-image <?php echo  ($relprod->ID == $post->ID)?'pro-active':null?>"> 
-            <a href="<?php echo get_the_permalink($relprod->ID)?>" class="select_design"><span class="mobile"><?php echo $relprod->post_name;?></span><img class="cc-product_no_image" src="<?php echo $feat_image?>"> 
+            <a href="<?php echo get_the_permalink($relprod->ID)?>" class="select_design">
+            <img class="cc-product_no_image" src="<?php echo $feat_image?>"> 
+            <span class="selected-pro-name" style=""><?php echo $relprod->post_name;?></span>
             </a> 
         </div>
 		  <?php }
@@ -263,6 +277,7 @@ wp_reset_postdata();
                  
                  
                  </div>
+                 </div>
       </div>
       <?php $pro = get_post_meta($post->ID);
       global $post;
@@ -295,7 +310,7 @@ wp_reset_postdata();
          	<i><?php _e('Not sure how much you need?','carpetcall');?></i>
          <div class="cc-sq-mtr-calc-wrap">
 
-        <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModalcalc"><span class="fa fa-calc"></span><?php _e('SQUARE METER CALCULATOR','carpetcall')?></button>
+        <button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModalcalc"><span class="fa fa-calc"></span><span class="sq_mtr_text"><?php _e('SQUARE METER CALCULATOR','carpetcall')?></span></button>
        
     </div>
      <div class="cc-smc-underline"></div>     
@@ -314,7 +329,7 @@ wp_reset_postdata();
       	<button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal2">ENQUIRE NOW</button>
       </div>
       <div class="cc-product-ship-free-section col-md-12">
-      <div class="cc-product-ship col-md-6"><span>SHIPPING</span></div><div class="cc-product-free col-md-6"> Not available</div>
+      <div class="cc-product-ship col-md-6"><span>SHIPPING</span><i class="fa fa-info-circle mobile" aria-hidden="true"></i></div><div class="cc-product-free col-md-6"> Not available</div>
       </div>
       <div class="cc-product-pick-location-section col-md-12">
       <div class="cc-product-pick col-md-6">

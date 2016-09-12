@@ -34,10 +34,9 @@
       </div>
     </div>
     <div class="container">
-      <div class="tophead_sec col-md-12 no-lr clearfix">
-	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) {
-	?>
-      </div>
+      
+      <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) {
+        ?>
       
       <div class="cc-cat-pro-section-left col-md-3 no-lr">
         <?php //get_sidebar('pro-subcategory');?>
@@ -46,11 +45,11 @@
       
       <div class="col-md-9 cc-cat-pro-section-right">
         <div id="category_slider_block_wrapper">
-		<?php 
-		$term_id =  get_queried_object()->term_id;
-		$ret = load_more_carpet_blinds(array('cat_id'=>$term_id,'depth'=>$depth));
-		echo $ret['html'];
-		?>
+      		<?php 
+      		$term_id =  get_queried_object()->term_id;
+      		$ret = load_more_carpet_blinds(array('cat_id'=>$term_id,'depth'=>$depth));
+      		echo $ret['html'];
+      		?>
         </div>
         <div class="woo-added"></div>
       </div>

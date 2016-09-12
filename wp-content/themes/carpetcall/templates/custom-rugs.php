@@ -8,7 +8,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 get_header('shop');
+
 global $post;
+//wp_enqueue_script( 'prettyPhoto' );
+//wp_enqueue_script( 'prettyPhoto-init' );
+
 
 ?>
 
@@ -16,9 +20,11 @@ global $post;
   <div class="inerblock-sec-prod-a">
     <div class="container">
       <div class="col-md-12 no-pl">
+       
         <?php do_action( 'woocommerce_before_main_content' );?>
+        
       </div>
-      <span class="ab_arrow mobile"> <a href="<?php echo site_url().'/rugs'?>"> <i class="fa fa-angle-left" aria-hidden="true"></i><b>BACK</b> </a> </span> 
+      <span class="ab_arrow mobile"> <a href="<?php echo site_url().'/shop-our-range/rugs'?>"> <i class="fa fa-angle-left" aria-hidden="true"></i><b>BACK</b> </a> </span> 
       </div>
       
       
@@ -26,7 +32,7 @@ global $post;
   <div class="container">
     <div class="col-md-12">
       <?php
-	 do_action( 'woocommerce_before_single_product' );
+	 //do_action( 'woocommerce_before_single_product' );
 
 	
 ?>
@@ -48,7 +54,6 @@ global $post;
 		?>
 		<div class="main-image-wrapper">
                 <a href="<?php echo $feat_image_arr['url']?>" 
-                data-rel="prettyPhoto"
                 itemprop="image" 
                 class="woocommerce-main-image zoom" 
                 title="<?php echo get_the_title();?>">
@@ -323,6 +328,14 @@ global $post;
             <div class="clearfix"></div>
           </div>
         </div>
+        <div class="woocommerce-tabs wc-tabs-wrapper">
+  <ul class="tabs wc-tabs">
+    <li class="additional_information_tab active"> <a href="#tab-additional_information">DETAILS</a> </li>
+  </ul>
+  <div class="panel entry-content wc-tab" id="tab-additional_information" style="display: block;">
+	<?php echo apply_filters('the_content',get_the_content())?>
+  </div>
+</div>
         
         <meta itemprop="url" content="<?php the_permalink(); ?>" />
       </div>
@@ -331,6 +344,7 @@ global $post;
   </div>
  
   <?php do_action( 'woocommerce_after_single_product' ); ?>
+  
   <style>
   #cc-enquiry-type{display:none;}
   .success_message_wrapper{display:none;}
@@ -617,7 +631,13 @@ jQuery(document).ready(function(e) {
 		opacity: 0.8,
 		deeplinking: false
 	});
-
+	jQuery('.product_single_thumb_slider').slick({
+	  dots: true,
+	  infinite: true,
+	  speed: 300,
+	  slidesToShow: 1,
+	  adaptiveHeight: true
+	});
 });
 
 </script>

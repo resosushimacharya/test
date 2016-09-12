@@ -84,18 +84,51 @@ $backurl=site_url().'/find-a-store/'.strtolower($cat_name);
 <div class="col-md-5 wpsl-single-left">
 
 <div class="cc-info-store clearfix">
+<div itemscope itemtype="http://schema.org/LocalBusiness">
 <div class="wpsl-address-sec">
 <h4>ADDRESS</h4>
 
-	<?php echo do_shortcode('[wpsl_address id="'.$post->ID.'" name="true" address="true" address2="false" 
+<?php 
+$getinfo = get_post_meta($post->ID);
+$title = get_the_title();
+$address_full = explode(',',$getinfo['wpsl_address'][0]);
+$street = $address_full[1];
+$locality = $address_full[0];
+$city = $getinfo['wpsl_city'][0];
+$postcode = $getinfo['wpsl_zip'][0];
+$phone = $getinfo['wpsl_phone'][0];
+$fax = $getinfo['wpsl_fax'][0];
+
+
+
+?>
+
+    
+      	<h1><span itemprop="name"><?php echo get_the_title()?></span></h1>
+     	         <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        	        <span itemprop="streetAddress"><?php echo $street?></span><br>
+                      <span itemprop="addressLocality"><?php echo $locality?></span>,<span itemprop="addressRegion"><?php echo $city?></span><br>
+	   <span itemprop="postalCode">2750</span>
+     </div>
+
+
+
+
+
+	<?php
+	/*
+	 echo do_shortcode('[wpsl_address id="'.$post->ID.'" name="true" address="true" address2="false" 
        city="true" state="false" zip="true" country="false" phone="false" title="false"
        fax="false" email="false" url="true"]');
-       ?>
+       */
+	   ?>
+       
+       
        <?php $url = get_post_meta($post->ID);
        $val = "res";
             $res =  apply_filters('cc_current_location_filter',$val);
              global $post;
-      $getinfo = get_post_meta($post->ID);
+      
 $phone = ' -';
 $fax = '-';
 
@@ -116,24 +149,80 @@ if(array_key_exists('wpsl_fax',$getinfo)){
        </div>
        <div class="wpsl-phone-sec cc-single-wpsl-ccstore">
        <?php if(array_key_exists('wpsl_phone',$getinfo)){ ?>
-       <span class="cc-cat-store-item-phone"><strong>CALL</strong><?php echo $phone ;?></span>
+       <strong>Phone: </strong><span class="cc-cat-store-item-phone" itemprop="telephone"><?php echo $phone ;?></span>
        <?php } ?>
        <?php if(array_key_exists('wpsl_fax',$getinfo)){?>
-      <span class="cc-cat-store-item-fax"><strong>FAX</strong> <?php echo $fax ;?></span>  
+      <strong>Fax: </strong><span class="cc-cat-store-item-fax" itemprop="faxNumber"> <?php echo $fax ;?></span>  
       <?php  } ?>
      
 
-       <div class="cc-str-cntblk cc-str-cntblk-a cc-str-cntblk-a-map clearfix"><a href="<?php echo site_url();?>/contact-us/?id=<?php echo $post->ID;?>" class="cc-contact-link">CONTACT STORE</a></div>
+       <div class="cc-str-cntblk cc-str-cntblk-a cc-str-cntblk-a-map clearfix">
+       <a href="<?php echo site_url();?>/contact-us/?id=<?php echo $post->ID;?>" class="cc-contact-link">CONTACT STORE</a>
+       </div>
+       </div>
        </div>
        
 </div>
-<?php $resopen =do_shortcode('[wpsl_hours id="'.$post->ID.'" hide_closed="true"]') ;
-if($resopen!="") {?>
+
+<?php 
+?>
 <div class="wpsl-hour-sec clearfix">
        <span><strong>Opening Hours</strong></span>
-       	<?php echo  $resopen;?>
+       	
+        <?php $wpsl_store = new WPSL_Frontend();?>
+        <?php
+			$hours = $getinfo['wpsl_hours'][0];
+			
+			$hours = maybe_unserialize( $hours );
+			
+            $opening_days = wpsl_get_weekdays();
+            
+            // Make sure that we have actual opening hours, and not every day is empty.
+            if ( $wpsl_store->not_always_closed( $hours ) ) {
+                foreach ( $opening_days as $index => $day ) {
+                    $i          = 0;
+                    $hour_count = count( $hours[$index] );
+                    
+                    // If we need to hide days that are set to closed then skip them.
+                    if ( $hide_closed && !$hour_count ) {
+                        continue;
+                    }
+?>
+<div itemprop="openingHoursSpecification" itemtype="http://schema.org/OpeningHoursSpecification" class="opeaning_list">
+	<link itemprop="dayOfWeek" href="http://schema.org/Monday" /><span class="opeaning_day_label"><?php echo esc_html( $day )?></span>: 
+
+
+
+<?php
+                   
+
+                    // If we have opening hours we show them, otherwise just show 'Closed'.
+                    if ( $hour_count > 0 ) {
+                       
+
+                        while ( $i < $hour_count ) {
+                            $hour        = explode( ',', $hours[$index][$i] ); ?>
+                            
+							<time class="opeaning_day_time" itemprop="opens" content="<?php echo esc_html( $hour[0] )?>"> <?php echo esc_html( $hour[0] )?></time> - <time class="opeaning_day_time" itemprop="closes" content="<?php echo esc_html( $hour[1] )?>"><?php echo esc_html( $hour[1] ) ?></time>
+
+                          <?php  $i++;
+                        }
+
+                        echo '</div>';
+                    } else {
+                        echo 'closed';
+                    }
+
+                   
+                }
+            }
+        
+		?>
        </div>
-       <?php } ?>
+       <?php 
+
+
+?>
 
 </div>
 

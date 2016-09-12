@@ -1,4 +1,4 @@
-<div id="myModalcalc" class="modal fade" role="dialog">
+<div id="myModalcalc" class="modal fade smc_calc_cntr" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -32,7 +32,7 @@
         
          
         <div class="calculator_container" id="calculator_container">
-        <div class="row" id="row_cal_1">
+        <div class="row single-room-sec" id="row_cal_1">
             <div class="col-md-8 col-item-price">
                 <div class="cal_pro" id="cal_pro_1">
                     <div class="container_1">
@@ -44,7 +44,7 @@
                                 <input type="text" class="form-control width_check" id="width_1" placeholder=" Width (m)" name="width_1" required>
                             </div>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6 for-length">
                             <div class="col-md-6 no-lr">
                                 <label for="length_1"></label>
                             </div>
@@ -64,65 +64,67 @@
         </div>
  </div>
     
-<div class="row">
+<div class="row smc_calc_top_btns">
  <div class="form-group col-md-8 col-item-price">
                     <button type="button" class="btn btn-default" id="cal_more">+ Add Rooms</button>
                     <button type="submit" class="btn btn-default" id="cal_id" >Calculate</button>
                 </div><div class="form-group col-md-4 "></div> </div>
                 </form>
 
-    <div class="row"><div class="form-group col-md-8 col-item-price">
-        <p class="pull-right">Excess:</p>
+    <div class="row calc-info-cntr excess-cntr">
+      <div class="form-group col-md-8 col-item-price">
+          <p class="pull-right">Excess:</p>
+      </div>
+      <div class="col-md-2 col-total-item-section">
+          <div class="form-group col-md-4 no-lr cc-me">
+             
+               <span class="form-control col-result-input" id="exceess_area_percent"> </span>
+          </div>
+          <div class="form-group col-md-4 no-pl">
+          <span class="cc-cal-showup">%</span></div>
+      </div>
     </div>
-    <div class="col-md-2 col-total-item-section">
-        <div class="form-group col-md-4 no-lr cc-me">
-           
-             <span class="form-control col-result-input" id="exceess_area_percent"> </span>
+    <div class="row calc-info-cntr total-cntr">
+      <div class="form-group col-md-8 col-item-price">
+          <p class="pull-right">Total:</p>
+      </div>
+      <div class="col-md-2 col-total-item-section">
+          <div class="form-group col-md-4 no-lr cc-me">
+              
+              <span class="form-control col-result-input" id="total_area"> </span>
+          </div>
+          <div class="form-group col-md-4 no-pl">
+          <span class="cc-cal-showup">SQM</span></div>
+      </div>
+    </div>
+    <div class="row calc-info-cntr package-cntr">
+      <div class="form-group col-md-8 col-item-price">
+          <p class="pull-right">Total Packs Required:</p>
+      </div>
+      <div class="col-md-2 col-total-item-section">
+        <div class="form-group col-md-4 no-lr cc-me">              
+          <span class="form-control col-result-input" id="no_of_packs"> </span>
         </div>
-        <div class="form-group col-md-4 no-pl">
-            <span class="cc-cal-showup">%</span></div>
-    </div>
-    </div><div class="row">
-    <div class="form-group col-md-8 col-item-price">
-        <p class="pull-right">Total:</p>
-    </div>
-    <div class="col-md-2 col-total-item-section">
-        <div class="form-group col-md-4 no-lr cc-me">
-            
-            <span class="form-control col-result-input" id="total_area"> </span>
-        </div>
-        <div class="form-group col-md-4 no-pl">
-        <span class="cc-cal-showup">SQM</span></div>
-    </div>
-    </div><div class="row">
-    <div class="form-group col-md-8 col-item-price">
-        <p class="pull-right">Total Packs Required:</p>
-    </div>
-    <div class="col-md-2 col-total-item-section">
-        <div class="form-group col-md-4 no-lr cc-me">
-            
-            <span class="form-control col-result-input" id="no_of_packs"> </span>
-        </div>
-    </div>
+      </div>
     </div>
 
 
-<div class="clearfix"></div>
-<div class="row">
-  <div class="col-md-5 no-pr">
-    <button class="btn btn-default pull-right" type="button" id="cancel_calc"  >
-       Cancel
+    <div class="clearfix"></div>
+    <div class="row calc-bottom-btn-cntr">
+      <div class="col-md-5 no-pr">
+        <button class="btn btn-default pull-right" type="button" id="cancel_calc"  >
+           Cancel
         </button>
-  </div>
-  <div class="col-md-6 no-pl">
-    <button class="btn btn-default" type="button" id="confirm_calc" >
-      Confirm
+      </div>
+      <div class="col-md-6 no-pl">
+        <button class="btn btn-default" type="button" id="confirm_calc" >
+          Confirm
         </button>
-  </div>
-</div>
-<div class="row">
-    <div class="col-sm-12 " id="error_max_msg"></div>
-</div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 " id="error_max_msg"></div>
+    </div>
             
             
       </div>
