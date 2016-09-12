@@ -46,7 +46,7 @@ global $post;
 		//do_action( 'woocommerce_before_single_product_summary' )
 		?>
         <div class="images">
-<h4 class="cc-category-show"><?php the_title()?></h4>
+<h1 class="cc-category-show"><span itemprop="name"><?php the_title()?></span></h1>
     <?php
 	$images = get_field('gallery_images',get_the_ID());
 	if($images){
@@ -58,6 +58,7 @@ global $post;
                 class="woocommerce-main-image zoom" 
                 title="<?php echo get_the_title();?>">
                 <img 
+                itemprop="image" 
                 src="<?php echo $feat_image_arr['url']?>" 
                 class="attachment-full size-full wp-post-image" alt="<?php echo strtoupper( get_the_title() )?>" 
                 title="<?php echo strtoupper( get_the_title() )?>" 
