@@ -2512,7 +2512,7 @@ ul.guide_list_cfaq li a {
 	text-decoration: none;
 	text-transform: uppercase;
 }
-.cc-price-control .cc-line-through {
+.single.single-product .cc-price-control h3 span.cc-line-through {
 	font-family:'proxima_nova_rgregular', sans-serif;
 	font-size:14px;
 	font-weight:normal;
@@ -5106,10 +5106,9 @@ span.cc-locator-current a {
 	margin: 5px 0 2px 0;
 }
 .wpsl-address-sec h1 span {
-	font-family:'proxima_nova_ltsemibold', sans-serif;
-	font-size:22px;
-	font-weight:normal;
-	color:#15489f;
+	font-family: 'proxima_nova_rgregular', sans-serif;
+    font-size: 16px;
+    color: #666666;
 	text-transform:uppercase;
 }
 .wpsl-address-sec span {
@@ -5988,7 +5987,7 @@ a.btn-employment:hover {
 .accessories_innner_wrap .cc-price-control {
 	margin-top: -9px;
 }
-.single.single-product .cc-price-control h3 span.cc-sale-price-title {
+.single.single-product .cc-price-control h3 span {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
 	font-size:30px;
 	font-weight:normal;
