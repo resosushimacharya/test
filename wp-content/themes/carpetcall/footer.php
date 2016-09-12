@@ -128,7 +128,7 @@
                 </h3>
                 <h4 class="bcwfsp"><?php echo get_field('footer_contact_title_label',89);?> </h4>
 
-                <div class="againlt">
+                <div class="againlt footer-menu-none">
                     <ul>
 
                         <?php $booklink=get_field('contactlink',89);?>
