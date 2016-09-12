@@ -2388,6 +2388,18 @@
 	    width: 50%;
 	    display: inline-block;
 	    padding: 0 10px;
+	    vertical-align: top;
+	    margin-bottom: 65px;
+	}
+	.single-produc-acc-cntr .panel .panel-collapse h3.acc_title_n_cat span.acc_title{
+		display: block;
+		line-height: 1;
+	}
+	.single-produc-acc-cntr .panel .panel-collapse h3.acc_title_n_cat span.acc_title a {
+	    font-size: 28px;
+	    color: #15489f;
+	    text-transform: uppercase;
+	    font-family: 'proxima_nova_ltsemibold';
 	}
 	.tab-accessories-first {
 	    font-size: 0;
@@ -2395,6 +2407,50 @@
 	}
 	.acc_list_item.col-md-3.underlay .accessories_innner_wrap{
 		padding: 0;
+	}
+	.single-produc-acc-cntr .panel .panel-collapse h3.acc_title_n_cat {
+	    padding: 0 15px;
+	    margin-bottom: 0;
+	    margin-top: 17px;
+	}
+	.single-produc-acc-cntr .panel .panel-collapse h3.acc_title_n_cat span.acc_subcat {
+	    display: block;
+	    white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    color: #087bda;
+	    line-height: 1;
+	}
+	.single-produc-acc-cntr .panel .panel-collapse h3.acc_title_n_cat span.acc_subcat a{
+		font-size: 24px;
+	    text-transform: uppercase;
+	    color: #087bda;
+	}
+	.accessories_innner_wrap span.acc_price.small_price .cc-price-control h3 span.cc-sale-price-title, .acc_price.small_price .cc-price-control .cc-line-through {
+	    font-size: 24px;
+	}
+	.acc_qnty .rec_qty_wrap {
+	    padding-left: 15px;
+	    margin: 0;
+	}
+	.acc_qnty .quantity.col-md-12 {
+	    padding: 0;
+	    float: right;
+	    margin-right: 15px;
+	}
+	.acc_qnty span.acc_qty_lbl, .acc_qnty span.acc_rec_qty {
+	    font-size: 24px;
+	}
+	.access-add-to-cart-btn {
+	    padding: 0 15px;
+	}
+	.single.single-product a.button.product_type_simple.col-md-12.acc_add_to_cart {
+	    height: 60px;	 
+	    text-align: center;
+	    font-size: 24px;
+	    padding: 0 !important;
+	    line-height: 60px;
+	    margin-bottom: 0;
 	}
 	/* HARDFLOORING PRODUCT End */	
 	/* === SINGLE PRODUCT PAGE End === */
@@ -4001,7 +4057,7 @@
 		font-size: 18px;
 		margin-left: 10px;
 	}
-	.summary.entry-summary h3.online_price_subhead, .summary.entry-summary .cc-related-product-design-section h3, .cc-size-quantity-section .cc-size-section h3, .cc-size-quantity-section .cc-quantiy-section h3{
+	.summary.entry-summary h3.online_price_subhead, .summary.entry-summary .cc-related-product-design-section h3, .cc-size-quantity-section .cc-size-section h3, .cc-size-quantity-section .cc-quantiy-section h3, .summary.entry-summary h3{
 		font-size: 24px;
 	}
 	.summary.entry-summary .product_title.entry-title{
@@ -4056,17 +4112,18 @@
 	.cc-product-location{		
 		width: 70%;
 		text-align: right;
+		background: transparent;
 	}
 	.cc-product-pick .btn{
-		font-size: 20px;
+		font-size: 18px;
 		padding: 0;
-	    line-height: 60px;
+	    line-height: 51px;
 	}
 	.cc-product-location .btn-default {
 	    height: 50px;
 	    line-height: 50px;
 	    font-size: 18px;
-	    padding: 0 20px;
+	    padding: 0 15px;
 	}	
 	/* Product Summary End */
 	/* Product Select a Design */
@@ -4158,12 +4215,12 @@
 		font-size: 24px;
 	}	
 	.frm-blk .input-group .form-control, .flsm-blk .form-group.col-sm-6 .form-control, .meroi-blka .form-group.col-sm-12 .form-control, .tela-blkb .form-group.col-sm-6 .form-control {	    
-	    height: 60px;
+	    height: 50px;
 	    padding: 10px 15px;
-	    font-size: 18px;
+	    font-size: 16px;
 	}
 	.flsm-blk .form-group.col-sm-6 .form-control, .meroi-blka .form-group.col-sm-12 .form-control, .tela-blkb .form-group.col-sm-6 .form-control{
-		height: 60px;
+		height: 50px;
 	}
 	.frm-blk .input-group .input-group-btn {
 	    width: 15%;
@@ -4252,10 +4309,186 @@
 	    background-size: 50px;
 	    width: 100%;
 	    height: 50px;
-	    font-size: 18px;
+	    font-size: 16px;
 	    padding: 10px 15px;
 	}
 	/* Product Pickup Locations Popup End */
+
+	/* HARDFLOORING PRODUCT */
+	.single.single-product .cc-price-control h3 span.low{
+		font-size: 24px;
+	}
+	.summary.entry-summary h3.price_per_pack_subhead {
+	    font-size: 22px;
+	    padding-left: 0;
+	}
+	.cc-size-quantity-section .cc-quantiy-section .total_coverage h3{
+		margin-top: 15px;
+	}
+	.cc-size-quantity-section .sq_mtr_calc_wrap {
+	    padding-left: 0;	    
+	}
+	.cc-sq-mtr-calc-wrap button.btn.btn-default.col-md-12, .cc-size-quantity-section .sq_mtr_calc_wrap i,  .cc-sq-mtr-calc-wrap button span.fa.fa-calc::before, .single.single-product .recommended_acc_static span{
+	    font-size: 20px;
+	}
+	.sq_mtr_text::after{
+		bottom: 3px;
+	}
+	.single.single-product .hf_product_details table > tbody > tr.odd > td, .single.single-product .hf_product_details table > tbody > tr.even > td {
+	    font-size: 18px;
+	    padding: 10px;
+	}
+	.single.single-product .recommended_acc_static img {
+	    margin: 20px 0 15px 20px;
+	}
+	.single.single-product .recommended_acc_static span.cc-rec-acc-underlay {
+	    font-size: 18px !important;
+	    padding-left: 25px;
+	}
+	.cc-smc-blk-title h3{
+		font-size: 32px !important;
+	}
+	.smc_calc_cntr .modal-body{
+		padding: 0 20px;
+	}
+	.cal_pro .container_1 .col-md-6.no-lr .form-control {
+	    height: 50px;
+	    font-size: 16px;
+	    padding: 10px 15px;
+	}
+	.cal_pro .container_1 .col-md-6.no-lr .form-control::-webkit-input-placeholder{
+		font-size: 16px;
+	}
+	.cal_pro .container_1 .col-md-6 label {
+	    font-size: 24px;
+	    margin-bottom: 10px;
+	}
+	.smc_calc_cntr .single-room-sec {
+	    padding-bottom: 10px;
+	    margin-bottom: 40px;
+	}
+	.smc_calc_cntr .single-room-sec .item_indivisual_total{
+	    font-size: 24px;
+	}
+	.cc-quantiy-section .cc-sq-mtr-calc-wrap {
+	    margin-top: 10px;
+	    margin-bottom: 30px;
+	}
+	.single.single-product button#cal_more, .single.single-product button#cal_id{
+		height: 50px;
+		font-size: 18px;
+	}
+	.calc-info-cntr .col-item-price {
+	    width: 50%;
+	}
+	.single.single-product p.pull-right{
+		font-size: 24px;
+	}
+	.calc-info-cntr .col-total-item-section {
+	    width: 50%;
+	    padding-left:20px;
+	}
+	span#exceess_area_percent, span#total_area, span#no_of_packs, .single.single-product span.cc-cal-showup {
+	    font-size: 24px;
+	    margin-right: 15px;
+	}
+	.smc_calc_cntr .calc-info-cntr {
+	    margin-bottom: 30px;
+	}
+	.smc_calc_cntr .smc_calc_top_btns {	    
+	    margin-bottom: 25px;
+	}
+	.smc_calc_cntr .calc-bottom-btn-cntr{
+		margin-top: 35px;
+	}
+	.single.single-product button#cancel_calc, .single.single-product button#confirm_calc {
+	    height: 60px;
+	    font-size: 18px;
+	}
+	.single.single-product button#cancel_calc{
+		margin-bottom: 20px;
+	}
+	.smc_calc_cntr .modal-content {
+	    padding-bottom: 50px;
+	}
+	.single.single-product .recommended_acc_static {
+	    margin: 30px 0px 50px;
+	}
+	/* Hard Flooring Mobile tab inside accordion */
+	.accessories_select_mobile_cntr{
+		padding: 0 20px;
+	}
+	.access_active_type_cntr {    
+	    margin-bottom: 30px;
+	}
+	.access_tab_active{
+		height: 50px;
+	    padding: 0 50px 0 15px;
+	    padding-left: 15px;
+	    font-size: 18px;
+	    line-height: 50px;
+	    background-size: 50px;
+	}
+	.accessories_inner_tab_select li a{
+	    font-size: 18px;
+	    line-height: 30px;
+	}
+	.acc_list_item.col-md-3.underlay {
+	    width: 100%;
+	    padding: 0;
+	    margin-bottom: 40px;
+	}
+	.single-produc-acc-cntr .panel .panel-collapse h3.acc_title_n_cat span.acc_title{
+		display: block;
+		line-height: 1;
+	}
+	.single-produc-acc-cntr .panel .panel-collapse h3.acc_title_n_cat span.acc_title a {
+	    font-size: 22px;
+	}
+	.tab-accessories-first {
+	    margin: 0;
+	}
+	.acc_list_item.col-md-3.underlay .accessories_innner_wrap{
+		padding: 0;
+	}
+	.single-produc-acc-cntr .panel .panel-collapse h3.acc_title_n_cat {
+	    padding: 0 15px;
+	    margin-bottom: 0;
+	    margin-top: 17px;
+	}
+	.single-produc-acc-cntr .panel .panel-collapse h3.acc_title_n_cat span.acc_subcat a{
+		font-size: 18px;
+	}
+	.accessories_innner_wrap span.acc_price.small_price .cc-price-control h3 span.cc-sale-price-title, .acc_price.small_price .cc-price-control .cc-line-through {
+	    font-size: 18px;
+	}
+	.acc_qnty .rec_qty_wrap {
+	    padding-left: 15px;
+	    margin: 0;
+	}
+	.acc_qnty .quantity.col-md-12 {
+	    padding: 0;
+	    float: right;
+	    margin-right: 15px;
+	}
+	.acc_qnty span.acc_qty_lbl, .acc_qnty span.acc_rec_qty {
+	    font-size: 18px;
+	}
+	.access-add-to-cart-btn {
+	    padding: 0 15px;
+	}
+	span.acc_price.small_price {
+	    margin-top: 20px;
+	    display: block;
+	    padding-left: 15px;
+	}
+	.single.single-product a.button.product_type_simple.col-md-12.acc_add_to_cart {
+	    height: 45px;	 
+	    font-size: 18px;
+	    padding: 0 !important;
+	    line-height: 45px;
+	}
+	/* HARDFLOORING PRODUCT End */	
 	/* === SINGLE PRODUCT PAGE End === */
 
 	/* === STORE FINDER LANDING PAGE === */
