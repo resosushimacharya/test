@@ -1,8 +1,11 @@
+
+<?php
+/* * Template Name: email */ ?>
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>CC-email</title>
+<title>THANK YOU FOR YOUR ORDER</title>
 </head>
 
 <body>
@@ -10,7 +13,7 @@
     
     		<div style="clear:both; background-color:#144a9f; height:35px; padding:17px 29px;">
             
-            	<div style="float:left; margin-left:12px;" > <img src="images/logo-mail.png" width="171" height="35" alt="logo"/></div><!-- logo end -->
+            	<div style="float:left; margin-left:12px;" ><a href="<?php echo site_url();?>" ><img src="<?php echo get_template_directory_uri();?>/images/logo-mail.png" width="171" height="35" alt="logo"/></a></div><!-- logo end -->
                 
                 <div style="float:right; width:179px;">
                 <div style="font-family:'proxima_nova_ltsemibold', sans-serif; font-size:20px; color:#FFF;  line-height:1; clear:both;">CALL 1300 502 427 </div>
@@ -128,7 +131,7 @@ OUR FLOORING SPECIALISTS </p>
             </div><!-- main content end -->
             
              <div style="background-color:#144a9f; width:527px; padding:18px 49px 26px 22px; clear:both;">
-            	<div style="margin-bottom:25px; clear:both;"><img src="images/logo-mail.png" width="171" height="35" alt="logo"/></div><!-- footer logo end -->
+            	<div style="margin-bottom:25px; clear:both;"><a href="<?php echo site_url();?>"><img src="<?php echo get_template_directory_uri();?>/images/logo-mail.png" width="171" height="35" alt="logo"/></a></div><!-- footer logo end -->
                 
                 <div style="display:block; margin-bottom:24px;">
                 	<ul style="margin:0; padding:0;">
@@ -144,11 +147,11 @@ OUR FLOORING SPECIALISTS </p>
                 <div style="clear:both; display:block;">
                 	<ul style="margin:0; padding:0; display:block;">
                     <li style="display:inline-block; font-family:'proxima_nova_rgregular', sans-serif; font-size:6.88px; font-weight:bold; color:#FFF; line-height:9px; text-transform:uppercase;"> Get to know us </li>
-                    <li style="display:inline-block; padding-left:10px;"><a href="#" style="text-decoration:none;"><img src="images/facebook.png" width="9" height="9" alt="facebook"/></a></li>
-                    <li style="display:inline-block; padding-left:10px;"><a href="#" style="text-decoration:none;"><img src="images/youtube.png" width="11" height="8" alt="youtube"/></a></li>
-                    <li style="display:inline-block; padding-left:10px;"><a href="#" style="text-decoration:none;"><img src="images/pinterest.png" width="9" height="9" alt="pinterest"/></a></li>
-                    <li style="display:inline-block; padding-left:10px;"><a href="#" style="text-decoration:none;"><img src="images/google-plus.png" width="13" height="9" alt="google-plus"/></a></li>
-                    <li style="display:inline-block; padding-left:10px;"><a href="#" style="text-decoration:none;"><img src="images/instagram.png" width="10" height="9" alt="instagram"/></a></li>
+                    <li style="display:inline-block; padding-left:10px;"><a href="http://www.facebook.com/carpetcallau" style="text-decoration:none;"><img src="<?php echo get_template_directory_uri();?>/images/facebook.png" width="9" height="9" alt="facebook"/></a></li>
+                    <li style="display:inline-block; padding-left:10px;"><a href="http://www.youtube.com/user/carpetcallau?sub_confirmation=1" style="text-decoration:none;"><img src="<?php echo get_template_directory_uri();?>/images/youtube.png" width="11" height="8" alt="youtube"/></a></li>
+                    <li style="display:inline-block; padding-left:10px;"><a href="http://www.pinterest.com/carpetcall" style="text-decoration:none;"><img src="<?php echo get_template_directory_uri();?>/images/pinterest.png" width="9" height="9" alt="pinterest"/></a></li>
+                    <li style="display:inline-block; padding-left:10px;"><a href="https://plus.google.com/108290827729290320654" style="text-decoration:none;"><img src="<?php echo get_template_directory_uri();?>/images/google-plus.png" width="13" height="9" alt="google-plus"/></a></li>
+                    <li style="display:inline-block; padding-left:10px;"><a href="https://www.instagram.com/carpetcallau/" style="text-decoration:none;"><img src="<?php echo get_template_directory_uri();?>/images/instagram.png" width="10" height="9" alt="instagram"/></a></li>
                     </ul>
                 </div><!-- social media end -->
                 
