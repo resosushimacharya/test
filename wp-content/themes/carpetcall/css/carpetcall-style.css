@@ -7633,7 +7633,6 @@ ul.cc-woocommerce-thankyou-order-details li {
 	color:#666666;
 	padding:25px 28px 12px 28px;
 	line-height:1;
-<<<<<<< HEAD
 }
 
 .cateogry-carpets-main-cntr {
@@ -7674,7 +7673,6 @@ ul.cc-woocommerce-thankyou-order-details li {
 }
 .cc-carpet-subcat-list ul.guide_list_cbg li a, .cc-carpet-subcat-list ul.guide_list_cbg li .fa{
 	color: #fff;
-=======
 	border-top:0;
 	border-bottom:1px solid #e7edf8;
 	font-weight:normal;
@@ -7713,5 +7711,7 @@ ul.cc-woocommerce-thankyou-order-details li {
 	font-size:16px;
 	color:#666666;
 	margin-bottom:66px;
->>>>>>> 89d89f52fe48e28050c9dfc51b5c0e02de3badfe
+}
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn{
+	cursor: default;
 }
