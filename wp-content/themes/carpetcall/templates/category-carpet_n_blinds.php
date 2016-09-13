@@ -47,9 +47,12 @@
       <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) {
         ?>
 
-        <div class="mobile carpets-cat-dropdown">
-          <?php get_sidebar('carpet_blinds');?>
-        </div>
+      <div class="tophead_sec col-md-12 no-lr clearfix">
+
+	<div class="mobile carpets-cat-dropdown">        
+       <?php //get_sidebar('carpet_blinds');?>
+      </div>
+        
       
       <div class="cc-cat-pro-section-left col-md-3 no-lr">        
         <?php get_sidebar('carpet_blinds');?>

@@ -530,7 +530,7 @@ function woo_new_product_tab_accesories() {
                                     <?php 
                                     if($acc_cat->slug == 'underlay'){
                                     $tpm_ratio = get_field('tpm_ratio',get_the_ID())?get_field('tpm_ratio',get_the_ID()):1;	
-                                    $rec_qty = ceil(get_field('size_m2',$current_loaded_product->id)/(get_field('tpm_ratio',get_the_ID())?get_field('tpm_ratio',get_the_ID()):1));
+                                    $rec_qty = round(get_field('size_m2',$current_loaded_product->id)/(get_field('tpm_ratio',get_the_ID())?get_field('tpm_ratio',get_the_ID()):1));
                                     
                                     }else{
                                         $rec_qty='';}?>
@@ -1051,12 +1051,12 @@ function sv_change_product_price_display( $price ) {
 	global $post;
 	$pro = get_post_meta($post->ID);
 	if (array_key_exists("_sale_price",$pro) && $pro['_sale_price'][0]!=''){
-		$prosale = '<span itemprop="priceCurrency" content="AUD">$</span><span class="cc-sale-price-title" itemprop="price" content="'.number_format($pro['_sale_price'][0],2,'.','').'">'.number_format($pro['_sale_price'][0],2,'.','').'</span>';
+		$prosale = '<span itemprop="priceCurrency" content="AUD">$</span><span class="cc-sale-price-title" itemprop="price" content="'.number_format(round($pro['_sale_price'][0]),2,'.','').'">'.number_format(round($pro['_sale_price'][0]),2,'.','').'</span>';
 		$price =  '<div class="cc-price-control">
-	<h3>'.$prosale.'<i>-</i> <span class="cc-line-through">$'.$pro['_regular_price'][0].'</span></h3></div>';
+	<h3>'.$prosale.'<i>-</i> <span class="cc-line-through">$'.number_format(round($pro['_regular_price'][0]),2,'.','').'</span></h3></div>';
 	}
 	else{
-		$prosale = $prosale = '<span itemprop="priceCurrency" content="AUD">$</span>'.number_format($pro['_regular_price'][0],2,'.','');
+		$prosale = $prosale = '<span itemprop="priceCurrency" content="AUD">$</span>'.number_format(round($pro['_regular_price'][0]),2,'.','');
 		$price =  '<div class="cc-price-control">
 
 	<h3>'.$prosale.'</h3></div>';

@@ -173,6 +173,8 @@ if(array_key_exists('wpsl_fax',$getinfo)){
         <?php
 			$hours = $getinfo['wpsl_hours'][0];
 			
+			$hide_closed = apply_filters( 'wpsl_hide_closed_hours', false );
+			
 			$hours = maybe_unserialize( $hours );
 			
             $opening_days = wpsl_get_weekdays();
