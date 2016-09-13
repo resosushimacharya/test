@@ -7711,7 +7711,12 @@ ul.cc-woocommerce-thankyou-order-details li {
 	font-size:16px;
 	color:#666666;
 	margin-bottom:66px;
+
 }
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn{
 	cursor: default;
+
+}
+.cc-checkout-woerrors .woocommerce-error a.button.wc-forward {
+	display: none;
 }
