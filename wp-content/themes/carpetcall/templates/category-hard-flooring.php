@@ -12,7 +12,7 @@
 	?>
 <div class="contaniner clearfix category-hard-flooring">
   <div class="inerblock_seC_mrugss">
-    <div class="container-fluid mmrugm">
+    <div class="container-fluid mmrugm <?php echo ($depth==0)?'main_cat_head':'sub_cat_head' ?>">
     <?php
 	$url = '';
 	$cat_thumb_id = get_woocommerce_term_meta($current_cat->term_id, 'thumbnail_id', true);
@@ -84,7 +84,14 @@ $currentcat = get_queried_object();
 	$ret = loadmore_hf($args);
 	 ?>
              <div class="rugm-blk col-md-6 no-pl">
+<<<<<<< HEAD
           <p> <?php /*?><span class="cc-cat-title-count"> <span class="post_count"><?php echo $ret['found_prod'];// $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products </span><?php */?> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
+=======
+          <p> <span class="cc-cat-title-count"> <span class="post_count"><?php echo $ret['found_prod'];// $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
+           <span class="open-product-sidebar">
+            +
+          </span>
+>>>>>>> c818791b7b1bfd9fb316b8a3bbee2c16b29673be
         </div>
         <div class="col-md-6 no-pr clearfix cat-sort-by-cntr">
           <div class="cc-product-sort">
@@ -99,9 +106,26 @@ $currentcat = get_queried_object();
         </div>
       </div>
       
-      <div class="cc-cat-pro-section-left col-md-3 no-lr">
+      <div class="cc-cat-pro-section-left col-md-3 no-lr" id="product-side-filter">
+      <div class="filter-top-mobile">
+          <div class="filter-go-back">
+            <div class="go-back-text">
+              <span class="fa fa-angle-left"></span>
+              <span class="back-text">Back</span>
+            </div>
+          </div>
+          <div class="mobile-filter-sec">
+            <div class="filter-back-btn">
+              <span class="cc-cat-title-count"> <span class="post_count"><?php echo $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span>
+            </div>
+          </div>
+        </div>
         <?php //get_sidebar('pro-subcategory');?>
         <?php get_sidebar('hard-flooring');?>
+
+        <div class="mobile-apply-btn">
+          <a href="#">Apply</a>
+        </div>
       </div>
       
       <div class="col-md-9 cc-cat-pro-section-right">

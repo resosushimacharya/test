@@ -13,6 +13,7 @@ if(!is_last_cat($term_id)){?>
 	//$prosubcats=get_terms(array('child'=>$term_id,'taxonomy'=>'product_cat'));
 	?>
     
+
     <ul class="cc-pro-sub-cat-ul guide_list_cbg">
     
     <h3>Categories</h3>

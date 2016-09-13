@@ -1,5 +1,7 @@
 <div class="product_single_container">
+
 <?php
+
 /**
  * The template for displaying product content in the single-product.php template
  *
@@ -458,7 +460,9 @@ if($reqTempTerms){
 		 * @hooked woocommerce_output_related_products - 20
 		 */
 		remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products',20);
-		do_action( 'woocommerce_after_single_product_summary' );
+    if(!wp_is_mobile()){
+  		do_action( 'woocommerce_after_single_product_summary' );
+    }
 		add_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products',20);
 
 		//woocommerce_output_product_data_tabs();
@@ -466,7 +470,11 @@ if($reqTempTerms){
 		// as per design , this section appears in [] page
 		
 	?>
-
+  <?php
+    if(wp_is_mobile()){ 
+      get_template_part('templates/contents/content','tab-woocommerce-carpet');
+    }
+  ?>
 	<meta itemprop="url" content="<?php the_permalink(); ?>" />
 
 </div><!-- #product-<?php the_ID(); ?> -->

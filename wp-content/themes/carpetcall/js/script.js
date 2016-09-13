@@ -333,7 +333,8 @@
     // Close accordion of Sidebar in Mobile
     if($('#accordion-color').length){
       if($(window).innerWidth()<=800){
-        $('#accordion-color').find('.panel-collapse').removeClass('in');
+        $('#accordion-color').find('.panel-collapse.in').removeClass('in');
+        $('#accordion-price').find('.panel-collapse.in').removeClass('in');
       }
     }
 
@@ -481,6 +482,13 @@ jQuery(document).on('change','.delivery_option_rugs #nearby_stores_main_wrapper 
         var activeAccText = $(e.target).text() // activated tab
         $('.access_tab_active span').text(activeAccText);
         $(this).parents("ul.accessories_inner_tab_select").hide();
+      });
+    }
+
+    // Carpets Mobile dropdown
+    if($(".cc-carpet-subcat-list").length){
+      $(".cc-carpet-subcat-list").on("click", function(){
+        $(this).find("ul.guide_list_cbg").toggle();
       });
     }
 

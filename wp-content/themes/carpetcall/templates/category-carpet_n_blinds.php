@@ -5,9 +5,9 @@
 	$ancestors = get_ancestors( $current_cat->term_id, 'product_cat' );
 	$depth = count($ancestors) ; 
 	?>
-<div class="contaniner clearfix category-hard-flooring">
+<div class="contaniner clearfix category-hard-flooring cat-main-carpets">
   <div class="inerblock_seC_mrugss">
-    <div class="container-fluid mmrugm">
+    <div class="container-fluid mmrugm sub_cat_head">
      <div class="cc-rugsall-catgr clearfix">
       <div class="container">
       
@@ -24,7 +24,16 @@
           <?php if($depth > 0){
           //var_dump($depth);
               $cat_parent = get_term_by('id',$current_cat->parent,'product_cat');
-             } ?>
+             ?>
+            
+            <span class="ab_arrow">
+            <a href="<?php echo get_term_link($cat_parent->term_id,'product_cat')?>">
+              <i class="fa fa-angle-left" aria-hidden="true"></i>            
+              <b><?php echo ($depth ==1)?'All '. $cat_parent->name:'Back' ?></b>
+            </a>
+          </span>
+
+          <?php } ?>
           <?php echo single_cat_title('',false).' '.$appafter;?>
           <?php 
 
@@ -33,14 +42,19 @@
       </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container cateogry-carpets-main-cntr">
       
       <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) {
         ?>
+
       <div class="tophead_sec col-md-12 no-lr clearfix">
+
+	<div class="mobile carpets-cat-dropdown">        
+       <?php //get_sidebar('carpet_blinds');?>
       </div>
-      <div class="cc-cat-pro-section-left col-md-3 no-lr">
-        <?php //get_sidebar('pro-subcategory');?>
+        
+      
+      <div class="cc-cat-pro-section-left col-md-3 no-lr">        
         <?php get_sidebar('carpet_blinds');?>
       </div>
       
