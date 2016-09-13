@@ -5,10 +5,18 @@ $tax = 'product_cat';
 
 					 $args=array(
 					'post_type' => 'product',
-					
 					'post_status' => 'publish',
 					'posts_per_page' => -1,
-					'ignore_sticky_posts'=> 1
+					'ignore_sticky_posts'=> 1,
+					'tax_query' 	=>array(
+										array(
+											'taxonomy'=>'product_cat',
+											'field'	=>'slug',
+											'terms'		=>array('rugs','hard-flooring','carpets'),
+											'include_children'=>true,
+											'operator'	=>'IN'
+										)
+									)
 					);
 					//echo $tax_term->slug;
 					$my_query = null;

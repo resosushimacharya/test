@@ -847,6 +847,12 @@ wrapper close start */?>
 							'meta_key'		=>'_regular_price',
 							'order_by'		=>'meta_value_num',
 							'order'			=>'ASC',
+							'meta_query'=>array(
+										array(
+											'key'	=>'_stock_status',
+											'value'	=>'instock',
+										),
+									),
 							'tax_query'	=>array(
 										array(
 											'taxonomy' => 'product_cat',

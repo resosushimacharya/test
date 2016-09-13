@@ -21,6 +21,22 @@ $(function () {
  
 });
 jQuery(document).ready(function($){
+
+/*====================Disable search icon click if input is empty starts========================*/
+jQuery(document).find('.cc_search_button').each(function(index, element) {
+    jQuery(this).attr('disabled','disabled');
+});
+jQuery(document).on('keyup','input[name=s]',function(){
+	var value = jQuery(this).val();
+	if('' ==  value){
+		jQuery(this).next('.input-group-btn').find('.cc_search_button').attr('disabled','disabled');
+		}else{
+			jQuery(this).next('.input-group-btn').find('.cc_search_button').removeAttr('disabled');
+			}
+	});
+
+/*====================Disable search icon click if input is empty ends========================*/
+
 // ========== Prevent page reload when user click enter key in pickup location popup starts========//
 $('#pickup_location_form').on('keyup keypress', function(e) {
   var keyCode = e.keyCode || e.which;
@@ -32,6 +48,7 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
 });
 // ========== Prevent page reload when user click enter key in pickup location popup ends=============//
 	  
+/*===================Fields Validation for checkout page starts =============*/
 
 	jQuery(document).on('focusout','#billing_postcode, #shipping_postcode',function(){
 	var postcode = jQuery(this).val();
@@ -101,6 +118,8 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
 		var selected = jQuery(this).val();
 		
 		});
+		
+/*===================Fields Validation for checkout page ends=============*/
 	
 /*jQuery(document).on('focusout','#billing_phone:visible, #shipping_phone:visible',function(){
 	var phoneNumber = jQuery(this).val();
@@ -484,6 +503,8 @@ jQuery(document).on('click','.cc-product-sort a',function(){
 	});
 jQuery(document).on('click','.cc-count-clear',function(){
 	jQuery("input#price_range_filter").slider('refresh');
+	jQuery('.price_from').text(jQuery("input#price_range_filter").attr('data-slider-min'));
+	jQuery('.price_to').text(jQuery("input#price_range_filter").attr('data-slider-max'));
 	jQuery('a.clear_color_selection').hide();
 	jQuery('img.cc-tick-display').hide();
 	jQuery('#selected_colors').val('');
