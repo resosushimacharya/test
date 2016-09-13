@@ -14,7 +14,7 @@
     		<div style="height:35px; background-color:#144a9f; padding:17px 29px; clear:both;">
             
 
-            	<div style="float:left; margin-left:12px;" > <img src="http://resolutionaustralia.com.au/design/Carpetcall/carpetcall-logo.png" width="171" height="35" alt="logo"/></div><!-- logo end -->
+            	<div style="display:block; margin-left:12px;" > <img src="http://resolutionaustralia.com.au/design/Carpetcall/carpetcall-logo.png" width="171" height="35" alt="logo"/></div><!-- logo end -->
 
             	<div style="float:left; margin-left:12px;" ><a href="<?php echo site_url();?>" ><img src="<?php echo get_template_directory_uri();?>/images/logo-mail.png" width="171" height="35" alt="logo"/></a></div><!-- logo end -->
 
