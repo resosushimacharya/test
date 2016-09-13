@@ -135,19 +135,29 @@ if ( ! defined( 'ABSPATH' ) ) {
               if(count($has_sub_cat)==0){
 						$current_post_term_id = $cat->term_id;
 						wp_reset_query();
-						$args = array('post_type'=>'product','posts_per_page'=>'-1','order_by'=>'title',
-                          /*'meta_key'=>'_sale_price',
+						$args = array(
+									'post_type'=>'product',
+									'posts_per_page'=>'-1',
+									'order_by'=>'title',
+									'meta_query'=>array(
+													array(
+														'key'	=>'_stock_status',
+														'value'	=>'instock',
+													),
+												),
+						/*'meta_key'=>'_sale_price',
                           'orderby' => 'meta_value_num',
                            'order'     => 'ASC',*/
 
 							 'tax_query' => array(
-        array(
-          'taxonomy' => 'product_cat',
-        'terms' => $cat->slug,
-        'field' => 'slug',
-        'compare' => 'IN'
-      )
-      ));
+												array(
+												  'taxonomy' => 'product_cat',
+												'terms' => $cat->slug,
+												'field' => 'slug',
+												'compare' => 'IN'
+											  )
+					  						)
+					 		);
 
 						$loop = new WP_Query($args);
 						$i=0;

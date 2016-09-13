@@ -2,6 +2,11 @@
 	$appafter = '';
  	$perpage_var = 4;
 	$current_cat = get_term_by('slug',get_query_var('product_cat'),'product_cat');
+	$is_last_lvl =  false;
+	$current_cat_child = get_term_children($current_cat->term_id, 'product_cat');
+	if(sizeof($current_cat_child)==0){
+		$is_last_lvl = true;
+		}
 	$ancestors = get_ancestors( $current_cat->term_id, 'product_cat' );
 	$depth = count($ancestors) ; 
 	?>
@@ -79,10 +84,14 @@ $currentcat = get_queried_object();
 	$ret = loadmore_hf($args);
 	 ?>
              <div class="rugm-blk col-md-6 no-pl">
+<<<<<<< HEAD
+          <p> <?php /*?><span class="cc-cat-title-count"> <span class="post_count"><?php echo $ret['found_prod'];// $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products </span><?php */?> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
+=======
           <p> <span class="cc-cat-title-count"> <span class="post_count"><?php echo $ret['found_prod'];// $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
            <span class="open-product-sidebar">
             +
           </span>
+>>>>>>> c818791b7b1bfd9fb316b8a3bbee2c16b29673be
         </div>
         <div class="col-md-6 no-pr clearfix cat-sort-by-cntr">
           <div class="cc-product-sort">
@@ -130,7 +139,7 @@ $currentcat = get_queried_object();
        <?php
 	   //if(!is_last_cat($current_cat->term_id)){?>
        
-		 <input type="button" name="cc_load_more" id ="cc_load_more" callto="loadmore_hf" value="load more" first="<?php echo (($depth==0) && $ret['offset'] > $perpage_var)?'yes':'no'?>" <?php echo ($ret['found_prod'] >=$perpage_var)?'':'style="display:none" disabled'?>/>
+		 <input type="button" name="cc_load_more" id ="cc_load_more" callto="loadmore_hf" value="load more" first="<?php echo (($depth==0) && $ret['offset'] > $perpage_var)?'yes':'no'?>" <?php echo ($ret['found_prod'] < $perpage_var || !($is_last_lvl))?'':'style="display:none" disabled'?>/>
 		
 		<?php //}
 	   
