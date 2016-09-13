@@ -121,7 +121,7 @@ if(!is_last_cat($term_id)){?>
                     'operator' => 'IN'
                     ),
                 ),
-              'meta_key'    =>'_regular_price',
+              'meta_key'    =>'_price',
               'orderby'   =>'meta_value_num',
               'order'     =>'ASC'
             );
@@ -138,7 +138,7 @@ if(!is_last_cat($term_id)){?>
                     'operator' => 'IN'
                     ),
                 ),
-              'meta_key'    =>'_regular_price',
+              'meta_key'    =>'_price',
               'orderby'   =>'meta_value_num',
               'order'     =>'DESC'
             );
