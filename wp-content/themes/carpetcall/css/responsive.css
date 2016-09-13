@@ -5,6 +5,9 @@
 @media only screen and (max-width: 800px) {
 	
 	/* ===== GLOBAL ===== */
+	.modal{
+		padding-left: 0 !important;
+	}
 	.container{
 		width: auto;
 	}
@@ -21,7 +24,7 @@
 	}
 	
 	/* Display none goes here */
-	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .againlt, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i, #main nav.woocommerce-breadcrumb, .cc-color-var-section > h3, .cc-ia-content h4, .ia-img, .inerblock_clearn .breadcrumbs, .breadcrumbs, .inerblock_sec ul.guide_list_cbg, .cc-store-bdy-contr #gmap, .wpsl-store-below #wpsl-gmap, .cc-locator-title-sec-z, .cc-store-icon-label img, .cc-breadcrumb, .cc-mobile-blk .nowspe, .find-store-parent-page #Map, .desktop, table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-thumbnail, .crrt{
+	.callinfo, .navsrchblk .col-md-12 .top-map-icon, .navsrchblk .col-md-12 .top-cart-icon, .calbk-desktop, .rmblk_cont p, .meas_img, .fot_logo, .fcnt-or, .footer-menu-none, .bcwfsp, .center.slider:before, .center.slider:after, .slider .slick-dots li button:before, .footer_nav_desktop, .fot_cpy ul li:nth-child(2), .fot_cpy ul li:last-child, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i, #main nav.woocommerce-breadcrumb, .cc-color-var-section > h3, .cc-ia-content h4, .ia-img, .inerblock_clearn .breadcrumbs, .breadcrumbs, .inerblock_sec ul.guide_list_cbg, .cc-store-bdy-contr #gmap, .wpsl-store-below #wpsl-gmap, .cc-locator-title-sec-z, .cc-store-icon-label img, .cc-breadcrumb, .cc-mobile-blk .nowspe, .find-store-parent-page #Map, .desktop, table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-thumbnail, .crrt{
 		display: none;
 	}
 	/* Display none ends here */
@@ -1490,17 +1493,17 @@
 	.panel-group{
 		margin-bottom: 0;
 	}
-	.cc-color-var-section{
+	.cc-color-var-section, .cc-price-var-sec{
 		padding-bottom: 30px;
 	}
-	.cc-color-var.panel-group .panel{
+	.cc-color-var.panel-group .panel, .panel-group.cc-price-var .panel{
 		padding: 0;
 		border-width: 2px;
 	}
-	.cc-color-var.panel-group .panel:last-child{
+	.cc-color-var.panel-group .panel:last-child, .panel-group.cc-price-var .panel:last-child{
 		border: none;
 	}
-	.panel-group.cc-color-var .panel-default>.panel-heading{
+	.panel-group.cc-color-var .panel-default>.panel-heading, .panel-group.cc-price-var .panel-default>.panel-heading{
 	    padding: 30px 35px;
 	    pointer-events: inherit;
 	}
@@ -1645,15 +1648,15 @@
 	.cc-cat-sub-carousal-a .slick-dots{
 		bottom: 20px;
 	}
-	.cc-cat-sub-carousal-a .slick-dotted.slick-slider{
-		margin-bottom: 23px;
+	.cc-cat-sub-carousal-a .cat_slider.slick-slider{
+		margin-bottom: 8px;
 	}
 	.cc-cat-sub-group-item{
-		margin: 0 -12px;
+		margin: 0 -8px;
 	}
 	.cc-cat-sub-group-item .cc-other-term-pro {
 	    width: 33.33%;
-	    padding: 7px 12px;
+	    padding: 8px;
 	}
 	.cat-item-group-image{
 		height: 145px;
@@ -2180,17 +2183,25 @@
 	.nearstore .pul-sec-cc{
 		padding: 0 20px 20px;
 	}
-	.str-one {
+	.str-one, .str-two {
 	    min-height: inherit;
 	    padding: 50px 40px;
 	}
-	.str-one h4 {
+	.str-one h4, .str-two h4 {
 	    font-size: 36px;
 	    margin-bottom: 20px;
 	}
-	.str-one p {
+	.str-one p, .str-two p {
 	    font-size: 24px;
 	    line-height: 40px;
+	}
+	.str-two h5 {
+	    margin-top: 30px;
+	    font-size: 32px;
+	    line-height: 1;
+	}
+	.cc-store-pul-block{
+		min-height: inherit;
 	}
 	.nearstore .col-md-12 .col-md-4{
 		width: 100%;
@@ -2518,6 +2529,45 @@
 	    margin-bottom: 0;
 	}
 	/* HARDFLOORING PRODUCT End */	
+	/* CARPETS PRODUCT */
+	.inerblock_seC_mrugss .cc-carpet-subcat-list h3 {
+	    font-size: 28px;
+	    padding: 0 25px;
+	    margin: 0;
+	    border: 0;
+	}	
+	.cc-carpet-subcat-list ul h3{
+		display: none;
+	}
+	.carpet_blinds_single_right{
+		margin-top: 25px;
+	    padding: 45px 35px;
+	}
+	.carpet_blinds_single_right h3.calspl.calspll{
+		text-align: left;
+	}
+	.carpet_blinds_single_right h3.calspl.calspll a{
+		font-size: 48px;
+	}
+	.carpet_blinds_single_right h4.bcwfsp{
+		display: block;
+		font-size: 32px;
+		margin-top: 5px;
+	}
+	.carpet_blinds_single_right .againlt ul {
+	    margin: 35px 0 45px 0;	    
+	}
+	.carpet_blinds_single_right .againlt ul li {
+	    font-size: 32px;
+	    line-height: 1.2;
+	    color: #989898;
+	}
+	.carpet_blinds_single_right .cc-product-enquiry .btn-default {
+	    width: 100%;
+	    height: 90px;
+	    font-size: 36px;
+	}
+	/* CARPETS PRODUCT End */
 	/* === SINGLE PRODUCT PAGE End === */
 
 
@@ -3915,17 +3965,30 @@
 
 	/* === MAIN CATEGORY PAGE === */
 	/* Category Head */
+	section#main {
+	    padding: 40px 0;
+	}
+	.sec_head_cntr h3{
+		font-size: 36px;
+		text-indent: 0;
+		margin-bottom: 20px;
+	}
 	/* Category Head End */
 	
 	/* Categoty Filter */
+	.tophead_sec{
+		margin: 30px 0 25px;
+	}
 	.rugm-blk {
-	    padding: 25px 20px;
+	    padding: 15px;
+	    margin-bottom: 30px;
 	}
 	.rugm-blk .open-product-sidebar{
-	    font-size: 30px;
-	    line-height: 75px;
-        font-family: 'ProximaN Bold';
-        right: 5px;
+        font-size: 30px;
+	    line-height: 60px;
+	    font-family: 'ProximaN Bold';
+	    right: 0;
+	    width: 40px;
 	}
 	.cc-product-sort ul li{
 		padding: 0 10px;
@@ -3951,15 +4014,24 @@
 	ul.guide_list_cbg li a, ul.guide_list_cbg li .fa{
 	    line-height: 45px;
 	}
-	.panel-group.cc-color-var .panel-default>.panel-heading{
+	.panel-group.cc-color-var .panel-default>.panel-heading, .panel-group.cc-price-var .panel-default>.panel-heading{
 	    padding: 20px 25px;
 	}
 	.panel-title>a{
 		margin-left: 25px;
 	}
-	div#accordion-color .panel-body{
+	div#accordion-color .panel-body, #accordion-price .panel-body{
 		padding: 0 20px 20px;
 	}	
+	.cc-color-var-section{
+		margin-top: 20px
+	}
+	.cc-color-var-section .panel-title>a .glyphicon{
+		top: -8px;
+	}
+	.cc-cat-pro-section-left .glyphicon-chevron-up:before{
+		font-size: 32px;
+	}
 	
 	/* Color */
 
@@ -4029,9 +4101,10 @@
 	}
 	.cc-cat-sub-price{
 		font-size: 22px;
+		bottom: 10px;
 	}
 	.cc-cat-sub-price span{
-		font-size: 30px;
+		font-size: 28px;
 	}
 	.cc-cat-sub-title h4{
 		margin-top: 13px;
@@ -4039,17 +4112,27 @@
 	.cat_slider_item_image{
 		height: 280px;
 	}
-	.cc-cat-sub-carousal-a .slick-dotted.slick-slider{
+	.cc-cat-sub-carousal-a .cat_slider.slick-slider{
 		margin-bottom: 7px;
+	}
+	.cc-cat-sub-group-item{
+		margin: 0 -7px;
 	}
 	.cc-cat-sub-group-item .cc-other-term-pro {
 	    width: 50%;
+	    padding: 7px;
 	}
 	.cc-cat-pro-section-right input{
 		width: 280px;
 		font-size: 18px;
 		height: 60px;
 		line-height: 6px;
+		margin-bottom: 0;
+	}
+	.cc-img-wrapper a.cc-pro-view {
+	    font-size: 14px;
+	    width: 75px;
+	    padding: 3px 7px;
 	}
 	/* Category Body Section End */
 
@@ -4086,6 +4169,12 @@
 	}
 	/* Category Last Sec */
 
+	/* CATEGORY CARPETS PAGE */
+	.cateogry-carpets-main-cntr {
+	    margin-top: 50px;
+	}
+	/* CATEGORY CARPETS PAGE End */
+
 	/* === MAIN CATEGORY PAGE End === */
 
 	/* === MAIN SUB CATEGORY PAGE === */
@@ -4094,7 +4183,7 @@
 	}
 	.ab_arrow {
 	    font-size: 24px;
-	    margin-bottom: 45px;
+	    margin-bottom: 35px;
 	    height: 60px;
 	    line-height: 60px;
 	}
@@ -4118,9 +4207,9 @@
 		margin-bottom: 0;
 	}
 	.images .cc-category-show{
-	    font-size: 38px;
+	    font-size: 36px;
 	    text-align: center;
-		margin-bottom: 50px;
+		margin-bottom: 20px;
 	}
 	.woocommerce-page div.product div.cc_custom_gal_thumb  a{
 		width: 100%;
@@ -4132,14 +4221,14 @@
 	}
 	.product_single_thumb_slider.slick-slider.slick-dotted{
 		margin: 0 -20px;
-		margin-bottom: 70px;
+		margin-bottom: 50px;
 	}
 	.product_single_thumb_slider .slick-next, .product_single_thumb_slider .slick-prev{
 	    border: 1px solid #d1ddf1;
 	    background: #fff;
 	    border-radius: 0;
-        width: 55px;
-	    height: 90px;
+        width: 45px;
+	    height: 75px;
         z-index: 10;
         right: 0;
 	}
@@ -4149,7 +4238,7 @@
 	.product_single_thumb_slider .slick-next::before, .product_single_thumb_slider .slick-prev::before{
 		content: '\f104';
 	    font-family: FontAwesome;
-	    font-size: 62px;
+	    font-size: 48px;
 	    color: #15489f;
 	    font-weight: normal;
 	}
@@ -4157,7 +4246,7 @@
 		content: '\f105';
 	}
 	.product_single_thumb_slider .slick-dots{
-		bottom: -40px;
+		bottom: -30px;
 	}
 	.product_single_thumb_slider .slick-dots li button:before{
 		display: none;
@@ -4354,6 +4443,9 @@
 	.frm-blk .input-group .input-group-btn {
 	    width: 15%;
 	}
+	.frm-blk .input-group .form-control{
+		height: 60px;
+	}
 	.modal-body .frm-blk .input-group .btn {
 	    height: 60px;
 		background-size: 22px;
@@ -4363,6 +4455,14 @@
 		line-height: 60px;
 		font-size: 18px;
 	}
+	div#dialog_list_id_s .col-md-4 {
+	    padding: 0;	
+	    margin-bottom: 0;
+	}
+	#myModal .modal-body{
+		padding: 0 20px;
+	}
+
 	.midlt{		
 	    font-size: 16px;	   
 	    padding: 15px;
@@ -4374,17 +4474,21 @@
 		padding: 0;
 		margin-bottom: 0;
 	}
-	.str-one {	    
-	    padding: 40px 20px;
+	.str-one, .str-two {	    
+	    padding: 25px 15px;
         margin-bottom: 20px;
 	}
-	.str-one h4 {
+	.str-one h4, .str-two h4 {
 	    font-size: 24px;
 	    margin-bottom: 15px;
 	}
-	.str-one p {
+	.str-one p, .str-two p {
 	    font-size: 18px;
 	    line-height: 30px;
+	}
+	.str-two h5 {
+	    margin-top: 20px;
+	    font-size: 22px;	    	    
 	}
 	.frm-blk {
 	    padding: 20px 0 60px;
@@ -4618,6 +4722,51 @@
 	    line-height: 45px;
 	}
 	/* HARDFLOORING PRODUCT End */	
+	/* CARPET PRODUCT */
+	.cc-carpet-subcat-list {	    
+	    height: 60px;
+	    line-height: 60px;
+	    margin-bottom: 45px;
+	}
+	.inerblock_seC_mrugss .cc-carpet-subcat-list h3{
+		font-size: 22px;
+		padding: 0 15px;
+		line-height: 60px;
+	}
+	.inerblock_seC_mrugss .cc-carpet-subcat-list h3 span {	    
+	    font-size: 30px;	        
+	    line-height: 58px;
+	}
+	.cc-carpet-subcat-list ul.guide_list_cbg{								
+		padding: 15px;
+	}	
+	.inerblock_seC_mrugss .cc-carpet-subcat-list h3 {
+	    font-size: 28px;
+	    padding: 0 25px;
+	    margin: 0;
+	    border: 0;
+	}	
+	.carpet_blinds_single_right{
+		margin-top: 20px;
+	    padding: 25px 15px;
+	}
+	.carpet_blinds_single_right h3.calspl.calspll a{
+		font-size: 28px;
+	}
+	.carpet_blinds_single_right h4.bcwfsp{
+		font-size: 18px;
+	}
+	.carpet_blinds_single_right .againlt ul {
+	    margin: 20px 0 30px 0;	    
+	}
+	.carpet_blinds_single_right .againlt ul li {
+	    font-size: 18px;
+	}
+	.carpet_blinds_single_right .cc-product-enquiry .btn-default {
+	    height: 60px;
+	    font-size: 18px;
+	}	
+	/* CARPET PRODUCT End */
 	/* === SINGLE PRODUCT PAGE End === */
 
 	/* === STORE FINDER LANDING PAGE === */
@@ -5288,7 +5437,7 @@
 @media only screen and (max-width: 420px){
 	/* ===== GLOBAL ===== */
 	.wrap_body{
-		margin-top: 212px;
+		margin-top: 222px;
 	}	
 
 	/* Font-size 16px; */
@@ -5317,13 +5466,13 @@
 
 	/* Font-size 26px; */
 	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .measr_cnt h3, .intro p, .rmoree a, .loplc h3, #main.sec_head_cntr p, .cc-product-sort li a, .cc-count-label, .filter-go-back, .cc-pro-sub-cat-ul.guide_list_cbg h3, .panel-title>a, .cc-cat-sub-desc-sec p{
-		font-size: 20px;
+		font-size: 18px;
 	}
 	/* Font-size 26px; End */
 
 	/* Font-size 32px; */
 	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .cc-cat-sub-price, .cc-cat-pro-section-right input, h3.cc-idea-ad-title, .proabtxt h4, .cc-cat-sub-desc-sec h3{
-		font-size: 22px;
+		font-size: 20px;
 	}
 	/* Font-size 32px; End */
 
@@ -5358,6 +5507,10 @@
 		display: block;
 	}
 	/* Small buttons End*/	
+
+	.summary.entry-summary h3.online_price_subhead, .summary.entry-summary .cc-related-product-design-section h3, .cc-size-quantity-section .cc-size-section h3, .cc-size-quantity-section .cc-quantiy-section h3, .summary.entry-summary h3 {
+	    font-size: 22px;
+	}
 
 	/* ===== GLOBAL End ===== */
 
@@ -5455,7 +5608,55 @@
 	
 	/* === ORDER RECEIVED - PAGE End === */
 
-	
+	/* ===== HEADER End ===== */
+
+	/* ===== MAIN CATEGORY PAGE ===== */
+	.cat_slider_item_image {
+	    height: 220px;
+	}
+	.cat-item-group-image {
+	    height: 100px;
+	}
+	.img_cntr_a {
+	    height: 160px;
+	}
+	.mero_itemss{
+		margin-bottom: 0;
+	}
+	h3.cc-idea-ad-title{
+		font-size: 22px;
+	}
+	.single.single-product .cc-price-control h3 span.cc-sale-price-title {
+	    font-size: 30px;
+	}
+	.single.single-product .cc-price-control h3 span.low {
+	    font-size: 22px;
+	}
+	.responsive .slick-next:before, .responsive .slick-prev:before, .product_single_thumb_slider .slick-next::before, .product_single_thumb_slider .slick-prev::before {
+	    font-size: 42px;
+	}
+	.responsive .slick-next, .responsive .slick-prev {
+	    width: 40px;
+	    height: 70px;
+	    top: 160px;
+	}
+	.product_single_thumb_slider .slick-next, .product_single_thumb_slider .slick-prev{
+		width: 40px;
+	    height: 70px;
+	}
+	.product_single_thumb_slider.slick-slider.slick-dotted{
+		margin-bottom: 40px;
+	}
+	.product_single_thumb_slider .slick-dots {
+	    bottom: -25px;
+	}
+	.images .cc-category-show{
+		margin-bottom: 20px;
+	}
+	.images .mod-social a {
+	    padding-left: 5px;
+	}
+	/* ===== MAIN CATEGORY PAGE End ===== */
 
 
 	/* ===== FOOTER ===== */

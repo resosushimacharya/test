@@ -4295,14 +4295,14 @@ ul.cc-color-var-item {
 }
 .cc-cat-sub-group-item {
 	font-size: 0;
-	margin: 0 -5px;
+	margin: 0 -10px;
 }
 .cc-cat-sub-group-item .cc-other-term-pro {
 	font-size: 14px;
 	width: 20%;
 	display: inline-block;
 	vertical-align: top;
-	padding: 5px;
+	padding: 10px;
 }
 .cc-img-wrapper {
 	position: relative;
@@ -7633,6 +7633,48 @@ ul.cc-woocommerce-thankyou-order-details li {
 	color:#666666;
 	padding:25px 28px 12px 28px;
 	line-height:1;
+<<<<<<< HEAD
+}
+
+.cateogry-carpets-main-cntr {
+    margin-top: 70px;
+}
+.carpets_top_img .cat_slider_items{
+	margin-bottom: 10px;
+}
+.cc-carpet-subcat-list {
+    border: 2px solid #15489f;
+    height: 90px;
+    line-height: 90px;
+    margin-bottom: 50px;
+    position: relative;
+}
+.inerblock_seC_mrugss .cc-carpet-subcat-list h3{
+	font-size: 28px;
+	padding: 0 25px;
+	margin: 0;
+	border: 0;
+	line-height: 86px;
+}
+.inerblock_seC_mrugss .cc-carpet-subcat-list h3 span {
+    float: right;
+    font-size: 36px;
+    color: #15489f;    
+    line-height: 82px;
+}
+.cc-carpet-subcat-list ul.guide_list_cbg{
+	display: none;
+	position: absolute;
+	left: -2px;
+	right: -2px;
+	top: 100%;	
+	z-index: 9;
+	background: #15489f;
+	padding: 20px 25px;
+}
+.cc-carpet-subcat-list ul.guide_list_cbg li a, .cc-carpet-subcat-list ul.guide_list_cbg li .fa{
+	color: #fff;
+=======
 	border-top:0;
 	border-bottom:1px solid #e7edf8;
 	font-weight:normal;
@@ -7671,7 +7713,9 @@ ul.cc-woocommerce-thankyou-order-details li {
 	font-size:16px;
 	color:#666666;
 	margin-bottom:66px;
+
 }
 .cc-checkout-woerrors .woocommerce-error a.button.wc-forward {
 	display: none;
+
 }
