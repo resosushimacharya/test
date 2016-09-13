@@ -90,17 +90,22 @@ $ = jQuery.noConflict();
 			$('#error_max_msg').hide();
 		}
 		
-		 var  str= value;
-		   value =value.replace(/[a-z\-\/\=]/gi, '');
-		   var realLength = str.length;
-		  var  tempLength =  value.length;
-		  
-		  if(realLength===tempLength){
-			return true;
+		var number = /^[0-9.]+$/.test(value);
+	
+		var dotCount = value.split(".").length - 1;
+		
+		 if(dotCount<=1 && number){
+		 	
+		  	return true;
+		 
+		  	
+		
 		  }
 		  else{
-			return false;
+		  			return false;
 		  }
+		            
+
 	}
 	
 	
