@@ -7672,3 +7672,6 @@ ul.cc-woocommerce-thankyou-order-details li {
 	color:#666666;
 	margin-bottom:66px;
 }
+.cc-checkout-woerrors .woocommerce-error a.button.wc-forward {
+	display: none;
+}
