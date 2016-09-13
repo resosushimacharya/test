@@ -164,6 +164,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs)
 	 
 			
 		$new_post_id = wp_insert_post( $post );
+		update_post_meta( $new_post_id, 'total_sales', 0);
 
 	}
 	    $rootcatterm = $appcat;	
@@ -245,7 +246,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs)
 		update_post_meta( $new_post_id, '_regular_price', $regular_price  );
 		update_post_meta( $new_post_id, '_sale_price', $sale_price );
 		update_post_meta( $new_post_id, '_price', $actual_price );
-		update_post_meta( $new_post_id, 'total_sales', 0);
+		
 		update_post_meta($new_post_id,'state',$csv[0]);
 		update_post_meta( $new_post_id, '_visibility', 'visible' );
 		update_post_meta( $new_post_id, '_length', $length);
@@ -307,7 +308,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs)
 		if(array_key_exists($csv[1], $reshardflooring)){
 			 
 			 $new_post_id = $reshardflooring[$csv[1]][1];
-		
+		        
 
 		
 	 }
@@ -323,6 +324,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs)
 		 
 				
 			$new_post_id = wp_insert_post( $post );
+			update_post_meta( $new_post_id, 'total_sales', 0);
 
 		}
 
@@ -445,7 +447,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs)
        $thick = str_replace("mm","",$csv[15]);
 		update_post_meta( $new_post_id, '_regular_price', $regular_price );
 		update_post_meta( $new_post_id, '_sales_price', $regular_price );
-		update_post_meta( $new_post_id, 'total_sales', 0);
+		
 		update_post_meta( $new_post_id, '_price', $regular_price );
 		update_post_meta($new_post_id,'state',$csv[0]);
 		update_post_meta( $new_post_id, '_visibility', 'visible' );
