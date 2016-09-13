@@ -7642,27 +7642,27 @@ ul.cc-woocommerce-thankyou-order-details li {
 .carpets_top_img .cat_slider_items{
 	margin-bottom: 10px;
 }
-.cc-carpet-subcat-list {
+.carpets-cat-dropdown {
     border: 2px solid #15489f;
     height: 90px;
     line-height: 90px;
     margin-bottom: 50px;
     position: relative;
 }
-.inerblock_seC_mrugss .cc-carpet-subcat-list h3{
-	font-size: 28px;
+.inerblock_seC_mrugss .carpets-cat-dropdown h3{
+	font-size: 28px;carpets-cat-dropdown
 	padding: 0 25px;
 	margin: 0;
 	border: 0;
 	line-height: 86px;
 }
-.inerblock_seC_mrugss .cc-carpet-subcat-list h3 span {
+.inerblock_seC_mrugss .carpets-cat-dropdown h3 span {
     float: right;
     font-size: 36px;
     color: #15489f;    
     line-height: 82px;
 }
-.cc-carpet-subcat-list ul.guide_list_cbg{
+.carpets-cat-dropdown ul.guide_list_cbg{
 	display: none;
 	position: absolute;
 	left: -2px;
@@ -7672,7 +7672,7 @@ ul.cc-woocommerce-thankyou-order-details li {
 	background: #15489f;
 	padding: 20px 25px;
 }
-.cc-carpet-subcat-list ul.guide_list_cbg li a, .cc-carpet-subcat-list ul.guide_list_cbg li .fa{
+.carpets-cat-dropdown ul.guide_list_cbg li a, .carpets-cat-dropdown ul.guide_list_cbg li .fa{
 	color: #fff;
 	border-top:0;
 	border-bottom:1px solid #e7edf8;

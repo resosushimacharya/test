@@ -1174,61 +1174,80 @@
 	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES End === */
 	
 	/* === SEARCH PAGE === */
-	.child-innerpg .cc-search-allprd h1 {
-		font-size:72px;	
-		text-align:left;
-		margin:25px 0;
-	}
 	.cc-search-allprd .search_header {
-	background-color:#e7edf8;	
+		background-color:#e7edf8;	
+	}
+	.cc-search-allprd .search_header form .input-group .form-control, .cc-search-allprd .search_header form .input-group span.input-group-btn .btn-default{		
+		height:70px;
+		font-size: 24px;				
 	}
 	.cc-search-allprd .search_header form .input-group .form-control{
-	background-color:#e7edf8;
-	border:0;
-	height:68px;
-	box-shadow:none;
-	outline:0;
+		padding-left: 25px;
 	}
- 	.cc-search-allprd .search_header form .input-group span.input-group-btn .btn-default  {
-	 color:inherit;
-	 background-color:#e7edf8;
-	 border-color:transparent;
-	 box-shadow:none;
-	 outline:0;
-	 height:68px;
-	 }
-	 .search_prod_wrapper, .cc-search-tps {
+	.cc-search-allprd .search_header form .input-group .input-group-btn{
+		width: 11%;
+		text-align: right;
+	    padding-right: 10px;
+	} 	
+	.search_result_inner_wrap{
+		padding: 20px;
+	}
+	.search_prod_wrapper, .cc-search-tps {
 		width:100%;
 	 }
-	 .search_prod_wrapper .search_thumb {
+	.search_result_inner_wrap .img_cntr_home{
+		height: 280px;
+	}	
+	.search_result_inner_wrap .sublk_prom {
+	    margin: 35px 0 15px;
+	}
+	.search_prod_wrapper .search_thumb {
 		height:280px; 
-	 }
-	 .cc-search-tps {
-		 padding:0 20px;
-	 }
-	 .search_title {
+	}
+	.search_header form .input-group span.input-group-btn .btn-default{
+		padding: 5px 10px;
+	}
+
+	.search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h3{
+		line-height: 1;
+		margin-bottom: 10px;
+	}
+	.search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h3 a{
+		font-size: 36px;
+	}
+	.search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h4, .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h5{
+		font-size: 28px;
+		margin-bottom: 5px;
+	}
+	.search_list_wrapper .search_prod_wrapper .sublk_prom .nowsp{
+		display: block;
+		margin-top: 15px;
+	}
+	.cc-search-tps {
+		padding:0 20px;
+	}
+	.search_title {
 		margin-top:47px; 
-	 }
-	 .search_title span.parent_cat a {
+	}
+	.search_title span.parent_cat a {
 		font-size:36px; 
-	 }
-	 .search_price .cc-price-control h3 span.cc-sale-price-title {
+	}
+	.search_price .cc-price-control h3 span.cc-sale-price-title {
 		font-size:28px; 
-	 }
-	 .cc-price-control .cc-line-through {
-		 font-size:24px;
-	 }
-	 .cc-price-control {
-		margin-top:20px; 
-		/*margin-bottom:31px;*/
-	 }
-	 .search_shop_now .read_more a {
-		 width:100%;
-		 height:90px;
-		 line-height:90px;
-		 font-size:36px;
-		 text-align:center;
-	 }
+	}
+	.cc-price-control .cc-line-through {
+		font-size:24px;
+	}
+	.cc-price-control {
+		margin-top:20px; 		
+	}
+	.search_shop_now .read_more a {
+		width:100%;
+		height:90px;
+		line-height:90px;
+		font-size:36px;
+		text-align:center;
+	}
 	  
 	/* === SEARCH PAGE End === */
 	
@@ -3161,7 +3180,7 @@
 		margin-bottom: 15px;
 		position: relative;
 	}
-	#checkout_customer_details .woocommerce-billing-fields .billing_fields_wrapper input.input-text, .shipping_needed_checkout .woocommerce-shipping-fields .shipping_address input.input-text, .shipping_needed_checkout .woocommerce-shipping-fields .shipping_address p, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td input, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td select {
+	#checkout_customer_details .woocommerce-billing-fields .billing_fields_wrapper input.input-text, .shipping_needed_checkout .woocommerce-shipping-fields .shipping_address input.input-text, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td input, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td select {
 	    height: 70px;
 	    padding: 15px 25px;	    
 	    font-size: 24px;
@@ -5589,152 +5608,142 @@
 	/* === MY CART - PAGE End === */
 
 	/* === CHECKOUT PAGE === */
-	.checkout-form-sec{
-		padding: 0;
-	}
 	.faq-cont-blka .inerblock_sec .cbg_content .checkout-form-sec h3{
-		margin-bottom: 0;
-	    height: 100px;
-	    padding-left: 30px;
-	    line-height: 100px !important;
-	    font-size: 36px;
+	    height: 60px;
+	    padding-left: 15px;
+	    line-height: 60px !important;
+	    font-size: 20px;
 	}
 	.checkout-form-sec .collapsable {
-	    padding: 30px;
-	    border-width: 2px;
-	}
-	.billing_fields_wrapper, .shipping_address{
-		width: 100%;
-	}
+	    padding: 20px 10px;	    
+	    border-width: 1px;
+	}	
 	.inerblock_sec .cbg_content .billing_fields_wrapper p, .shipping_needed_checkout .woocommerce-shipping-fields .shipping_address p, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td input, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td select{
-		padding: 10px 0;
-		width: 100%;
-		margin-bottom: 15px;
-		position: relative;
+		margin-bottom: 15px;		
 	}
-	#checkout_customer_details .woocommerce-billing-fields .billing_fields_wrapper input.input-text, .shipping_needed_checkout .woocommerce-shipping-fields .shipping_address input.input-text, .shipping_needed_checkout .woocommerce-shipping-fields .shipping_address p, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td input, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td select {
-	    height: 70px;
-	    padding: 15px 25px;	    
-	    font-size: 24px;
-	    float: left;
-	    background-size: 70px;
+	#checkout_customer_details .woocommerce-billing-fields .billing_fields_wrapper input.input-text, .shipping_needed_checkout .woocommerce-shipping-fields .shipping_address input.input-text, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td input, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td select {
+	    height: 50px;
+	    padding: 10px 15px;	    
+	    font-size: 16px;	    
+	    background-size: 50px;
 	}
 	p.req_info_wrap span.req_text, p.req_info_wrap span.required {
-	    font-size: 28px;
-	    margin-bottom: 0;
-	}
-	.checkout-form-sec p.req_info_wrap{
-		margin-bottom: 20px;
+	    font-size: 18px;	    
 	}
 	.cc-condn-page .woocommerce form .form-row label, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td label{
-		font-size: 28px;
-		margin-bottom: 15px;
+		font-size: 18px;
+		margin-bottom: 10px;
+		line-height: 1;
 	}
 	.checkout-form-sec .select2-container .select2-choice, .checkout-form-sec .shipping_address select#shipping_country, .checkout-form-sec .shipping_address select#shipping_state {
-	    height: 70px;
-	    padding: 0 25px;
+	    height: 50px;
+	    padding: 0 15px;
 	}
 	.shipping_needed_checkout .woocommerce-shipping-fields .shipping_address select{
-		background-size: 70px;
-		text-transform: uppercase;
-		font-size: 24px;
-		font-family: 'proxima_nova_ltsemibold';
+		background-size: 50px;
+		font-size: 16px;		
 	}
 	.checkout-form-sec .select2-container .select2-choice>.select2-chosen, .shipping_address select#shipping_country, .shipping_address select#shipping_state {
-	    line-height: 70px;
-	    font-size: 24px;
-	    color: #a8a8a8;
+	    line-height: 50px;
+	    font-size: 16px;	    
 	}
 	.checkout-form-sec .select2-container .select2-choice .select2-arrow {
-	    height: 68px;
-	    width: 68px;
+	    height: 48px;
+	    width: 48px;
 	}
 	.checkout-form-sec .select2-container .select2-choice .select2-arrow b:after,  {
-	    border: 13px solid transparent;	    
+	    border: 8px solid transparent;	    
 	    margin-left: -12px;
 	    margin-top: -6px;
         border-top-color: #fff;
 	}
-	.billing-details-cntr .checkout_next_prev_button.read_more {
-	    margin: 0;
+	.payment-form .checkout_next_prev_button.read_more{
+		margin: 0;
 	}
 	.checkout_next_prev_button.read_more a {
-	    width: 220px;
-	    height: 60px;
-	    line-height: 60px;
-	    font-size: 28px;
+	    width: 100%;
+	    height: 50px;
+	    line-height: 50px;
+	    font-size: 18px;
+	    margin-top: 5px;
 	}
 	.cc-condn-page .woocommerce form .form-row label.error, .cc-condn-page .woocommerce form .form-row label.cc_error{
-		font-size: 18px;
+		font-size: 16px;
 		top: 95%;
 	}
-	.radiogroup_wrap {
-	    margin-top: 20px;
+	.checkout_next_prev_button.read_more{
+		float: none;
 	}
-	.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item {
-	    width: 100%;
-	    margin: 10px 0;
-	    height: 72px;
+	.radiogroup_wrap {
+	    margin-top: 15px;
+	}
+	.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item {	    	    
+	    height: 60px;
 	}
 	.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item label.radio{
-		line-height: 70px;
+		line-height: 60px;
 	}
 	.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item. .inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item > p{
-		line-height: 68px;
-	}
-	.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item label.radio-label{
-		margin-top: 0;
+		line-height: 58px;
 	}
 	.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item > p {
-	    line-height: 64px;
+	    line-height: 54px;
 	}
 	.delivery_option_rugs .rugs_store_pickup_list .nearstore .modal-title, #ship-to-different-address > label {
-	    font-size: 28px;
+	    font-size: 18px;
 	    margin: 15px 0 20px;
 	}
 	#nearby_stores_main_wrapper .pickup_location_list, #checkout_delivery .pickup_location_list{
-		margin-bottom: 20px;
-	}
-	#nearby_stores_main_wrapper .pickup_location_list h3, #checkout_delivery .pickup_location_list h3, #ship-to-different-address{
-		height: auto;
-		line-height: 1 !important;
-		padding-left: 0;
+		margin-bottom: 15px;
 	}
 	#nearby_stores_main_wrapper .pickup_location_list label.inner-radio-label, #checkout_delivery .pickup_location_list label.inner-radio-label{
 		position: relative;
 		top: -4px;
 	}
 	.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item label.radio span, .woocommerce-checkout .payment-form #payment ul.payment_methods li > label{
+		font-size: 16px;
+	}
+	.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p.addres{
+		margin-top: 40px
+	}
+	.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p.address, .delivery_option_both .nearstore .pickup_location_list > p.address, .delivery_option_hardflooring .nearstore .pickup_location_list > p.address{
+		margin-top: 10px;
+	}
+	.checkout_next_prev_button.read_more{
+		margin-top: 10px
+	}
+	.delivery_option_rugs .rugs_store_pickup_list .nearstore .modal-title{
 		font-size: 24px;
+	}
+	#nearby_stores_main_wrapper .pickup_location_list h3, #checkout_delivery .pickup_location_list h3, #ship-to-different-address{
+		font-size: 22px;
 	}
 	#ship-to-different-address .ship_to_shipping {
 	    font-size: 18px;
 	    color: #666666;
 	}
-	label.inner-check-label.radio-check-label::after{
-		top: 2px;
+	label.inner-radio-label{
+		margin-right: 15px;
 	}
 	.shipping_needed_checkout .woocommerce-shipping-fields textarea {
-	    padding: 20px 25px;
-	    height: 150px !important;
-	    font-size: 24px;
+	    padding: 10px 15px;
+	    height: 100px !important;
+	    font-size: 18px;
 	}
 	.woocommerce-checkout .payment-form #payment ul.payment_methods li > label::after, .woocommerce-checkout .payment-form #payment ul.payment_methods li > label::before{
-		margin-top: 8px;
-	}
-	.woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table{
-		width: 100%;
-	}
-	.woocommerce-checkout .payment-form #payment .payment_box.payment_method_paypal, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay{
-		margin-top: 10px
-	}
-	.woocommerce-checkout #payment div.form-row.place-order{
-		padding: 0;
+		margin-top: 0;
 	}
 	.woocommerce-checkout #payment div.form-row.place-order input.button{
 		float: left;
 		margin: 0;
 		display: block;
+	}
+	.faq-cont-blka .inerblock_sec .cbg_content h3 span.checkout_next_prev_button {	
+	    margin-right: 10px;
+	    font-size: 18px;
+	}
+	.checkout-form-sec{
+		margin-top: 15px;
 	}
 	
 	/* === CHECKOUT PAGE End === */
