@@ -7715,7 +7715,7 @@ ul.cc-woocommerce-thankyou-order-details li {
 }
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn{
 	cursor: default;
-
+	opacity: 1;
 }
 .cc-checkout-woerrors .woocommerce-error a.button.wc-forward {
 	display: none;
