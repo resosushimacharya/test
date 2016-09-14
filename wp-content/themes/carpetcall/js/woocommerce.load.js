@@ -193,12 +193,18 @@ jQuery( document ).ajaxSuccess(function( event, xhr, settings ) {
 			jQuery('.wc_payment_methods').prepend('<div class="cc_woocommerce-message">Please Enter valid Payment Details</div>');
 			}
 		}
-	
-  
 });
 		
 /*===================Fields Validation for checkout page ends=============*/
-	
+
+/*=============Adding mastercard and visa logos in secure pay form starts=======*/
+jQuery(document).on('click','#payment_method_securepay',function(){
+	jQuery('.card_options').remove();
+	jQuery(document).find('input[name="cardno"]').append('<div class="card_options"></div>');
+	});
+
+/*=============Adding mastercard and visa logos in secure pay form ends=======*/
+
 /*jQuery(document).on('focusout','#billing_phone:visible, #shipping_phone:visible',function(){
 	var phoneNumber = jQuery(this).val();
 	if('' !=phoneNumber){
