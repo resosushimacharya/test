@@ -143,7 +143,34 @@ if (isset($_GET['post_type']) && $_GET['post_type'] == 'product') {
 //add_action('admin_menu', 'cc_disable_add_product');
 
 
+add_filter('term_link','return_product_link_for_carpet_cat',10,3);
+function return_product_link_for_carpet_cat($link,$term_obj,$taxonomy){
+	if($taxonomy == 'product_cat'){
+		$parent = get_term_by('id',$term_obj->parent,'product_cat');
+		if($parent->slug == 'carpets'){
+			$args = array(
+						'tax_query' => array(
+							array(
+								'taxonomy' => 'product_cat',
+								'field' => 'slug',
+								'terms' => array( $term_obj->slug )
+							),
+						),
+						'post_type' => 'product',
+						'posts_per_page'=>1,
+						'orderby'	=>'rand',
+					);
+		$post = get_posts( $args );
 
+		if($post){
+			$link = get_the_permalink($post[0]->ID);
+			}
+			}
+		}
+	//$top_cat = cc_smart_category_top_parent_id($term_obj->term_id);
+	//$term_obj = get_term_by('id',$top_cat,'product_cat');
+	return $link;
+	}
 /*
 * Function to disable links in product category links if depth is 2 or more
 */
@@ -195,13 +222,9 @@ function return_parent_catlink_if_lastchild($link,$term_obj,$taxonomy){
 		if(!strpos($link,$key_word)){
 			$link.=$key_word;
 		}
-		
 		//$link = get_permalink($product->post->ID);
 		}
-		
-		
-		
-		}
+	}
 	return $link;
 	}
 
@@ -1658,6 +1681,7 @@ if($item_sku){
 */
 
 function cc_custom_get_feat_img($post_id,$size='small',$pattern='L'){
+	$feat_image = '';
 	if(has_term('hard-flooring','product_cat',$post_id) || has_term('rugs','product_cat',$post_id)){
 							if(has_term('hard-flooring','product_cat',$post_id)){
 							$sku = get_post_meta($post_id,'_sku',true);

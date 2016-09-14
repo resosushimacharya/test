@@ -511,7 +511,8 @@ if(strcasecmp($url[2],'localhost')==0){
 else{
     $desfolder= $_SERVER['DOCUMENT_ROOT'].'/history/';
 }
-$time =  current_time('Y-m-d-m-h-s');
+$time =  current_time('Y-m-d-H-i-s');
+ $date =current_time('Y-m-d');
 $newfilename = $desfolder.'log.txt';
 $txt = "\r\n Import has been started in ".$time." \r\n";
 file_put_contents($newfilename, $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
@@ -542,7 +543,12 @@ foreach($filecols as $fileitem){
         else{
             echo "undefined file($fileitem) for rugs.";
         }
-          if(!copy($directory.'/'.$fileitem, $desfolder.$fileitem)){
+           //to name the history files with date
+        $filedesarr= explode('.',$fileitem);
+        
+        $filedesname = $filedesarr[0].'-'.$date.'.'.$filedesarr[1];
+          if(!copy($directory.'/'.$fileitem, $desfolder.$filedesname)){
+    
           	echo "file ".$fileitem." hasn't been copied.";
 			
           }
@@ -561,7 +567,12 @@ foreach($filecols as $fileitem){
         else{
             echo "undefined file($fileitem) for hardflooring.";
         }
-       if(!copy($directory.'/'.$fileitem, $desfolder.$fileitem)){
+        //to name the history files with date
+        $filedesarr= explode('.',$fileitem);
+        
+        $filedesname = $filedesarr[0].'-'.$date.'.'.$filedesarr[1];
+
+       if(!copy($directory.'/'.$fileitem, $desfolder.$filedesname)){
           	echo "file ".$fileitem." hasn't been copied.";
 			
           }
@@ -572,7 +583,11 @@ foreach($filecols as $fileitem){
     else{
         $errorfilesarray[] = $fileitem;
         $errorflag = true;
-          if(!copy($directory.'/'.$fileitem, $desfolder.$fileitem)){
+           //to name the history files with date
+        $filedesarr= explode('.',$fileitem);
+        
+        $filedesname = $filedesarr[0].'-'.$date.'.'.$filedesarr[1];
+          if(!copy($directory.'/'.$fileitem, $desfolder.$filedesname)){
           	echo "file ".$fileitem." hasn't been copied.";
 			
           }

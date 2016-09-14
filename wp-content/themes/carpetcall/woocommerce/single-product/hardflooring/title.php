@@ -20,4 +20,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<h3 itemprop="name" class="product_title entry-title"><?php echo "<span>Product Code: </span>"; the_title(); ?></h3>
+<h3 class="product_title entry-title"><span>Product Code: </span><span itemprop="name"><?php the_title(); ?></span></h3>

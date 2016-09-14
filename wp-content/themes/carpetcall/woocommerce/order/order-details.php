@@ -49,19 +49,25 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 
 				
 				$item_price = get_post_meta($id ,'_price',true);
-				$item_price = number_format($item_price, 2);
+				$item_price = number_format(round($item_price), 2);
 			  
 			
 			  
 				$qty = $item['item_meta']['_qty'][0];
 				$sku= $item['item_meta']['sku'][0];
 				$item_total = $item['item_meta']['_line_total'][0];
-				$item_total = number_format($item_total, 2);
+				$item_total = number_format(round($item_total), 2);
+				$product = new WC_Product($id);
 				?>
 				<tr class="order_item">
 					<td><?php echo $item['name'];?>
 					<span>SKU:<?php echo $item['item_meta']['sku'][0]; ?></span>
                     <span class="mobile">QTY: <?php echo $qty;?></span>
+                    <?php if($product->get_dimensions() !=''){
+						?>
+						<span class="cart-pro-size">Size: <?php echo $product->get_dimensions();?></span>
+						<?php 
+						}?>
 					</td>
 					<td><?php echo $qty;?></td> 
 					<td><?php echo '$'.$item_price;?></td>
@@ -93,10 +99,10 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 				?>
 				<tr class="mod-table-calc-res"><td></td>
 					<td></td>
-					<td><?php 
+					<td class="ord-tfoot-label"><?php 
 					 $label = rtrim($total['label'],":");
 					 echo $label; ?></td>
-					<td><?php echo $total['value']; ?></td>
+					<td class="ord-tfoot-results"><?php echo ($total['value']); ?></td>
 				</tr>
 				<?php
 			}

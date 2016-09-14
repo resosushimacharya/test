@@ -1070,9 +1070,6 @@
 		text-align:center;
 		line-height:1;
 	}
-	.child-innerpg .inerblock_serc_child h1 {
-		font-size:62px;	
-	}
 	.cbg_content { 
 		padding:0;
 	}
@@ -1250,6 +1247,10 @@
 	}
 	  
 	/* === SEARCH PAGE End === */
+
+	#main.sec_head_cntr p {
+	    line-height: 30px;
+	}
 	
 	/* === SHOP OUR RANGE -- PAGE === */
 	
@@ -1308,6 +1309,12 @@
 	.cbg_content.cc-condn-page .woocommerce table.shop_table thead{
 		display: none;
 	}
+	.cbg_content.cc-condn-page .woocommerce table.shop_table.shop_table_responsive.cart tr.cart_item + tr.cart_item{
+		margin-top: 30px;
+	}
+	.cbg_content.cc-condn-page .woocommerce table.shop_table.shop_table_responsive.cart tr.cart_item td:last-child{
+		border-bottom: 2px solid rgba(0,0,0,0.1);
+	}
 	table.shop_table.shop_table_responsive.cart > tbody > tr > td, .cart-collaterals table.shop_table > tbody > tr > td{
 		display: block;
 		width: 100%;
@@ -1322,11 +1329,14 @@
 		font-size: 28px;
 	    text-align: right;
 	}
-	table.shop_table.shop_table_responsive.cart > tbody > tr > td:first-child{
+	table.shop_table.shop_table_responsive.cart > tbody > tr.cart_item > td:first-child{
 		border-top: 2px solid rgba(0,0,0,0.1);
 	}
 	.cbg_content.cc-condn-page .product-name a, .cbg_content.cc-condn-page span.amount{
 		font-size: 28px;
+	}
+	.woocommerce table.shop_table td.actions{
+		border: 0;
 	}
 	.cc-condn-page .woocommerce a.remove{
 	    width: 26px;
@@ -1350,6 +1360,15 @@
 	}
 	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-remove {
 		padding-left:25px;
+	}
+	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-remove::after{
+		content: '';
+		display: block;
+		height: 0;
+		clear: both;
+	}
+	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-remove a.remove{
+		float:right;
 	}
 	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-quantity::after{
 		content: '';
@@ -1436,16 +1455,17 @@
 	.cc-condn-page .woocommerce .title h3 {
 	    color: #15489f !important;	
 		margin:74px 0;
+		line-height: 1;
 	}
 	.cc-condn-page .woocommerce .cc-checkout-title h3 {
-		margin:0 0 42px 0;
+		margin:0 0 30px 0;
 	}
 	ul.cc-woocommerce-thankyou-order-details li {
 		font-size:32px;
-		line-height:35px;
+		line-height:42px;
 	}
 	.cc-condn-page .woocommerce .cc-checkout-od h3 {
-		margin:93px 0 51px 0;	
+	    margin: 80px 0 35px 0;
 	}
 	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td span.mobile {
 		display:block;
@@ -1993,10 +2013,11 @@
 	.summary.entry-summary h3 i{
 		display: none;
 	}
-	.single.single-product .cc-price-control h3 span.cc-sale-price-title{
+	.single.single-product .cc-price-control h3 span.cc-sale-price-title, .single.single-product .cc-price-control h3 > span{
 		font-size: 60px;
+		font-family: 'ProximaN Bold';
 	}
-	.cc-price-control .cc-line-through{
+	.single.single-product .cc-price-control h3 span.cc-line-through{
 		font-size: 28px;
 		margin-left: 10px;
 	}
@@ -2768,7 +2789,10 @@
 	.cc-find-store-au.store-finder-active-tab:before, .cc-find-store-au:hover:before{
 		height: 10px;
 	}
-	/* Form Inputs */   
+	/* Form Inputs */  
+	#wpsl-search-wrap #wpsl-search-btn{
+		margin-bottom: 0 !important;
+	} 
 	.page-template-find-a-store .cc-store-bdy-contr .wpsl-search {
 	    margin: 45px 0;
 	}
@@ -2954,15 +2978,19 @@
 	}
 	.wpsl-address-sec h4 {
         font-size: 36px;
-	    margin: 0 0 2px 15px;
+	    margin: 0 0 10px 15px;
 	}
-	.wpsl-location-address, .wpsl-locations-details span strong, .wpsl-locations-details span{
+	.wpsl-address-sec span, .wpsl-address-sec h1 span{
 		line-height: 48px;
 		margin: 0;
 	    font-size: 32px;
+	    margin-left: 15px;
 	}
 	.wpsl-locations-details{
 		margin: 0 0 40px 15px;
+	}
+	.single-store-bottom-info{
+		margin-bottom: 40px;
 	}
 	.wpsl-address-sec a, .cc-str-cntblk-a a {
 	    height: 90px;
@@ -2976,38 +3004,56 @@
 	    line-height: 1;
 	    margin-top: 80px;
 	}
-	.cc-single-wpsl-ccstore span.cc-cat-store-item-phone strong, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax strong{
+	.cc-storef-phnum strong{
 		font-size: 36px;
 		margin-left: 15px;
+	}
+	.cc-storef-phnum{
+		margin-bottom: 5px;
 	}
 	.cc-single-wpsl-ccstore span.cc-cat-store-item-phone a, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax{
 		line-height: 1;
 		font-size: 32px;
 	}
 	.cc-str-cntblk {
-	    margin: 35px 0 0;
+	    margin: 45px 0 0;
 	}
 	/* Single Store Blue Box End*/
 	/* Single Store Bottom */
+	.cc-ad-map-strn #wpsl-result-list{
+		display: none;
+	}
 	.wpsl-hour-sec {
 	    padding: 85px 20px 65px;
+	}
+	.wpsl-hour-sec span{
+		line-height: 1;
+		display: block;		
+	}
+	.wpsl-hour-sec span strong{
+		margin-bottom: 15px;
+		display: block;
 	}
 	.wpsl-hour-sec span strong{
 		font-size: 36px;
 	}
-	.wpsl-opening-hours > tbody > tr {
+	.opeaning_list{
+		font-size: 28px;
+		color: #0099ff;
+	    line-height: 45px;
+	    text-transform: uppercase;
+	    font-family: 'proxima_nova_ltsemibold';
+	}
+	.wpsl-hour-sec .opeaning_list span.opeaning_day_label {
 	    font-size: 32px;
 	    line-height: 1.4;
+	    width: 45%;
+	    text-transform: none;
+	    font-family: 'proxima_nova_rgregular';
 	}
-	.wpsl-opening-hours > tbody > tr > td > time {
+	.wpsl-hour-sec .opeaning_list time.opeaning_day_time {
 	    font-size: 28px;
 	    line-height: 45px;
-	}
-	table.wpsl-opening-hours {
-	    margin-top: 5px;
-	}
-	table.wpsl-opening-hours td {
-	    padding-right: 50px;
 	}
 
 	.wpsl-single-right{
@@ -3025,8 +3071,12 @@
 	.cc-ia-banner-a{
 		display: none;
 	}
+	span.all-field-req {
+	    font-size: 32px;
+	    padding-left: 20px;
+	}
 	.inerblock_contblk {
-	    padding: 65px 20px 35px;
+	    padding: 60px 20px 35px;
 	    margin: 0;
 	}
 	.inerblock_contblk.cc-wrapper-whole .col-md-6{
@@ -4466,10 +4516,10 @@
 	.images .mod-social a .fa{
 		font-size: 24px;
 	}
-	.single.single-product .cc-price-control h3 span.cc-sale-price-title{
+	.single.single-product .cc-price-control h3 span.cc-sale-price-title, .single.single-product .cc-price-control h3 > span{
 		font-size: 36px;
 	}
-	.summary .cc-price-control .cc-line-through{
+	.single.single-product .cc-price-control h3 span.cc-line-through{
 		font-size: 18px;
 		margin-left: 10px;
 	}
@@ -5069,10 +5119,10 @@
 	.view-all-link a {
 	    height: 60px;
 	    line-height: 60px;
-	    font-size: 24px;
+	    font-size: 20px;
 	}
 	.single-store-title h3 {
-	    font-size: 52px;
+	    font-size: 36px;
 	}
 	/* Single Store Head End */
 	/* Single Store Blue Box */
@@ -5083,55 +5133,59 @@
         font-size: 22px;
 	    margin: 0 0 7px 15px;
 	}
-	.wpsl-location-address, .wpsl-locations-details span strong, .wpsl-locations-details span{		
-	    font-size: 20px;
+	.wpsl-address-sec span, .wpsl-address-sec h1 span {
+	    line-height: 1;	    
+	    font-size: 18px;
+	    margin-left: 15px;
 	}
 	.wpsl-locations-details{
 		margin: 0 0 30px 15px;
 	}
+	.single-store-bottom-info{
+		margin-bottom: 20px;
+	}
+	.cc-storef-phnum strong {
+	    font-size: 20px;
+	}
 	.wpsl-address-sec a, .cc-str-cntblk-a a {
-	    height: 60px;
-	    line-height: 60px;
+	    height: 50px;
+	    line-height: 50px;
 	    font-size: 18px;
-	    width: 280px;
+	    width: 100%;
 	}
 	.cc-single-wpsl-ccstore {
 	    margin-top: 50px;
 	}
-	.cc-single-wpsl-ccstore span.cc-cat-store-item-phone strong, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax strong{
-		font-size: 22px;
-	}
 	.cc-single-wpsl-ccstore span.cc-cat-store-item-phone a, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax{
 		line-height: 1.4;
-		font-size: 20px;
+		font-size: 18px;
 	}
 	.cc-str-cntblk {
 	    margin: 20px 0 0;
-	}
+	}	
 	/* Single Store Blue Box End*/
 	/* Single Store Bottom */
+	.opeaning_list {
+	    font-size: 18px;	    
+	    line-height: 1;
+	}
 	.wpsl-hour-sec {
-	    padding: 60px 10px 45px;
+	    padding: 60px 0px 45px;
 	}
 	.wpsl-hour-sec span strong{
 		font-size: 22px;
 	}
-	.wpsl-opening-hours > tbody > tr {
-	    font-size: 20px;
-	    line-height: 1.4;
-	}
-	.wpsl-opening-hours > tbody > tr > td > time {
-	    font-size: 18px;
-	    line-height: 35px;
-	}
-	table.wpsl-opening-hours {
-	    margin-top: 10px;
-	}
-	table.wpsl-opening-hours td {
-	    padding-right: 20px;
-	}
 	.wpsl-single-right #wpsl-base-gmap_0 {
 	    height: 420px;
+	    margin-bottom: 30px;
+	}
+	.wpsl-hour-sec .opeaning_list span.opeaning_day_label {
+	    font-size: 20px;
+        width: 39%;
+	}
+	.wpsl-hour-sec .opeaning_list time.opeaning_day_time {
+	    font-size: 18px;
+	    line-height: 30px;
 	}
 	/* Single Store Bottom End */
 	/* === STORE SINGLE PAGE End === */
@@ -5439,39 +5493,67 @@
 	/* === SEARCH PAGE End === */
 	
 	/* === CONTACT US PAGE === */
+	#main.sec_head_cntr p {
+	    line-height: 30px;
+	}
+	.inerblock_contblk{
+		padding: 40px 0 25px;
+	}
 	.cc-wrapper-whole h3 {
-		font-size:45px;	
-		margin-bottom:15px;
+		font-size: 36px;	
+		margin-bottom: 20px;
+		text-indent: 0;
 	}
 	.inerblock_contblk p {
-		font-size:20px;
-		margin-bottom:15px;
-		max-width:100%;	
+		font-size: 18px;
+		margin-bottom: 15px;
+		line-height: 30px;
+		max-width: 100%;	
 	}
-	.form-group.cc-enquiry-section h3, .details-us h3, #cc-store-form-section .form-group.col-sm-12 p {
-		font-size:25px;	
-		padding:25px 15px 20px 0;		
+	.form-group.cc-enquiry-section h3, .details-us h3, #cc-store-form-section .form-group.col-sm-12 p, #cc-store-form-section .form-group.col-sm-12 h3, .ur-msg-title .form-group.col-sm-12 h3 {
+		font-size: 22px;	
+		padding: 20px 0px 10px 0;		
+	}
+	.col-sm-12.form-group.cc-enquiry-section{
+		padding: 20px 0 0;
+	}
+	.query-rlblk {	    
+	    padding: 15px 10px 25px;
 	}
 	#cc-store-form-section .form-group.col-sm-12 p {
 		margin:0;	
 	}
 	.query-rlblk .form-group {
-		font-size:24px;	
-		margin-bottom:0;
+		font-size: 18px;			
 	}
-	select#cc-enquiry-type {
-		height:50px;
-		margin-top:22px;
-		font-size:20px;
-		background-size:50px;	
-		padding: 10px 65px 10px 20px;
+	.query-rlblk select#cc-enquiry-type {
+	    height: 50px;
+	    margin-top: 10px;
+	    font-size: 18px;
+	    background-size: 50px;
+	    padding: 10px 50px 10px 15px;
+	    line-height: 1;
+	}
+	.details-us {
+	    margin-top: 20px;
+	}
+	span.all-field-req {
+	    top: 0;
+	    padding: 0;
+	    font-size: 18px;
+	    margin-bottom: 20px;
+	    display: block;
+	}
+	.fl-blk, .mero-blkk, .tel-blk, #cc-store-form-section{
+		padding: 0;
 	}
 	.fl-blk label, .mero-blkk .form-group.col-sm-12 label, .tel-blk .form-group.col-sm-6 label {
-		font-size:24px;	
-		font-weight:normal;
-		margin-bottom:17px;
-		padding-left:10px;
-		display:block;
+		font-size: 18px;			
+		margin-bottom: 5px;
+		padding-left:0px;		
+	}
+	.contact_form_cntr .form-group, .fl-blk .col-sm-6:nth-child(1), .fl-blk .col-sm-6:nth-child(2) {
+	    margin-bottom: 15px;
 	}
 	.fl-blk .form-control, .mero-blkk .form-group.col-sm-12 .form-control, .tel-blk .form-group.col-sm-6 .form-control {
 		height:50px;
@@ -5479,36 +5561,32 @@
 		padding:10px 25px;
 		width:100%;
 	}
-	#cc-store-form-section .form-group.col-sm-12 h3, .ur-msg-title .form-group.col-sm-12 h3 {
-		font-size:32px;
-		padding:15px 0;	
+	#cc-store-form-section .form-group.col-sm-12 p{
+		font-size: 18px;
+		padding: 0;
+	}	
+	.ur-msg-title .form-group{
+		margin-bottom: 0;
 	}
 	select#cc-state-type, select#cc-store-name {
-		padding-right:50px;
-		background-size:50px;	
-		width:100%;
-		height:50px;
-		font-size:20px;
-		padding:10px 30px;
-	}
+		background-size: 50px;
+	    width: 100%;
+	    height: 50px;
+	    font-size: 16px;
+	    padding: 10px 15px;
+		}
 	.contact_form_cntr .contact-msg-cntr, .contact_form_cntr .contact-captcha-cntr {
 	padding:0;	
 	}
-	.form-group.col-sm-12 textarea.form-control {
-		width:100%;
-		height:250px;
-		resize:none;
-		padding:20px 20px;
+	.form-group.col-sm-12 textarea.form-control {		
+		height:180px;		
+		padding:20px 15px;
 		font-size:18px;	
 	}
 	.contact-submit-cntr .btn-dn {
-		width:280px;
-		height:60px;
-		padding:0;
-		line-height:60px;
-		font-size:18px;
-		display:block;
-		margin:50px auto 0;
+		width:280px;						
+		font-size:18px;		
+		margin:30px auto 0;
 	}
 	/* === CONTACT US PAGE End === */
 	
@@ -5575,11 +5653,11 @@
 		padding-left:0px;
 	}
 	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-quantity .quantity select#quantity-control {
-	    width: 130px;
-	    height: 60px;	    
+	    width: 110px;
+	    height: 50px;
 	    font-size: 18px;
-	    background-size: 60px;
-	    padding: 0 30px;
+	    background-size: 50px;
+	    padding: 0 25px;
 	}
 	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-subtotal span, .cbg_content.cc-condn-page .order-total span.amount{
 		font-size: 24px;
@@ -5981,8 +6059,13 @@
 	h3.cc-idea-ad-title{
 		font-size: 22px;
 	}
-	.single.single-product .cc-price-control h3 span.cc-sale-price-title {
+	.single.single-product .cc-price-control h3 span.cc-sale-price-title, .single.single-product .cc-price-control h3 > span {
 	    font-size: 30px;
+	}
+	.single.single-product .cc-price-control h3 span.cc-line-through{
+		font-size: 16px;
+		position: relative;
+	    top: -2px;
 	}
 	.single.single-product .cc-price-control h3 span.low {
 	    font-size: 22px;
@@ -6040,3 +6123,10 @@
 }
 
 /* ============= 359px Ends ============= */
+
+@media only screen and (max-width: 330px){
+	.banner .cc-logo-cntr {
+	    max-width: 205px;
+	    width: 205px;
+	}
+}

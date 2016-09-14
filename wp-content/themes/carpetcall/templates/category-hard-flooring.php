@@ -11,6 +11,7 @@
 	$depth = count($ancestors) ; 
 	?>
 <div class="contaniner clearfix category-hard-flooring">
+<input type="hidden" id="hide_loadmore" value="<?php echo (is_last_cat($current_cat))?'yes':'no'?>">
   <div class="inerblock_seC_mrugss">
     <div class="container-fluid mmrugm <?php echo ($depth==0)?'main_cat_head':'sub_cat_head' ?>">
     <?php
@@ -84,14 +85,12 @@ $currentcat = get_queried_object();
 	$ret = loadmore_hf($args);
 	 ?>
              <div class="rugm-blk col-md-6 no-pl">
-<<<<<<< HEAD
-          <p> <?php /*?><span class="cc-cat-title-count"> <span class="post_count"><?php echo $ret['found_prod'];// $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products </span><?php */?> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
-=======
-          <p> <span class="cc-cat-title-count"> <span class="post_count"><?php echo $ret['found_prod'];// $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
+          <p> <span class="mobile cc-cat-title-count">  <?php /* <span class="post_count"><?php echo $ret['found_prod'];// $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products */ ?> Filters</span> 
+            <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> 
+            </p>
            <span class="open-product-sidebar">
             +
           </span>
->>>>>>> c818791b7b1bfd9fb316b8a3bbee2c16b29673be
         </div>
         <div class="col-md-6 no-pr clearfix cat-sort-by-cntr">
           <div class="cc-product-sort">

@@ -23,8 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php
 if(get_post_meta(get_the_ID(),'_sku',true)){
 	?>
-	<h3 itemprop="name" class="product_title entry-title">
-<?php echo "<span>Code: </span>".get_post_meta(get_the_ID(),'_sku',true) ?>
+	<h3 class="product_title entry-title"><span>Code: </span><span itemprop="name"><?php echo get_post_meta(get_the_ID(),'_sku',true) ?></span>
 </h3>
 	<?php }
 ?>

@@ -12,6 +12,7 @@
 	$depth = count($ancestors) ; 
 	?>
 <div class="contaniner clearfix category-rugs">
+<input type="hidden" id="hide_loadmore" value="<?php echo (is_last_cat($current_cat))?'yes':'no'?>">
   <div class="inerblock_seC_mrugss">
     <div class="container-fluid mmrugm <?php echo ($depth==0)?'main_cat_head':'sub_cat_head' ?> ">
     <?php
@@ -88,7 +89,7 @@ $currentcat = get_queried_object();
             <div class="rugm-blk col-md-6 no-pl">
 
           <p> 
-            <?php /*?><span class="cc-cat-title-count"> <span class="post_count"><?php echo $ret['found_prod']// $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products </span><?php */?> 
+            <span class="mobile cc-cat-title-count"> <?php /* <span class="post_count"><?php echo $ret['found_prod']// $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products */ ?> Filters</span>
             <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> 
           </p>
           

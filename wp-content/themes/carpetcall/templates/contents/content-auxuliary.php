@@ -137,7 +137,7 @@ wp_reset_query();
     function addMarkers1() {
         var address = locations1[areaiterator][1];
 
-        var icons = '<?php echo get_template_directory_uri(); ?>/images/markers/location@2x.png';
+        var icons = '<?php echo get_template_directory_uri(); ?>/images/markers/dark-blue.png';
         var templat = locations1[areaiterator][2].split(',')[0];
         var templong = locations1[areaiterator][2].split(',')[1];
         var temp_latLng = new google.maps.LatLng(templat, templong);
