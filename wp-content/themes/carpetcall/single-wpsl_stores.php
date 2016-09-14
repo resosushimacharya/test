@@ -76,7 +76,7 @@ $backurl=site_url().'/find-a-store/'.strtolower($cat_name);
             </div>
             
             <div class="col-md-6 view-all-link desktop">
-            	<a href="<?php echo $backurl?>"> VIEW ALL STORES</a>
+            	<a href="<?php echo $backurl?>">< VIEW ALL STORES</a>
             </div>
         
         </div>

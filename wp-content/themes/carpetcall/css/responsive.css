@@ -1469,7 +1469,7 @@
 	}
 	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td span.mobile {
 		display:block;
-		margin:12px 0;
+		margin:40px 0 10px;
 	}
 	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord, .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead, .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody {
 		display:block;	
@@ -1480,19 +1480,38 @@
 	}
 	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th, .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td {
 		width:50%;
-		display:inline-block;
+		display:inline-block;	
+		font-size: 32px;	
+		padding: 50px 20px;
+	}
+	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th{		
+		padding: 24px 20px;
+	}
+	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th.product-name, .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr.order_item td:first-child {
+	    width: 70%;
+	}
+	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th.product-total, .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr.order_item td:last-child {
+	    width: 30%;
 	}
 	.cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr {
 		border-bottom:2px solid #e7edf8;
 	}
-	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th:nth-child(2), .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th:nth-child(3), .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td:nth-child(2), .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td:nth-child(3) {
+	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th:nth-child(2), .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th:nth-child(3), .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td:nth-child(2), .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td:nth-child(3), .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tfoot > tr > td.empty {
 		display:none;	
 	}
 	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td {
 		border-bottom:none;
 	}
+	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tfoot{
+		display: block;
+	}
+	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tfoot  tr{
+		display: block;
+		font-size: 0;
+	}
 	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tfoot > tr > td {
-		width:25%;
+		width:50%;
+		display: inline-block;
 	}
 	cc-bil-ship-woo-wrap  {
 		display:block;

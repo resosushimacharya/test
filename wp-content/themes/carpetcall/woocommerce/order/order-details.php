@@ -97,8 +97,8 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 					$total['value'] = get_post_meta($order->id,'cc_shipping_method',true);
 					}
 				?>
-				<tr class="mod-table-calc-res"><td></td>
-					<td></td>
+				<tr class="mod-table-calc-res"><td class="empty"></td>
+					<td class="empty"></td>
 					<td class="ord-tfoot-label"><?php 
 					 $label = rtrim($total['label'],":");
 					 echo $label; ?></td>
