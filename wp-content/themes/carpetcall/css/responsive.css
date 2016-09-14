@@ -1247,6 +1247,10 @@
 	}
 	  
 	/* === SEARCH PAGE End === */
+
+	#main.sec_head_cntr p {
+	    line-height: 30px;
+	}
 	
 	/* === SHOP OUR RANGE -- PAGE === */
 	
@@ -3023,7 +3027,7 @@
 		display: none;
 	}
 	.inerblock_contblk {
-	    padding: 65px 20px 35px;
+	    padding: 60px 20px 35px;
 	    margin: 0;
 	}
 	.inerblock_contblk.cc-wrapper-whole .col-md-6{
