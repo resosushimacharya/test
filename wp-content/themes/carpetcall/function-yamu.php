@@ -1681,6 +1681,7 @@ if($item_sku){
 */
 
 function cc_custom_get_feat_img($post_id,$size='small',$pattern='L'){
+	$feat_image = '';
 	if(has_term('hard-flooring','product_cat',$post_id) || has_term('rugs','product_cat',$post_id)){
 							if(has_term('hard-flooring','product_cat',$post_id)){
 							$sku = get_post_meta($post_id,'_sku',true);
