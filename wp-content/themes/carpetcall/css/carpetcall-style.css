@@ -7721,3 +7721,11 @@ ul.cc-woocommerce-thankyou-order-details li {
 .cc-checkout-woerrors .woocommerce-error a.button.wc-forward {
 	display: none;
 }
+.hidden_image_wrapper{
+	display: none;
+}
+.woocommerce-checkout #payment ul.payment_methods li .card_options img {
+    display: block !important;
+    max-width: 200px;
+    margin: 9px 0 25px 43px;
+}

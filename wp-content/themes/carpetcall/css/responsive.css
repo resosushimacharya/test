@@ -1309,6 +1309,12 @@
 	.cbg_content.cc-condn-page .woocommerce table.shop_table thead{
 		display: none;
 	}
+	.cbg_content.cc-condn-page .woocommerce table.shop_table.shop_table_responsive.cart tr.cart_item + tr.cart_item{
+		margin-top: 30px;
+	}
+	.cbg_content.cc-condn-page .woocommerce table.shop_table.shop_table_responsive.cart tr.cart_item td:last-child{
+		border-bottom: 2px solid rgba(0,0,0,0.1);
+	}
 	table.shop_table.shop_table_responsive.cart > tbody > tr > td, .cart-collaterals table.shop_table > tbody > tr > td{
 		display: block;
 		width: 100%;
@@ -1323,11 +1329,14 @@
 		font-size: 28px;
 	    text-align: right;
 	}
-	table.shop_table.shop_table_responsive.cart > tbody > tr > td:first-child{
+	table.shop_table.shop_table_responsive.cart > tbody > tr.cart_item > td:first-child{
 		border-top: 2px solid rgba(0,0,0,0.1);
 	}
 	.cbg_content.cc-condn-page .product-name a, .cbg_content.cc-condn-page span.amount{
 		font-size: 28px;
+	}
+	.woocommerce table.shop_table td.actions{
+		border: 0;
 	}
 	.cc-condn-page .woocommerce a.remove{
 	    width: 26px;
@@ -1351,6 +1360,15 @@
 	}
 	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-remove {
 		padding-left:25px;
+	}
+	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-remove::after{
+		content: '';
+		display: block;
+		height: 0;
+		clear: both;
+	}
+	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-remove a.remove{
+		float:right;
 	}
 	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-quantity::after{
 		content: '';
@@ -1994,10 +2012,11 @@
 	.summary.entry-summary h3 i{
 		display: none;
 	}
-	.single.single-product .cc-price-control h3 span.cc-sale-price-title{
+	.single.single-product .cc-price-control h3 span.cc-sale-price-title, .single.single-product .cc-price-control h3 > span{
 		font-size: 60px;
+		font-family: 'ProximaN Bold';
 	}
-	.cc-price-control .cc-line-through{
+	.single.single-product .cc-price-control h3 span.cc-line-through{
 		font-size: 28px;
 		margin-left: 10px;
 	}
@@ -4471,10 +4490,10 @@
 	.images .mod-social a .fa{
 		font-size: 24px;
 	}
-	.single.single-product .cc-price-control h3 span.cc-sale-price-title{
+	.single.single-product .cc-price-control h3 span.cc-sale-price-title, .single.single-product .cc-price-control h3 > span{
 		font-size: 36px;
 	}
-	.summary .cc-price-control .cc-line-through{
+	.single.single-product .cc-price-control h3 span.cc-line-through{
 		font-size: 18px;
 		margin-left: 10px;
 	}
@@ -5444,32 +5463,59 @@
 	/* === SEARCH PAGE End === */
 	
 	/* === CONTACT US PAGE === */
+	#main.sec_head_cntr p {
+	    line-height: 30px;
+	}
+	.inerblock_contblk{
+		padding: 40px 0 25px;
+	}
 	.cc-wrapper-whole h3 {
-		font-size:45px;	
-		margin-bottom:15px;
+		font-size: 36px;	
+		margin-bottom: 20px;
+		text-indent: 0;
 	}
 	.inerblock_contblk p {
-		font-size:20px;
-		margin-bottom:15px;
-		max-width:100%;	
+		font-size: 18px;
+		margin-bottom: 15px;
+		line-height: 30px;
+		max-width: 100%;	
 	}
 	.form-group.cc-enquiry-section h3, .details-us h3, #cc-store-form-section .form-group.col-sm-12 p {
-		font-size:25px;	
-		padding:25px 15px 20px 0;		
+		font-size: 22px;	
+		padding: 20px 0px 10px 0;		
+	}
+	.col-sm-12.form-group.cc-enquiry-section{
+		padding: 20px 0 0;
+	}
+	.query-rlblk {	    
+	    padding: 15px 10px 25px;
 	}
 	#cc-store-form-section .form-group.col-sm-12 p {
 		margin:0;	
 	}
 	.query-rlblk .form-group {
-		font-size:24px;	
-		margin-bottom:0;
+		font-size: 18px;			
 	}
-	select#cc-enquiry-type {
-		height:50px;
-		margin-top:22px;
-		font-size:20px;
-		background-size:50px;	
-		padding: 10px 65px 10px 20px;
+	.query-rlblk select#cc-enquiry-type {
+	    height: 50px;
+	    margin-top: 10px;
+	    font-size: 18px;
+	    background-size: 50px;
+	    padding: 10px 50px 10px 15px;
+	    line-height: 1;
+	}
+	.details-us {
+	    margin-top: 20px;
+	}
+	span.all-field-req {
+	    top: 0;
+	    padding: 0;
+	    font-size: 18px;
+	    margin-bottom: 20px;
+	    display: block;
+	}
+	.fl-blk, .mero-blkk, .tel-blk, #cc-store-form-section{
+		padding: 0;
 	}
 	.fl-blk label, .mero-blkk .form-group.col-sm-12 label, .tel-blk .form-group.col-sm-6 label {
 		font-size:24px;	
@@ -5580,11 +5626,11 @@
 		padding-left:0px;
 	}
 	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-quantity .quantity select#quantity-control {
-	    width: 130px;
-	    height: 60px;	    
+	    width: 110px;
+	    height: 50px;
 	    font-size: 18px;
-	    background-size: 60px;
-	    padding: 0 30px;
+	    background-size: 50px;
+	    padding: 0 25px;
 	}
 	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-subtotal span, .cbg_content.cc-condn-page .order-total span.amount{
 		font-size: 24px;
@@ -5986,8 +6032,13 @@
 	h3.cc-idea-ad-title{
 		font-size: 22px;
 	}
-	.single.single-product .cc-price-control h3 span.cc-sale-price-title {
+	.single.single-product .cc-price-control h3 span.cc-sale-price-title, .single.single-product .cc-price-control h3 > span {
 	    font-size: 30px;
+	}
+	.single.single-product .cc-price-control h3 span.cc-line-through{
+		font-size: 16px;
+		position: relative;
+	    top: -2px;
 	}
 	.single.single-product .cc-price-control h3 span.low {
 	    font-size: 22px;
