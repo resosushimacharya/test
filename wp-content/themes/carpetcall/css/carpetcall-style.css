@@ -6548,7 +6548,7 @@ table.shop_table.shop_table_responsive.cart > thead > tr > th.product-subtotal, 
  .woocommerce a.button.alt {
 	background-color:#c32327; 
  }
-.wc-forward{
+.woocommerce-message .wc-forward, a.added_to_cart.wc-forward{
  display:none !important;
  }
 a.button.wc-backward {
@@ -7625,15 +7625,17 @@ ul.cc-woocommerce-thankyou-order-details li {
 	font-size:16px;
 	color:#666666;
 	text-transform:uppercase;
-	padding:5px 28px;
+	padding:6px 25px;
 	font-weight:normal;
 }
 .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td {
 	font-family:'proxima_nova_rgregular', sans-serif;
 	font-size:16px;
 	color:#666666;
-	padding:25px 28px 12px 28px;
+	padding:20px 25px 20px 25px;
 	line-height:1;
+	border-bottom: 1px solid #e7edf8;
+	border-top: 0;
 }
 
 .cateogry-carpets-main-cntr {
