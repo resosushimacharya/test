@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     
     		<div style="clear:both; background-color:#144a9f; height:35px; padding:17px 29px;">
             
-            	<div style="float:left; margin-left:12px;" ><a href="<?php echo site_url();?>" ><img src="<?php echo get_template_directory_uri();?>/images/logo-mail.png" width="171" height="35" alt="logo"/></a></div><!-- logo end -->
+            	<div style="float:left; margin-left:12px;" ><a href="<?php echo site_url();?>" ><img src="http://resolutionaustralia.com.au/design/Carpetcall/carpetcall-logo.png" width="171" height="35" alt="logo"/></a></div><!-- logo end -->
                 
                 <div style="float:right; width:179px;">
                 <div style="font-family:'proxima_nova_ltsemibold', sans-serif; font-size:20px; color:#FFF;  line-height:1; clear:both;">CALL 1300 502 427 </div>

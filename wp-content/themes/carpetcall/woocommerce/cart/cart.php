@@ -158,7 +158,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 </form>
 
-<div class="cart-collaterals">
+<div class="cart-collaterals cart-final-cntr">
 
 	<?php do_action( 'woocommerce_cart_collaterals' ); ?>
 
