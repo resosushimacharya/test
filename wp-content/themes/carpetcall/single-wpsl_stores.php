@@ -101,9 +101,17 @@ $backurl=site_url().'/find-a-store/'.strtolower($cat_name);
                         
                         <h1><span itemprop="name"><?php echo get_the_title()?></span></h1>
                         <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="single-store-bottom-info">
+                        <?php if($street){?>
                         <span itemprop="streetAddress"><?php echo $street?></span><br>
-                        <span itemprop="addressLocality"><?php echo $locality?></span>,<span itemprop="addressRegion"><?php echo $city?></span><br>
-                        <span itemprop="postalCode">2750</span>
+                        <?php } ?>
+                        <?php if($locality){?> 
+						<span itemprop="addressLocality"><?php echo $locality?></span>,
+						<?php }?>
+                        <?php if($city){?><span itemprop="addressRegion"><?php echo $city?></span><br><?php }?>
+                      
+                        <?php if($postcode){?>
+                        <span itemprop="postalCode"><?php echo $postcode?></span>
+                        <?php } ?>
                         </div>
                         <?php
                         /*

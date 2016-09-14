@@ -846,7 +846,12 @@ jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax
 	if(output.found_prod == 0){
 		jQuery('#cc_load_more').hide();
 		}else{
-			jQuery('#cc_load_more').show();
+			if(jQuery('#hide_loadmore').val()=='yes'){
+				jQuery('#cc_load_more').show();
+				}else{
+				jQuery('#cc_load_more').hide();
+				}
+				
 			}		
 			});
 
