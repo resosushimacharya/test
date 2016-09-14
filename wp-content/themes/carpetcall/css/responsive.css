@@ -3026,6 +3026,10 @@
 	.cc-ia-banner-a{
 		display: none;
 	}
+	span.all-field-req {
+	    font-size: 32px;
+	    padding-left: 20px;
+	}
 	.inerblock_contblk {
 	    padding: 60px 20px 35px;
 	    margin: 0;
