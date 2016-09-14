@@ -227,7 +227,8 @@ wp_reset_query();
                     $price=$woo['_regular_price'][0];
                     
                     
-                    $feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
+                    $feat_image = cc_custom_get_feat_img($filloop->post->ID,'medium');
+					//$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
 
 
                                     ?> <div class="col-md-4">

@@ -1029,6 +1029,14 @@ function cc_custom_search($args){
 											'value'	=>'instock',
 										),
 									),
+					'tax_query'	=>array(
+									array(
+										'taxonomy' => 'product_cat',
+										'terms' => array('accessories'),
+										'field' => 'slug',
+										'operator' => 'NOT IN',
+									)
+								)
 				);
 				
 				
