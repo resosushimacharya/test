@@ -104,7 +104,7 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
 			  if(jQuery(document).find('label#'+jQuery(this).attr('id')+'-errormessage').length){
 				  jQuery(document).find('label#'+jQuery(this).attr('id')+'-errormessage').show();
 				  }else{
-					  jQuery(this).parent().append('<label id="'+jQuery(this).attr("id")+'-errormessage" class="cc_error" for="'+jQuery(this).attr("id")+'">Please enter a valid Phone Number.</label>').show();
+					  jQuery(this).parent().append('<label id="'+jQuery(this).attr("id")+'-errormessage" class="cc_error" for="'+jQuery(this).attr("id")+'">Please enter a valid phone number.</label>').show();
 					  }
 			 jQuery(this).parent('.validate-phone').addClass('woocommerce-invalid');
 			   return false;
@@ -116,11 +116,97 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
 		
 	jQuery(document).on('focusout','#billing_state, #shipping_state',function(){
 		var selected = jQuery(this).val();
+		if(selected ==''){
+			jQuery(this).addClass('error');
+			return false;
+			}else{
+				jQuery(this).removeClass('error');
+				}
+		});
+	
+	jQuery(document).on('click','#place_order',function(e){
+		e.preventDefault();
+		var selected_method = jQuery('input[name="payment_method"]:checked').val();
+		if(selected_method == 'securepay'){
+			var error_flag = false;
+			var error_el = '';
+			jQuery('.payment_box.payment_method_securepay').find('input, select').each(function(index, element) {
+				
+                if(jQuery(element).val() == ''){
+					error_flag = true;
+					jQuery(element).addClass('cc_error');
+					error_el = element;
+					}else{
+						jQuery(element).removeClass('cc_error');
+						}
+            });
+			var selected_expdate = (new Date(jQuery('#expyear').val(),parseInt(jQuery('#expmonth').val())-1));
+			
+			if(selected_expdate < new Date()){
+					error_flag = true;
+					jQuery('#expyear, #expmonth').addClass('cc_error');
+					}
+			if(error_flag){
+				return false;
+				}else{
+					jQuery('form[name="checkout"]').submit();
+					}
+			}else{
+				jQuery('form[name="checkout"]').submit();
+				}
 		
 		});
+	 jQuery(document).on('keyup','input[name="cardno"]',function () { 
+        var maxChars = 16;
+		this.value = this.value.replace(/[^0-9\.]/g,'');
+        if (jQuery(this).val().length > maxChars) {
+            jQuery(this).val(jQuery(this).val().substr(0, maxChars));
+        }
+		if (jQuery(this).val().length != maxChars) {
+			jQuery(this).addClass('cc_error');
+			jQuery('#place_order').attr('disabled','disabled');
+			return false;
+			}else{
+				jQuery('#place_order').removeAttr('disabled');
+				}
+    });
+	 jQuery(document).on('keyup','input[name="cardcvv"]',function () { 
+        var maxChars = 3;
+		this.value = this.value.replace(/[^0-9\.]/g,'');
+        if (jQuery(this).val().length > maxChars) {
+            jQuery(this).val(jQuery(this).val().substr(0, maxChars));
+        }
+		if (jQuery(this).val().length != maxChars) {
+			jQuery(this).addClass('cc_error');
+			jQuery('#place_order').attr('disabled','disabled');
+			return false;
+		}else{
+				jQuery('#place_order').removeAttr('disabled');
+				}
+    });
+	
+jQuery( document ).ajaxSuccess(function( event, xhr, settings ) {
+	if((settings.url).indexOf("checkout/?wc-ajax=checkout") >= 0){
+		jQuery(document).find('.cc_woocommerce-message').remove();
+		var response = jQuery.parseJSON(xhr.responseText);
+		if(response.result ==  "failure"){
+			jQuery('.wc_payment_methods').prepend('<div class="cc_woocommerce-message">Please Enter valid Payment Details</div>');
+			}
+		}
+});
 		
 /*===================Fields Validation for checkout page ends=============*/
+
+/*=============Adding mastercard and visa logos in secure pay form starts=======*/
+jQuery(document).on('click','#payment_method_securepay',function(){
+	jQuery('.card_options').remove();
+	var img_tag = jQuery('.hidden_image_wrapper').html();
+	jQuery('.payment_box.payment_method_securepay').prepend('<div class="card_options">'+img_tag+'</div>');
 	
+	});
+
+/*=============Adding mastercard and visa logos in secure pay form ends=======*/
+
 /*jQuery(document).on('focusout','#billing_phone:visible, #shipping_phone:visible',function(){
 	var phoneNumber = jQuery(this).val();
 	if('' !=phoneNumber){
