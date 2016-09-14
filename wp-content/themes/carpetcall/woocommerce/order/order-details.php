@@ -99,10 +99,10 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 				?>
 				<tr class="mod-table-calc-res"><td></td>
 					<td></td>
-					<td><?php 
+					<td class="ord-tfoot-label"><?php 
 					 $label = rtrim($total['label'],":");
 					 echo $label; ?></td>
-					<td><?php echo ($total['value']); ?></td>
+					<td class="ord-tfoot-results"><?php echo ($total['value']); ?></td>
 				</tr>
 				<?php
 			}

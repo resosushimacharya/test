@@ -7021,6 +7021,7 @@ label.inner-check-label.radio-check-label::after{
 	line-height:22px;
     color: #666666;
     padding: 8px;
+    position: relative;
     width: 50%;
 }
 .shipping_needed_checkout .woocommerce-shipping-fields .shipping_address p.form-row-first{
@@ -7501,7 +7502,7 @@ div#gmap > div{
 div#checkout_delivery {
     position: relative;
 }
-#checkout_delivery .cc_error{position: absolute; bottom: 30px; left: 30px;    color: #f00;
+#checkout_delivery .cc_error{position: absolute; color: #f00;
     font-size: 14px; font-family: 'proxima_nova_rgregular', sans-serif; font-weight: normal; line-height: 1;}
     .calculator_container .remove_row_calc {
     display: none;
@@ -7570,9 +7571,7 @@ span.access_active_text {
     text-overflow: ellipsis;
 }
 #checkout_delivery .cc_error{
-	position: absolute; 
-	bottom: 30px; 
-	left: 30px;    
+	position: absolute; 		  
 	color: #f00;
     font-size: 14px; 
 	font-family: 'proxima_nova_rgregular', sans-serif; 
@@ -7637,6 +7636,9 @@ ul.cc-woocommerce-thankyou-order-details li {
 	border-bottom: 1px solid #e7edf8;
 	border-top: 0;
 }
+/*.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th.product-name{
+	width: 50%;
+}*/
 
 .cateogry-carpets-main-cntr {
     margin-top: 70px;
@@ -7694,6 +7696,7 @@ ul.cc-woocommerce-thankyou-order-details li {
 	color:#666666;
 	text-transform:uppercase;
 	font-weight:normal;
+	/*text-align: right;*/
 }
 .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tfoot > tr > td:last-child {
 	text-transform:none;
@@ -7702,6 +7705,7 @@ ul.cc-woocommerce-thankyou-order-details li {
 	color:#666666;
 	font-weight:normal;
 	padding:10px 12px 0 12px;
+	text-align: center;
 }
 .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tfoot > tr.mod-table-calc-res:last-child {
 	background-color:#e7edf8;
