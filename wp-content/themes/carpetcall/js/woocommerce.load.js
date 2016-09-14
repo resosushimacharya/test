@@ -200,7 +200,8 @@ jQuery( document ).ajaxSuccess(function( event, xhr, settings ) {
 /*=============Adding mastercard and visa logos in secure pay form starts=======*/
 jQuery(document).on('click','#payment_method_securepay',function(){
 	jQuery('.card_options').remove();
-	jQuery(document).find('input[name="cardno"]').append('<div class="card_options"></div>');
+	jQuery('.payment_box.payment_method_securepay').prepend('<div class="card_options"></div>');
+	
 	});
 
 /*=============Adding mastercard and visa logos in secure pay form ends=======*/
