@@ -85,9 +85,10 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
 			 jQuery(this).parent('.validate-postcode').addClass('woocommerce-invalid');
 			   return false;
 			   }
-		}
-		
-		
+		}else{
+			jQuery(this).parent('.validate-postcode').addClass('woocommerce-invalid');
+			return false;
+			}
 		});
 		
 		
@@ -117,10 +118,10 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
 	jQuery(document).on('focusout','#billing_state, #shipping_state',function(){
 		var selected = jQuery(this).val();
 		if(selected ==''){
-			jQuery(this).addClass('error');
+			jQuery(this).addClass('cc_error_checkout');
 			return false;
 			}else{
-				jQuery(this).removeClass('error');
+				jQuery(this).removeClass('cc_error_checkout');
 				}
 		});
 	
@@ -134,17 +135,17 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
 				
                 if(jQuery(element).val() == ''){
 					error_flag = true;
-					jQuery(element).addClass('cc_error');
+					jQuery(element).addClass('cc_error_checkout');
 					error_el = element;
 					}else{
-						jQuery(element).removeClass('cc_error');
+						jQuery(element).removeClass('cc_error_checkout');
 						}
             });
 			var selected_expdate = (new Date(jQuery('#expyear').val(),parseInt(jQuery('#expmonth').val())-1));
 			
 			if(selected_expdate < new Date()){
 					error_flag = true;
-					jQuery('#expyear, #expmonth').addClass('cc_error');
+					jQuery('#expyear, #expmonth').addClass('cc_error_checkout');
 					}
 			if(error_flag){
 				return false;
@@ -163,7 +164,7 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
             jQuery(this).val(jQuery(this).val().substr(0, maxChars));
         }
 		if (jQuery(this).val().length != maxChars) {
-			jQuery(this).addClass('cc_error');
+			jQuery(this).addClass('cc_error_checkout');
 			jQuery('#place_order').attr('disabled','disabled');
 			return false;
 			}else{
@@ -177,7 +178,7 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
             jQuery(this).val(jQuery(this).val().substr(0, maxChars));
         }
 		if (jQuery(this).val().length != maxChars) {
-			jQuery(this).addClass('cc_error');
+			jQuery(this).addClass('cc_error_checkout');
 			jQuery('#place_order').attr('disabled','disabled');
 			return false;
 		}else{
