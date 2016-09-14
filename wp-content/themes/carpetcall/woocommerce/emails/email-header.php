@@ -29,19 +29,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 </head>
 
 <body>
-	<div style="background-color:#FFF; margin:23px auto; width:600px; clear:both;">
+  <div style="width:600px; background-color:#FFF; margin:23px auto; clear:both;">
     
-    		<div style="clear:both; background-color:#144a9f; height:35px; padding:17px 29px;">
+        <div style="height:35px; background-color:#144a9f; padding:17px 29px; clear:both;">
             
-            	<div style="float:left; margin-left:12px;" ><a href="<?php echo site_url();?>" ><img src="http://resolutionaustralia.com.au/design/Carpetcall/carpetcall-logo.png" width="171" height="35" alt="logo"/></a></div><!-- logo end -->
+
+              
+
+              <div style="float:left; margin-left:12px;" ><a href="<?php echo site_url();?>" ><img src="http://resolutionaustralia.com.au/design/Carpetcall/carpetcall-logo.png" width="171" height="35" alt="logo"/></a></div><!-- logo end -->
+
                 
                 <div style="float:right; width:179px;">
                 <div style="font-family:'proxima_nova_ltsemibold', sans-serif; font-size:20px; color:#FFF;  line-height:1; clear:both;">CALL 1300 502 427 </div>
                 
-                <div style="clear:both; position:relative;">
-                	<p style="float:left; font-family:'proxima_nova_ltsemibold', sans-serif; font-size:6.69px; color:#FFF; margin:2px 0; text-transform:uppercase;"> OR BOOK A CALL BACK WITH <br>
+                <div style="clear:both;">
+                  <p style="float:left; font-family:'proxima_nova_ltsemibold', sans-serif; font-size:6.69px; color:#FFF; margin:2px 0; text-transform:uppercase;"> OR BOOK A CALL BACK WITH <br>
 OUR FLOORING SPECIALISTS </p>
-				<div style="position:absolute; top:-1px; right:0;"><a href="#" style="display:block; background-color:#c32428; padding:5px 14px; font-family:'proxima_nova_rgregular', sans-serif; font-size:7.25px; color:#FFF; text-align:center; text-decoration:none; text-transform:uppercase;"> CONTACT US </a></div>
+        <div style=""><a href="#" style="background-color:#c32428; padding:5px 14px; font-family:'proxima_nova_rgregular', sans-serif; font-size:7.25px; color:#FFF; text-align:center; text-decoration:none; text-transform:uppercase;"> CONTACT US </a></div>
                 </div>
                 </div><!-- header info end -->
                 
