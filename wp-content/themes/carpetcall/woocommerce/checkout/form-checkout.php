@@ -70,6 +70,9 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 		              <a href="#checkout_payment" class="edit_section" style="display:none">Edit</a>
 		            </span></h3>
 		        <div class="collapse collapsable clearfix payment-form" id="checkout_payment">
+                <div class="hidden_image_wrapper">
+                	<img class="cards_image" src="<?php echo get_template_directory_uri()?>/images/cards.png">
+                </div>
 					<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
 		            <?php do_action( 'woocommerce_checkout_order_review' ); ?>
 		            <?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
