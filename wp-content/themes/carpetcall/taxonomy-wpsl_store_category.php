@@ -105,6 +105,7 @@ var fc = 0;
 jQuery( document ).ajaxSend(function( event, jqxhr, settings ) 
 {
   fc = fc + 1;
+  console.log(settings.url);
    var $urldata = settings.url.split('&');
   if(fc >2){
     $new_array=[];
