@@ -85,9 +85,10 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
 			 jQuery(this).parent('.validate-postcode').addClass('woocommerce-invalid');
 			   return false;
 			   }
-		}
-		
-		
+		}else{
+			jQuery(this).parent('.validate-postcode').addClass('woocommerce-invalid');
+			return false;
+			}
 		});
 		
 		
@@ -117,10 +118,10 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
 	jQuery(document).on('focusout','#billing_state, #shipping_state',function(){
 		var selected = jQuery(this).val();
 		if(selected ==''){
-			jQuery(this).addClass('error');
+			jQuery(this).addClass('cc_error_checkout');
 			return false;
 			}else{
-				jQuery(this).removeClass('error');
+				jQuery(this).removeClass('cc_error_checkout');
 				}
 		});
 	
