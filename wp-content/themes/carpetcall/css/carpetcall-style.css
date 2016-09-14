@@ -7731,6 +7731,6 @@ ul.cc-woocommerce-thankyou-order-details li {
 }
 
 .cc_error_checkout{
-	border: 1px solid #f00;
-	border-color: #f00;
+	border: 1px solid #f00 !important;
+	border-color: #f00 !important;
 }

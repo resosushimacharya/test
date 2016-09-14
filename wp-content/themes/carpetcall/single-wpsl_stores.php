@@ -83,7 +83,7 @@ $backurl=site_url().'/find-a-store/'.strtolower($cat_name);
         <div class="cc-ad-map-strn col-md-12 clearfix">
             <div class="col-md-5 wpsl-single-left">
                 <div class="cc-info-store clearfix">
-                    <div itemscope itemtype="http://schema.org/LocalBusiness">
+                    <div itemscope itemtype="http://schema.org/LocalBusiness" class="single-store-top-info">
                         <div class="wpsl-address-sec">
                         <h4>ADDRESS</h4>
                         <?php 
@@ -100,7 +100,7 @@ $backurl=site_url().'/find-a-store/'.strtolower($cat_name);
                         
                         
                         <h1><span itemprop="name"><?php echo get_the_title()?></span></h1>
-                        <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                        <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="single-store-bottom-info">
                         <span itemprop="streetAddress"><?php echo $street?></span><br>
                         <span itemprop="addressLocality"><?php echo $locality?></span>,<span itemprop="addressRegion"><?php echo $city?></span><br>
                         <span itemprop="postalCode">2750</span>
