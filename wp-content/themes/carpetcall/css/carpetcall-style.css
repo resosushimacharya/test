@@ -7729,3 +7729,8 @@ ul.cc-woocommerce-thankyou-order-details li {
     max-width: 200px;
     margin: 9px 0 25px 43px;
 }
+
+.cc_error_checkout{
+	border: 1px solid #f00 !important;
+	border-color: #f00 !important;
+}
