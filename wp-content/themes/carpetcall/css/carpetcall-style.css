@@ -2119,22 +2119,26 @@ ul.guide_list_cbg {
 }
 ul.guide_list_cbg li {
 	list-style: none;
+	margin-bottom:24px;
 }
 ul.guide_list_cbg li .fa {
-	float: right;
-	margin-top: 8px;
 	color: #c32327;
+	position:absolute;
+	top:0;
+	right:0;
 }
 ul.guide_list_cbg li a {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
 	font-size:14px;
 	font-weight:normal;
-	line-height:29px;
+	line-height:1;
 	color: #15489f;
 	text-decoration: none;
 	text-transform: uppercase;
 	display: block;
 	margin-bottom: 5px;
+	position:relative;
+	padding-right:10px;
 }
 ul.guide_list_cbg li a:hover {
 	color: #15489f;
@@ -2511,6 +2515,10 @@ ul.guide_list_cfaq li a {
 	color: #0099ff;
 	text-decoration: none;
 	text-transform: uppercase;
+}
+.accessories_innner_wrap .acc_price.small_price .cc-price-control h3 span {
+	font-size:14px;
+	color:#087bda;
 }
 .single.single-product .cc-price-control h3 span.cc-line-through {
 	font-family:'proxima_nova_rgregular', sans-serif;
@@ -5994,6 +6002,7 @@ a.btn-employment:hover {
 	color: #0099ff;
 	text-transform: uppercase;
 }
+
 .accessories_innner_wrap span.acc_price.small_price .cc-price-control h3 span.cc-sale-price-title {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
 	font-size:14px;
