@@ -931,12 +931,10 @@
 	/* === Ideas & Advice PAGE === */
 	
 	.cc-ia-content {
-		padding:0 20px;
+		padding: 60px 20px;
 		text-align:center;	
-	}
-	
-	 .cc-ia-content h1 {
-		margin:50px 0 33px 0; 
+	}	
+	 .cc-ia-content h1 {		
 		text-align:left;
 		font-size:72px;
 	 }
@@ -948,14 +946,24 @@
 		font-weight:normal; 
 		font-size:32px;
 	 }
+	 h3.mobile.carpet-drop{
+	 	display: block;
+	 }
 	 .all-items-blk a h3, .cc-ia-more .all-items-blk h3 {
 		 font-size:48px;
+		 margin-bottom: 35px;
 	 }
-	 
+	 .all-items-blk, ul.cat_list{
+	 	min-height: inherit;
+	 }	 
+	 .all-items-blk{
+	 	padding: 60px 40px;
+	 }
 	 .all-items-blk p {
 		 line-height:42px;
 		 text-align:left;
 		 font-size:32px;
+		 margin-bottom: 45px;
 	 }
 	
 	ul.cat_list li a, .cc-ia-more ul li a {
@@ -969,6 +977,9 @@
 	
 	.cc-ia-more {
 		width:100%;
+	}
+	.cc-ia-more ul{
+		margin-bottom: 0;
 	}
 	.cc-ia-more ul li .fa {
 		margin-top:9px;	
@@ -1255,13 +1266,13 @@
 	/* === SHOP OUR RANGE -- PAGE === */
 	
 	.body-wrapper .gpf-block {
-		margin:58px 0 0;	
+		margin: 35px 0 0;	
 	}
 	.ia-block .cc-ia-content h1 {
-		margin:47px 0 34px 0;	
+		margin: 0px 0 30px 0;	
 	}
 	.ia-block .cc-ia-content p {
-		margin:0 auto 55px;
+		margin:0;
 	}
 	.gpf-block .cc-rugs-sor-cntr .shop_range {
 		width:50%;
@@ -6012,7 +6023,10 @@
 		margin-bottom: 0;
 	}
 	h3.cc-idea-ad-title{
-		font-size: 22px;
+		font-size: 28px;
+	}
+	.pro_secone_a {
+	    padding: 15px;
 	}
 	.single.single-product .cc-price-control h3 span.cc-sale-price-title, .single.single-product .cc-price-control h3 > span {
 	    font-size: 30px;

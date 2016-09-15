@@ -7820,3 +7820,6 @@ ul.cc-woocommerce-thankyou-order-details li {
 	text-decoration: none;
 	background: #b01519;
 }
+h3.mobile.carpet-drop{
+	display: none;
+}
