@@ -7819,10 +7819,14 @@ ul.cc-woocommerce-thankyou-order-details li {
 	text-decoration: none;
 	background: #b01519;
 }
+
 .cc-terms-condn .woocommerce-message {
 	margin-top:10px !important;
 	margin-bottom:10px !important;
 }
 .cc-terms-condn .woocommerce p.cart-empty {
 	margin-top:25px;
+}
+h3.mobile.carpet-drop{
+	display: none;
 }
