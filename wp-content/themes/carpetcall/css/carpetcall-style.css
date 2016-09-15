@@ -7316,7 +7316,7 @@ label.inner-check-label.radio-check-label::after{
 .sor-single-wrap h3 {
 	margin:15px auto;	
 }
-.sor-single-wrap h3 a {
+.sor-single-wrap h3 {
 	font-family:'proxima_nova_ltsemibold';
 	font-size:20px;
 	color:#1858b8;
@@ -7324,7 +7324,7 @@ label.inner-check-label.radio-check-label::after{
 	text-transform:uppercase;
 	text-align:center;
 }
-.sor-single-wrap h3 a:hover {
+.sor-single-wrap h3:hover {
 	color:#0a71cf;	
 }
 .body-wrapper .gpf-block {
