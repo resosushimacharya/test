@@ -145,7 +145,7 @@ $backurl=site_url().'/find-a-store/'.strtolower($cat_name);
                         </div>
                         <div class="wpsl-phone-sec cc-single-wpsl-ccstore">
                         <div class="cc-storef-phnum"><?php if(array_key_exists('wpsl_phone',$getinfo)){ ?>
-                        <strong>Phone:  </strong><span class="cc-cat-store-item-phone" itemprop="telephone"> <?php echo $phone ;?></span>
+                        <strong>Phone:  </strong><span class="cc-cat-store-item-phone" itemprop="telephone"> <?php 		echo $phone ;?></span>
                         <?php } ?></div>
                         <div class="cc-storef-phnum"><?php if(array_key_exists('wpsl_fax',$getinfo)){?>
                         <strong>Fax: </strong><span class="cc-cat-store-item-fax" itemprop="faxNumber"> <?php echo $fax ;?></span>  
