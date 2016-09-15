@@ -78,6 +78,9 @@ $term =  get_queried_object();
 <?php if (isset($_POST['wpsl-search-input'])){
   echo do_shortcode('[wpsl template="custom"  start_location="'.$_POST['wpsl-search-input'].'"]');
 }
+if (isset($_POST['cc-cuurent-location-name'])){
+  echo do_shortcode('[wpsl template="custom"  start_location="'.$_POST['cc-cuurent-location-name'].'"]');
+}
 else{
 
  
