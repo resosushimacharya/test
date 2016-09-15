@@ -2327,11 +2327,11 @@ ul.guide_list_cfaq li a {
 	border-radius: 0;
 	border-left: 0;
 	border-right: 0;
-	border-top: 0;
-	border-bottom: 1px solid #efefef;
+	border-top: 1px solid #efefef;
 	box-shadow: none;
 	-webkit-box-shadow: none;
-	padding-bottom: 11px;
+	padding-bottom: 7px;
+	padding-top:7px;
 }
 .faq-cont-blka .panel-default>.panel-heading, .faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body {
 	background: none;
@@ -3284,9 +3284,8 @@ section#main {
 	font-weight:normal;
 	color: #666666;
 	text-decoration: none;
-	border-bottom: 1px solid #efefef;
-	padding-bottom: 3px;
-	margin: 14px 0 4px 0;
+	border:0;
+	margin: 14px 0 14px 0;
 	width: 100%;
 	text-transform: none;
 }
@@ -4292,7 +4291,7 @@ ul.cc-color-var-item {
 	background-position: center center;
 	height: 330px;
 }
-.cc-cat-sub-carousal-a .slick-dotted.slick-slider {
+.cc-cat-sub-carousal-a .slick-slider {
 	margin-bottom: 10px;
 }
 .cc-cat-sub-carousal-a .slick-dots {
@@ -5507,7 +5506,7 @@ li.cc-head-wpsl-phone a:hover {
 	font-size:16px;
 	font-weight:normal;
 	color: #666666;
-	margin-bottom: 23px;
+	margin-bottom:10px;
 }
 .panel-body-table table, .cbg_content table {
 	width: 100%;
@@ -7372,7 +7371,7 @@ span.required {
 .cc-clearance-overlay{
 	position: absolute;
   	left: 0;
-    top:10%;
+    top:25px;
     padding:5px;
     cursor: pointer;
     background:#a9191c;
@@ -7824,6 +7823,14 @@ ul.cc-woocommerce-thankyou-order-details li {
 	color: #fff;
 	text-decoration: none;
 	background: #b01519;
+}
+
+.cc-terms-condn .woocommerce-message {
+	margin-top:10px !important;
+	margin-bottom:10px !important;
+}
+.cc-terms-condn .woocommerce p.cart-empty {
+	margin-top:25px;
 }
 h3.mobile.carpet-drop{
 	display: none;
