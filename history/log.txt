@@ -48,3 +48,41 @@ log.txt
 
  Import has been finished in 2016-09-06-07-56-44
 
+
+ Import has been started in 2016-09-08-09-11-01 
+
+In 2016-09-08-09-11-01
+List of error files 
+hard-flooring.csv
+rugs.csv
+
+
+ Import has been finished in 2016-09-08-11-36-01
+
+
+ Import has been started in 2016-09-08-09-11-05 
+
+In 2016-09-08-11-36-05
+ prdouctfiles folder is empty 
+
+
+ Import has been finished in 2016-09-08-11-36-05
+
+
+ Import has been started in 2016-09-11-09-12-21 
+
+In 2016-09-11-12-25-21
+ prdouctfiles folder is empty 
+
+
+ Import has been finished in 2016-09-11-12-25-21
+
+
+ Import has been started in 2016-09-13-09-11-00 
+
+In 2016-09-13-11-42-00
+ prdouctfiles folder is empty 
+
+
+ Import has been finished in 2016-09-13-11-42-00
+
