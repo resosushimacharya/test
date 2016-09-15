@@ -139,6 +139,7 @@ $backurl=site_url().'/find-a-store/'.strtolower($cat_name);
                         if(array_key_exists('wpsl_fax',$getinfo)){
                         $fax = $getinfo['wpsl_fax'][0];
                         }
+						
                         ?>
                         
                         <a href="https://maps.google.com/maps?saddr=<?php echo $res;?>&daddr=<?php echo $url['wpsl_address'][0].' '.$url['wpsl_city'][0];?>" target="_blank">GET DIRECTIONS</a>

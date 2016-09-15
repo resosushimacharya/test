@@ -146,7 +146,14 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
 			if(selected_expdate < new Date()){
 					error_flag = true;
 					jQuery('#expyear, #expmonth').addClass('cc_error_checkout');
-					}
+					if(jQuery('#securepay_exp_date-errormessage').length > 0){
+						jQuery('#securepay_exp_date-errormessage').show();
+						}else{
+							jQuery('#expyear').parent('td').append('<label id="securepay_exp_date-errormessage" class="cc_error" for="securepay_exp_date">Invalid expiry date!</label>');
+							}
+					}else{
+						jQuery('#securepay_exp_date-errormessage').hide();
+						}
 			if(error_flag){
 				return false;
 				}else{
@@ -157,7 +164,32 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
 				}
 		
 		});
-	 jQuery(document).on('keyup','input[name="cardno"]',function () { 
+		jQuery(document).on('change','#expmonth, #expyear',function(){
+			var error_flag = false;
+			var selected_expdate = (new Date(jQuery('#expyear').val(),parseInt(jQuery('#expmonth').val())-1));
+			
+			if(selected_expdate < new Date()){
+					error_flag = true;
+					jQuery('#expyear, #expmonth').addClass('cc_error_checkout');
+					if(jQuery('#securepay_exp_date-errormessage').length > 0){
+						jQuery('#securepay_exp_date-errormessage').show();
+						}else{
+							jQuery('#expyear').parent('td').append('<label id="securepay_exp_date-errormessage" class="cc_error" for="securepay_exp_date">Invalid expiry date!</label>');
+							}
+					}else{
+						jQuery('#securepay_exp_date-errormessage').hide();
+						}
+			if(error_flag){
+					jQuery('#place_order').attr('disabled','disabled');
+				return false;
+			}else{
+				jQuery('#place_order').removeAttr('disabled');
+				}
+			
+						
+						
+			});
+	 jQuery(document).on('keyup, focusout','input[name="cardno"]',function () { 
         var maxChars = 16;
 		this.value = this.value.replace(/[^0-9\.]/g,'');
         if (jQuery(this).val().length > maxChars) {
@@ -171,7 +203,7 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
 				jQuery('#place_order').removeAttr('disabled');
 				}
     });
-	 jQuery(document).on('keyup','input[name="cardcvv"]',function () { 
+	 jQuery(document).on('keyup, focusout','input[name="cardcvv"]',function () { 
         var maxChars = 3;
 		this.value = this.value.replace(/[^0-9\.]/g,'');
         if (jQuery(this).val().length > maxChars) {
@@ -191,7 +223,7 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
 			jQuery(document).find('.cc_woocommerce-message').remove();
 			var response = jQuery.parseJSON(xhr.responseText);
 			if(response.result ==  "failure"){
-				jQuery('.wc_payment_methods').prepend('<div class="cc_woocommerce-message">Please Enter valid Payment Details</div>');
+				jQuery('.wc_payment_methods').prepend('<div class="cc_woocommerce-message">Please enter valid credit card details</div>');
 				}
 			}
 	});
