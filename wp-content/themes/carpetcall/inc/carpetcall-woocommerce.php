@@ -305,6 +305,10 @@ if($top_cat == 'hard-flooring'){
 		'callback' 	=> 'woo_new_product_tab_content_care'
 	);
 	}
+if($top_cat == 'carpets'){
+	unset($tabs['additional_information']);
+	unset($tabs['ret_tab']);
+	}
 	return $tabs;
 
 }
