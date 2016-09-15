@@ -50,12 +50,14 @@ do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, 
  * @hooked WC_Emails::email_address() Shows email address
  */
 do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email );?>
+
 <div class="cc-bil-ship-woo-wrap clearfix">
 
 
 
 
-<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() ) : ?>
+<?php //if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() ) : 
+if ( ! wc_ship_to_billing_address_only() ) : ?>
 <div class="col-sm-6 no-pr cc-checkout-sbadrs">
 	<header class="title cc-bil-addr">
 	<h3><?php _e( 'Billing Address', 'woocommerce' ); ?></h3>

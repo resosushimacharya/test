@@ -68,6 +68,7 @@ if ( $order ) : ?>
 	<?php do_action( 'woocommerce_thankyou_' . $order->payment_method, $order->id ); ?>
 	<?php do_action( 'woocommerce_thankyou', $order->id ); ?>
 <div class="cc-bil-ship-woo-wrap clearfix">
+<?php if ( ! wc_ship_to_billing_address_only()) : ?>
 
 <div class="col-sm-6 no-pl cc-checkout-sbadr">
 		<header class="title cc-ship-adbill">
@@ -76,7 +77,7 @@ if ( $order ) : ?>
 		<address>
 			<?php echo ( $address = $order->get_formatted_shipping_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
 		</address>
-	</div>
+	</div> <?php endif; ?>
 
 <div class="col-sm-6 no-pr cc-checkout-sbadrs">
 	<header class="title cc-bil-addr">
@@ -86,13 +87,13 @@ if ( $order ) : ?>
 	<?php echo ( $address = $order->get_formatted_billing_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
 </address>
 </div>
-<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() ) : ?>
+
 
 
 	
 </div>
 
-<?php endif; ?>
+
 
 <?php else : ?>
 
