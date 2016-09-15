@@ -34,7 +34,10 @@ echo "\n" . $order->email_order_items_table( array(
 echo "==========\n\n";
 
 if ( $totals = $order->get_order_item_totals() ) {
-	foreach ( $totals as $total ) {
+	foreach ( $totals as $key=>$total ) {
+		if($key == 'shipping'){
+					$total['value'] = get_post_meta($order->id,'cc_shipping_method',true);
+		}
 		echo $total['label'] . "\t " . $total['value'] . "\n";
 	}
 }

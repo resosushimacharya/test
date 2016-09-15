@@ -116,10 +116,10 @@ jQuery(document).ready(function(e) {
 			};
 		if(jQuery(this).hasClass('next')){
 			var validator = jQuery( ".checkout.woocommerce-checkout" ).validate();
-			jQuery(this).parents('.checkout-form-sec').find('p.validate-required').find('input:visible, select').each(function(index, el) {
+			jQuery(this).parents('.checkout-form-sec').find('p.validate-required').find('input:visible, select:visible').each(function(index, el) {
 				jQuery("#"+el.id).focus();
 				});
-			jQuery(this).parents('.checkout-form-sec').find('p.validate-required').find('input:visible, select').each(function(index, el) {
+			jQuery(this).parents('.checkout-form-sec').find('p.validate-required').find('input:visible, select:visible').each(function(index, el) {
 				validator.element("#"+el.id);
 				if(jQuery(el).parent('.form-row').hasClass('woocommerce-invalid')){
 					error_flag = true;
@@ -127,13 +127,9 @@ jQuery(document).ready(function(e) {
 					}
 				});
 			}
-		if(jQuery(this).hasClass('fetch_locations')){
-			var address = jQuery('#billing_postcode').val()+', '+jQuery('#billing_address_2').val()+', '+jQuery('#billing_address_1').val()+', '+jQuery('#billing_city').val()+', '+jQuery('#billing_state').val()+', '+jQuery('#billing_country').val();
-			jQuery('#edit_dialog_keyword').val(address);
-			jQuery('#checkout_fetch_nearby_stores').trigger('click');
-			};	
 		if(jQuery(this).hasClass('delivery_options')){
 			if(jQuery('input[name=cc_shipping_method]:checked').val() == 'store_pickup' || jQuery('input[name=cc_shipping_method]:checked').val() == 'pickup_n_deliver'){
+				error_flag = false;
 if(jQuery(this).parents('.checkout-form-sec').find('input[name=pickup_store_id]:visible:checked').val()){
 					jQuery('#checkout_delivery #pickup_error_msg').hide();
 					}else{

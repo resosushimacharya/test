@@ -54,6 +54,8 @@ do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_
 
 
 
+
+<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() ) : ?>
 <div class="col-sm-6 no-pr cc-checkout-sbadrs">
 	<header class="title cc-bil-addr">
 	<h3><?php _e( 'Billing Address', 'woocommerce' ); ?></h3>
@@ -62,13 +64,7 @@ do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_
 	<?php echo ( $address = $order->get_formatted_billing_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
 </address>
 </div>
-<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() ) : ?>
-
-
-	
-
-<?php else: ?>
-	<div class="col-sm-6 no-pl cc-checkout-sbadr">
+<div class="col-sm-6 no-pl cc-checkout-sbadr">
 		<header class="title cc-ship-adbill">
 			<h3><?php _e( 'Shipping Address', 'woocommerce' ); ?></h3>
 		</header>
@@ -76,6 +72,18 @@ do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_
 			<?php echo ( $address = $order->get_formatted_shipping_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
 		</address>
 	</div>
+	
+
+<?php else: ?>
+	<div class="col-sm-6 no-pr cc-checkout-sbadrs">
+	<header class="title cc-bil-addr">
+	<h3><?php _e( 'Billing Address', 'woocommerce' ); ?></h3>
+</header>
+<address>
+	<?php echo ( $address = $order->get_formatted_billing_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
+</address>
+</div>
+	
 
 <?php endif;?>
 </div>

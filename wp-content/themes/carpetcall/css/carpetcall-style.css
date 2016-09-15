@@ -7313,10 +7313,17 @@ label.inner-check-label.radio-check-label::after{
 .sor-single-wrap { 
 	text-align:center;
 }
+.sor-single-wrap a:hover{
+	text-decoration: none;
+}
+.sor-single-wrap a:hover h3{
+	text-decoration: none;
+	color:#0a71cf;	
+}
 .sor-single-wrap h3 {
 	margin:15px auto;	
 }
-.sor-single-wrap h3 a {
+.sor-single-wrap h3 {
 	font-family:'proxima_nova_ltsemibold';
 	font-size:20px;
 	color:#1858b8;
@@ -7324,9 +7331,7 @@ label.inner-check-label.radio-check-label::after{
 	text-transform:uppercase;
 	text-align:center;
 }
-.sor-single-wrap h3 a:hover {
-	color:#0a71cf;	
-}
+
 .body-wrapper .gpf-block {
 	margin:42px 0 57px 0;	
 }
@@ -7762,4 +7767,47 @@ ul.cc-woocommerce-thankyou-order-details li {
     position: absolute;
     top: 1em;
     left: 1.5em;
+}
+
+.cateogry-carpets-main-cntr .tophead_sec{
+	border-bottom: none;
+}
+.room_visualizer_tile{
+	background: #e7edf8;
+    padding: 28px;
+}
+.room_visualizer_tile h3{
+	font-family: 'proxima_nova_ltsemibold', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    color: #0099ff;
+    text-transform: uppercase;
+    border: 0;
+    line-height: 1.2;
+}
+.room_visualizer_tile  p{
+	font-size: 16px;
+	color: #666666;
+	line-height: 24px;
+	margin-bottom: 15px;
+}
+.room_visualizer_tile a.red-btn{
+
+}
+.red-btn{
+	font-size: 18px;
+	text-transform: uppercase;
+	background: #c32327;
+	display: block;
+	height: 45px;
+	line-height: 45px;
+	font-family: 'proxima_nova_ltsemibold', sans-serif;
+	margin-top: 15px;
+	color: #fff;
+	text-align: center;
+}
+.red-btn:hover, .red-btn:focus{
+	color: #fff;
+	text-decoration: none;
+	background: #b01519;
 }
