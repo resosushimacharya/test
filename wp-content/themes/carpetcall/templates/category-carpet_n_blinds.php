@@ -50,7 +50,9 @@
       <div class="tophead_sec col-md-12 no-lr clearfix">
 
 	<div class="mobile carpets-cat-dropdown">        
-       <?php //get_sidebar('carpet_blinds');?>
+       <?php if(wp_is_mobile()){
+		   get_sidebar('carpet_blinds');
+	   }?>
       </div>
         
       
