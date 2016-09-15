@@ -145,7 +145,15 @@ if( '' != $button_title && '' != $button_link ) {
        'orderby'            => 'id',
        'show_count'         => 0,
        'use_desc_for_title' => 0,
-       'child_of'           => $cat->term_id
+       'child_of'           => $cat->term_id,
+	   'tax_query'	=>array(
+									array(
+										'taxonomy' => 'product_cat',
+										'terms' => array('accessories'),
+										'field' => 'slug',
+										'operator' => 'NOT IN',
+									)
+								)
       );
       $terms = get_terms( 'product_cat', $args );
       
@@ -204,7 +212,8 @@ if( '' != $button_title && '' != $button_link ) {
                     $price=$woo['_regular_price'][0];
                     
                     
-                    $feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
+                    $feat_image = cc_custom_get_feat_img($filloop->post->ID,'medium');
+					//$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
 
 
                                     ?> <div class="col-md-4">

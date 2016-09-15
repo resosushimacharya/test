@@ -18,7 +18,8 @@ else{
   $faqID = 26721;
 }
 
-$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+$feat_image = cc_custom_get_feat_img($post->ID,'medium');
+//$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 
 
 ?>
@@ -262,8 +263,8 @@ endif;
                     $price=$woo['_regular_price'][0];
                     
                     
-                    $feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
-
+                    //$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
+					$feat_image = cc_custom_get_feat_img($filloop->post->ID,'medium');
 
                                     ?> <div class="col-md-4">
                         <div class="pro_secone">
