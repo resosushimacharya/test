@@ -17,7 +17,7 @@
 		min-height: inherit;
 	}
 	.wrap_body{
-		margin-top: 312px;
+		margin-top: 311px;
 	}
 	.slick-dotted.slick-slider{
 		margin-bottom: 0;
@@ -949,6 +949,9 @@
 	 h3.mobile.carpet-drop{
 	 	display: block;
 	 }
+	 .carpets-cat-dropdown.hide_in_moblile{
+	 	display: none;
+	 }
 	 .all-items-blk a h3, .cc-ia-more .all-items-blk h3 {
 		 font-size:48px;
 		 margin-bottom: 35px;
@@ -983,6 +986,10 @@
 	}
 	.cc-ia-more ul li .fa {
 		margin-top:9px;	
+	}
+
+	.page-template.page-template-template-ideas-and-advice-parent .ab_arrow{
+		margin-right: -20px;
 	}
 	
 	
@@ -1072,7 +1079,8 @@
 	/* === BUYING GUIDES - STANDRAD ARTICLES === */
 	
 	.inerblock_serc, .inerblock_serc_child {
-		padding:25px 20px;	
+		padding:25px 20px;
+		margin-bottom: 0;	
 	}
 	.inerblock_serc h1, .inerblock_serc_child h1  {
 		display:block;
@@ -1080,6 +1088,7 @@
 		font-size:72px;
 		text-align:center;
 		line-height:1;
+		margin-bottom: 0;
 	}
 	.cbg_content { 
 		padding:0;
@@ -1112,25 +1121,6 @@
 	.inerblock_sec_a.iA_parent {
 		display:block;	
 	}
-	.inerblock_sec_a h3 {
-		font-size:48px;	
-	}
-	.pro_secone {
-		margin-bottom:32px;
-		padding:36px 25px;
-	}
-	.img_cntr {
-		min-height:358px;
-	}
-	.pro_secone .proabtxt h4 {
-		margin:46px 0 0 0;	
-	}
-	.proabtxt h6 {
-		margin:-3px 0 12px 20px;
-		font-family:'proxima_nova_ltsemibold', sans-serif;
-		font-size:24px;
-		color:#666666;
-	}
 	.faq-cont-blka .inerblock_sec .col-md-9, .faq-cont-blka .inerblock_sec .cbg_content p, div#right_col p {
 		padding:0;
 		font-size:32px;
@@ -1144,7 +1134,24 @@
 		text-transform:uppercase;
 		margin-bottom:33px;
 	}
-	
+
+
+	.parent-guide-content p{
+		font-size: 32px;
+		line-height: 1.4;
+	}
+	.cc-mobile-blk {
+	    margin-top: 100px;
+	}
+	.cc-mobile-blk ul.guide_list_cbg{
+		padding: 40px 50px;
+	}
+	.cc-mobile-blk ul.guide_list_cbg li{
+		margin-bottom: 0;
+	}
+	.cc-mobile-blk ul.guide_list_cbg li a, .cc-mobile-blk ul.guide_list_cbg li .fa{
+		line-height: 62px;
+	}
 	/* === BUYING GUIDES - STANDRAD ARTICLES End === */
 	
 	/* === FAQ ALL - STANDRAD ARTICLES === */
@@ -1904,20 +1911,30 @@
 	.inerblock_sec_a{
 		padding-bottom: 75px;
 	}
-	h3.cc-idea-ad-title {
+	.inerblock_sec_a h3{
+		font-size: 48px;
+	}
+	h3.cc-idea-ad-title, .inerblock_sec_a h3 {
 	    margin: 70px 0 50px 0;
 	}
-	.pro_secone_a {		
+	.pro_secone_a, .pro_secone {		
 		padding: 25px;
 		margin-bottom: 25px;
 	}
-	.img_cntr_a {
+	.img_cntr_a, .img_cntr {
 	    height: 280px;
 	}
-	.proabtxt h4, .proabtxt span{
+	.proabtxt h4,  .pro_secone .proabtxt h4{
 		margin-bottom: 0;
 		margin-left: 0;
 		padding: 0 20px;
+		font-size: 36px;
+	}
+	.proabtxt span, .proabtxt h6{
+		font-size: 28px;
+		margin-left: 20px;
+		margin-top: 5px;
+		display: block;
 	}
 	/* Category Ideas and Advice Section End */
 
@@ -2793,6 +2810,29 @@
 	    font-size: 36px;
 	}
 	/* CARPETS PRODUCT End */
+	/* CARPETS SUB CAT PAGE */
+	.room_visualizer_tile{
+		padding: 40px 30px;
+	}
+	.room_visualizer_tile h3 {
+	    font-size: 36px;
+	    margin-bottom: 10px;
+	}
+	.room_visualizer_tile p {
+	    font-size: 32px;
+	    line-height: 42px;
+	    margin-bottom: 20px;
+	}
+	.room_visualizer_tile img {
+	    width: 100%;
+	}
+	.red-btn {
+	    font-size: 36px;
+	    height: 90px;
+	    line-height: 90px;
+	    margin-top: 30px;
+	}
+	/* CARPETS SUB CAT PAGE End */
 	/* === SINGLE PRODUCT PAGE End === */
 
 
@@ -3531,234 +3571,6 @@
 	/* === 404 PAGE End === */
 	
 	
-	/* === Ideas & Advice PAGE === */
-	
-	.cc-ia-content {
-		padding:0 20px;
-		text-align:center;	
-	}
-	
-	 .cc-ia-content h1 {
-		margin:50px 0 33px 0; 
-		text-align:left;
-		font-size:50px;
-	 }
-	 .cc-ia-content p {
-		margin:0 auto 57px;
-		text-align:left;
-		color:#666666;
-		line-height:35px;
-		font-weight:normal; 
-		font-size:24px;
-	 }
-	 .all-items-blk a h3, .cc-ia-more .all-items-blk h3 {
-		 font-size:34px;
-	 }
-	 
-	 .all-items-blk p {
-		 line-height:35px;
-		 text-align:left;
-		 font-size:24px;
-	 }
-	
-	ul.cat_list li a, .cc-ia-more ul li a {
-		line-height:35px;
-		font-size:24px;
-		font-weight:normal;
-	}
-	ul.cat_list li .fa, .cc-ia-more ul li .fa {
-		font-size:22px;
-	}
-	
-	.cc-ia-more {
-		width:100%;
-	}
-	.cc-ia-more ul li .fa {
-		margin-top:4px;	
-	}
-	
-	
-	/* === Ideas & Advice End === */
-	
-	/* === BUYING GUIDES - STANDRAD ARTICLES === */
-	
-	.inerblock_serc, .inerblock_serc_child {
-		padding:25px 20px;	
-	}
-	.inerblock_serc h1, .inerblock_serc_child h1  {
-		display:block;
-		border:0;
-		font-size:52px;
-		text-align:center;
-		line-height:1;
-	}
-	.child-innerpg .inerblock_serc_child h1 {
-		font-size:38px;	
-	}
-	.cbg_content { 
-		padding:0;
-	}
-	.inerblock_serc_child h1 a {
-		color:#FFF;
-		border:0;	
-	}
-	.inerblock_serc_child h1 {
-		font-weight:800;
-		color:#15489f;
-		text-transform:uppercase;
-	}
-	.inerblock_sec .cbg_content {
-		padding:0 20px;
-	}
-	.page-template-template-ideas-and-advice-child {
-		padding-bottom:90px;	
-	}
-	.inerblock_sec .nowspe {
-		position:fixed;
-		bottom:0;
-		left:0;
-		z-index:100;	
-	}
-	.page-template-template-ideas-and-advice-child .nowsppe a {
-		padding:23px 0;
-	}
-	.inerblock_sec_a.iA_parent {
-		display:block;	
-	}
-	.inerblock_sec_a h3 {
-		font-size:40px;	
-	}
-	.pro_secone {
-		margin-bottom:32px;
-		padding:36px 25px;
-	}
-	.img_cntr {
-		min-height:275px;
-	}
-	.pro_secone .proabtxt h4 {
-		margin:35px 0 0 0;	
-	}
-	.proabtxt h6 {
-		margin:-3px 0 0px 20px;
-		font-family:'proxima_nova_ltsemibold', sans-serif;
-		font-size:24px;
-		color:#666666;
-	}
-	.faq-cont-blka .inerblock_sec .col-md-9, .faq-cont-blka .inerblock_sec .cbg_content p, div#right_col p {
-		padding:0;
-		font-size:24px;
-		line-height:32px;
-	}
-	
-	.faq-cont-blka .inerblock_sec .cbg_content h3 {
-		font-size:36px;
-		font-family:'proxima_nova_ltsemibold', sans-serif;
-		color:#0099ff;
-		text-transform:uppercase;
-		margin-bottom:33px;
-	}
-	
-	
-	/* === BUYING GUIDES - STANDRAD ARTICLES End === */
-	
-	/* === FAQ ALL - STANDRAD ARTICLES === */
-	.inerblock_sec .cbg_content .panel-group .panel-title > a {
-		margin:0;
-		padding:15px 0 4px 0;
-	}
-	.faq-cont-blka .inerblock_sec {
-		margin-bottom:45px;
-	}
-	.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body {
-		padding:0;
-	}
-	.faq-cont-blka .glyphicon-chevron-up:before {
-		padding-right:15px;	
-	}
-	.faq-cont-blka .glyphicon-chevron-down:before {
-		padding-right:15px;
-	}
-	/* === FAQ ALL - STANDRAD ARTICLES End === */
-	
-	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES === */
-	
-	.child-innerpg.mobile-inpage {
-		background-color:#FFF;
-	}
-	.faq-cont-blka .cbg_content h2.sub_page_title {
-		font-size:28px;
-		margin-bottom:12px;
-	}
-	.about-cont-employment {
-		display:block;
-	}
-	.inerblock_serc_child.about-page { 
-		margin:0;
-	}
-	.faq-cont-blka .inerblock_sec {
-		margin-top:0;	
-	}
-	
-	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES End === */
-	
-	/* === SEARCH PAGE === */
-	.child-innerpg .cc-search-allprd h1 {
-		font-size:46px;	
-		text-align:left;
-		margin:25px 0 26px;
-	}
-	.cc-search-allprd .search_header {
-	background-color:#e7edf8;	
-	}
-	.cc-search-allprd .search_header form .input-group .form-control{
-	background-color:#e7edf8;
-	border:0;
-	height:68px;
-	box-shadow:none;
-	outline:0;
-	}
- 	.cc-search-allprd .search_header form .input-group span.input-group-btn .btn-default  {
-	 color:inherit;
-	 background-color:#e7edf8;
-	 border-color:transparent;
-	 box-shadow:none;
-	 outline:0;
-	 height:68px;
-	 }
-	 .search_prod_wrapper, .cc-search-tps {
-		width:100%;
-	 }
-	 .search_prod_wrapper .search_thumb {
-		height:250px; 
-	 }
-	 .cc-search-tps {
-		 padding:0 20px;
-	 }
-	 .search_title {
-		margin-top:32px; 
-	 }
-	 .search_title span.parent_cat a {
-		font-size:32px; 
-	 }
-	 .search_price .cc-price-control h3 span.cc-sale-price-title {
-		font-size:26px; 
-	 }
-	 .cc-price-control .cc-line-through {
-		 font-size:19px;
-	 }
-	 .cc-price-control {
-		margin-top:16px; 
-		margin-bottom:0px;
-	 }
-	 .search_shop_now .read_more a {
-		 width:100%;
-		 height:70px;
-		 line-height:70px;
-		 font-size:32px;
-		 text-align:center;
-	 }
-	  
-	/* === SEARCH PAGE End === */
 	
 	/* === CONTACT US PAGE === */
 	.cc-wrapper-whole h3 {
@@ -3832,7 +3644,7 @@
 	
 	/* === SHOP OUR RANGE -- PAGE === */
 	
-	.body-wrapper .gpf-block {
+	/*.body-wrapper .gpf-block {
 		margin:58px 0 0;	
 	}
 	.ia-block .cc-ia-content h1 {
@@ -3850,7 +3662,7 @@
 	}
 	.sor-single-wrap h3 a {
 		font-size:32px;
-	}
+	}*/
 	
 	/* === SHOP OUR RANGE -- PAGE End === */
 	
@@ -4411,17 +4223,30 @@
 	.inerblock_sec_a{
 		padding-bottom: 55px;
 	}
-	h3.cc-idea-ad-title {
+	h3.cc-idea-ad-title, .inerblock_sec_a h3 {
 	    margin: 50px 0 30px 0;
+	    font-size: 36px;
 	}
-	.pro_secone_a {		
+	.pro_secone_a, .pro_secone {		
 		padding: 20px;
 	}
-	.img_cntr_a {
+	.img_cntr_a,  .img_cntr{
 	    height: 200px;
 	}
 	.proabtxt h4, .proabtxt span{
 		padding: 0 10px;
+		margin-left: 0;
+	}
+	.proabtxt h4, .pro_secone .proabtxt h4{
+		font-size: 24px;
+		padding: 0 10px;
+	}
+	.proabtxt span, .proabtxt h6{
+		font-size: 18px;
+		margin-left: 10px;
+	}
+	.proabtxt span{
+		margin-left: 0;
 	}
 	/* Category Ideas and Advice Section End */
 
@@ -4463,7 +4288,7 @@
 	/* === SINGLE PRODUCT PAGE === */
 	/* Product Head */
 	.single-product .ab_arrow{
-		margin: 25px 0 45px;
+		margin: 25px 0 35px;
 	}
 	/* Product Head End */
 	/* Product Slider */
@@ -4994,7 +4819,10 @@
 	}
 	/* HARDFLOORING PRODUCT End */	
 	/* CARPET PRODUCT */
-	.cc-carpet-subcat-list {	    
+	.cateogry-carpets-main-cntr .tophead_sec{
+		margin-top: 0;
+	}
+	.carpets-cat-dropdown {	    
 	    height: 60px;
 	    line-height: 60px;
 	    margin-bottom: 45px;
@@ -5012,8 +4840,8 @@
 		padding: 15px;
 	}	
 	.inerblock_seC_mrugss .cc-carpet-subcat-list h3 {
-	    font-size: 28px;
-	    padding: 0 25px;
+	    font-size: 22px;
+	    padding: 0 15px;
 	    margin: 0;
 	    border: 0;
 	}	
@@ -5038,6 +4866,25 @@
 	    font-size: 18px;
 	}	
 	/* CARPET PRODUCT End */
+	/* CARPETS SUB CAT PAGE */
+	.room_visualizer_tile{
+		padding: 25px 15px;
+	}
+	.room_visualizer_tile h3 {
+	    font-size: 22px;	    
+	}
+	.room_visualizer_tile p {
+	    font-size: 18px;
+	    line-height: 1.1;
+	    margin-bottom: 15px;
+	}	
+	.red-btn {
+	    font-size: 18px;
+	    height: 60px;
+	    line-height: 60px;
+	    margin-top: 30px;
+	}
+	/* CARPETS SUB CAT PAGE End */
 	/* === SINGLE PRODUCT PAGE End === */
 
 	/* === STORE FINDER LANDING PAGE === */
@@ -5239,44 +5086,39 @@
 	/* === Ideas & Advice PAGE === */
 	
 	.cc-ia-content {
-		padding:0 20px;
+		padding:40px 0;
 		text-align:center;	
 	}
 	
 	 .cc-ia-content h1 {
-		margin:50px 0 15px 0; 
-		text-align:left;
-		font-size:45px;
+		margin: 0px 0 20px 0; 
+		text-align: left;
+		font-size: 36px;
 	 }
 	 .cc-ia-content p {
-		margin:0 auto 47px;
-		text-align:left;
-		color:#666666;
 		line-height:32px;
 		font-weight:normal; 
 		font-size:22px;
-	 }
+	 }	 
 	 .all-items-blk a h3, .cc-ia-more .all-items-blk h3 {
-		 font-size:30px;
+		 font-size:24px;
+		 margin-bottom: 15px;
 	 }
-	 
-	 .all-items-blk p {
-		 line-height:29px;
-		 text-align:left;
-		 font-size:19px;
-	 }
-	
+	 .all-items-blk {
+	    padding: 30px 20px;
+	}	 
+	.all-items-blk p {
+		 line-height: 1.5;		 		 
+		 font-size:18px;
+		 margin-bottom: 20px;
+	}	
 	ul.cat_list li a, .cc-ia-more ul li a {
 		line-height:30px;
-		font-size:19px;
+		font-size:18px;
 		font-weight:normal;
 	}
 	ul.cat_list li .fa, .cc-ia-more ul li .fa {
 		font-size:22px;
-	}
-	
-	.cc-ia-more {
-		width:100%;
 	}
 	.cc-ia-more ul li .fa {
 		margin-top:2px;	
@@ -5341,11 +5183,7 @@
 		padding:25px 20px;	
 	}
 	.inerblock_serc h1, .inerblock_serc_child h1  {
-		display:block;
-		border:0;
-		font-size:42px;
-		text-align:center;
-		line-height:1;
+		font-size: 36px;
 	}
 	.child-innerpg .inerblock_serc_child h1 {
 		font-size:34px;	
@@ -5379,26 +5217,7 @@
 	}
 	.inerblock_sec_a.iA_parent {
 		display:block;	
-	}
-	.inerblock_sec_a h3 {
-		font-size:38px;	
-	}
-	.pro_secone {
-		margin-bottom:32px;
-		padding:36px 25px;
-	}
-	.img_cntr {
-		min-height:300px;
-	}
-	.pro_secone .proabtxt h4 {
-		margin:35px 0 0 0;	
-	}
-	.proabtxt h6 {
-		margin:-3px 0 0px 11px;
-		font-family:'proxima_nova_ltsemibold', sans-serif;
-		font-size:24px;
-		color:#666666;
-	}
+	}	
 	.faq-cont-blka .inerblock_sec .col-md-9, .faq-cont-blka .inerblock_sec .cbg_content p, div#right_col p {
 		padding:0;
 		font-size:20px;
@@ -5411,6 +5230,26 @@
 		color:#0099ff;
 		text-transform:uppercase;
 		margin-bottom:25px;
+	}
+
+	.guide-content-cntr{
+		padding: 0;
+	}
+	.guide-content-cntr, .guide-content-cntr p{
+		font-size: 18px;
+		line-height: 30px;
+	}
+	.cc-mobile-blk{
+		margin-top: 40px;
+	}
+	.cc-mobile-blk .col-md-3{
+		padding: 0;
+	}
+	.cc-mobile-blk ul.guide_list_cbg {
+	    padding: 25px 20px;
+	}
+	.cc-mobile-blk ul.guide_list_cbg li a, .cc-mobile-blk ul.guide_list_cbg li .fa {
+	    line-height: 36px;
 	}
 	
 	
@@ -5615,7 +5454,7 @@
 	
 	/* === SHOP OUR RANGE -- PAGE === */
 	
-	.body-wrapper .gpf-block {
+	/*.body-wrapper .gpf-block {
 		margin:58px 0 0;	
 	}
 	.ia-block .cc-ia-content h1 {
@@ -5633,7 +5472,7 @@
 	}
 	.sor-single-wrap h3 a {
 		font-size:30px;
-	}
+	}*/
 	
 	/* === SHOP OUR RANGE -- PAGE End === */
 	
@@ -6016,17 +5855,23 @@
 	.cat-item-group-image {
 	    height: 100px;
 	}
-	.img_cntr_a {
-	    height: 160px;
+	.img_cntr_a, .img_cntr {
+	    height: 180px;
 	}
 	.mero_itemss{
 		margin-bottom: 0;
 	}
-	h3.cc-idea-ad-title{
+	h3.cc-idea-ad-title, .inerblock_sec_a h3{
 		font-size: 28px;
 	}
-	.pro_secone_a {
+	.inerblock_sec_a{
+		padding-bottom: 30px;
+	}
+	.pro_secone_a, .pro_secone {
 	    padding: 15px;
+	}
+	.proabtxt h4, .pro_secone .proabtxt h4{
+		font-size: 20px;
 	}
 	.single.single-product .cc-price-control h3 span.cc-sale-price-title, .single.single-product .cc-price-control h3 > span {
 	    font-size: 30px;
@@ -6068,6 +5913,35 @@
 	    line-height: 30px;
 	}
 	/* ===== MAIN CATEGORY PAGE End ===== */
+
+	/* === Ideas & Advice PAGE === */
+	 .cc-ia-content p {
+		line-height:30px;
+		font-size:18px;
+	 }	 
+	 .all-items-blk a h3, .cc-ia-more .all-items-blk h3 {
+		 font-size:24px;
+		 margin-bottom: 15px;
+	 }
+	 .ia-block .cc-ia-content h1{
+	 	margin-bottom: 20px;
+	 }
+	 .all-items-blk {
+	    padding: 30px 20px;
+	}	 
+	.all-items-blk p {
+		 margin-bottom: 15px;
+	}	
+	.cc-ia-more ul li .fa {
+		margin-top:2px;	
+	}
+	ul.cat_list li .fa {
+	    position: relative;
+	    top: 2px;
+	}
+	
+	
+	/* === Ideas & Advice End === */
 
 
 	/* ===== FOOTER ===== */

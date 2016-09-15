@@ -242,7 +242,7 @@ jQuery(document).on('click','#payment_method_securepay',function(){
 
 /*==============Disable form submit on enter key press in checkout form starts ===========*/
 
-$('form[name="checkout"').on('keyup keypress', function(e) {
+$('form[name="checkout"]').on('keyup keypress', function(e) {
   var keyCode = e.keyCode || e.which;
   if (keyCode === 13) { 
   	//jQuery(this).find('#check_control_dialog').trigger('click');

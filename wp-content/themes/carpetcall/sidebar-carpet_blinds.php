@@ -1,7 +1,8 @@
 <?php $term_id =  get_queried_object()->term_id;
 if(!is_last_cat($term_id)){?>
 
-    <div class="cc-product-sub-category-list">
+        <div class="cc-product-sub-category-list cc-carpet-subcat-list">
+
     <?php 
     /**
     *shpw the sub-category list of the  product category
@@ -13,6 +14,7 @@ if(!is_last_cat($term_id)){?>
 	//$prosubcats=get_terms(array('child'=>$term_id,'taxonomy'=>'product_cat'));
 	?>
     
+        <h3 class="mobile carpet-drop">Categories <span class="fa fa-angle-down"></span></h3>
 
     <ul class="cc-pro-sub-cat-ul guide_list_cbg">
     

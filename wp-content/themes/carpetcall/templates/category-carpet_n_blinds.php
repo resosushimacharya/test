@@ -67,7 +67,7 @@
       		echo $ret['html'];
       		?>
         </div>
-         <?php if(wp_is_mobile()){?>
+         <?php if(wp_is_mobile() && is_last_cat($current_cat->term_id) ){?>
 		   <div class="room_visualizer_tile mobile">
         	<h3 class="room_visualiser_title"><?php _e('Checkout our room visualiser','carpetcall')?></h3>
             <p class="room_visualiser_desc"><?php _e('Explore our entire range of carpets, rugs, flooring + more!','carpetcall')?></p>
