@@ -186,15 +186,15 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
 				}
     });
 	
-jQuery( document ).ajaxSuccess(function( event, xhr, settings ) {
-	if((settings.url).indexOf("checkout/?wc-ajax=checkout") >= 0){
-		jQuery(document).find('.cc_woocommerce-message').remove();
-		var response = jQuery.parseJSON(xhr.responseText);
-		if(response.result ==  "failure"){
-			jQuery('.wc_payment_methods').prepend('<div class="cc_woocommerce-message">Please Enter valid Payment Details</div>');
+	jQuery( document ).ajaxSuccess(function( event, xhr, settings ) {
+		if((settings.url).indexOf("checkout/?wc-ajax=checkout") >= 0){
+			jQuery(document).find('.cc_woocommerce-message').remove();
+			var response = jQuery.parseJSON(xhr.responseText);
+			if(response.result ==  "failure"){
+				jQuery('.wc_payment_methods').prepend('<div class="cc_woocommerce-message">Please Enter valid Payment Details</div>');
+				}
 			}
-		}
-});
+	});
 		
 /*===================Fields Validation for checkout page ends=============*/
 
@@ -207,6 +207,20 @@ jQuery(document).on('click','#payment_method_securepay',function(){
 	});
 
 /*=============Adding mastercard and visa logos in secure pay form ends=======*/
+
+/*==============Disable form submit on enter key press in checkout form starts ===========*/
+
+$('form[name="checkout"').on('keyup keypress', function(e) {
+  var keyCode = e.keyCode || e.which;
+  if (keyCode === 13) { 
+  	//jQuery(this).find('#check_control_dialog').trigger('click');
+    e.preventDefault();
+    //return false;
+  }
+});
+
+/*==============Disable form submit on enter key press in checkout form ends ===========*/
+
 
 /*jQuery(document).on('focusout','#billing_phone:visible, #shipping_phone:visible',function(){
 	var phoneNumber = jQuery(this).val();
@@ -846,7 +860,12 @@ jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax
 	if(output.found_prod == 0){
 		jQuery('#cc_load_more').hide();
 		}else{
-			jQuery('#cc_load_more').show();
+			if(jQuery('#hide_loadmore').val()=='yes'){
+				jQuery('#cc_load_more').hide();
+				}else{
+				jQuery('#cc_load_more').show();
+				}
+				
 			}		
 			});
 

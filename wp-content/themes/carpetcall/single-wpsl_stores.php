@@ -76,7 +76,7 @@ $backurl=site_url().'/find-a-store/'.strtolower($cat_name);
             </div>
             
             <div class="col-md-6 view-all-link desktop">
-            	<a href="<?php echo $backurl?>"> VIEW ALL STORES</a>
+            	<a href="<?php echo $backurl?>">< VIEW ALL STORES</a>
             </div>
         
         </div>
@@ -101,9 +101,17 @@ $backurl=site_url().'/find-a-store/'.strtolower($cat_name);
                         
                         <h1><span itemprop="name"><?php echo get_the_title()?></span></h1>
                         <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="single-store-bottom-info">
+                        <?php if($street){?>
                         <span itemprop="streetAddress"><?php echo $street?></span><br>
-                        <span itemprop="addressLocality"><?php echo $locality?></span>,<span itemprop="addressRegion"><?php echo $city?></span><br>
-                        <span itemprop="postalCode">2750</span>
+                        <?php } ?>
+                        <?php if($locality){?> 
+						<span itemprop="addressLocality"><?php echo $locality?></span>,
+						<?php }?>
+                        <?php if($city){?><span itemprop="addressRegion"><?php echo $city?></span><br><?php }?>
+                      
+                        <?php if($postcode){?>
+                        <span itemprop="postalCode"><?php echo $postcode?></span>
+                        <?php } ?>
                         </div>
                         <?php
                         /*
@@ -137,7 +145,7 @@ $backurl=site_url().'/find-a-store/'.strtolower($cat_name);
                         </div>
                         <div class="wpsl-phone-sec cc-single-wpsl-ccstore">
                         <div class="cc-storef-phnum"><?php if(array_key_exists('wpsl_phone',$getinfo)){ ?>
-                        <strong>Phone:  </strong><span class="cc-cat-store-item-phone" itemprop="telephone"> <?php echo $phone ;?></span>
+                        <strong>Phone:  </strong><span class="cc-cat-store-item-phone" itemprop="telephone"> <?php 		echo $phone ;?></span>
                         <?php } ?></div>
                         <div class="cc-storef-phnum"><?php if(array_key_exists('wpsl_fax',$getinfo)){?>
                         <strong>Fax: </strong><span class="cc-cat-store-item-fax" itemprop="faxNumber"> <?php echo $fax ;?></span>  

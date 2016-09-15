@@ -33,7 +33,14 @@ if(!is_last_cat($term_id)){?>
     
    
     </div><div class="clearfix"></div>
-<?php } ?>
+<?php } else{?>
+		<div class="room_visualizer_tile">
+        	<h3 class="room_visualiser_title"><?php _e('Checkout our room visualiser','carpetcall')?></h3>
+            <p class="room_visualiser_desc"><?php _e('Explore our entire range of carpets, rugs, flooring + more!','carpetcall')?></p>
+            <img class="room_visualiser_image" src="<?php get_template_directory_uri()?>/images/sidebar-room-visualiser.png">
+            <a class="read_more" target="_blank" href="http://roomvisualiser.carpetcall.com.au/"><?php _e('Explore Now','carpetcall')?></a>
+        </div>
+	<?php }?>
 
 
 

@@ -1455,20 +1455,21 @@
 	.cc-condn-page .woocommerce .title h3 {
 	    color: #15489f !important;	
 		margin:74px 0;
+		line-height: 1;
 	}
 	.cc-condn-page .woocommerce .cc-checkout-title h3 {
-		margin:0 0 42px 0;
+		margin:0 0 30px 0;
 	}
 	ul.cc-woocommerce-thankyou-order-details li {
 		font-size:32px;
-		line-height:35px;
+		line-height:42px;
 	}
 	.cc-condn-page .woocommerce .cc-checkout-od h3 {
-		margin:93px 0 51px 0;	
+	    margin: 80px 0 35px 0;
 	}
 	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td span.mobile {
 		display:block;
-		margin:12px 0;
+		margin:40px 0 10px;
 	}
 	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord, .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead, .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody {
 		display:block;	
@@ -1479,19 +1480,38 @@
 	}
 	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th, .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td {
 		width:50%;
-		display:inline-block;
+		display:inline-block;	
+		font-size: 32px;	
+		padding: 50px 20px;
+	}
+	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th{		
+		padding: 24px 20px;
+	}
+	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th.product-name, .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr.order_item td:first-child {
+	    width: 70%;
+	}
+	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th.product-total, .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr.order_item td:last-child {
+	    width: 30%;
 	}
 	.cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr {
 		border-bottom:2px solid #e7edf8;
 	}
-	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th:nth-child(2), .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th:nth-child(3), .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td:nth-child(2), .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td:nth-child(3) {
+	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th:nth-child(2), .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th:nth-child(3), .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td:nth-child(2), .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td:nth-child(3), .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tfoot > tr > td.empty {
 		display:none;	
 	}
 	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tbody > tr > td {
 		border-bottom:none;
 	}
+	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tfoot{
+		display: block;
+	}
+	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tfoot  tr{
+		display: block;
+		font-size: 0;
+	}
 	.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tfoot > tr > td {
-		width:25%;
+		width:50%;
+		display: inline-block;
 	}
 	cc-bil-ship-woo-wrap  {
 		display:block;
@@ -2977,15 +2997,19 @@
 	}
 	.wpsl-address-sec h4 {
         font-size: 36px;
-	    margin: 0 0 2px 15px;
+	    margin: 0 0 10px 15px;
 	}
-	.wpsl-location-address, .wpsl-locations-details span strong, .wpsl-locations-details span{
+	.wpsl-address-sec span, .wpsl-address-sec h1 span{
 		line-height: 48px;
 		margin: 0;
 	    font-size: 32px;
+	    margin-left: 15px;
 	}
 	.wpsl-locations-details{
 		margin: 0 0 40px 15px;
+	}
+	.single-store-bottom-info{
+		margin-bottom: 40px;
 	}
 	.wpsl-address-sec a, .cc-str-cntblk-a a {
 	    height: 90px;
@@ -2999,38 +3023,56 @@
 	    line-height: 1;
 	    margin-top: 80px;
 	}
-	.cc-single-wpsl-ccstore span.cc-cat-store-item-phone strong, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax strong{
+	.cc-storef-phnum strong{
 		font-size: 36px;
 		margin-left: 15px;
+	}
+	.cc-storef-phnum{
+		margin-bottom: 5px;
 	}
 	.cc-single-wpsl-ccstore span.cc-cat-store-item-phone a, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax{
 		line-height: 1;
 		font-size: 32px;
 	}
 	.cc-str-cntblk {
-	    margin: 35px 0 0;
+	    margin: 45px 0 0;
 	}
 	/* Single Store Blue Box End*/
 	/* Single Store Bottom */
+	.cc-ad-map-strn #wpsl-result-list{
+		display: none;
+	}
 	.wpsl-hour-sec {
 	    padding: 85px 20px 65px;
+	}
+	.wpsl-hour-sec span{
+		line-height: 1;
+		display: block;		
+	}
+	.wpsl-hour-sec span strong{
+		margin-bottom: 15px;
+		display: block;
 	}
 	.wpsl-hour-sec span strong{
 		font-size: 36px;
 	}
-	.wpsl-opening-hours > tbody > tr {
+	.opeaning_list{
+		font-size: 28px;
+		color: #0099ff;
+	    line-height: 45px;
+	    text-transform: uppercase;
+	    font-family: 'proxima_nova_ltsemibold';
+	}
+	.wpsl-hour-sec .opeaning_list span.opeaning_day_label {
 	    font-size: 32px;
 	    line-height: 1.4;
+	    width: 45%;
+	    text-transform: none;
+	    font-family: 'proxima_nova_rgregular';
 	}
-	.wpsl-opening-hours > tbody > tr > td > time {
+	.wpsl-hour-sec .opeaning_list time.opeaning_day_time {
 	    font-size: 28px;
 	    line-height: 45px;
-	}
-	table.wpsl-opening-hours {
-	    margin-top: 5px;
-	}
-	table.wpsl-opening-hours td {
-	    padding-right: 50px;
 	}
 
 	.wpsl-single-right{
@@ -5096,10 +5138,10 @@
 	.view-all-link a {
 	    height: 60px;
 	    line-height: 60px;
-	    font-size: 24px;
+	    font-size: 20px;
 	}
 	.single-store-title h3 {
-	    font-size: 52px;
+	    font-size: 36px;
 	}
 	/* Single Store Head End */
 	/* Single Store Blue Box */
@@ -5110,55 +5152,59 @@
         font-size: 22px;
 	    margin: 0 0 7px 15px;
 	}
-	.wpsl-location-address, .wpsl-locations-details span strong, .wpsl-locations-details span{		
-	    font-size: 20px;
+	.wpsl-address-sec span, .wpsl-address-sec h1 span {
+	    line-height: 1;	    
+	    font-size: 18px;
+	    margin-left: 15px;
 	}
 	.wpsl-locations-details{
 		margin: 0 0 30px 15px;
 	}
+	.single-store-bottom-info{
+		margin-bottom: 20px;
+	}
+	.cc-storef-phnum strong {
+	    font-size: 20px;
+	}
 	.wpsl-address-sec a, .cc-str-cntblk-a a {
-	    height: 60px;
-	    line-height: 60px;
+	    height: 50px;
+	    line-height: 50px;
 	    font-size: 18px;
-	    width: 280px;
+	    width: 100%;
 	}
 	.cc-single-wpsl-ccstore {
 	    margin-top: 50px;
 	}
-	.cc-single-wpsl-ccstore span.cc-cat-store-item-phone strong, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax strong{
-		font-size: 22px;
-	}
 	.cc-single-wpsl-ccstore span.cc-cat-store-item-phone a, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax{
 		line-height: 1.4;
-		font-size: 20px;
+		font-size: 18px;
 	}
 	.cc-str-cntblk {
 	    margin: 20px 0 0;
-	}
+	}	
 	/* Single Store Blue Box End*/
 	/* Single Store Bottom */
+	.opeaning_list {
+	    font-size: 18px;	    
+	    line-height: 1;
+	}
 	.wpsl-hour-sec {
-	    padding: 60px 10px 45px;
+	    padding: 60px 0px 45px;
 	}
 	.wpsl-hour-sec span strong{
 		font-size: 22px;
 	}
-	.wpsl-opening-hours > tbody > tr {
-	    font-size: 20px;
-	    line-height: 1.4;
-	}
-	.wpsl-opening-hours > tbody > tr > td > time {
-	    font-size: 18px;
-	    line-height: 35px;
-	}
-	table.wpsl-opening-hours {
-	    margin-top: 10px;
-	}
-	table.wpsl-opening-hours td {
-	    padding-right: 20px;
-	}
 	.wpsl-single-right #wpsl-base-gmap_0 {
 	    height: 420px;
+	    margin-bottom: 30px;
+	}
+	.wpsl-hour-sec .opeaning_list span.opeaning_day_label {
+	    font-size: 20px;
+        width: 39%;
+	}
+	.wpsl-hour-sec .opeaning_list time.opeaning_day_time {
+	    font-size: 18px;
+	    line-height: 30px;
 	}
 	/* Single Store Bottom End */
 	/* === STORE SINGLE PAGE End === */
@@ -6096,3 +6142,10 @@
 }
 
 /* ============= 359px Ends ============= */
+
+@media only screen and (max-width: 330px){
+	.banner .cc-logo-cntr {
+	    max-width: 205px;
+	    width: 205px;
+	}
+}

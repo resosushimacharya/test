@@ -49,7 +49,10 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 		<?php
 			if ( $totals = $order->get_order_item_totals() ) {
 				$i = 0;
-				foreach ( $totals as $total ) {
+				foreach ( $totals as $key=>$total ) {
+					if($key == 'shipping'){
+					$total['value'] = get_post_meta($order->id,'cc_shipping_method',true);
+					}
 					$i++;
 					?><tr>
 						<th class="td" scope="row" colspan="2" style="text-align:left; <?php if ( $i === 1 ) echo 'border-top-width: 4px;'; ?>"><?php echo $total['label']; ?></th>

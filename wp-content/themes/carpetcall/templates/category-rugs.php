@@ -12,6 +12,7 @@
 	$depth = count($ancestors) ; 
 	?>
 <div class="contaniner clearfix category-rugs">
+<input type="hidden" id="hide_loadmore" value="<?php echo (is_last_cat($current_cat))?'yes':'no'?>">
   <div class="inerblock_seC_mrugss">
     <div class="container-fluid mmrugm <?php echo ($depth==0)?'main_cat_head':'sub_cat_head' ?> ">
     <?php
