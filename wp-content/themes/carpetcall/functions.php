@@ -495,3 +495,18 @@ function growdev_custom_woocommerce_placeholder( $image_url ) {
   $image_url = get_template_directory_uri().'/images/placeholder.png';  // change this to the URL to your custom placeholder
   return $image_url;
 }
+add_filter( 'wpsl_store_data', 'custom_result_sort' );
+
+function custom_result_sort( $store_meta ) {
+
+    
+    $custom_sort = array();
+    
+    foreach ( $store_meta as $key => $row ) {
+        $custom_sort[$key] = $row['store'];
+    }
+
+    array_multisort( $custom_sort, SORT_ASC, SORT_REGULAR, $store_meta );
+    
+    return $store_meta;
+}
