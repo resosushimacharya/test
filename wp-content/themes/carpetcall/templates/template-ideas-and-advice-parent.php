@@ -18,7 +18,7 @@
  <div class="cbg_blk clearfix">
  <div class="container">
 <div class="inerblock_serc parent-guide-cntr">
-					
+          
  <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
     <?php if(function_exists('bcn_display'))
     {
@@ -42,8 +42,8 @@
 
 
  <div class="container clearfix">
-	<div class="inerblock_sec parent-guide-content">
-		<div class="col-md-3 desktop no-pl">
+  <div class="inerblock_sec parent-guide-content">
+    <div class="col-md-3 desktop no-pl">
        <ul class="guide_list_cbg">
             
 <?php 
@@ -56,24 +56,24 @@ $url = explode('/',$url);
 if(strcasecmp($url[2],'localhost')==0)
 {
  if($post->ID=='1690'){
- 	$roottitle ="GUIDE";
+  $roottitle ="GUIDE";
  }
  if($post->ID=='1711'){
- 	$roottitle ="CARE";
+  $roottitle ="CARE";
  }
  if($post->ID=='1725'){
- 	$roottitle ="FAQ";
+  $roottitle ="FAQ";
  }
 }
 else{
 if($post->ID=='26696'){
- 	$roottitle ="GUIDE";
+  $roottitle ="GUIDE";
  }
  if($post->ID=='26709'){
- 	$roottitle ="CARE";
+  $roottitle ="CARE";
  }
  if($post->ID=='26721'){
- 	$roottitle ="FAQ";
+  $roottitle ="FAQ";
  }
 }
 $args = array(
@@ -96,22 +96,22 @@ wp_reset_query();
  ?>
 </ul>
             <div class="clearfix"></div>
-		</div>
-		<div class="col-md-9 guide-content-cntr">
-			<div class="cbg_content">
+    </div>
+    <div class="col-md-9 guide-content-cntr">
+      <div class="cbg_content">
              <?php while(have_posts()){
-             	the_post();
-             	?>
+              the_post();
+              ?>
            
              
-             		<?php the_content();?>
-             	
+                <?php the_content();?>
+              
             <?php  }
             wp_reset_query();?>
 
 
              </div>
-		</div>
+    </div>
 </div>
 </div>
 
@@ -119,7 +119,7 @@ wp_reset_query();
 <div class="container mobile cc-mobile-blk clearfix">
 <div class="col-md-3 no-pl">
 <div class="meromm">
-			<?php get_sidebar('guide');?>
+      <?php get_sidebar('guide');?>
             </div>
       </div>      
 </div>
@@ -156,8 +156,14 @@ wp_reset_query();
                     
 
                     
-                    $reqTempTerms=get_terms('product_cat');
-                   
+                    //$reqTempTerms=get_terms('product_cat');
+                   $accessories_term = get_term_by('slug','accessories','product_cat');
+                    $reqTempTerms = get_terms( array(
+                'taxonomy' => 'product_cat',
+                'hide_empty' => true,
+                'exclude' =>$accessories_term->term_id
+                )
+               );
                  
                     $i=1;
                     foreach($reqTempTerms as $cat){
@@ -228,7 +234,7 @@ wp_reset_query();
                     
                     
                     $feat_image = cc_custom_get_feat_img($filloop->post->ID,'medium');
-					//$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
+          //$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
 
 
                                     ?> <div class="col-md-4">
