@@ -10,7 +10,6 @@
     <div class="container-fluid mmrugm sub_cat_head">
      <div class="cc-rugsall-catgr clearfix">
       <div class="container">
-      
         <?php
 		/**
 		 * woocommerce_before_main_content hook.
@@ -49,8 +48,10 @@
 
       <div class="tophead_sec col-md-12 no-lr clearfix">
 
-	<div class="mobile carpets-cat-dropdown">        
-       <?php //get_sidebar('carpet_blinds');?>
+	<div class="mobile carpets-cat-dropdown <?php echo (is_last_cat($current_cat->term_id))?'hide_in_moblile':''?>">        
+       <?php if(wp_is_mobile()){
+		   get_sidebar('carpet_blinds');
+	   }?>
       </div>
         
       
@@ -66,6 +67,15 @@
       		echo $ret['html'];
       		?>
         </div>
+         <?php if(wp_is_mobile() && is_last_cat($current_cat->term_id) ){?>
+		   <div class="room_visualizer_tile mobile">
+        	<h3 class="room_visualiser_title"><?php _e('Checkout our room visualiser','carpetcall')?></h3>
+            <p class="room_visualiser_desc"><?php _e('Explore our entire range of carpets, rugs, flooring + more!','carpetcall')?></p>
+            <img class="room_visualiser_image" src="<?php echo get_template_directory_uri();?>/images/sidebar-room-visualiser.jpg">
+            <a class="red-btn" target="_blank" href="http://roomvisualiser.carpetcall.com.au/"><?php _e('Explore Now','carpetcall')?></a>
+        </div>
+		   
+	  <?php  }?>
         <div class="woo-added"></div>
       </div>
       <?php 

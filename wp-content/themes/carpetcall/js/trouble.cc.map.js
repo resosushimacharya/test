@@ -12,12 +12,6 @@ if(autoCurrentLoc.curr_loc==="1"){
 wpslSettings.startLatlng =startLatlng;
 
 console.log(wpslSettings);
-$(document).ready(function(){
-
-
-
-	$('.cc-cat-store-item-phone a ').attr('href',"tel:hello");
-})
 
 
 

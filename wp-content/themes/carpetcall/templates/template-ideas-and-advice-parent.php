@@ -17,7 +17,7 @@
 ?>
  <div class="cbg_blk clearfix">
  <div class="container">
-<div class="inerblock_serc">
+<div class="inerblock_serc parent-guide-cntr">
 					
  <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
     <?php if(function_exists('bcn_display'))
@@ -42,7 +42,7 @@
 
 
  <div class="container clearfix">
-	<div class="inerblock_sec">
+	<div class="inerblock_sec parent-guide-content">
 		<div class="col-md-3 desktop no-pl">
        <ul class="guide_list_cbg">
             
@@ -97,7 +97,7 @@ wp_reset_query();
 </ul>
             <div class="clearfix"></div>
 		</div>
-		<div class="col-md-9">
+		<div class="col-md-9 guide-content-cntr">
 			<div class="cbg_content">
              <?php while(have_posts()){
              	the_post();
