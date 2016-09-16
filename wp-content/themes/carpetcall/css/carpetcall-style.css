@@ -1641,7 +1641,7 @@ div#right_col ol li, .cbg_content ol li, .cbg_content ul li {
 	background: #e7edf8;
 }
 .abvist {
-	margin: 45px 0 34px 0;
+	margin: 72px 0 59px 0;
 }
 .measure_blk {
 	padding: 0;
@@ -1790,7 +1790,8 @@ li.clblk_a::before {
 }
 .footlist li .clblk_a a {
 	font-weight: normal;
-	font-family: '';
+	font-family: 'proxima_nova_ltsemibold', sans-serif;
+	font-size:13px;
 	cursor: text;
 	letter-spacing: 1px;
 }
@@ -3506,6 +3507,9 @@ ul.cat_list li a:hover {
 	font-size: 12px;
 	line-height: 12px;
 }
+.child-innerpg .cc-search-allprd .cc-breadcrumb {
+	padding:24px 0 10px 0;
+}
 .inerblock_serc_child .cc-breadcrumb > span.cc-bread-root a, .inerblock_serc_child .cc-breadcrumb > span.cc-bread-parent a {
 	font-size: 12px;
 	color: #15489f;
@@ -4151,10 +4155,13 @@ ul.cc-color-var-item {
 .cc-price-var-sec .panel-default>.panel-heading, .cc-size-var-sec .panel-default>.panel-heading {
 	background-color: transparent;
 	border-color: transparent;
-	padding: 1px 0 0 0;
+	padding: 10px 0;
 }
 .cc-price-var-items .checkbox {
 	margin: 9px 0 10px 0;
+}
+.panel-group.cc-price-var {
+	margin-bottom:0;
 }
 .panel.entry-content.wc-tab .cc-tab-faq-read-more p {
 	font-family:'proxima_nova_rgregular', sans-serif;
@@ -6353,16 +6360,15 @@ div#error_max_msg {
 	color:#666;
 }
 .cc-product-sub-category-list h3 {
-	margin-top:3px;
-	text-transform:none;
 	width:100%;	
 	font-family:'proxima_nova_ltsemibold', sans-serif;
 	font-size:24px;
 	font-weight:normal;
 	color:#666666;
-	border-bottom:1px solid #efefef;
-	padding-bottom:10px;
-	margin-bottom:13px;
+	text-transform:none;
+	border:0;
+	margin:14px 0;
+	text-transform:none;
 }
 .search.search-results .slider.slider-horizontal {
 	width:200px;
@@ -7257,7 +7263,7 @@ label.inner-check-label.radio-check-label::after{
 .search_header form .input-group .form-control{
 	background-color:#e7edf8;
 	border:0;
-	height:35px;
+	height:33px;
 	box-shadow:none;
 	outline:0;
 	text-transform:uppercase;
@@ -7270,7 +7276,7 @@ label.inner-check-label.radio-check-label::after{
 	 border-color:transparent;
 	 box-shadow:none;
 	outline:0;
-	height:35px;
+	height:33px;
  }
 
 #quantity-control{width: 60%;}
@@ -7610,6 +7616,9 @@ span.access_active_text {
 .wrap_body .child-innerpg .inerblock_serc_child.about-page h1 {
 	margin-bottom:0;
 	margin-top:-2px;	
+}
+.cc-search-allprd .search_header {
+	margin:21px 0 54px 0;
 }
 .wrap_body .about-page .cart_checkout_header_subtitle {
 	margin-bottom:23px;

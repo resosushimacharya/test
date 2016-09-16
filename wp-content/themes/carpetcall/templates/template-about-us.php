@@ -65,7 +65,17 @@ $size      = count( $ancestors );
                     <span class="cc-bread-current"><?php the_title(); ?></span>
                 <?php } #end-else ?>
             </div><!-- end .cc-breadcrumb -->
+            <?php if(wp_is_mobile()){ ?> 
+<span class="ab_arrow">
+            <a href="<?php echo get_permalink($post->post_parent);?>">
+              <i class="fa fa-angle-left" aria-hidden="true"></i>            
+              <b><?php  echo get_the_title($post->post_parent);;?></b>
+            </a>
+          </span><?php echo get_the_title();?>
+          </h1>
+          <?php } else { ?>
             <h1><?php the_title(); ?></h1>
+            <?php } ?>
         </div><!-- end .innerblock_serc_child -->
     </div><!-- end .container.clearfix -->
 </div><!-- end .child-innerpg -->
@@ -204,14 +214,21 @@ $loop = new WP_Query($args);
   
         <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
 <div class="you_may_like-content">
-       <?php
+      <?php
 
 
                     
 
                     
-                    $reqTempTerms=get_terms('product_cat');
-                   
+                    //$reqTempTerms=get_terms('product_cat');
+          //do_action('pr',$accessories_term);
+          $accessories_term = get_term_by('slug','accessories','product_cat');
+                    $reqTempTerms = get_terms( array(
+                'taxonomy' => 'product_cat',
+                'hide_empty' => true,
+                'exclude' =>$accessories_term->term_id
+                )
+               );
                  
                     $i=1;
                     foreach($reqTempTerms as $cat){
@@ -281,8 +298,8 @@ $loop = new WP_Query($args);
                     $price=$woo['_regular_price'][0];
                     
                     
-                    $feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
-
+                    //$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
+          $feat_image = cc_custom_get_feat_img($filloop->post->ID,'medium');
 
                                     ?> <div class="col-md-4">
                         <div class="pro_secone">

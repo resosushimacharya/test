@@ -26,16 +26,16 @@ if(have_posts()):
     endwhile;
 
 
-	else:
-		echo "not found";
+  else:
+    echo "not found";
 
 
-	endif;
+  endif;
 
 ?>
 <?php else: ?>
-	<?php get_template_part('templates/contents/content','second');?>
-<?php endif;?>	
+  <?php get_template_part('templates/contents/content','second');?>
+<?php endif;?>  
 </div>
 </div>
 </div>
@@ -44,7 +44,7 @@ if(have_posts()):
  <div class="col-md-3 no-pl">
         <div id="stickSide">
         <div class="meromm" >
-			
+      
 <?php 
  $res = get_field('buying_guide_archive', get_the_id());?>
 <ul class="guide_list_cbg">
@@ -114,9 +114,9 @@ if( '' != $button_title && '' != $button_link ) {
             </div>
             </div>
             <div class="clearfix"></div>
-		</div>
+    </div>
             <div class="clearfix"></div>
-		</div>
+    </div>
 </div>
 
 
@@ -133,8 +133,14 @@ if( '' != $button_title && '' != $button_link ) {
                     
 
                     
-                    $reqTempTerms=get_terms('product_cat');
-                   
+                    //$reqTempTerms=get_terms('product_cat');
+                   $accessories_term = get_term_by('slug','accessories','product_cat');
+                    $reqTempTerms = get_terms( array(
+                'taxonomy' => 'product_cat',
+                'hide_empty' => true,
+                'exclude' =>$accessories_term->term_id
+                )
+               );
                  
                     $i=1;
                     foreach($reqTempTerms as $cat){
@@ -146,14 +152,14 @@ if( '' != $button_title && '' != $button_link ) {
        'show_count'         => 0,
        'use_desc_for_title' => 0,
        'child_of'           => $cat->term_id,
-	   'tax_query'	=>array(
-									array(
-										'taxonomy' => 'product_cat',
-										'terms' => array('accessories'),
-										'field' => 'slug',
-										'operator' => 'NOT IN',
-									)
-								)
+     'tax_query'  =>array(
+                  array(
+                    'taxonomy' => 'product_cat',
+                    'terms' => array('accessories'),
+                    'field' => 'slug',
+                    'operator' => 'NOT IN',
+                  )
+                )
       );
       $terms = get_terms( 'product_cat', $args );
       
@@ -213,7 +219,7 @@ if( '' != $button_title && '' != $button_link ) {
                     
                     
                     $feat_image = cc_custom_get_feat_img($filloop->post->ID,'medium');
-					//$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
+          //$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
 
 
                                     ?> <div class="col-md-4">
