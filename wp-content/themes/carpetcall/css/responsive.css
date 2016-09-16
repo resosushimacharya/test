@@ -1136,9 +1136,15 @@
 	}
 
 
-	.parent-guide-content p{
+	.parent-guide-content, .parent-guide-content p, .parent-guide-content h3, .parent-guide-content h3.sub_page_title, .parent-guide-content p a, .parent-guide-content ul li {
 		font-size: 32px;
 		line-height: 1.4;
+	}
+	.parent-guide-content p a{
+		font-style: italic;
+	}
+	.parent-guide-content h3, .parent-guide-content h3.sub_page_title{
+		font-size: 36px;
 	}
 	.cc-mobile-blk {
 	    margin-top: 100px;
@@ -5235,9 +5241,12 @@
 	.guide-content-cntr{
 		padding: 0;
 	}
-	.guide-content-cntr, .guide-content-cntr p{
+	.parent-guide-content, .parent-guide-content p, .parent-guide-content h3, .parent-guide-content h3.sub_page_title, .parent-guide-content p a, .parent-guide-content ul li{
 		font-size: 18px;
 		line-height: 30px;
+	}
+	.parent-guide-content h3, .parent-guide-content h3.sub_page_title{
+		font-size: 22px;
 	}
 	.cc-mobile-blk{
 		margin-top: 40px;
