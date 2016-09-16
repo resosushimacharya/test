@@ -25,6 +25,7 @@ $order = wc_get_order( $order_id );
 $show_purchase_note    = $order->has_status( apply_filters( 'woocommerce_purchase_note_order_statuses', array( 'completed', 'processing' ) ) );
 $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_current_user_id();
 ?>
+
 <header class="title cc-checkout-od">
 <h3><?php _e( 'Order Details', 'woocommerce' ); ?></h3></header>
 <table class="shop_table order_details cc-checkkout-details-ord">
@@ -93,6 +94,7 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 		<?php
 		
 			foreach ( $order->get_order_item_totals() as $key => $total ) {
+			
 				if($key == 'shipping'){
 					$total['value'] = get_post_meta($order->id,'cc_shipping_method',true);
 					}
@@ -113,5 +115,5 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 <?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>
 
 <?php if ( $show_customer_details ) : ?>
-	<?php wc_get_template( 'order/order-details-customer.php', array( 'order' =>  $order ) ); ?>
+	<?php //wc_get_template( 'order/order-details-customer.php', array( 'order' =>  $order ) ); ?>
 <?php endif; ?>

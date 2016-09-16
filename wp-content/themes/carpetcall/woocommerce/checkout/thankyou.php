@@ -51,7 +51,16 @@ if ( $order ) : ?>
 			</li>
 			<li class="date">
 				<?php _e( 'Order Date:', 'woocommerce' ); ?>
-				<?php echo date_i18n( get_option( 'date_format' ), strtotime( $order->order_date ) ); ?>
+				<?php 
+$datetimearr =explode(' ',$order->order_date);
+$datearr =explode('-',$datetimearr[0]);
+
+$date = $datearr[2].'/'.$datearr[1].'/'.$datearr[0];
+
+
+
+ ?>
+				<?php echo $date; ?>
 			</li>
 			
 			<?php if ( $order->payment_method_title ) : ?>
@@ -68,8 +77,10 @@ if ( $order ) : ?>
 	<?php do_action( 'woocommerce_thankyou_' . $order->payment_method, $order->id ); ?>
 	<?php do_action( 'woocommerce_thankyou', $order->id ); ?>
 <div class="cc-bil-ship-woo-wrap clearfix">
-<?php if ( ! wc_ship_to_billing_address_only()) : ?>
+<?php $where =  get_post_meta($order->id,'cc_shipping_method',true);  ?>
 
+<?php if ( !wc_ship_to_billing_address_only() || $order->needs_shipping_address()) : ?>
+<?php if(strcasecmp('Pickup From Head Offices',$where)!=0){ ?>
 <div class="col-sm-6 no-pl cc-checkout-sbadr">
 		<header class="title cc-ship-adbill">
 			<h3><?php _e( 'Shipping Address', 'woocommerce' ); ?></h3>
@@ -77,7 +88,7 @@ if ( $order ) : ?>
 		<address>
 			<?php echo ( $address = $order->get_formatted_shipping_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
 		</address>
-	</div> <?php endif; ?>
+	</div><?php } ?> <?php endif; ?>
 
 <div class="col-sm-6 no-pr cc-checkout-sbadrs">
 	<header class="title cc-bil-addr">
