@@ -1304,6 +1304,7 @@ h5.tryit.tryita {
 	background: #fff;
 	padding: 10px;
 	margin: 10px;
+	height:auto;
 }
 .sublk_prom {
 	margin: 22px 0 16px 0;
@@ -2444,6 +2445,7 @@ ul.guide_list_cfaq li a {
 }
 .main-image-wrapper {
 	min-height: 373px;
+	margin-bottom:10px;
 }
 .main-image-wrapper a img {
 	min-height: 373px;
