@@ -32,7 +32,7 @@ $feat_image = cc_custom_get_feat_img($post->ID,'medium');
         <p><?php echo $post->post_content;?> </p>
         </div>
         <div class="col-md-6 ia-img">
-         <div class="cc-ia-banner" style="background-image: url(<?php echo $feat_image ;?>);">	
+         <div class="cc-ia-banner" style="background-image: url(<?php echo $feat_image ;?>);">  
          </div>
         </div>
 </div>
@@ -52,12 +52,12 @@ usort($iadata, 'order_of_ideas_and_advice_function');
 /*do_action('pr',$iadata);*/
 foreach($iadata as $iad){?>
     <?php if(strcasecmp($iad['category'],'More')==0):?>
-	<div class="col-md-6 cc-ia-item cc-ia-more">
+  <div class="col-md-6 cc-ia-item cc-ia-more">
     <div class="all-items-blk">
-		<h3><?php echo $iad['title'];?></h3>
-		<?php echo $iad['description'];?>
+    <h3><?php echo $iad['title'];?></h3>
+    <?php echo $iad['description'];?>
         </div>
-	</div>
+  </div>
     <?php 
     /**
     *reading the category
@@ -98,8 +98,8 @@ wp_reset_query();?>
      $tax_terms = get_terms($res_tax);?>
      <div class="col-md-6 cc-ia-item">
      <div class="all-items-blk">
-		<a href="<?php echo get_the_permalink($proID);?>"><h3><?php echo $iad['title'];?></h3></a>
-		<p><?php echo $iad['description'];?></p>
+    <a href="<?php echo get_the_permalink($proID);?>"><h3><?php echo $iad['title'];?></h3></a>
+    <p><?php echo $iad['description'];?></p>
 
             <ul class="cat_list">
             <?php  $args = array(
@@ -119,7 +119,7 @@ while($parent->have_posts()){
 }
 wp_reset_query();?>
             </ul>
-	</div>
+  </div>
     </div>
      <?php 
     
@@ -136,16 +136,16 @@ wp_reset_query();?>
    
     <div class="col-md-6 cc-ia-item">
     <div class="all-items-blk">
-		<a href="<?php echo get_the_permalink($faqID);?>"><h3><?php echo $iad['title'];?></h3></a>
-		<p><?php echo $iad['description'];?></p>
-		  
+    <a href="<?php echo get_the_permalink($faqID);?>"><h3><?php echo $iad['title'];?></h3></a>
+    <p><?php echo $iad['description'];?></p>
+      
             
             
             <ul class="cat_list">
             <?php
                           
-						
-						$args = array(
+            
+            $args = array(
     'post_type'      => 'page',
     'posts_per_page' => -1,
     'post_parent'    => $faqID,
@@ -161,11 +161,11 @@ while($parent->have_posts()){
      echo '<li><i class="fa fa-caret-right" aria-hidden="true"></i> &nbsp;<a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID). '</a></li>';
 }
 wp_reset_query();
-				?>
+        ?>
             </ul>
             
             </div>
-	</div>
+  </div>
 <?php 
 endif;
 }
@@ -192,8 +192,15 @@ endif;
                     
 
                     
-                    $reqTempTerms=get_terms('product_cat');
-                   
+                    //$reqTempTerms=get_terms('product_cat');
+          //do_action('pr',$accessories_term);
+          $accessories_term = get_term_by('slug','accessories','product_cat');
+                    $reqTempTerms = get_terms( array(
+                'taxonomy' => 'product_cat',
+                'hide_empty' => true,
+                'exclude' =>$accessories_term->term_id
+                )
+               );
                  
                     $i=1;
                     foreach($reqTempTerms as $cat){
@@ -264,7 +271,7 @@ endif;
                     
                     
                     //$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
-					$feat_image = cc_custom_get_feat_img($filloop->post->ID,'medium');
+          $feat_image = cc_custom_get_feat_img($filloop->post->ID,'medium');
 
                                     ?> <div class="col-md-4">
                         <div class="pro_secone">

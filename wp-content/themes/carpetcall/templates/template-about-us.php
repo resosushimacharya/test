@@ -204,14 +204,21 @@ $loop = new WP_Query($args);
   
         <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
 <div class="you_may_like-content">
-       <?php
+      <?php
 
 
                     
 
                     
-                    $reqTempTerms=get_terms('product_cat');
-                   
+                    //$reqTempTerms=get_terms('product_cat');
+          //do_action('pr',$accessories_term);
+          $accessories_term = get_term_by('slug','accessories','product_cat');
+                    $reqTempTerms = get_terms( array(
+                'taxonomy' => 'product_cat',
+                'hide_empty' => true,
+                'exclude' =>$accessories_term->term_id
+                )
+               );
                  
                     $i=1;
                     foreach($reqTempTerms as $cat){
@@ -281,8 +288,8 @@ $loop = new WP_Query($args);
                     $price=$woo['_regular_price'][0];
                     
                     
-                    $feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
-
+                    //$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
+          $feat_image = cc_custom_get_feat_img($filloop->post->ID,'medium');
 
                                     ?> <div class="col-md-4">
                         <div class="pro_secone">
