@@ -23,30 +23,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <!DOCTYPE html>
 <html dir="<?php echo is_rtl() ? 'rtl' : 'ltr'?>">
-<head>
 <meta charset="utf-8">
-<title>THANK YOU FOR YOUR ORDER</title>
+<title>Thank You For Your Order</title>
 </head>
 
-<body>
-  <div style="width:600px; background-color:#FFF; margin:23px auto; clear:both;">
+<body style="margin:0; padding:0; font-family:Arial, Helvetica, sans-serif;">
+
+<table width="600px" border="0" cellspacing="0" cellpadding="0" style="margin:23px auto;">
+  <tr style="background-color:#144a9f; height:69px;">
+  
+    <td style="width:395px;"><div><a href="<?php echo site_url();?>" style="margin-left:12px;"><img src="http://resolutionaustralia.com.au/design/Carpetcall/carpetcall-logo.png" width="171" height="35" alt="logo"/></a></div></td>
     
-        <div style="height:35px; background-color:#144a9f; padding:17px 29px; clear:both;">
-            
-
-              
-
-              <div style="float:left; margin-left:12px;" ><a href="<?php echo site_url();?>" ><img src="http://resolutionaustralia.com.au/design/Carpetcall/carpetcall-logo.png" width="171" height="35" alt="logo"/></a></div><!-- logo end -->
-
-                
-                <div style="float:right; width:179px;">
-                <div style="font-family:'proxima_nova_ltsemibold', sans-serif; font-size:20px; color:#FFF;  line-height:1; clear:both;">CALL 1300 502 427 </div>
-                
-                <div style="clear:both;">
-                  <p style="float:left; font-family:'proxima_nova_ltsemibold', sans-serif; font-size:6.69px; color:#FFF; margin:2px 0; text-transform:uppercase;"> OR BOOK A CALL BACK WITH <br>
-OUR FLOORING SPECIALISTS </p>
-        <div style=""><a href="#" style="background-color:#c32428; padding:5px 14px; font-family:'proxima_nova_rgregular', sans-serif; font-size:7.25px; color:#FFF; text-align:center; text-decoration:none; text-transform:uppercase;"> CONTACT US </a></div>
-                </div>
-                </div><!-- header info end -->
-                
-            </div><!-- header section end -->
+    <td style="width:205px;"><table width="205px" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td colspan="2"><div style="font-family:'proxima_nova_ltsemibold', sans-serif; font-size:20px; color:#FFF;  line-height:1; clear:both; font-weight:bold;">CALL 1300 502 427 </div></td>
+        </tr>
+      <tr>
+        <td style="width:107px;"><p style=" font-family:'proxima_nova_ltsemibold', sans-serif; font-size:6.69px; color:#FFF; margin:2px 0; text-transform:uppercase;"> OR BOOK A CALL BACK WITH <br>
+OUR FLOORING SPECIALISTS </p> </td>
+        <td style="width:75px; height:14px; background-color:#c32428;"><div style="width:74px; text-align:center;"> <a href="#" style="font-family:'proxima_nova_rgregular', sans-serif; font-size:7.25px; color:#FFF; text-align:center; text-decoration:none; text-transform:uppercase; display:block; padding:5px 14px;"> CONTACT US </a> </div></td>
+        <td></td>
+      </tr>
+    </table></td>
+  </tr> <!-- header section end -->
