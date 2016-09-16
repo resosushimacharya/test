@@ -65,7 +65,17 @@ $size      = count( $ancestors );
                     <span class="cc-bread-current"><?php the_title(); ?></span>
                 <?php } #end-else ?>
             </div><!-- end .cc-breadcrumb -->
+            <?php if(wp_is_mobile()){ ?> 
+<span class="ab_arrow">
+            <a href="<?php echo get_permalink($post->post_parent);?>">
+              <i class="fa fa-angle-left" aria-hidden="true"></i>            
+              <b><?php  echo get_the_title($post->post_parent);;?></b>
+            </a>
+          </span><?php echo get_the_title();?>
+          </h1>
+          <?php } else { ?>
             <h1><?php the_title(); ?></h1>
+            <?php } ?>
         </div><!-- end .innerblock_serc_child -->
     </div><!-- end .container.clearfix -->
 </div><!-- end .child-innerpg -->
