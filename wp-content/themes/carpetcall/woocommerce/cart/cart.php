@@ -92,7 +92,9 @@ do_action( 'woocommerce_before_cart' ); ?>
 							}
 
 						?>
-						<span class="cart-pro-size">Size: <?php echo $_product->get_dimensions()?></span>
+						<?php if($_product->get_dimensions()){?>
+                        <span class="cart-pro-size">Size: <?php echo $_product->get_dimensions()?></span>
+                        <?php }?>
 					</td>
 
 					<td class="product-price" data-title="<?php _e( 'Price', 'woocommerce' ); ?>">
