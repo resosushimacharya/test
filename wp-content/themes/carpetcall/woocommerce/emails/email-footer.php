@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <td colspan="2" style="border:1px solid #cfcfcf; border-top:0; background-color:#144a9f;">
       <table width="554px" border="0" cellspacing="0" cellpadding="0" style="width:554px; margin:18px 22px 26px 22px;">
       <tr>
-        <td><a href="<?php echo ""?>"><img src="http://resolutionaustralia.com.au/design/Carpetcall/carpetcall-logo.png" width="171" height="35" alt="logo"/></a></td>
+        <td><a href="<?php echo site_url();?>"><img src="http://resolutionaustralia.com.au/design/Carpetcall/carpetcall-logo.png" width="171" height="35" alt="logo"/></a></td>
       </tr>
       
       <tr>
@@ -33,12 +33,12 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div style="margin-top:30px;">
                     <table width="554px" border="0" cellspacing="0" cellpadding="0" style="width:554px;">
                       <tr>
-                        <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:8px; color:#FFF;"><a href="" style="text-decoration:none;">SHOP OUR RANGE</a></td>
-                        <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:8px; color:#FFF;"><a href="" style="text-decoration:none;">IDEAS AND ADVICE</a></td>
-                        <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:8px; color:#FFF;"><a href="" style="text-decoration:none;">CLEARANCE</a></td>
-                        <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:8px; color:#FFF;"><a href="" style="text-decoration:none;">ABOUT CARPETCALL</a></td>
-                        <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:8px; color:#FFF;"><a href="" style="text-decoration:none;">ROOM VISUALISER</a></td>
-                        <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:8px; color:#FFF;"><a href="" style="text-decoration:none;">STORE FINDER</a></td>
+                        <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:8px; color:#FFF;"><a href="<?php echo site_url();?>/shop-our-range/" style="text-decoration:none;color:#fff;">SHOP OUR RANGE</a></td>
+                        <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:8px; color:#FFF;"><a href="<?php echo site_url();?>/ideas-and-advice/" style="text-decoration:none;color:#fff;">IDEAS AND ADVICE</a></td>
+                        <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:8px; color:#FFF;"><a href="<?php echo site_url();?>/clearance/" style="text-decoration:none;color:#fff;">CLEARANCE</a></td>
+                        <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:8px; color:#FFF;"><a href="<?php echo site_url();?>/about-us/" style="text-decoration:none;color:#fff;">ABOUT CARPETCALL</a></td>
+                        <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:8px; color:#FFF;"><a href="http://roomvisualiser.carpetcall.com.au/" style="text-decoration:none;color:#fff;">ROOM VISUALISER</a></td>
+                        <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:8px; color:#FFF;"><a href="<?php echo site_url();?>/find-a-store/" style="text-decoration:none;color:#fff;">STORE FINDER</a></td>
                       </tr>
                     </table>
         </div>

@@ -3302,6 +3302,8 @@ section#main {
 	font-size: 16px;
 	color: #0099ff;
 	font-weight: normal;
+	position:relative;
+	top:-2px;
 }
 .cc-cat-pro-section-left .glyphicon-chevron-down:before {
 	content: '\f107';
@@ -6284,7 +6286,6 @@ div#error_max_msg {
 	margin-bottom:30px;
 }
 .carpet_blinds_single_right {
-	margin-top:17px;
 	border:1px solid #144a9f;
 	padding:25px;
 }
@@ -7311,7 +7312,7 @@ label.inner-check-label.radio-check-label::after{
 }
 .ia-block .cc-ia-content h1 {
 	margin-top:0;
-	margin-bottom:23px;
+	margin-bottom:25px;
 }
 .ia-block .cc-ia-content p {
 	margin:0 42px 64px 0;
@@ -7352,7 +7353,7 @@ label.inner-check-label.radio-check-label::after{
 }
 
 .body-wrapper .gpf-block {
-	margin:42px 0 57px 0;	
+	margin:42px 0 61px 0;	
 }
 .cc-condn-page .woocommerce form .form-row label.error, .cc-condn-page .woocommerce form .form-row label.cc_error, label.cc_error {
     color: #f00;
@@ -7614,7 +7615,7 @@ span.access_active_text {
 	margin-bottom:12px;	
 }
 .wrap_body .child-innerpg .inerblock_serc_child.about-page h1 {
-	margin-bottom:0;
+	margin-bottom:5px;
 	margin-top:-2px;	
 }
 .cc-search-allprd .search_header {
@@ -7646,7 +7647,7 @@ ul.cc-woocommerce-thankyou-order-details li {
 	font-weight:normal;
 }
 .cc-condn-page .woocommerce .cc-checkout-od h3 {
-	margin:31px 0 10px 0;
+	margin:31px 0 19px 0;
 }
 .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord {
 	margin:0 0 0 0;
@@ -7736,7 +7737,7 @@ ul.cc-woocommerce-thankyou-order-details li {
 	color:#666666;
 	text-transform:uppercase;
 	font-weight:normal;
-	/*text-align: right;*/
+	text-align: right;
 }
 .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tfoot > tr > td:last-child {
 	text-transform:none;
@@ -7744,8 +7745,8 @@ ul.cc-woocommerce-thankyou-order-details li {
 	font-size:16px;
 	color:#666666;
 	font-weight:normal;
-	padding:10px 12px 0 12px;
-	text-align: center;
+	padding:6px 25px;
+	text-align: left;
 }
 .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > tfoot > tr.mod-table-calc-res:last-child {
 	background-color:#e7edf8;
@@ -7856,4 +7857,13 @@ ul.cc-woocommerce-thankyou-order-details li {
 }
 h3.mobile.carpet-drop{
 	display: none;
+}
+.child-innerpg .about-page .cc-breadcrumb {
+	padding:24px 0 10px 0;
+}
+.cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th:nth-child(3), .cc-page-all .cc-condn-page .woocommerce table.cc-checkkout-details-ord > thead > tr > th:nth-child(4) {
+	width:255px;
+}
+.shop-our-range-cntr .cc-ia-content .breadcrumbs {
+	padding:24px 0 11px 0;
 }
