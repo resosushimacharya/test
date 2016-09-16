@@ -366,31 +366,6 @@
         setLabelClass();
       });
     }
-
-/*
-    // Custom Radio
-    if($('.pickup_location_list').length){
-      $('.delivery_option_rugs #nearby_stores_main_wrapper .pickup_location_list input[type=radio]').wrap('<label class="inner-radio-label"></label>');
-      $('.delivery_option_rugs #nearby_stores_main_wrapper .pickup_location_list input[type=radio]').css({'opacity':0});
-      var innerradiochecked = 'radio-check-label'; 
-      elm=$('.delivery_option_rugs #nearby_stores_main_wrapper .pickup_location_list input[type=radio]');
-
-     
-
-     // elm.on('change', setRadioClass);
-     // setRadioClass();  
-    }
-jQuery(document).on('change','.delivery_option_rugs #nearby_stores_main_wrapper .pickup_location_list input[type=radio]',function(){
-	setRadioClass();
-	});
-
- function setRadioClass() {
-        elm.each(function(i,e) {
-          $(e).parent('label')[e.checked?'addClass':'removeClass']($(e).is(':radio')?innerradiochecked:innercheckbox_checked);          
-        });
-      } 
-	  
-	  */
 	  
 	     // Custom Checkbox
     if($('#ship-to-different-address').length){

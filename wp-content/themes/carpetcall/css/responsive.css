@@ -1228,9 +1228,6 @@
 	
 	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES === */
 	
-	.child-innerpg.mobile-inpage {
-		background-color:#FFF;
-	}
 	.faq-cont-blka .cbg_content h2.sub_page_title {
 		font-size:36px;
 		margin-bottom:20px;
@@ -1352,7 +1349,8 @@
 		text-align:left;
 		font-size:72px;	
 		margin-top: 0;
-		margin-bottom: 40px
+		margin-bottom: 40px;
+		line-height: 1;
 	}
 	.wrap_body .child-innerpg .inerblock_serc_child.about-page{
 		margin-bottom: 0;
@@ -1708,9 +1706,14 @@
 		border-width: 6px;
 	}
 	.rugm-blk .cc-count-clear{
-		opacity: 0;
-		visibility: hidden;
-		height: 0;
+	    opacity: 0;
+	    visibility: hidden;
+	    height: 0;
+	    overflow: hidden;
+	    display: block !important;
+	}
+	.cbg_blk {
+	    background-color: #f0f2f1;
 	}
 
 	/* Mobile Pop Up filter */
@@ -1770,6 +1773,9 @@
 	ul.guide_list_cbg {
 	    padding: 40px 50px 30px;
 		margin:0;
+	}
+	ul.guide_list_cbg li{
+		margin-bottom: 0;
 	}
 	ul.guide_list_cbg li a, ul.guide_list_cbg li .fa{
 	    line-height: 68px;

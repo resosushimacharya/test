@@ -34,10 +34,11 @@ $ancestors = get_post_ancestors( $id );
 $ancestors = array_reverse ( $ancestors );
 $size      = count( $ancestors );
 
+
 ?>
 
 
-<div class="child-innerpg mobile-inpage">
+<div class="child-innerpg mobile-inpage <?php echo ($size==0)?'cc-about-us-parent':'cc-about-us-child';?>">
     <div class="container clearfix">
         <div class="inerblock_serc_child about-page">
             <div class="cc-breadcrumb">
@@ -65,17 +66,21 @@ $size      = count( $ancestors );
                     <span class="cc-bread-current"><?php the_title(); ?></span>
                 <?php } #end-else ?>
             </div><!-- end .cc-breadcrumb -->
-            <?php if(wp_is_mobile()){ ?> 
-<span class="ab_arrow">
+               <?php if($size!=0){ ?> 
+                <h1 class="mobile">
+            <span class="ab_arrow">
             <a href="<?php echo get_permalink($post->post_parent);?>">
               <i class="fa fa-angle-left" aria-hidden="true"></i>            
               <b><?php  echo get_the_title($post->post_parent);;?></b>
             </a>
           </span><?php echo get_the_title();?>
           </h1>
-          <?php } else { ?>
-            <h1><?php the_title(); ?></h1>
+          <?php } else{ ?>
+               <?php //echo get_the_title();?>
             <?php } ?>
+          
+            <h1><?php the_title(); ?></h1>
+            
         </div><!-- end .innerblock_serc_child -->
     </div><!-- end .container.clearfix -->
 </div><!-- end .child-innerpg -->
