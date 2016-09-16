@@ -284,6 +284,7 @@ global $post;
                 }
               ?>
                           <input type="hidden" value="<?php echo $myemail;?>" class="btn-dn" id="send_email_address" name="send_email_address">
+                          <input type="hidden" value="custom_rugs" name="cc_contact_type"/>
                           <div class="ur-msg-title">
                             <div class="form-group col-sm-12">
                               <h3>Message</h3>

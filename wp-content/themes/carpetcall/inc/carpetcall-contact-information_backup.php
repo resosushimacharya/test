@@ -2,305 +2,262 @@
 
 
 function contact_action(){
-	$data=$_POST['form_data'];
-	$message=array();
-	if (isset($data["g-recaptcha-response"])) {
-		$secret = "6LdfuCMTAAAAADtG2SjSrybHzqJobEAoJk5880oD";
-		// empty response
-		$response = null;
-		// check secret key
-		$reCaptcha = new ReCaptcha($secret);
-		$response = $reCaptcha->verifyResponse(
-			$_SERVER["REMOTE_ADDR"],
-			$data["g-recaptcha-response"]
-		);
-		if ($response != null && $response->success) {
-			$flag = 0 ;
-			$state_error=false;
-			$store_name_error=false;
-			$conenq = 1;
-			$terms = get_terms('wpsl_store_category');
-			if($data['cc_contact_type'] != 'service'){
-				$conenq =0;
-				foreach($terms as $term){
-					$selected="";
-					if(strcasecmp($term->slug,$data['cc_state_type'])==0){
-						$flag=1;
-						break;
-					}
-				}
-				if($flag==0){
-					$state_error=true;
-				}
-				$flag=0;
-				$args =array('post_type'=>'wpsl_stores','posts_per_page'=>'-1');
-				$loop = new WP_Query($args);
-				while($loop->have_posts()){
-					$loop->the_post();
-					if(strcasecmp(get_the_title(),$data['cc_store_name'])==0){
-						$flag=1;
-						break;
-					}
-				}
-				wp_reset_query();
-				if($flag==0){
-					$store_name_error=true;
-				}
-			}else
-			{
-				$flag=0;
-				$state_error=false;
-				$store_name_error=false;
-				foreach($terms as $term){
-					$selected="";
-					if(strcasecmp($term->slug,$data['cc_state_type_only'])==0){
-						$flag=1;
-					}
-				}
-				if($flag==0){
-				$state_error=true;
-				}
-			}
-			$first_name =sanitize_text_field($data['first_name']);
-			$last_name =sanitize_text_field($data['last_name']);
-			$emailcheck =sanitize_email($data['email_address']);
-			$phono = sanitize_text_field($data['mobile_phone_no']);
-			$messagecheck = sanitize_text_field($data['cc_message'] );
-			
-			if($data['first_name']==""){
-				$message['error'] ='Error:Empty Firstname!';
-			}elseif(strlen($data['first_name'])>50){
-				$message['error'] ='Error:First name exceeds the length(50)!';
-			}elseif($data['last_name']==""){
-				$message['error'] ='Error:Empty Last name!';
-			}elseif(strlen($data['last_name'])>50){
-				$message['error'] ='Error:Last name exceeds the length(50)';
-			}elseif(filter_var($emailcheck, FILTER_VALIDATE_EMAIL) === false){
-				$message['error'] ='Email Format is Invalid!';
-			}elseif(!ctype_digit($phono)){
-				$message['error'] ='Phone number must be number!';
-			}elseif(strlen($phono)!=10){
-				$message['error'] = 'phone length must be of 10!';
-			}
-			elseif(str_word_count($messagecheck)>50){
-				$message['error'] ='Message words count exceeds(50)!';
-			}elseif($state_error){
-				$message['error'] ="You haven't choosen the state  correctly yet!";
-			}elseif($store_name_error){
-				$message['error'] ="You haven't choosen the store  correctly yet!";
-			}else{
-				$user_email= sanitize_email($data['send_email_address']);
-				if(strcasecmp(sanitize_text_field($data['cc_enquiry_type']),'sales enquiry')==0){
-					$hold = '<b>State</b>       :'.strtoupper($data['cc_state_type']).'<br>'.'<b>Store</b>        :'.ucwords($data['cc_store_name']).'<br>';
-				}
-				else
-				{
-					$hold = "<b>State</b>       :".strtoupper($data['cc_state_type_only']).'<br>';
-				}
-				if(isset($data['product_page_cat'])){
-					$hold_enquiry_type =  "Product Enquiry";     
-				}
-				else{
-					$hold_enquiry_type =  sanitize_text_field(ucfirst($data['cc_enquiry_type'] ));
-				}
-				$email_title = '';
-				$cc_enq_type = sanitize_text_field($data['cc_contact_type']);
-				switch ($cc_enq_type){
-					case 'sales':
-					$email_header = 'Sales Enquiry';
-					break;
-					case 'service':
-					$email_header = 'Service Enquiry';
-					break;
-					case 'custom_rugs':
-					$email_header = 'Custom Rugs Enquiry';
-					break;
-					case 'rugs':
-					$email_header = 'Rugs Product Enquiry';
-					break;
-					case 'hardflooring':
-					$email_header = 'Hard-Flooring Product Enquiry';
-					break;
-					case 'carpets':
-					$email_header = 'Carpets Product Enquiry';
-					break;
-					default:
-					$email_header = 'Carpetcall Enquiry';
-				}
-				ob_start();
-				include get_template_directory().'/templates/emails/header.php';
-				include get_template_directory().'/templates/emails/content/user.php';
-				include get_template_directory().'/templates/emails/footer.php';
-				
-				/*
-				?>
-				
-				Dear Admin,
-				<br><br>
-				We have an enquiry with the following information -<br><br>
-				
-				<b>Enquiry Type</b> : <?php echo $hold_enquiry_type;?> <br>
-				<b>First Name</b>   : <?php echo sanitize_text_field(ucfirst($data['first_name'])); ?><br>
-				<b>Last Name</b>    : <?php echo sanitize_text_field(ucfirst($data['last_name']));?><br>
-				<b>Email</b>        : <?php echo sanitize_email($data['email_address']); ?><br>
-				<b>Phone</b>        : <?php echo sanitize_text_field($data['mobile_phone_no']); ?><br>
-				
-				<?php echo $hold;?><br>
-				<b>Message</b>      :<br> <?php echo sanitize_text_field($data['cc_message'] ); ?>
-				
-				<?php */
-				
-				$body_user = ob_get_contents();
-				ob_end_clean(); 
-				
-				function get_administrator_email(){
-					$blogusers = get_users('role=Administrator');
-					$i=1;
-					foreach ($blogusers as $user) {
-						if($i==1){
-							return $user->data->user_email;
-							$i++;
-						}
-					}  
-				}
-				$adminEmailAdd = get_administrator_email();   
-				if(sanitize_email($data['send_email_address'])==''){
-					$user_email =$adminEmailAdd;
-				}
-				$headers  = 'MIME-Version: 1.0' . "\r\n";
-				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-				
-				// Additional headers
-				$headers .= 'To: '.$first_name.' '.$last_name.' <'.$emailcheck.'>' . "\r\n";
-				$headers .= 'From: Carpetcall <'.get_option("admin_email").'>' . "\r\n";
-				//$headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
-				//$headers .= 'Bcc: birthdaycheck@example.com' . "\r\n";
-				$email_subject = $email_header;
-				$sent_mail= wp_mail($emailcheck, $email_subject, $body_user,$headers);
-				if(!$sent_mail){
-					$sent_mail= mail($emailcheck, $email_subject, $body_user,$headers);
-				}
-				
-				//  var_dump($user_email);var_dump($email_subject);var_dump($email_message);var_dump($headers);
-				//  die;
-				/*
-				
-				
-				if(isset($data['product_page_cat'])){
-				
-				$netMessage = $data['product_page_cat'].'<br>'.$data['product_page_code'].'<br>'.$data['product_page_size'].'<br><br>Thanks .';
-				$email_message = $email_message.'<br>'.$netMessage; 
-				}
-				else{
-				$email_message .='<br><br>Thanks .' ;
-				}
-				$sent_mail= wp_mail($user_email, $email_subject, $email_message);
-				
-				
-				*/
-				
-				if(isset($data['product_page_cat'])){
-					$netMessage = $data['product_page_cat'].'<br>'.$data['product_page_code'].'<br>'.$data['product_page_size'].'<br>';
-					$messagecheck = $netMessage.'<br>'.$messagecheck;
-				}
-				else{
-					$messagecheck = $messagecheck;
-				}
-				$namesave=ucfirst($data['first_name']).' '.ucfirst($data['last_name']);
-				$message_post = array(
-				'post_title'    => wp_strip_all_tags($namesave),
-				'post_content'  => $messagecheck,
-				'post_status'   => 'publish',
-				'post_author'   => $post->post_author,
-				'post_type' => 'enquiries'
-				);
-				
-				$user_id=wp_insert_post( $message_post );
-				update_post_meta($user_id,'email',$data['email_address']);
-				update_post_meta($user_id,'enquiry_type',ucwords($hold_enquiry_type));
-				update_post_meta($user_id,'phone',$data['mobile_phone_no']);
-				update_post_meta($user_id,'admin_email',$user_email);
-				
-				// do_action('manage_enquiries_posts_custom_column','names',$email_subject,$user_id);
-				$time =   esc_attr( get_the_date('F j, Y',$user_id)).' at '.esc_attr(get_the_time('g:i a',$user_id));
-				update_post_meta($user_id,'enquiry_date_contact',$time );
-				
-				if($conenq==0){
-					update_post_meta($user_id,'state',strtoupper($data['cc_state_type']));
-					update_post_meta($user_id,'store',ucwords(strtolower($data['cc_store_name'])));
-				}
-				else{
-					update_post_meta($user_id,'state',strtoupper($data['cc_state_type_only']));
-				}
-				$message['sent_mail']=$sent_mail;
-				$textmessage=get_field('success_message_content',89);
-				$message['success']=$textmessage;
-				if($cc_enq_type == 'service'){
-					ob_start();
-					include get_template_directory().'/templates/emails/header.php';
-					include get_template_directory().'/templates/emails/content/admin-service.php';
-					include get_template_directory().'/templates/emails/footer.php';
-					$body_admin = ob_get_clean();	
-				}elseif($cc_enq_type == 'rugs'){
-					ob_start();
-					include get_template_directory().'/templates/emails/header.php';
-					include get_template_directory().'/templates/emails/content/admin-rugs.php';
-					include get_template_directory().'/templates/emails/footer.php';
-					$body_admin = ob_get_clean();	
-						
-				}elseif($cc_enq_type == 'hardflooring'){
-					ob_start();
-					include get_template_directory().'/templates/emails/header.php';
-					include get_template_directory().'/templates/emails/content/admin-hardflooring.php';
-					include get_template_directory().'/templates/emails/footer.php';
-					$body_admin = ob_get_clean();	
-						
-				}elseif($cc_enq_type == 'carpets'){
-					ob_start();
-					include get_template_directory().'/templates/emails/header.php';
-					include get_template_directory().'/templates/emails/content/admin-carpets.php';
-					include get_template_directory().'/templates/emails/footer.php';
-					$body_admin = ob_get_clean();	
-						
-				}elseif($cc_enq_type == 'custom_rugs'){
-					ob_start();
-					include get_template_directory().'/templates/emails/header.php';
-					include get_template_directory().'/templates/emails/content/admin-custom_rugs.php';
-					include get_template_directory().'/templates/emails/footer.php';
-					$body_admin = ob_get_clean();	
-				}										
-				$headers  = 'MIME-Version: 1.0' . "\r\n";
-				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-				
-				// Additional headers
-				$headers .= 'To: Admin <'.$user_email.'>' . "\r\n";
-				$headers .= 'From: Carpetcall <'.get_option("admin_email").'>' . "\r\n";
-				//$headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
-				//$headers .= 'Bcc: birthdaycheck@example.com' . "\r\n";
-				$email_subject = $email_header;
-				$sent_mail= wp_mail($user_email, $email_subject, $body_admin,$headers);
-				if(!$sent_mail){
-					$sent_mail= mail($user_email, $email_subject, $body_admin,$headers);
-				}
-			}
-		}else
-		{
-			if($response->errorCodes=="missing-input-secret"){
-				$error="The secret parameter is missing.";
-			}else if($response->errorCodes=="invalid-input-secret"){
-				$error="The secret parameter is invalid or malformed.";
-			}else if($response->errorCodes=="missing-input-response"){
-				$error="The response parameter is missing.";
-			}else if($response->errorCodes=="invalid-input-response"){
-				$error="The response parameter is invalid or malformed.";
-			}else if($response->errorCodes=="missing-input"){
-				$error="Please Fill Captcha";
-			}
-		}
-		$message['captcha_error']=$error;
-	}
-	echo json_encode($message); die;
+$data=$_POST['form_data'];
+  /* if ( !wp_verify_nonce( $data['wp-nonce'], "user_review_nonce")) {
+      exit("No naughty business please");
+   }*/
+   $err_message=array();
+   
+   if (isset($data["g-recaptcha-response"])) {
+        
+       // your secret key
+        $secret = "6LdfuCMTAAAAADtG2SjSrybHzqJobEAoJk5880oD";
+        // empty response
+        $response = null;
+        // check secret key
+        $reCaptcha = new ReCaptcha($secret);
+        $response = $reCaptcha->verifyResponse(
+            $_SERVER["REMOTE_ADDR"],
+            $data["g-recaptcha-response"]
+        );
+        
+        if ($response != null && $response->success) {
+        //if (1) {
+                     
+                    
+                     $flag = 0 ;
+                     /*if(strlen($data['first_name'])==0){
+                      echo strlen($data['first_name']);
+
+                     }*/$terms = get_terms('wpsl_store_category');
+                     $state_error=false;
+                     $conenq = 1;
+                     if(strcasecmp(sanitize_text_field($data['cc_enquiry_type']),'sales enquiry')==0){
+                            $conenq =0;
+                     foreach($terms as $term){
+                        $selected="";
+                       
+                        if(strcasecmp($term->slug,$data['cc_state_type'])==0){
+                          $flag=1;
+                        
+                          break;
+                        }
+
+                     }
+                     if($flag==0){
+                        $state_error=true;
+                     }
+
+                    $flag=0;
+                    $store_name_error=false;
+
+                     $args =array('post_type'=>'wpsl_stores','posts_per_page'=>'-1');
+                     $loop = new WP_Query($args);
+                     while($loop->have_posts()):
+                            $loop->the_post();
+                          if(strcasecmp(get_the_title(),$data['cc_store_name'])==0){
+                          $flag=1;
+                         
+                          break;
+                        
+                       }
+
+                      endwhile;
+                      wp_reset_query();
+                         if($flag==0){
+                        $store_name_error=true;
+                     }
+                    
+                   }
+                   else
+                 {    
+
+                     $flag=0;
+                     $state_error=false;
+                     $store_name_error=false;
+                   foreach($terms as $term){
+                        $selected="";
+                       
+                        if(strcasecmp($term->slug,$data['cc_state_type_only'])==0){
+                          $flag=1;
+                        }
+
+                     }
+                      if($flag==0){
+                        $state_error=true;
+                     }
+
+
+                 }
+                     $phono = sanitize_text_field($data['mobile_phone_no']);
+                      $messagecheck = sanitize_text_field($data['cc_message'] );
+
+                     
+                     $emailcheck =sanitize_email($data['email_address']);
+                    if($data['first_name']==""){
+                      $message['error'] ='Error:Empty Firstname!';
+                    }elseif(strlen($data['first_name'])>50){
+                      $message['error'] ='Error:First name exceeds the length(50)!';
+                    }elseif($data['last_name']==""){
+                      $message['error'] ='Error:Empty Last name!';
+                    }elseif(strlen($data['last_name'])>50){
+                      $message['error'] ='Error:Last name exceeds the length(50)';
+                    }elseif(filter_var($emailcheck, FILTER_VALIDATE_EMAIL) === false){
+                     $message['error'] ='Email Format is Invalid!';
+                    }elseif(!ctype_digit($phono)){
+                      $message['error'] ='Phone number must be number!';
+                    }elseif(strlen($phono)!=10){
+                     $message['error'] = 'phone length must be of 10!';
+                   }
+                    elseif(str_word_count($messagecheck)>50){
+                      $message['error'] ='Message words count exceeds(50)!';
+                    }elseif($state_error){
+                        $message['error'] ="You haven't choosen the state  correctly yet!";
+                    }elseif($store_name_error){
+                      $message['error'] ="You haven't choosen the store  correctly yet!";
+                    }
+                   else{
+
+                  
+                   $user_email= sanitize_email($data['send_email_address']);
+                    if(strcasecmp(sanitize_text_field($data['cc_enquiry_type']),'sales enquiry')==0){
+                      $hold = '<b>State</b>       :'.strtoupper($data['cc_state_type']).'<br>'.'<b>Store</b>        :'.ucwords($data['cc_store_name']).'<br>';
+
+                   }
+                   else
+                 {
+                  $hold = "<b>State</b>       :".strtoupper($data['cc_state_type_only']).'<br>';
+                 }
+                 if(isset($data['product_page_cat'])){
+                     $hold_enquiry_type =  "Product Enquiry";     
+
+                 }
+                 else{
+                   $hold_enquiry_type =  sanitize_text_field(ucfirst($data['cc_enquiry_type'] ));
+                 }
+                    ob_start();
+                    ?>
+                    Dear Admin,
+                    <br><br>
+                    We have an enquiry with the following information -<br><br>
+
+                    <b>Enquiry Type</b> : <?php echo $hold_enquiry_type;?> <br>
+                    <b>First Name</b>   : <?php echo sanitize_text_field(ucfirst($data['first_name'])); ?><br>
+                    <b>Last Name</b>    : <?php echo sanitize_text_field(ucfirst($data['last_name']));?><br>
+                    <b>Email</b>        : <?php echo sanitize_email($data['email_address']); ?><br>
+                    <b>Phone</b>        : <?php echo sanitize_text_field($data['mobile_phone_no']); ?><br>
+                    
+                    <?php echo $hold;?><br>
+                    <b>Message</b>      :<br> <?php echo sanitize_text_field($data['cc_message'] ); ?>
+                   
+                 
+                    
+                   
+                    <?php 
+                            $email_message = ob_get_contents();
+                            ob_end_clean(); 
+                            function get_administrator_email(){
+                               $blogusers = get_users('role=Administrator');
+          
+                               $i=1;
+                                 foreach ($blogusers as $user) {
+                                  if($i==1){
+                                              
+                                             return $user->data->user_email;
+                                             $i++;}
+                                                     }  
+                                                 }
+                           $adminEmailAdd = get_administrator_email();   
+
+                            
+                            if(sanitize_email($data['send_email_address'])==''){
+
+                            
+                            $user_email =$adminEmailAdd;
+                             }
+                            $headers[]  = 'From: Carpetcall ';
+                            //$headers[]  = 'Cc: nabin.maharjan@agileitsolutios.net'; // note you can just use a simple email address
+                            $email_subject = "Contact Us";
+
+                          //  var_dump($user_email);var_dump($email_subject);var_dump($email_message);var_dump($headers);
+                          //  die;
+                            if(isset($data['product_page_cat'])){
+
+                              $netMessage = $data['product_page_cat'].'<br>'.$data['product_page_code'].'<br>'.$data['product_page_size'].'<br><br>Thanks .';
+                              $email_message = $email_message.'<br>'.$netMessage; 
+                            }
+                            else{
+                              $email_message .='<br><br>Thanks .' ;
+                            }
+                            $sent_mail= wp_mail($user_email, $email_subject, $email_message);
+                            if(!$sent_mail){
+                               $sent_mail= mail($user_email, $email_subject, $email_message);
+                            }
+                         if(isset($data['product_page_cat'])){
+
+                              $netMessage = $data['product_page_cat'].'<br>'.$data['product_page_code'].'<br>'.$data['product_page_size'].'<br>';
+                             
+                              $messagecheck = $netMessage.'<br>'.$messagecheck;
+                            }
+                            else{
+                               $messagecheck = $messagecheck;
+                            }
+                            $namesave=ucfirst($data['first_name']).' '.ucfirst($data['last_name']);
+                            $message_post = array(
+                                    'post_title'    => wp_strip_all_tags($namesave),
+                                    'post_content'  => $messagecheck,
+                                    'post_status'   => 'publish',
+                                    'post_author'   => $post->post_author,
+                                    'post_type' => 'enquiries'
+
+                                );
+                            
+                            $user_id=wp_insert_post( $message_post );
+                       
+                            update_post_meta($user_id,'email',$data['email_address']);
+                           
+                            update_post_meta($user_id,'enquiry_type',ucwords($hold_enquiry_type));
+                            update_post_meta($user_id,'phone',$data['mobile_phone_no']);
+                            update_post_meta($user_id,'admin_email',$user_email);
+                            
+                                                   
+                           // do_action('manage_enquiries_posts_custom_column','names',$email_subject,$user_id);
+                             $time =   esc_attr( get_the_date('F j, Y',$user_id)).' at '.esc_attr(get_the_time('g:i a',$user_id));
+                             update_post_meta($user_id,'enquiry_date_contact',$time );
+                            if($conenq==0){
+
+                            update_post_meta($user_id,'state',strtoupper($data['cc_state_type']));
+                            update_post_meta($user_id,'store',ucwords(strtolower($data['cc_store_name'])));
+                            }
+                            else{
+                             update_post_meta($user_id,'state',strtoupper($data['cc_state_type_only']));
+                            }
+
+                            $message['sent_mail']=$sent_mail;
+                            
+                            $textmessage=get_field('success_message_content',89);
+                           
+                            $message['success']=$textmessage;
+                            }
+            } else {
+              if($response->errorCodes=="missing-input-secret"){
+                  $error="The secret parameter is missing.";
+              }else if($response->errorCodes=="invalid-input-secret"){
+                  $error="The secret parameter is invalid or malformed.";
+              }else if($response->errorCodes=="missing-input-response"){
+                  $error="The response parameter is missing.";
+              }else if($response->errorCodes=="invalid-input-response"){
+                  $error="The response parameter is invalid or malformed.";
+              }else if($response->errorCodes=="missing-input"){
+                  $error="Please Fill Captcha";
+              }
+          }
+          $message['captcha_error']=$error;
 }
+   echo json_encode($message); die;
+
+
+} 
 add_action('wp_ajax_contact_action', 'contact_action');
 add_action('wp_ajax_nopriv_contact_action', 'contact_action');
 add_filter( 'wpsl_meta_box_fields', 'customize_module' );

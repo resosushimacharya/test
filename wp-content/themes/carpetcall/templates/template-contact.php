@@ -220,6 +220,7 @@ get_header();
                 }
               ?>
                 <input type="hidden" value="<?php echo $myemail;?>" class="btn-dn" id="send_email_address" name="send_email_address">
+                <input type="hidden" value="sales" name="cc_contact_type"/>
                 
                 <div class="ur-msg-title">
                  <div class="form-group col-sm-12 ">
@@ -318,11 +319,12 @@ $(document).ready(function() {
           serviceEnquiry = serviceEnquiry.toUpperCase();
           
           if(serviceEnquiry===$res){
-            
+            jQuery('input[name="cc_contact_type"]').val('service');
             $('#cc-store-form-section').hide();
             $('#cc-state-form-section').show();
           }
           if(salesEnquiry===$res){
+			  jQuery('input[name="cc_contact_type"]').val('sales');
             $('#cc-state-form-section').hide();
             
             $('#cc-store-form-section').show();

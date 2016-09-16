@@ -1779,6 +1779,7 @@ function cc_smart_category_top_parent_id ($catid) {
     return $catParent;
 }
 
+
 //add_rewrite_rule('^shop-our-range/([^/]*)/([^/]*)/([^/]*)/([^/]*)?','index.php?&product=$matches[4]','top');
 
 //global $woocommerce;

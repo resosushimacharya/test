@@ -34,9 +34,9 @@ while($parent->have_posts()){
     $faqid =$post->ID;
    
     //parent ID ;
-   $feat_image = cc_custom_get_feat_img($post->ID,'medium');
+   //$feat_image = cc_custom_get_feat_img($post->ID,'medium');
    
-   /*
+  
     $feat_image =wp_get_attachment_image_src( get_post_thumbnail_id($post->ID),'medium' );
     if($feat_image){
       $feat_image = $feat_image[0];
@@ -44,7 +44,7 @@ while($parent->have_posts()){
       else{
         $feat_image =get_template_directory_uri().'/images/placeholder.png';
       }
-	 */ 
+	 
 	  
     $post_data = get_post($parent->post->post_parent);
    $parent_name =  $post_data->post_name; ?>
