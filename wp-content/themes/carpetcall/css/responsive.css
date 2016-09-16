@@ -1101,6 +1101,7 @@
 		font-weight:800;
 		color:#15489f;
 		text-transform:uppercase;
+		margin-bottom: 25px;
 	}
 	.wrap_body .inerblock_sec .cbg_content {
 		padding:0;
@@ -1109,41 +1110,55 @@
 	.page-template-template-ideas-and-advice-child {
 		padding-bottom:90px;	
 	}
-	.inerblock_sec .nowspe {
+	.inerblock_sec.child-guide-content .nowspe {
 		position:fixed;
 		bottom:0;
 		left:0;
 		z-index:100;	
+		width: 100%;
+		height: inherit;
 	}
-	.page-template-template-ideas-and-advice-child .nowsppe a {
-		padding:23px 0;
+	.child-guide-content .nowsppe a {
+		padding: 0;
+		height: 90px;
+		line-height: 90px;
+		font-size: 36px;
 	}
 	.inerblock_sec_a.iA_parent {
 		display:block;	
 	}
-	.faq-cont-blka .inerblock_sec .col-md-9, .faq-cont-blka .inerblock_sec .cbg_content p, div#right_col p {
+	/*.faq-cont-blka .inerblock_sec .col-md-9, .faq-cont-blka .inerblock_sec .cbg_content p, div#right_col p {
 		padding:0;
 		font-size:32px;
-		line-height:40px;
-	}
+		line-height: 1.4;
+	}*/
 	
 	.faq-cont-blka .inerblock_sec .cbg_content h3 {
-		font-size:48px;
 		font-family:'proxima_nova_ltsemibold', sans-serif;
 		color:#0099ff;
-		text-transform:uppercase;
-		margin-bottom:33px;
+		text-transform:uppercase;		
+		font-size: 36px;
+		line-height: 1.4;
+		margin-bottom: 30px;
 	}
 
 
-	.parent-guide-content, .parent-guide-content p, .parent-guide-content h3, .parent-guide-content h3.sub_page_title, .parent-guide-content p a, .parent-guide-content ul li {
+	.parent-guide-content, .parent-guide-content p, .parent-guide-content h3, .parent-guide-content h3.sub_page_title, .parent-guide-content p a, .parent-guide-content ul li, .parent-guide-content ol li, .child-guide-content, .child-guide-content p, .child-guide-content h3, .child-guide-content h3.sub_page_title, .child-guide-content p a, .child-guide-content ul li, .child-guide-content ol li {
 		font-size: 32px;
 		line-height: 1.4;
 	}
-	.parent-guide-content p a{
+	.parent-guide-content, .child-guide-content{
+		color: #666666;
+	}
+	.parent-guide-content p, .child-guide-content p{
+		margin-bottom: 30px;
+	}
+	.parent-guide-content p a, .child-guide-content p a{
 		font-style: italic;
 	}
-	.parent-guide-content h3, .parent-guide-content h3.sub_page_title{
+
+
+	.parent-guide-content h3, .parent-guide-content h3.sub_page_title, .child-guide-content h3, .child-guide-content h3.sub_page_title{
 		font-size: 36px;
 	}
 	.cc-mobile-blk {
@@ -1158,12 +1173,35 @@
 	.cc-mobile-blk ul.guide_list_cbg li a, .cc-mobile-blk ul.guide_list_cbg li .fa{
 		line-height: 62px;
 	}
+
+	.cc-mobile-blk{
+		padding: 0 20px;
+	}
+	.child-guide-content{
+		padding: 0 20px;
+		margin-top: 40px;
+	}
+	.faq-cont-blka .child-guide-content .col-md-9{
+		padding: 0;
+	}
+
 	/* === BUYING GUIDES - STANDRAD ARTICLES End === */
 	
 	/* === FAQ ALL - STANDRAD ARTICLES === */
-	.inerblock_sec .cbg_content .panel-group .panel-title > a {
-		margin:0;
-		padding:15px 0 4px 0;
+	.inerblock_sec .cbg_content .panel-group .panel-title > a {		
+		padding:30px 50px 30px 15px;
+		font-size: 36px;
+		position: relative;
+	}
+	.inerblock_sec .cbg_content .panel-group .panel-title > a > span{
+		position: absolute;
+		right: 15px;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		-o-transform: translateY(-50%);
+		transform: translateY(-50%);
 	}
 	.faq-cont-blka .inerblock_sec {
 		margin-bottom:45px;
@@ -1171,11 +1209,20 @@
 	.faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body {
 		padding:0;
 	}
-	.faq-cont-blka .glyphicon-chevron-up:before {
-		padding-right:15px;	
+	.faq-cont-blka .glyphicon-chevron-down:before{
+		font-size: 40px;
 	}
-	.faq-cont-blka .glyphicon-chevron-down:before {
-		padding-right:15px;
+	.faq-cont-blka .glyphicon-chevron-up:before{
+		font-size: 40px;
+		color: #0099ff;
+	}
+	.faq-cont-blka .panel-body p, .faq-cont-blka .panel-body, .faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body{
+		font-size: 32px;
+		line-height: 1.4;
+		padding: 0 50px 0 15px;
+	}
+	.faq-cont-blka .panel-body p{
+		padding: 0;
 	}
 	/* === FAQ ALL - STANDRAD ARTICLES End === */
 	
@@ -1663,6 +1710,7 @@
 	.rugm-blk .cc-count-clear{
 		opacity: 0;
 		visibility: hidden;
+		height: 0;
 	}
 
 	/* Mobile Pop Up filter */
@@ -3474,7 +3522,7 @@
 	    font-size: 36px;
 	    position: absolute;
 	    right: 40px;
-	    z-index: 999;
+	    z-index: 9;
 	    top: 0;
 	    height: 100%;
 	    width: 50px;
@@ -5187,69 +5235,44 @@
 	
 	.inerblock_serc, .inerblock_serc_child {
 		padding:25px 20px;	
+		margin-top: 0
 	}
 	.inerblock_serc h1, .inerblock_serc_child h1  {
 		font-size: 36px;
+		margin-bottom: 5px;
 	}
-	.child-innerpg .inerblock_serc_child h1 {
-		font-size:34px;	
-	}
-	.cbg_content { 
-		padding:0;
-	}
-	.inerblock_serc_child h1 a {
-		color:#FFF;
-		border:0;	
-	}
-	.inerblock_serc_child h1 {
-		font-weight:800;
-		color:#15489f;
-		text-transform:uppercase;
-	}
-	.inerblock_sec .cbg_content {
-		padding:0 20px;
+	.inerblock_serc_child h1 a {		
+		font-size: 24px;
 	}
 	.page-template-template-ideas-and-advice-child {
-		padding-bottom:90px;	
+		padding-bottom:60px;	
 	}
-	.inerblock_sec .nowspe {
-		position:fixed;
-		bottom:0;
-		left:0;
-		z-index:100;	
-	}
-	.page-template-template-ideas-and-advice-child .nowsppe a {
-		padding:23px 0;
+	.child-guide-content .nowsppe a {	    
+	    height: 60px;
+	    line-height: 60px;
+	    font-size: 18px;
 	}
 	.inerblock_sec_a.iA_parent {
 		display:block;	
 	}	
-	.faq-cont-blka .inerblock_sec .col-md-9, .faq-cont-blka .inerblock_sec .cbg_content p, div#right_col p {
-		padding:0;
-		font-size:20px;
-		line-height:28px;
-	}
 	
-	.faq-cont-blka .inerblock_sec .cbg_content h3 {
-		font-size:28px;
-		font-family:'proxima_nova_ltsemibold', sans-serif;
-		color:#0099ff;
-		text-transform:uppercase;
-		margin-bottom:25px;
-	}
 
 	.guide-content-cntr{
 		padding: 0;
 	}
-	.parent-guide-content, .parent-guide-content p, .parent-guide-content h3, .parent-guide-content h3.sub_page_title, .parent-guide-content p a, .parent-guide-content ul li{
+	.parent-guide-content, .parent-guide-content p, .parent-guide-content h3, .parent-guide-content h3.sub_page_title, .parent-guide-content p a, .parent-guide-content ul li, .parent-guide-content ol li, .child-guide-content, .child-guide-content p, .child-guide-content h3, .child-guide-content h3.sub_page_title, .child-guide-content p a, .child-guide-content ul li, .child-guide-content ol li{
 		font-size: 18px;
 		line-height: 30px;
 	}
-	.parent-guide-content h3, .parent-guide-content h3.sub_page_title{
-		font-size: 22px;
+	.parent-guide-content h3, .parent-guide-content h3.sub_page_title, .child-guide-content h3, .child-guide-content h3.sub_page_title{
+		font-size: 24px;
+		margin-bottom: 20px;
 	}
 	.cc-mobile-blk{
-		margin-top: 40px;
+		margin-top: 10px;
+	}
+	.faq-cont-blka .child-guide-content .col-md-9{
+		padding: 0;
 	}
 	.cc-mobile-blk .col-md-3{
 		padding: 0;
@@ -5260,14 +5283,21 @@
 	.cc-mobile-blk ul.guide_list_cbg li a, .cc-mobile-blk ul.guide_list_cbg li .fa {
 	    line-height: 36px;
 	}
+	.child-guide-content{
+		margin-top: 25px;
+		padding: 0;
+	}
+	.faq-cont-blka .inerblock_sec .cbg_content h3{
+		margin-bottom: 20px;
+	}
 	
 	
 	/* === BUYING GUIDES - STANDRAD ARTICLES End === */
 	
 	/* === FAQ ALL - STANDRAD ARTICLES === */
 	.inerblock_sec .cbg_content .panel-group .panel-title > a {
-		margin:0;
-		padding:15px 0 4px 0;
+	    padding: 15px 30px 15px 10px;
+	    font-size: 20px
 	}
 	.faq-cont-blka .inerblock_sec {
 		margin-bottom:45px;
@@ -5276,10 +5306,20 @@
 		padding:0;
 	}
 	.faq-cont-blka .glyphicon-chevron-up:before {
-		padding-right:15px;	
+		font-size: 28px;
 	}
 	.faq-cont-blka .glyphicon-chevron-down:before {
-		padding-right:15px;
+		font-size: 28px;
+	}
+	.faq-cont-blka .panel-body p, .faq-cont-blka .panel-body, .faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body {
+	    font-size: 18px;	    
+	    padding: 0 30px 0 10px;
+	}
+	.faq-cont-blka .panel-body p{
+		padding: 0;
+	}
+	.inerblock_sec .cbg_content .panel-group .panel-title > a > span{
+		right: 10px;
 	}
 	/* === FAQ ALL - STANDRAD ARTICLES End === */
 	
@@ -5298,9 +5338,7 @@
 	.inerblock_serc_child.about-page { 
 		margin:0;
 	}
-	.faq-cont-blka .inerblock_sec {
-		margin-top:0;	
-	}
+	
 	
 	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES End === */
 	
@@ -5980,5 +6018,16 @@
 	.banner .cc-logo-cntr {
 	    max-width: 205px;
 	    width: 205px;
+	}
+}
+
+@media only screen and (max-width: 800px) and (orientation: landscape){
+
+	.banner{
+	    position: relative;
+	    overflow-x: hidden;
+	}
+	.wrap_body{
+		margin-top: 0;
 	}
 }

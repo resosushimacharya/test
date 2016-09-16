@@ -492,6 +492,21 @@ jQuery(document).on('change','.delivery_option_rugs #nearby_stores_main_wrapper 
       });
     }
 
+    // Remove ::before in FAQ table
+
+    if($('.panel-body-table table').length){
+      var faqTableTd = $('.panel-body-table table tr');
+
+      faqTableTd.each(function(){
+
+         $(this).find('td').each(function(){
+          if($(this).text().trim()==""){
+            $(this).addClass('td-empty');
+          }
+         });
+       
+      });
+    }
 
       
 

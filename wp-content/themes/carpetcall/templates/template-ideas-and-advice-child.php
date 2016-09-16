@@ -7,7 +7,7 @@
 ?>
 <div class="child-innerpg">
 <div class="container clearfix">
-<div class="inerblock_serc_child child-guide-content">
+<div class="inerblock_serc_child child-guide-cntr">
 <?php
 //$parent_title = get_the_title($post->post_parent);
 /*echo $parent_title;*/
