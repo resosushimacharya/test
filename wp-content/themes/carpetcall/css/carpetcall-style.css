@@ -3548,8 +3548,8 @@ ul.cat_list li a:hover {
 }*/
 .cbg_content p a {
 	font-family: 'proxima_nova_rgregular', sans-serif;
-	font-size: 16px !important;
-	line-height: 24px !important;
+	font-size: 16px;
+	line-height: 24px;
 	color: #15489f;
 	text-decoration: none;
 }
@@ -4457,7 +4457,7 @@ h3.cc-idea-ad-title {
 .all-items-blk a h3:hover {
 	cursor: pointer;
 }
-#sub_content_area h3, #sub_content_area h3.sub_page_title {
+.parent-guide-content h3, .parent-guide-content h3.sub_page_title {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
 	font-size:18px;
 	font-weight:normal;
@@ -7143,6 +7143,7 @@ label.inner-check-label.radio-check-label::after{
 }
 .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td{
 	display: block;
+	position: relative;
 }
 .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td label{
 	font-family:'proxima_nova_rgregular', sans-serif;
@@ -7343,11 +7344,14 @@ label.inner-check-label.radio-check-label::after{
 .body-wrapper .gpf-block {
 	margin:42px 0 57px 0;	
 }
-.cc-condn-page .woocommerce form .form-row label.error, .cc-condn-page .woocommerce form .form-row label.cc_error {
+.cc-condn-page .woocommerce form .form-row label.error, .cc-condn-page .woocommerce form .form-row label.cc_error, label.cc_error {
     color: #f00;
     font-size: 14px;
     margin-top: 3px;
     position: absolute;
+}
+.payment_method_securepay table tr label.cc_error{
+	top: 100%;
 }
 .woocommerce form .form-row.woocommerce-invalid input.input-text {
 	border-color:#F00 !important;
