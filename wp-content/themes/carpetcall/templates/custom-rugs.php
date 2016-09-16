@@ -330,15 +330,32 @@ global $post;
             <div class="clearfix"></div>
           </div>
         </div>
+<?php if(!wp_is_mobile()) { ?>
         <div class="woocommerce-tabs wc-tabs-wrapper">
   <ul class="tabs wc-tabs">
     <li class="additional_information_tab active"> <a href="#tab-additional_information">DETAILS</a> </li>
   </ul>
   <div class="panel entry-content wc-tab" id="tab-additional_information" style="display: block;">
-	<?php echo apply_filters('the_content',get_the_content())?>
+  <?php echo apply_filters('the_content',get_the_content())?>
   </div>
 </div>
-        
+<?php } else{ ?>
+ <div class="panel-group single-produc-acc-cntr" id="single-product-acc">
+ <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#single-product-acc" href="#deatials_mobile"> Details
+                        </a>
+                    </h4>
+                </div>
+                <div id="deatials_mobile" class="panel-collapse collapse ">
+                    <div class="panel-body"> 
+                 <?php echo apply_filters('the_content',get_the_content())?>
+          </div>
+                </div>
+            </div>
+        </div>
+        <?php } ?>
         <meta itemprop="url" content="<?php the_permalink(); ?>" />
       </div>
       
