@@ -7,6 +7,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="Cache-Control" content="no-store" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<?php 
+if(is_tax( 'product_cat' )){
+	$taxonomy = get_queried_object()->taxonomy;
+    $term_id = get_queried_object()->term_id;
+	$meta = get_option( 'wpseo_taxonomy_meta' );
+	$focus_keyword  = ($meta[$taxonomy][$term_id]['wpseo_focuskw'])?$meta[$taxonomy][$term_id]['wpseo_focuskw']:get_queried_object()->name;
+	?>
+    <meta name="keywords" content="<?php echo $focus_keyword?>">
+<?php }?>
 
 <?php if(is_singular('product')){
 
