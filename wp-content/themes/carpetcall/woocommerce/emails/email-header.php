@@ -36,12 +36,21 @@ if ( ! defined( 'ABSPATH' ) ) {
     
     <td style="width:205px;"><table width="205px" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td colspan="2"><div style="font-family:'proxima_nova_ltsemibold', sans-serif; font-size:20px; color:#FFF;  line-height:1; clear:both; font-weight:bold;">CALL 1300 502 427 </div></td>
+        <td colspan="2"><div style="font-family:'proxima_nova_ltsemibold', sans-serif; font-size:20px; color:#FFF;  line-height:1; clear:both; font-weight:bold;">  <?php $x =  get_field('telephone', '89',false);
+                            $x = preg_replace('/\s+/', '', $x);
+                            $x = preg_replace( '/^[0]{1}/', '', $x );
+                            $i = 1;
+                            $x = '+61'.$x;   ?>
+                       
+                                <a href="tel:<?php
+                                echo $x; ?>">
+                                    <?php echo get_field('contact_link_title', '89',false); ?>                                    
+                                </a>CALL 1300 502 427 </div></td>
         </tr>
       <tr>
         <td style="width:107px;"><p style=" font-family:'proxima_nova_ltsemibold', sans-serif; font-size:6.69px; color:#FFF; margin:2px 0; text-transform:uppercase;"> OR BOOK A CALL BACK WITH <br>
 OUR FLOORING SPECIALISTS </p> </td>
-        <td style="width:75px; height:14px; background-color:#c32428;"><div style="width:74px; text-align:center;"> <a href="#" style="font-family:'proxima_nova_rgregular', sans-serif; font-size:7.25px; color:#FFF; text-align:center; text-decoration:none; text-transform:uppercase; display:block; padding:5px 14px;"> CONTACT US </a> </div></td>
+        <td style="width:75px; height:14px; background-color:#c32428;"><div style="width:74px; text-align:center;"> <a href="<?php echo site_url();?>/contact-us" style="font-family:'proxima_nova_rgregular', sans-serif; font-size:7.25px; color:#FFF; text-align:center; text-decoration:none; text-transform:uppercase; display:block; padding:5px 14px;"> CONTACT US </a> </div></td>
         <td></td>
       </tr>
     </table></td>

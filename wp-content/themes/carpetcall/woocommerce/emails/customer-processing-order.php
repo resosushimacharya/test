@@ -183,8 +183,10 @@ $date = $datearr[2].'/'.$datearr[1].'/'.$datearr[0];
         
       <tr>
         <td colspan="2">
+        <?php if($order->customer_message){ ?>
         <div style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666; text-transform:uppercase; border-bottom:1px solid #e7edf8; padding-bottom:8px; margin-bottom:6px; margin-top:36px;">ADDITIONAL COMMENTS OR INSTRUCTIONS</div>
                 <span style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666;"><?php echo $order->customer_message; ;?></span>
+                <?php }?>
         </td>
         </tr>
         
