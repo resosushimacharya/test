@@ -2324,20 +2324,23 @@ ul.guide_list_cfaq li a {
 	padding-left: 5px;
 }
 .cont-panl {
-	border-top: 1px solid #efefef;
+	/*border-top: 1px solid #efefef;*/
 }
 .cbg_content .panel-group {
 	margin: 0 !important;
 }
-.panel-group .panel {
+.cbg_content .panel-group:last-child .panel{
+	border-bottom: 1px solid #efefef;
+}
+.faq-cont-blka .panel-group .panel {
 	border-radius: 0;
 	border-left: 0;
 	border-right: 0;
 	border-top: 1px solid #efefef;
 	box-shadow: none;
 	-webkit-box-shadow: none;
-	padding-bottom: 7px;
-	padding-top:7px;
+	padding-bottom: 0px;
+	padding-top:0px;
 }
 .faq-cont-blka .panel-default>.panel-heading, .faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body {
 	background: none;
@@ -2346,7 +2349,7 @@ ul.guide_list_cfaq li a {
 	padding: 0
 }
 .faq-cont-blka .panel-default>.panel-heading+.panel-collapse>.panel-body {
-	padding: 0 35px 0 40px;
+	padding: 0 35px;
 	font-size: 18px;
 	line-height: 21px;
 	margin-top: 10px;
@@ -2359,13 +2362,9 @@ ul.guide_list_cfaq li a {
 	position: relative;
 	width: 100%;
 	display: block;
-	padding: 15px 15px 4px 15px;
-	text-decoration: none;
-	color: #0099ff;
-	font-family:'proxima_nova_ltsemibold', sans-serif;
-	font-size:18px;
-	font-weight:normal;
-	text-transform: uppercase;
+	padding: 20px 35px;
+	font-size:18px;	
+	margin: 0;
 }
 .faq-cont-blka .panel-body p {
 	font-family:'proxima_nova_rgregular', sans-serif;
@@ -2383,8 +2382,9 @@ ul.guide_list_cfaq li a {
 	font-family: FontAwesome;
 	font-size: 24px;
 	color: #15489f;
-	font-weight: normal;
-	padding-right: 45px;
+	font-weight: normal;	
+	position: relative;
+	top: -4px;
 }
 .faq-cont-blka .glyphicon-chevron-up:before {
 	content: '\f106';
@@ -2392,7 +2392,8 @@ ul.guide_list_cfaq li a {
 	font-size: 24px;
 	color: #15489f;
 	font-weight: normal;
-	padding-right: 45px;
+	position: relative;
+	top: -4px;	
 }
 .cbg_content .cont-panl #accordion .panel.panel-default:nth-child(1) .panel-heading {
 	margin: 12px 0 0 0;
@@ -3299,15 +3300,21 @@ section#main {
 	width: 100%;
 	text-transform: none;
 }
-.panel-group.cc-color-var .panel-default>.panel-heading {
-	background-color: #FFF;
+.cc-cat-pro-section-left .panel-group.cc-color-var .panel-default> .panel-heading{
+	padding: 20px 0;
+	background: #fff;
+	border-top: 1px solid #e7edf8;
+}
+.cc-cat-pro-section-left .panel-group.cc-color-var .panel-default:last-child{
+	border-bottom: 1px solid #e7edf8;
+}
+.cc-cat-pro-section-left .panel-group.cc-color-var .panel-default .panel-body{
 	padding: 10px 0;
-	/*pointer-events: none;*/
 }
 .cc-cat-pro-section-left .glyphicon-chevron-up:before {
 	content: '\f106';
 	font-family: FontAwesome;
-	font-size: 16px;
+	font-size: 18px;
 	color: #0099ff;
 	font-weight: normal;
 	position:relative;
@@ -3316,7 +3323,7 @@ section#main {
 .cc-cat-pro-section-left .glyphicon-chevron-down:before {
 	content: '\f107';
 	font-family: FontAwesome;
-	font-size: 16px;
+	font-size: 18px;
 	color: #0099ff;
 	font-weight: normal;
 }
@@ -4475,7 +4482,7 @@ h3.cc-idea-ad-title {
 .all-items-blk a h3:hover {
 	cursor: pointer;
 }
-.parent-guide-content h3, .parent-guide-content h3.sub_page_title {
+.parent-guide-content h3, .parent-guide-content h3.sub_page_title, .child-guide-content .cbg_content h3, .child-guide-content .cbg_content h3.sub_page_title {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
 	font-size:18px;
 	font-weight:normal;
@@ -4483,7 +4490,7 @@ h3.cc-idea-ad-title {
 	text-transform: uppercase;
 	margin-bottom: 24px;
 }
-div#right_col p {
+/*div#right_col p {
 	font-family:'proxima_nova_rgregular', sans-serif;
 	font-size:16px;
 	font-weight:normal;
@@ -4512,7 +4519,7 @@ div#right_col p a {
 div#right_col p a:hover {
 	text-decoration: underline;
 	cursor: pointer;
-}
+}*/
 .cc-store-hd-title {
 	margin: 0;
 	background: #f0f2f1;
@@ -5561,6 +5568,9 @@ li.cc-head-wpsl-phone a:hover {
 	font-weight: normal;
 	position:absolute;
 	left:0;
+}
+.panel-body-table table td.td-empty::before{
+	display: none;
 }
 .cbg_content .panel-body .panel-body-table table > tbody tr.bg_table:nth-child(1) td::before  {
 	display:none;
@@ -7368,6 +7378,11 @@ label.inner-check-label.radio-check-label::after{
 }
 .payment_method_securepay table tr label.cc_error{
 	top: 100%;
+	left: 0;
+	margin-top: 3px 0 !important;
+	color: #f00 !important;
+	line-height: 1;	
+    font-size: 14px !important;
 }
 .woocommerce form .form-row.woocommerce-invalid input.input-text {
 	border-color:#F00 !important;
@@ -7866,4 +7881,7 @@ h3.mobile.carpet-drop{
 }
 .shop-our-range-cntr .cc-ia-content .breadcrumbs {
 	padding:24px 0 11px 0;
+}
+h1.mobile.inner-about-head{
+	display: none;
 }
