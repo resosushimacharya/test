@@ -3373,13 +3373,14 @@ a.pull-right:hover {
 .ia-block {
 	background-color: #f0f2f1;
 }
+
 .cc-ia-content h4 {
 	font-family:'proxima_nova_rgregular', sans-serif;
 	font-size:12px;
 	font-weight:normal;
 	color: #666666;
 	text-transform: uppercase;
-	margin-top: 23px;
+	margin: 24px 0 10px 0;
 }
 .cc-ia-content h1 {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
@@ -3520,7 +3521,7 @@ ul.cat_list li a:hover {
 	margin: 0px 0 20px 0;
 }
 .inerblock_serc_child .cc-breadcrumb {
-	padding: 20px 0;
+	padding: 24px 0 10px 0;
 	font-size: 12px;
 	line-height: 12px;
 }
@@ -6036,6 +6037,7 @@ a.btn-employment:hover {
 	font-weight:normal;
 	color: #087bda;
 	text-transform: uppercase;
+	margin-left:-5px;
 }
 .single.single-product .cc-price-control h3 span.low {
 	font-family:'proxima_nova_rgregular', sans-serif;
@@ -6057,7 +6059,7 @@ a.btn-employment:hover {
 }
 .acc_qnty .rec_qty_wrap {
 	float: left;
-	margin-right: 20px;
+	margin-right: 11px;
 }
 .acc_qnty .quantity.col-md-12 {
 	width: 100px;
