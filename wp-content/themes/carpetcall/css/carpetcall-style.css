@@ -177,9 +177,7 @@ html, body {
 	background: #FFF;
 	box-shadow: none;
 }
-.searchm .input-group {
-	border: none;
-}
+
 .callinfo {
 	position: relative;
 }
@@ -559,10 +557,13 @@ ul#mywoosection ul.dropdown-menu {
 }
 #cssmenu > ul > li > ul {
   width:auto;
-  display: block; 
+  display: none; 
   white-space:nowrap;
   padding: 10px 30px 0 15px;
   box-shadow: -1px 1px 5px #e2e2e2;
+}
+#cssmenu > ul > li:hover > ul {
+	display:block;	
 }
 #cssmenu > ul > li > ul > li > ul { 
   width: 100%;
@@ -583,13 +584,16 @@ ul#mywoosection ul.dropdown-menu {
 	 display:block;
 }
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a{
-	padding: 7px 10px;
-    line-height: 7px;
+	padding: 3px 10px;
+    line-height: 1;
 	font-size:12px;
 }
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li{margin: 0; padding: 0}
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a { margin:5px 0 }
-#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i{ margin-right: 10px; }
+#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a:hover {
+	color:#0099ff;
+}
+#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i{ margin-right: 10px; color:#0099ff; }
 #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a::after{content: '';display:none}
 #cssmenu > ul#menu-main  li.menu-item-depth-0:nth-child(2) ul.sub-menu { height:auto;}
 #cssmenu > ul#menu-main  li.menu-item-depth-0:nth-child(2) ul.sub-menu li.menu-item-depth-1 ul.sub-menu{ height:auto; left:98.5%; width:75%;}
@@ -2581,7 +2585,7 @@ ul.guide_list_cfaq li a {
 	width: 817px;
 }
 .single.single-product .modal-dialog {
-	margin-top: 200px;
+	margin-top: 143px;
 	width: 815px;
 }
 .cc-product-pick-location-section .modal-header {
@@ -2637,6 +2641,9 @@ ul.guide_list_cfaq li a {
 	border: 1px solid #d1ddf1;
 	background-color: #e7edf8;
 	border-radius: 0;
+}
+.frm-blk .input-group:focus {
+	border-color:#15489f;	
 }
 .frm-blk .input-group .form-control {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
@@ -3366,13 +3373,14 @@ a.pull-right:hover {
 .ia-block {
 	background-color: #f0f2f1;
 }
+
 .cc-ia-content h4 {
 	font-family:'proxima_nova_rgregular', sans-serif;
 	font-size:12px;
 	font-weight:normal;
 	color: #666666;
 	text-transform: uppercase;
-	margin-top: 23px;
+	margin: 24px 0 10px 0;
 }
 .cc-ia-content h1 {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
@@ -3513,7 +3521,7 @@ ul.cat_list li a:hover {
 	margin: 0px 0 20px 0;
 }
 .inerblock_serc_child .cc-breadcrumb {
-	padding: 20px 0;
+	padding: 24px 0 10px 0;
 	font-size: 12px;
 	line-height: 12px;
 }
@@ -5545,7 +5553,7 @@ li.cc-head-wpsl-phone a:hover {
 	height: 100%;
 	width: 100%;
 	background-color: #000;
-	z-index: 2;
+	z-index: 20;
 	opacity: 0.5;
 	background-image: url('../images/loading.gif');
 	background-position: center center;
@@ -6071,6 +6079,7 @@ a.btn-employment:hover {
 	font-weight:normal;
 	color: #087bda;
 	text-transform: uppercase;
+	margin-left:-5px;
 }
 .single.single-product .cc-price-control h3 span.low {
 	font-family:'proxima_nova_rgregular', sans-serif;
@@ -6092,7 +6101,7 @@ a.btn-employment:hover {
 }
 .acc_qnty .rec_qty_wrap {
 	float: left;
-	margin-right: 20px;
+	margin-right: 11px;
 }
 .acc_qnty .quantity.col-md-12 {
 	width: 100px;
