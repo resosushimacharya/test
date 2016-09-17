@@ -852,7 +852,7 @@
 	}
 	.intro p {
 	    line-height: 1.2;
-	    margin-bottom: 20px;
+	    margin-bottom: 15px;
 	}
 	.home_about_sec{
 		max-height: 350px;
@@ -1126,13 +1126,7 @@
 	}
 	.inerblock_sec_a.iA_parent {
 		display:block;	
-	}
-	/*.faq-cont-blka .inerblock_sec .col-md-9, .faq-cont-blka .inerblock_sec .cbg_content p, div#right_col p {
-		padding:0;
-		font-size:32px;
-		line-height: 1.4;
-	}*/
-	
+	}	
 	.faq-cont-blka .inerblock_sec .cbg_content h3 {
 		font-family:'proxima_nova_ltsemibold', sans-serif;
 		color:#0099ff;
@@ -1141,8 +1135,6 @@
 		line-height: 1.4;
 		margin-bottom: 30px;
 	}
-
-
 	.parent-guide-content, .parent-guide-content p, .parent-guide-content h3, .parent-guide-content h3.sub_page_title, .parent-guide-content p a, .parent-guide-content ul li, .parent-guide-content ol li, .child-guide-content, .child-guide-content p, .child-guide-content h3, .child-guide-content h3.sub_page_title, .child-guide-content p a, .child-guide-content ul li, .child-guide-content ol li {
 		font-size: 32px;
 		line-height: 1.4;
@@ -1156,8 +1148,6 @@
 	.parent-guide-content p a, .child-guide-content p a{
 		font-style: italic;
 	}
-
-
 	.parent-guide-content h3, .parent-guide-content h3.sub_page_title, .child-guide-content h3, .child-guide-content h3.sub_page_title{
 		font-size: 36px;
 	}
@@ -1173,7 +1163,6 @@
 	.cc-mobile-blk ul.guide_list_cbg li a, .cc-mobile-blk ul.guide_list_cbg li .fa{
 		line-height: 62px;
 	}
-
 	.cc-mobile-blk{
 		padding: 0 20px;
 	}
@@ -1184,7 +1173,6 @@
 	.faq-cont-blka .child-guide-content .col-md-9{
 		padding: 0;
 	}
-
 	/* === BUYING GUIDES - STANDRAD ARTICLES End === */
 	
 	/* === FAQ ALL - STANDRAD ARTICLES === */
@@ -1234,6 +1222,13 @@
 	}
 	.about-cont-employment {
 		display:block;
+	}
+	.cc-product-sub-category-list {
+	    margin-bottom: 30px;
+	}
+
+	.about-us-pages-cntr {
+
 	}
 	
 	/* === ABOUT US PAGE - EMPLOYMENT - STANDRAD ARTICLES End === */
@@ -5824,6 +5819,10 @@
 	}
 	/* Font-size 32px; End */
 
+	.meropro_blk h1, .thought_blk h2, .hamro_trade h2{
+		font-size: 26px;
+	}
+
 	#cssmenu > ul > li > a{
 		font-size: 16px;
 	}
@@ -5915,7 +5914,7 @@
 		margin-bottom: 0;
 	}
 	h3.cc-idea-ad-title, .inerblock_sec_a h3{
-		font-size: 28px;
+		font-size: 26px;
 	}
 	.inerblock_sec_a{
 		padding-bottom: 30px;

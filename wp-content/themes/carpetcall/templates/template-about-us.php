@@ -67,7 +67,7 @@ $size      = count( $ancestors );
                 <?php } #end-else ?>
             </div><!-- end .cc-breadcrumb -->
                <?php if($size!=0){ ?> 
-                <h1 class="mobile">
+                <h1 class="mobile inner-about-head">
             <span class="ab_arrow">
             <a href="<?php echo get_permalink($post->post_parent);?>">
               <i class="fa fa-angle-left" aria-hidden="true"></i>            
@@ -85,7 +85,7 @@ $size      = count( $ancestors );
     </div><!-- end .container.clearfix -->
 </div><!-- end .child-innerpg -->
 
-<div class="faq-cont-blka">
+<div class="faq-cont-blka about-us-pages-cntr">
     <div class="container clearfix">
         <div class="inerblock_sec">
             <div class="col-md-3 desktop no-pl">
