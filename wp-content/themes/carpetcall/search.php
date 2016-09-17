@@ -86,6 +86,9 @@ $found_prod = new WP_Query($args);
         </div>
         <?php //get_sidebar('pro-subcategory');?>
         <?php get_sidebar('cc-search');?>
+        <div class="mobile-apply-btn">
+          <a href="#">Apply</a>
+        </div>
       </div>
       
       <div class="col-md-9 cc-cat-pro-section-right">

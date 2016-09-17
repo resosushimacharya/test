@@ -668,6 +668,7 @@ jQuery(document).on('click','.cc-count-clear',function(){
 jQuery(document).on('click','a.clear_color_selection',function(){
 
 	jQuery('img.cc-tick-display').hide();
+	jQuery('.swatch.select-color').removeClass('select-color');
 	jQuery('#selected_colors').val('');
 	//jQuery('#child_cat_count').val(1);
 	jQuery('#ajax_offset').val(0);
@@ -700,6 +701,7 @@ jQuery(document).on('click','.cc-color-var-item a.swatch, .cc-shop-range-select 
 			trig_ele = jQuery(trig_ele).parent();
 		}
 		jQuery('#selected_colors').val('');
+		jQuery(this).toggleClass('select-color');
 		jQuery(trig_ele).find('img.cc-tick-display').toggle();
 		var color_comma_text ='';
 		var prepend = '';
