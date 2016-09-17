@@ -1,0 +1,31 @@
+user_email<p class="email_date" style="float:right"><?php echo date('D/M/Y, H:i:s')?></p>
+<table class="cc_edm_table">
+	<tr>
+    	<td>First Name</td>
+        <td><?php echo $first_name;?>
+    </tr>
+	<tr>
+    	<td>Last Name</td>
+        <td><?php echo $last_name;?>
+    </tr>
+	<tr>
+    	<td>Email</td>
+        <td><?php echo $emailcheck;?>
+    </tr>
+	<tr>
+    	<td>Contact Number</td>
+        <td><?php echo $phono;?>
+    </tr>
+	<tr>
+    	<td>Mobile</td>
+        <td><?php echo $phono;?>
+    </tr>
+	<tr>
+    	<td>State</td>
+        <td><?php echo strtoupper($data['cc_state_type']);?>
+    </tr>
+	<tr>
+    	<td>Comments/enquiries</td>
+        <td><?php echo $data['cc_message'];?>
+    </tr>
+</table>

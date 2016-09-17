@@ -43,9 +43,9 @@ if ( ! defined( 'ABSPATH' ) ) {
                             $x = '+61'.$x;   ?>
                        
                                 <a href="tel:<?php
-                                echo $x; ?>">
-                                    <?php echo get_field('contact_link_title', '89',false); ?>                                    
-                                </a>CALL 1300 502 427 </div></td>
+                                echo $x; ?>" style="text-decoration:none;color:#fff;">
+                                                                    
+                                CALL 1300 502 427 </a></div></td>
         </tr>
       <tr>
         <td style="width:107px;"><p style=" font-family:'proxima_nova_ltsemibold', sans-serif; font-size:6.69px; color:#FFF; margin:2px 0; text-transform:uppercase;"> OR BOOK A CALL BACK WITH <br>

@@ -260,8 +260,7 @@ if($reqTempTerms){
                  <?php  
                         global $post;
                         $reqTempTerms=get_the_terms($post->ID,'product_cat');
-
-
+						
                         if($reqTempTerms){
 
                         foreach($reqTempTerms as $cat){
@@ -312,6 +311,7 @@ if($reqTempTerms){
                         echo '<input type="hidden" value="'.$resproProduct.'" name="product_page_cat"/>';
                         echo '<input type="hidden" value="'.$resproCode.'" name="product_page_code"/>';
                         echo '<input type="hidden" value="'.$resproSize.'" name="product_page_size"/>';
+                        echo '<input type="hidden" value="carpets" name="cc_contact_type"/>';
                         
 
 

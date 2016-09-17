@@ -29,8 +29,6 @@ if(have_posts()):
 
   <?php 
 
-do_action('pr',get_post_meta($post->ID));
-
  get_footer();
 
 

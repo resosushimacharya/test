@@ -889,7 +889,7 @@ jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax
 		}).done(function(){
 	$("body, .banner ").removeClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
 	jQuery('#loading_overlay_div').hide(); // Displaying the Loading gif during ajax call
-	if(output.found_prod == 0){
+	if(output.found_prod < perpage){
 		jQuery('#cc_load_more').hide();
 		}else{
 			if(jQuery('#hide_loadmore').val()=='yes'){
