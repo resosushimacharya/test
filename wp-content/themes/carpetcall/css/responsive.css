@@ -2013,7 +2013,7 @@
 		top: -4px;
 	    left: 1px;
 	    width: 42px;
-	    height: 28px;
+	    height: 38px;
 	    background-size: cover;
 	}
 	
@@ -2028,7 +2028,7 @@
 	}
 	.mobile-apply-btn a {
 	    font-size: 36px;
-	    display: inline-block;
+	    display: inline-block; 	
 	    height: 90px;
 	    text-transform: uppercase;
 	    line-height: 90px;
@@ -6240,7 +6240,7 @@
 	}
 }
 
-@media only screen and (max-width: 800px) and (orientation: landscape){
+@media (max-width: 800px) and (orientation: landscape){
 	.banner{
 	    position: relative;
 	    overflow-x: hidden;
