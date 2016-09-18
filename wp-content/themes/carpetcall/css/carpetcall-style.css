@@ -1932,7 +1932,7 @@ li.clblk_a::before {
 	color: #fff;
 	text-decoration: none;
 }
-.againlt li a:hover, .againlt li:hover {
+.againlt li a:hover {
 	color: #FF0;
 }
 .fot_cpy ul {
