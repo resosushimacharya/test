@@ -263,6 +263,8 @@
         if($(window).innerWidth() <= 800 ){}
       });
 
+
+
       $(document).on('click', '#cssmenu ul li ul.menu-depth-1 li.sub-menu-item span.right_arrow', function(){ 
 	       
          if($(window).innerWidth() <= 800 ){
