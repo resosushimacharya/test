@@ -1,6 +1,13 @@
 @charset "utf-8";
 /* CSS Document */
 
+
+@media only screen and (min-width: 801px) {
+	.cc-carpet-subcat-list ul.guide_list_cbg{
+		display: block !important;
+	}
+}
+
 /* ============= 800px starts ============= */
 @media only screen and (max-width: 800px) {
 	
@@ -319,6 +326,9 @@
 	.curr_loc_drop form, .curr_loc_drop form a{
 		font-size: 24px;
 	}
+	.dropdown-content .cc-lat-header-top-cover{
+		margin-bottom: 0;
+	}
 
 
 	/* Map End */
@@ -565,6 +575,13 @@
 	}
 
 	/* Menu End */
+
+	.room-vis-cntr{
+		display: none;
+	}
+	.room-vis-cntr.hide_in_moblile{
+		display: block;
+	}
 	/* === HEADER End === */
 
 	/* === HOME PAGE === */

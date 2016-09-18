@@ -1,3 +1,9 @@
+<?php
+global $product;
+if(!$product->is_in_stock()){
+	echo 'Product is out of stock';
+	return;
+	}?>
 <div class="product_single_container">
 <?php
 /**
@@ -166,8 +172,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 						while($loop->have_posts())
 						{  $loop->the_post();
 							   
-								$stockcheck = get_post_meta($loop->post->ID);
-                $titlepro[$post->ID] = $stockcheck['_sku'][0];
+							   $_product = new WC_Product($loop->post->ID);
+							   if($_product->is_in_stock()){
+									$stockcheck = get_post_meta($loop->post->ID);
+									$titlepro[$post->ID] = $stockcheck['_sku'][0];
+							   }
 
 							?>
 						<?php 
@@ -831,8 +840,13 @@ foreach($resList as $mainId){
 		 * @hooked woocommerce_output_related_products - 20
 		 */ 
 		remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products',20);
-  if(!wp_is_mobile()){
-		do_action( 'woocommerce_after_single_product_summary' );}
+  ?>
+      <div class="desktop desktop-tabs">
+       <?php
+		do_action( 'woocommerce_after_single_product_summary' );
+    ?>
+    </div>
+    <?php
 		add_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products',20);
 
 
@@ -843,8 +857,10 @@ foreach($resList as $mainId){
 		// as per design , this section appears in [] page
 		
 	?>
+  <div class="mobile mobile-tabs">
   <?php
-    if(wp_is_mobile()){ get_template_part('templates/contents/content','tab-woocommerce-rugs');}?>
+    get_template_part('templates/contents/content','tab-woocommerce-rugs');?>
+    </div>
 
 	<meta itemprop="url" content="<?php the_permalink(); ?>" />
 

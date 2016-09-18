@@ -22,6 +22,53 @@ $(function () {
 });
 jQuery(document).ready(function($){
 
+	// function singleImageSlider(){
+	// 	if(jQuery(window).width() <= 800){
+	// 		jQuery('.product_single_thumb_slider').slick({
+	// 		  dots: true,
+	// 		  infinite: true,
+	// 		  speed: 300,
+	// 		  slidesToShow: 1,
+	// 		  adaptiveHeight: true
+	// 		});
+	// 	}else{
+	// 		jQuery('.product_single_thumb_slider').slick.destroy();
+	// 	}
+	// }
+ // 	singleImageSlider();
+ // 	window.addEventListener('resize', singleImageSlider);
+
+ 	var maxWidth = 802,
+	  slickVar = {
+	    lazyLoad: 'ondemand',
+	    dots: true,
+	    infinite: true,
+	    slidesToShow: 1,
+	    slidesToScroll: 1,
+	    mobileFirst: true,
+	    responsive: [
+	      {
+	        breakpoint: maxWidth,
+	        settings: 'unslick'
+	      }
+	    ]
+	  },
+	  runSlick = function() {
+	    $('.product_single_thumb_slider').slick(slickVar);
+	  };
+
+	  // slick initialization while document ready
+	  runSlick();
+
+	  // listen to jQuery's window resize
+	  $(window).on('resize', function(){
+	    var width = $(window).width();
+	    if(width < maxWidth) {
+	      // reinit slick while window's width is less than maximum width (641px)
+	      runSlick();
+	    }
+	  });
+
 /*====================Disable search icon click if input is empty starts========================*/
 jQuery(document).find('.cc_search_button').each(function(index, element) {
     jQuery(this).attr('disabled','disabled');
@@ -517,13 +564,6 @@ jQuery(document).on('click','.select-design-product-image a.select_design',funct
           	jQuery('#store-count-quantity').removeClass('add_to_cart_button');
            	jQuery('#store-count-quantity').removeClass('ajax_add_to_cart');
 			
-		jQuery('.product_single_thumb_slider').slick({
-		  dots: true,
-		  infinite: true,
-		  speed: 300,
-		  slidesToShow: 1,
-		  adaptiveHeight: true
-		});
       		//largeImgMob();
 			var bigImg = $(".single-product-thumb-img");      
 			$(bigImg).each(function() {
@@ -540,7 +580,11 @@ jQuery(document).on('click','.select-design-product-image a.select_design',funct
       $activeImage.clone().appendTo(".selected-product-img");
       jQuery(".selected-product-name span").html($activeText);
 	  
-	  
+	  var width = $(window).width();
+	    if(width < maxWidth) {
+	      // reinit slick while window's width is less than maximum width (641px)
+	      runSlick();
+	    }
 		});
 	});	
 	
@@ -570,13 +614,6 @@ jQuery(document).on('change','select#cc-size',function(e){
 			jQuery('#store-count-quantity').attr('href','javascript:void(0)');
           	jQuery('#store-count-quantity').removeClass('add_to_cart_button');
            	jQuery('#store-count-quantity').removeClass('ajax_add_to_cart');
-			jQuery('.product_single_thumb_slider').slick({
-		  dots: true,
-		  infinite: true,
-		  speed: 300,
-		  slidesToShow: 1,
-		  adaptiveHeight: true
-		});
       		//largeImgMob();
 			var bigImg = $(".single-product-thumb-img");      
 			$(bigImg).each(function() {
@@ -592,6 +629,11 @@ jQuery(document).on('change','select#cc-size',function(e){
       
       $activeImage.clone().appendTo(".selected-product-img");
       jQuery(".selected-product-name span").html($activeText);
+      var width = $(window).width();
+	    if(width < maxWidth) {
+	      // reinit slick while window's width is less than maximum width (641px)
+	      runSlick();
+	    }
 
  // Displaying the Loading gif during ajax call
 

@@ -1,4 +1,4 @@
-user_email<p class="email_date" style="float:right"><?php echo date('D/M/Y, H:i:s')?></p>
+<p class="email_date" style="float:right"><?php echo date('D/M/Y, H:i:s')?></p>
 <table class="cc_edm_table">
 	<tr>
     	<td>First Name</td>

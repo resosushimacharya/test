@@ -321,7 +321,6 @@ function woo_new_product_tab_content() {?>
       }
       else{
       	$profaqid = '26721';
-
       }
       ?>
       
@@ -341,7 +340,7 @@ foreach($listcat as $cat){
 		$root =	'hard-floor';
 		}
 		if(strcasecmp($root,'carpets')==0){
-		$root =	'carpet';
+		$root =	'carpets';
 		}
 
 	}
@@ -1105,7 +1104,7 @@ function woocommerce_product_bundle_action($results){
 	                   $length= get_post_meta( $key, '_length', TRUE );
                        $width= get_post_meta( $key, '_width', TRUE );
                        $height= get_post_meta( $key, '_height', TRUE );
-                       $price = get_post_meta($key,'_sale_price',TRUE);
+                       $price = round(get_post_meta($key,'_sale_price',TRUE));
                        $productsize   = $length.'CM X '. $width.'CM - $'.$price;  
                        $data[$i] =array($productsize,get_the_permalink($key),$key,$price);
 

@@ -167,12 +167,13 @@ function contact_action(){
 				if(sanitize_email($data['send_email_address'])==''){
 					$user_email =$adminEmailAdd;
 				}
-				$headers  = 'MIME-Version: 1.0' . "\r\n";
-				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+				$headers = array();
+				$headers[]  = 'MIME-Version: 1.0' . "\r\n";
+				$headers[] = 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 				
 				// Additional headers
-				$headers .= 'To: '.$first_name.' '.$last_name.' <'.$emailcheck.'>' . "\r\n";
-				$headers .= 'From: Carpetcall <'.get_option("admin_email").'>' . "\r\n";
+				$headers[] = 'To: '.$first_name.' '.$last_name.' < '.$emailcheck.' >' . "\r\n";
+				$headers[] = 'From: Carpetcall < '.get_option("admin_email").' >' . "\r\n";
 				//$headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
 				//$headers .= 'Bcc: birthdaycheck@example.com' . "\r\n";
 				$email_subject = $email_header;
@@ -180,7 +181,6 @@ function contact_action(){
 				if(!$sent_mail){
 					$sent_mail= mail($emailcheck, $email_subject, $body_user,$headers);
 				}
-				
 				//  var_dump($user_email);var_dump($email_subject);var_dump($email_message);var_dump($headers);
 				//  die;
 				/*
@@ -219,7 +219,7 @@ function contact_action(){
 				update_post_meta($user_id,'email',$data['email_address']);
 				update_post_meta($user_id,'enquiry_type',ucwords($hold_enquiry_type));
 				update_post_meta($user_id,'phone',$data['mobile_phone_no']);
-				update_post_meta($user_id,'admin_email',$user_email);
+				update_post_meta($user_id,'admin_email',$user_email[0]);
 				
 				// do_action('manage_enquiries_posts_custom_column','names',$email_subject,$user_id);
 				$time =   esc_attr( get_the_date('F j, Y',$user_id)).' at '.esc_attr(get_the_time('g:i a',$user_id));
@@ -235,7 +235,13 @@ function contact_action(){
 				$message['sent_mail']=$sent_mail;
 				$textmessage=get_field('success_message_content',89);
 				$message['success']=$textmessage;
-				if($cc_enq_type == 'service'){
+				if($cc_enq_type == 'sales'){
+					ob_start();
+					include get_template_directory().'/templates/emails/header.php';
+					include get_template_directory().'/templates/emails/content/admin-sales.php';
+					include get_template_directory().'/templates/emails/footer.php';
+					$body_admin = ob_get_clean();	
+				}if($cc_enq_type == 'service'){
 					ob_start();
 					include get_template_directory().'/templates/emails/header.php';
 					include get_template_directory().'/templates/emails/content/admin-service.php';
@@ -268,21 +274,48 @@ function contact_action(){
 					include get_template_directory().'/templates/emails/content/admin-custom_rugs.php';
 					include get_template_directory().'/templates/emails/footer.php';
 					$body_admin = ob_get_clean();	
-				}										
-				$headers  = 'MIME-Version: 1.0' . "\r\n";
-				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+				}
+				$emails_settings = get_field($cc_enq_type.'_emails_settings','options');
+				$bcc_emails = '';
+				$cc_emails = '';
+				$to = array();
+				$to[] = $user_email;
+				if(!empty($emails_settings)){
+					foreach($emails_settings as $emails){
+						if($emails[$cc_enq_type.'_state'] == $data['cc_state_type'] || $emails[$cc_enq_type.'_state'] =='all' ){
+							if($emails[$cc_enq_type.'_bcc_emails']){
+								$bcc_emails .=$emails[$cc_enq_type.'_bcc_emails'].', ';
+							}
+							if(is_email($emails[$cc_enq_type.'_to_emails'])){
+								if($user_email != $emails[$cc_enq_type.'_to_emails'] && !in_array($emails[$cc_enq_type.'_to_emails'],$to)){
+									$to[]=$emails[$cc_enq_type.'_to_emails'];
+								}
+							}
+							if($emails[$cc_enq_type.'_cc_emails']){
+								if($user_email != $emails[$cc_enq_type.'_cc_emails']){
+									$cc_emails.=$emails[$cc_enq_type.'_cc_emails'].', ';
+								}
+							}
+						}
+					}
+				}
+				
+				$headers = array();
+				$headers[]  = 'MIME-Version: 1.0' . "\r\n";
+				$headers[] = 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 				
 				// Additional headers
-				$headers .= 'To: Admin <'.$user_email.'>' . "\r\n";
-				$headers .= 'From: Carpetcall <'.get_option("admin_email").'>' . "\r\n";
-				//$headers .= 'Cc: birthdayarchive@example.com' . "\r\n";
-				//$headers .= 'Bcc: birthdaycheck@example.com' . "\r\n";
+				$headers[] = 'To: Admin <admin@carpetcall.com.au>' . "\r\n";
+				$headers[] = 'From: Carpetcall < admin@carpetcall.com.au >' . "\r\n";
+				$headers[] = 'Cc: '.$cc_emails. "\r\n";
+				$headers[] = 'Bcc: '.$bcc_emails. "\r\n";
 				$email_subject = $email_header;
-				$sent_mail= wp_mail($user_email, $email_subject, $body_admin,$headers);
+				$sent_mail= wp_mail($to, $email_subject, $body_admin,$headers);
 				if(!$sent_mail){
-					$sent_mail= mail($user_email, $email_subject, $body_admin,$headers);
+					$sent_mail= mail(explode(', ',$to), $email_subject, $body_admin,explode(' ',$headers));
 				}
 			}
+			//error_log('user_email '.print_r($to, true).' email subject '.$email_subject.' email header '.print_r($headers,true).' body '.$body_admin.'mail log'.$sent_mail);
 		}else
 		{
 			if($response->errorCodes=="missing-input-secret"){

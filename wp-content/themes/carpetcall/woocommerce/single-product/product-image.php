@@ -140,9 +140,9 @@ global $post, $woocommerce, $product;
     <div class="cc_custom_gal_thumb thumbnails columns-3">
     
     <?php
-		if(wp_is_mobile()){
+		
 			echo '<div class="product_single_thumb_slider">';
-			}
+			
 	
 	?>
     	<?php 
@@ -232,9 +232,9 @@ global $post, $woocommerce, $product;
 			*/
 			?>
     <?php
-		if(wp_is_mobile()){
+		
 			echo '</div>';
-			}
+			
 	
 	?>
     </div>
@@ -256,12 +256,11 @@ global $post, $woocommerce, $product;
          </div>
 </div>
 <script type="text/javascript">
-jQuery('.product_single_thumb_slider').slick({
-  dots: true,
-  infinite: true,
-  speed: 300,
-  slidesToShow: 1,
-  adaptiveHeight: true
+jQuery(document).ready(function() {
+	/* Act on the event */
+
+
 });
+	
 
 </script>

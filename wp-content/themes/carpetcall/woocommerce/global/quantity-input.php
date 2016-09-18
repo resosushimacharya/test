@@ -22,7 +22,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="quantity col-md-12">
     <?php
     $options = '';
-    if(is_single()){ 
+    if(is_single()){
+		if(has_term('rugs','product_cat',get_the_ID()) || has_term('hard-flooring','product_cat',get_the_ID())){
+			$args['max_value'] =($args['max_value'] - get_option( 'woocommerce_notify_no_stock_amount' ) );
+		}
       $options .='<option class= "col-md-12"'. ' value="PLEASE SELECT" id="sel_cart" hidden>PLEASE SELECT</option>';
       for ( $count = $args['min_value']; $count <= $args['max_value']; $count = $count+$args['step'] ) {
         $options .= '<option class= "col-md-12"'. ' value="' . $count . '" >' . $count . '</option>';
