@@ -842,8 +842,17 @@ ul#directory_list_id li {
 	color: #15489f;
 	text-align: left;
 }
+.dropdown-content .cc-lat-header-top-cover {
+	margin-bottom:-32px;
+}
 .cc-lat-header-top-cover .col-md-8 {
-	width:50%;
+	width:200px;
+	display:block;
+	padding-right:15px;
+}
+.cc-lat-header-top-cover .col-md-4 {
+	width:117px;
+	display:block;
 }
 .sfind address {
 	font-family:'proxima_nova_rgregular', sans-serif;
