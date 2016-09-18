@@ -181,6 +181,7 @@ function contact_action(){
 				if(!$sent_mail){
 					$sent_mail= mail($emailcheck, $email_subject, $body_user,$headers);
 				}
+				error_log('User Email: user_email '.print_r($emailcheck, true).' email subject '.$email_subject.' email header '.print_r($headers,true).' body '.$body_user.'mail log'.$sent_mail);
 				//  var_dump($user_email);var_dump($email_subject);var_dump($email_message);var_dump($headers);
 				//  die;
 				/*
@@ -315,7 +316,7 @@ function contact_action(){
 					$sent_mail= mail(explode(', ',$to), $email_subject, $body_admin,explode(' ',$headers));
 				}
 			}
-			//error_log('user_email '.print_r($to, true).' email subject '.$email_subject.' email header '.print_r($headers,true).' body '.$body_admin.'mail log'.$sent_mail);
+			error_log('Admin Mail: user_email '.print_r($to, true).' email subject '.$email_subject.' email header '.print_r($headers,true).' body '.$body_admin.'mail log'.$sent_mail);
 		}else
 		{
 			if($response->errorCodes=="missing-input-secret"){

@@ -207,9 +207,11 @@ function woo_new_product_tab( $tabs ) {
 	// Adds the new tab
 
     unset( $tabs['description'] );      	// Remove the description tab
-    unset( $tabs['reviews'] ); 			// Remove the reviews tab
-	$tabs['additional_information']['title'] = __( 'DETAILS' );	// Rename the additional information tab
-	$tabs['additional_information']['callback'] = 'woo_custom_information_tab_content';
+    unset( $tabs['reviews'] ); 
+			// Remove the reviews tab
+		$tabs['additional_information']['title'] = __( 'DETAILS' );	// Rename the additional information tab
+		$tabs['additional_information']['callback'] = 'woo_custom_information_tab_content';
+
 	?>
 	<?php $prourl = site_url();
       $prourl =explode('/',$prourl);
@@ -238,7 +240,7 @@ foreach($listcat as $cat){
 		$root =	'hard-floor';
 		}
 		if(strcasecmp($root,'carpets')==0){
-		$root =	'carpet';
+		$root =	'carpets';
 		}
 	}
 	else{

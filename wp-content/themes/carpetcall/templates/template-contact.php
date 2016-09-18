@@ -379,6 +379,9 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
          
         
          grecaptcha.reset();
+		 jQuery('#cc-enquiry-type').animate({scrollTop: jQuery('#cc-enquiry-type').offset().top}, 800, function() {
+			jQuery('#cc-enquiry-type').focus();
+		});
             }else{
                 if(typeof(response.captcha_error) != "undefined" && response.captcha_error !== null){
           grecaptcha.reset();
