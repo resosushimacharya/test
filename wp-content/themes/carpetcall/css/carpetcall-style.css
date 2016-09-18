@@ -842,6 +842,9 @@ ul#directory_list_id li {
 	color: #15489f;
 	text-align: left;
 }
+.cc-lat-header-top-cover .col-md-8 {
+	width:50%;
+}
 .sfind address {
 	font-family:'proxima_nova_rgregular', sans-serif;
 	font-size:12px;
