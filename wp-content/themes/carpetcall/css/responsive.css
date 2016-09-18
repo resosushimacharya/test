@@ -6219,4 +6219,258 @@
 	.wrap_body{
 		margin-top: 0;
 	}
+	
+	.bookcbk, .calspl a, .cc-cat-sub-title h3 {
+		font-size:36px;
+	}
+	.cptspl {
+		font-size:24px;	
+	}
+	
+	.suptlst li, .aag p, .aag_a p, .aag_c p, .ptxt h4, .ptxt h5, .nowspp a, .trynow, .footer_nav_mobile .foot_mob li > a span, .gtku, .searchm .form-control, .selected-link-cntr span.selected_main_link a, .crt_pname h2, .crt_pname h3, .crt_price h4, .crt_pname h5, .view_cc a, .check_crtt a, .mobile-filter-sec .cc-count-clear a, .cc-price-var-items .range_slider b {
+		font-size:18px;	
+	}
+	
+	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .measr_cnt h3, .intro p, .rmoree a, #main.sec_head_cntr p, .cc-product-sort li a, .cc-count-label, .filter-go-back, .cc-pro-sub-cat-ul.guide_list_cbg h3, .panel-title>a, .cc-cat-sub-desc-sec p {
+		font-size:26px;	
+	}
+	
+	.cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a, #cssmenu ul li ul li a, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a, .ptxt h3 a, .mycrt_blk, .cc-cat-title-count, ul.guide_list_cbg li a, .cc-price-var-items form .checkbox label, .cc-cat-sub-title h4, .proabtxt span {
+		font-size:24px;	
+	}
+	
+	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .error-wrapper  h4, .mobile-filter-sec .cc-cat-title-count, .cc-cat-pro-section-left .glyphicon-chevron-up:before, .meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1, .stmap h2, .social li a, .cc-cat-sub-price, .cc-cat-pro-section-right input, h3.cc-idea-ad-title, .proabtxt h4, .cc-cat-sub-desc-sec h3 {
+		font-size:34px;	
+	}
+	
+	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .measr_cnt h3, .intro p, .rmoree a, #main.sec_head_cntr p, .cc-product-sort li a, .cc-count-label, .filter-go-back, .cc-pro-sub-cat-ul.guide_list_cbg h3, .panel-title>a, .cc-cat-sub-desc-sec p {
+		font-size:24px;	
+	}
+	
+	.cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a, #cssmenu ul li ul li a, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a, .ptxt h3 a, .mycrt_blk, .cc-cat-title-count, ul.guide_list_cbg li a, .cc-price-var-items form .checkbox label, .cc-cat-sub-title h4, .proabtxt span {
+		font-size:20px;	
+	}
+	.sec_head_cntr h3 {
+		font-size:56px;	
+	}
+	.cc-cat-sub-price span {
+		font-size:46px;	
+	}
+	.inerblock_serc h1, .inerblock_serc_child h1 {
+		font-size:58px;	
+	}
+	.parent-guide-content, .parent-guide-content p, .parent-guide-content h3, .parent-guide-content h3.sub_page_title, .parent-guide-content p a, .parent-guide-content ul li, .parent-guide-content ol li, .child-guide-content, .child-guide-content p, .child-guide-content h3, .child-guide-content h3.sub_page_title, .child-guide-content p a, .child-guide-content ul li, .child-guide-content ol li {
+		font-size:26px;	
+	}
+	
+	.inerblock_sec_a h3 {
+		font-size:38px;	
+	}
+	.proabtxt h4, .pro_secone .proabtxt h4 {
+		font-size:28px;	
+	}
+	.proabtxt span, .proabtxt h6 {
+		font-size:22px;	
+	}
+	.wrap_body .child-innerpg .inerblock_serc_child.about-page h1 {
+		font-size:58px;	
+	}
+	.cbg_content p {
+		font-size:18px;	
+	}
+	
+	.error-wrapper h1 {
+		font-size:120px;	
+	}
+	.error-wrapper h3 {
+		font-size:38px;
+	}
+	
+	.faq-cont-blka .cbg_content h2.sub_page_title, .wrap_body .inerblock_sec .cbg_content h2.sub_page_title {
+		font-size:28px;
+	}
+	.about-us-pages-cntr  p a {
+		font-size:18px;	
+	}
+	
+	.parent-guide-content h3, .parent-guide-content h3.sub_page_title, .child-guide-content h3, .child-guide-content h3.sub_page_title, .about-cont-employment .sub_page_title {
+		font-size:28px;
+	}
+	
+	.cc-finder-title h3 {
+		font-size:58px;	
+	}
+	
+	.cc-options-wrapper-nh form button {
+		font-size:24px !important;	
+	}
+	
+	.cc-store-list-section h4 {
+		font-size:36px;	
+	}
+	
+	div.cc-state-link a {		
+		font-size:26px;
+	}
+	
+	.cc-store-icon-label strong a {
+		font-size:28px;
+	}
+	
+	.cc-cat-store-item span, .cc-cat-store-section span.cc-cat-store-item-phone a, .cc-head-office-list-item span {
+		font-size:24px;	
+	}
+	span.cc-cat-store-item-phone strong, span.cc-cat-store-item-fax strong, span.wpsl-hf-street-b strong, span.wpsl-hf-street-c strong {
+		font-size:23px;	
+	}
+	.single-store-title h3 {
+		font-size:50px;	
+	}
+	.wpsl-address-sec h4 {
+		font-size:28px;	
+	}
+	.wpsl-address-sec span, .wpsl-address-sec h1 span {
+		font-size:28px;	
+	}
+	.cc-storef-phnum strong {
+		font-size:26px;	
+	}
+	.cc-single-wpsl-ccstore span.cc-cat-store-item-phone a, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax {
+			font-size:26px;
+	}
+	.wpsl-hour-sec span strong {
+		font-size:28px;	
+	}
+	.wpsl-hour-sec .opeaning_list span.opeaning_day_label {
+		font-size:24px;
+	}
+	.wpsl-hour-sec .opeaning_list time.opeaning_day_time {
+		font-size:24px;
+	}
+	.opeaning_list {
+		font-size:24px;
+	}
+	
+	.images .cc-category-show {
+		font-size:48px;	
+	}
+	
+	.mod-social .cc-share-title {
+		font-size:26px;
+	}
+	.images .mod-social a .fa {
+		font-size:30px;
+	}
+	.single.single-product .cc-price-control h3 span.cc-sale-price-title, .single.single-product .cc-price-control h3 > span {
+	font-size:42px;	
+	}
+	.single.single-product .cc-price-control h3 span.cc-line-through {
+	font-size:22px;	
+	}
+	.summary.entry-summary h3.online_price_subhead, .summary.entry-summary .cc-related-product-design-section h3, .cc-size-quantity-section .cc-size-section h3, .cc-size-quantity-section .cc-quantiy-section h3, .summary.entry-summary h3 {
+	font-size:28px;	
+	}
+	.summary.entry-summary .product_title.entry-title {
+		font-size:20px;
+	}
+	.single.single-product .cc-product-free {
+	font-size:20px;	
+	}
+	.single.single-product .cc-product-ship {
+	font-size:28px;	
+	}
+	.cc-product-pick .btn {
+		font-size:28px;
+	}
+	.cc-product-location .btn-default {
+		font-size:20px;
+	}
+	.single-produc-acc-cntr .panel-title>a {
+		font-size:28px;	
+	}
+	.single-produc-acc-cntr .panel .panel-collapse h2, .single-produc-acc-cntr .panel .panel-collapse h3 {
+		font-size:28px;
+	}
+	.single-produc-acc-cntr .panel .panel-collapse .panel-body p, ul.specific-list li {
+		font-size:22px;
+	}
+	.single-produc-acc-cntr .panel .panel-body .panel-heading a {
+		font-size:18px;
+	}
+	.single-produc-acc-cntr .panel .panel-body .panel-group .panel-body {
+		font-size:18px;
+	}
+	.cc-product-pick-location-section .modal-header .modal-title, .cc-product-pick-location-section .modal-header .modal-a-title {
+	font-size:46px;	
+	}
+	h2.fyns-blk, .querynow .yd-title h3 {
+		font-size:28px;
+	}
+	.str-one h4, .str-two h4 {
+		font-size:28px;
+	}
+	.str-one p, .str-two p {
+		font-size:20px;
+	}
+	.flsm-blk .form-group.col-sm-6 label, .meroi-blka .form-group.col-sm-12 label, .tela-blkb .form-group.col-sm-6 label {
+		font-size:20px;	
+	}
+	.frm-blk .input-group .form-control, .flsm-blk .form-group.col-sm-6 .form-control, .meroi-blka .form-group.col-sm-12 .form-control, .tela-blkb .form-group.col-sm-6 .form-control {
+		font-size:18px;	
+	}
+	.review-form #cc-store-form-section .form-group.col-sm-12 h3, .review-form .ur-msg-title .form-group.col-sm-12 h3 {
+		font-size:28px;
+	}
+	.review-form #cc-store-form-section .form-group.col-sm-12 p {
+		font-size:20px;
+	}
+	.fl-blk .form-control, .mero-blkk .form-group.col-sm-12 .form-control, .tel-blk .form-group.col-sm-6 .form-control, select#cc-state-type, select#cc-store-name {
+	font-size:18px;	
+	}
+	.cc-product-page-info-dis h3.cc-sen-head {
+	font-size:28px !important;	
+	}
+	.cc-product-page-info-dis ul li {
+		font-size:20px;
+	}
+	.form-group.col-sm-12 textarea.form-control {
+		font-size:18px;
+	}
+	select#cc-size, .cc-quantiy-section.col-md-12 .quantity.col-md-12 select#quantity-control {
+		font-size:28px;
+	}
+	.cbg_content.cc-condn-page .product-name a, .cbg_content.cc-condn-page span.amount {
+		font-size:24px;	
+	}
+	table.shop_table.shop_table_responsive.cart > tbody > tr > td, .cart-collaterals table.shop_table > tbody > tr > td {
+	font-size:24px;	
+	}
+	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-subtotal span, .cbg_content.cc-condn-page .order-total span.amount {
+		font-size:28px;	
+	}
+	.cbg_content .cart-collaterals h2 {
+	font-size:28px;	
+	}
+	.faq-cont-blka .inerblock_sec .cbg_content .checkout-form-sec h3 {
+	font-size:28px;	
+	}
+	p.req_info_wrap span.req_text, p.req_info_wrap span.required {
+		font-size:22px;
+	}
+	.cc-condn-page .woocommerce form .form-row label, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td label {
+	font-size:22px;	
+	}
+	#checkout_customer_details .woocommerce-billing-fields .billing_fields_wrapper input.input-text, .shipping_needed_checkout .woocommerce-shipping-fields .shipping_address input.input-text, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td input, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td select {
+	font-size:18px;	
+	float:none;
+	}
+	.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item label.radio span, .woocommerce-checkout .payment-form #payment ul.payment_methods li > label {
+		font-size:18px;
+	}
+	.delivery_option_rugs .rugs_store_pickup_list .nearstore .modal-title, #ship-to-different-address > label {
+	font-size:22px;	
+	}
+	.checkout-form-sec .select2-container .select2-choice>.select2-chosen, .shipping_address select#shipping_country, .shipping_address select#shipping_state {
+	font-size:18px;	
+	}
 }
