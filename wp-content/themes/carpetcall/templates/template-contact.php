@@ -234,7 +234,7 @@ get_header();
                   <div class="error_label"></div>
                 </div>
                  <div class="form-group col-sm-12 contact-captcha-cntr">
-             <script src='https://www.google.com/recaptcha/api.js'></script>
+                <script src='https://www.google.com/recaptcha/api.js'></script>
                       <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LdfuCMTAAAAAGhFRMwboqar9gIW_yfmWVjT7OMj"></div>
                       <input type="hidden" value="" id="check_captcha" name="check_captcha">
                       <div class="error_label"></div>
@@ -368,13 +368,15 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
          jQuery('#mobile_phone_no').val('');
          jQuery('#cc-state-type').val('default');
          jQuery('#cc-store-name').val('default');
-		 jQuery('#check_captcha').val('');
+		     jQuery('#check_captcha').val('');
          
          jQuery('#cc_message').val('');
           jQuery('#cc_message').attr("placeholder", "ENTER YOUR MESSAGE HERE");
          jQuery('#cc-state-type-only').val('default');
          $('.success_message').parent().show();
          jQuery('.success_message').html(response.success).show();
+         jQuery('#cc-store-name').html(" <option class=\"col-md-12\" value=\"default\">Select a Store</option>");
+         
         
          grecaptcha.reset();
             }else{
