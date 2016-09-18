@@ -1866,7 +1866,7 @@
 	.cc-cat-pro-section-left {
 	    position: fixed;
 	    top: 0;
-	    z-index: 9999;
+	    z-index: 10001;
 	    width: 100%;
 	    left: 0;
 	    background: #fff;
@@ -1976,7 +1976,9 @@
 	    margin: 0;
 	    margin-top: 10px;
 	}
-
+	.clear_color_selection{
+		display: none !important;
+	}
 	/* Price */
 	.cc-color-var-item li{
 
@@ -3289,11 +3291,13 @@
         font-size: 36px;
 	    margin: 0 0 10px 15px;
 	}
+	.single-store-bottom-info, .wpsl-address-sec h1{
+		padding-left: 15px;
+	}
 	.wpsl-address-sec span, .wpsl-address-sec h1 span{
 		line-height: 48px;
 		margin: 0;
-	    font-size: 32px;
-	    margin-left: 15px;
+	    font-size: 32px;	    
 	}
 	.wpsl-locations-details{
 		margin: 0 0 40px 15px;
@@ -3584,6 +3588,10 @@
 	}
 	.billing-details-cntr .checkout_next_prev_button.read_more {
 	    margin: 0;
+	}
+	#checkout_delivery .cc_error{
+		bottom: 95px;
+		margin: 0;
 	}
 	.checkout_next_prev_button.read_more a {
 	    width: 220px;
@@ -5254,8 +5262,7 @@
 	}
 	.wpsl-address-sec span, .wpsl-address-sec h1 span {
 	    line-height: 1;	    
-	    font-size: 18px;
-	    margin-left: 15px;
+	    font-size: 18px;	    
 	}
 	.wpsl-locations-details{
 		margin: 0 0 30px 15px;
@@ -5918,10 +5925,11 @@
 		font-size: 16px;
 	}
 	.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p.addres{
-		margin-top: 40px
+		margin-top: 40px;
 	}
 	.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p.address, .delivery_option_both .nearstore .pickup_location_list > p.address, .delivery_option_hardflooring .nearstore .pickup_location_list > p.address{
 		margin-top: 10px;
+		margin-left: 40px;
 	}
 	.checkout_next_prev_button.read_more{
 		margin-top: 10px

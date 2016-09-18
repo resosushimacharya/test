@@ -4255,6 +4255,7 @@ ul.cc-color-var-item {
 	font-size:14px;
 	font-weight:normal;
 	color: #666666;
+	cursor: pointer;
 }
 .cc-price-var-items form .checkbox input[type="checkbox"] {
 	opacity: 0;
