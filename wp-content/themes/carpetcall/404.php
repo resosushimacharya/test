@@ -41,7 +41,13 @@ get_header();
              <div class="col-md-12">
 			<button class="error-red-link" ><a href="<?php echo $oldlink; ?>">GO BACK</a></button>
 		</div>
-		<?php }?>
+		<?php }
+		else{
+			?>
+			   <div class="col-md-12">
+			<button class="error-red-link" ><a href="<?php echo site_url();?>">GO TO HOMEPAGE</a></button>
+		</div>
+			<?php } ?>
 		</div>
 		
 </div>

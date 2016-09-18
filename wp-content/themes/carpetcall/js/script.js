@@ -95,40 +95,46 @@
       jQuery('#storefinder_btn').click(function() {
         jQuery(this).next(".dropdown-content").toggle();
         jQuery(this).parent('.dropdown').toggleClass('click-open');
-        jQuery('.woocomerce_dropdown').removeClass('open');
+        jQuery('.woocomerce_dropdown').removeClass('open');        
       });
     }
     //storeFinderClick();
      window.addEventListener('resize', storeFinderClick);
     // Store Finder Btn Header End
-    
+
+    jQuery('.popup-overlay-div').on("click", function(){
+      $('#storefinder_id').removeClass('click-open');
+      $('li#woo_control').removeClass('open');
+      $('#after_dropdown').hide();
+      $(this).removeClass('open-overlay');
+    });
     // Top Cart DropDown
     
-    if(jQuery(window).width() > 800){
+   
       jQuery(document).on("click",function(e) {
-       // e.preventDefault();
-        var container = jQuery("#after_dropdown");
-        var bannerHeight = jQuery('.banner').outerHeight(true);
-        var extra = jQuery(".pac-container");
-        var xclick = window.event.clientX;
-
-        var yclick = window.event.clientY;
-        yclick = yclick + bannerHeight;
-        var compare = jQuery("#after_dropdown").height();
-        var posx = jQuery("#after_dropdown").position();
-        var postoptbox = jQuery("#after_dropdown").offset().top + jQuery("#after_dropdown").height();
-        postoptbox = postoptbox + 100;
-        var posleftbox = jQuery("#storefinder_btn").offset().left + jQuery("#after_dropdown").width();
-        compare = compare + bannerHeight;
-        
-        if ((yclick > 900 )|| (xclick > posleftbox || xclick < jQuery("#storefinder_btn").offset().left)) {
-          jQuery('#after_dropdown').hide();
-          jQuery('.storefinder_cntr').removeClass('click-open');
-        }      
+		   if(jQuery(window).width() > 800){
+			   // e.preventDefault();
+				var container = jQuery("#after_dropdown");
+				var bannerHeight = jQuery('.banner').outerHeight(true);
+				var extra = jQuery(".pac-container");
+				var xclick = e.screenX;
+		
+				var yclick = e.screenY;
+				yclick = yclick + bannerHeight;
+				var compare = jQuery("#after_dropdown").height();
+				var posx = jQuery("#after_dropdown").position();
+				var postoptbox = jQuery("#after_dropdown").offset().top + jQuery("#after_dropdown").height();
+				postoptbox = postoptbox + 100;
+				var posleftbox = jQuery("#storefinder_btn").offset().left + jQuery("#after_dropdown").width();
+				compare = compare + bannerHeight;
+				
+				if ((yclick > 900 )|| (xclick > posleftbox || xclick < jQuery("#storefinder_btn").offset().left)) {
+				  jQuery('#after_dropdown').hide();
+				  jQuery('.storefinder_cntr').removeClass('click-open');
+				} 
+		   }
       });
-    }else{
 
-    }
 
     jQuery(document).on('click','.product-remove a',function(){
       setTimeout(function(){ load_minicart(); }, 1500);
@@ -253,33 +259,14 @@
         }
       }
 
-      $('#cssmenu > ul > li.main-menu-item > a').on('click touchend', function(e){
-        if($(window).innerWidth() <= 800 ){          
-          e.preventDefault();
-          var liParent = $(this).parent("li");        
-
-          if(liParent.hasClass('open_sub_nav')){                    
-            liParent.find('ul.menu-depth-1').removeClass('is-visible');
-            liParent.removeClass('open_sub_nav');          
-          }else{
-            jQuery('#cssmenu > ul > li.main-menu-item ul.sub-menu' ).removeClass('is-visible');
-            jQuery('#cssmenu > ul > li.main-menu-item.open_sub_nav' ).removeClass('open_sub_nav');
-            $('#cssmenu ul li ul li.sub-menu-item.open_inner_nav').removeClass('open_inner_nav');
-            liParent.addClass('open_sub_nav');
-            liParent.find('ul.menu-depth-1').addClass('is-visible');
-          }
-
-          if($(this).hasClass('show_nav')){
-            $(this).removeClass('show_nav');
-          }else{
-            $(this).addClass('show_nav');
-            $('#cssmenu > ul > li.main-menu-item > a.show_nav').removeClass('show_nav');
-            $(this).addClass('show_nav');
-          }
-        }
+      $(document).on('click touchend','#cssmenu > ul > li.main-menu-item > a', function(e){
+        if($(window).innerWidth() <= 800 ){}
       });
 
-      $('#cssmenu ul li ul.menu-depth-1 li.sub-menu-item span.right_arrow').on('click', function(){        
+
+
+      $(document).on('click', '#cssmenu ul li ul.menu-depth-1 li.sub-menu-item span.right_arrow', function(){ 
+	       
          if($(window).innerWidth() <= 800 ){
           var innerParent = $(this).parent('li');
           var mainParent = $(this).parents('li.open_sub_nav');
@@ -540,3 +527,82 @@
 })(jQuery);
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////// double tab go js /////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+/*
+	By Osvaldas Valutis, www.osvaldas.info
+	Available for use under the MIT License
+*/
+
+;(function($, window, document, undefined) {
+	$.fn.doubleTapToGo = function(action) {
+
+		if (!('ontouchstart' in window) &&
+			!navigator.msMaxTouchPoints &&
+			!navigator.userAgent.toLowerCase().match( /windows phone os 7/i )) return false;
+
+		if (action === 'unbind') {
+			this.each(function() {
+				$(this).off();
+				$(document).off('click touchstart MSPointerDown', handleTouch);	
+			});
+
+		} else {
+			this.each(function() {
+				var curItem = false;
+	
+				$(this).on('click', function(e) {
+					var item = $(this);
+					if (item[0] != curItem[0]) {
+						e.preventDefault();
+						curItem = item;
+						if(jQuery(e.target).is('a')){
+							//  e.preventDefault();
+							  var liParent = $(this);        
+					
+							  if(liParent.hasClass('open_sub_nav')){                    
+								liParent.find('ul.menu-depth-1').removeClass('is-visible');
+								liParent.removeClass('open_sub_nav');          
+							  }else{
+								jQuery('#cssmenu > ul > li.main-menu-item ul.sub-menu' ).removeClass('is-visible');
+								jQuery('#cssmenu > ul > li.main-menu-item.open_sub_nav' ).removeClass('open_sub_nav');
+								$('#cssmenu ul li ul li.sub-menu-item.open_inner_nav').removeClass('open_inner_nav');
+								liParent.addClass('open_sub_nav');
+								liParent.find('ul.menu-depth-1').addClass('is-visible');
+							  }
+					
+							if($(this).find('a').hasClass('show_nav')){
+								$(this).find('a').removeClass('show_nav');
+							  }else{
+								$(this).find('a').addClass('show_nav');
+								$('#cssmenu > ul > li.main-menu-item > a.show_nav').removeClass('show_nav');
+								$(this).find('a').addClass('show_nav');
+							  }
+						}
+					}
+				});
+	
+				$(document).on('click touchstart MSPointerDown', handleTouch); 
+				
+				function handleTouch(e) {
+					var resetItem = true,
+						parents = $(e.target).parents();
+	
+					for (var i = 0; i < parents.length; i++)
+						if (parents[i] == curItem[0])
+							resetItem = false;
+	
+					if(resetItem)
+						curItem = false;
+				}
+			});
+		}
+		return this;	
+	};
+})(jQuery, window, document);
+jQuery(document).ready(function(e) {
+	
+    jQuery('#menu-main > li:has(ul)').doubleTapToGo();
+});
+////////////////////////////////////////////////////////////////////////
