@@ -359,6 +359,7 @@ function show_category_slider_block($args=array()){
 										);
 				
 			}
+			//do_action('pr',$color_arr);
 			if($size !='' && !empty($size)){
 				$size_arr = array();
 				foreach($size as $size_name){
@@ -404,14 +405,17 @@ function show_category_slider_block($args=array()){
 				$grp_prods = array();
 				foreach ($all_products as $product)
 				{ 
-					if(get_post_meta($product->ID,'_stock_status',true) =='instock'){
+				$_product = new WC_Product($product->ID);
+					if($_product->is_in_stock()){
 						$title = $product->post_title;
 						$grp_code_arr = explode('.',$title);
 						$grp_prods[$product->ID] = $grp_code_arr[1];
 					}
 				}
 				wp_reset_postdata();
-				$product_ids = array_keys(array_unique($grp_prods));
+				if(!empty($grp_prods)){
+					$product_ids = array_keys(array_unique($grp_prods));
+				}
 				if(!empty($product_ids)){
 					$found_cat ++;
 					$grp_prod_args = array(
@@ -456,39 +460,10 @@ function show_category_slider_block($args=array()){
 					
 					$slidercounter = 1;
 					while($filloop->have_posts()){
+						
 						$post = $filloop->the_post();
 						$imgflag = false;
 						$feat_image = cc_custom_get_feat_img(get_the_ID(),'large');
-						
-						
-						/*die;
-							$proImageName = wp_get_attachment_url($imgid);
-							if(preg_match("/\_L/i", $image_full)){
-								$feat_image = wp_get_attachment_image_src($imgid,'full');
-								if($feat_image){
-									$feat_image = $feat_image[0];
-									
-
-								}
-							}elseif(preg_match("/\_V/i", $proImageName)){
-								$feat_image = wp_get_attachment_image_src($imgid,'full');
-								if($feat_image){
-									$feat_image = $feat_image[0];
-									$imgflag = true;
-								}
-								}
-								elseif(preg_match("/\_S/i", $proImageName)){
-								$feat_image = wp_get_attachment_image_src($imgid,'full');
-								if($feat_image){
-									$feat_image = $feat_image[0];
-									$imgflag = true;
-								}
-								}
-						
-						
-						*/
-						
-						
 						if($pch==1){
 							$res = get_post_meta($filloop->post->ID ,'_sale_price',true);
 							//$res = get_post_meta($filloop->post->ID ,'_regular_price',true);
@@ -718,7 +693,8 @@ function loadmore_hf($args){
 					if(!empty($filloop)){
 						$slidercounter = 1;
 						foreach($filloop as $post){
-
+						$_product = new WC_Product($post->ID);
+						if($_product->is_in_stock()){
 						$feat_image = cc_custom_get_feat_img($post->ID,'large');
 						
 							if($pch==1){
@@ -741,6 +717,7 @@ function loadmore_hf($args){
 								$slidercounter++;
 							}
 						}
+						}
 						wp_reset_query();
 					}
 					if(!empty($filloop)){?>
@@ -748,7 +725,8 @@ function loadmore_hf($args){
                         <?php 
                         $slidercounter = 1;
                         foreach($filloop as $post){
-						
+						$_product = new WC_Product($post->ID);
+						if($_product->is_in_stock()){
 						$feat_image = cc_custom_get_feat_img($post->ID,'small');
 						
 							?>
@@ -760,6 +738,7 @@ function loadmore_hf($args){
 							</div>
                         <?php 
 						}
+					}
                         wp_reset_query(); ?>
                         </div>
 					<?php }
@@ -863,6 +842,8 @@ function load_more_carpet_blinds($args){
 					
 					if(!empty($filloop)){
 						foreach($filloop as $post){
+							$_product = new WC_Product($post->ID);
+							if($_product->is_in_stock()){
 							$product = new WC_Product($post->ID);
 							$attachment_ids = $product->get_gallery_attachment_ids();
 					//do_action('pr',$attachment_ids);
@@ -887,6 +868,7 @@ function load_more_carpet_blinds($args){
                                     </div>
 							<?php break;
 						}
+					}
 						wp_reset_query();
 					}
 					if(!empty($filloop)){?>
@@ -894,6 +876,8 @@ function load_more_carpet_blinds($args){
 						<?php 
                         $slidercounter = 1;
                         foreach($filloop as $post){
+						$_product = new WC_Product($post->ID);
+						if($_product->is_in_stock()){	
 							$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID),'thumbnail' );
 							$proGal = get_post_meta($post->ID, '_product_image_gallery', TRUE );
 							$proGalId = explode(',',$proGal);
@@ -904,7 +888,6 @@ function load_more_carpet_blinds($args){
 									if($feat_image){
 										$feat_image = $feat_image[0];
 									}
-									
 								if($feat_image =='' || !$feat_image){
 									$feat_image = get_template_directory_uri().'/images/placeholder.png';
 								}
@@ -919,6 +902,7 @@ function load_more_carpet_blinds($args){
 								<?php
 							}
 						}
+					}
                         wp_reset_query(); ?>
                        </div>
 					<?php }
@@ -1055,9 +1039,16 @@ function cc_custom_search($args){
 					while($filloop->have_posts()){
 						$filloop->the_post();
 						$woo=get_post_meta(get_the_ID());
-						if(strcasecmp($woo['_stock_status'][0],'instock')==0){
+						$_product = new WC_Product(get_the_ID());
+						if($_product->is_in_stock()){
 							$feat_image = cc_custom_get_feat_img(get_the_ID(),'medium');
-							$price=$woo['_regular_price'][0];
+							if(has_term('rugs','product_cat',get_the_ID())){
+								$price=round($woo['_sale_price'][0]);
+								}else{
+									$price=round($woo['_regular_price'][0]);
+									}
+							
+							
 							?>
                             
                             
@@ -1689,13 +1680,27 @@ function cc_custom_get_feat_img($post_id,$size='small',$pattern='L'){
 								break;
 							}
 						}
-							}else{
+							}
+							else{
 								if($size == 'small'){
 									$size = 'thumbnail';
 									}elseif($size=='large'){
 										$size = 'full';
 										}
+								if(has_term('carpets','product_cat',$post_id)){
+									global $woocommerce;
+									$product = new WC_Product($post_id);
+									$attachment_ids = $product->get_gallery_attachment_ids();
+									//do_action('pr',$attachment_ids);
+									if(!empty($attachment_ids)){
+										//echo '<div class="test" style="display:none">'.$attachment_ids[0].'</div>';
+										//$image_link = wp_get_attachment_url( $attachment_ids[0] );
+										$feat_image = wp_get_attachment_image_src($attachment_ids[0],$size);
+										}
+									
+								}else{
 								$feat_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $size ); 
+								}
 								if(!$feat_image){
 									$feat_image = get_template_directory_uri().'/images/placeholder.png';
 									}else{
@@ -1738,7 +1743,7 @@ function cc_checkout_fields_customize( $fields ) {
      $fields['billing']['billing_address_2']['label'] = 'Address Line 2';
      $fields['billing']['billing_city']['placeholder'] = '';
      $fields['billing']['billing_city']['label'] = 'Suburb/City';
-     $fields['billing']['billing_postcode']['placeholder'] = '';
+     //$fields['billing']['billing_postcode']['placeholder'] = '';
 
 
      $fields['shipping']['shipping_first_name']['placeholder'] = 'EG. JOHN';
@@ -1778,6 +1783,14 @@ function cc_smart_category_top_parent_id ($catid) {
     }
     return $catParent;
 }
+/*
+Change the From Wrodpress to Carpetcall in emails to Admin for all enquiry emails
+*/
+function cc_filter_wp_mail_from_name($from_name){
+return "Carpetcall";
+}
+add_filter("wp_mail_from_name", "cc_filter_wp_mail_from_name");
+
 
 
 //add_rewrite_rule('^shop-our-range/([^/]*)/([^/]*)/([^/]*)/([^/]*)?','index.php?&product=$matches[4]','top');
