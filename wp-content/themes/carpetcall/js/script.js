@@ -257,7 +257,8 @@
         if($(window).innerWidth() <= 800 ){}
       });
 
-      $(document).on('click touchend', '#cssmenu ul li ul.menu-depth-1 li.sub-menu-item span.right_arrow', function(){      
+      $(document).on('click', '#cssmenu ul li ul.menu-depth-1 li.sub-menu-item span.right_arrow', function(){ 
+	       
          if($(window).innerWidth() <= 800 ){
           var innerParent = $(this).parent('li');
           var mainParent = $(this).parents('li.open_sub_nav');
@@ -548,35 +549,29 @@
 					if (item[0] != curItem[0]) {
 						e.preventDefault();
 						curItem = item;
-						
-						          
-								  console.log(this);
-					//  e.preventDefault();
-					  var liParent = $(this);        
-			
-					  if(liParent.hasClass('open_sub_nav')){                    
-						liParent.find('ul.menu-depth-1').removeClass('is-visible');
-						liParent.removeClass('open_sub_nav');          
-					  }else{
-						jQuery('#cssmenu > ul > li.main-menu-item ul.sub-menu' ).removeClass('is-visible');
-						jQuery('#cssmenu > ul > li.main-menu-item.open_sub_nav' ).removeClass('open_sub_nav');
-						$('#cssmenu ul li ul li.sub-menu-item.open_inner_nav').removeClass('open_inner_nav');
-						liParent.addClass('open_sub_nav');
-						liParent.find('ul.menu-depth-1').addClass('is-visible');
-					  }
-			
-					  if($(this).find('a').hasClass('show_nav')){
-						$(this).find('a').removeClass('show_nav');
-					  }else{
-						$(this).find('a').addClass('show_nav');
-						$('#cssmenu > ul > li.main-menu-item > a.show_nav').removeClass('show_nav');
-						$(this).find('a').addClass('show_nav');
-					  }
-        
-						
-						
-						
-						
+						if(jQuery(e.target).is('a')){
+							//  e.preventDefault();
+							  var liParent = $(this);        
+					
+							  if(liParent.hasClass('open_sub_nav')){                    
+								liParent.find('ul.menu-depth-1').removeClass('is-visible');
+								liParent.removeClass('open_sub_nav');          
+							  }else{
+								jQuery('#cssmenu > ul > li.main-menu-item ul.sub-menu' ).removeClass('is-visible');
+								jQuery('#cssmenu > ul > li.main-menu-item.open_sub_nav' ).removeClass('open_sub_nav');
+								$('#cssmenu ul li ul li.sub-menu-item.open_inner_nav').removeClass('open_inner_nav');
+								liParent.addClass('open_sub_nav');
+								liParent.find('ul.menu-depth-1').addClass('is-visible');
+							  }
+					
+							if($(this).find('a').hasClass('show_nav')){
+								$(this).find('a').removeClass('show_nav');
+							  }else{
+								$(this).find('a').addClass('show_nav');
+								$('#cssmenu > ul > li.main-menu-item > a.show_nav').removeClass('show_nav');
+								$(this).find('a').addClass('show_nav');
+							  }
+						}
 					}
 				});
 	
