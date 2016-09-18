@@ -4160,6 +4160,40 @@ div#collapse_color .panel-body {
 	width: 38px;
 	height: 38px;
 	display: block;
+	position: relative;
+}
+.swatch .swatch-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.4);
+    opacity: 0;
+}
+.swatch .cc-tick-display {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.swatch.select-color .swatch-overlay{
+	opacity: 1;
+}
+.swatch.select-color::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    border: 2px solid #039aff;
+    z-index: 1;
+    border-radius: 4px;
 }
 ul.cc-color-var-item {
 	list-style: none;
@@ -4176,11 +4210,19 @@ ul.cc-color-var-item {
 .cc-price-var-sec .panel-default>.panel-heading, .cc-size-var-sec .panel-default>.panel-heading {
 	background-color: transparent;
 	border-color: transparent;
-	padding: 10px 0;
+	padding: 20px 0;
+	border-top: 1px solid #e7edf8 ;
+}
+.cc-cat-pro-section-left .cc-price-var-sec{
+	border-bottom: 1px solid #e7edf8 ;
+}
+.cc-price-var-sec .panel-default .panel-body{
+	padding: 10px 0 !important;
 }
 .cc-price-var-items .checkbox {
 	margin: 9px 0 10px 0;
 }
+
 .panel-group.cc-price-var {
 	margin-bottom:0;
 }
@@ -5553,7 +5595,7 @@ li.cc-head-wpsl-phone a:hover {
 	border-bottom-width: 0px;
 	border-left-width: 0px;
 }
-.cbg_content .panel-body .panel-body-table table > tbody tr.bg_table:nth-child(1)  {
+.cbg_content .panel-body .panel-body-table table > tbody tr:nth-child(1)  {
 	border-bottom:1px solid #efefef;
 	padding-bottom:6px;
 	font-family:'proxima_nova_rgregular', sans-serif;
@@ -5561,7 +5603,7 @@ li.cc-head-wpsl-phone a:hover {
 	color:#15489f;
 	text-transform:uppercase;
 }
-.cbg_content .panel-body .panel-body-table table > tbody tr.bg_table:nth-child(1) td {
+.cbg_content .panel-body .panel-body-table table > tbody tr:nth-child(1) td {
 	text-align:center;
 }
 .cbg_content .panel-body .panel-body-table table > tbody tr td::before {
@@ -5576,7 +5618,7 @@ li.cc-head-wpsl-phone a:hover {
 .panel-body-table table td.td-empty::before{
 	display: none;
 }
-.cbg_content .panel-body .panel-body-table table > tbody tr.bg_table:nth-child(1) td::before  {
+.cbg_content .panel-body .panel-body-table table > tbody tr:nth-child(1) td::before  {
 	display:none;
 }
 .panel-body-table table {
