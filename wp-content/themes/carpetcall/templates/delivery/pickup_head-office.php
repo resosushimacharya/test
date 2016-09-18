@@ -68,7 +68,7 @@
                 <div class="pickup_location_list">
   <p class="form-row form-row validate-required" id="pickup_store_id_field">
     <label class="inner-radio-label">
-      <input type="radio" class="input-radio " value="<?php echo get_the_ID()?>" name="pickup_store_id" id="pickup_store_id_<?php echo get_the_ID()?>" style="opacity: 0;">
+      <input type="radio" class="input-radio " value="<?php echo get_the_ID()?>" name="pickup_store_id" id="pickup_store_id_<?php echo get_the_ID()?>" style="opacity: 0; visibility:hidden">
     </label>
     <label for="pickup_store_id_<?php echo get_the_ID()?>" class="radio "></label>
   </p>
