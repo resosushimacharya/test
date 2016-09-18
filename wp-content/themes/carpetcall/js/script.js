@@ -92,12 +92,14 @@
 
     // Store Finder Btn Header    
     function storeFinderClick(){
-      jQuery('#storefinder_btn').click(function() {
+      
+    }
+	jQuery(document).on('click','#storefinder_btn',function() {
         jQuery(this).next(".dropdown-content").toggle();
         jQuery(this).parent('.dropdown').toggleClass('click-open');
         jQuery('.woocomerce_dropdown').removeClass('open');        
       });
-    }
+	  
     //storeFinderClick();
      window.addEventListener('resize', storeFinderClick);
     // Store Finder Btn Header End
@@ -108,10 +110,20 @@
       $('#after_dropdown').hide();
       $(this).removeClass('open-overlay');
     });
+	
+	jQuery(document).on('click',function(e){
+		 if (jQuery(e.target).parents('#storefinder_id').length == 0) {
+			
+			jQuery("#after_dropdown.dropdown-content").hide();
+			jQuery('#storefinder_id.dropdown').removeClass('click-open');
+			jQuery('.woocomerce_dropdown').removeClass('open');    
+		}
+		
+	})
     // Top Cart DropDown
     
    
-      jQuery(document).on("click",function(e) {
+     /* jQuery(document).on("click",function(e) {
 		   if(jQuery(window).width() > 800){
 			   // e.preventDefault();
 				var container = jQuery("#after_dropdown");
@@ -134,7 +146,7 @@
 				} 
 		   }
       });
-
+*/
 
     jQuery(document).on('click','.product-remove a',function(){
       setTimeout(function(){ load_minicart(); }, 1500);
