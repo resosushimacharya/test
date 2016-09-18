@@ -430,6 +430,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
          $('.success_message').parent().show();
          jQuery('.success_message').html(response.success).show();
          jQuery('#check_captcha_one').val('');
+          jQuery('#cc-store-name').html(" <option class=\"col-md-12\" value=\"default\">Select a Store</option>");
          grecaptcha.reset();
             }else{
                 if(typeof(response.captcha_error) != "undefined" && response.captcha_error !== null){
@@ -438,6 +439,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
            $('.error_message').parent().show();
            $('#recaptcha-anchor-label').html('Captcha Error')
           jQuery('.error_message').html(response.captcha_error).show();
+
         }else if(typeof(response.error) != "undefined" && response.error !== null){
             grecaptcha.reset();
            $('.error_message').parent().show();
@@ -447,6 +449,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
         jQuery('#check_captcha_one').val('');
             }
          }
+         
       }) 
 }
 }) 
