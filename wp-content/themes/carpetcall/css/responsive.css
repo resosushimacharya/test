@@ -55,7 +55,7 @@
 	/* Font-size 24px; End */
 
 	/* Font-size 28px; */
-	.cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a, #cssmenu ul li ul li a, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a, .ptxt h3 a, .mycrt_blk, .cc-cat-title-count, ul.guide_list_cbg li a, .cc-price-var-items form .checkbox label, .cc-cat-sub-title h4, .proabtxt span{
+	.cptinn a, .ptxt h3, ul.guide_list li a, .measr_cnt p, .find_tbb a, #cssmenu ul li ul li a, #cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a, .ptxt h3 a, .mycrt_blk, .cc-cat-title-count, ul.guide_list_cbg li a, .cc-price-var-items form .checkbox label, .cc-cat-sub-title h4, .proabtxt span, .cbg_content h2 strong{
 		font-size: 28px;
 	}
 	/* Font-size 28px; End */
@@ -2331,6 +2331,7 @@
 	    padding: 15px 90px 15px 40px;
 	    width: 100%;
 	    background-size: 90px;
+		line-height:1;
 	}
 	.cc-quantiy-section.col-md-12 .quantity.col-md-12 select#quantity-control{
 		width: 80% !important;
@@ -2367,6 +2368,7 @@
 	    font-size: 24px;
 	    line-height: 44px;
 	    color: #3aaa35;
+		text-align:right;
 	}
 	.summary.entry-summary .cc-product-pick-location-section {
 	    margin-top: 40px;
@@ -2379,6 +2381,7 @@
 	.cc-product-location{
 		float: right;
 		width: 50%;
+		text-align:right;
 	}
 	.cc-product-pick .btn{
 		font-size: 36px;

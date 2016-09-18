@@ -329,7 +329,7 @@ wp_reset_postdata();
       	<button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal2">ENQUIRE NOW</button>
       </div>
       <div class="cc-product-ship-free-section col-md-12">
-      <div class="cc-product-ship col-md-6"><span>SHIPPING</span><i class="fa fa-info-circle mobile" aria-hidden="true"></i></div><div class="cc-product-free col-md-6"> Not available</div>
+      <div class="cc-product-ship col-md-6"><span>SHIPPING</span><i class="fa fa-info-circle mobile" aria-hidden="true"></i></div><div class="cc-product-free col-md-6 not_available"> Not available</div>
       </div>
       <div class="cc-product-pick-location-section col-md-12">
       <div class="cc-product-pick col-md-6">
