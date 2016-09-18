@@ -681,6 +681,10 @@
 	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span{
 		font-family: 'ProximaN Bold';
 	}
+	.so_title{
+		font-size: 32px;
+		font-family: 'ProximaN Bold';
+	}
 	.meroshop .col-md-4 .aag img{
 		position: absolute;
 		top: 50%;
@@ -1911,6 +1915,7 @@
 	}
 	.mobile-filter-sec .cc-cat-title-count{
 		margin-right: 25px;
+		display: none;
 	}	
 	ul.guide_list_cbg {
 	    padding: 40px 50px 30px;
@@ -2008,7 +2013,7 @@
 		top: -4px;
 	    left: 1px;
 	    width: 42px;
-	    height: 28px;
+	    height: 38px;
 	    background-size: cover;
 	}
 	
@@ -2023,7 +2028,7 @@
 	}
 	.mobile-apply-btn a {
 	    font-size: 36px;
-	    display: inline-block;
+	    display: inline-block; 	
 	    height: 90px;
 	    text-transform: uppercase;
 	    line-height: 90px;
@@ -2920,6 +2925,8 @@
 	.single-produc-acc-cntr .panel .panel-collapse h3.acc_title_n_cat span.acc_title{
 		display: block;
 		line-height: 1;
+		height: 72px;
+		overflow: hidden ;
 	}
 	.single-produc-acc-cntr .panel .panel-collapse h3.acc_title_n_cat span.acc_title a {
 	    font-size: 28px;
@@ -2952,7 +2959,7 @@
 	    text-transform: uppercase;
 	    color: #087bda;
 	}
-	.accessories_innner_wrap span.acc_price.small_price .cc-price-control h3 span.cc-sale-price-title, .acc_price.small_price .cc-price-control .cc-line-through {
+	.accessories_innner_wrap span.acc_price.small_price .cc-price-control h3 span.cc-sale-price-title, .acc_price.small_price .cc-price-control .cc-line-through, .accessories_innner_wrap .acc_price.small_price .cc-price-control h3 span {
 	    font-size: 24px;
 	}
 	.acc_qnty .rec_qty_wrap {
@@ -2965,7 +2972,7 @@
 	    margin-right: 15px;
 	}
 	.acc_qnty span.acc_qty_lbl, .acc_qnty span.acc_rec_qty {
-	    font-size: 24px;
+	    font-size: 20px;
 	}
 	.access-add-to-cart-btn {
 	    padding: 0 15px;
@@ -4032,7 +4039,7 @@
 	}
 	.dropdown-content{
 		padding: 15px 20px 30px;
-		max-height: 300px;
+		max-height: 400px;
 	}
 	.loplc h3{
 		margin-top: 6px;
@@ -4204,6 +4211,9 @@
 	}
 	.so_title, .aag p, .meroshop .col-md-4:nth-child(2) .aag .so_title, .meroshop .col-md-4:nth-child(2) .aag p, .meroshop .col-md-4:nth-child(3) .aag p{
 		margin-left: 80px;
+	}
+	.so_title {
+	    font-size: 22px;
 	}
 	.meroshop .col-md-4:nth-child(1) .aag img,  .meroshop .col-md-4:nth-child(3) .aag img{
 	    width: 45px;	
@@ -5008,6 +5018,7 @@
 	.single-produc-acc-cntr .panel .panel-collapse h3.acc_title_n_cat span.acc_title{
 		display: block;
 		line-height: 1;
+		height: 50px;
 	}
 	.single-produc-acc-cntr .panel .panel-collapse h3.acc_title_n_cat span.acc_title a {
 	    font-size: 22px;
@@ -5026,7 +5037,7 @@
 	.single-produc-acc-cntr .panel .panel-collapse h3.acc_title_n_cat span.acc_subcat a{
 		font-size: 18px;
 	}
-	.accessories_innner_wrap span.acc_price.small_price .cc-price-control h3 span.cc-sale-price-title, .acc_price.small_price .cc-price-control .cc-line-through {
+	.accessories_innner_wrap span.acc_price.small_price .cc-price-control h3 span.cc-sale-price-title, .acc_price.small_price .cc-price-control .cc-line-through, .accessories_innner_wrap .acc_price.small_price .cc-price-control h3 span {
 	    font-size: 18px;
 	}
 	.acc_qnty .rec_qty_wrap {
@@ -6023,9 +6034,9 @@
 	/* Font-size 24px; End */
 
 	/* Font-size 26px; */
-	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .measr_cnt h3, .intro p, .rmoree a, .loplc h3, #main.sec_head_cntr p, .cc-product-sort li a, .cc-count-label, .filter-go-back, .cc-pro-sub-cat-ul.guide_list_cbg h3, .panel-title>a, .cc-cat-sub-desc-sec p, .cc-cat-sub-desc-sec ul li{
+	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .measr_cnt h3, .intro p, .rmoree a, .loplc h3, #main.sec_head_cntr p, .cc-product-sort li a, .cc-count-label, .filter-go-back, .cc-pro-sub-cat-ul.guide_list_cbg h3, .panel-title>a, .cc-cat-sub-desc-sec p, .cc-cat-sub-desc-sec ul li, .so_title{
 		font-size: 18px;
-	}
+	}	
 	/* Font-size 26px; End */
 
 	/* Font-size 32px; */
@@ -6232,7 +6243,7 @@
 	}
 }
 
-@media only screen and (max-width: 800px) and (orientation: landscape){
+@media (max-width: 800px) and (orientation: landscape){
 	.banner{
 	    position: relative;
 	    overflow-x: hidden;

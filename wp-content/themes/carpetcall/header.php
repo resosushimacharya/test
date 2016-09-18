@@ -255,6 +255,8 @@ if(get_post_type() == 'product'){?>
     <div id="loading_overlay_div"></div>
 <?php } ?>
 
+<div class="popup-overlay-div"></div>
+
 <div class="container-fluid wrapper clearfix">
     <div class="container-fluid banner clearfix">
         <div class="container">
@@ -402,7 +404,7 @@ if(get_post_type() == 'product'){?>
                 load_minicart();
                 jQuery('#after_dropdown').hide();
                 $('.storefinder_cntr').removeClass('click-open');
-                jQuery('#woo_control').show();
+                jQuery('#woo_control').show();                                 
             });
         }
         cartDrop();
