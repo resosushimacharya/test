@@ -8,7 +8,7 @@
 <?php  ?>
 
 <div class="cbg_blk cc-clearance-blk clearfix">
- <div class="container ">
+ <div class="container">
 <div class="inerblock_serc cc-wrapper-whole">
 <div class="col-md-12">					
  <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">

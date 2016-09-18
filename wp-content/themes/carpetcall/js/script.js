@@ -140,7 +140,7 @@
       setTimeout(function(){ load_minicart(); }, 1500);
     });
 
-    if(jQuery('.ia-block').length){
+    if(jQuery('.ia-block .container').length > 0){
       window.addEventListener('resize', ia_right_offset);
       ia_right_offset();
       function ia_right_offset(){
@@ -150,13 +150,15 @@
       }
     }
 
-    if(jQuery('.cc-clearance-blk').length){
+    if(jQuery('.cc-clearance-blk .container').length > 0){
       window.addEventListener('resize', ia_right_offset);
       ia_right_offset();
       function ia_right_offset(){
-        var left_offset = jQuery('.cc-clearance-blk .container').offset().left;
-        var parent_width = jQuery('.cc-ia-banner-a').parents('.ia-imgg').outerWidth();
-        jQuery('.cc-ia-banner-a').width( parent_width + left_offset + 20);
+        if($(window).width() > 800){
+          var left_offset = jQuery('.cc-clearance-blk .container').offset().left;
+          var parent_width = jQuery('.cc-ia-banner-a').parents('.ia-imgg').outerWidth();
+          jQuery('.cc-ia-banner-a').width( parent_width + left_offset + 20);
+        }
       }
     }
 
