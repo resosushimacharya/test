@@ -6024,11 +6024,11 @@ a.btn-employment:hover {
 .single.single-product a.accordion-toggle.first-acc-cat {
 	margin-top: 25px;
 }
-.acc_list_item.col-md-3.underlay {
+.acc_list_item.col-md-3{
 	padding: 0 10px;
 	margin-top: 6px;
 }
-.acc_list_item.col-md-3.underlay .accessories_innner_wrap {
+.acc_list_item.col-md-3 .accessories_innner_wrap {
 	padding: 0 10px;
 	clear: both;
 }
@@ -7940,4 +7940,19 @@ h3.mobile.carpet-drop{
 }
 h1.mobile.inner-about-head{
 	display: none;
+}
+.popup-overlay-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    z-index: 20;
+    opacity: 0;
+    display: none;
+}
+.popup-overlay-div.open-overlay{
+	opacity: 1;
+	display: block;
 }

@@ -95,13 +95,19 @@
       jQuery('#storefinder_btn').click(function() {
         jQuery(this).next(".dropdown-content").toggle();
         jQuery(this).parent('.dropdown').toggleClass('click-open');
-        jQuery('.woocomerce_dropdown').removeClass('open');
+        jQuery('.woocomerce_dropdown').removeClass('open');        
       });
     }
     //storeFinderClick();
      window.addEventListener('resize', storeFinderClick);
     // Store Finder Btn Header End
-    
+
+    jQuery('.popup-overlay-div').on("click", function(){
+      $('#storefinder_id').removeClass('click-open');
+      $('li#woo_control').removeClass('open');
+      $('#after_dropdown').hide();
+      $(this).removeClass('open-overlay');
+    });
     // Top Cart DropDown
     
     if(jQuery(window).width() > 800){
