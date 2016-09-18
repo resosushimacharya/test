@@ -1,5 +1,4 @@
-<?php
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -398,12 +397,34 @@ if(get_post_type() == 'product'){?>
     }
 
     jQuery(document).ready(function() {
-        jQuery("#mywoosection").click(function(e) {
-            load_minicart();
-            jQuery('#after_dropdown').hide();
-            $('.storefinder_cntr').removeClass('click-open');
-            jQuery('#woo_control').show();
-        });
+        function cartDrop(){
+            jQuery("#mywoosection").click(function(e) {
+                load_minicart();
+                jQuery('#after_dropdown').hide();
+                $('.storefinder_cntr').removeClass('click-open');
+                jQuery('#woo_control').show();
+            });
+        }
+        cartDrop();
+         window.addEventListener('resize', cartDrop);
+
+        if($('#mywoosection').length){
+          function cloneCartDrop(){
+            if( $(window).width() <= 800 ){
+              var toCartClone = $('.navsrchblk').find('#mywoosection');
+              toCartClone.clone().appendTo('.top-mobile-icons .top-cart-icon');
+              toCartClone.remove();  
+              cartDrop();        
+            }else{ 
+              var cloneCartBack = $('.top-mobile-icons .top-cart-icon').find('#mywoosection');
+              cloneCartBack.clone().appendTo('.navsrchblk .top-cart-icon');
+              cloneCartBack.remove();
+              cartDrop();
+            }
+          }
+          cloneCartDrop();
+          window.addEventListener('resize', cloneCartDrop);
+        }
     });
 
     var ajax_count = 0;

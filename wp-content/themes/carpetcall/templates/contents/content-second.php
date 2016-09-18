@@ -45,7 +45,7 @@ echo ' > ' ; ?><span class="cc-bread-current"><?php echo get_the_title().' '.get
 <!-- content section -->
 <div class="faq-cont-blka">
  <div class="container clearfix">
-	<div class="inerblock_sec">
+	<div class="inerblock_sec child-guide-content">
 		<div class="col-md-3 no-pl">
         <div id="stickSide">
         <div class="meromm" >
@@ -150,7 +150,7 @@ if(have_posts()):
          foreach($res as $rs){
                   	$i++;?>
 
-                      <h3 id="<?php echo "guide_item_".$i; ?>"><?php echo $rs['title'];?></h3>
+                      <h3 id="<?php echo "guide_item_".$i; ?>" class="sub_page_title"><?php echo $rs['title'];?></h3>
                       <p> <?php echo $rs['description'];?></p>
                   <?php  } 
               }

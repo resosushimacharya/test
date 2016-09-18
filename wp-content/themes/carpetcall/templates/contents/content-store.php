@@ -10,7 +10,7 @@
   <div class="dropdown-content" id="after_dropdown">
     
       <div>
-              <div id="directory_list_id_s"></div> <!-- useful ajax call do not delete it. -->
+              <div id="directory_list_id_s" class="curr_loc_drop"></div> <!-- useful ajax call do not delete it. -->
       </div>
     
     <!--first sec end  -->

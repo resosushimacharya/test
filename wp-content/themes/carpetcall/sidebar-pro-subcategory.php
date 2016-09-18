@@ -73,7 +73,8 @@ if(!is_last_cat($term_id)){?>
       ?>
       <li>
     <a href="javascript:void(0);" class="swatch" style="background:url('<?php echo get_template_directory_uri().'/images/'.$color.'.jpg';?>');" id="<?php echo $color?>"> 
-        <img src="<?php echo get_template_directory_uri().'/images/swatch_checked.png';?>" class="cc-tick-display" />
+        <div class="swatch-overlay"></div>
+        <img src="<?php echo get_template_directory_uri().'/images/swatch-checked.png';?>" class="cc-tick-display" />
         </a>
       <label for="colour_red"><?php echo ucfirst($color) ?></label>
         </li>
@@ -82,7 +83,7 @@ if(!is_last_cat($term_id)){?>
     }?>
         <li>
     <a href="javascript:void(0);" class="swatch" style="background-image:url('<?php echo get_template_directory_uri().'/images/multiple.jpg';?>');" id="multi"> 
-        <img src="<?php echo get_template_directory_uri().'/images/swatch_checked.png';?>" class="cc-tick-display" />
+        <img src="<?php echo get_template_directory_uri().'/images/swatch-checked.png';?>" class="cc-tick-display" />
         </a>
       <label for="colour_multi"><?php _e('Multiple') ?></label>
         </li>
