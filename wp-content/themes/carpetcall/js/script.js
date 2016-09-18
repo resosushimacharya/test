@@ -505,7 +505,7 @@
 
   // Document Ready End
 
-  jQuery(window).scroll(function(event) {
+  /*jQuery(window).scroll(function(event) {
     jQuery('.pac-container').hide();
   });
 
@@ -515,7 +515,7 @@
       jQuery('#after_dropdown').hide();
       jQuery('.storefinder_cntr').removeClass('click-open');
     }
-  });
+  });*/
 
 
   // Window Load Start
