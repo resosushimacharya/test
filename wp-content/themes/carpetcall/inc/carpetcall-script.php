@@ -9,7 +9,6 @@ wp_enqueue_style('myslick',get_template_directory_uri().'/css/slick-theme.css');
 wp_enqueue_style('lightbox',get_template_directory_uri().'/css/jquery.lightbox.min.css');
 wp_enqueue_style('responsive-tabs',get_template_directory_uri().'/css/responsive-tabs.css');
 wp_enqueue_style('tabstyle',get_template_directory_uri().'/css/tabstyle.css');
-wp_enqueue_style('menustyless',get_template_directory_uri().'/css/menustyles.css');
 
 if(is_home()){
 wp_enqueue_style('map-store-style',get_template_directory_uri().'/css/map-store-style.css');}

@@ -293,13 +293,13 @@ ul#mywoosection ul.dropdown-menu {
 	text-decoration:underline;
 }
 
-#directory_list_id_s .col-md-8 {
+.curr_loc_drop .col-md-8 {
 	padding-left: 0;
 }
-#directory_list_id_s .col-md-4 {
+.curr_loc_drop .col-md-4 {
 	padding-right: 0;
 }
-#directory_list_id_s p strong {
+.curr_loc_drop p strong {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
 	font-size:12px;
 	font-weight:normal;
