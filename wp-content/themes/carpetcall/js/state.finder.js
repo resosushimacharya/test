@@ -31,7 +31,7 @@ function altcomplet() {
 				jQuery('#directory_list_id').show();
 				jQuery('#directory_list_id_s').show();
 				jQuery('#directory_list_id_s').html(data);
-				 jQuery("#edit_dir_keyword").focus();
+				//jQuery("#edit_dir_keyword").focus();
 
 				 
 
