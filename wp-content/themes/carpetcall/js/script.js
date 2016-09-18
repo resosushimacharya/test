@@ -308,7 +308,8 @@
 
     }
     // Header Nav Scripts End
-     
+    
+
     
     // Product Sidebar Mobile
     if($('#product-side-filter').length){
@@ -454,10 +455,31 @@
     }
 
     // Carpets Mobile dropdown
-    if($(".cc-carpet-subcat-list").length){
+    function openCarSide(){
       $(".cc-carpet-subcat-list").on("click", function(){
         $(this).find("ul.guide_list_cbg").toggle();
       });
+    }
+    window.addEventListener('resize', openCarSide); 
+    
+    
+
+    // Clone Carpets Sidebar
+    if($('.cc-carpet-subcat-list').length){
+      function cloneCarSide(){
+        if( $(window).width() <= 800 ){
+          var toSideClone = $('.cc-cat-pro-section-left').find('.cc-carpet-subcat-list');
+          toSideClone.clone().appendTo('.carpets-cat-dropdown');
+          toSideClone.remove();
+          openCarSide();          
+        }else{
+          var cloneBackSide = $('.carpets-cat-dropdown').find('.cc-carpet-subcat-list');
+          cloneBackSide.clone().appendTo('.cc-cat-pro-section-left');
+          cloneBackSide.remove();          
+        }
+      }
+      cloneCarSide();
+      window.addEventListener('resize', cloneCarSide); 
     }
 
     // Remove ::before in FAQ table

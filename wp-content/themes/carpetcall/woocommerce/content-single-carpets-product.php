@@ -460,21 +460,26 @@ if($reqTempTerms){
 		 * @hooked woocommerce_output_related_products - 20
 		 */
 		remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products',20);
-    if(!wp_is_mobile()){
-  		do_action( 'woocommerce_after_single_product_summary' );
-    }
-		add_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products',20);
+
+    ?>
+    <div class="desktop desktop-tabs">
+  		<?php do_action( 'woocommerce_after_single_product_summary' ); ?>
+    </div>
+    <?php 
+		  add_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products',20);
+    
 
 		//woocommerce_output_product_data_tabs();
 		
 		// as per design , this section appears in [] page
 		
 	?>
-  <?php
-    if(wp_is_mobile()){ 
+  <div class="mobile mobile-tabs">
+  <?php    
       get_template_part('templates/contents/content','tab-woocommerce-carpet');
-    }
+    
   ?>
+  </div>
 	<meta itemprop="url" content="<?php the_permalink(); ?>" />
 
 </div><!-- #product-<?php the_ID(); ?> -->

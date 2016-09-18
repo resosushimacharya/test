@@ -74,7 +74,7 @@ get_header();
                 <div class="details-us">
                   
                 <h3>YOUR  DETAILS</h3>
-                  <span class="all-field-req">All fields are mandatory</span>
+                  <span class="all-field-req">All fields are mandatory.</span>
                 </div>
                 
                 <div class="fl-blk">
