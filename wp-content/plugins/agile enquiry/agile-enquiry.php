@@ -29,7 +29,7 @@ class CSVExport {
    */
   public function __construct() {
     if (isset($_GET['report'])) {
-
+     ob_end_clean();
       $csv = $this->generate_csv();
       header("Pragma: public");
       header("Expires: 0");
