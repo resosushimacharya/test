@@ -232,6 +232,8 @@
 		z-index: 9999;
 		padding: 30px 20px 50px;
 		min-width: inherit;
+		max-height: 475px;
+		overflow-y: auto;
 	}
 	.loplc{
 		padding: 0;
@@ -281,6 +283,43 @@
 		margin: 0;
 		padding: 20px;
 	}
+	.curr_loc_drop .loctitle{
+		font-size: 36px;
+		font-family: 'proxima_nova_ltsemibold', sans-serif;
+	}
+	.dropdown-content .curr_loc_drop .cc-lat-header-top-cover a{
+		display: block;
+	}
+	.curr_loc_drop .cc-lat-header-top-cover .col-md-8{
+		width: 60%;
+		display: inline-block;
+		float: left;
+	}
+	.curr_loc_drop .cc-lat-header-top-cover .col-md-4{
+		width: 40%;
+		display:inline-block;
+		float: right;
+		text-align: right;
+	}
+	.sfind address, .sfind address strong{
+		font-size: 24px;
+		line-height: 1.4;
+		margin: 0;
+	}
+	.sfind address strong{
+		margin-bottom: 5px;
+		display: block;
+	}
+	.sfind address br{
+		display: none;
+	}
+	.curr_loc_drop .cc-lat-header-top-cover p strong{
+		font-size: 24px;
+	}
+	.curr_loc_drop form, .curr_loc_drop form a{
+		font-size: 24px;
+	}
+
 
 	/* Map End */
 	
@@ -339,6 +378,9 @@
 	/* Top Cart End */
 
 	/* Menu */
+	#cssmenu > ul > li:hover > a, #cssmenu > ul > li.active > a{
+		background: transparent;
+	}
 	#cssmenu > ul > li{
 		height: 95px;
 		line-height: 95px;
@@ -426,8 +468,8 @@
 	#cssmenu > ul > li > a.show_nav{
 		background: #0099ff;
 	}
-
 	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1{
+		display: block;
 		-webkit-transform: translateX(-110%);
 		-moz-transform: translateX(-110%);
 		-ms-transform: translateX(-110%);
@@ -439,7 +481,7 @@
 		-o-transition: all 0.2s ease;
 		transition: all 0.2s ease;	
 	}
-	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1.is-visible{
+	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1.is-visible{		
 		-webkit-transform: translateX(0);
 		-moz-transform: translateX(0);
 		-ms-transform: translateX(0);
@@ -451,7 +493,6 @@
 		-o-transition: all 0.2s ease;
 		transition: all 0.2s ease;
 	}
-
 	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1 li ul.menu-depth-2{
 		display: block;
 		top: 0;
@@ -484,7 +525,6 @@
 		-o-transition: all 0.2s ease;
 		transition: all 0.2s ease;
 	}
-
 	.selected-link-cntr{
 		background: #0099ff;
 		padding: 0px 55px 0px 45px;
@@ -586,6 +626,7 @@
 	}
 	.cptinn a{
 		margin: 35px 0 0;
+		font-family: 'proxima_nova_ltsemibold';
 	}
 	/* Callback End */
 
@@ -3970,6 +4011,7 @@
 	}
 	.dropdown-content{
 		padding: 15px 20px 30px;
+		max-height: 300px;
 	}
 	.loplc h3{
 		margin-top: 6px;
@@ -3997,11 +4039,25 @@
 	    margin-top: 15px;
 	    padding-top: 15px;
 	}
-	#directory_list_id_s{
-		margin: 0;
-		padding: 20px;
+	#directory_list_id_s{		
+		padding: 10px;
 	}
-
+	.curr_loc_drop .loctitle {
+	    font-size: 22px;
+	}
+	.dropdown-content .curr_loc_drop .cc-lat-header-top-cover a{
+		padding-top: 10px;
+	}
+	.sfind address, .sfind address strong {
+	    font-size: 14px;
+	}
+	.curr_loc_drop .cc-lat-header-top-cover .col-md-4 {
+	    width: 30%;
+	    padding-left: 0;
+	}
+	.curr_loc_drop .cc-lat-header-top-cover p strong, .curr_loc_drop form, .curr_loc_drop form a {
+	    font-size: 14px;
+	}
 	/* Map End */
 	
 	/* Top Cart */
@@ -6163,5 +6219,4 @@
 	.wrap_body{
 		margin-top: 0;
 	}
-
 }
