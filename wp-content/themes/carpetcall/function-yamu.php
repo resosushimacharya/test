@@ -458,8 +458,12 @@ function show_category_slider_block($args=array()){
 				<?php
 				if($filloop->have_posts()){
 					
+					
 					$slidercounter = 1;
 					while($filloop->have_posts()){
+						$_product = new WC_Product(get_the_ID());
+						if($_product->is_in_stock()){
+						
 						
 						$post = $filloop->the_post();
 						$imgflag = false;
@@ -486,14 +490,20 @@ function show_category_slider_block($args=array()){
 							}
 							$slidercounter++;
 						}
+					
+						}
 					}
 					wp_reset_query();
+				
 				}
 				if($filloop->have_posts()){?>
                     <div class=" cc-cat-sub-group-item">
                     <?php 
                     $slidercounter = 1;
                     while($filloop->have_posts()){
+						$_product = new WC_Product(get_the_ID());
+						if($_product->is_in_stock()){
+						
 						$filloop->the_post();
 						$feat_image = cc_custom_get_feat_img(get_the_ID(),'small');
 						/*
@@ -532,7 +542,9 @@ function show_category_slider_block($args=array()){
 						<a href ="<?php echo get_permalink($filloop->post->ID);?>" class="cc-pro-view">VIEW</a> </div>
 						</div>
 						</div>
-                    <?php }?>
+                    <?php 
+						}
+					}?>
                     <?php 
                     wp_reset_query(); ?>
                     </div>
