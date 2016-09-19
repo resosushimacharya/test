@@ -50,14 +50,6 @@
           </span>
           <?php } ?>
             <?php echo single_cat_title('',false).' '.$appafter;?>
-          <?php 
-	/*
-while(have_posts()):
-  the_post();
-the_title();
-endwhile;
-*/
-?>
         </h3>
         <?php 
 if(get_term_meta($current_cat->term_id,'cat_top_description',true) && $depth == 0){
@@ -89,7 +81,7 @@ $currentcat = get_queried_object();
             <div class="rugm-blk col-md-6 no-pl">
 
           <p> 
-            <span class="mobile cc-cat-title-count"> <?php /* <span class="post_count"><?php echo $ret['found_prod']// $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products */ ?> Filters</span>
+            <span class="mobile cc-cat-title-count"> Filters</span>
             <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> 
           </p>
           
@@ -106,7 +98,6 @@ $currentcat = get_queried_object();
               <li class="sort_key cc-count-active"> <a href="javascript:void(0)" sort="price_low">$</a> </li>
               <li class="sort_key"> <a href="javascript:void(0)" sort="price_high">$$$</a> </li>
             </ul>
-            <?php //do_action( 'woocommerce_before_shop_loop' ); ?>
           </div>
         </div>
       </div>
@@ -140,135 +131,9 @@ $currentcat = get_queried_object();
           	echo $ret['html'];
           	?>
         </div>
-        <?php 
-			/*
-			 global $wp_query;
-			 $term_id_sub =  get_queried_object()->term_id;
-			 $term_name = get_queried_object()->name;
-			 $discats=get_terms(array('parent'=>$term_id,'taxonomy'=>'product_cat'));
-                        
-				$loopcounter = 0;?> <?php 
-                            foreach($discats as $discat){
-                            	if($loopcounter==2){
-                            		break;
-                            	}
-                            	$loopcounter++;
-                            	?>
-                          <div class="row cc-cat-sub-title-price-cover">
-                            		<div class="col-md-6 cc-cat-sub-title"><h4><?php woocommerce_page_title();?></h4>
-                            		<?php
-                            	echo '<h3>'.$discat->name.'</h3><br/>';
-                            	 ?>
-                            	</div>
-                            
-                            	
-                            	<?php 
-
-									$filargs = array(
-													'post_type'=>'product',
-													'posts_per_page'=>'10',
-													'meta_key'=>'_sale_price',
-													'orderby' => 'meta_value_num',
-													'order'     => 'ASC',
-													'tax_query' => array(
-																		array(
-																			'taxonomy' => 'product_cat',
-																			'field'    => 'term_id',
-																			'terms'    => $discat->term_id,
-																		),
-																	),
-																
-													);
-									 wp_reset_postdata();
-									 $pch = 1;
-								$filloop = new WP_Query($filargs);
-									$hold = 1;
-                                    ?>
-                                       <?php 
-
-								if($filloop->have_posts()){
-									$slidercounter = 1;
-									while($filloop->have_posts()):
-										$filloop->the_post();
- 										 $feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
-											
-
-                                          if($pch==1){
-                                             $res = get_post_meta($post->ID ,'_sale_price',true);
-                                             echo '<div class="col-md-6 cc-cat-sub-price">From <span>A$'.$res.'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
-
-                                             $pch++;
-                                             
-                                          }
-                                          if($slidercounter<=5){
-                                          	if($slidercounter==1){
-                                          		echo '<div class="cat_slider">';
-
-                                          	}
-                                          ?> <div class="cat_slider_item ">
-                                          	<div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image ;?>)"></div>
-                                          </div>
-                                             <?php 
-                                             if($slidercounter==5){
-                                             	echo '</div>';
-                                             }
-                                                $slidercounter++;
-
-                                          }
-                                          endwhile;
-                                          wp_reset_query();
-                                      }
-                                      
-									?>
-									<div class=" cc-cat-sub-group-item">
-                                    <?php 
-
-								if($filloop->have_posts()){
-									$slidercounter = 1;
-									while($filloop->have_posts()):
-										$filloop->the_post();
- 										 $feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
-											
-
-                                        
-
-									?><div class=" cc-other-term-pro">
-									<div class="cc-img-wrapper"><div class="cat-item-group-image" style="background-image:url(<?php echo $feat_image;?>)">
-									
-										<?php
-										
-										
-										$woo=get_post_meta($filloop->post->ID);
-//										
-//										echo '<h3>'.$discat->name.'</h3>';
-//										echo "<h5>FROM A$".$woo['_sale_price'][0].'</h5>';
-
-
-										?>
-										<a href ="<?php the_permalink();?>" class="cc-pro-view">VIEW</a>
-										</div>
-										</div></div>
-
-
-								<?php endwhile;?>
-                     		<?php 
-                     		wp_reset_query(); }?>
-                     		</div><!--end of cc-cat-sub-group-item-->
-                     		
-                     		</div>
-                     		<?php 
-                     	}
-						
-						*/
-			  ?>
+       
         <div class="woo-added"></div>
-        <?php
-	   //if(!is_last_cat($current_cat->term_id)){?>
 		 <input type="button" name="cc_load_more" id ="cc_load_more" callto="show_category_slider_block" value="load more" first="<?php echo (($depth==0) && $ret['offset'] > $perpage_var)?'yes':'no'?>" <?php echo ($ret['found_prod'] <$perpage_var || $is_last_lvl)?'style="display:none" disabled':''?>/>
-		<?php //}
-	   
-	   ?>
-        
         
         <input type="hidden" name="perpage_var" id="perpage_var" value="<?php echo $perpage_var;?>">
         <input type="hidden" name="ajax_cat_id" id="ajax_cat_id" value="<?php echo $current_cat->term_id?>">
@@ -282,7 +147,6 @@ $currentcat = get_queried_object();
         <input type="hidden" name="selected_price_ranges" id="selected_price_ranges" value="">
       </div>
       <?php 
-		
 		} 
 		?>
     </div>

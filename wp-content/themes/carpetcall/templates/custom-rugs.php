@@ -10,41 +10,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header('shop');
 
 global $post;
-//wp_enqueue_script( 'prettyPhoto' );
-//wp_enqueue_script( 'prettyPhoto-init' );
-
-
 ?>
-
 <div class="contaniner clearfix woocommerce woocommerce-page single single-product">
   <div class="inerblock-sec-prod-a">
     <div class="container">
       <div class="col-md-12 no-pl">
-       
         <?php do_action( 'woocommerce_before_main_content' );?>
-        
       </div>
       <span class="ab_arrow mobile"> <a href="<?php echo site_url().'/shop-our-range/rugs'?>"> <i class="fa fa-angle-left" aria-hidden="true"></i><b>BACK</b> </a> </span> 
       </div>
-      
-      
     <div class="product_single_container">
   <div class="container">
     <div class="col-md-12">
-      <?php
-	 //do_action( 'woocommerce_before_single_product' );
-
-	
-?>
     </div>
   </div>
   <div class="container">
     <div class="col-md-12 no-lr product-content-wrapper">
       <div itemscope itemtype="http://schema.org/Product" id="product-<?php get_the_ID(); ?>" <?php post_class('product type-product'); ?>>
-        <?php 
-		
-		//do_action( 'woocommerce_before_single_product_summary' )
-		?>
         <div class="images">
 <h1 class="cc-category-show"><span itemprop="name"><?php the_title()?></span></h1>
     <?php
@@ -71,24 +53,9 @@ global $post;
                 </div>
                 </div>
 		<?php
-        }
-	
-	?>
-                
-                
-                
-                
-                
-	
-   
+        }?>
     <div class="cc_custom_gal_thumb thumbnails columns-3">
-    
-    <?php
-		if(wp_is_mobile()){
-			echo '<div class="product_single_thumb_slider">';
-			}
-	
-	?>
+    <div class="product_single_thumb_slider">
     <?php
 	foreach($images as $image){
 		$feat_image_arr = $image['gallery_image'];?>
@@ -98,13 +65,7 @@ global $post;
         </a></div>
 		<?php }
 	?>
-    	
-    <?php
-		if(wp_is_mobile()){
-			echo '</div>';
-			}
-	
-	?>
+    </div>
     </div>
     
 		<div class="mod-social clearfix">
@@ -253,12 +214,6 @@ global $post;
                           while($loop->have_posts())
                           {
                               $loop->the_post();
-                                    /* 
-                                    **state head office  state and 
-                                    ***email address pair 
-                                    
-                                    */
-                                    
                               $res = get_post_meta($loop->post->ID);
                                      
                               if(!isset($res['wpsl_email'][0]))
@@ -269,16 +224,9 @@ global $post;
                               {
                                   $stateemailpair[$res['wpsl_state'][0]] = $res['wpsl_email'][0];
                               }   
-                               
-                          
-                             
-
                           }
                           wp_reset_query();
-
-
                       }
-                   
                       $myemail =$stateemailpair[$field['wpsl_state'][0]];
                   }
                 }
@@ -313,12 +261,9 @@ global $post;
                           </div>
                         </div>
                       </form>
-                      <script>
-        
- 
-  function recaptchaCallbackone(){
-   jQuery('#check_captcha_one').val('1');
-
+<script>
+function recaptchaCallbackone(){
+	jQuery('#check_captcha_one').val('1');
 };
 </script> 
                     </div>

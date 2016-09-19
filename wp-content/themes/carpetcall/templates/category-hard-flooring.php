@@ -49,14 +49,6 @@
           </span>
           <?php } ?>
           <?php echo single_cat_title('',false).' '.$appafter;?>
-          <?php 
-	/*
-while(have_posts()):
-  the_post();
-the_title();
-endwhile;
-*/
-?>
         </h3>
         <?php 
 if(get_term_meta($current_cat->term_id,'cat_top_description',true) && $depth == 0){
@@ -85,7 +77,7 @@ $currentcat = get_queried_object();
 	$ret = loadmore_hf($args);
 	 ?>
              <div class="rugm-blk col-md-6 no-pl">
-          <p> <span class="mobile cc-cat-title-count">  <?php /* <span class="post_count"><?php echo $ret['found_prod'];// $currentcat->count;?></span> <?php echo single_cat_title('',false).' '.$appafter;?> Products */ ?> Filters</span> 
+          <p> <span class="mobile cc-cat-title-count">Filters</span> 
             <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> 
             </p>
            <span class="open-product-sidebar">
@@ -119,9 +111,7 @@ $currentcat = get_queried_object();
             </div>
           </div>
         </div>
-        <?php //get_sidebar('pro-subcategory');?>
         <?php get_sidebar('hard-flooring');?>
-
         <div class="mobile-apply-btn">
           <a href="#">Apply</a>
         </div>
@@ -135,14 +125,7 @@ $currentcat = get_queried_object();
 		?>
         </div>
         <div class="woo-added"></div>
-       <?php
-	   //if(!is_last_cat($current_cat->term_id)){?>
-       
 		 <input type="button" name="cc_load_more" id ="cc_load_more" callto="loadmore_hf" value="load more" first="<?php echo (($depth==0) && $ret['offset'] > $perpage_var)?'yes':'no'?>" <?php echo ($ret['found_prod'] < $perpage_var || !($is_last_lvl))?'':'style="display:none" disabled'?>/>
-		
-		<?php //}
-	   
-	   ?>
        
         <input type="hidden" name="perpage_var" id="perpage_var" value="<?php echo $perpage_var;?>">
         <input type="hidden" name="ajax_cat_id" id="ajax_cat_id" value="<?php echo $current_cat->term_id?>">
@@ -156,14 +139,12 @@ $currentcat = get_queried_object();
         <input type="hidden" name="selected_price_ranges" id="selected_price_ranges" value="">
       </div>
       <?php 
-		
 		} 
 		?>
     </div>
   </div>
 </div>
 <?php get_template_part('templates/template','like');?>
-
 <?php 
 if(get_field('product_category_description',$current_cat)){
 	?>
