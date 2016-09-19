@@ -32,7 +32,14 @@
             </a>
           </span>
 
-          <?php } ?>
+          <?php }else{?>
+			  <span class="ab_arrow">
+            <a href="<?php echo site_url('shop-our-range')?>">
+              <i class="fa fa-angle-left" aria-hidden="true"></i>            
+              <b>Shop Our Range</b>
+            </a>
+          </span>
+			<?php  } ?>
           <?php echo single_cat_title('',false).' '.$appafter;?>
           <?php 
 
