@@ -126,8 +126,7 @@ $currentcat = get_queried_object();
             </div>
           </div>
         </div>
-        <?php get_sidebar('pro-subcategory');?>
-        
+          <?php get_sidebar('pro-subcategory');?>        
         <div class="mobile-apply-btn">
           <a href="#">Apply</a>
         </div>
@@ -138,8 +137,8 @@ $currentcat = get_queried_object();
         <div id="category_slider_block_wrapper">
           <?php 
 	
-	echo $ret['html'];
-	?>
+          	echo $ret['html'];
+          	?>
         </div>
         <?php 
 			/*

@@ -326,10 +326,10 @@
     }
 
     // Close accordion of Sidebar in Mobile
-    if($('#accordion-color').length){
+    if($('.cc-cat-pro-section-left').length){
       if($(window).innerWidth()<=800){
-        $('#accordion-color').find('.panel-collapse.in').removeClass('in');
-        $('#accordion-price').find('.panel-collapse.in').removeClass('in');
+        $('.cc-color-var-section').find('.panel-collapse.in').removeClass('in');
+        $('.cc-product-sub-category-list').find('.panel-collapse.in').removeClass('in');
       }
     }
 
