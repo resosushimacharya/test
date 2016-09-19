@@ -67,7 +67,7 @@
 	/* Font-size 30px; End */
 
 	/* Font-size 32px; */
-	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .measr_cnt h3, .intro p, .rmoree a, #main.sec_head_cntr p, .cc-product-sort li a, .cc-count-label, .filter-go-back, .cc-pro-sub-cat-ul.guide_list_cbg h3, .panel-title>a, .cc-cat-sub-desc-sec p{
+	.so_titlee a, .aag_ab a, .aag_cdd a, .meroshop .col-md-4:nth-child(3) .aag p span, .rmblk_cont h3, .inner_cont h4, .quest_cont h4, .measr_cnt h3, .intro p, .rmoree a, #main.sec_head_cntr p, .cc-product-sort li a, .cc-count-label, .filter-go-back, .cc-pro-sub-cat-ul.guide_list_cbg h3, .panel-title>a, .cc-cat-sub-desc-sec p, .cc-cat-sub-desc-sec ul li{
 		font-size: 32px;
 	}
 	/* Font-size 32px; End */
@@ -135,7 +135,9 @@
 	/* Proxima Nova Font SemiBold End */
 
 	/* ===== GLOBAL End ===== */
-
+	 .carpets-cat-dropdown ul.guide_list_cbg li .fa{
+	 	display: none;
+	 }
 	/* ===== HEADER ===== */	
 	.banner{
 		padding-top: 0;
@@ -534,6 +536,8 @@
 		-ms-transition: all 0.2s ease;
 		-o-transition: all 0.2s ease;
 		transition: all 0.2s ease;
+	    max-height: 600px;
+	    overflow-y: auto;
 	}
 	.selected-link-cntr{
 		background: #0099ff;
@@ -3749,6 +3753,26 @@
 		font-family: 'proxima_nova_ltsemibold';
 	}
 	/* ===== FOOTER END ===== */
+	.sitemap-wrap{
+		margin-top: 50px !important;
+	}
+	.sitemap-wrap ul.page-list li > a{
+		font-size: 36px;
+		margin-bottom: 20px;
+	}
+	.sitemap-wrap ul.page-list li > ul.children li a{
+		font-size: 32px;
+		line-height: 1.5;
+	}
+
+	.woocomerce_dropdown.open #cc-mini-cart-cntr span.mycrt_blk{
+		font-size: 32px;
+		font-family: 'proxima_nova_ltsemibold';
+	}
+
+	ul#mywoosection ul.dropdown-menu{
+		max-height: 600px;
+	}
 	
 
 }
@@ -3796,6 +3820,8 @@
 	}
 	
 	/* === 404 PAGE End === */
+
+
 	
 	
 	
@@ -3927,6 +3953,21 @@
 	}
 
 	/* === ORDER RECEIVED - PAGE End === */
+
+
+	/* SITE MAP */
+
+	.sitemap-wrap{
+		margin-top: 30px !important;
+	}
+	.sitemap-wrap ul.page-list li > a{
+		font-size: 22px;
+		margin-bottom: 20px;
+	}
+	.sitemap-wrap ul.page-list li > ul.children li a{
+		font-size: 18px;
+		line-height: 1.5;
+	}
 
 
 }
@@ -4388,9 +4429,20 @@
 	ul#mywoosection li#woo_control > a{
 		padding: 0 20px 0 10px;
 	}
+	ul#mywoosection ul.dropdown-menu{
+		max-height: 400px;
+	}
 	/* Top Cart End */
-
+	.sitemap-wrap ul{
+		margin-left: 0;
+	}
+	.woocomerce_dropdown.open #cc-mini-cart-cntr span.mycrt_blk {
+	    font-size: 20px;
+	}
 	/* Menu */
+	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1 li ul.menu-depth-2.is-visible{
+		max-height: 350px;
+	}
 	#cssmenu > ul > li{
 		height: 70px;
 		line-height: 70px;
@@ -4554,6 +4606,12 @@
 		margin: 0 -20px;
 		max-width: inherit;
 		position: relative;
+	}
+	.abvist .col-md-6:first-child{
+		padding: 0;
+	}
+	.intro p {
+	    line-height: 1.5;
 	}
 	/* Home Map End */
 
@@ -5587,23 +5645,28 @@
 	
 	/* ===== 404 PAGE ===== */
 	.error-wrapper h1 {
-		margin: 60px 0 20px 0;
-    	font-size: 118px;
+	    margin: 50px 0 20px 0;
+	    font-size: 90px;
 	}
 	.error-wrapper h3 {
 		height:auto;
-		line-height:42px;
+		line-height:1;
+		font-size: 28px;
 	}
 	.error-wrapper h4 {
-		font-size:26px;
-		margin:0 5% 7px;
+		font-size:20px;
+		margin:0 ;
 	}
 	.page-sorry .error-wrapper button a {
-	font-size:26px;	
-	padding:20px 0;
+		    font-size: 20px;
+	    padding: 17px 0;
+	    margin-top: 25px;
 	}
 	.page-sorry .error-wrapper button {
-	margin:30px auto 30px;	
+	margin:30px auto 0px;	
+	}
+	.error-wrapper .col-md-12 {
+	    min-height: initial;
 	}
 	
 	/* ===== 404 PAGE END ===== */
@@ -6322,7 +6385,7 @@
 	}
 	/* Font-size 32px; End */
 
-	.meropro_blk h1, .thought_blk h2, .hamro_trade h2{
+	.meropro_blk h1, .thought_blk h2, .hamro_trade h2, .intro h1{
 		font-size: 26px;
 	}
 
