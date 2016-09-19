@@ -5,7 +5,7 @@
       </div>
       <div>
      
-<div class="nearest_loc_search_form" style="opacity:0; height: 0; overflow: hidden; ">    
+<div class="nearest_loc_search_form" style="opacity:0; height: 0; overflow: hidden; visibility:hidden ">    
         	<h2 class="fyns-blk"> FIND YOUR NEAREST STORE </h2>
             
             <div class="frm-blk clearfix">

@@ -114,6 +114,18 @@ jQuery(document).ready(function(e) {
 			jQuery('#edit_dialog_keyword').val(address);
 			jQuery('#checkout_fetch_nearby_stores').trigger('click');
 			};
+		if(jQuery(this).hasClass('delivery_options')){
+			if(jQuery('input[name=cc_shipping_method]:checked').val() == 'store_pickup' || jQuery('input[name=cc_shipping_method]:checked').val() == 'pickup_n_deliver'){
+				error_flag = false;
+if(jQuery(this).parents('.checkout-form-sec').find('input[name=pickup_store_id]:visible:checked').val()){
+					jQuery('#checkout_delivery #pickup_error_msg').hide();
+					}else{
+						error_flag = true;
+						jQuery('#checkout_delivery #pickup_error_msg').show();
+						return false;
+						}
+				}
+			}
 		if(jQuery(this).hasClass('next')){
 			var validator = jQuery( ".checkout.woocommerce-checkout" ).validate();
 			jQuery(this).parents('.checkout-form-sec').find('p.validate-required').find('input:visible, select:visible').each(function(index, el) {
@@ -127,31 +139,42 @@ jQuery(document).ready(function(e) {
 					}
 				});
 			}
-		if(jQuery(this).hasClass('delivery_options')){
-			if(jQuery('input[name=cc_shipping_method]:checked').val() == 'store_pickup' || jQuery('input[name=cc_shipping_method]:checked').val() == 'pickup_n_deliver'){
-				error_flag = false;
-if(jQuery(this).parents('.checkout-form-sec').find('input[name=pickup_store_id]:visible:checked').val()){
-					jQuery('#checkout_delivery #pickup_error_msg').hide();
-					}else{
-						error_flag = true;
-						jQuery('#checkout_delivery #pickup_error_msg').show();
-						return false;
-						}
-				}
-			}
-		if(error_flag){
-				return false;
-				}else{
+			if(error_flag){
+			return false;
+		}else{
+			if(jQuery('.collapse.in').length>0){
+				var validator = jQuery( ".checkout.woocommerce-checkout" ).validate();
+				jQuery('.collapse.in').find('p.validate-required').find('input:visible, select:visible').each(function(index, el) {
+					
+				validator.element("#"+el.id);
+				if(jQuery(el).parent('.form-row').hasClass('woocommerce-invalid')){
+					error_flag = true;
+					jQuery('#'+el.id).focus();
+					}
+				});
+				if(!error_flag){
 					jQuery('.collapsable').removeClass('in');
 					jQuery('div'+jQuery(this).attr('href')).addClass('in');
+					var that=jQuery(this);
 					if(!jQuery(this).hasClass('edit_section')){
-				jQuery(this).parents('.checkout-form-sec').next('.checkout-form-sec').find('.edit_section').show();
-				jQuery(this).parents('.checkout-form-sec').find('.edit_section').show();
+						jQuery(this).parents('.checkout-form-sec').next('.checkout-form-sec').find('.edit_section').show();
+						jQuery(this).parents('.checkout-form-sec').find('.edit_section').show();
 					}
 					
-					
+					setTimeout(function(){
+						var scrollheight=jQuery(that).parents('.checkout-form-sec').offset().top;
+						var header_height=jQuery('.container-fluid.banner').outerHeight();
+						var final_top=scrollheight-header_height
+						jQuery('html, body').animate({
+							  scrollTop: final_top
+							}, 500);
+						 
+						}, 300);
 					
 				}
+			}
+			
+		}
 
 		});
 	jQuery(document).on('click','input[name=pickup_store_id]',function(){

@@ -42,18 +42,18 @@ global $woocommerce, $product;
 	<?php get_template_part( 'templates/delivery/pickup_closest', 'office' );?>
 	</div>
 
-	<div class="shipping_needed_checkout" style="opacity:0; height: 0;overflow: hidden;"><?php do_action( 'woocommerce_checkout_shipping' ); ?></div>
+	<div class="shipping_needed_checkout" style="opacity:0; height: 0;overflow: hidden; visibility:hidden"><?php do_action( 'woocommerce_checkout_shipping' ); ?></div>
 	
 </div>
 <script type="text/javascript">
 jQuery(document).on('change','input[name="cc_shipping_method"]',function(){
 	jQuery('#checkout_delivery #pickup_error_msg').hide();
 	if(jQuery(this).val() == 'local_delivery'){
-			jQuery('.shipping_needed_checkout').css({'opacity': 1, 'height': 'auto', 'overflow': 'visible'});
-			jQuery('.rugs_store_pickup_list').css({'opacity': 0, 'height': 0, 'overflow': 'hidden'});		
+			jQuery('.shipping_needed_checkout').css({'opacity': 1, 'height': 'auto', 'overflow': 'visible','visibility':'visible'});
+			jQuery('.rugs_store_pickup_list').css({'opacity': 0, 'height': 0, 'overflow': 'hidden','visibility':'hidden'});		
 		}else{
-			jQuery('.shipping_needed_checkout').css({'opacity': 0, 'height': 0, 'overflow': 'hidden'});
-			jQuery('.rugs_store_pickup_list').css({'opacity': 1, 'height': 'auto', 'overflow': 'visible'});
+			jQuery('.shipping_needed_checkout').css({'opacity': 0, 'height': 0, 'overflow': 'hidden','visibility':'hidden'});
+			jQuery('.rugs_store_pickup_list').css({'opacity': 1, 'height': 'auto', 'overflow': 'visible','visibility':'visible'});
 		}
 	});
 </script>
