@@ -17,7 +17,27 @@ show_admin_bar(true);
       * used on file: inc/carpetcall-contact-information.php
     */
 
-add_filter('wpseo_canonical','__return_false');
+//add_filter('wpseo_canonical','__return_false');
+function capetcall_custom_canonical_rule() {
+	global $post;
+	if ( get_post_type( $post->ID ) == 'product' ) {
+		$categories = get_the_terms($post->ID, 'product_cat' ); 
+		foreach($categories as $category) {
+			$args = array(
+						'taxonomy' => 'product_cat', 
+						'hide_empty'=>true, 
+						'parent' => $category->term_id
+					);
+			$children = get_categories($args);
+			if ( count($children) == 0 ) {
+			return  get_term_link($category->term_id,"product_cat");
+			}
+		}
+		//return site_url( '/design/' . $post->post_name );
+	}
+}
+add_filter( 'wpseo_canonical', 'capetcall_custom_canonical_rule' );
+
 	
 add_action( 'wp_enqueue_scripts', 'wooocommerce_scripts' );
 function wooocommerce_scripts(){

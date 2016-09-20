@@ -44,7 +44,7 @@ global $post, $woocommerce, $product;
               	}
 				
 				$feat_image = get_template_directory_uri().'/images/placeholder.png';
-				if(has_term('carpets','product_cat',get_the_ID())){
+				if((has_term('carpets','product_cat',get_the_ID())) || (has_term('blinds','product_cat',get_the_ID())) || (has_term('awnings','product_cat',get_the_ID())) || (has_term('shutters','product_cat',get_the_ID()))){
 					$attachment_ids = $product->get_gallery_attachment_ids();
 					//do_action('pr',$attachment_ids);
 					foreach( $attachment_ids as $attachment_id ) 
@@ -146,7 +146,7 @@ global $post, $woocommerce, $product;
 	
 	?>
     	<?php 
-		if(has_term('carpets','product_cat',get_the_ID())){
+		if((has_term('carpets','product_cat',get_the_ID())) || (has_term('blinds','product_cat',get_the_ID())) || (has_term('awnings','product_cat',get_the_ID())) || (has_term('shutters','product_cat',get_the_ID()))){
 		$attachment_ids = $product->get_gallery_attachment_ids();
 		
 		foreach( $attachment_ids as $attachment_id ) 

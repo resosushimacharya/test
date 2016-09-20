@@ -147,7 +147,7 @@ function return_parent_catlink_if_lastchild($link,$term_obj,$taxonomy){
 			$last_cat_depth = 2;
 		}else if($top_cat_slug == 'hard-flooring'){
 			$last_cat_depth = 2;
-		}else if($top_cat_slug == 'carpets'){
+		}else if(($top_cat_slug == 'carpets') || ($top_cat_slug == 'awnings') || ($top_cat_slug == 'shutters') || ($top_cat_slug == 'blinds')){
 			$last_cat_depth = 1;
 		}
 	}
@@ -1193,7 +1193,7 @@ function generate_catids_array($top_lvl_cat,$depth){
 	}
 			
 			
-		}else if($top_cat_slug == 'carpets'){
+		}else if(($top_cat_slug == 'carpets') || ($top_cat_slug == 'awnings') || ($top_cat_slug == 'shutters') || ($top_cat_slug == 'blinds')){
 			foreach($second_lvl_cats as $cat_parents){
 				$cat_arr[] = $cat_parents->term_id;
 			}
@@ -1471,8 +1471,9 @@ if($selected_store){
 function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
 	$temp_url = $url;
 	if ( $post->post_type == 'product' ) {
-		if(has_term('carpets','product_cat',$post->ID) || has_term('rugs','product_cat',$post->ID) || has_term('hard-flooring','product_cat',$post->ID)){
-			
+		if(has_term('carpets','product_cat',$post->ID) ||  has_term('awnings','product_cat',$post->ID) || 
+		has_term('blinds','product_cat',$post->ID) || has_term('shutters','product_cat',$post->ID) ||  has_term('rugs','product_cat',$post->ID) ||  has_term('hard-flooring','product_cat',$post->ID)
+		){
 		$terms = wc_get_product_terms( $post->ID, 'product_cat', array( 'orderby' => 'parent', 'order' => 'DESC' ) ) ;
 		//do_action('pr',$terms);
 		
@@ -1546,6 +1547,9 @@ add_filter( 'rewrite_rules_array', function( $rules )
 {
     $new_rules = array(
 	    'shop-our-range/carpets/([^/]*?)/([^/]*?)/?$' => 'index.php?product=$matches[2]',
+	    'shop-our-range/shutters/([^/]*?)/([^/]*?)/?$' => 'index.php?product=$matches[2]',
+	    'shop-our-range/awnings/([^/]*?)/([^/]*?)/?$' => 'index.php?product=$matches[2]',
+	    'shop-our-range/blinds/([^/]*?)/([^/]*?)/?$' => 'index.php?product=$matches[2]',
         'shop-our-range/([^/]*?)/?$' => 'index.php?product_cat=$matches[1]',
 		'shop-our-range/([^/]*?)/([^/]*?)?$' => 'index.php?product_cat=$matches[2]',
 		'shop-our-range/([^/]*?)/([^/]*?)/([^/]*?)?$' => 'index.php?product_cat=$matches[3]',
@@ -1644,7 +1648,7 @@ function cc_custom_get_feat_img($post_id,$size='small',$pattern='L'){
 									}elseif($size=='large'){
 										$size = 'full';
 										}
-								if(has_term('carpets','product_cat',$post_id)){
+								if(has_term('carpets','product_cat',$post_id) ||  has_term('awnings','product_cat',$post->ID) ||  has_term('blinds','product_cat',$post->ID) || has_term('shutters','product_cat',$post->ID) ){
 									global $woocommerce;
 									$product = new WC_Product($post_id);
 									$attachment_ids = $product->get_gallery_attachment_ids();

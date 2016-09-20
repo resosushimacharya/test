@@ -16,7 +16,9 @@ if(is_tax( 'product_cat' )){
     <meta name="keywords" content="<?php echo $focus_keyword?>">
 <?php }?>
 
-<?php if(is_singular('product')){
+<?php
+/*
+ if(is_singular('product')){
 
 	
                                     $categories = get_the_terms(get_the_ID(), 'product_cat' ); 
@@ -32,6 +34,7 @@ if(is_tax( 'product_cat' )){
 									}
 	
 	} 
+	*/
 	?>
 
 
