@@ -434,98 +434,67 @@ function show_category_slider_block($args=array()){
 			}
 			$hold = 1;
 			if($filloop !='' && $filloop->post_count > 0){
+				$banner_prods = array();
+				$slider_prods = array();
+				$first_prod_id = $filloop->post->ID;
 				$current_cat = get_term_by('id',$discat->parent,'product_cat');
 				?>
 				<div class="row cc-cat-sub-title-price-cover">
-				<div class="col-md-6 cc-cat-sub-title">
-				<h4><?php _e($current_cat->name,'carpetcall')?></h4>
-				<?php echo '<h3>'.$discat->name.'</h3><br/>'; ?>
+					<div class="col-md-6 cc-cat-sub-title">
+					<h4><?php _e($current_cat->name,'carpetcall')?></h4>
+					<?php echo '<h3>'.$discat->name.'</h3><br/>';?>
 				</div>
-				<?php
-				if($filloop->have_posts()){
-					
-					$slidercounter = 1;
-					while($filloop->have_posts()){
-						
-						$post = $filloop->the_post();
-						$imgflag = false;
-						$feat_image = cc_custom_get_feat_img(get_the_ID(),'large');
-						
-						if($pch==1){
-							$res = get_post_meta($filloop->post->ID ,'_sale_price',true);
-							//$res = get_post_meta($filloop->post->ID ,'_regular_price',true);
-							echo '<div class="col-md-6 cc-cat-sub-price">From <span>$'.round($res).'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
-						$pch++;
-						}
-						if($slidercounter<=5){
-							if($slidercounter==1){
-								echo '<div class="cat_slider">';
-							}
-							?>
-							<a href="<?php echo get_permalink($filloop->post->ID);?>">
-							<div class="cat_slider_item ">
-							<div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image;?>)"></div>
-							</div>
-							</a>
-							<?php 
-							if($slidercounter==5 || $slidercounter==$filloop->post_count){
-								echo '</div>';
-							}
-							$slidercounter++;
-						}
-					}
-					wp_reset_query();
-				}
-				if($filloop->have_posts()){?>
-                    <div class=" cc-cat-sub-group-item">
-                    <?php 
-                    $slidercounter = 1;
+                <?php $res = get_post_meta($first_prod_id,'_sale_price',true);?>
+                	<div class="col-md-6 cc-cat-sub-price">From <span>$<?php echo round($res)?></span></div>
+                </div> 
+                <div class="row cc-cat-sub-carousal-a">
+                	<div class="cat_slider">
+					<?php
                     while($filloop->have_posts()){
-						$filloop->the_post();
-						$feat_image = cc_custom_get_feat_img(get_the_ID(),'small');
-						/*
-						$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID),'thumbnail');
-						$proGal = get_post_meta($filloop->post->ID, '_product_image_gallery', TRUE );
-						$proGalId = explode(',',$proGal);
-						$reqProImageId = '';
-						foreach($proGalId as $imgid){
-							$proImageName = wp_get_attachment_url($imgid);
-							
-							if(preg_match("/\_V/i", $proImageName)){
-								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
-								if($feat_image){
-									$feat_image = $feat_image[0];
-								}
-							}
-							elseif(preg_match("/\_S/i", $proImageName)){
-								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
-								if($feat_image){
-									$feat_image = $feat_image[0];
-								}
-							}
-							elseif(preg_match("/\_L/i", $proImageName)){
-								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
-								if($feat_image){
-									$feat_image = $feat_image[0];
-								}
-							}
-						}
-						*/
-						
-						?>
-						<div class=" cc-other-term-pro">
-						<div class="cc-img-wrapper">
-						<div class="cat-item-group-image" style="background-image:url(<?php echo $feat_image;?>)">
-						<a href ="<?php echo get_permalink($filloop->post->ID);?>" class="cc-pro-view">VIEW</a> </div>
-						</div>
-						</div>
-                    <?php }?>
-                    <?php 
-                    wp_reset_query(); ?>
+                        $post = $filloop->the_post();
+                        $banner_image = cc_get_banner_img(get_the_ID());
+                        if($banner_image){
+                            $banner_prods[get_the_ID()] = $banner_image;
+                        }
+                        $slider_prods[get_the_ID()] = cc_custom_get_feat_img(get_the_ID(),'large');
+                    }?>
+                    <?php if(!empty($banner_prods)){
+                        foreach($banner_prods as $postid=>$feat_image){
+							unset($slider_prods[get_the_ID()]);
+							?>
+                            <a href="<?php echo get_permalink($postid);?>">
+                                <div class="cat_slider_item ">
+                                <div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image;?>)"></div>
+                                </div>
+                                </a>
+                            <?php }
+                        }else{
+                            $slider_prods_five = array_slice($slider_prods,0,4);
+                            foreach($slider_prods_five as $postid=>$feat_image){?>
+                                <a href="<?php echo get_permalink($postid);?>">
+                                <div class="cat_slider_item ">
+                                <div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image;?>)"></div>
+                                </div>
+                                </a>
+                                <?php }
+                            ?>
+                            
+                        <?php }?>
                     </div>
-				<?php }
-				?>
-				</div>
+                
+                 <div class=" cc-cat-sub-group-item">
+                 	<?php foreach($slider_prods as $postid=>$imgurl){
+						$feat_image  = cc_custom_get_feat_img($postid,'small');?>
+						<div class=" cc-other-term-pro">
+                        <div class="cc-img-wrapper">
+                            <div class="cat-item-group-image" style="background-image:url(<?php echo $feat_image;?>)">
+                                <a href ="<?php echo get_permalink($postid);?>" class="cc-pro-view">VIEW</a> 
+                            </div>
+                        </div>
+                    </div>
+					<?php }?>
+                 </div>   
+			</div>
 			<?php }
 			?>
 			</div>
@@ -1701,6 +1670,19 @@ function cc_custom_get_feat_img($post_id,$size='small',$pattern='L'){
 		}
 	return $feat_image;
 	}
+function cc_get_banner_img($post_id){
+	$feat_image = '';
+	if(has_term('rugs','product_cat',$post_id)){
+		$sku = explode('.',get_post_meta($post_id,'_sku',true));
+		$image_name = strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_LB.jpg';
+		$img_path =  WP_CONTENT_DIR.'/uploads/images/large/'.$image_name;
+		if(file_exists($img_path)){
+			$feat_image = content_url('uploads/images/large/'.$image_name);
+		}
+	}
+	return $feat_image;
+}
+
 
 
 function is_last_cat($cat_id){

@@ -48,7 +48,7 @@ wp_localize_script( 'woo-load-autocomplete', 'woo_load_autocomplete', array( 'aj
   acf_add_options_sub_page('Labeling');
   acf_add_options_sub_page('Front-Page Sections');
   acf_add_options_sub_page('Miscellaneous');
-  acf_add_options_sub_page('Enquiry Emails Settings');
+  acf_add_options_sub_page('Enquiry Email Settings');
 #update_option('siteurl',"http://localhost/carpetcall");
 #update_option('home',"http://localhost/carpetcall");
 add_action('pr','inspect_carpetcall',10,1);

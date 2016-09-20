@@ -26,15 +26,6 @@ $tax = 'product_cat';
 					
 				
 					$feat_image = cc_custom_get_feat_img(get_the_ID(),'medium');
-						
-								
-								//$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-				
-				//$feat_image = get_template_directory_uri().'/images/placeholder.png';
-				
-					/*if(!empty(unserialize($woo['_product_attributes'][0])))
-				$prounits=unserialize($woo['_product_attributes'][0]);*/
-
 				if(isset($prounits['size']['value'])){
 					$prounit=$prounits['size']['value'];
 				}
