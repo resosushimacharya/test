@@ -41,9 +41,9 @@
 }
 * {
 	padding: 0;
-	margin: 0;
-	outline: none;
+	margin: 0;	
 	box-shadow:none;
+	font-weight: normal;
 }
 select{
 	border-radius: 0;
@@ -61,12 +61,15 @@ ul, li {
 }
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
+	font-weight: normal;
 }
-a {
-	cursor: pointer;
+a {	
+	text-decoration: none;
 }
-p {
-	margin: 2px 0;
+a:hover{
+	text-decoration: none;
+}
+p {	
 	font: normal 0.875em/150% 'proxima_nova_rgregular', sans-serif;	
 	color: #333333;
 }
@@ -76,7 +79,7 @@ html, body {
 	font-size: 100%;
 	background: #fff;
 	color: #000;
-	/*line-height: 150%;*/
+	line-height: 150%;
 	-webkit-font-smoothing: antialiased;
 	font-variant: normal;
 	-moz-osx-font-smoothing: grayscale;
@@ -125,7 +128,6 @@ html, body {
 .blockUI.blockOverlay{
 	z-index: 15 !important;
 }
-
 .banner .col-md-12 .call-info-cntr {
 	width: 32.4%;
 }
@@ -138,7 +140,7 @@ html, body {
 	border: 0;
 	color: #000;
 	font-size: 16px;
-	font-weight: 700;
+	font-family: 'proxima_nova_ltsemibold';
 	text-align: left;
 	text-transform: uppercase;
 	-webkit-box-shadow: none;
@@ -178,21 +180,13 @@ html, body {
 	box-shadow: none;
 }
 
-.callinfo {
-	position: relative;
-}
-.calme {
-	margin: 0;
+.calme {	
 	font-family: 'proxima_nova_ltsemibold', sans-serif;
 	color: #FFF;
-	text-transform: uppercase;
-	-webkit-font-smoothing: antialiased;
-	text-rendering: optimizelegibility;
-	white-space: inherit;
+	text-transform: uppercase;	
 	font-size: 2.187em;
 }
-.callmea a {
-	text-decoration: none;
+.callmea a {	
 	color: #FFF;
 }
 .callmea a:hover {
@@ -200,10 +194,8 @@ html, body {
 }
 .subcl {
 	font-family:'proxima_nova_rgregular', sans-serif;
-	font-size:12px;
-	font-weight:normal;
-	color: #FFF;
-	margin: 0;
+	font-size:12px;	
+	color: #FFF;	
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	width: 200px;
@@ -211,16 +203,14 @@ html, body {
 .contblk {
 	position: absolute;
 	bottom: -1px;
-	right: 0;
-	display: inline-block
+	right: 0;	
 }
 .contblk a {
 	padding: 2px 13px;
 	background: #c32327;
 	text-align: center;
 	color: #FFF;
-	font-size: 13px;
-	text-decoration: none;
+	font-size: 13px;	
 	text-transform: uppercase;
 	display: block;
 }
@@ -237,7 +227,6 @@ html, body {
 .navsrchblk .col-md-12 .col-md-7 {
 	width: 60.4%;
 }
-
 .navsrchblk .col-md-12 .top-map-icon {
 	width: 21.5%;
 	margin-left: 23px;
@@ -337,47 +326,22 @@ ul#mywoosection ul.dropdown-menu {
     border-radius: 50%;
 }
 
-/* NAVIGATOn */
-
-
-#cssmenu {
-  margin: 0;
-  width: auto;
-  padding: 0;
-  line-height: 1;
-  display: block;
-  position: relative;
+/* NAVIGATON */
+.cssmenu {
+  line-height: 1; 
   font-family: 'proxima_nova_rgregular', sans-serif;
   z-index:9;
 }
-#cssmenu ul {
+.cssmenu ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
-  display: block;
-  
+  background: #fff;
 }
-#cssmenu ul:after,
-#cssmenu:after {
-  content: " ";
-  display: block;
-  font-size: 0;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-#cssmenu > ul > li {
-  margin: 0;
-  padding: 0;
-  display: block;
+.cssmenu > ul > li {
   position: relative;
-  background:#0a71cf;
-  
+  background:#0a71cf;  
 }
-#cssmenu ul li a {
-  text-decoration: none;
+.cssmenu ul li a {  
   display: block;
-  margin:0;
   -webkit-transition: color .2s ease;
   -moz-transition: color .2s ease;
   -ms-transition: color .2s ease;
@@ -388,57 +352,43 @@ ul#mywoosection ul.dropdown-menu {
   box-sizing: border-box;
   font-family: 'proxima_nova_ltsemibold';
 }
-#cssmenu ul li ul {
-  position: absolute;
-  left:-99999px;
-  top: auto;
-  padding: 10px;
-  background: #fff;
-  z-index:99999;
+.cssmenu ul li ul {
+  width:auto;
+  display: none; 
+  white-space:nowrap;
+  padding: 10px 30px 10px 15px;    
 }
-#cssmenu ul li ul li {
- 
-  -webkit-transition: max-height 0.4s ease-out;
-  -moz-transition: max-height 0.4s ease-out;
-  -ms-transition: max-height 0.4s ease-out;
-  -o-transition: max-height 0.4s ease-out;
-  transition: max-height 0.4s ease-out;
-  background: #ffffff;
+.cssmenu ul li ul li {   
   padding-right:30px;
   margin-right: -30px;
+  margin-bottom: 10px;
 }
-
-#cssmenu.align-right ul li ul li.has-sub:after {
+.cssmenu ul li ul li:last-child{
+	margin-bottom: 0;
+}
+.cssmenu.align-right ul li ul li.has-sub:after {
   right: auto;
   left: 15px;
 }
-
-#cssmenu.align-right ul li ul li.has-sub:before {
+.cssmenu.align-right ul li ul li.has-sub:before {
   right: auto;
   left: 15px;
   border-left-color: transparent;
   border-right-color: #ffffff;
 }
-#cssmenu ul li ul li a {
+.cssmenu ul li ul li a {
   font-size: 16px;
   text-transform: uppercase;
   color: #1858b8;
-  letter-spacing: 0;
-  display: block;
-  width: auto;
   padding: 7px 10px;
-  position: relative;
-  margin-bottom:10px;
-  font-family: 'proxima_nova_ltsemibold';
+  position: relative;    
 }
-#cssmenu > ul >li > ul> li:hover > a,
-#cssmenu ul li ul li.active > a {
+.cssmenu > ul >li > ul> li:hover > a{
   color: #fff;
   position:relative;
-  background:#0099ff;
-  
+  background:#0099ff;  
 }
-#cssmenu > ul >li > ul> li:hover a.menu-link.sub-menu-link:after {
+.cssmenu > ul >li > ul> li:hover a.menu-link.sub-menu-link:after {
     position: absolute;
     right: -10px;
     content: '';
@@ -448,69 +398,16 @@ ul#mywoosection ul.dropdown-menu {
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
 }
-#cssmenu ul li ul li:hover:after,
-#cssmenu ul li ul li.active:after {
+.cssmenu ul li ul li:hover:after{
   background: #4cb6ea;
 }
-#cssmenu ul li ul li:hover > ul {
-  left: 100%;
-
-}
-#cssmenu ul li ul li:hover > ul > li {
-  max-height: 72px;
-  position: relative;
-}
-#cssmenu > ul > li {
+.cssmenu > ul > li {
   float: left;
 }
-#cssmenu.align-center > ul > li {
-  float: none;
-  display: inline-block;
-}
-#cssmenu.align-center > ul {
-  text-align: center;
-}
-#cssmenu.align-center ul ul {
-  text-align: left;
-}
-#cssmenu.align-right > ul {
-  float: right;
-}
-#cssmenu.align-right > ul > li:hover > ul {
-  left: auto;
-  right: 0;
-}
-#cssmenu.align-right ul ul li:hover > ul {
-  right: 100%;
-  left: auto;
-}
-#cssmenu.align-right ul ul li a {
-  text-align: right;
-}
-#cssmenu > ul > li:after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 0;
-  top: 0;
-  z-index: 0;
-  -webkit-transition: height .2s;
-  -moz-transition: height .2s;
-  -ms-transition: height .2s;
-  -o-transition: height .2s;
-  transition: height .2s;
-}
-#cssmenu > ul > li.has-sub > a {
-
-}
-
-#cssmenu > ul > li:nth-child(1) { width:215px; margin-right:16px;}
-#cssmenu > ul > li:nth-child(2) {width:195px; margin-right:14px;}
-#cssmenu > ul > li:nth-child(3) {width:154px; margin-right:0;}
-
-
-#cssmenu > ul > li > a {
+.cssmenu > ul > li:nth-child(1) { width:215px; margin-right:16px;}
+.cssmenu > ul > li:nth-child(2) {width:195px; margin-right:14px;}
+.cssmenu > ul > li:nth-child(3) {width:154px; margin-right:0;}
+.cssmenu > ul > li > a {
   color: #ffffff;
   padding: 16px 18px;
   letter-spacing: 1px;
@@ -521,112 +418,49 @@ ul#mywoosection ul.dropdown-menu {
   margin:0;
   text-align:center;
 }
-#cssmenu > ul > li:hover:after,
-#cssmenu > ul > li.active:after {
-  height: 100%;
-}
-#cssmenu > ul > li:hover > a,
-#cssmenu > ul > li.active > a {
+.cssmenu > ul > li:hover > a{
   color: #fff;
   background:#0099ff;
 }
-#cssmenu > ul > li:hover > a:after,
-#cssmenu > ul > li.active > a:after {
-  background: #000000;
-}
-#cssmenu > ul > li:hover > a:before,
-#cssmenu > ul > li.active > a:before {
-  border-top-color: #ffffff;
-}
-#cssmenu > ul > li:hover > ul {
-  left: 0; 
-}
-#cssmenu > ul > li:hover > ul > li {
- /* max-height: 72px;*/
- /* position: relative;*/
-}
-#cssmenu #menu-button {
-  display: none;
-}
-#cssmenu > ul > li > a {
-  display: block;
-}
-#cssmenu > ul > li {
-  width: auto;
-  margin-right:20px;
-}
-#cssmenu > ul > li > ul {
-  width:auto;
-  display: none; 
-  white-space:nowrap;
-  padding: 10px 30px 0 15px;
-  box-shadow: -1px 1px 5px #e2e2e2;
-}
-#cssmenu > ul > li:hover > ul {
+.cssmenu > ul > li:hover > ul {
 	display:block;	
 }
-#cssmenu > ul > li > ul > li > ul { 
-  width: 100%;
-  /*display: block;*/
+.cssmenu .menu-item-has-children ul.sub-menu {    
+    position:absolute;
 }
-#cssmenu .menu-item-has-children ul.sub-menu {
-    z-index: 100; position:absolute;
+.cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu  {
+    top:0; 
+    left:100%;	
 }
-
-#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu  {
-	    top:0; left:100%;
-		padding-top: 11px;
-		height:auto; display:none;
-		padding-left:18px;
-		box-shadow: 1px 1px 0px #e2e2e2;
-}
-#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children:hover ul.sub-menu{
+.cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children:hover ul.sub-menu{
 	 display:block;
 }
-#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a{
+.cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a{
 	padding: 3px 10px;
     line-height: 1;
 	font-size:12px;
+	margin:5px 0;
 }
-#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li{margin: 0; padding: 0}
-#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a { margin:5px 0 }
-#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a:hover {
+.cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li{margin: 0; padding: 0}
+.cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a:hover {
 	color:#0099ff;
 }
-#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i{ margin-right: 10px; color:#0099ff; }
-#cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a::after{content: '';display:none}
-#cssmenu > ul#menu-main  li.menu-item-depth-0:nth-child(2) ul.sub-menu { height:auto;}
-#cssmenu > ul#menu-main  li.menu-item-depth-0:nth-child(2) ul.sub-menu li.menu-item-depth-1 ul.sub-menu{ height:auto; left:98.5%; width:75%;}
-
-
-
+.cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a i{ margin-right: 10px; color:#0099ff; }
+.cssmenu > ul#menu-main  li.menu-item-depth-0:nth-child(2) ul.sub-menu li.menu-item-depth-1 ul.sub-menu{ width:75%;}
 /*............ store finder menu css ..............*/
 
 /* Dropdown Button */
-.dropbtn {
-	color: white;
-	font-size: 18px;
-	border: none;
-	cursor: pointer;
+.dropbtn {	
+	font-size: 18px;		
 	background-color: transparent;
 	text-transform: uppercase;
 	border-radius: 0;
 	letter-spacing: 1px;
 	height: 50px;
-	padding: 0;
-	outline: none;
 	padding-left: 10px;
 	padding-right: 10px;
-  font-family: 'proxima_nova_ltsemibold';
-  font-weight: normal;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-	position: relative;
-	display: inline-block;
-	z-index: 99999;
-	width: 100%;
+  	font-family: 'proxima_nova_ltsemibold';
+  	font-weight: normal;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -646,52 +480,52 @@ ul#mywoosection ul.dropdown-menu {
 /* Links inside the dropdown */
 .dropdown-content a {
 	color: #15489f;
-	padding: 13px 0 3px 0;
-	text-decoration: none;
+	padding: 13px 0 3px 0;	
 	display: inline-block;
 	font-family:'proxima_nova_rgregular', sans-serif;
 	font-size:12px;
-	font-weight:normal;
-	cursor: pointer;
+	font-weight:normal;	
 }
 .dropdown-content a:hover {
 	text-decoration: underline;
 }
-
 /* Show the dropdown menu on hover */
 .dropdown.click-open .dropdown-content {
 	display: block;
 }
-
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown.click-open .dropbtn {
 	background-color: #0099ff;
-	width: auto;
-	margin: 0;
 }
 .srch_pro .col-lg-12 {
 	padding-right: 20px;
 	padding-left: 20px;
 }
-.curlocate input {
+.curlocate input, .curnloca a {
 	background: #15489f;
 	border: 0;
 	width: 100%;
-	padding: 2px 20px;
-	text-align: center;
+	padding: 2px 20px;	
 	color: #FFF;
 	font-family:'proxima_nova_ltsemibold', sans-serif;
-	font-size:14px;
-	font-weight:normal;
-	text-decoration: none;
+	font-size:14px;	
 	margin-top:8px;
 }
-.curlocate input:hover {
+.curlocate input:hover, .curnloca a:hover {
 	background: #0a71cf;
+	text-decoration: none;
+}
+.curnloc {
+	margin: 17px 0 0;
+	display: block;	
+	text-align: center;
+}
+.curnloca a {	
+	background: #15489f;
+	margin-top: 0;
 }
 .input-group {
-	width: 100%;
-	border: 1px solid #a6a6a6;
+	width: 100%;	
 	border-collapse: collapse;
 }
 ul#directory_list_id {
@@ -714,6 +548,7 @@ ul#directory_list_id li {
 	padding: 10px 20px;
 	display: none;
 }
+
 .nav>li>a {
 	padding: 0;
 	background: none;
@@ -854,13 +689,9 @@ ul#directory_list_id li {
 	width:117px;
 	display:block;
 }
-.sfind address {
-	font-family:'proxima_nova_rgregular', sans-serif;
-	font-size:12px;
-	font-weight:normal;
-	line-height:150%;
-	color: #333333;
-	text-align: left;
+.sfind address {	
+	font-size:12px;		
+	color: #333333;	
 	text-transform: uppercase;
 	margin: 15px 0 0 0;
 }
@@ -889,7 +720,7 @@ ul#directory_list_id li {
 }
 .loplc {
 	text-align: left;
-	padding: 10px;
+	padding: 0 10px 10px;
 }
 .loplc h3 {
 	font-size: 15px;
@@ -901,25 +732,18 @@ ul#directory_list_id li {
 	margin: 8px 0;
 	max-width: 100%;
 }
+.form-control, .btn-default{
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
 .srch_pro .form-control {
 	border: 0;
 	border-radius: 0;
 	padding: 10px 12px;
 	height: 45px;
-	text-transform: uppercase;
-	text-align: left;
-	outline: none;
-	box-shadow:none;
-}
-.srch_pro .btn-default {
-	background-color: #FFF;
-	border-color: #FFF;
-	border-radius: 0;
-	padding: 12px 12px;
-	outline: none;
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
+	text-transform: uppercase;	
+	outline: none;	
 }
 .srch_pro .btn-default {
 	background-color: #FFF;
@@ -927,34 +751,8 @@ ul#directory_list_id li {
 	border-radius: 0;
 	padding: 12px 12px;
 	outline: none;
-	height: 45px;
+	height: 45px;	
 }
-.srch_pro .input-group-btn {
-	margin: 0;
-	outline: 0;
-	box-shadow: none;
-}
-.curnloc {
-	margin: 17px 0 0;
-	display: block;	
-	text-align: center;
-}
-.curnloca a {
-	padding: 2px 20px;
-	text-align: center;
-	color: #FFF;
-	font-family:'proxima_nova_ltsemibold', sans-serif;
-	font-size:14px;
-	font-weight:normal;
-	text-decoration: none;
-	width: 100%;
-	background: #15489f;
-}
-.curnloca a:hover {
-	background: #0a71cf;
-	text-decoration: none;
-}
-
 /*........... carpetcall slide start here .................*/
 
 .carpetcall_slide {
@@ -3903,7 +3701,7 @@ select#cc-enquiry-type {
 #cc-store-form-section .form-group.col-sm-4 {
 	padding-left: 0;
 }
-select#cc-state-type {
+select#cc-state-type, select#cc-store-name {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
 	font-size:12px;
 	font-weight:normal;
@@ -3916,27 +3714,6 @@ select#cc-state-type {
 	outline: 0;
 	box-shadow: none;
 	text-transform: uppercase;
-	-webkit-appearance: none;
-	background-image: url(../images/icon1.jpg);
-	background-repeat: no-repeat;
-	background-position: right;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	text-transform: uppercase;
-}
-select#cc-store-name {
-	font-family:'proxima_nova_ltsemibold', sans-serif;
-	font-size:12px;
-	font-weight:normal;
-	color: #a8a8a8;
-	border: 1px solid #d1ddf1;
-	background-color: #e7edf8;
-	border-radius: 0;
-	outline: 0;
-	height: 35px;
-	outline:0;
-	box-shadow: none;
 	-webkit-appearance: none;
 	background-image: url(../images/icon1.jpg);
 	background-repeat: no-repeat;
@@ -4674,7 +4451,7 @@ div#right_col p a:hover {
 	height: 4px;
 	width: 100%;
 	background: #0099ff;
-	z-index: 888;
+	z-index: 11;
 }
 .cc-find-store-au:before {
 	content: '';
@@ -4684,7 +4461,7 @@ div#right_col p a:hover {
 	height: 0px;
 	width: 100%;
 	background: #0099ff;
-	z-index: 888;
+	z-index: 11;
 }
 .cc-find-store-au:hover:before{
 	height: 4px;
@@ -7397,7 +7174,7 @@ label.inner-check-label.radio-check-label::after{
 }
 .shop_range_cat_block {
 	width:100%;
-	height:146px;
+	padding-bottom: 60%;
 	background-repeat:no-repeat;
 	background-size:cover;
 	background-position:center center;
@@ -7407,6 +7184,7 @@ label.inner-check-label.radio-check-label::after{
 }
 .gpf-block .cc-rugs-sor-cntr .shop_range { 
 	padding:0 10px;
+	margin-bottom: 20px;
 }
 .sor-single-wrap { 
 	text-align:center;
@@ -7770,7 +7548,7 @@ ul.cc-woocommerce-thankyou-order-details li {
     position: relative;
 }
 .inerblock_seC_mrugss .carpets-cat-dropdown h3{
-	font-size: 28px;carpets-cat-dropdown
+	font-size: 28px;
 	padding: 0 25px;
 	margin: 0;
 	border: 0;

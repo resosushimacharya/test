@@ -338,7 +338,7 @@ if(get_post_type() == 'product'){?>
                                     'theme_location' => 'header-menu',
                                     'menu' => 'carpet_front',
                                     'container' => 'div',
-                                    'container_class' => '',
+                                    'container_class' => 'cssmenu',
                                     'container_id' => 'cssmenu',
                                     'menu_class' => '',
                                     'menu_id' => '',
