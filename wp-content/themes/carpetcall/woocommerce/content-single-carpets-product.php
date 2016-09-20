@@ -1,5 +1,4 @@
 <div class="product_single_container">
-
 <?php
 
 /**

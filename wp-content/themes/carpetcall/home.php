@@ -89,13 +89,8 @@
                                 <h1> <?php echo get_field('home_product_heading', 'option');?> </h1>
 
                                 <div class="col-md-12 no-lr">
-
                                 <div class="responsive">
-                                <!-- product six end  -->
-                                <?php
-                                get_template_part('templates/contents/content', 'featured');
-                                ?>
-
+                                <?php  get_template_part('templates/contents/content', 'featured'); ?>
                                 </div><div class="clearfix"></div>
 
                                 </div><div class="clearfix"></div>

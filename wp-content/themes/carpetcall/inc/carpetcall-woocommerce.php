@@ -196,6 +196,12 @@ function woo_new_product_tab( $tabs ) {
                    			if(strcasecmp($cat->slug, 'blinds')==0){
                    				$top_cat = 'blinds';
                    			}
+                   			if(strcasecmp($cat->slug, 'awnings')==0){
+                   				$top_cat = 'awnings';
+                   			}
+                   			if(strcasecmp($cat->slug, 'awnings')==0){
+                   				$top_cat = 'shutters';
+                   			}
                    		
                    		}
                    	}

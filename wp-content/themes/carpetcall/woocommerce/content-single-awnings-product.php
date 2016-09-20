@@ -310,7 +310,7 @@ if($reqTempTerms){
                         echo '<input type="hidden" value="'.$resproProduct.'" name="product_page_cat"/>';
                         echo '<input type="hidden" value="'.$resproCode.'" name="product_page_code"/>';
                         echo '<input type="hidden" value="'.$resproSize.'" name="product_page_size"/>';
-                        echo '<input type="hidden" value="blinds" name="cc_contact_type"/>';
+                        echo '<input type="hidden" value="awnings" name="cc_contact_type"/>';
                         
 
 

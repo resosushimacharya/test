@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $product;
 
 ?>
-
+<?php if($product->get_price() !=0){?>
 <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
   <div class="cc-price-control">
     <h3><span itemprop="priceCurrency" content="AUD">$</span><span class="cc-sale-price-title" itemprop="price" content="<?php echo number_format(esc_attr( $product->get_price() ),2,'.',''); ?>"><?php echo number_format(esc_attr( round($product->get_price()) ),2,'.',''); ?></span><span class="low">/SQM</span> </h3>
@@ -32,3 +32,5 @@ global $product;
   <meta itemprop="priceCurrency" content="<?php echo esc_attr( get_woocommerce_currency() ); ?>" />
   <?php /*?><link itemprop="availability" href="http://schema.org/<?php echo $product->is_in_stock() ? 'InStock' : 'OutOfStock'; ?>" /><?php */?>
 </div>
+<?php }?>
+

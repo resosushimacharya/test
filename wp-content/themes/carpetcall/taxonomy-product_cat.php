@@ -35,7 +35,7 @@ if($top_cat){
 	$top_cat_slug = $top_cat_obj->slug;
 	if($top_cat_slug == 'rugs' || $top_cat_slug == 'hard-flooring'){
 		get_template_part('templates/category',$top_cat_slug);
-	}else if($top_cat_slug == 'carpets' || $top_cat_slug == 'blinds'){
+	}else if(($top_cat_slug == 'carpets') || ($top_cat_slug == 'blinds') || ($top_cat_slug == 'awnings') || ($top_cat_slug == 'shutters') ){
 		get_template_part('templates/category','carpet_n_blinds');
 		}
 }
