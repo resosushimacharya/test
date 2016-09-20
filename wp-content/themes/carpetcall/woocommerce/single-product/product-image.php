@@ -154,7 +154,7 @@ global $post, $woocommerce, $product;
 			$image_link = wp_get_attachment_url( $attachment_id );
 			$image_thumb = wp_get_attachment_image_src($attachment_id,'thumbnail');
 			?>
-        <div>
+        <div class="single-thumb-img">
         <a href="<?php echo  $image_link?>" class="single-product-thumb-img">
         
         	

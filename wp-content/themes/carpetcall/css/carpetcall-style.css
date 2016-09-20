@@ -442,6 +442,9 @@ ul#mywoosection ul.dropdown-menu {
 	margin:5px 0;
 }
 .cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li{margin: 0; padding: 0}
+.cssmenu > ul >li > ul> li:hover  ul.sub-menu li a.menu-link.sub-menu-link:after, .cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a::after{
+	display: none;
+}
 .cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu li a:hover {
 	color:#0099ff;
 }
@@ -2269,7 +2272,7 @@ ul.guide_list_cfaq li a {
 	pointer-events: none;
 }
 .woocommerce div.product div.images div.thumbnails {
-	padding-top: 0.75em;
+padding-top: 0;	
 	margin: -10px;
 }
 .thumbnails.columns-3 > a.first img, a.zoom img {
@@ -2282,8 +2285,8 @@ ul.guide_list_cfaq li a {
 	margin: 0;	
 }
 .woocommerce div.product div.images div.cc_custom_gal_thumb {
-	padding-top: 0.75em;
-	margin: -10px;
+	padding-top: 0;
+	margin: 0 -10px;
 }
 .cc_custom_gal_thumb .columns-3 > a.first img, a.zoom img {
 	min-width: 175px;
@@ -3701,7 +3704,7 @@ select#cc-enquiry-type {
 #cc-store-form-section .form-group.col-sm-4 {
 	padding-left: 0;
 }
-select#cc-state-type, select#cc-store-name {
+select#cc-state-type, select#cc-store-name, select#cc-state-type-only {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
 	font-size:12px;
 	font-weight:normal;
@@ -3774,7 +3777,7 @@ textarea.form-control {
 	padding: 0;
 	margin: 0;
 }
-#cc-state-form-section select#cc-state-type-only {
+select#cc-state-type-only {
 	border: 1px solid #d1ddf1;
 	background-color: #e7edf8;
 	border-radius: 0;
