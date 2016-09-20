@@ -29,7 +29,6 @@
 	src: url('../fonts/ProximaNova-Black.eot');
 	src: url('../fonts/ProximaNova-Black.eot?#iefix') format('embedded-opentype'), url('../fonts/ProximaNova-Black.woff') format('woff'), url('../fonts/ProximaNova-Black.ttf') format('truetype');	
 }
-
 /* PN Bold */
 @font-face {
   font-family: 'ProximaN Bold';
@@ -40,9 +39,6 @@
        url('../fonts/ProximaNova-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
        url('../fonts/ProximaNova-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
-
-
-
 * {
 	padding: 0;
 	margin: 0;
@@ -66,14 +62,12 @@ ul, li {
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 }
-
 a {
 	cursor: pointer;
 }
 p {
 	margin: 2px 0;
-	font: normal 0.875em/150% 'proxima_nova_rgregular', sans-serif;
-	
+	font: normal 0.875em/150% 'proxima_nova_rgregular', sans-serif;	
 	color: #333333;
 }
 html, body {
@@ -82,7 +76,7 @@ html, body {
 	font-size: 100%;
 	background: #fff;
 	color: #000;
-	line-height: 150%;
+	/*line-height: 150%;*/
 	-webkit-font-smoothing: antialiased;
 	font-variant: normal;
 	-moz-osx-font-smoothing: grayscale;
@@ -2465,7 +2459,7 @@ ul.guide_list_cfaq li a {
 }
 .main-image-wrapper {
 	min-height: 373px;
-	margin-bottom:10px;
+	margin-bottom:15px;
 }
 .main-image-wrapper a img {
 	min-height: 373px;
@@ -2485,9 +2479,9 @@ ul.guide_list_cfaq li a {
 	max-height: 115px;
 }
 .woocommerce-page div.product div.thumbnails a {
-	width: 33.33%;
-	margin: 0 0 30px 0;
-	border: 10px solid #fff;
+	width: 100%;
+	float: none;	
+	margin: 0;	
 }
 .woocommerce div.product div.images div.cc_custom_gal_thumb {
 	padding-top: 0.75em;
@@ -2497,10 +2491,17 @@ ul.guide_list_cfaq li a {
 	min-width: 175px;
 	max-height: 115px;
 }
-.woocommerce-page div.product div.cc_custom_gal_thumb  a {
+.product_single_thumb_slider{
+	font-size: 0;
+}
+.product_single_thumb_slider .single-thumb-img {
 	width: 33.33%;
 	margin: 0;
+	float: none;
+	display:inline-block;
 	border: 10px solid #fff;
+	border-top-width: 5px;
+	border-bottom-width: 5px;
 }
 .mod-social {
 	display: inline-block;
@@ -7965,4 +7966,8 @@ h1.mobile.inner-about-head{
 
 .cc-color-var-section .panel-group{
 	margin-bottom: 0;
+}
+
+.product_single_thumb_slider > div{
+
 }
