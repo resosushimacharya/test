@@ -65,53 +65,6 @@ $list = get_field('buying_guide_archive',$faqid );
 
 
 			 <div class="panel-group single-produc-acc-cntr" id="single-product-acc">
-		
-		 <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#single-product-acc" href="#deatials_mobile"> Details
-                        </a>
-                    </h4>
-                </div>
-                <div id="deatials_mobile" class="panel-collapse collapse ">
-                    <div class="panel-body"> 
-                    <?php  	 echo '<h2 class="detail-heading-item">Overview</h2>';
-							$d1 = get_field('description_1',$post->ID);
-							$d2 = get_field('description_2',$post->ID);
-							$d3 = get_field('description_3',$post->ID);
-							$d4 = get_field('description_4',$post->ID);
-							$yarn=get_field('yarn_type',$post->ID);
-							$length= get_post_meta( $post->ID, '_length', TRUE );
-							$width= get_post_meta( $post->ID, '_width', TRUE );
-							$height= get_post_meta( $post->ID, '_height', TRUE );
-							$weight= get_post_meta( $post->ID, '_weight', TRUE );
-							if(!empty($d1)){
-							echo '<p>'.$d1.'</p>';
-							}
-							if(!empty($d2)){
-							echo '<p>'.$d2.'</p>';
-							}
-							if(!empty($d3)){
-							echo '<p>'.$d3.'</p>';
-							}
-							if(!empty($d4)){
-							echo '<p>'.$d4.'</p>';
-							}
-							echo '<h3 class="detail-heading-item-spec">SPECIFICATIONS</h3>';?>
-							<ul class="specific-list">
-							<?php if(!empty($yarn)){?>
-							<li><span>Yarn Type : </span><?php echo $yarn; ?></li><?php }?>
-							<?php if(!empty($length) && !empty($width) && !empty($height)) {?>
-							<li><span>Size : </span><?php echo $length.'cm x '.$width." ".$height;?> 
-							</li>
-							<?php }?>
-							<?php if(!empty($weight)){?>
-							<li><span>Weight : </span><?php echo $weight." kg"; ?> </li>
-							<?php }?>
-							</ul>
-					</div>
-                </div>
-            </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
@@ -171,38 +124,6 @@ if(!empty($careins)){
                             </div>
                         
                     </div>
-                </div>
-            </div>
-                  <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#single-product-acc" href="#return_mobile"> Return Policy 
-                        </a>
-                    </h4>
-                </div>
-                <div id="return_mobile" class="panel-collapse collapse ">
-                    <div class="panel-body"> 
-
-                     <?php 
-										global $post;
-
-										$url = site_url();
-										$url =explode('/',$url);
-
-										if(strcasecmp($url[2],'localhost')==0){
-										  $retID = 31856;
-										 
-
-										}
-										else{
-										  $retID = 33274;
-										}
-										$retinfo = get_field('return_policy',$retID);
-										echo '<p class="returns_text">'.$retinfo.'</p>';
-
-										?>
-
-					</div>
                 </div>
             </div>
 

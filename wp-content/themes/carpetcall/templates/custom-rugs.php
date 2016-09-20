@@ -59,7 +59,7 @@ global $post;
     <?php
 	foreach($images as $image){
 		$feat_image_arr = $image['gallery_image'];?>
-		<div>
+		<div class="single-thumb-img">
         <a href="<?php echo $feat_image_arr['url']?>" class="single-product-thumb-img">
         	<img src="<?php echo wp_get_attachment_thumb_url($feat_image_arr['id'])?>">
         </a></div>
@@ -275,7 +275,7 @@ function recaptchaCallbackone(){
             <div class="clearfix"></div>
           </div>
         </div>
-<?php if(!wp_is_mobile()) { ?>
+<div class="desktop desktop-tabs">
         <div class="woocommerce-tabs wc-tabs-wrapper">
   <ul class="tabs wc-tabs">
     <li class="additional_information_tab active"> <a href="#tab-additional_information">DETAILS</a> </li>
@@ -284,7 +284,8 @@ function recaptchaCallbackone(){
   <?php echo apply_filters('the_content',get_the_content())?>
   </div>
 </div>
-<?php } else{ ?>
+</div>
+ <div class="mobile mobile-tabs">
  <div class="panel-group single-produc-acc-cntr" id="single-product-acc">
  <div class="panel panel-default">
                 <div class="panel-heading">
@@ -300,7 +301,7 @@ function recaptchaCallbackone(){
                 </div>
             </div>
         </div>
-        <?php } ?>
+        </div>
         <meta itemprop="url" content="<?php the_permalink(); ?>" />
       </div>
       
@@ -597,13 +598,6 @@ jQuery(document).ready(function(e) {
 		horizontal_padding: 20,
 		opacity: 0.8,
 		deeplinking: false
-	});
-	jQuery('.product_single_thumb_slider').slick({
-	  dots: true,
-	  infinite: true,
-	  speed: 300,
-	  slidesToShow: 1,
-	  adaptiveHeight: true
 	});
 });
 

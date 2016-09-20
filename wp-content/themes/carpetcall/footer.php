@@ -251,6 +251,12 @@ $tabs.responsiveTabs('activate', jQuery(this).val());
 <?php wp_footer();?>
 </body>
 </html>
+
+
+
+
+
+
 <?php  
 if(isset($_POST["wpsl-search-input"]) && isset($_POST["cc-control-map"]) ){?>
   <script>
