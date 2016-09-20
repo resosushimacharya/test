@@ -50,6 +50,14 @@
           </span>
           <?php } ?>
             <?php echo single_cat_title('',false).' '.$appafter;?>
+          <?php 
+	/*
+while(have_posts()):
+  the_post();
+the_title();
+endwhile;
+*/
+?>
         </h3>
         <?php 
 if(get_term_meta($current_cat->term_id,'cat_top_description',true) && $depth == 0){

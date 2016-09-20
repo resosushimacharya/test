@@ -2,8 +2,6 @@
 if ( ! is_admin() ) {
     include ABSPATH . 'wp-admin/includes/template.php';
 }
-
-
 /*=============Temporary code to show total sales of products starts===============*/
 add_filter( 'manage_edit-product_columns', 'cc_sales_count_coloumn',11);
 function cc_sales_count_coloumn($columns)
@@ -44,10 +42,6 @@ function cc_custom_orderby_total_sales( $query ) {
     }
 }
 /*=============Temporary code to show total sales of products ends===============*/
-
-
-
-
 add_action('init','cc_create_table_for_sales_record');
 function cc_create_table_for_sales_record(){
 	global $wpdb;
@@ -62,19 +56,12 @@ function cc_create_table_for_sales_record(){
 	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 	dbDelta( $sql );
 }
-
-
-
-//echo get_template_directory().'inc/order-reports-cron.php';die;
 include_once(get_template_directory().'/inc/order-reports-cron.php');
-
-
 add_filter( 'woocommerce_return_to_shop_redirect', 'return_to_shop_link' );
 function return_to_shop_link() {
 	$shop_page = get_page_by_title('Shop our range');
 	return get_permalink($shop_page->ID);
 }
-
 
 /*
 * Hook to remove add new product from admin bar menu
@@ -109,7 +96,6 @@ if( $current_screen->post_type != 'product' ) return $actions;
 	</script>
 	<?php
 }
-
 
 /*
 * Function to hide/remve the add new product button form product edit screen
@@ -458,16 +444,13 @@ function show_category_slider_block($args=array()){
 				<?php
 				if($filloop->have_posts()){
 					
-					
 					$slidercounter = 1;
 					while($filloop->have_posts()){
-						$_product = new WC_Product(get_the_ID());
-						if($_product->is_in_stock()){
-						
 						
 						$post = $filloop->the_post();
 						$imgflag = false;
 						$feat_image = cc_custom_get_feat_img(get_the_ID(),'large');
+						
 						if($pch==1){
 							$res = get_post_meta($filloop->post->ID ,'_sale_price',true);
 							//$res = get_post_meta($filloop->post->ID ,'_regular_price',true);
@@ -490,20 +473,14 @@ function show_category_slider_block($args=array()){
 							}
 							$slidercounter++;
 						}
-					
-						}
 					}
 					wp_reset_query();
-				
 				}
 				if($filloop->have_posts()){?>
                     <div class=" cc-cat-sub-group-item">
                     <?php 
                     $slidercounter = 1;
                     while($filloop->have_posts()){
-						$_product = new WC_Product(get_the_ID());
-						if($_product->is_in_stock()){
-						
 						$filloop->the_post();
 						$feat_image = cc_custom_get_feat_img(get_the_ID(),'small');
 						/*
@@ -542,9 +519,7 @@ function show_category_slider_block($args=array()){
 						<a href ="<?php echo get_permalink($filloop->post->ID);?>" class="cc-pro-view">VIEW</a> </div>
 						</div>
 						</div>
-                    <?php 
-						}
-					}?>
+                    <?php }?>
                     <?php 
                     wp_reset_query(); ?>
                     </div>
@@ -574,6 +549,7 @@ function show_category_slider_block($args=array()){
 	return $ret;
 	}
 }
+
 add_action('wp_ajax_loadmore_hf','loadmore_hf');
 add_action('wp_ajax_nopriv_loadmore_hf','loadmore_hf');
 function loadmore_hf($args){
@@ -1810,7 +1786,19 @@ return "Carpetcall";
 }
 add_filter("wp_mail_from_name", "cc_filter_wp_mail_from_name");
 
-
+function cc_get_banner_image($post_id){
+	$feat_image = '';
+	if(has_term('rugs','product_cat',$post_id)){
+		$sku = explode('.',get_post_meta($post_id,'_sku',true));
+		$image_name= strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_LB.jpg';
+		
+		$img_path =  WP_CONTENT_DIR.'/uploads/images/large/'.$image_name;
+		if(file_exists($img_path)){
+			$feat_image = content_url('uploads/images/large/'.$image_name);
+		}
+	}
+	return $feat_image;
+}
 
 //add_rewrite_rule('^shop-our-range/([^/]*)/([^/]*)/([^/]*)/([^/]*)?','index.php?&product=$matches[4]','top');
 
