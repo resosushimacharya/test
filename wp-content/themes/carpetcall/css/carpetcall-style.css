@@ -7752,3 +7752,14 @@ h1.mobile.inner-about-head{
 .product_single_thumb_slider > div{
 
 }
+
+span.no_product {
+    display: block;
+    font-family: 'ProximaN Bold', sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+    color: #15489f;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 50px;
+}
