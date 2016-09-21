@@ -194,7 +194,7 @@ global $post, $woocommerce, $product;
 				if(file_exists($thumb_path)){
 					$feat_image = content_url('uploads/images/medium/'.$imgname);
 				} ?>
-				<div>
+				<div class="single-thumb-img">
         <a href="<?php echo  $feat_image_full ?>" class="single-product-thumb-img">
         	<img src="<?php echo $feat_image?>">
         </a></div>
