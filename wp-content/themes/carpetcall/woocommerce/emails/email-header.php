@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <table width="600" border="0" cellspacing="0" cellpadding="0" align="center" style="margin: 0 auto;">  
   <tr style="background-color:#144a9f; height:70px;">
     <td colspan="3">      
-      <table width="600">
+      <table width="600" border="0" cellspacing="0" cellpadding="0">
           <tr>      
             <td width="20"></td>    
             <td width="240">      

@@ -53,8 +53,14 @@ jQuery(document).ready(function($){
 	      }
 	    ]
 	  },
-	  runSlick = function() {
-	    $('.product_single_thumb_slider').slick(slickVar);
+	  runSlick = function() {	  
+	  	if($('.product_single_thumb_slider .single-thumb-img').length == 0){	
+	  		$('.main-image-wrapper').show().addClass('no_slider');
+
+	  	}else{
+			$('.product_single_thumb_slider').slick(slickVar);
+	  	}
+	    
 	  };
 
 	  // slick initialization while document ready

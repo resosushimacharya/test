@@ -1284,7 +1284,7 @@ h5.tryit.tryita {
 	padding:15px 20px;
 }
 .inner_cont, .quest_cont {
-	min-height:232px;	
+	min-height:278px;	
 }
 .rmblk_cont h3, .inner_cont h4, .quest_cont h4 {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
@@ -1445,10 +1445,10 @@ div#right_col ol li, .cbg_content ol li, .cbg_content ul li {
 	overflow:hidden;
 }
 .idea-left .guide_a {
-	background-position:-109px 1px;
+	background-position:85% 0px;
 }
 .idea-right .faq_blk {
-	background-position:-145px 8px;
+	background-position: 85% 0px;
 }
 
 /*........... expert trade start here ..............*/
