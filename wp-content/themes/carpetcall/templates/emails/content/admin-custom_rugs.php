@@ -30,24 +30,24 @@
                 <td colspan="3">
                   <table width="540" border="0" cellspacing="0" cellpadding="0">
                     <tr>
-                        <td width="130" style="font-size: 12px; color: #15489f;">Name:</td>
-                          <td style="font-size: 12px; font-family:'Arial', sans-serif; color: #15489f;"><?php echo $first_name.' '.$last_name;?></td>
+                        <td width="130" style="font-size: 12px;">Name:</td>
+                          <td style="font-size: 12px; font-family:'Arial', sans-serif;"><?php echo $first_name.' '.$last_name;?></td>
                       </tr>
                     <tr>
-                        <td width="130" style="font-size: 12px; color: #15489f;">Email:</td>
-                          <td style="font-size: 12px; font-family:'Arial', sans-serif; color: #15489f;"><?php echo $emailcheck;?></td>
+                        <td width="130" style="font-size: 12px;">Email:</td>
+                          <td style="font-size: 12px; font-family:'Arial', sans-serif;"><?php echo $emailcheck;?></td>
                       </tr>
                     <tr>
-                        <td width="130" style="font-size: 12px; color: #15489f;">Contact Number:</td>
-                          <td style="font-size: 12px; font-family:'Arial', sans-serif; color: #15489f;"><?php echo $phono;?></td>
+                        <td width="130" style="font-size: 12px;">Contact Number:</td>
+                          <td style="font-size: 12px; font-family:'Arial', sans-serif;"><?php echo $phono;?></td>
                       </tr>
                     <tr>
-                        <td width="130" style="font-size: 12px; color: #15489f;">Nearest Store:</td>
-                          <td style="font-size: 12px; font-family:'Arial', sans-serif; color: #15489f;"><?php echo ucwords(strtolower($data['cc_store_name']));?></td>
+                        <td width="130" style="font-size: 12px;">Nearest Store:</td>
+                          <td style="font-size: 12px; font-family:'Arial', sans-serif;"><?php echo ucwords(strtolower($data['cc_store_name']));?></td>
                       </tr>
                     <tr>
-                        <td width="130" style="font-size: 12px; color: #15489f;">Comments/enquiries:</td>
-                        <td style="font-size: 12px; color: #15489f;"><?php echo $data['cc_message'];?></td>
+                        <td width="130" style="font-size: 12px;">Comments/enquiries:</td>
+                        <td style="font-size: 12px;"><?php echo $data['cc_message'];?></td>
                     </tr>
                   </table>
                 </td>
