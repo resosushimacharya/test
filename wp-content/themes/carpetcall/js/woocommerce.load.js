@@ -918,7 +918,7 @@ jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax
 		jQuery.post(woo_load_autocomplete.ajax_url, data, function(response) {
 			output = jQuery.parseJSON(response);
 			if(output.html == '' || output.found_prod == 0 ){
-				output.html = 'No Products Found';
+				output.html = '<span class="no_product"> No Products Found </span>';
 //				var myObject = new Object();
 //				myObject.html = "";
 //				myObject.child_cat_count = output.child_cat_count;
