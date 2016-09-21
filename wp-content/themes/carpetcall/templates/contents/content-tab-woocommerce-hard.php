@@ -476,11 +476,11 @@ $list = get_field('buying_guide_archive',$faqid );
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#single-product-acc" href="#collapseTwo">GUIDES
+                        <a data-toggle="collapse" data-parent="#single-product-acc" href="#collapseThree">GUIDES
                         </a>
                     </h4>
                 </div>
-                <div id="collapseTwo" class="panel-collapse collapse">
+                <div id="collapseThree" class="panel-collapse collapse">
                     <div class="panel-body">
                         
                            

@@ -35,17 +35,17 @@ if ( ! defined( 'ABSPATH' ) ) {
       <table width="600" border="0" cellspacing="0" cellpadding="0">
           <tr>      
             <td width="20"></td>    
-            <td width="240">      
+            <td width="220">      
               <a href="<?php echo site_url();?>">
-                <img src="http://resolutionaustralia.com.au/design/Carpetcall/carpetcall-logo.png" width="160" alt="logo"/>
+                <img src="http://resolutionaustralia.com.au/design/Carpetcall/carpetcall-logo.png" width="150" alt="logo"/>
               </a>      
             </td>
 
-            <td width="320">
-              <table width="320" border="0" cellspacing="0" cellpadding="0">
+            <td width="340">
+              <table width="340" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                   <td colspan="3">
-                    <div style="font-family:'proxima_nova_ltsemibold', sans-serif; font-size:20px; color:#FFF;  line-height:1; font-weight:bold; text-align: right;">  <?php $x =  get_field('telephone', '89',false);
+                    <div style="font-family:'proxima_nova_ltsemibold', sans-serif; font-size:18px; color:#FFF;  line-height:1; font-weight:bold; text-align: right;">  <?php $x =  get_field('telephone', '89',false);
                       $x = preg_replace('/\s+/', '', $x);
                       $x = preg_replace( '/^[0]{1}/', '', $x );
                       $i = 1;
@@ -63,16 +63,16 @@ if ( ! defined( 'ABSPATH' ) ) {
                 </tr>
                 <tr>
                   <td colspan="3">
-                    <table width="320" border="0" cellspacing="0" cellpadding="0">
+                    <table width="340" border="0" cellspacing="0" cellpadding="0">
                       <tr>
-                        <td width="220">
+                        <td width="245">
                           <p style=" font-family:'proxima_nova_ltsemibold', sans-serif; font-size:6.69px; color:#FFF; margin:0; text-transform:uppercase; text-align: right;"> OR BOOK A CALL BACK WITH <br>
                         OUR FLOORING SPECIALISTS 
                           </p>
                         </td>      
                         <td width="20"></td>                                      
-                        <td width="80">                            
-                            <a href="<?php echo site_url();?>/contact-us" style="font-family:'proxima_nova_rgregular', sans-serif; font-size:7.25px; color:#FFF; text-align:center; text-decoration:none; text-transform:uppercase; height: 18px; width: 80px; background: #c32327; line-height: 18px; display: block;"> CONTACT US 
+                        <td style="background: #c32327;" width="75" height="18" valign="middle">                            
+                            <a href="<?php echo site_url();?>/contact-us" style="font-family:'proxima_nova_rgregular', sans-serif; font-size:7.25px; color:#FFF; text-align:center; text-decoration:none; text-transform:uppercase; display: block;"> CONTACT US 
                             </a>
                           </td>
                         </tr>

@@ -2,9 +2,9 @@
     <td colspan="3">
       <table width="600" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td width="20"></td>
-          <td width="560">
-            <table width="560" border="0" cellspacing="0" cellpadding="0">
+          <td width="30"></td>
+          <td width="540">
+            <table width="540" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td colspan="3" height="10"></td>
               </tr>
@@ -28,7 +28,7 @@
               </tr>
               <tr>
                 <td colspan="3">
-                  <table width="560" border="0" cellspacing="0" cellpadding="0">
+                  <table width="540" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                         <td width="130" style="font-size: 12px; color: #15489f;">Rug Information:</td>
                         <td style="font-size: 12px; font-family:'Arial', sans-serif; color: #15489f;"><?php echo $netMessage?></td>
@@ -55,7 +55,7 @@
                       </tr>
                     <tr>
                         <td width="130" style="font-size: 12px; color: #15489f;">Comments/enquiries:</td>
-                        <td style="font-size: 12px;"><?php echo $data['cc_message'];?></td>
+                        <td style="font-size: 12px; color: #15489f;"><?php echo $data['cc_message'];?></td>
                     </tr>
                   </table>
                 </td>
@@ -65,7 +65,7 @@
               </tr>  
             </table>
           </td>
-          <td width="20"></td>
+          <td width="30"></td>
         </tr>          
           
           
