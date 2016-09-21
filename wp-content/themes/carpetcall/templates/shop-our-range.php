@@ -30,7 +30,7 @@ get_header();
         $shop_ranges = get_field('shopping_ranges',get_the_ID());
 		if(!empty($shop_ranges)){
 			foreach($shop_ranges as $shop){?>
-        <div class="cc-ia-item-cover shop_range col-sm-2">
+        <div class="cc-ia-item-cover shop_range col-sm-6">
           <div class="sor-single-wrap"> <a href="<?php echo $shop['shop_range_url']?>">
             <div class="shop_range_cat_block" style="background-image:url('<?php echo $shop['shop_range_image'] ?>')"> </div>
             <h3>

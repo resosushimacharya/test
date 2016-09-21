@@ -3470,7 +3470,7 @@
 		padding-left: 10px;
 		display: block;
 	}
-	.fl-blk .form-control, .mero-blkk .form-group.col-sm-12 .form-control, .tel-blk .form-group.col-sm-6 .form-control, select#cc-state-type, select#cc-store-name {
+	.fl-blk .form-control, .mero-blkk .form-group.col-sm-12 .form-control, .tel-blk .form-group.col-sm-6 .form-control, select#cc-state-type, select#cc-store-name, select#cc-state-type-only {
 	    width: 100%;
 	    height: 70px;
 	    font-size: 24px;
@@ -3867,14 +3867,6 @@
 	#cc-store-form-section .form-group.col-sm-12 h3, .ur-msg-title .form-group.col-sm-12 h3 {
 		font-size:38px;
 		padding:20px 0;	
-	}
-	select#cc-state-type, select#cc-store-name {
-		padding-right:50px;
-		background-size:50px;	
-		width:100%;
-		height:50px;
-		font-size:20px;
-		padding:10px 30px;
 	}
 	.contact_form_cntr .contact-msg-cntr, .contact_form_cntr .contact-captcha-cntr {
 	padding:0;	
@@ -6064,7 +6056,7 @@
 	.ur-msg-title .form-group{
 		margin-bottom: 0;
 	}
-	select#cc-state-type, select#cc-store-name {
+	select#cc-state-type, select#cc-store-name, select#cc-state-type-only {
 		background-size: 50px;
 	    width: 100%;
 	    height: 50px;
