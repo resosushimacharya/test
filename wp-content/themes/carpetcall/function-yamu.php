@@ -932,9 +932,9 @@ function cc_custom_search($args){
 	$found_count = 0;
 	$filargs = array(
 					'post_type'=>'product',
-					'offset'	=> $offset,
+					//'offset'	=> $offset,
 					'post_stauts' =>'publish',
-					'posts_per_page'=>$perpage,
+					'posts_per_page'=>-1,
 					's'				=>$s,
 					'meta_query'=>array(
 										array(
@@ -977,7 +977,7 @@ function cc_custom_search($args){
 				if($price !='' ){
 					$range_arr = explode(',',$price);
 					$filargs['meta_query'][] = array(
-													'key' => '_regular_price', 
+													'key' => '_price', 
 													'value' => $range_arr,
 													'type'	=>	'NUMERIC',
 													'compare' => 'BETWEEN'
@@ -986,7 +986,7 @@ function cc_custom_search($args){
 				wp_reset_postdata();
 				$prod_count_init = new WP_Query($filargs);
 				
-				$found_count = ($prod_count_init->post_count  > 0)?$prod_count_init->post_count:0;	
+				$found_count = 0;//($prod_count_init->post_count  > 0)?$prod_count_init->post_count:0;	
 				//$filargs['posts_per_page']=$perpage;
 				//$filargs['offset']=$offset;
 				
@@ -998,6 +998,7 @@ function cc_custom_search($args){
 						$woo=get_post_meta(get_the_ID());
 						$_product = new WC_Product(get_the_ID());
 						if($_product->is_in_stock()){
+							$found_count++;
 							$feat_image = cc_custom_get_feat_img(get_the_ID(),'medium');
 							if(has_term('rugs','product_cat',get_the_ID())){
 								$price=round($woo['_sale_price'][0]);
@@ -1095,11 +1096,11 @@ return $tag;
 add_action( 'edited_product_cat', 'saveCategoryFields', 10, 1 );
 function saveCategoryFields($term_id) {
     if ( isset( $_POST['cat_top_description'] ) ) {
-		$exist = get_term_meta($term_id,'cat_top_description',true);
+		$exist = get_term_meta($term_id,'cat_top_description');
 		if($exist){
-			update_term_meta($term_id, 'cat_top_description', $_POST['cat_top_description'],$exist);
+			update_term_meta($term_id, 'cat_top_description', $_POST['cat_top_description']);
 			}else{
-				add_term_meta($term_id, 'cat_top_description', $_POST['cat_top_description'], true);
+				add_term_meta($term_id, 'cat_top_description', $_POST['cat_top_description']);
 				}
     }
 }
@@ -1786,6 +1787,84 @@ function cc_get_banner_image($post_id){
 	return $feat_image;
 }
 
+function show_most_popular_products(){
+	$args = array(
+					'post_type'=>'product',
+					'post_status'=>'publish',
+					'posts_per_page'=>3,
+					'meta_key' => 'total_sales',
+					'orderby' =>'meta_value_num',
+					'tax_query'             => array(
+													array(
+														'taxonomy'      => 'product_cat',
+														'field' => 'slug', 
+														'terms'         => array('rugs','hard-flooring'),
+														'operator'      => 'IN'
+													)
+												),
+					'meta_query'=>array(
+										array(
+											'key'	=>'_stock_status',
+											'value'	=>'instock',
+										),
+									),
+				
+				
+					);
+	$popular_products = get_posts($args);
+	$output = '';
+	if(count($popular_products) > 0 ){
+		ob_start();?>
+        <div class="inerblock_sec_a">
+            <div class="container clearfix you_may_link_cntr">
+            <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
+            <div class="you_may_like-content">
+            <?php
+			foreach($popular_products as $product){
+				$terms = get_the_terms($product->ID,'product_cat');
+				$last_cat ='';
+				if($terms){
+					foreach($terms as $term){
+						if(is_last_cat($term->term_id)){
+							$last_cat = $term;
+							break;
+							}
+						}
+					}
+				$_product = new WC_Product($product->ID);
+				if($_product->is_in_stock()){
+					$price = $_product->get_price();
+					$feat_image = cc_custom_get_feat_img($product->ID,'medium');
+					?>
+                    <div class="col-md-4">
+                      <div class="pro_secone"> 
+                        <a href="<?php echo get_permalink($product->ID)?>" class="cc-product-item-image-link">
+                            <div class="img_cntr" style="background-image:url('<?php echo $feat_image?>');"></div>
+                        </a> 
+                        <div class="mero_itemss">
+                          <div class="proabtxt"> 
+                            <a href="<?php echo get_permalink($product->ID)?>" class="cc-product-item-title-link"><h4> <?php echo $last_cat->name?></h4></a>
+                            <?php if($price){?><h6> FROM $<?php echo number_format(esc_attr( round($_product->get_price()) ),2,'.',''); ?></h6><?php } ?>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                      </div>
+                    </div>
+                <?php
+                }
+			}
+            ?>
+            </div>
+            <div class="clearfix"></div>
+            
+            </div>
+        </div>
+
+		<?php 
+		$output = ob_get_clean();
+		}
+	if($output)return $output;
+	}
 //add_rewrite_rule('^shop-our-range/([^/]*)/([^/]*)/([^/]*)/([^/]*)?','index.php?&product=$matches[4]','top');
 
 //global $woocommerce;
