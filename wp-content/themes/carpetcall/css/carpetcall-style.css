@@ -6727,7 +6727,7 @@ h2.fyns-blk {
 	height: 24px;
 	width: 24px;
 	border-radius: 50%;
-	border: 1px solid #f0f2f1;
+	border: 2px solid #909090;
 	position: relative;
 	background: #fff;
 	display: inline-block;
@@ -6756,8 +6756,8 @@ h2.fyns-blk {
 	width: 12px;
 	border-radius: 6px;
 	background: #15489f;
-	left: 5px;
-	top: 5px;
+	left: 4px;
+	top: 4px;
 }
 .inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item.radio-checked label.radio{
 	color: #fff;
@@ -6797,8 +6797,8 @@ h2.fyns-blk {
 	padding: 0 10px;
 } 
 label.inner-radio-label {
-    height: 26px;
-    width: 26px;
+    height: 24px;
+    width: 24px;
     background: #fff;
     border-radius: 50%;
     margin: 0;
@@ -6815,8 +6815,8 @@ label.inner-radio-label::after{
     width: 12px;
     border-radius: 6px;
     background: #15489f;
-    left: 5px;
-    top: 5px;
+    left: 4px;
+    top: 4px;
     opacity: 0;
 }
 label.inner-radio-label.radio-check-label::after{
@@ -7064,7 +7064,7 @@ label.inner-check-label.radio-check-label::after{
 	height: 24px;
 	width: 24px;
 	border-radius: 50%;
-	border: 1px solid #f0f2f1;
+	border: 2px solid #909090;
 	position: absolute;
 	left: 0;
 	top: 4px;
