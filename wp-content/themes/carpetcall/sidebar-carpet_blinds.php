@@ -8,7 +8,8 @@ if(!is_last_cat($term_id)){?>
     *shpw the sub-category list of the  product category
     */
    
-    $prosubcats=get_term_children($term_id,'product_cat');
+   // $prosubcats=get_term_children($term_id,'product_cat');
+	$prosubcats = get_terms(array('parent'=>$term_id,'taxonomy'=>'product_cat','hide_empty'=>true));
 	
 	$taxonomy = 'product_cat';
 	//$prosubcats=get_terms(array('child'=>$term_id,'taxonomy'=>'product_cat'));
@@ -21,9 +22,9 @@ if(!is_last_cat($term_id)){?>
     <h3>Categories</h3>
     
     <?php 
-    foreach($prosubcats as $psc)
+    foreach($prosubcats as $term)
     {
-		$term = get_term_by( 'id', $psc, $taxonomy );
+		//$term = get_term_by( 'id', $psc, $taxonomy );
 		if($term->parent == $term_id && $term->count >0){
 		 echo '<li><a href="'.get_term_link($term,$taxonomy).'">'.$term->name.'<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
 		}

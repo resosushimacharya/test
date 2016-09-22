@@ -6799,13 +6799,13 @@ h2.fyns-blk {
 	padding: 0 10px;
 } 
 label.inner-radio-label {
-    height: 24px;
-    width: 24px;
+    height: 26px;
+    width: 26px;
     background: #fff;
     border-radius: 50%;
     margin: 0;
     margin-right: 25px;
-    border: 1px solid #f0f2f1;
+    border: 2px solid #909090;
 	position: relative;
     display: inline-block !important;
     margin-bottom: 0 !important;

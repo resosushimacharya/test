@@ -59,8 +59,9 @@ $custompost= get_post($guideID);
 		</div>
 </div>
 
+<?php echo show_most_popular_products();?>
 
-<div class="inerblock_sec_a">
+<?php /*?><div class="inerblock_sec_a">
 
 		<div class="container clearfix you_may_link_cntr">
 				<h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
@@ -126,7 +127,7 @@ $custompost= get_post($guideID);
 
 
 		</div>
-</div>
+</div><?php */?>
 <?php 
 get_footer();
 ?>

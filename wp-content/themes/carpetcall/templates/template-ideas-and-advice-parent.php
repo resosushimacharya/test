@@ -114,7 +114,8 @@ wp_reset_query();
 } );
 
     </script>
-<div class="inerblock_sec_a iA_parent">
+    <?php echo show_most_popular_products();?>
+<?php /*?><div class="inerblock_sec_a iA_parent">
   <div class="container clearfix you_may_link_cntr">
     <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
     <div class="you_may_like-content">
@@ -216,7 +217,7 @@ wp_reset_query();
     </div>
   </div>
   <div class="clearfix"></div>
-</div>
+</div><?php */?>
 <?php 
 get_footer();
 ?>

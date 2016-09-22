@@ -34,7 +34,9 @@ function capetcall_custom_canonical_rule() {
 			}
 		}
 		//return site_url( '/design/' . $post->post_name );
-	}
+	}else{
+		return get_post_meta($post->ID,'_yoast_wpseo_canonical',true);
+		}
 }
 add_filter( 'wpseo_canonical', 'capetcall_custom_canonical_rule' );
 

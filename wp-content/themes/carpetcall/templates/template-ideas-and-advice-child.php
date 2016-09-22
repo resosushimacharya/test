@@ -5,7 +5,6 @@
 */
  get_header();
 ?>
-
 <div class="child-innerpg">
   <div class="container clearfix">
     <div class="inerblock_serc_child child-guide-cntr">
@@ -95,7 +94,8 @@ if( '' != $button_title && '' != $button_link ) {
 </div>
 </div>
 <div class="clearfix"></div>
-<div class="inerblock_sec_a iA_parent">
+<?php echo show_most_popular_products();?>
+<?php /*?><div class="inerblock_sec_a iA_parent">
   <div class="container clearfix you_may_link_cntr">
     <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
     <div class="you_may_like-content">
@@ -204,7 +204,7 @@ if( '' != $button_title && '' != $button_link ) {
     </div>
   </div>
   <div class="clearfix"></div>
-</div>
+</div><?php */?>
 <script>
 jQuery(document).ready(function($) {
     $('ul.guide_list_cbg li a[href^="#"]').bind('click.smoothscroll',function (e) {

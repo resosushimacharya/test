@@ -2,7 +2,6 @@
 /* Template Name: ideas and advice*/
 get_header();
 global $post;
-
 /* ideas and advice child id declaration */
 $url = site_url();
 $url =explode('/',$url);
@@ -180,7 +179,8 @@ endif;
 <script>
   $(".cc-ia-more ul li ").append('<i class="fa fa-caret-right" aria-hidden="true"></i>');
 </script>
-<div class="inerblock_sec_a">
+<?php echo show_most_popular_products();?>
+<?php /*?><div class="inerblock_sec_a">
   <div class="container clearfix you_may_link_cntr">
     <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
     <div class="you_may_like-content">
@@ -281,7 +281,7 @@ endif;
     </div>
   </div>
   <div class="clearfix"></div>
-</div>
+</div><?php */?>
 <?php 
 get_footer();
 ?>

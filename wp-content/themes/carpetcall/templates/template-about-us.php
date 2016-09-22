@@ -226,7 +226,8 @@ $loop = new WP_Query($args);
   </div>
   <!-- end .col-md-3.no-pl --> 
 </div>
-<div class="inerblock_sec_a iA_parent">
+<?php echo show_most_popular_products();?>
+<?php /*?><div class="inerblock_sec_a iA_parent">
   <div class="container clearfix you_may_link_cntr">
     <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
     <div class="you_may_like-content">
@@ -347,7 +348,7 @@ $loop = new WP_Query($args);
     </div>
   </div>
   <div class="clearfix"></div>
-</div>
+</div><?php */?>
 <!-- step three end here -->
 <?php  // echo do_shortcode('[best_selling_products per_page="3" columns="12" ]');?>
 <?php get_footer(); ?>
