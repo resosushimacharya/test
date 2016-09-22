@@ -1948,8 +1948,7 @@ ul.guide_list_cbg li a {
 	font-size:14px;
 	font-weight:normal;
 	line-height:1;
-	color: #15489f;
-	text-decoration: none;
+	color: #15489f;	
 	text-transform: uppercase;
 	display: block;
 	margin-bottom: 5px;
@@ -1957,8 +1956,7 @@ ul.guide_list_cbg li a {
 	padding-right:10px;
 }
 ul.guide_list_cbg li a:hover {
-	color: #15489f;
-	cursor: pointer;
+	color: #0099ff;	
 }
 ul.guide_list_cbg li.current_page_item a {
 	text-decoration: underline;
