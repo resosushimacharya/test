@@ -6091,7 +6091,7 @@ div#error_max_msg {
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
 }
-.single.single-product .panel.entry-content.wc-tab p.returns_text, .single.single-product .panel.entry-content.wc-tab p.faq_read_more_para, .single.single-product .panel.entry-content.wc-tab p.clcc-care_inst {
+.single.single-product .panel.entry-content.wc-tab .returns_text, .single.single-product .panel.entry-content.wc-tab .faq_read_more_para, .single.single-product .panel.entry-content.wc-tab .clcc-care_inst {
 	padding: 30px 0;
 }
 .cc-price-var-sec .cc-price-var-items {
