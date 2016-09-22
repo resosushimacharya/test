@@ -1509,14 +1509,15 @@
 		margin-bottom:0;	
 	}
 	.about-page .cart_checkout_header_subtitle p.return-to-shop{
-		float: left;
+		float: none;
 	}
 	.about-page .cart_checkout_header_subtitle .return-to-shop .button {
-	    margin-top: 0px;
+	    margin: 0 auto;
 	    font-size: 36px;
 	    height: 90px;
 	    line-height: 90px;
-	    padding: 0 40px;
+	    padding: 0;
+	    width: 440px;
 	}
 	.inerblock_sec.cc-page-all{
 		margin-top: 50px;
@@ -1621,7 +1622,11 @@
 		height:90px;
 		line-height:1px;
 		font-size:28px;	
-		margin-right:0;
+		margin-right:0;		
+	}
+	.woocommerce-page .cbg_content.cc-condn-page .woocommerce table.cart input.button{
+		width: 100%;
+		display: block;
 	}
 
 	.woocommerce-page .cart-collaterals.cart-final-cntr .cart_totals{
@@ -1913,9 +1918,9 @@
 	    text-transform: uppercase;
 	}
 	.mobile-filter-sec {
-        margin: 55px 0 50px;
+        margin: 55px 0 30px;
 	    padding-bottom: 10px;
-	    border-bottom: 2px solid #efefef;
+	    /*border-bottom: 2px solid #efefef;*/
 	}
 	.mobile-filter-sec .cc-cat-title-count{
 		margin-right: 25px;
@@ -2212,6 +2217,26 @@
 	}
 	/* Product Head End */
 	/* Product Slider */
+	.main-image-wrapper.no_slider {
+	    min-height: inherit;
+	    height: 0;
+	    padding-bottom: 100%;
+	    overflow: hidden;
+	    margin-bottom: 0;
+	    pointer-events: none;
+	}
+	.main-image-wrapper.no_slider img {
+	    position: absolute;
+	    top: 50%;
+	    -webkit-transform: translateY(-50%);
+	    -moz-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	    -o-transform: translateY(-50%);
+	    transform: translateY(-50%);
+	    width: 100%;
+        height: 100% !important;
+	    max-height: initial;
+	}
 	.product_single_container{
 		padding: 0;
 	}
@@ -2558,6 +2583,26 @@
 	    font-size: 22px;
 	    line-height: 1.5;
 	    color: #666;
+	}
+	.single.single-product table.product_specifications_table tbody tr td {
+	    font-family: 'proxima_nova_rgregular';
+	    display: inline-block;
+	    width: 100%;
+	    vertical-align: top;
+	}
+	.single.single-product table.product_specifications_table tbody tr {
+	    display: block;
+	    margin-bottom: 10px;
+	}
+	.single.single-product table.product_specifications_table tbody tr td:first-child{
+		font-family: 'proxima_nova_ltsemibold';
+		padding-left: 0;
+	}
+	.single.single-product table.product_specifications_table tbody tr td:last-child{
+		
+	}
+	.single.single-product table.product_specifications_table tbody tr td:last-child::before{
+		display: none;
 	}
 	/* Product Accordion End */
 	/* Product Pickup Locations Popup */
@@ -4651,7 +4696,7 @@
 	    line-height: 80px;
 	}
 	.mobile-filter-sec {
-        margin: 30px 0 30px;
+        margin: 30px 0 10px;
 	}	
 	.mobile-filter-sec .cc-count-clear a {
 	    font-size: 16px;
@@ -5057,10 +5102,14 @@
 	    font-size: 20px;
 	    padding: 17px 20px;
 	}
+	.single-produc-acc-cntr .panel-title>a::after{
+		position: relative;
+		font-size: 24px; 
+		top: -2px;
+	}
 	.single-produc-acc-cntr .panel-title>a::after, .single-produc-acc-cntr .panel .panel-body .panel-heading a::after{
-	    font-size: 24px;
-        position: relative;
-	    top: -2px;
+	    font-size: 24px;        
+	    /*top: -2px;*/
 	}
 	.single-produc-acc-cntr .panel .panel-body .panel-heading a::after{
 	    font-size: 20px;
@@ -5341,6 +5390,7 @@
 	.accessories_inner_tab_select li a{
 	    font-size: 18px;
 	    line-height: 30px;
+	    padding: 10px 15px;
 	}
 	.acc_list_item.col-md-3 {
 	    width: 100%;
@@ -6101,7 +6151,8 @@
 	.about-page .cart_checkout_header_subtitle .return-to-shop .button {	 
 	    font-size: 18px;
 	    height: 60px;
-	    line-height: 60px;	    
+	    line-height: 60px;	
+	    width: 280px;    
 	}	
 	table.shop_table.shop_table_responsive.cart > tbody > tr > td, .cart-collaterals table.shop_table > tbody > tr > td{		
 		padding: 15px 0;		
@@ -6129,7 +6180,7 @@
 	    height: 50px;
 	    font-size: 18px;
 	    background-size: 50px;
-	    padding: 0 25px;
+	    padding: 0 10px;
 	}
 	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-subtotal span, .cbg_content.cc-condn-page .order-total span.amount{
 		font-size: 24px;

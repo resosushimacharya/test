@@ -1284,7 +1284,7 @@ h5.tryit.tryita {
 	padding:15px 20px;
 }
 .inner_cont, .quest_cont {
-	min-height:232px;	
+	min-height:278px;	
 }
 .rmblk_cont h3, .inner_cont h4, .quest_cont h4 {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
@@ -1358,7 +1358,7 @@ ul.guide_list .fa {
 	float: none;
 	font-size: 14px;
 	display: inline-block;
-	margin:0 0 23px 0;
+	margin:0 0 30px 0;
 }
 .faq-cont-blka .cbg_content h2.sub_page_title, .wrap_body .inerblock_sec .cbg_content h2.sub_page_title {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
@@ -1445,10 +1445,10 @@ div#right_col ol li, .cbg_content ol li, .cbg_content ul li {
 	overflow:hidden;
 }
 .idea-left .guide_a {
-	background-position:-109px 1px;
+	background-position:85% 0px;
 }
 .idea-right .faq_blk {
-	background-position:-145px 8px;
+	background-position: 85% 0px;
 }
 
 /*........... expert trade start here ..............*/
@@ -1948,8 +1948,7 @@ ul.guide_list_cbg li a {
 	font-size:14px;
 	font-weight:normal;
 	line-height:1;
-	color: #15489f;
-	text-decoration: none;
+	color: #15489f;	
 	text-transform: uppercase;
 	display: block;
 	margin-bottom: 5px;
@@ -1957,8 +1956,7 @@ ul.guide_list_cbg li a {
 	padding-right:10px;
 }
 ul.guide_list_cbg li a:hover {
-	color: #15489f;
-	cursor: pointer;
+	color: #0099ff;	
 }
 ul.guide_list_cbg li.current_page_item a {
 	text-decoration: underline;
@@ -3224,7 +3222,7 @@ a.pull-right:hover {
 .all-items-blk {
 	background-color: #e7edf8;
 	padding: 37px 36px;
-	min-height: 366px;
+	min-height: 404px;
 }
 .all-items-blk h3 {
 	font-family:'proxima_nova_ltsemibold', sans-serif;
@@ -6729,7 +6727,7 @@ h2.fyns-blk {
 	height: 24px;
 	width: 24px;
 	border-radius: 50%;
-	border: 1px solid #f0f2f1;
+	border: 2px solid #909090;
 	position: relative;
 	background: #fff;
 	display: inline-block;
@@ -6758,8 +6756,8 @@ h2.fyns-blk {
 	width: 12px;
 	border-radius: 6px;
 	background: #15489f;
-	left: 5px;
-	top: 5px;
+	left: 4px;
+	top: 4px;
 }
 .inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item.radio-checked label.radio{
 	color: #fff;
@@ -6817,8 +6815,8 @@ label.inner-radio-label::after{
     width: 12px;
     border-radius: 6px;
     background: #15489f;
-    left: 5px;
-    top: 5px;
+    left: 4px;
+    top: 4px;
     opacity: 0;
 }
 label.inner-radio-label.radio-check-label::after{
@@ -7066,7 +7064,7 @@ label.inner-check-label.radio-check-label::after{
 	height: 24px;
 	width: 24px;
 	border-radius: 50%;
-	border: 1px solid #f0f2f1;
+	border: 2px solid #909090;
 	position: absolute;
 	left: 0;
 	top: 4px;

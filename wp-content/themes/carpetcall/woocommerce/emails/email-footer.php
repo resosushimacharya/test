@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
               <tr>                
                 <td colspan="3">
-                  <a href="<?php echo site_url();?>"><img src="http://resolutionaustralia.com.au/design/Carpetcall/carpetcall-logo.png" width="160" alt="logo"/></a>
+                  <a href="<?php echo site_url();?>"><img src="http://resolutionaustralia.com.au/design/Carpetcall/carpetcall-logo.png" width="150" alt="logo"/></a>
                 </td>
               </tr> <!-- LOGO -->
 
@@ -65,28 +65,32 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <td colspan="3">
                   <table width="560" border="0" cellspacing="0" cellpadding="0">
                     <tr>
-                      <td style="width:68px; font-family:'proxima_nova_rgregular', sans-serif; font-size:6.88px; font-weight:bold; color:#FFF; text-transform:uppercase;"> Get to know us</td>
+                      <td style="width:68px; font-family:'proxima_nova_rgregular', sans-serif; font-size:6.88px; font-weight:bold; color:#FFF; text-transform:uppercase;" valign="bottom"> Get to know us</td>
                       
-                      <td style="width:20px;"><a href="http://www.facebook.com/carpetcallau" style="text-decoration:none;"><img src="http://resolutionaustralia.com.au/design/Carpetcall/facebook.png" width="9" height="9" alt="facebook"/></a></td>
+                      <td style="width:20px;"><a href="http://www.facebook.com/carpetcallau" style="text-decoration:none;"><img src="http://resolutionaustralia.com.au/design/Carpetcall/facebook.png" width="9" height="9" alt="facebook" style="vertical-align: bottom;"/></a></td>
                       
-                      <td style="width:20px;"><a href="http://www.youtube.com/user/carpetcallau?sub_confirmation=1" style="text-decoration:none;"><img src="http://resolutionaustralia.com.au/design/Carpetcall/youtube.png" width="11" height="8" alt="youtube"/></a></td>
+                      <td style="width:20px;"><a href="http://www.youtube.com/user/carpetcallau?sub_confirmation=1" style="text-decoration:none;"><img src="http://resolutionaustralia.com.au/design/Carpetcall/youtube.png" width="11" height="8" alt="youtube" style="vertical-align: bottom;"/></a></td>
                       
-                      <td style="width:20px;"><a href="http://www.pinterest.com/carpetcall" style="text-decoration:none;"><img src="http://resolutionaustralia.com.au/design/Carpetcall/pinterest.png" width="9" height="9" alt="pinterest"/></a></td>
+                      <td style="width:20px;"><a href="http://www.pinterest.com/carpetcall" style="text-decoration:none;"><img src="http://resolutionaustralia.com.au/design/Carpetcall/pinterest.png" width="9" height="9" alt="pinterest" style="vertical-align: bottom;"/></a></td>
                       
-                      <td style="width:20px;"><a href="https://plus.google.com/108290827729290320654" style="text-decoration:none;"><img src="http://resolutionaustralia.com.au/design/Carpetcall/google-plus.png" width="13" height="9" alt="google-plus"/></a></td>
+                      <td style="width:20px;"><a href="https://plus.google.com/108290827729290320654" style="text-decoration:none;"><img src="http://resolutionaustralia.com.au/design/Carpetcall/google-plus.png" width="13" height="9" alt="google-plus" style="vertical-align: bottom;"/></a></td>
                       
-                      <td><a href="https://www.instagram.com/carpetcallau/" style="text-decoration:none;"><img src="http://resolutionaustralia.com.au/design/Carpetcall/instagram.png" width="10" height="9" alt="instagram"/></a></td>                      
+                      <td><a href="https://www.instagram.com/carpetcallau/" style="text-decoration:none;"><img src="http://resolutionaustralia.com.au/design/Carpetcall/instagram.png" width="10" height="9" alt="instagram" style="vertical-align: bottom;"/></a></td>                      
                     </tr>
                   </table>
                 </td>
               </tr> <!-- GET TO KNOW US LINKS -->
+
+              <tr>
+                <td colspan="3" height="10"></td>
+              </tr>
               
               <tr>
                 <td colspan="3">                  
                   <table width="560" border="0" cellspacing="0" cellpadding="0">
                    <tr>
-                     <td width="113"><a href="#" style=" font-family:'proxima_nova_rgregular', sans-serif; font-size:6.88px; color:#FFF; text-decoration:none; text-transform:uppercase; border-right: 1px solid #fff; padding-right: 5px; display: block; line-height: 8px;"> © Copyright 2016 Carpet CalL </a></td>
-                     <td width="41"><a href="<?php echo site_url();?>/sitemap/" style=" font-family:'proxima_nova_rgregular', sans-serif; font-size:6.88px; color:#FFF; text-decoration:none; text-transform:uppercase; border-right: 1px solid #fff; padding-right: 5px; margin-left:5px; display: block; line-height: 8px;"> SITE MAP </a></td>
+                     <td width="125"><p href="#" style=" font-family:'proxima_nova_rgregular', sans-serif; font-size:6.88px; color:#FFF; text-decoration:none; text-transform:uppercase; border-right: 1px solid #fff; padding-right: 5px; display: block; line-height: 8px;"> © Copyright 2016 Carpet CalL </p></td>
+                     <td width="50"><a href="<?php echo site_url();?>/sitemap/" style=" font-family:'proxima_nova_rgregular', sans-serif; font-size:6.88px; color:#FFF; text-decoration:none; text-transform:uppercase; border-right: 1px solid #fff; padding-right: 5px; margin-left:5px; display: block; line-height: 8px;"> SITE MAP </a></td>
                      <td><a href="<?php echo site_url();?>/terms-and-conditions/" style=" font-family:'proxima_nova_rgregular', sans-serif; font-size:6.88px; color:#FFF; text-decoration:none; text-transform:uppercase; margin-left:5px; display: block; line-height: 8px;"> TERMS AND CONDITIONS </a></td>
                    </tr>
                  </table>
@@ -96,11 +100,11 @@ if ( ! defined( 'ABSPATH' ) ) {
               <tr>
                 <td colspan="3" height="20"></td>
               </tr>
-
+    
              </tr>
             </table>
-          </td>
-          <td width="20"></td>
+          </td> 
+          <td width="20"></td>        
         </tr>      
     </table>
     </td>
