@@ -102,7 +102,8 @@
     });
 	
 	jQuery(document).on('click',function(e){
-		 if (jQuery(e.target).parents('#storefinder_id').length == 0) {
+
+		 if (jQuery(e.target).parents('#storefinder_id').length == 0 && !jQuery(e.target).is('body')) {
 			
 			jQuery("#after_dropdown.dropdown-content").hide();
 			jQuery('#storefinder_id.dropdown').removeClass('click-open');
@@ -113,30 +114,30 @@
     // Top Cart DropDown
     
    
-     /* jQuery(document).on("click",function(e) {
-		   if(jQuery(window).width() > 800){
-			   // e.preventDefault();
-				var container = jQuery("#after_dropdown");
-				var bannerHeight = jQuery('.banner').outerHeight(true);
-				var extra = jQuery(".pac-container");
-				var xclick = e.screenX;
+    //   jQuery(document).on("click",function(e) {
+		  //  if(jQuery(window).width() > 800){
+			 //   // e.preventDefault();
+				// var container = jQuery("#after_dropdown");
+				// var bannerHeight = jQuery('.banner').outerHeight(true);
+				// var extra = jQuery(".pac-container");
+				// var xclick = e.screenX;
 		
-				var yclick = e.screenY;
-				yclick = yclick + bannerHeight;
-				var compare = jQuery("#after_dropdown").height();
-				var posx = jQuery("#after_dropdown").position();
-				var postoptbox = jQuery("#after_dropdown").offset().top + jQuery("#after_dropdown").height();
-				postoptbox = postoptbox + 100;
-				var posleftbox = jQuery("#storefinder_btn").offset().left + jQuery("#after_dropdown").width();
-				compare = compare + bannerHeight;
+				// var yclick = e.screenY;
+				// yclick = yclick + bannerHeight;
+				// var compare = jQuery("#after_dropdown").height();
+				// var posx = jQuery("#after_dropdown").position();
+				// var postoptbox = jQuery("#after_dropdown").offset().top + jQuery("#after_dropdown").height();
+				// postoptbox = postoptbox + 100;
+				// var posleftbox = jQuery("#storefinder_btn").offset().left + jQuery("#after_dropdown").width();
+				// compare = compare + bannerHeight;
 				
-				if ((yclick > 900 )|| (xclick > posleftbox || xclick < jQuery("#storefinder_btn").offset().left)) {
-				  jQuery('#after_dropdown').hide();
-				  jQuery('.storefinder_cntr').removeClass('click-open');
-				} 
-		   }
-      });
-*/
+				// if ((yclick > 900 )|| (xclick > posleftbox || xclick < jQuery("#storefinder_btn").offset().left)) {
+				//   jQuery('#after_dropdown').hide();
+				//   jQuery('.storefinder_cntr').removeClass('click-open');
+				// } 
+		  //  }
+    //   });
+
 
     jQuery(document).on('click','.product-remove a',function(){
       setTimeout(function(){ load_minicart(); }, 1500);

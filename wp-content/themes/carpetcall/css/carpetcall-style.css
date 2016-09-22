@@ -2881,6 +2881,9 @@ select#cc-size {
 .woocommerce div.product .woocommerce-tabs .panel {
 	margin: 0 125px 45px 0;
 }
+div#tab-faq_tab {
+    margin-top: 20px;
+}
 div#tab-additional_information p {
 	margin: 13px 0 24px 0;
 	font-family:'proxima_nova_rgregular', sans-serif;
@@ -2933,6 +2936,15 @@ ul.specific-list li {
 	line-height:24px;
 	color: #666666;
 }
+
+.single.single-product .panel.entry-content.wc-tab .panel-group {
+    margin-bottom: 0px;
+    border-top: 1px solid #efefef;
+}
+
+.single.single-product .panel.entry-content.wc-tab .panel-group:first-child{
+	border-top: 0;
+}
 .panel.entry-content.wc-tab .panel-default>.panel-heading {
 	background: none;
 	border: none;
@@ -2943,13 +2955,14 @@ ul.specific-list li {
 	position: relative;
 	width: 100%;
 	display: block;
-	padding: 15px 0px;
+	padding: 20px 35px;
 	text-decoration: none;
 	color: #0099ff;
 	font-family:'proxima_nova_ltsemibold', sans-serif;
 	font-size:18px;
 	font-weight:normal;
 	text-transform: uppercase;
+	margin: 0;
 }
 .panel.entry-content.wc-tab .panel-default>.panel-heading+.panel-collapse>.panel-body {
 	padding: 0 5px 0px 5px;
@@ -2964,7 +2977,7 @@ ul.specific-list li {
 	color: #666666;
 }
 .bottom_faq_section p.faq_textarea {
-	margin-left:20px !important;
+	
 }
 .bottom_faq_section ul {
 	margin:15px 0 15px 36px;
@@ -2981,16 +2994,14 @@ ul.specific-list li {
 	font-family: FontAwesome;
 	font-size: 24px;
 	color: #15489f;
-	font-weight: normal;
-	padding-right: 45px;
+	font-weight: normal;	
 }
 .panel.entry-content.wc-tab .glyphicon-chevron-up:before {
 	content: '\f106';
 	font-family: FontAwesome;
 	font-size: 24px;
 	color: #15489f;
-	font-weight: normal;
-	padding-right: 45px;
+	font-weight: normal;	
 }
 .panel.entry-content.wc-tab .panel-group .panel-heading+.panel-collapse>.panel-body {
 	border: 0;
@@ -5807,7 +5818,7 @@ a.btn-employment:hover {
 	margin: 0 !important;
 }
 .single.single-product a.accordion-toggle.first-acc-cat {
-	margin-top: 25px;
+	/*margin-top: 25px;*/
 }
 .acc_list_item.col-md-3{
 	padding: 0 10px;
@@ -5939,13 +5950,14 @@ a.btn-employment:hover {
 	background: #b01519;
 }
 .single.single-product .panel.entry-content.wc-tab p {
-	margin: 0px 36px 0px 0px;
+	margin: 0;
 }
 .postid-34963 .panel-body-table {
 	padding-left:0px !important;
 }
 .single.single-product .panel-body.panel-body-faq {
 	margin: 0 0 20px 0 !important;
+	padding: 0 35px !important;
 }
 .single.single-product table.product_specifications_table {
 	width: 100%;
