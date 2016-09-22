@@ -20,6 +20,20 @@ function contact_action(){
 			$store_name_error=false;
 			$conenq = 1;
 			$terms = get_terms('wpsl_store_category');
+			if($data['cc_state_type_only'] && $data['cc_contact_type'] == 'custom_rugs' ){
+				$flag=0;
+				$state_error=false;
+				$store_name_error=false;
+				foreach($terms as $term){
+					$selected="";
+					if(strcasecmp($term->slug,$data['cc_state_type_only'])==0){
+						$flag=1;
+					}
+				}
+				if($flag==0){
+				$state_error=true;
+				}
+				}else{
 			if($data['cc_contact_type'] != 'service'){
 				$conenq =0;
 				foreach($terms as $term){
@@ -61,6 +75,7 @@ function contact_action(){
 				$state_error=true;
 				}
 			}
+				}
 			$first_name =sanitize_text_field($data['first_name']);
 			$last_name =sanitize_text_field($data['last_name']);
 			$emailcheck =sanitize_email($data['email_address']);
@@ -218,7 +233,7 @@ function contact_action(){
 				
 				$user_id=wp_insert_post( $message_post );
 				update_post_meta($user_id,'email',$data['email_address']);
-				update_post_meta($user_id,'enquiry_type',ucwords($hold_enquiry_type));
+				update_post_meta($user_id,'enquiry_type',ucwords($email_header));
 				update_post_meta($user_id,'phone',$data['mobile_phone_no']);
 				update_post_meta($user_id,'admin_email',$user_email[0]);
 				

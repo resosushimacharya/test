@@ -199,7 +199,7 @@ function woo_new_product_tab( $tabs ) {
                    			if(strcasecmp($cat->slug, 'awnings')==0){
                    				$top_cat = 'awnings';
                    			}
-                   			if(strcasecmp($cat->slug, 'awnings')==0){
+                   			if(strcasecmp($cat->slug, 'shutters')==0){
                    				$top_cat = 'shutters';
                    			}
                    		
@@ -313,7 +313,7 @@ if($top_cat == 'hard-flooring'){
 		'callback' 	=> 'woo_new_product_tab_content_care'
 	);
 	}
-if($top_cat == 'carpets'){
+if($top_cat == 'carpets' || $top_cat == 'blinds' || $top_cat == 'awnings' || $top_cat == 'shutters'){
 	unset($tabs['additional_information']);
 	unset($tabs['ret_tab']);
 	}
@@ -871,8 +871,22 @@ function woo_new_product_tab_ret( $tabs ) {
 */
 function woo_new_product_tab_content_ret() {?>
 <?php global $product;
-global $post;
-
+ global $post;
+ $term = '';
+$reqTempTerms=get_the_terms($post->ID,'product_cat');
+if($reqTempTerms){
+	foreach($reqTempTerms as $cat){
+		if($cat->parent==0){
+			$term = $cat;
+			break;
+			}
+		}
+if($term !=''){
+$retinfo = get_term_meta($cat->term_id,'cat_return_policy',true);
+echo '<div class="returns_text">'.$retinfo.'</div>';
+}
+}
+/*
 $url = site_url();
 $url =explode('/',$url);
 
@@ -886,7 +900,9 @@ else{
   $retID = 33274;
 }
 $retinfo = get_field('return_policy',$retID);
-echo '<p class="returns_text">'.$retinfo.'</p>';
+*/
+
+
 
 ?>
 
@@ -947,7 +963,7 @@ echo '<p>'.$d4.'</p>';
  <span itemprop="value"><?php echo $width?></span>cm
  <meta itemprop="unitCode" content="CMT">
 </span><span itemprop="height" itemscope itemtype="http://schema.org/QuantitativeValue">
- <span itemprop="value"><?php echo $height?></span>cm
+ <span itemprop="value"><?php echo $height?></span>
  <meta itemprop="unitCode" content="CMT">
 </span>
 		</li>

@@ -99,8 +99,9 @@ echo $termname;
         </div>  
 		</div><div class="clearfix"></div><!-- step two end here -->
 
+<?php echo show_most_popular_products();?>
 
-    <div class="inerblock_sec_a">
+    <?php /*?><div class="inerblock_sec_a">
 
     <div class="container clearfix you_may_link_cntr">
         <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
@@ -130,8 +131,6 @@ $tax = 'product_cat';
 					
 					$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 					
-					/*if(!empty(unserialize($woo['_product_attributes'][0])))
-				$prounits=unserialize($woo['_product_attributes'][0]);*/
 				
 				if(isset($prounits['size']['value'])){
 					$prounit=$prounits['size']['value'];
@@ -173,7 +172,7 @@ $tax = 'product_cat';
 					
                     
     </div>
-    </div><!-- step three end here --------->
+    </div><?php */?><!-- step three end here --------->
                     
                     
                     

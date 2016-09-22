@@ -6097,6 +6097,10 @@ div#error_max_msg {
 .cc-price-var-sec .cc-price-var-items {
 	margin-top:12px;
 }
+.returns_text h2{
+	margin-top: 0;
+	margin-bottom: 10px;
+}
 /*.term-hard-flooring .cc_background_image {
 	display:none;
 }*/

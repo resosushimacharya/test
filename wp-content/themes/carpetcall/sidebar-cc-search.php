@@ -54,7 +54,8 @@
         <div class="cc-price-var-items">
       
       <form role="form">
-   <?php foreach($product_cats as $term){?>
+   <?php foreach($product_cats as $term){
+	   if($term->slug == 'accessories')continue;?>
 	   <div class="checkbox">
       <input type="checkbox" class="shop_range" value="<?php echo $term->term_id?>"><label><?php _e($term->name,'carpetcall')?></label>
     </div>

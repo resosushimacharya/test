@@ -889,6 +889,7 @@ function load_more_carpet_blinds($args){
 	
 	}	
 	
+
 add_action('wp_ajax_cc_custom_search','cc_custom_search');
 add_action('wp_ajax_nopriv_cc_custom_search','cc_custom_search');
 function cc_custom_search($args){
@@ -926,15 +927,16 @@ function cc_custom_search($args){
 		if(isset($_POST['shop_range']) && ($_POST['shop_range'] !='')){
 		$args['shop_range'] = sanitize_text_field($_POST['shop_range']);
 		}
-	}
+}
+	
 	extract($args);
 	global $wp_query;
 	$found_count = 0;
 	$filargs = array(
 					'post_type'=>'product',
-					//'offset'	=> $offset,
+					'offset'	=> $offset,
 					'post_stauts' =>'publish',
-					'posts_per_page'=>-1,
+					'posts_per_page'=>-1,//$perpage,
 					's'				=>$s,
 					'meta_query'=>array(
 										array(
@@ -952,18 +954,18 @@ function cc_custom_search($args){
 								)
 				);
 				
-				
 		if($shop_range !='' ){
 					$shop_range_arr = explode(',',$shop_range);
-					$filargs['tax_query'] = array(
+					$filargs['tax_query'][] =
 													array(
 														'taxonomy' => 'product_cat',
 														'field' => 'id',
 														'terms' => $shop_range_arr,
 														'include_children' => true,
 														'operator' => 'IN'
-													  )
+													 
 												);
+												
 				}
 				
 				if($sort_by == 'price'){
@@ -983,21 +985,27 @@ function cc_custom_search($args){
 													'compare' => 'BETWEEN'
 												);
 				}			
+				
 				wp_reset_postdata();
-				$prod_count_init = new WP_Query($filargs);
+				//$prod_count_init = new WP_Query($filargs);
 				
 				$found_count = 0;//($prod_count_init->post_count  > 0)?$prod_count_init->post_count:0;	
 				//$filargs['posts_per_page']=$perpage;
 				//$filargs['offset']=$offset;
 				
 				$filloop = new WP_Query($filargs);
+				//do_action('pr',$filloop->query);
+				//do_action('pr',$filloop->post_count);
 				
 				if($filloop->have_posts()){
 					while($filloop->have_posts()){
 						$filloop->the_post();
 						$woo=get_post_meta(get_the_ID());
 						$_product = new WC_Product(get_the_ID());
+						//do_action('pr',$_product->id);
+						
 						if($_product->is_in_stock()){
+							//do_action('pr',$_product->stock.' '.$_product->get_formatted_name());
 							$found_count++;
 							$feat_image = cc_custom_get_feat_img(get_the_ID(),'medium');
 							if(has_term('rugs','product_cat',get_the_ID())){
@@ -1018,8 +1026,11 @@ function cc_custom_search($args){
                                         </a>
                                 <div class="sublk_prom">
                                         <div class="ptxt">
-                                <h3><a href="<?php echo get_permalink(get_the_ID()) ?>"><?php echo get_the_title()?></a></h3>
+                                <h3>
+                                <a href="<?php echo get_permalink(get_the_ID()) ?>"><?php echo get_the_title()?></a>
                                 
+                                </h3>
+                               
                                 <?php
                                 $reqTempTerms=get_the_terms(get_the_ID(),'product_cat');
                                 
@@ -1075,6 +1086,7 @@ global $wpdb;
 $parent = $wpdb->get_var("SELECT parent FROM $wpdb->term_taxonomy WHERE term_id = '".$tag->term_id."'");
 if($parent=='0'){
 $cat_top_description =get_term_meta($tag->term_id,'cat_top_description',true) ;
+$cat_return_policy = get_term_meta($tag->term_id,'cat_return_policy',true) ;
 ?>
 <tr class="form-field">
   <th scope="row" valign="top"><label for="cat_top_description">
@@ -1084,6 +1096,16 @@ $cat_top_description =get_term_meta($tag->term_id,'cat_top_description',true) ;
     <br />
     <span class="description">
     <?php _e('Description that appears below title in top level categories'); ?>
+    </span></td>
+</tr>
+<tr class="form-field">
+  <th scope="row" valign="top"><label for="cat_return_policy">
+      <?php _e('Cateogry Returns Policy'); ?>
+    </label></th>
+  <td><textarea rows="10" name="cat_return_policy" id="cat_return_policy" style="width:60%;"><?php echo $cat_return_policy ? $cat_return_policy : ''; ?></textarea>
+    <br />
+    <span class="description">
+    <?php _e('Returns Policy for this Category'); ?>
     </span></td>
 </tr>
 <?php	
@@ -1101,6 +1123,14 @@ function saveCategoryFields($term_id) {
 			update_term_meta($term_id, 'cat_top_description', $_POST['cat_top_description']);
 			}else{
 				add_term_meta($term_id, 'cat_top_description', $_POST['cat_top_description']);
+				}
+    }
+    if ( isset( $_POST['cat_return_policy'] ) ) {
+		$exist = get_term_meta($term_id,'cat_return_policy');
+		if($exist){
+			update_term_meta($term_id, 'cat_return_policy', $_POST['cat_return_policy']);
+			}else{
+				add_term_meta($term_id, 'cat_return_policy', $_POST['cat_return_policy']);
 				}
     }
 }
@@ -1615,19 +1645,24 @@ if($item_sku){
 
 function cc_custom_get_feat_img($post_id,$size='small',$pattern='L'){
 	$feat_image = '';
+	$pattern = strtoupper($pattern);
 	if(has_term('hard-flooring','product_cat',$post_id) || has_term('rugs','product_cat',$post_id)){
 							if(has_term('hard-flooring','product_cat',$post_id)){
 							$sku = get_post_meta($post_id,'_sku',true);
+							
 							$image_names = array(
+											strtoupper($sku).'_'.$pattern.'jpg',
 											strtoupper($sku).'_L.jpg',
 											strtoupper($sku).'_V.jpg',
 											strtoupper($sku).'_S.jpg',
 										);
+										
 							}
 						if(has_term('rugs','product_cat',$post_id)){
 							
 							$sku = explode('.',get_post_meta($post_id,'_sku',true));
 							$image_names = array(
+											strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_'.$pattern.'.jpg',
 											strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_L.jpg',
 											strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_V.jpg',
 											strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_S.jpg',
@@ -1798,7 +1833,7 @@ function show_most_popular_products(){
 													array(
 														'taxonomy'      => 'product_cat',
 														'field' => 'slug', 
-														'terms'         => array('rugs','hard-flooring'),
+														'terms'         => array('rugs','hard-flooring','carpets'),
 														'operator'      => 'IN'
 													)
 												),
@@ -1865,6 +1900,44 @@ function show_most_popular_products(){
 		}
 	if($output)return $output;
 	}
+
+function atom_search_where($where){
+  global $wpdb;
+  if (is_search())
+    $where .= "OR (t.name LIKE '%".get_search_query()."%' AND {$wpdb->posts}.post_status = 'publish')";
+  return $where;
+}
+
+function atom_search_join($join){
+  global $wpdb;
+  if (is_search()){
+    $join .= "LEFT JOIN {$wpdb->term_relationships} tr ON {$wpdb->posts}.ID = tr.object_id INNER JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id=tr.term_taxonomy_id INNER JOIN {$wpdb->terms} t ON t.term_id = tt.term_id";
+  
+  }
+  return $join;
+}
+
+function atom_search_groupby($groupby){
+  global $wpdb;
+
+  // we need to group on post ID
+  $groupby_id = "{$wpdb->posts}.ID";
+  if(!is_search() || strpos($groupby, $groupby_id) !== false) return $groupby;
+
+  // groupby was empty, use ours
+  if(!strlen(trim($groupby))) return $groupby_id;
+
+  // wasn't empty, append ours
+  return $groupby.", ".$groupby_id;
+}
+
+add_filter('posts_where','atom_search_where');
+add_filter('posts_join', 'atom_search_join');
+add_filter('posts_groupby', 'atom_search_groupby');
+
+
+
+
 //add_rewrite_rule('^shop-our-range/([^/]*)/([^/]*)/([^/]*)/([^/]*)?','index.php?&product=$matches[4]','top');
 
 //global $woocommerce;

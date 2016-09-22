@@ -211,6 +211,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs)
 	    $length = str_replace("cm","","$hh[0]");
 	    $width  =  str_replace("cm","","$hh[2]");
 	    $height =  $hh[10];
+		$weight = ($length/100)*($width/100)*$csv[15];
 	    $regular_price = str_replace(' ', '', $csv[16]);
 	    $sale_price = str_replace(' ', '', $csv[18]);
 	    $actual_price = str_replace(' ', '', $csv[18]);
@@ -242,10 +243,11 @@ function  csv_import_rugs($csv,$appcat,$resrugs)
 		update_post_meta($new_post_id,'yarn_type',$csv[9]);
 		update_post_meta($new_post_id,'construction',$csv[11]);
 		update_post_meta($new_post_id,'care_instructions',$csv[12]);   
-		update_post_meta( $new_post_id, '_weight', $csv[15] );
-		update_post_meta( $new_post_id, '_regular_price', $regular_price  );
-		update_post_meta( $new_post_id, '_sale_price', $sale_price );
-		update_post_meta( $new_post_id, '_price', $actual_price );
+		update_post_meta( $new_post_id, '_weight', $weight );
+		//update_post_meta( $new_post_id, '_weight', $csv[15] );
+		update_post_meta( $new_post_id, '_regular_price', round($regular_price)  );
+		update_post_meta( $new_post_id, '_sale_price', round($sale_price) );
+		update_post_meta( $new_post_id, '_price', round($actual_price) );
 		
 		update_post_meta($new_post_id,'state',$csv[0]);
 		update_post_meta( $new_post_id, '_visibility', 'visible' );
@@ -445,10 +447,10 @@ function  csv_import_rugs($csv,$appcat,$resrugs)
        $width  =  str_replace("mm","",$csv[13]);
        $length  = str_replace("mm","",$csv[12]);
        $thick = str_replace("mm","",$csv[15]);
-		update_post_meta( $new_post_id, '_regular_price', $regular_price );
-		update_post_meta( $new_post_id, '_sales_price', $regular_price );
+		update_post_meta( $new_post_id, '_regular_price', round($regular_price) );
+		update_post_meta( $new_post_id, '_sales_price', round($regular_price) );
 		
-		update_post_meta( $new_post_id, '_price', $regular_price );
+		update_post_meta( $new_post_id, '_price', round($regular_price) );
 		update_post_meta($new_post_id,'state',$csv[0]);
 		update_post_meta( $new_post_id, '_visibility', 'visible' );
 		update_post_meta( $new_post_id, '_length', $length);

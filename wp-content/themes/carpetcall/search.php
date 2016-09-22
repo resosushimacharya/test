@@ -32,17 +32,18 @@
 <?php
 global $woocommerce;
 $search_query = esc_html( get_search_query( false ) );
-$perpage_var = 9999;
+$perpage_var = 9;
 $args = array(
 					'offset'=>0,
-					'orderby'	=>'price',
+					'sort_by'	=>'price',
 					'perpage'=>-1,
-					'order'=>'ASC',
+					'sort_order'=>'ASC',
 					'price'	=>'',
 					'shop_range'	=>'',
 					's'				=>$search_query,
 				);
 $found_prod = cc_custom_search($args);
+//do_action('pr',$found_prod);
 ?>
 
 
@@ -51,7 +52,7 @@ $found_prod = cc_custom_search($args);
     <div class="container">
       <div class="tophead_sec col-md-12 no-lr">
       <div class="rugm-blk col-md-6 no-pl">
-          <p> <span class="cc-cat-title-count"> <span class="post_count"><?php echo $found_prod['found_prod']?></span> <?php _e('results for ','carpetcall');?>"<?php echo $search_query?>" </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
+          <p> <span class="cc-cat-title-count"> <span class="post_count"><?php echo $found_prod['found_prod']?></span> <?php _e('search results for ','carpetcall');?>"<?php echo $search_query?>" </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
           <span class="open-product-sidebar">
             +
           </span>
@@ -96,20 +97,22 @@ $found_prod = cc_custom_search($args);
         <?php 
 			$args = array(
 					'offset'=>0,
-					'orderby'	=>'price',
+					'sort_by'	=>'price',
 					'perpage'=>-1,
-					'order'=>'ASC',
+					'sort_order'=>'ASC',
 					'price'	=>'',
 					'shop_range'	=>'',
 					's'				=>$search_query,
 				);
 			$search_result = cc_custom_search($args);
-			//do_action('pr',$search_result);
+			//do_action('pr',$search_result['found_prod']);
 			echo $search_result['html'];
 		?>
         </div>
         <div class="woo-added"></div>
-        <input type="button" name="cc_load_more" id ="cc_load_more" callto="cc_custom_search" value="load more" <?php echo ($search_result['found_prod'] < $perpage_var)?'style="display:none"':'' ?>  />
+        <input type="button" name="cc_load_more" id ="cc_load_more" callto="cc_custom_search" value="load more" style="display:none"/>
+        
+        <?php /*?><input type="button" name="cc_load_more" id ="cc_load_more" callto="cc_custom_search" value="load more" <?php echo ($search_result['found_prod'] < $perpage_var)?'style="display:none"':'' ?> /><?php */?>
         <input type="hidden" name="perpage_var" id="perpage_var" value="<?php echo $perpage_var;?>">
         <input type="hidden" name="ajax_offset" id="ajax_offset" value="<?php echo ($search_result['offset'])?$search_result['offset']:$perpage_var?>">
         <input type="hidden" name="ajax_sort_by" id="ajax_sort_by" value="price">

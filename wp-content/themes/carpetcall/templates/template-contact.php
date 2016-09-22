@@ -259,7 +259,6 @@ function recaptchaCallback(){
 
 
 $(document).ready(function() {
-       
        $(document).on('change','#cc-enquiry-type',function(){
           $res = $('#cc-enquiry-type').val(); 
           $res = $res.toUpperCase();    
@@ -323,9 +322,6 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha)",
          jQuery('.success_message').html(response.success).show();
          jQuery('#cc-store-name').html(" <option class=\"col-md-12\" value=\"default\">Select a Store</option>");
          grecaptcha.reset();
-		 jQuery('#cc-enquiry-type').animate({scrollTop: jQuery('#cc-enquiry-type').offset().top}, 800, function() {
-			jQuery('#cc-enquiry-type').focus();
-		});
             }else{
                 if(typeof(response.captcha_error) != "undefined" && response.captcha_error !== null){
           grecaptcha.reset();

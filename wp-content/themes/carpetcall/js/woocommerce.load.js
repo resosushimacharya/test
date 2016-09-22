@@ -218,6 +218,11 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
 		
 		});
 		jQuery(document).on('change','#expmonth, #expyear',function(){
+			if(jQuery('#expyear').val() != ''){
+				jQuery('select#expmonth').removeAttr('disabled');
+				}else{
+					jQuery('select#expmonth').attr('disabled','disabled');
+					}
 			var error_flag = false;
 			var selected_expdate = (new Date(jQuery('#expyear').val(),parseInt(jQuery('#expmonth').val())-1));
 			
@@ -238,9 +243,6 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
 			}else{
 				jQuery('#place_order').removeAttr('disabled');
 				}
-			
-						
-						
 			});
 	 jQuery(document).on('keyup, focusout','input[name="cardno"]',function () { 
         var maxChars = 16;

@@ -90,9 +90,11 @@ global $post;
                              $x = preg_replace( '/^[0]{1}/', '', $x );
                              $i = 1;
                              $x = '+61'.$x;   
+                            $tel_html = '<a>CALL 13 RUGS (13 7847)</a>'; 
                           ?>
-              <a href="tel:<?php echo $x; ?>"><?php echo __( 'CALL ', 'carpetcall' ) . $telephone_link;?></a> </h3>
-            <h4 class="bcwfsp"><?php echo get_field('footer_contact_title_label',89);?> </h4>
+              <?php echo $tel_html;?>
+               </h3>
+            <h4 class="bcwfsp">BOOK A CALLBACK WITH OUR RUGS SPECIALISTS </h4>
             <div class="againlt">
               <ul>
                 <?php $booklink=get_field('contactlink',89);?>
@@ -125,7 +127,7 @@ global $post;
                             <h3>YOUR  DETAILS</h3>
                           </div>
                           <select class="selectpicker col-md-6 valid" name="cc_enquiry_type" id="cc-enquiry-type" aria-invalid="false">
-                            <option class="col-md-12" value="sales enquiry"> Sales Enquiry </option>
+                           <?php /*?> <option class="col-md-12" value="sales enquiry"> Sales Enquiry </option><?php */?>
                             <option class="col-md-12" value="Service Enquiry"> Service Enquiry </option>
                           </select>
                           <div class="flsm-blk">
@@ -161,21 +163,21 @@ global $post;
                             </div>
                             <div class="provision-section col-sm-12 clearfix">
                               <div class="form-group col-sm-4">
-                                <select class="selectpicker col-md-6 form-control"  name="cc_state_type" id="cc-state-type">
+                                <select class="selectpicker col-md-6 form-control"  name="cc_state_type_only" id="cc-state-type-only">
                                   <option class="col-md-12" value="default">STATE</option>
                                   <?php  get_template_part('templates/contact/content', 'contact-state');
                      ?>
                                 </select>
                                 <div class="error_label"></div>
                               </div>
-                              <div class="form-group col-sm-8">
+                              <?php /*?><div class="form-group col-sm-8">
                                 <select class="selectpicker col-md-6 form-control" name="cc_store_name" id="cc-store-name">
                                   <option class="col-md-12" value="default">Select a Store</option>
                                   <?php  get_template_part('templates/contact/content', 'contact-store');
                      ?>
                                 </select>
                                 <div class="error_label"></div>
-                              </div>
+                              </div><?php */?>
                             </div>
                           </div>
                           <?php 
@@ -309,7 +311,7 @@ function recaptchaCallbackone(){
   </div>
  
   <?php do_action( 'woocommerce_after_single_product' ); ?>
-  
+  <?php echo show_most_popular_products()?>
   <style>
   #cc-enquiry-type{display:none;}
   .success_message_wrapper{display:none;}
@@ -367,7 +369,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
          jQuery('#email_address').val('');
          jQuery('#mobile_phone_no').val('');
          jQuery('#cc-state-type').val('default');
-         jQuery('#cc-store-name').val('default');
+         //jQuery('#cc-store-name').val('default');
          
          jQuery('#cc_message').val('');
           jQuery('#cc_message').attr("placeholder", "ENTER YOUR MESSAGE HERE");
@@ -514,10 +516,10 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
 
                 
               },
-      cc_store_name: { 
+/*      cc_store_name: { 
                 default: true,
 
-              },
+              },*/
       cc_state_type_only: {
         default: true,
       },
@@ -567,11 +569,11 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
                  
     },
       cc_state_type:{ default: "Please select a state." },
-      cc_state_type_only:{ default: "Please select a state." },
-      cc_store_name: { 
+     cc_state_type_only:{ default: "Please select a state." },
+/*       cc_store_name: { 
                 default: "Please select a store." 
               },
-      check_captcha_one :"Please  select captcha.",        
+*/      check_captcha_one :"Please  select captcha.",        
   },
   errorPlacement: function(error, element){
     var err_cntr=element.parent("div").find(".error_label");

@@ -127,19 +127,26 @@ if($reqTempTerms){
        *Select a design section 
        *here we show the related products image and links
       */ ?>
-      <div class="carpet_blinds_single_right">
-                 
-                 <h3 class="calspl calspll">
-                          <?php 
+      <?php
+	 if(has_term('awnings','product_cat',get_the_ID()) || has_term('blinds','product_cat',get_the_ID()) || has_term('shutters','product_cat',get_the_ID())){
+		 $tel_html = '<a href="tel:+611300614797">CALL 1300 614 797</a>';
+		$contact_title_label = get_field('footer_contact_title_label',89);
+		 }else{
+			 
                              $telephone_link =  get_field('telephone_link', '89',false); 
                              $x = preg_replace('/\s+/', '', $telephone_link);
                              $x = preg_replace( '/^[0]{1}/', '', $x );
                              $i = 1;
                              $x = '+61'.$x;   
-                          ?>
-                          <a href="tel:<?php echo $x; ?>"><?php echo __( 'CALL ', 'carpetcall' ) . $telephone_link;?></a>
-                        </h3>
-                <h4 class="bcwfsp"><?php echo get_field('footer_contact_title_label',89);?> </h4>
+			$tel_html = '<a href="tel:'.$x.'">CALL'. $telephone_link.'</a>';
+			$contact_title_label = get_field('footer_contact_title_label',89);
+			 }
+	  
+	  
+	  ?>
+      <div class="carpet_blinds_single_right">
+                 <h3 class="calspl calspll"><?php echo $tel_html?></h3>
+                <h4 class="bcwfsp"><?php echo $contact_title_label;?> </h4>
                 
                 <div class="againlt">
                     <ul>
@@ -488,90 +495,7 @@ wrapper close start */?>
 </div></div>
 <?php /* before-wrapper close end*/?>
 <?php do_action( 'woocommerce_after_single_product' ); ?>
-
-<?php
-
-	wp_reset_query();
-	global $post;
-	$you_may_like_prods = array();
-	//$reqTempTerms=get_the_terms($post->ID,'product_cat');
-	$second_lvl_cat = get_term_by('id',$current_post_term_id,'product_cat');
-	$you_may_like_cats = get_term_children( $second_lvl_cat->parent, 'product_cat' );
-	if(count( $you_may_like_cats ) > 0 ){
-		$count =1;
-		
-		foreach($you_may_like_cats as $cat){
-			if($cat != $second_lvl_cat->term_id){
-				$args = array(
-							'post_type'=>'product',
-							'posts_per_page'=>1,
-							'meta_key'		=>'_regular_price',
-							'order_by'		=>'meta_value_num',
-							'order'			=>'ASC',
-							'tax_query'	=>array(
-										array(
-											'taxonomy' => 'product_cat',
-											'field'    => 'term_id',
-											'terms'    => $cat,
-										)
-									)
-								);
-			$like_prod = new WP_Query($args);
-			if($like_prod->have_posts()){
-				foreach($like_prod->posts as $post){
-						if($count >3){
-						break;
-						}
-				$you_may_like_prods	[$cat] =  $post;
-				$count++;
-				}
-				}
-			}
-		}
-	}
-					
-					?>
-    
- <?php if(count($you_may_like_prods) >0){?>
-	 <div class="inerblock_sec_a">
-    <div class="container clearfix you_may_link_cntr">
-        <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
-<div class="you_may_like-content">
-	<?php 
-				foreach($you_may_like_prods as $key=>$post){
-					setup_postdata($post);
-					$woo=get_post_meta($post->ID);
-					$price=$woo['_regular_price'][0];
-					$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-									?> <div class="col-md-4">
-                  		<div class="pro_secone">
-                  		<a href="<?php the_permalink();?>" class="cc-product-item-image-link"><div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
-                  
-                    <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
-                    <div class="mero_itemss">
-                      		<div class="proabtxt">
-					 <a href="<?php the_permalink();?>" class="cc-product-item-title-link"><h4>
-					<?php $term = get_term_by('id',$key,'product_cat');
-					echo $term->name;?>
-					</h4></a><?php 
-					if(!empty($price)){
-						echo '<h6> FROM A$'.$price.'</h6>';
-						}?></div>
-					<div class="clearfix"></div>
-                      </div>
-                      </div></a>
-                      </div>
-								<?php
-								$count++; }?>
-                     		<?php 
-                     		wp_reset_query(); 
-	?>
-</div>
-<div class="clearfix"></div>
-               
-    </div>
-    </div>
-	<?php }?>   
+<?php echo show_most_popular_products();?> 
     
     
 <style>
