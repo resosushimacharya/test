@@ -2910,6 +2910,10 @@
 	.single.single-product button#cal_more{
 		margin-bottom: 20px;
 	}
+	.single.single-product button#cal_more:hover{
+		background: transparent;
+		color: #144a9f;
+	}
 	.calc-info-cntr .col-item-price {
 	    display: inline-block;
 	    width: 45%;
