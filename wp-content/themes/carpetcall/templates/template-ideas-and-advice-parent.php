@@ -72,7 +72,7 @@ $args = array(
 $parent = new WP_Query( $args );
 while($parent->have_posts()){
     $parent->the_post();
-     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID) .' '.$roottitle.' ' .'<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID).'<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
 }
 wp_reset_query();
  ?>

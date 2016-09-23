@@ -956,14 +956,15 @@ echo '<p>'.$d4.'</p>';
 		<?php if(!empty($yarn)){?>
 		<li><span>Yarn Type : </span><?php echo $yarn; ?></li><?php }?>
 		<?php if(!empty($length) && !empty($width) && !empty($height)) {?>
-		<li><span>Size : </span><span itemprop="length" itemscope itemtype="http://schema.org/QuantitativeValue">
- <span itemprop="value"><?php echo $length?></span>cm
- <meta itemprop="unitCode" content="CMT">
-</span>x<span itemprop="width" itemscope itemtype="http://schema.org/QuantitativeValue">
+		<li><span>Size : </span>
+        <span itemprop="width" itemscope itemtype="http://schema.org/QuantitativeValue">
  <span itemprop="value"><?php echo $width?></span>cm
  <meta itemprop="unitCode" content="CMT">
-</span><span itemprop="height" itemscope itemtype="http://schema.org/QuantitativeValue">
- <span itemprop="value"><?php echo $height?></span>
+</span>x<span itemprop="height" itemscope itemtype="http://schema.org/QuantitativeValue">
+ <span itemprop="value"><?php echo $height?></span>cm
+ <meta itemprop="unitCode" content="CMT">
+</span><span itemprop itemscope itemtype="http://schema.org/QuantitativeValue">
+ <span itemprop="value"><?php echo $length?></span>
  <meta itemprop="unitCode" content="CMT">
 </span>
 		</li>
@@ -971,7 +972,7 @@ echo '<p>'.$d4.'</p>';
 		<?php if(!empty($weight)){?>
 		<li><span>Weight : </span><span itemprop="weight" itemscope itemtype="http://schema.org/QuantitativeValue">
  <span itemprop="value"><?php echo $weight?></span>kg
- <meta itemprop="unitCode" content="CMT">
+ <meta itemprop="unitCode" content="KGM">
 </span></li>
 		<?php }?>
 		</ul>
