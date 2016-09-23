@@ -395,9 +395,11 @@ function show_category_slider_block($args=array()){
 					if($_product->is_in_stock()){
 						$title = $product->post_title;
 						$grp_code_arr = explode('.',$title);
-						$grp_prods[$product->ID] = $grp_code_arr[1];
+						$grp_code_unique = $grp_code_arr[1].'.'.$grp_code_arr[2];
+						$grp_prods[$product->ID] = $grp_code_unique;
 					}
 				}
+				
 				wp_reset_postdata();
 				if(!empty($grp_prods)){
 					$product_ids = array_keys(array_unique($grp_prods));
@@ -407,6 +409,7 @@ function show_category_slider_block($args=array()){
 					$grp_prod_args = array(
 										'post_type'	=>'product',
 										'post_status'	=>'publish',
+										'posts_per_page'	=>-1,
 										'post__in' => $product_ids,
 									);	
 				if($sort_by == 'price'){
@@ -421,7 +424,7 @@ function show_category_slider_block($args=array()){
 				$filloop = '';
 				$offset++;
 				}
-				
+			//do_action('pr',$filloop);	
 			}else{
 					$offset++;
 					if($offset < count($cat_arr) && $found_cats < $perpage ){
@@ -460,7 +463,7 @@ function show_category_slider_block($args=array()){
                     }?>
                     <?php if(!empty($banner_prods)){
                         foreach($banner_prods as $postid=>$feat_image){
-							unset($slider_prods[get_the_ID()]);
+							//unset($slider_prods[$postid()]);
 							?>
                             <a href="<?php echo get_permalink($postid);?>">
                                 <div class="cat_slider_item ">
@@ -469,7 +472,7 @@ function show_category_slider_block($args=array()){
                                 </a>
                             <?php }
                         }else{
-                            $slider_prods_five = array_slice($slider_prods,0,4);
+                            $slider_prods_five = array_slice($slider_prods,0,5,true);
                             foreach($slider_prods_five as $postid=>$feat_image){?>
                                 <a href="<?php echo get_permalink($postid);?>">
                                 <div class="cat_slider_item ">
@@ -484,7 +487,7 @@ function show_category_slider_block($args=array()){
                 
                  <div class=" cc-cat-sub-group-item">
                  	<?php foreach($slider_prods as $postid=>$imgurl){
-						$feat_image  = cc_custom_get_feat_img($postid,'small');?>
+						$feat_image  = cc_custom_get_feat_img($postid,'small','V');?>
 						<div class=" cc-other-term-pro">
                         <div class="cc-img-wrapper">
                             <div class="cat-item-group-image" style="background-image:url(<?php echo $feat_image;?>)">
@@ -684,7 +687,7 @@ function loadmore_hf($args){
                         foreach($filloop as $post){
 						$_product = new WC_Product($post->ID);
 						if($_product->is_in_stock()){
-						$feat_image = cc_custom_get_feat_img($post->ID,'small');
+						$feat_image = cc_custom_get_feat_img($post->ID,'small','V');
 						
 							?>
 							<div class=" cc-other-term-pro">
@@ -1931,9 +1934,9 @@ function atom_search_groupby($groupby){
   return $groupby.", ".$groupby_id;
 }
 
-add_filter('posts_where','atom_search_where');
-add_filter('posts_join', 'atom_search_join');
-add_filter('posts_groupby', 'atom_search_groupby');
+//add_filter('posts_where','atom_search_where');
+//add_filter('posts_join', 'atom_search_join');
+//add_filter('posts_groupby', 'atom_search_groupby');
 
 
 

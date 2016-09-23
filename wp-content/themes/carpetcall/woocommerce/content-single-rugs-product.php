@@ -129,12 +129,8 @@ if ( ! defined( 'ABSPATH' ) ) {
        $strsizes= array();
        global $post;
        $pro_cur_id = $post->ID;
-       
            $reqTempTerms=get_the_terms($post->ID,'product_cat');
-
-   
             if($reqTempTerms){
-            	
            foreach($reqTempTerms as $cat){
            	$has_sub_cat=get_terms(array('parent'=>$cat->term_id,'taxonomy'=>'product_cat'));
            	 
@@ -157,7 +153,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 							 'tax_query' => array(
 												array(
-												  'taxonomy' => 'product_cat',
+												'taxonomy' => 'product_cat',
 												'terms' => $cat->slug,
 												'field' => 'slug',
 												'compare' => 'IN'
@@ -193,22 +189,16 @@ if ( ! defined( 'ABSPATH' ) ) {
      
      $proGroup = array();
         foreach($titlepro as $key => $value){
-
             preg_match('/([A-Z]*)\.([0-9]*)\.([0-9]*)\.([0-9]*)/',$value,$match);
-              
-             $proGroup[] = array($value,$match[2],$key);
-             
-           if($secondVar!=$match[2]){
-            
+             $temp =  $match[2].'.'.$match[3];
+             $proGroup[] = array($value,$temp,$key);
+           if($secondVar!=$temp){
              $uniqueId = $key;
-
-             $secondVar = $match[2];
+             $secondVar = $temp;
              $resList[$uniqueId][]=$key;
-             
             }
          else{
           $resList[$uniqueId][]=$key;
-
             }
 
   
@@ -274,7 +264,7 @@ foreach($bundle as $key=>$value){
 		$count++;
 		?>
 		<div class="select-design-product-image <?php echo (array_key_exists($post->ID,$bundle))?'pro-active':null;?>">
-              <a href="<?php echo get_permalink($key)?>" class="select_design">
+              <a href="<?php echo get_permalink($key)?>" class="select_design" title="<?php echo strtoupper(str_replace('-','.',$post->post_name))?>">
               
               
              <img name="<?php echo $post->post_name?>" class="cc-product_no_image" src="<?php echo $feat_image ;?>"/>

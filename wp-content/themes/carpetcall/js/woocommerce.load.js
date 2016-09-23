@@ -560,12 +560,15 @@ $(window).scroll(function() {
 jQuery(document).on('click','.select-design-product-image a.select_design',function(e){
 	e.preventDefault();
 	var url = jQuery(this).attr('href');
+	var prod_title = jQuery(this).attr('title');
 	window.history.pushState("object or string", "Title", url);
 	 $("body, .banner ").addClass('ovelay_hidden_class');// Disabling the Scroll while ajax is loading
 	jQuery('#loading_overlay_div').show(); // Displaying the Loading gif during ajax call
 
 	jQuery.get(url,function(response){
 		update_content_from_ajax(response);
+			jQuery('title').text(prod_title+' - Carpet Call Australia');
+
 			 $("body, .banner ").removeClass('ovelay_hidden_class'); // Disabling the Scroll while ajax is loading
 			jQuery('#loading_overlay_div').hide();
 			jQuery('#store-count-quantity').attr('href','javascript:void(0)');
