@@ -179,7 +179,7 @@ $backurl=site_url().'/find-a-store/'.strtolower($cat_name);
 								continue;
 							}
 							?>
-							<div itemprop="openingHoursSpecification" itemtype="http://schema.org/OpeningHoursSpecification" class="opeaning_list">
+							<div itemscope itemprop="openingHoursSpecification" itemtype="http://schema.org/OpeningHoursSpecification" class="opeaning_list">
 							<link itemprop="dayOfWeek" href="http://schema.org/<?php echo esc_html( ucfirst($day) )?>" /><span class="opeaning_day_label"><?php echo esc_html( $day )?></span>: 
 							
 							
