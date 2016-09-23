@@ -491,7 +491,9 @@
 		-moz-transition: all 0.2s ease;
 		-ms-transition: all 0.2s ease;
 		-o-transition: all 0.2s ease;
-		transition: all 0.2s ease;	
+		transition: all 0.2s ease;
+		max-height: 380px;
+	    overflow-y: auto;	
 	}
 	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1.is-visible{		
 		-webkit-transform: translateX(0);
@@ -536,7 +538,7 @@
 		-ms-transition: all 0.2s ease;
 		-o-transition: all 0.2s ease;
 		transition: all 0.2s ease;
-	    max-height: 600px;
+	    max-height: 380px;
 	    overflow-y: auto;
 	}
 	.selected-link-cntr{
@@ -2910,9 +2912,17 @@
 	.single.single-product button#cal_more{
 		margin-bottom: 20px;
 	}
-	.single.single-product button#cal_more:hover{
+	.single.single-product button#cal_more:hover, .single.single-product button#cancel_calc:hover, .single.single-product button#confirm_calc:hover {
 		background: transparent;
 		color: #144a9f;
+	}
+	.single.single-product button#cal_id:hover{
+		border-color: #144a9f;
+	    background: #144a9f;
+	    color: #fff;
+	}
+	.modal{
+	    -webkit-overflow-scrolling: auto;
 	}
 	.calc-info-cntr .col-item-price {
 	    display: inline-block;
@@ -4483,6 +4493,9 @@
 	    font-size: 20px;
 	}
 	/* Menu */
+	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1{
+		max-height: 350px;
+	}
 	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1 li ul.menu-depth-2.is-visible{
 		max-height: 350px;
 	}
