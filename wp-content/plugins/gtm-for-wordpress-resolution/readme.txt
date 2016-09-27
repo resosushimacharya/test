@@ -1,7 +1,6 @@
 === DuracellTomi's Google Tag Manager for WordPress ===
 Contributors: duracelltomi
-Donate link: https://duracelltomi.com/
-Tags: google tag manager, tag manager, gtm, google, adwords, google adwords, adwords remarketing, remarketing, google analytics, analytics, facebook ads, facebook remarketing, facebook pixel
+Tags: google tag manager
 Requires at least: 3.4.0
 Tested up to: 4.6
 Stable tag: 1.4
