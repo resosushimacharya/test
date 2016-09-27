@@ -158,11 +158,20 @@ function gtm4wp_woocommerce_datalayer_filter_items( $dataLayer ) {
 		}
 
 		if ( isset( $order ) ) {
+			//Set Affiliation to Store ID if Set
+			$custom_pickup_id = @trim(get_post_meta($order->id, 'pickup_store_id', true));
+			if (!empty($custom_pickup_id){
+				$custom_affiliation = 'Carpet Call Store ' . $custom_pickup_id;
+			}else{
+				$custom_affiliation = 'Carpet Call';
+			}
+
 			if ( true === $gtm4wp_options[ GTM4WP_OPTION_INTEGRATE_WCTRACKCLASSICEC ] ) {
 				$dataLayer["transactionId"]             = $order->get_order_number();
 				$dataLayer["transactionDate"]           = date("c");
 				$dataLayer["transactionType"]           = "sale";
-				$dataLayer["transactionAffiliation"]    = gtm4wp_woocommerce_html_entity_decode( get_bloginfo( 'name' ) );
+				//$dataLayer["transactionAffiliation"]    = gtm4wp_woocommerce_html_entity_decode( get_bloginfo( 'name' ) );
+				$dataLayer["transactionAffiliation"]    = $custom_affiliation;
 				$dataLayer["transactionTotal"]          = $order->get_total();
 				$dataLayer["transactionShipping"]       = $order->get_total_shipping();
 				$dataLayer["transactionTax"]            = $order->get_total_tax();
@@ -178,7 +187,8 @@ function gtm4wp_woocommerce_datalayer_filter_items( $dataLayer ) {
 					"purchase" => array(
 						"actionField" => array(
 							"id"          => $order->get_order_number(),
-							"affiliation" => gtm4wp_woocommerce_html_entity_decode( get_bloginfo( 'name' ) ),
+							//"affiliation" => gtm4wp_woocommerce_html_entity_decode( get_bloginfo( 'name' ) ),
+							"affiliation" => $custom_affiliation,
 							"revenue"     => $order->get_total(),
 							"tax"         => $order->get_total_tax(),
 							"shipping"    => $order->get_total_shipping(),
