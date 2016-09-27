@@ -492,6 +492,14 @@ function  csv_import_rugs($csv,$appcat,$resrugs)
 //add_action("admin_init",'cron_func_update');
 function cron_func_update(){
 
+$file = WP_CONTENT_DIR.'/mylog.txt';
+$fh = fopen($file, "a");
+$new_log= 'CSV IMPORT Cron started at '.date("Y-m-d H:i:s");
+fwrite($fh, "\n"."\r".$new_log.PHP_EOL);
+fclose($fh);
+
+
+
 $rugsadmin = data_database_read("rugs");
 $hardflooringadmin = data_database_read("hard-flooring");
 

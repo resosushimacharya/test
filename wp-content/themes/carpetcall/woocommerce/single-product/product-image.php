@@ -184,9 +184,8 @@ global $post, $woocommerce, $product;
 			}	
 		//$sku = explode('.',get_post_meta(get_the_ID(),'_sku',true));
 		
-							
+		$feat_image = $feat_image_full = get_template_directory_uri().'/images/placeholder.png';
 		foreach($image_names as $imgname){
-			$feat_image = $feat_image_full = get_template_directory_uri().'/images/placeholder.png';
 			$img_path =  WP_CONTENT_DIR.'/uploads/images/large/'.$imgname;
 			$thumb_path =  WP_CONTENT_DIR.'/uploads/images/medium/'.$imgname;
 			if(file_exists($img_path)){

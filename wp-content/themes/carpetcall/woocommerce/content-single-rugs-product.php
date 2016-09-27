@@ -264,10 +264,10 @@ foreach($bundle as $key=>$value){
 		$count++;
 		?>
 		<div class="select-design-product-image <?php echo (array_key_exists($post->ID,$bundle))?'pro-active':null;?>">
-              <a href="<?php echo get_permalink($key)?>" class="select_design" title="<?php echo strtoupper(str_replace('-','.',$post->post_name))?>">
+              <a href="<?php echo get_permalink($key)?>" class="select_design" title="<?php echo strtoupper(str_replace('-','.',get_the_title($key)))?>">
               
               
-             <img name="<?php echo $post->post_name?>" class="cc-product_no_image" src="<?php echo $feat_image ;?>"/>
+             <img name="<?php echo get_the_title($key)?>" class="cc-product_no_image" src="<?php echo $feat_image ;?>"/>
               <span class="selected-pro-name" style=""><?php echo get_the_title($key)?></span>
               
               
