@@ -429,6 +429,13 @@ foreach($resList as $mainId){
       	 $x=do_shortcode('[add_to_cart_url id="'.$post->ID.'"]');
       	 ?>
       	 <?php  do_action( 'cc_custom_quantiy' );?>
+        <div class="rugs-single-ticks">
+          <ul>
+            <li>Price & satisfation guarantee</li>
+            <li>free delivery</li>
+            <li>Stock held in Australia</li>
+          </ul>
+        </div>
       	 <div class="cc-quantiy-section-inner">
       	 <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $post->ID;?>" data-product_sku="<?php
       	  echo $pro['_sku'][0] ; ?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart col-md-12" id="store-count-quantity" >ADD TO CART</a>
