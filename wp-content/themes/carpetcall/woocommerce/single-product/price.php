@@ -22,9 +22,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $product;
 
 ?>
-<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+<div class="price_wrapper_block" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
 <?php echo $product->get_price_html(); ?>
+<span class="online_price_subhead">ONLINE PRICE</span>
 
 	<meta itemprop="price" content="<?php echo esc_attr( round($product->get_price()) ); ?>" />
 	<meta itemprop="priceCurrency" content="<?php echo esc_attr( get_woocommerce_currency() ); ?>" />
