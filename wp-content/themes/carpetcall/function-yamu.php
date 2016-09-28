@@ -307,6 +307,12 @@ function show_category_slider_block($args=array()){
 							'post_type'=>'product',
 							'posts_per_page'=>-1,
 							'post_stauts' =>'publish',
+							'meta_query'=>array(
+										array(
+											'key'	=>'_stock_status',
+											'value'	=>'instock',
+										),
+									),
 							'tax_query' => array(
 												array(
 													'taxonomy' => 'product_cat',

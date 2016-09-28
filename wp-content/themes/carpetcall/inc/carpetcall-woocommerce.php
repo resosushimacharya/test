@@ -1078,6 +1078,16 @@ function jk_change_breadcrumb_delimiter( $defaults ) {
 function sv_change_product_price_display( $price ) {
 	global $post;
 	$pro = get_post_meta($post->ID);
+	
+	
+	
+		$prosale = $prosale = '<span itemprop="priceCurrency" content="AUD">$</span>
+		<span class="cc-sale-price-title" itemprop="price" content="'.number_format(round($pro['_regular_price'][0]),2,'.','').'">'.number_format(round($pro['_regular_price'][0]),2,'.','').'</span>';
+		$price =  '<div class="cc-price-control">
+
+	<h3>'.$prosale.'</h3></div>';
+	
+	/*
 	if (array_key_exists("_sale_price",$pro) && $pro['_sale_price'][0]!=''){
 		$prosale = '<span itemprop="priceCurrency" content="AUD">$</span><span class="cc-sale-price-title" itemprop="price" content="'.number_format(round($pro['_sale_price'][0]),2,'.','').'">'.number_format(round($pro['_sale_price'][0]),2,'.','').'</span>';
 		$price =  '<div class="cc-price-control">
@@ -1090,6 +1100,7 @@ function sv_change_product_price_display( $price ) {
 
 	<h3>'.$prosale.'</h3></div>';
 	}
+	*/
 
 	return $price;
 	

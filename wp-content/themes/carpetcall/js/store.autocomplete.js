@@ -37,6 +37,7 @@ function autocomplet() {
 				jQuery('#directory_list_id').show();
 				jQuery('#directory_list_id_s').show();
 				jQuery('#directory_list_id_s').html(data);
+				//jQuery('#after_dropdown').animate({scrollTop: 0},'slow');
 				//jQuery("#edit_dir_keyword").focus();
              rs= null;
              stoLocation = [];

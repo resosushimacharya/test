@@ -206,6 +206,7 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
 							}
 					}else{
 						jQuery('#securepay_exp_date-errormessage').hide();
+						jQuery('select#expmonth, select#expyear').removeClass('cc_error_checkout');
 						}
 			if(error_flag){
 				return false;
@@ -218,30 +219,34 @@ $('#pickup_location_form').on('keyup keypress', function(e) {
 		
 		});
 		jQuery(document).on('change','#expmonth, #expyear',function(){
+			/*
 			if(jQuery('#expyear').val() != ''){
 				jQuery('select#expmonth').removeAttr('disabled');
 				}else{
 					jQuery('select#expmonth').attr('disabled','disabled');
 					}
-			var error_flag = false;
-			var selected_expdate = (new Date(jQuery('#expyear').val(),parseInt(jQuery('#expmonth').val())-1));
-			
-			if(selected_expdate < new Date()){
-					error_flag = true;
-					jQuery('#expyear, #expmonth').addClass('cc_error_checkout');
-					if(jQuery('#securepay_exp_date-errormessage').length > 0){
-						jQuery('#securepay_exp_date-errormessage').show();
+					*/
+			if((jQuery('#expmonth').val() != '') && (jQuery('#expyear').val() != '')){
+				var error_flag = false;
+				var selected_expdate = (new Date(jQuery('#expyear').val(),parseInt(jQuery('#expmonth').val())-1));
+				if(selected_expdate < new Date()){
+						error_flag = true;
+						jQuery('#expyear, #expmonth').addClass('cc_error_checkout');
+						if(jQuery('#securepay_exp_date-errormessage').length > 0){
+							jQuery('#securepay_exp_date-errormessage').show();
+							}else{
+								jQuery('#expyear').parent('td').append('<label id="securepay_exp_date-errormessage" class="cc_error" for="securepay_exp_date">Invalid expiry date!</label>');
+								}
 						}else{
-							jQuery('#expyear').parent('td').append('<label id="securepay_exp_date-errormessage" class="cc_error" for="securepay_exp_date">Invalid expiry date!</label>');
+							jQuery('select#expmonth, select#expyear').removeClass('cc_error_checkout');
+							jQuery('#securepay_exp_date-errormessage').hide();
 							}
-					}else{
-						jQuery('#securepay_exp_date-errormessage').hide();
-						}
-			if(error_flag){
-					jQuery('#place_order').attr('disabled','disabled');
-				return false;
-			}else{
-				jQuery('#place_order').removeAttr('disabled');
+				if(error_flag){
+						jQuery('#place_order').attr('disabled','disabled');
+					return false;
+				}else{
+					jQuery('#place_order').removeAttr('disabled');
+					}
 				}
 			});
 	 jQuery(document).on('keyup, focusout','input[name="cardno"]',function () { 
@@ -494,29 +499,35 @@ $(document).ready(function() {
 
           });
 		
-		$(document).on('change','.acc_qnty .quantity select',function(){
-			 if(jQuery(this).val().toLowerCase()!='please select'){
-				 var target_atc = jQuery(this).parents('.acc_list_item').find('a.acc_add_to_cart');
-				 jQuery(target_atc).attr('data-quantity',jQuery(this).val());
-				
+	$(document).on('change','.acc_qnty .quantity select',function(){
+		if(jQuery(this).val().toLowerCase()!='please select'){
+			var target_atc = jQuery(this).parents('.acc_list_item').find('a.acc_add_to_cart');
+			if(jQuery(this).val() =='0'){
+				jQuery(this).addClass('cc_error');
+				jQuery(target_atc).attr('data-quantity',0);
+				jQuery(target_atc).removeClass('add_to_cart_button');
+				jQuery(target_atc).removeClass('ajax_add_to_cart');
+				jQuery(target_atc).attr('href','javascript:void(0)');
+			}else{
+				jQuery(this).removeClass('cc_error');
+				jQuery(target_atc).attr('data-quantity',jQuery(this).val());
 				jQuery(target_atc).addClass('add_to_cart_button');
-           		jQuery(target_atc).addClass('ajax_add_to_cart');
-            
-			
-				 jQuery(target_atc).attr('href', jQuery(target_atc).attr('link'));
-				 
-//jQuery(this).parents('.acc_list_item').find('a.acc_add_to_cart').attr('data-quantity',jQuery(this).val());
-//jQuery(this).parents('.acc_list_item').find('a.acc_add_to_cart').attr('data-quantity',jQuery(this).val());
-				 }else{
-				 
-				 }
+				jQuery(target_atc).addClass('ajax_add_to_cart');
+				jQuery(target_atc).attr('href', jQuery(target_atc).attr('link'));
+			}				 
+		}
+	});
+	
+	jQuery(document).on('click','.acc_add_to_cart',function(e){
+		var target_atc = jQuery(this).parents('.accessories_innner_wrap').find('#quantity-control');
+		if(jQuery(target_atc).val() == 0 ){
+			jQuery(target_atc).addClass('cc_error');
+			}else{
+				jQuery(target_atc).removeClass('cc_error');
+				}		
+	});
 
-			//jQuery(this).parents('.acc_qnty').find('a.acc_add_to_cart').attr('data-quantity',jQuery(this).val());
-			});
-     
-
-
-     });
+});
 
 
 jQuery(document).on('mouseover','.acc_list_item',function(){
@@ -576,11 +587,13 @@ jQuery(document).on('click','.select-design-product-image a.select_design',funct
            	jQuery('#store-count-quantity').removeClass('ajax_add_to_cart');
 			
       		//largeImgMob();
-			var bigImg = $(".single-product-thumb-img");      
-			$(bigImg).each(function() {
-			  var bigImgHref = $(this).attr('href');
-			  $(this).find("img").attr("src", bigImgHref);
-			});
+			 if( $(window).width() <= 800 ){
+					var bigImg = $(".single-product-thumb-img");      
+					$(bigImg).each(function() {
+					  var bigImgHref = $(this).attr('href');
+					  $(this).find("img").attr("src", bigImgHref);
+					});
+				 }
 	
 	
 		    // Displaying the Loading gif during ajax call
@@ -626,11 +639,14 @@ jQuery(document).on('change','select#cc-size',function(e){
           	jQuery('#store-count-quantity').removeClass('add_to_cart_button');
            	jQuery('#store-count-quantity').removeClass('ajax_add_to_cart');
       		//largeImgMob();
-			var bigImg = $(".single-product-thumb-img");      
-			$(bigImg).each(function() {
-			  var bigImgHref = $(this).attr('href');
-			  $(this).find("img").attr("src", bigImgHref);
-			});
+			if( $(window).width() <= 800 ){
+				var bigImg = $(".single-product-thumb-img");      
+				$(bigImg).each(function() {
+				  var bigImgHref = $(this).attr('href');
+				  $(this).find("img").attr("src", bigImgHref);
+				});
+			}
+				 
 	
 	
 		    // Displaying the Loading gif during ajax call

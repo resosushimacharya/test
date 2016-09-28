@@ -13,6 +13,15 @@ function cc_create_order_export_schedule(){
 
 add_action( 'cc_order_export_daily_schedule', 'hourly_order_export_func' );
 function hourly_order_export_func(){
+
+$file = WP_CONTENT_DIR.'/mylog.txt';
+$fh = fopen($file, "a");
+$new_log= 'Order Export Cron started at '.date("Y-m-d H:i:s");
+fwrite($fh, "\n"."\r".$new_log.PHP_EOL);
+fclose($fh);
+	
+	
+	
 $cc_order_report = cc_cron_generate_order_report();
 
 if($cc_order_report !=''){

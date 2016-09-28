@@ -383,11 +383,13 @@
     // Display large image in mobile
     if($(".product_single_thumb_slider").length){
       function largeImgMob(){
-        var bigImg = $(".single-product-thumb-img");      
+		  if( $(window).width() <= 800 ){
+			  var bigImg = $(".single-product-thumb-img");      
         $(bigImg).each(function() {
-          var bigImgHref = $(this).attr('href');
-          $(this).find("img").attr("src", bigImgHref);
-        });
+			  var bigImgHref = $(this).attr('href');
+			  $(this).find("img").attr("src", bigImgHref);
+			});
+		}
       }
       largeImgMob();
     }
