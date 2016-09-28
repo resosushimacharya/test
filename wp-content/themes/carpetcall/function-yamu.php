@@ -979,15 +979,16 @@ function cc_custom_search($args){
 					'posts_per_page'=>-1,//$perpage,
 					's'				=>$s,
 					'meta_query'=>$meta_query,
-					/*'tax_query'	=>array(
+					'tax_query'	=>array(
 									array(
 										'taxonomy' => 'product_cat',
 										'terms' => array('accessories'),
 										'field' => 'slug',
+										'include_children' => true,
 										'operator' => 'NOT IN',
 									)
 								)
-								*/
+								
 				);
 				
 	/*	if($shop_range !='' ){
@@ -1036,7 +1037,7 @@ function cc_custom_search($args){
 						$_product = new WC_Product(get_the_ID());
 						//do_action('pr',$_product->id);
 						
-						if($_product->is_in_stock()){
+						if($_product->is_in_stock() && !has_term('accessories','product_cat',get_the_ID())){
 							//do_action('pr',$_product->stock.' '.$_product->get_formatted_name());
 							$found_count++;
 							$feat_image = cc_custom_get_feat_img(get_the_ID(),'medium');
@@ -1938,9 +1939,11 @@ function atom_search_where($where){
     
   $price=get_query_var('price');
   $category_filter=get_query_var('category_filter');
-  
-  if (is_search() || get_search_query()!='')
+
+  if (is_search() || get_search_query()!=''){	  
     $where .= "OR (t.name LIKE '%".get_search_query()."%' AND {$wpdb->posts}.post_status = 'publish' AND {$wpdb->posts}.post_type = 'product')";
+	//$where .=" AND t.term_id NOT IN({$acc_term_list}) ";
+ 
 	if(!empty($price)){
 		$price_=explode(',', $price);
 		$where.=" AND ( {$wpdb->postmeta}.meta_key = '_price' AND CAST({$wpdb->postmeta}.meta_value AS SIGNED) BETWEEN '".$price_[0]."' AND '".$price_[1]."' )";
@@ -1949,7 +1952,7 @@ function atom_search_where($where){
 		$where.=" AND tr.term_taxonomy_id IN (select term_id from {$wpdb->term_taxonomy} where {$wpdb->term_taxonomy}.parent in (".$category_filter.") )";
 	}
 	
-	
+	 }
 	
   return $where;
 }
