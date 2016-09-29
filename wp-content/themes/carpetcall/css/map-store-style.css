@@ -1,219 +1,29 @@
-/*..... content map start here ..............*/
-.infobox {
-  /* background: none repeat scroll 0 0 rgba(255,255,255,0.4); */
-  color: #F1F1F1;
-  font-family: arial;
-  line-height: 50px;
-  position: absolute;
-  /* margin-top:80px; */ 
-  z-index:1;
-  margin-left:-20px;
-  cursor:default !important;
-
-}
-      
-/*
-margin: 5px;
-    position: relative;
-    left: -21px;
-    height: 50px;
-    padding: 5px;
-    top: 68px;
-    width: 70px;
-    background: red;
-    .infobox:before, .infobox:after {
-  border-color: transparent transparent transparent #212121;
-  border-style: solid;
-  border-width: 20px 20px 0;
-  bottom: -1px;
-  content: "";
-  display: none;
-  height: 0;
-  left: -1px;
-  position: absolute;
-
-  width: 0;
-  z-index:2
-}
-.infobox:after {
-  border-color: transparent transparent transparent #FFFFFF;
-  border-width:24px 24px 0;
-  z-index:1
-}
-*/
-.contents h5 {font:700 13px 'proxima_nova_ltsemibold', sans-serif; color:#c32327; line-height:1;}
-.contents h6 {font:normal 11px 'proxima_nova_rgregular', sans-serif; color:#666666; line-height:16px;}
-
-.infobox .close {
-
-
-cursor: pointer;
-float: right;
-font-size: 17px;
-height: 25px;
-line-height: 22px;
-position: relative;
-right: -25px;
-text-align: center;
-top: 0;
-width: 25px;
-display:none;
-
-}
-
-.infobox:nth-child(1) .content_nsw{ cursor:pointer;top:90px; left:103px; margin:0; width:auto; height:38px; background:rgba(255,255,255,0.5); border:1px solid #c6d3ea; position:relative; padding:5px; width:85px;}
-.infobox:nth-child(2) .content{ cursor:pointer;top:107px; left:-30px; width:85px;}
-.infobox:nth-child(3) .content_down{ cursor:pointer;top:106px; left:105px; margin:0; width:auto; height:38px; background:rgba(255,255,255,0.5); border:1px solid #c6d3ea; width:85px;}
-.infobox:nth-child(4) .content{ cursor:pointer;top:99px; left:17px; width:85px;}
-.infobox:nth-child(5) .content_right{cursor:pointer; top:69px; left:95px; margin:0; width:auto; height:38px; background:rgba(255,255,255,0.5); border:1px solid #c6d3ea; width:85px;}
-.infobox:nth-child(6) .content{cursor:pointer; top:76px; left:-26px; width:85px;}
-.infobox:nth-child(7) .content_act{ cursor:pointer;top:103px; left:97px; margin:0; width:auto; height:38px; background:rgba(255,255,255,0.5); border:1px solid #c6d3ea; position:relative; padding:5px; width:85px;}
-.infobox:nth-child(8) .content{cursor:pointer; top:56px; left:0px; width:85px;}
-
-.infobox:nth-child(4) div.custom_icon { right:-29px; top:-15px; }
-
-
-.infobox .content { 
- 	margin:0;
-    position: relative;
-    left:0;
-    height: 38px;
-    padding: 5px;
-    top: 77px;
-    width: auto;
-    background:rgba(255,255,255,0.5);
-    border:1px solid #c6d3ea; 
-    cursor: pointer !important;
-}
-
-.infobox .content_right {
- margin: 5px;
-    position: relative;
-    left:60px;
-    height: 40px;
-    padding: 5px;
-    top: 58px;
-    width: 70px;
-    background: rgba(255,255,255,0.5);
-     border:2px solid #ddd; 
-}
-.infobox .content_down {
-     margin: 5px;
-    position: relative;
-    left: 72px;
-    height: 40px;
-    padding: 5px;
-    top: 86px;
-    width: 70px;
-    background: rgba(255,255,255,0.5);
-    border: 2px solid #ddd;
-}
-
-div.custom_icon{
-    background-image: url('../images/location.png');
-    background-repeat: no-repeat; 
-    width:22px;
-    height: 28px;
-    position: absolute;
-    right: -29px;
-    top: -17px;
-    z-index:20000 !important;
-    display: inline-block;
-}
-div.custom_icon_right{
-    background-image: url('../images/location.png');
-    background-repeat: no-repeat; 
-    width: 22px;
-    height: 28px;
-    position: absolute;
-    left: -31px;
-    top: -16px;
-    z-index: 20000 !important;
-    display: inline-block;
-}div.custom_icon_down{
-background-image: url('../images/location.png');
-background-repeat: no-repeat; 
-    width: 22px;
-    height: 28px;
-    position: absolute;
-    left: -32px;
-    top: -12px;
-    z-index: 20000 !important;
-    display: inline-block;
-	}
-.custom_icon_nsw {
-background-image: url('../images/location.png');
-background-repeat: no-repeat; 
-    width: 22px;
-    height: 28px;
-    position: absolute;
-    left: -29px;
-    top: -14px;
-    z-index: 20000 !important;
-    display: inline-block;	
-}
-.custom_icon_act {
-	background-image: url('../images/location.png');
-background-repeat: no-repeat; 
-    width: 22px;
-    height: 28px;
-    position: absolute;
-    left: -30px;
-    top: -14px;
-    z-index: 20000 !important;
-    display: inline-block;	
-
-}
-	
-.contents{   
-  color: #F1F1F1;
-  font-family: arial;
-  line-height: 50px;
-  position: absolute; 
-  z-index:1;
- 	text-align: center;
-	-webkit-transform: translateX(-50%);
-		-moz-transform: translateX(-50%);
-			-ms-transform: translateX(-50%);
-				-o-transform: translateX(-50%);
-					transform: translateX(-50%);
-  left: 50%;
-  cursor:pointer !important;
- }
-  .maf_info{margin-left: 20px !important;}
-  .store-map{
-   /* transform: scale(1.20);
-	    -webkit-transform: scale(1.10);
-		    -moz-transform: scale(1.10);
-			    -ms-transform: scale(1.10);
-				    -o-transform: scale(1.10);*/
-					position:absolute;
-					top: 85px;
-					left:0;
-					height:259px;
-					width: 100%;
-}
-.modify h5,.modify h6 {
-    padding-left:0px;
-
-}
-.pac-container {
-    z-index: 100000 !important;
-    /* position:static !important; */
-}
-.pac-container:after {
-    /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
-
-    background-image: none !important;
-    height: 0px;
-}
-.pac-icon-marker {
-    display: none !important;
-    top:-700px !important;
-
-}
-.pac-item-query {
-    margin-left: 7px;
-}
-/* .gm-style, .gm-style div{background-color: transparent !important;} */
+.infobox{color:#F1F1F1;font-family:arial;line-height:50px;position:absolute;z-index:1;margin-left:-20px;cursor:default !important;}
+.contents h5{font:700 13px 'proxima_nova_ltsemibold', sans-serif;color:#c32327;line-height:1;}
+.contents h6{font:normal 11px 'proxima_nova_rgregular', sans-serif;color:#666666;line-height:16px;}
+.infobox .close{cursor:pointer;float:right;font-size:17px;height:25px;line-height:22px;position:relative;right:-25px;text-align:center;top:0;width:25px;display:none;}
+.infobox:nth-child(1) .content_nsw{cursor:pointer;top:90px;left:103px;margin:0;width:auto;height:38px;background:rgba(255,255,255,0.5);border:1px solid #c6d3ea;position:relative;padding:5px;width:85px;}
+.infobox:nth-child(2) .content{cursor:pointer;top:107px;left:-30px;width:85px;}
+.infobox:nth-child(3) .content_down{cursor:pointer;top:106px;left:105px;margin:0;width:auto;height:38px;background:rgba(255,255,255,0.5);border:1px solid #c6d3ea;width:85px;}
+.infobox:nth-child(4) .content{cursor:pointer;top:99px;left:17px;width:85px;}
+.infobox:nth-child(5) .content_right{cursor:pointer;top:69px;left:95px;margin:0;width:auto;height:38px;background:rgba(255,255,255,0.5);border:1px solid #c6d3ea;width:85px;}
+.infobox:nth-child(6) .content{cursor:pointer;top:76px;left:-26px;width:85px;}
+.infobox:nth-child(7) .content_act{cursor:pointer;top:103px;left:97px;margin:0;width:auto;height:38px;background:rgba(255,255,255,0.5);border:1px solid #c6d3ea;position:relative;padding:5px;width:85px;}
+.infobox:nth-child(8) .content{cursor:pointer;top:56px;left:0px;width:85px;}
+.infobox:nth-child(4) div.custom_icon{right:-29px;top:-15px;}
+.infobox .content{margin:0;position:relative;left:0;height:38px;padding:5px;top:77px;width:auto;background:rgba(255,255,255,0.5);border:1px solid #c6d3ea;cursor:pointer !important;}
+.infobox .content_right{margin:5px;position:relative;left:60px;height:40px;padding:5px;top:58px;width:70px;background:rgba(255,255,255,0.5);border:2px solid #ddd;}
+.infobox .content_down{margin:5px;position:relative;left:72px;height:40px;padding:5px;top:86px;width:70px;background:rgba(255,255,255,0.5);border:2px solid #ddd;}
+div.custom_icon{background-image:url('../images/location.png');background-repeat:no-repeat;width:22px;height:28px;position:absolute;right:-29px;top:-17px;z-index:20000 !important;display:inline-block;}
+div.custom_icon_right{background-image:url('../images/location.png');background-repeat:no-repeat;width:22px;height:28px;position:absolute;left:-31px;top:-16px;z-index:20000 !important;display:inline-block;}div.custom_icon_down{background-image:url('../images/location.png');background-repeat:no-repeat;width:22px;height:28px;position:absolute;left:-32px;top:-12px;z-index:20000 !important;display:inline-block;}
+.custom_icon_nsw{background-image:url('../images/location.png');background-repeat:no-repeat;width:22px;height:28px;position:absolute;left:-29px;top:-14px;z-index:20000 !important;display:inline-block;}
+.custom_icon_act{background-image:url('../images/location.png');background-repeat:no-repeat;width:22px;height:28px;position:absolute;left:-30px;top:-14px;z-index:20000 !important;display:inline-block;}
+.contents{color:#F1F1F1;font-family:arial;line-height:50px;position:absolute;z-index:1;text-align:center;-webkit-transform:translateX(-50%);-moz-transform:translateX(-50%);-ms-transform:translateX(-50%);-o-transform:translateX(-50%);transform:translateX(-50%);left:50%;cursor:pointer !important;}
+.maf_info{margin-left:20px !important;}
+.store-map{position:absolute;top:85px;left:0;height:259px;width:100%;}
+.modify h5,.modify h6{padding-left:0px;}
+.pac-container{z-index:100000 !important;}
+.pac-container:after{background-image:none !important;height:0px;}
+.pac-icon-marker{display:none !important;top:-700px !important;}
+.pac-item-query{margin-left:7px;}
 p.out-of-stock{display:none !important;}
