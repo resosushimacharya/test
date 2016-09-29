@@ -403,7 +403,9 @@ function show_category_slider_block($args=array()){
 						$grp_code_arr = explode('.',$title);
 						$grp_code_unique = $grp_code_arr[1].'.'.$grp_code_arr[2];
 						$grp_prods[$product->ID] = $grp_code_unique;
-					}
+					}else{
+						$product_found--;
+						}
 				}
 				
 				wp_reset_postdata();
@@ -936,34 +938,60 @@ function cc_custom_search($args){
 		if(isset($_POST['shop_range']) && ($_POST['shop_range'] !='')){
 		$args['shop_range'] = sanitize_text_field($_POST['shop_range']);
 		}
+		  set_query_var('s',$args['s']);
+		  set_query_var('search',$args['s']);
+		  set_query_var('price',$args['price']);
+		  set_query_var('category_filter',$args['shop_range']);
 }
 	
 	extract($args);
 	global $wp_query;
 	$found_count = 0;
+	
+	
+	
+	$meta_query=$meta_query_status=$meta_query_price=array();
+	$meta_query_status=array(
+						array(
+											'key'	=>'_stock_status',
+											'value'	=>'instock',
+										),
+					);
+	/*if($price !='' ){
+			$range_arr = explode(',',$price);
+			$meta_query_price=array(
+										array(
+											'key' => '_price', 
+											'value' => $range_arr,
+											'type'	=>	'NUMERIC',
+											'compare' => 'BETWEEN'
+										)
+			
+							);							
+				}				
+				*/	
+	
+	$meta_query=array_merge($meta_query_status,$meta_query_price);
 	$filargs = array(
 					'post_type'=>'product',
 					'offset'	=> $offset,
 					'post_stauts' =>'publish',
 					'posts_per_page'=>-1,//$perpage,
 					's'				=>$s,
-					'meta_query'=>array(
-										array(
-											'key'	=>'_stock_status',
-											'value'	=>'instock',
-										),
-									),
+					'meta_query'=>$meta_query,
 					'tax_query'	=>array(
 									array(
 										'taxonomy' => 'product_cat',
 										'terms' => array('accessories'),
 										'field' => 'slug',
+										'include_children' => true,
 										'operator' => 'NOT IN',
 									)
 								)
+								
 				);
 				
-		if($shop_range !='' ){
+	/*	if($shop_range !='' ){
 					$shop_range_arr = explode(',',$shop_range);
 					$filargs['tax_query'][] =
 													array(
@@ -976,6 +1004,7 @@ function cc_custom_search($args){
 												);
 												
 				}
+				*/
 				
 				if($sort_by == 'price'){
 					$filargs['meta_key'] = '_regular_price';
@@ -985,15 +1014,7 @@ function cc_custom_search($args){
 				$filargs['orderby'] = 'meta_value_num';
 				$filargs['order'] = $sort_order;
 				
-				if($price !='' ){
-					$range_arr = explode(',',$price);
-					$filargs['meta_query'][] = array(
-													'key' => '_price', 
-													'value' => $range_arr,
-													'type'	=>	'NUMERIC',
-													'compare' => 'BETWEEN'
-												);
-				}			
+							
 				
 				wp_reset_postdata();
 				//$prod_count_init = new WP_Query($filargs);
@@ -1003,17 +1024,20 @@ function cc_custom_search($args){
 				//$filargs['offset']=$offset;
 				
 				$filloop = new WP_Query($filargs);
-				//do_action('pr',$filloop->query);
+				global $wpdb;
+				//do_action('pr',$wpdb->queries);
 				//do_action('pr',$filloop->post_count);
+				
 				
 				if($filloop->have_posts()){
 					while($filloop->have_posts()){
 						$filloop->the_post();
+						//do_action('pr',get_post_meta(get_the_ID(),'description_1',true));
 						$woo=get_post_meta(get_the_ID());
 						$_product = new WC_Product(get_the_ID());
 						//do_action('pr',$_product->id);
 						
-						if($_product->is_in_stock()){
+						if($_product->is_in_stock() && !has_term('accessories','product_cat',get_the_ID())){
 							//do_action('pr',$_product->stock.' '.$_product->get_formatted_name());
 							$found_count++;
 							$feat_image = cc_custom_get_feat_img(get_the_ID(),'medium');
@@ -1912,14 +1936,32 @@ function show_most_popular_products(){
 
 function atom_search_where($where){
   global $wpdb;
-  if (is_search())
-    $where .= "OR (t.name LIKE '%".get_search_query()."%' AND {$wpdb->posts}.post_status = 'publish')";
+    
+  $price=get_query_var('price');
+  $category_filter=get_query_var('category_filter');
+
+  if (is_search() || get_search_query()!=''){	  
+    $where .= "OR (t.name LIKE '%".get_search_query()."%' AND {$wpdb->posts}.post_status = 'publish' AND {$wpdb->posts}.post_type = 'product')";
+	//$where .=" AND t.term_id NOT IN({$acc_term_list}) ";
+ 
+	if(!empty($price)){
+		$price_=explode(',', $price);
+		$where.=" AND ( {$wpdb->postmeta}.meta_key = '_price' AND CAST({$wpdb->postmeta}.meta_value AS SIGNED) BETWEEN '".$price_[0]."' AND '".$price_[1]."' )";
+	}
+	if(!empty( $category_filter)){
+		$where.=" AND tr.term_taxonomy_id IN (select term_id from {$wpdb->term_taxonomy} where {$wpdb->term_taxonomy}.parent in (".$category_filter.") )";
+	}
+	
+	 }
+	
   return $where;
 }
 
 function atom_search_join($join){
   global $wpdb;
-  if (is_search()){
+
+ // var_dump(get_search_query());
+  if (is_search() || get_search_query()!=''){
     $join .= "LEFT JOIN {$wpdb->term_relationships} tr ON {$wpdb->posts}.ID = tr.object_id INNER JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id=tr.term_taxonomy_id INNER JOIN {$wpdb->terms} t ON t.term_id = tt.term_id";
   
   }
@@ -1940,9 +1982,9 @@ function atom_search_groupby($groupby){
   return $groupby.", ".$groupby_id;
 }
 
-//add_filter('posts_where','atom_search_where');
-//add_filter('posts_join', 'atom_search_join');
-//add_filter('posts_groupby', 'atom_search_groupby');
+add_filter('posts_where','atom_search_where');
+add_filter('posts_join', 'atom_search_join');
+add_filter('posts_groupby', 'atom_search_groupby');
 
 
 
