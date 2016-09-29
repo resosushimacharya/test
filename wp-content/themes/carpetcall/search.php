@@ -52,7 +52,7 @@ $found_prod = cc_custom_search($args);
     <div class="container">
       <div class="tophead_sec col-md-12 no-lr">
       <div class="rugm-blk col-md-6 no-pl">
-          <p> <span class="cc-cat-title-count"> <span class="post_count"><?php echo $found_prod['found_prod']?></span> <?php _e('search results for ','carpetcall');?>"<?php echo $search_query?>" </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
+          <p> <span class="cc-cat-title-count"> <span class="post_count"><?php echo $found_prod['found_prod']?></span> <?php _e('results for ','carpetcall');?>"<?php echo $search_query?>" </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
           <span class="open-product-sidebar">
             +
           </span>

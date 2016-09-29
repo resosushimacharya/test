@@ -491,9 +491,7 @@
 		-moz-transition: all 0.2s ease;
 		-ms-transition: all 0.2s ease;
 		-o-transition: all 0.2s ease;
-		transition: all 0.2s ease;
-		max-height: 380px;
-	    overflow-y: auto;	
+		transition: all 0.2s ease;	
 	}
 	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1.is-visible{		
 		-webkit-transform: translateX(0);
@@ -537,9 +535,7 @@
 		-moz-transition: all 0.2s ease;
 		-ms-transition: all 0.2s ease;
 		-o-transition: all 0.2s ease;
-		transition: all 0.2s ease;
-	    max-height: 380px;
-	    overflow-y: auto;
+		transition: all 0.2s ease;	    	    
 	}
 	.selected-link-cntr{
 		background: #0099ff;
@@ -2922,8 +2918,20 @@
 	    color: #fff;
 	}
 	.modal{
-	    -webkit-overflow-scrolling: auto;
+	    /*-webkit-overflow-scrolling: auto;*/
 	}
+	.cc-price-var-items form .checkbox input[type="checkbox"] {
+	    width: 100%;
+	    height: 100%;
+	    top: 0;
+	}
+	.modal-open{
+		position: fixed;
+		width: 100%;
+	}
+	.woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td select:last-child{
+		float: none;
+	}	
 	.calc-info-cntr .col-item-price {
 	    display: inline-block;
 	    width: 45%;
@@ -3162,9 +3170,12 @@
 		text-align: center;
 		padding: 0 20px !important;
 	}
-	.cc-find-store-au.store-finder-active-tab:before, .cc-find-store-au:hover:before{
-		height: 10px;
+	.cc-find-store-au.store-finder-active-tab:before{
+		height: 10px;		
 	}
+	 .cc-find-store-au:hover:before{
+	 	display: none;
+	 }
 	/* Form Inputs */  
 	#wpsl-search-wrap #wpsl-search-btn{
 		margin-bottom: 0 !important;
@@ -4494,10 +4505,10 @@
 	}
 	/* Menu */
 	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1{
-		max-height: 350px;
+		/*max-height: 350px;*/
 	}
 	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1 li ul.menu-depth-2.is-visible{
-		max-height: 350px;
+		/*max-height: 350px;*/
 	}
 	#cssmenu > ul > li{
 		height: 70px;
@@ -6318,14 +6329,23 @@
 		position: relative;
 		top: -4px;
 	}
-	.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item label.radio span, .woocommerce-checkout .payment-form #payment ul.payment_methods li > label{
-		font-size: 16px;
+	.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item label.radio span, .woocommerce-checkout .payment-form #payment ul.payment_methods li > label {
+	    font-size: 14px;
+	    padding-left: 40px;
+	    position: relative;
+	    top: -4px;
+	}
+	#checkout_delivery label#pickup_error_msg{
+		bottom: 3px;
+	}
+	.rugm-blk p{
+		padding-right: 25px;
 	}
 	.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p.addres{
 		margin-top: 40px;
 	}
 	.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p.address, .delivery_option_both .nearstore .pickup_location_list > p.address, .delivery_option_hardflooring .nearstore .pickup_location_list > p.address{
-		margin-top: 10px;
+		margin-top: 0;
 		margin-left: 40px;
 	}
 	.checkout_next_prev_button.read_more{

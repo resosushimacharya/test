@@ -189,10 +189,10 @@ else{
 </div>
 <script>
 // Initiate Lightbox
-(function() {
-    if(jQuery('.ourgallery').length>0)
-        jQuery('.ourgallery a').lightbox();
-});
+// (function() {
+//     if(jQuery('.ourgallery').length>0)
+//         jQuery('.ourgallery a').lightbox();
+// });
 </script>
 <script type="text/javascript">
 jQuery(document).ready(function () {
