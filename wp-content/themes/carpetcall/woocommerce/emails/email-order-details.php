@@ -28,7 +28,7 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 	<h2><a class="link" href="<?php echo esc_url( admin_url( 'post.php?post=' . $order->id . '&action=edit' ) ); ?>"><?php printf( __( 'Order #%s', 'woocommerce'), $order->get_order_number() ); ?></a> (<?php printf( '<time datetime="%s">%s</time>', date_i18n( 'c', strtotime( $order->order_date ) ), date_i18n( wc_date_format(), strtotime( $order->order_date ) ) ); ?>)</h2>
 <?php endif; ?>
 
-<table class="td" cellspacing="0" cellpadding="6" style="width: 100%; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" border="1">
+<table class="td" cellspacing="0" cellpadding="6" style="width: 100%; font-family: Arial, sans-serif;" border="1">
 	<thead>
 		<tr>
 			<th class="td" scope="col" style="text-align:left;"><?php _e( 'Product', 'woocommerce' ); ?></th>
