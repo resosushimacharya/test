@@ -75,6 +75,21 @@ html, body {
 	font-variant: normal;
 	-moz-osx-font-smoothing: grayscale
 }
+button {
+	display:inline-block;
+	padding:0 20px 0 20px;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+	
+	border: 0;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	cursor: pointer;
+}
 .no-pr {
 	padding-right: 0
 }
@@ -339,7 +354,10 @@ ul#mywoosection ul.dropdown-menu {
 	width: auto;
 	display: none;
 	white-space: nowrap;
-	padding: 10px 30px 10px 15px
+	padding: 10px 30px 10px 15px;
+	-webkit-box-shadow: 2px 2px 10px rgba(0,0,0,0.3), -2px 2px 10px rgba(0,0,0,0.1);
+	-moz-box-shadow: 2px 2px 10px rgba(0,0,0,0.3), -2px 2px 10px rgba(0,0,0,0.1);
+	box-shadow: 2px 2px 10px rgba(0,0,0,0.3), -2px 2px 10px rgba(0,0,0,0.1);
 }
 .cssmenu ul li ul li {
 	padding-right: 30px;
@@ -423,7 +441,10 @@ ul#mywoosection ul.dropdown-menu {
 }
 .cssmenu .menu-item-has-children ul.sub-menu .menu-item-has-children ul.sub-menu {
 	top: 0;
-	left: 100%
+	left: 100%;
+    -webkit-box-shadow: 6px 2px 7px rgba(0,0,0,0.2);
+    -moz-box-shadow: 6px 2px 7px rgba(0,0,0,0.2);
+    box-shadow: 6px 2px 7px rgba(0,0,0,0.2);
 }
 .cssmenu .menu-item-has-children ul.sub-menu li.menu-item-has-children:first-child ul.sub-menu{
 	top: -10px;
@@ -3956,7 +3977,8 @@ ul.cc-color-var-item {
 	height: 17px;
 	width: 17px;
 	margin: 0;
-	z-index: 1
+	z-index: 1;
+	cursor: pointer
 }
 .cc-price-var-items form .checkbox label::before {
 	content: '';
@@ -3981,10 +4003,10 @@ ul.cc-color-var-item {
 	opacity: 0
 }
 .cc-price-var-items form .checkbox input[type="checkbox"]:checked + label::before {
-	background: #FFF
+	background: #FFF;
 }
 .cc-price-var-items form .checkbox input[type="checkbox"]:checked + label::after {
-	opacity: 1
+	opacity: 1;
 }
 .pac-container {
 	z-index: 9999
@@ -5734,7 +5756,10 @@ a.btn-employment:hover {
 	font-size: 30px;
 	font-weight: normal;
 	color: #0099ff;
-	text-transform: uppercase
+	text-transform: uppercase;	
+}
+.single.single-product .price_wrapper_block .cc-price-control h3 span.cc-sale-price-title{
+	margin-left: -4px;
 }
 .accessories_innner_wrap span.acc_price.small_price .cc-price-control h3 span.cc-sale-price-title {
 	font-family: 'proxima_nova_ltsemibold', sans-serif;
@@ -6461,7 +6486,10 @@ a.button.wc-forward {
 	border: 1px solid #d1ddf1;
 	background-color: #e7edf8;
 	border-radius: 0;
-	font-size: 14px
+	font-size: 14px;
+	color: #5a5a5a;
+	text-transform: uppercase;
+	font-family: 'proxima_nova_ltsemibold', sans-serif;
 }
 .col-1 .select2-container .select2-choice:hover {
 	text-decoration: none
@@ -6510,13 +6538,13 @@ a.button.wc-forward {
 #checkout_customer_details .woocommerce-billing-fields .billing_fields_wrapper input.input-text {
 	height: 35px;
 	padding: 0 13px;
-	color: #a8a8a8;
+	color: #5a5a5a;
 	text-transform: uppercase;
 	font-family: 'proxima_nova_ltsemibold';
 	font-size: 12px
 }
 .select2-container .select2-choice>.select2-chosen {
-	color: #a8a8a8;
+	color: #5a5a5a;
 	text-transform: uppercase;
 	font-family: 'proxima_nova_ltsemibold';
 	font-size: 12px
@@ -6672,7 +6700,8 @@ label.inner-radio-label.radio-check-label::after {
 .delivery_option_rugs .rugs_store_pickup_list .nearstore h3, .delivery_option_both .nearstore .pickup_location_list h3, .delivery_option_hardflooring .nearstore .pickup_location_list h3 {
 	display: inline-block;
 	position: relative;
-	top: -4px
+	top: -4px;
+	color: #0099ff;
 }
 .cc-condn-page .woocommerce form .form-row label.radio {
 	margin: 0
@@ -6758,7 +6787,7 @@ label.inner-check-label.radio-check-label::after {
 .shipping_needed_checkout .woocommerce-shipping-fields .shipping_address input.input-text {
 	height: 35px;
 	padding: 0 13px;
-	color: #a8a8a8;
+	color: #5a5a5a;
 	text-transform: uppercase;
 	font-family: 'proxima_nova_ltsemibold';
 	font-size: 12px
@@ -6864,12 +6893,13 @@ label.inner-check-label.radio-check-label::after {
 	border: 1px solid #d1ddf1;
 	height: 35px;
 	padding: 0 13px;
-	color: #a8a8a8;
+	color: #5a5a5a;
 	text-transform: uppercase;
 	font-family: 'proxima_nova_ltsemibold';
 	background-color: #e7edf8;
 	width: 100%;
-	max-width: 100%
+	max-width: 100%;
+	font-size: 12px;
 }
 .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td select {
 	width: 48.5%;
@@ -7132,7 +7162,8 @@ span.required {
 	background-size: 90px;
 	border: 1px solid #d1ddf1;
 	background: #e7edf8;
-	position: relative
+	position: relative;
+	cursor: pointer;
 }
 .selected-product-img {
 	width: 90px;
@@ -7593,4 +7624,19 @@ span.no_product {
 	font-family: FontAwesome;
 	color: #3aaa35;
 	margin-right: 10px
+}
+
+.summary.entry-summary .price_wrapper_block h3, .summary.entry-summary .price_wrapper_block .cc-price-control{
+	display: inline-block;
+}
+.summary.entry-summary .price_wrapper_block .online_price_subhead {
+    font-family: 'proxima_nova_ltsemibold', sans-serif;
+    font-size: 18px;    
+    color: #0099ff;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+.summary.entry-summary .ticketed_price{
+	color: #c32327;
+	font-size: 14px;
 }

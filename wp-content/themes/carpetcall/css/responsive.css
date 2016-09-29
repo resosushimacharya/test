@@ -2920,9 +2920,18 @@
 	.modal{
 	    /*-webkit-overflow-scrolling: auto;*/
 	}
+	.cc-price-var-items form .checkbox input[type="checkbox"] {
+	    width: 100%;
+	    height: 100%;
+	    top: 0;
+	}
 	.modal-open{
 		position: fixed;
+		width: 100%;
 	}
+	.woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td select:last-child{
+		float: none;
+	}	
 	.calc-info-cntr .col-item-price {
 	    display: inline-block;
 	    width: 45%;
@@ -3161,9 +3170,12 @@
 		text-align: center;
 		padding: 0 20px !important;
 	}
-	.cc-find-store-au.store-finder-active-tab:before, .cc-find-store-au:hover:before{
-		height: 10px;
+	.cc-find-store-au.store-finder-active-tab:before{
+		height: 10px;		
 	}
+	 .cc-find-store-au:hover:before{
+	 	display: none;
+	 }
 	/* Form Inputs */  
 	#wpsl-search-wrap #wpsl-search-btn{
 		margin-bottom: 0 !important;

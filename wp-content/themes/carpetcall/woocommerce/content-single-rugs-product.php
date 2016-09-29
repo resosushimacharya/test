@@ -429,7 +429,7 @@ foreach($resList as $mainId){
       	 $x=do_shortcode('[add_to_cart_url id="'.$post->ID.'"]');
       	 ?>
       	 <?php  do_action( 'cc_custom_quantiy' );?>
-        <div class="rugs-single-ticks">
+        <div class="tick-list rugs-single-ticks">
           <ul>
             <li>Price & satisfation guarantee</li>
             <li>free delivery</li>

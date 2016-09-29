@@ -315,6 +315,11 @@ wp_reset_postdata();
     </div>
      <div class="cc-smc-underline"></div>     
          </div>
+         <div class="tick-list rugs-single-ticks">
+          <ul>            
+            <li>Stock held in Australia</li>
+          </ul>
+        </div>
       	 <div class="cc-quantiy-section-inner">
       	 <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $post->ID;?>" data-product_sku="<?php
       	  echo $pro['_sku'][0] ; ?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart col-md-12" id="store-count-quantity" >ADD TO CART</a>
