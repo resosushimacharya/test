@@ -84,7 +84,6 @@ add_action('init','ses_set');
 function ses_set(){
  if (!session_id()){
           session_start();
-
       }
 }
 

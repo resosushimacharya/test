@@ -60,30 +60,6 @@ function readCSV($csvFile)
 }     
 
 
-///////////////////////////////////////////////////////////////////////////
-////////////////////////// cron fucntions ///////////////////////////////
-////////////////////////////////////////////////////////////////////////
-add_action( 'init', 'import_rugs_hard_schedule');
-add_action('update_import_rugs_hard_hook','update_import_rugs_hard_function');
-
-// Function which will register the event
-function import_rugs_hard_schedule() {
-	$zone = new DateTimeZone('Australia/Sydney'); // Or your own definition of "here"
-      $todayStart = new DateTime('today midnight', $zone);
-       $timestamp = $todayStart->getTimestamp();
-	// Make sure this event hasn't been scheduled
-	if( !wp_next_scheduled( 'update_import_rugs_hard_hook' ) ) {
-		// Schedule the event
-		wp_schedule_event($timestamp, 'daily', 'update_import_rugs_hard_hook' );
-	}
-	
-}
-function update_import_rugs_hard_function(){
-   cron_func_update();
-
-}
-
-
 ////////////////////////////////////////////////////
 
 function category_second_level($csvitem,$rootcatterm)
@@ -942,12 +918,6 @@ function cc_res_csv_hards($hards_post_ids,$filename){
 
 
 }
-
-
-
-
-
-
 
 ?>
 

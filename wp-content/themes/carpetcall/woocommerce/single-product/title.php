@@ -20,5 +20,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 global $product;
 ?>
-<h3 class="ticketed_price">Ticketed Price $<?php echo $product->get_sale_price()?></h3>
+<h3 class="ticketed_price">Ticketed Price $<?php echo $product->get_regular_price()?></h3>
 <h3 class="product_title entry-title"><span>CODE:</span><span itemprop="name"><?php the_title(); ?></span></h3>
