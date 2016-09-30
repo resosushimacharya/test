@@ -2691,7 +2691,7 @@ a.pull-right:hover {
 .all-items-blk, .fq-blk-a, .more-blk-b {
 	background-color: #e7edf8;
 	padding: 37px 36px;
-	min-height: 404px
+	min-height: 450px
 }
 .all-items-blk h3 {
 	font-size: 24px;
@@ -2990,17 +2990,18 @@ select#cc-enquiry-type {
 .fl-blk .col-sm-6:nth-child(1) {
 	padding: 0;
 	width: 28%;
-	margin-bottom: 18px
+	margin-bottom: 20px
 }
 .fl-blk .col-sm-6:nth-child(2) {
-	padding: 0 0 0 10px;
+	padding: 0;
 	width: 28%;
-	margin-bottom: 18px
+	margin-left: 11px;
+	margin-bottom: 20px
 }
 .fl-blk label, .mero-blkk .form-group.col-sm-12 label, .tel-blk .form-group.col-sm-6 label {
 	color: #666;
 	font-size: 16px;
-	margin-bottom: 9px
+	margin-bottom: 5px
 }
 .fl-blk .form-control {
 	font-family: proxima_nova_ltsemibold, sans-serif;
@@ -3017,6 +3018,9 @@ select#cc-enquiry-type {
 .form-group.col-sm-12 {
 	padding: 0
 }
+.contact_block_cntr .mero-blkk .form-group.col-sm-12{
+	margin-bottom: 20px;
+}
 .mero-blkk .form-group.col-sm-12 .form-control, .tel-blk .form-group.col-sm-6 .form-control {
 	font-family: proxima_nova_ltsemibold, sans-serif;
 	font-size: 12px;
@@ -3030,6 +3034,9 @@ select#cc-enquiry-type {
 	height: 35px;
 	outline: 0;
 	width: 56.5%
+}
+.form-group.col-sm-12.contact-msg-cntr{
+	margin-bottom: 20px;
 }
 .tel-blk .form-group.col-sm-6 .form-control {
 	width: 55%
@@ -3073,7 +3080,8 @@ select#cc-state-type, select#cc-state-type-only, select#cc-store-name {
 }
 #cc-store-form-section .form-group.col-sm-8 {
 	width: 35.1%;
-	padding: 0 0 0 8px
+	margin-left: 15px;
+	padding: 0
 }
 .querynow .yd-title h3, .ur-msg-title .form-group.col-sm-12 h3 {
 	font-family: proxima_nova_ltsemibold, sans-serif;
@@ -3124,7 +3132,10 @@ select#cc-state-type-only {
 }
 .error_label label {
 	color: red !important;
-	font-size: 14px !important
+	font-size: 14px !important;
+	position: absolute;
+	left: 0;
+	top: 100%;
 }
 .form-group.col-sm-12.success_message {
 	color: #0fab12
@@ -3143,12 +3154,12 @@ select#cc-state-type-only {
 	font-family: proxima_nova_rgregular, sans-serif;
 	font-size: 16px;
 	color: #666;
-	margin-bottom: 10px
+	margin-bottom: 5px
 }
 .flsm-blk .col-sm-6:nth-child(1), .flsm-blk .col-sm-6:nth-child(2) {
 	width: 46.7%;
 	padding: 0;
-	margin: 17px 15px 0 0
+	margin: 17px 15px 20px 0
 }
 .meroi-blka .col-sm-12:nth-child(1) {
 	width: 96%;
@@ -3158,7 +3169,7 @@ select#cc-state-type-only {
 .tela-blkb .col-sm-6:nth-child(1) {
 	width: 46.7%;
 	padding: 0;
-	margin: 15px 0 0
+	margin: 20px 0 0
 }
 .flsm-blk .form-group.col-sm-6 .form-control {
 	font-family: proxima_nova_ltsemibold, sans-serif;
@@ -3172,9 +3183,7 @@ select#cc-state-type-only {
 	width: 270px;
 	height: 35px
 }
-.meroi-blka .form-group.col-sm-12 label {
-	margin-top: 20px
-}
+
 .meroi-blka .form-group.col-sm-12 .form-control {
 	border: 1px solid #cdd9ed;
 	background-color: #e7edf8;
@@ -3201,10 +3210,11 @@ select#cc-state-type-only {
 .provision-section.col-sm-12 {
 	padding: 0
 }
+
 #cc-store-form-section .provision-section .form-group.col-sm-4 {
 	width: 29%;
 	padding: 0;
-	margin: 0 8px 0 0
+	margin: 0 15px 0 0
 }
 #cc-store-form-section .provision-section .form-group.col-sm-8 {
 	width: 58.3%;
@@ -6370,5 +6380,22 @@ span.no_product {
 }
 .summary.entry-summary .ticketed_price {
 	color: #c32327;
+	position: relative;
+    display: inline-block;
 	font-size: 14px
+}
+.summary.entry-summary .ticketed_price::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background: #c32327;
+    left: 0;
+    top: 7px
+}
+#quantity-control.validation_dd_error {
+    border-color: #f00;
+}
+label{
+	font-weight: normal;
 }
