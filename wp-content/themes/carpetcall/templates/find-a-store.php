@@ -9,7 +9,6 @@
   //head-selected
   $nearest = true;
 
-
   if(isset($_POST["check-head-id"])) $nearest = false;
 
 ?>
@@ -308,4 +307,12 @@ jQuery( document ).ajaxComplete(function( event, xhr, settings ) {
 <?php } ?>
   }
 });
+<?php  if(isset($_POST['wpsl-search-input'])){ ?>
+      jQuery(window).load(function(){
+        //setTimeout(function(){ 
+            jQuery('#wpsl-search-btn').click();
+        // }, 1000);
+        
+      })
+ <?php }?>
 </script>
