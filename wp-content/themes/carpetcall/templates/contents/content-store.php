@@ -121,13 +121,13 @@
                           switch(KeyID)
                           {
                               case 8:
-                                    setTimeout(function(){
+                                   
                                         document.addEventListener("keydown", KeyCheck);
                                         google.maps.event.clearListeners(input, "focus");
                                         google.maps.event.clearListeners(input, "blur");
                                         google.maps.event.clearListeners(input, "keydown");
-                                    },500);
-                                  
+										$(".pac-container").hide();
+                                
                                break;
                               
                               
