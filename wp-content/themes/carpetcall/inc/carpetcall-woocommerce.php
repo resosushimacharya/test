@@ -1082,7 +1082,7 @@ function sv_change_product_price_display( $price ) {
 	
 	
 		$prosale = $prosale = '<span itemprop="priceCurrency" content="AUD">$</span>
-		<span class="cc-sale-price-title" itemprop="price" content="'.number_format(round($pro['_regular_price'][0]),2,'.','').'">'.number_format(round($pro['_regular_price'][0]),2,'.','').'</span>';
+		<span class="cc-sale-price-title" itemprop="price" content="'.number_format(round($pro['_price'][0]),2,'.','').'">'.number_format(round($pro['_price'][0]),2,'.','').'</span>';
 		$price =  '<div class="cc-price-control">
 
 	<h3>'.$prosale.'</h3></div>';
