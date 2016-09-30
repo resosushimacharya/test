@@ -1,10 +1,8 @@
 <div class="inerblock_sec_a">
   <div class="container clearfix you_may_link_cntr">
     <h3 class="cc-idea-ad-title" style="text-align:center">IDEAS & ADVICE</h3>
-       <div class="you_may_like-content">
-   <?php  
-
-     
+    <div class="you_may_like-content">
+      <?php  
 $listcat=get_the_terms($post->ID,'product_cat');
 if($listcat){
 foreach($listcat as $cat){
@@ -48,14 +46,13 @@ while($parent->have_posts()){
 	  
     $post_data = get_post($parent->post->post_parent);
    $parent_name =  $post_data->post_name; ?>
-   
-   <div class="col-md-4">
+      <div class="col-md-4">
         <div class="pro_secone_a"> <a href="<?php echo get_the_permalink($post->ID);?>">
           <div class="img_cntr_a" style="background-image:url('<?php echo $feat_image; ?>');"></div>
           </a>
           <div class="mero_itemss">
             <div class="proabtxt"> <a href="<?php echo get_the_permalink($post->ID);?>">
-            <?php if(strcasecmp($parent_name,'buying-guides')==0){
+              <?php if(strcasecmp($parent_name,'buying-guides')==0){
 
               echo '<h4>BUYING GUIDE</h4>';
               }
@@ -69,22 +66,15 @@ while($parent->have_posts()){
 
               ?>
               <span><?php echo get_the_title($post->ID) ;?> </span></a> </div>
-            
             <div class="clearfix"></div>
           </div>
           <div class="clearfix"></div>
         </div>
       </div>
-   <?php 
-
-    
-
+      <?php 
 }
 }?>
-  </div>
-
-
-  
+    </div>
     <div class="clearfix"></div>
   </div>
 </div>

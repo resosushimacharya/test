@@ -86,8 +86,8 @@ $rootcheck = get_post_meta($post->ID);
                    				wc_get_template_part( 'content', 'single-hard-flooring-product' );
                    			}
                    			
-							if(strcasecmp($cat->slug, 'carpets')==0){
-								$top_cat_slug = 'carpets';
+							if((strcasecmp($cat->slug, 'carpets')==0) || (strcasecmp($cat->slug, 'blinds')==0) || (strcasecmp($cat->slug, 'awnings')==0) || (strcasecmp($cat->slug, 'shutters')==0) ){
+								$top_cat_slug = trim(strtolower($cat->slug));
                    				wc_get_template_part( 'content', 'single-carpets-product' );
                    			}
                    		

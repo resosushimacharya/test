@@ -8,7 +8,16 @@
 <div class="contaniner clearfix category-hard-flooring cat-main-carpets">
   <div class="inerblock_seC_mrugss">
     <div class="container-fluid mmrugm sub_cat_head">
-     <div class="cc-rugsall-catgr clearfix">
+    <?php
+	$url = '';
+	$cat_thumb_id = get_woocommerce_term_meta($current_cat->term_id, 'thumbnail_id', true);
+	if($cat_thumb_id){
+		$url = wp_get_attachment_url($cat_thumb_id);
+		}else{
+			$url = get_template_directory_uri().'/images/rugs-all.jpg';
+			}
+			?>
+     <div class="cc-rugsall-catgr clearfix" style=" <?php echo ($depth == 0)?'background-image:url('. $url:''?>">
       <div class="container">
         <?php
 		/**
@@ -45,6 +54,11 @@
 
 ?>
         </h3>
+        <?php 
+if(get_term_meta($current_cat->term_id,'cat_top_description',true) && $depth == 0){
+	?>
+        <p class="category_description"><?php echo get_term_meta($current_cat->term_id,'cat_top_description',true)?></p>
+        <?php }?>
       </div>
       </div>
     </div>

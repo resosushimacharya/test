@@ -1,5 +1,6 @@
 <div class="product_single_container">
 <?php
+
 /**
  * The template for displaying product content in the single-product.php template
  *
@@ -258,8 +259,7 @@ if($reqTempTerms){
                  <?php  
                         global $post;
                         $reqTempTerms=get_the_terms($post->ID,'product_cat');
-
-
+						
                         if($reqTempTerms){
 
                         foreach($reqTempTerms as $cat){
@@ -278,11 +278,11 @@ if($reqTempTerms){
                         $resproWidth = get_post_meta( $post->ID,'_width', true);
                         $resproSKU   = get_post_meta($post->ID,'_sku',true);
                         $sizen    ='Size       ';
-                        $coden    ='Blind Code   ';
+                        $coden    ='Carpet Code   ';
                         $productn ='Product    ';
                         $resprodim = $resproLength.'cm'.' '.$resproWidth.' '.'cm'.' '.$resproHeight;
                         $resproSize ='Size      : '.$resprodim;
-                        $resproCode ='Blind Code  : '.$resproSKU;
+                        $resproCode ='Carpet Code  : '.$resproSKU;
                         $resproProduct ='Product   : '.$reserve; 
                         
                         
@@ -295,13 +295,9 @@ if($reqTempTerms){
                         <li><span class="cc-sen-title"><?php echo $productn;?></span>: <span class="cc-sen-val"><?php echo $reserve;?></span></li>
 
 
-                        <?php if($resproSKU){?>
-							<li><span class="cc-sen-title"><?php echo $coden ;?></span>: <span class="cc-sen-val"><?php echo $resproSKU; ?></span></li>
-							<?php }?>
+                       <?php /*?> <li><span class="cc-sen-title"><?php echo $coden ;?></span>: <span class="cc-sen-val"><?php echo $resproSKU; ?></span></li>
 
-                        <?php if($resproLength){?>
-                        <li><span class="cc-sen-title" ><?php echo $sizen ;?></span>: <span class="cc-sen-val"><?php echo $resprodim; ?></span></li>
-                        <?php } ?>
+                        <li><span class="cc-sen-title" ><?php echo $sizen ;?></span>: <span class="cc-sen-val"><?php echo $resprodim; ?></span></li><?php */?>
                   </ul>
                    
                  </div>
@@ -309,11 +305,12 @@ if($reqTempTerms){
                   <div class="form-group col-sm-8">
                  <div class="cc-product-page-info">
                  <?php  
-                        
+                      
                         
                         echo '<input type="hidden" value="'.$resproProduct.'" name="product_page_cat"/>';
                         echo '<input type="hidden" value="'.$resproCode.'" name="product_page_code"/>';
                         echo '<input type="hidden" value="'.$resproSize.'" name="product_page_size"/>';
+                        echo '<input type="hidden" value="blinds" name="cc_contact_type"/>';
                         
 
 
@@ -321,6 +318,7 @@ if($reqTempTerms){
                    
                  </div>
                  </div>
+                
                 
                 </div>
                 
@@ -461,15 +459,26 @@ if($reqTempTerms){
 		 * @hooked woocommerce_output_related_products - 20
 		 */
 		remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products',20);
-		do_action( 'woocommerce_after_single_product_summary' );
-		add_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products',20);
+
+    ?>
+    <div class="desktop desktop-tabs">
+  		<?php do_action( 'woocommerce_after_single_product_summary' ); ?>
+    </div>
+    <?php 
+		  add_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products',20);
+    
 
 		//woocommerce_output_product_data_tabs();
 		
 		// as per design , this section appears in [] page
 		
 	?>
-
+  <div class="mobile mobile-tabs">
+  <?php    
+      get_template_part('templates/contents/content','tab-woocommerce-carpet');
+    
+  ?>
+  </div>
 	<meta itemprop="url" content="<?php the_permalink(); ?>" />
 
 </div><!-- #product-<?php the_ID(); ?> -->
@@ -479,91 +488,7 @@ wrapper close start */?>
 </div></div>
 <?php /* before-wrapper close end*/?>
 <?php do_action( 'woocommerce_after_single_product' ); ?>
-
-<?php
-
-	wp_reset_query();
-	global $post;
-	$you_may_like_prods = array();
-	//$reqTempTerms=get_the_terms($post->ID,'product_cat');
-	$second_lvl_cat = get_term_by('id',$current_post_term_id,'product_cat');
-	$you_may_like_cats = get_term_children( $second_lvl_cat->parent, 'product_cat' );
-	if(count( $you_may_like_cats ) > 0 ){
-		$count =1;
-		
-		foreach($you_may_like_cats as $cat){
-			if($cat != $second_lvl_cat->term_id){
-				$args = array(
-							'post_type'=>'product',
-							'posts_per_page'=>1,
-							'meta_key'		=>'_regular_price',
-							'order_by'		=>'meta_value_num',
-							'order'			=>'ASC',
-							'tax_query'	=>array(
-										array(
-											'taxonomy' => 'product_cat',
-											'field'    => 'term_id',
-											'terms'    => $cat,
-										)
-									)
-								);
-			$like_prod = new WP_Query($args);
-			if($like_prod->have_posts()){
-				foreach($like_prod->posts as $post){
-						if($count >3){
-						break;
-						}
-				$you_may_like_prods	[$cat] =  $post;
-				$count++;
-				}
-				}
-			}
-		}
-	}
-					
-					?>
-    
- <?php if(count($you_may_like_prods) >0){?>
-	 <div class="inerblock_sec_a">
-    <div class="container clearfix you_may_link_cntr">
-        <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
-<div class="you_may_like-content">
-	<?php 
-				foreach($you_may_like_prods as $key=>$post){
-					setup_postdata($post);
-					$woo=get_post_meta($post->ID);
-					$price=$woo['_regular_price'][0];
-					$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-									?> <div class="col-md-4">
-                  		<div class="pro_secone">
-                  		<a href="<?php the_permalink();?>" class="cc-product-item-image-link"><div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
-                  
-                    <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
-                    <div class="mero_itemss">
-                      		<div class="proabtxt">
-					 <a href="<?php the_permalink();?>" class="cc-product-item-title-link"><h4>
-					<?php $term = get_term_by('id',$key,'product_cat');
-					echo $term->name;?>
-					</h4></a><?php 
-					if(!empty($price)){
-						echo '<h6> FROM A$'.$price.'</h6>';
-						}?></div>
-					<div class="clearfix"></div>
-                      </div>
-                      </div></a>
-                      </div>
-								<?php
-								$count++; }?>
-                     		<?php 
-                     		wp_reset_query(); 
-	?>
-</div>
-<div class="clearfix"></div>
-               
-    </div>
-    </div>
-	<?php }?>   
-    
+<?php echo show_most_popular_products();?>
     
 <style>
   #cc-enquiry-type{display:none;}

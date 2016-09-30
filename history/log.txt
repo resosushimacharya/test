@@ -58,3 +58,21 @@ WTLUOLS.csv
 
  Import has been finished in 2016-09-23-11-46-48
 
+
+ Import has been started in 2016-09-22-11-22-04 
+
+In 2016-09-22-11-22-04
+ prdouctfiles folder is empty 
+
+
+ Import has been finished in 2016-09-22-11-22-04
+
+
+ Import has been started in 2016-09-22-19-42-22 
+
+In 2016-09-22-07-42-22
+ prdouctfiles folder is empty 
+
+
+ Import has been finished in 2016-09-22-07-42-22
+

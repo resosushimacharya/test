@@ -37,12 +37,11 @@ $size      = count( $ancestors );
 
 ?>
 
-
 <div class="child-innerpg mobile-inpage <?php echo ($size==0)?'cc-about-us-parent':'cc-about-us-child';?>">
-    <div class="container clearfix">
-        <div class="inerblock_serc_child about-page">
-            <div class="cc-breadcrumb">
-                <?php 
+  <div class="container clearfix">
+    <div class="inerblock_serc_child about-page">
+      <div class="cc-breadcrumb">
+        <?php 
                     if( !empty( $ancestors ) ) {
                         for( $i=0; $i<=$size; $i++ ) {
                             $class = ( $i == 0 ) ? 'cc-bread-root' : 'cc-bread-parent';
@@ -51,51 +50,52 @@ $size      = count( $ancestors );
 
                             if( $i>0 ) echo ' > ' ;
                 ?>
-                    <span class="<?php echo $class; ?>">
-                        <?php if ( $i == $size ) { echo get_the_title(); } 
+        <span class="<?php echo $class; ?>">
+        <?php if ( $i == $size ) { echo get_the_title(); } 
                               else { 
                         ?>
-                            <a href="<?php echo get_the_permalink( $ancestors[$i] );?>"><?php echo get_the_title( $ancestors[$i] );?> </a>
-                        <?php } #end-else ?>
-                    </span>
-                <?php
+        <a href="<?php echo get_the_permalink( $ancestors[$i] );?>"><?php echo get_the_title( $ancestors[$i] );?> </a>
+        <?php } #end-else ?>
+        </span>
+        <?php
 
                         } #end-for
                     } else {
-                ?>                        
-                    <span class="cc-bread-current"><?php the_title(); ?></span>
-                <?php } #end-else ?>
-            </div><!-- end .cc-breadcrumb -->
-               <?php if($size!=0){ ?> 
-                <h1 class="mobile inner-about-head">
-            <span class="ab_arrow">
-            <a href="<?php echo get_permalink($post->post_parent);?>">
-              <i class="fa fa-angle-left" aria-hidden="true"></i>            
-              <b><?php  echo get_the_title($post->post_parent);;?></b>
-            </a>
-          </span><?php echo get_the_title();?>
-          </h1>
-          <?php } else{ ?>
-               <?php //echo get_the_title();?>
-            <?php } ?>
-          
-            <h1><?php the_title(); ?></h1>
-            
-        </div><!-- end .innerblock_serc_child -->
-    </div><!-- end .container.clearfix -->
-</div><!-- end .child-innerpg -->
+                ?>
+        <span class="cc-bread-current">
+        <?php the_title(); ?>
+        </span>
+        <?php } #end-else ?>
+      </div>
+      <!-- end .cc-breadcrumb -->
+      <?php if($size!=0){ ?>
+      <h1 class="mobile inner-about-head"> <span class="ab_arrow"> <a href="<?php echo get_permalink($post->post_parent);?>"> <i class="fa fa-angle-left" aria-hidden="true"></i> <b>
+        <?php  echo get_the_title($post->post_parent);;?>
+        </b> </a> </span><?php echo get_the_title();?> </h1>
+      <?php } else{ ?>
+      <?php //echo get_the_title();?>
+      <?php } ?>
+      <h1>
+        <?php the_title(); ?>
+      </h1>
+    </div>
+    <!-- end .innerblock_serc_child --> 
+  </div>
+  <!-- end .container.clearfix --> 
+</div>
+<!-- end .child-innerpg -->
 
 <div class="faq-cont-blka about-us-pages-cntr">
-    <div class="container clearfix">
-        <div class="inerblock_sec">
-            <div class="col-md-3 desktop no-pl">
-            <?php
+  <div class="container clearfix">
+    <div class="inerblock_sec">
+      <div class="col-md-3 desktop no-pl">
+        <?php
                 // show top-level navigation for About Us page
                 if( $size == 1 || $aboutID == $id) {
             ?>
-                <div class="meromm">
-                    <ul class="guide_list_cbg">
-                        <?php
+        <div class="meromm">
+          <ul class="guide_list_cbg">
+            <?php
                             $ancestor_id = (!empty( $ancestors )) ? $ancestors[0] : $id;
                             $all_about_pages = array(
                                 'child_of'      => $ancestor_id,
@@ -106,17 +106,19 @@ $size      = count( $ancestors );
                                 'title_li'      => ''
                             );
                             wp_list_pages( $all_about_pages );
-                        ?>                        
-                    </ul><!-- end .guide_list_cbg -->
-                </div><!-- end .meromm -->
-            <?php } #end-if 
+                        ?>
+          </ul>
+          <!-- end .guide_list_cbg --> 
+        </div>
+        <!-- end .meromm -->
+        <?php } #end-if 
 
                 // show inner-page navigation
                 else {
             ?>
-                <div class="meromm">
-                    <ul class="guide_list_cbg">
-                        <?php
+        <div class="meromm">
+          <ul class="guide_list_cbg">
+            <?php
                             $ancestor_id = (!empty( $ancestors )) ? $ancestors[$size-1] : $id;
                             $all_about_pages = array(
                                 'child_of'  => $ancestor_id ,
@@ -125,17 +127,20 @@ $size      = count( $ancestors );
                                 'title_li'  => ''
                             );
                             wp_list_pages( $all_about_pages );
-                        ?>                        
-                    </ul><!-- end .guide_list_cbg -->
-                </div><!-- end .meromm -->
-            <?php } #end-if ?>
-                <div class="clearfix"></div>
-            </div><!-- end .col-md-3.no-pl -->
-
-            <div class="col-md-9 about-cont-employment">
-                <div class="cbg_content">
-                <?php the_content();  ?>
-                <?php if($size==1){
+                        ?>
+          </ul>
+          <!-- end .guide_list_cbg --> 
+        </div>
+        <!-- end .meromm -->
+        <?php } #end-if ?>
+        <div class="clearfix"></div>
+      </div>
+      <!-- end .col-md-3.no-pl -->
+      
+      <div class="col-md-9 about-cont-employment">
+        <div class="cbg_content">
+          <?php the_content();  ?>
+          <?php if($size==1){
 
 $args = array(
     'post_type'      => 'page',
@@ -159,23 +164,27 @@ $loop = new WP_Query($args);
     }
 }
     ?>
-                </div><!-- end .cbg_content -->
-            </div><!-- end .col-md-9 -->
-
-        </div><!--end .innerblock_sec -->
-    </div><!-- end .container.clearfix -->
-</div><!-- end .faq-cont-blka -->
-
+        </div>
+        <!-- end .cbg_content --> 
+      </div>
+      <!-- end .col-md-9 --> 
+      
+    </div>
+    <!--end .innerblock_sec --> 
+  </div>
+  <!-- end .container.clearfix --> 
+</div>
+<!-- end .faq-cont-blka -->
 
 <div class="container mobile cc-mobile-blk clearfix">
-<div class="col-md-3 no-pl">
-            <?php
+  <div class="col-md-3 no-pl">
+    <?php
                 // show top-level navigation for About Us page
                 if( $size == 1 || $aboutID == $id) {
             ?>
-                <div class="meromm">
-                    <ul class="guide_list_cbg">
-                        <?php
+    <div class="meromm">
+      <ul class="guide_list_cbg">
+        <?php
                             $ancestor_id = (!empty( $ancestors )) ? $ancestors[0] : $id;
                             $all_about_pages = array(
                                 'child_of'      => $ancestor_id,
@@ -186,17 +195,19 @@ $loop = new WP_Query($args);
                                 'title_li'      => ''
                             );
                             wp_list_pages( $all_about_pages );
-                        ?>                        
-                    </ul><!-- end .guide_list_cbg -->
-                </div><!-- end .meromm -->
-            <?php } #end-if 
+                        ?>
+      </ul>
+      <!-- end .guide_list_cbg --> 
+    </div>
+    <!-- end .meromm -->
+    <?php } #end-if 
 
                 // show inner-page navigation
                 else {
             ?>
-                <div class="meromm">
-                    <ul class="guide_list_cbg">
-                        <?php
+    <div class="meromm">
+      <ul class="guide_list_cbg">
+        <?php
                             $ancestor_id = (!empty( $ancestors )) ? $ancestors[$size-1] : $id;
                             $all_about_pages = array(
                                 'child_of'  => $ancestor_id ,
@@ -205,28 +216,22 @@ $loop = new WP_Query($args);
                                 'title_li'  => ''
                             );
                             wp_list_pages( $all_about_pages );
-                        ?>                        
-                    </ul><!-- end .guide_list_cbg -->
-                </div><!-- end .meromm -->
-            <?php } #end-if ?>
-                <div class="clearfix"></div>
-            </div><!-- end .col-md-3.no-pl -->      
+                        ?>
+      </ul>
+      <!-- end .guide_list_cbg --> 
+    </div>
+    <!-- end .meromm -->
+    <?php } #end-if ?>
+    <div class="clearfix"></div>
+  </div>
+  <!-- end .col-md-3.no-pl --> 
 </div>
-
-<div class="inerblock_sec_a iA_parent">
-
-    <div class="container clearfix you_may_link_cntr">
-  
-        <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
-<div class="you_may_like-content">
+<?php echo show_most_popular_products();?>
+<?php /*?><div class="inerblock_sec_a iA_parent">
+  <div class="container clearfix you_may_link_cntr">
+    <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
+    <div class="you_may_like-content">
       <?php
-
-
-                    
-
-                    
-                    //$reqTempTerms=get_terms('product_cat');
-          //do_action('pr',$accessories_term);
           $accessories_term = get_term_by('slug','accessories','product_cat');
                     $reqTempTerms = get_terms( array(
                 'taxonomy' => 'product_cat',
@@ -234,7 +239,6 @@ $loop = new WP_Query($args);
                 'exclude' =>$accessories_term->term_id
                 )
                );
-                 
                     $i=1;
                     foreach($reqTempTerms as $cat){
                         //echo $cat->parent;
@@ -255,20 +259,9 @@ $loop = new WP_Query($args);
                         
                      $err = true;
                     foreach($terms as $term){
-
                             if($err){
-
-                           
-                 
-                   
-                            
                             $has_sub_cat=get_terms(array('parent'=>$term->term_id,'taxonomy'=>'product_cat'));
-                            
                                 if(count($has_sub_cat)==0){
-                    
-                                      
-                                  
-                                            
                                     $filargs = array(
                                                     'post_type'=>'product',
                                                     'posts_per_page'=>'1',
@@ -282,7 +275,6 @@ $loop = new WP_Query($args);
                                                                             'terms'    => $term->term_id,
                                                                         ),
                                                                     ),
-                                                                
                                                     );
                                      
                                 $filloop = new WP_Query($filargs);
@@ -306,16 +298,18 @@ $loop = new WP_Query($args);
                     //$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID) );
           $feat_image = cc_custom_get_feat_img($filloop->post->ID,'medium');
 
-                                    ?> <div class="col-md-4">
-                        <div class="pro_secone">
-                        <a href="<?php the_permalink();?>" class="cc-product-item-image-link"><div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
-                  
-                    <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
-                    <div class="mero_itemss">
-                            <div class="proabtxt">
-                     <a href="<?php the_permalink();?>" class="cc-product-item-title-link"><h4>
-                    <?php echo $term->name;?>
-                    </h4></a><?php 
+                                    ?>
+      <div class="col-md-4">
+        <div class="pro_secone"> <a href="<?php the_permalink();?>" class="cc-product-item-image-link">
+          <div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div>
+          </a> 
+          
+          <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
+          <div class="mero_itemss">
+            <div class="proabtxt"> <a href="<?php the_permalink();?>" class="cc-product-item-title-link">
+              <h4> <?php echo $term->name;?> </h4>
+              </a>
+              <?php 
 
                     $reqTempTerms=get_the_terms($filloop->post->ID,'product_cat');
                     
@@ -326,14 +320,14 @@ $loop = new WP_Query($args);
                     if(!empty($price)){
                         echo '<h6> FROM $'.$price.'</h6>';
                         
-                        }?></div>
-                    <div class="clearfix"></div>
-                           
-                      </div>
-                      </div></a>
-                      </div>
-                                <?php endwhile;?>
-                            <?php 
+                        }?>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        </a> </div>
+      <?php endwhile;?>
+      <?php 
                             wp_reset_query(); 
                            
                         }
@@ -350,15 +344,11 @@ $loop = new WP_Query($args);
                     
                     }
                   
- ?></div>
-    
-                             
-</div>
-<div class="clearfix"></div>
-                    
-                    
+ ?>
     </div>
-   <!-- step three end here -->
-   <?php  // echo do_shortcode('[best_selling_products per_page="3" columns="12" ]');?>
-   
+  </div>
+  <div class="clearfix"></div>
+</div><?php */?>
+<!-- step three end here -->
+<?php  // echo do_shortcode('[best_selling_products per_page="3" columns="12" ]');?>
 <?php get_footer(); ?>

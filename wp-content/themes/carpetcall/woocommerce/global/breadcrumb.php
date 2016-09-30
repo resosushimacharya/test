@@ -21,7 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! empty( $breadcrumb ) ) {
-
 	echo $wrap_before;
        $i=1;
        global $len; 
@@ -60,11 +59,11 @@ if(($i!=1)){
 		if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
 			if($i==$seclast && $len==4){
 			 $appafter = esc_html( $crumb[0] ); 
-
 			}
 			echo '<a href="' . esc_url( $crumb[1] ) . '" class="breadcrum-link-'.$i.'">' . esc_html( $crumb[0] ) . '</a>';
 		} else {
-			echo '<span class="cc-product-term">'.esc_html( $crumb[0] ).' '.$appafter.'</span>';
+			//echo '<span class="cc-product-term">'.esc_html( $crumb[0] ).' '.$appafter.'</span>';
+			echo '<span class="cc-product-term">'.esc_html( $crumb[0] ).'</span>';
 		}
 
 		echo $after;

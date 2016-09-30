@@ -25,7 +25,7 @@ else{
 <div class="cc-breadcrumb">
 <span class="cc-bread-root"><a href="<?php echo get_the_permalink($rootID);?>"><?php echo get_the_title($rootID);?> </a></span><?php 
 echo ' > ' ; ?><span class="cc-bread-parent"><a href="<?php echo get_the_permalink($post->post_parent);?>"><?php echo get_the_title($post->post_parent);?></a></span><?php 
-echo ' > ' ; ?><span class="cc-bread-current"><?php echo get_the_title().' '.get_the_title($post->post_parent);?></span>
+echo ' > ' ; ?><span class="cc-bread-current"><?php echo get_the_title()?></span>
 </div>
 
  <h1>
@@ -101,7 +101,7 @@ $parent = new WP_Query( $args );
 while($parent->have_posts()){
     $parent->the_post();
     
-     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID) .' '.$roottitle.' ' .'<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
+     echo '<li><a href="'.get_the_permalink($post->ID).'">' . get_the_title($post->ID) .'<i class="fa fa-caret-right" aria-hidden="true"></i></a></li>';
 }
 wp_reset_query();
  ?>

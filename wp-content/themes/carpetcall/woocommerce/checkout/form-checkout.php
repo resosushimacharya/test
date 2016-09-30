@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Checkout Form
@@ -115,6 +114,7 @@ jQuery(document).ready(function(e) {
 			jQuery('#checkout_fetch_nearby_stores').trigger('click');
 			};
 		if(jQuery(this).hasClass('delivery_options')){
+			//jQuery('select#expmonth').attr('disabled','disabled');
 			if(jQuery('input[name=cc_shipping_method]:checked').val() == 'store_pickup' || jQuery('input[name=cc_shipping_method]:checked').val() == 'pickup_n_deliver'){
 				error_flag = false;
 if(jQuery(this).parents('.checkout-form-sec').find('input[name=pickup_store_id]:visible:checked').val()){

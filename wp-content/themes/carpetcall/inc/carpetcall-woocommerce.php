@@ -196,6 +196,12 @@ function woo_new_product_tab( $tabs ) {
                    			if(strcasecmp($cat->slug, 'blinds')==0){
                    				$top_cat = 'blinds';
                    			}
+                   			if(strcasecmp($cat->slug, 'awnings')==0){
+                   				$top_cat = 'awnings';
+                   			}
+                   			if(strcasecmp($cat->slug, 'shutters')==0){
+                   				$top_cat = 'shutters';
+                   			}
                    		
                    		}
                    	}
@@ -307,7 +313,7 @@ if($top_cat == 'hard-flooring'){
 		'callback' 	=> 'woo_new_product_tab_content_care'
 	);
 	}
-if($top_cat == 'carpets'){
+if($top_cat == 'carpets' || $top_cat == 'blinds' || $top_cat == 'awnings' || $top_cat == 'shutters'){
 	unset($tabs['additional_information']);
 	unset($tabs['ret_tab']);
 	}
@@ -865,8 +871,22 @@ function woo_new_product_tab_ret( $tabs ) {
 */
 function woo_new_product_tab_content_ret() {?>
 <?php global $product;
-global $post;
-
+ global $post;
+ $term = '';
+$reqTempTerms=get_the_terms($post->ID,'product_cat');
+if($reqTempTerms){
+	foreach($reqTempTerms as $cat){
+		if($cat->parent==0){
+			$term = $cat;
+			break;
+			}
+		}
+if($term !=''){
+$retinfo = get_term_meta($cat->term_id,'cat_return_policy',true);
+echo '<div class="returns_text">'.$retinfo.'</div>';
+}
+}
+/*
 $url = site_url();
 $url =explode('/',$url);
 
@@ -880,7 +900,9 @@ else{
   $retID = 33274;
 }
 $retinfo = get_field('return_policy',$retID);
-echo '<p class="returns_text">'.$retinfo.'</p>';
+*/
+
+
 
 ?>
 
@@ -934,14 +956,15 @@ echo '<p>'.$d4.'</p>';
 		<?php if(!empty($yarn)){?>
 		<li><span>Yarn Type : </span><?php echo $yarn; ?></li><?php }?>
 		<?php if(!empty($length) && !empty($width) && !empty($height)) {?>
-		<li><span>Size : </span><span itemprop="length" itemscope itemtype="http://schema.org/QuantitativeValue">
- <span itemprop="value"><?php echo $length?></span>cm
- <meta itemprop="unitCode" content="CMT">
-</span>x<span itemprop="width" itemscope itemtype="http://schema.org/QuantitativeValue">
+		<li><span>Size : </span>
+        <span itemprop="width" itemscope itemtype="http://schema.org/QuantitativeValue">
  <span itemprop="value"><?php echo $width?></span>cm
  <meta itemprop="unitCode" content="CMT">
-</span><span itemprop="height" itemscope itemtype="http://schema.org/QuantitativeValue">
+</span>x<span itemprop="height" itemscope itemtype="http://schema.org/QuantitativeValue">
  <span itemprop="value"><?php echo $height?></span>cm
+ <meta itemprop="unitCode" content="CMT">
+</span><span itemprop itemscope itemtype="http://schema.org/QuantitativeValue">
+ <span itemprop="value"><?php echo $length?></span>
  <meta itemprop="unitCode" content="CMT">
 </span>
 		</li>
@@ -949,7 +972,7 @@ echo '<p>'.$d4.'</p>';
 		<?php if(!empty($weight)){?>
 		<li><span>Weight : </span><span itemprop="weight" itemscope itemtype="http://schema.org/QuantitativeValue">
  <span itemprop="value"><?php echo $weight?></span>kg
- <meta itemprop="unitCode" content="CMT">
+ <meta itemprop="unitCode" content="KGM">
 </span></li>
 		<?php }?>
 		</ul>
@@ -1055,6 +1078,16 @@ function jk_change_breadcrumb_delimiter( $defaults ) {
 function sv_change_product_price_display( $price ) {
 	global $post;
 	$pro = get_post_meta($post->ID);
+	
+	
+	
+		$prosale = $prosale = '<span itemprop="priceCurrency" content="AUD">$</span>
+		<span class="cc-sale-price-title" itemprop="price" content="'.number_format(round($pro['_price'][0]),2,'.','').'">'.number_format(round($pro['_price'][0]),2,'.','').'</span>';
+		$price =  '<div class="cc-price-control">
+
+	<h3>'.$prosale.'</h3></div>';
+	
+	/*
 	if (array_key_exists("_sale_price",$pro) && $pro['_sale_price'][0]!=''){
 		$prosale = '<span itemprop="priceCurrency" content="AUD">$</span><span class="cc-sale-price-title" itemprop="price" content="'.number_format(round($pro['_sale_price'][0]),2,'.','').'">'.number_format(round($pro['_sale_price'][0]),2,'.','').'</span>';
 		$price =  '<div class="cc-price-control">
@@ -1067,6 +1100,7 @@ function sv_change_product_price_display( $price ) {
 
 	<h3>'.$prosale.'</h3></div>';
 	}
+	*/
 
 	return $price;
 	

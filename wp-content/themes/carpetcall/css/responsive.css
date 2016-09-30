@@ -535,9 +535,7 @@
 		-moz-transition: all 0.2s ease;
 		-ms-transition: all 0.2s ease;
 		-o-transition: all 0.2s ease;
-		transition: all 0.2s ease;
-	    max-height: 600px;
-	    overflow-y: auto;
+		transition: all 0.2s ease;	    	    
 	}
 	.selected-link-cntr{
 		background: #0099ff;
@@ -1509,14 +1507,15 @@
 		margin-bottom:0;	
 	}
 	.about-page .cart_checkout_header_subtitle p.return-to-shop{
-		float: left;
+		float: none;
 	}
 	.about-page .cart_checkout_header_subtitle .return-to-shop .button {
-	    margin-top: 0px;
+	    margin: 0 auto;
 	    font-size: 36px;
 	    height: 90px;
 	    line-height: 90px;
-	    padding: 0 40px;
+	    padding: 0;
+	    width: 440px;
 	}
 	.inerblock_sec.cc-page-all{
 		margin-top: 50px;
@@ -1621,7 +1620,11 @@
 		height:90px;
 		line-height:1px;
 		font-size:28px;	
-		margin-right:0;
+		margin-right:0;		
+	}
+	.woocommerce-page .cbg_content.cc-condn-page .woocommerce table.cart input.button{
+		width: 100%;
+		display: block;
 	}
 
 	.woocommerce-page .cart-collaterals.cart-final-cntr .cart_totals{
@@ -1913,9 +1916,9 @@
 	    text-transform: uppercase;
 	}
 	.mobile-filter-sec {
-        margin: 55px 0 50px;
+        margin: 55px 0 30px;
 	    padding-bottom: 10px;
-	    border-bottom: 2px solid #efefef;
+	    /*border-bottom: 2px solid #efefef;*/
 	}
 	.mobile-filter-sec .cc-cat-title-count{
 		margin-right: 25px;
@@ -2212,6 +2215,26 @@
 	}
 	/* Product Head End */
 	/* Product Slider */
+	.main-image-wrapper.no_slider {
+	    min-height: inherit;
+	    height: 0;
+	    padding-bottom: 100%;
+	    overflow: hidden;
+	    margin-bottom: 0;
+	    pointer-events: none;
+	}
+	.main-image-wrapper.no_slider img {
+	    position: absolute;
+	    top: 50%;
+	    -webkit-transform: translateY(-50%);
+	    -moz-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	    -o-transform: translateY(-50%);
+	    transform: translateY(-50%);
+	    width: 100%;
+        height: 100% !important;
+	    max-height: initial;
+	}
 	.product_single_container{
 		padding: 0;
 	}
@@ -2559,6 +2582,26 @@
 	    line-height: 1.5;
 	    color: #666;
 	}
+	.single.single-product table.product_specifications_table tbody tr td {
+	    font-family: 'proxima_nova_rgregular';
+	    display: inline-block;
+	    width: 100%;
+	    vertical-align: top;
+	}
+	.single.single-product table.product_specifications_table tbody tr {
+	    display: block;
+	    margin-bottom: 10px;
+	}
+	.single.single-product table.product_specifications_table tbody tr td:first-child{
+		font-family: 'proxima_nova_ltsemibold';
+		padding-left: 0;
+	}
+	.single.single-product table.product_specifications_table tbody tr td:last-child{
+		
+	}
+	.single.single-product table.product_specifications_table tbody tr td:last-child::before{
+		display: none;
+	}
 	/* Product Accordion End */
 	/* Product Pickup Locations Popup */
 	.single.single-product .modal-dialog {
@@ -2865,6 +2908,30 @@
 	.single.single-product button#cal_more{
 		margin-bottom: 20px;
 	}
+	.single.single-product button#cal_more:hover, .single.single-product button#cancel_calc:hover, .single.single-product button#confirm_calc:hover {
+		background: transparent;
+		color: #144a9f;
+	}
+	.single.single-product button#cal_id:hover{
+		border-color: #144a9f;
+	    background: #144a9f;
+	    color: #fff;
+	}
+	.modal{
+	    /*-webkit-overflow-scrolling: auto;*/
+	}
+	.cc-price-var-items form .checkbox input[type="checkbox"] {
+	    width: 100%;
+	    height: 100%;
+	    top: 0;
+	}
+	.modal-open{
+		position: fixed;
+		width: 100%;
+	}
+	.woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td select:last-child{
+		float: none;
+	}	
 	.calc-info-cntr .col-item-price {
 	    display: inline-block;
 	    width: 45%;
@@ -3103,9 +3170,12 @@
 		text-align: center;
 		padding: 0 20px !important;
 	}
-	.cc-find-store-au.store-finder-active-tab:before, .cc-find-store-au:hover:before{
-		height: 10px;
+	.cc-find-store-au.store-finder-active-tab:before{
+		height: 10px;		
 	}
+	 .cc-find-store-au:hover:before{
+	 	display: none;
+	 }
 	/* Form Inputs */  
 	#wpsl-search-wrap #wpsl-search-btn{
 		margin-bottom: 0 !important;
@@ -3470,7 +3540,7 @@
 		padding-left: 10px;
 		display: block;
 	}
-	.fl-blk .form-control, .mero-blkk .form-group.col-sm-12 .form-control, .tel-blk .form-group.col-sm-6 .form-control, select#cc-state-type, select#cc-store-name {
+	.fl-blk .form-control, .mero-blkk .form-group.col-sm-12 .form-control, .tel-blk .form-group.col-sm-6 .form-control, select#cc-state-type, select#cc-store-name, select#cc-state-type-only {
 	    width: 100%;
 	    height: 70px;
 	    font-size: 24px;
@@ -3867,14 +3937,6 @@
 	#cc-store-form-section .form-group.col-sm-12 h3, .ur-msg-title .form-group.col-sm-12 h3 {
 		font-size:38px;
 		padding:20px 0;	
-	}
-	select#cc-state-type, select#cc-store-name {
-		padding-right:50px;
-		background-size:50px;	
-		width:100%;
-		height:50px;
-		font-size:20px;
-		padding:10px 30px;
 	}
 	.contact_form_cntr .contact-msg-cntr, .contact_form_cntr .contact-captcha-cntr {
 	padding:0;	
@@ -4442,8 +4504,11 @@
 	    font-size: 20px;
 	}
 	/* Menu */
+	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1{
+		/*max-height: 350px;*/
+	}
 	#cssmenu .menu-item-has-children ul.sub-menu.menu-depth-1 li ul.menu-depth-2.is-visible{
-		max-height: 350px;
+		/*max-height: 350px;*/
 	}
 	#cssmenu > ul > li{
 		height: 70px;
@@ -4659,7 +4724,7 @@
 	    line-height: 80px;
 	}
 	.mobile-filter-sec {
-        margin: 30px 0 30px;
+        margin: 30px 0 10px;
 	}	
 	.mobile-filter-sec .cc-count-clear a {
 	    font-size: 16px;
@@ -5065,10 +5130,14 @@
 	    font-size: 20px;
 	    padding: 17px 20px;
 	}
+	.single-produc-acc-cntr .panel-title>a::after{
+		position: relative;
+		font-size: 24px; 
+		top: -2px;
+	}
 	.single-produc-acc-cntr .panel-title>a::after, .single-produc-acc-cntr .panel .panel-body .panel-heading a::after{
-	    font-size: 24px;
-        position: relative;
-	    top: -2px;
+	    font-size: 24px;        
+	    /*top: -2px;*/
 	}
 	.single-produc-acc-cntr .panel .panel-body .panel-heading a::after{
 	    font-size: 20px;
@@ -5349,6 +5418,7 @@
 	.accessories_inner_tab_select li a{
 	    font-size: 18px;
 	    line-height: 30px;
+	    padding: 10px 15px;
 	}
 	.acc_list_item.col-md-3 {
 	    width: 100%;
@@ -6064,7 +6134,7 @@
 	.ur-msg-title .form-group{
 		margin-bottom: 0;
 	}
-	select#cc-state-type, select#cc-store-name {
+	select#cc-state-type, select#cc-store-name, select#cc-state-type-only {
 		background-size: 50px;
 	    width: 100%;
 	    height: 50px;
@@ -6109,7 +6179,8 @@
 	.about-page .cart_checkout_header_subtitle .return-to-shop .button {	 
 	    font-size: 18px;
 	    height: 60px;
-	    line-height: 60px;	    
+	    line-height: 60px;	
+	    width: 280px;    
 	}	
 	table.shop_table.shop_table_responsive.cart > tbody > tr > td, .cart-collaterals table.shop_table > tbody > tr > td{		
 		padding: 15px 0;		
@@ -6137,7 +6208,7 @@
 	    height: 50px;
 	    font-size: 18px;
 	    background-size: 50px;
-	    padding: 0 25px;
+	    padding: 0 10px;
 	}
 	table.shop_table.shop_table_responsive.cart > tbody > tr > td.product-subtotal span, .cbg_content.cc-condn-page .order-total span.amount{
 		font-size: 24px;
@@ -6258,14 +6329,23 @@
 		position: relative;
 		top: -4px;
 	}
-	.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item label.radio span, .woocommerce-checkout .payment-form #payment ul.payment_methods li > label{
-		font-size: 16px;
+	.inerblock_sec .cbg_content .radiogroup_wrap .delivery_option_item label.radio span, .woocommerce-checkout .payment-form #payment ul.payment_methods li > label {
+	    font-size: 14px;
+	    padding-left: 40px;
+	    position: relative;
+	    top: -4px;
+	}
+	#checkout_delivery label#pickup_error_msg{
+		bottom: 3px;
+	}
+	.rugm-blk p{
+		padding-right: 25px;
 	}
 	.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p.addres{
 		margin-top: 40px;
 	}
 	.delivery_option_rugs .rugs_store_pickup_list .nearstore .pickup_location_list > p.address, .delivery_option_both .nearstore .pickup_location_list > p.address, .delivery_option_hardflooring .nearstore .pickup_location_list > p.address{
-		margin-top: 10px;
+		margin-top: 0;
 		margin-left: 40px;
 	}
 	.checkout_next_prev_button.read_more{

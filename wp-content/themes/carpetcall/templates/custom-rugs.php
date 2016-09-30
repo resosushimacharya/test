@@ -10,41 +10,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header('shop');
 
 global $post;
-//wp_enqueue_script( 'prettyPhoto' );
-//wp_enqueue_script( 'prettyPhoto-init' );
-
-
 ?>
-
 <div class="contaniner clearfix woocommerce woocommerce-page single single-product">
   <div class="inerblock-sec-prod-a">
     <div class="container">
       <div class="col-md-12 no-pl">
-       
         <?php do_action( 'woocommerce_before_main_content' );?>
-        
       </div>
       <span class="ab_arrow mobile"> <a href="<?php echo site_url().'/shop-our-range/rugs'?>"> <i class="fa fa-angle-left" aria-hidden="true"></i><b>BACK</b> </a> </span> 
       </div>
-      
-      
     <div class="product_single_container">
   <div class="container">
     <div class="col-md-12">
-      <?php
-	 //do_action( 'woocommerce_before_single_product' );
-
-	
-?>
     </div>
   </div>
   <div class="container">
     <div class="col-md-12 no-lr product-content-wrapper">
       <div itemscope itemtype="http://schema.org/Product" id="product-<?php get_the_ID(); ?>" <?php post_class('product type-product'); ?>>
-        <?php 
-		
-		//do_action( 'woocommerce_before_single_product_summary' )
-		?>
         <div class="images">
 <h1 class="cc-category-show"><span itemprop="name"><?php the_title()?></span></h1>
     <?php
@@ -71,40 +53,19 @@ global $post;
                 </div>
                 </div>
 		<?php
-        }
-	
-	?>
-                
-                
-                
-                
-                
-	
-   
+        }?>
     <div class="cc_custom_gal_thumb thumbnails columns-3">
-    
-    <?php
-		if(wp_is_mobile()){
-			echo '<div class="product_single_thumb_slider">';
-			}
-	
-	?>
+    <div class="product_single_thumb_slider">
     <?php
 	foreach($images as $image){
 		$feat_image_arr = $image['gallery_image'];?>
-		<div>
+		<div class="single-thumb-img">
         <a href="<?php echo $feat_image_arr['url']?>" class="single-product-thumb-img">
         	<img src="<?php echo wp_get_attachment_thumb_url($feat_image_arr['id'])?>">
         </a></div>
 		<?php }
 	?>
-    	
-    <?php
-		if(wp_is_mobile()){
-			echo '</div>';
-			}
-	
-	?>
+    </div>
     </div>
     
 		<div class="mod-social clearfix">
@@ -129,9 +90,11 @@ global $post;
                              $x = preg_replace( '/^[0]{1}/', '', $x );
                              $i = 1;
                              $x = '+61'.$x;   
+                            $tel_html = '<a>CALL 13 RUGS (13 7847)</a>'; 
                           ?>
-              <a href="tel:<?php echo $x; ?>"><?php echo __( 'CALL ', 'carpetcall' ) . $telephone_link;?></a> </h3>
-            <h4 class="bcwfsp"><?php echo get_field('footer_contact_title_label',89);?> </h4>
+              <?php echo $tel_html;?>
+               </h3>
+            <h4 class="bcwfsp">BOOK A CALLBACK WITH OUR RUGS SPECIALISTS </h4>
             <div class="againlt">
               <ul>
                 <?php $booklink=get_field('contactlink',89);?>
@@ -164,7 +127,7 @@ global $post;
                             <h3>YOUR  DETAILS</h3>
                           </div>
                           <select class="selectpicker col-md-6 valid" name="cc_enquiry_type" id="cc-enquiry-type" aria-invalid="false">
-                            <option class="col-md-12" value="sales enquiry"> Sales Enquiry </option>
+                           <?php /*?> <option class="col-md-12" value="sales enquiry"> Sales Enquiry </option><?php */?>
                             <option class="col-md-12" value="Service Enquiry"> Service Enquiry </option>
                           </select>
                           <div class="flsm-blk">
@@ -200,21 +163,21 @@ global $post;
                             </div>
                             <div class="provision-section col-sm-12 clearfix">
                               <div class="form-group col-sm-4">
-                                <select class="selectpicker col-md-6 form-control"  name="cc_state_type" id="cc-state-type">
+                                <select class="selectpicker col-md-6 form-control"  name="cc_state_type_only" id="cc-state-type-only">
                                   <option class="col-md-12" value="default">STATE</option>
                                   <?php  get_template_part('templates/contact/content', 'contact-state');
                      ?>
                                 </select>
                                 <div class="error_label"></div>
                               </div>
-                              <div class="form-group col-sm-8">
+                              <?php /*?><div class="form-group col-sm-8">
                                 <select class="selectpicker col-md-6 form-control" name="cc_store_name" id="cc-store-name">
                                   <option class="col-md-12" value="default">Select a Store</option>
                                   <?php  get_template_part('templates/contact/content', 'contact-store');
                      ?>
                                 </select>
                                 <div class="error_label"></div>
-                              </div>
+                              </div><?php */?>
                             </div>
                           </div>
                           <?php 
@@ -253,12 +216,6 @@ global $post;
                           while($loop->have_posts())
                           {
                               $loop->the_post();
-                                    /* 
-                                    **state head office  state and 
-                                    ***email address pair 
-                                    
-                                    */
-                                    
                               $res = get_post_meta($loop->post->ID);
                                      
                               if(!isset($res['wpsl_email'][0]))
@@ -269,16 +226,9 @@ global $post;
                               {
                                   $stateemailpair[$res['wpsl_state'][0]] = $res['wpsl_email'][0];
                               }   
-                               
-                          
-                             
-
                           }
                           wp_reset_query();
-
-
                       }
-                   
                       $myemail =$stateemailpair[$field['wpsl_state'][0]];
                   }
                 }
@@ -313,12 +263,9 @@ global $post;
                           </div>
                         </div>
                       </form>
-                      <script>
-        
- 
-  function recaptchaCallbackone(){
-   jQuery('#check_captcha_one').val('1');
-
+<script>
+function recaptchaCallbackone(){
+	jQuery('#check_captcha_one').val('1');
 };
 </script> 
                     </div>
@@ -330,7 +277,7 @@ global $post;
             <div class="clearfix"></div>
           </div>
         </div>
-<?php if(!wp_is_mobile()) { ?>
+<div class="desktop desktop-tabs">
         <div class="woocommerce-tabs wc-tabs-wrapper">
   <ul class="tabs wc-tabs">
     <li class="additional_information_tab active"> <a href="#tab-additional_information">DETAILS</a> </li>
@@ -339,7 +286,8 @@ global $post;
   <?php echo apply_filters('the_content',get_the_content())?>
   </div>
 </div>
-<?php } else{ ?>
+</div>
+ <div class="mobile mobile-tabs">
  <div class="panel-group single-produc-acc-cntr" id="single-product-acc">
  <div class="panel panel-default">
                 <div class="panel-heading">
@@ -355,7 +303,7 @@ global $post;
                 </div>
             </div>
         </div>
-        <?php } ?>
+        </div>
         <meta itemprop="url" content="<?php the_permalink(); ?>" />
       </div>
       
@@ -363,7 +311,7 @@ global $post;
   </div>
  
   <?php do_action( 'woocommerce_after_single_product' ); ?>
-  
+  <?php echo show_most_popular_products()?>
   <style>
   #cc-enquiry-type{display:none;}
   .success_message_wrapper{display:none;}
@@ -421,7 +369,7 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
          jQuery('#email_address').val('');
          jQuery('#mobile_phone_no').val('');
          jQuery('#cc-state-type').val('default');
-         jQuery('#cc-store-name').val('default');
+         //jQuery('#cc-store-name').val('default');
          
          jQuery('#cc_message').val('');
           jQuery('#cc_message').attr("placeholder", "ENTER YOUR MESSAGE HERE");
@@ -568,10 +516,10 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
 
                 
               },
-      cc_store_name: { 
+/*      cc_store_name: { 
                 default: true,
 
-              },
+              },*/
       cc_state_type_only: {
         default: true,
       },
@@ -621,11 +569,11 @@ ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
                  
     },
       cc_state_type:{ default: "Please select a state." },
-      cc_state_type_only:{ default: "Please select a state." },
-      cc_store_name: { 
+     cc_state_type_only:{ default: "Please select a state." },
+/*       cc_store_name: { 
                 default: "Please select a store." 
               },
-      check_captcha_one :"Please  select captcha.",        
+*/      check_captcha_one :"Please  select captcha.",        
   },
   errorPlacement: function(error, element){
     var err_cntr=element.parent("div").find(".error_label");
@@ -652,13 +600,6 @@ jQuery(document).ready(function(e) {
 		horizontal_padding: 20,
 		opacity: 0.8,
 		deeplinking: false
-	});
-	jQuery('.product_single_thumb_slider').slick({
-	  dots: true,
-	  infinite: true,
-	  speed: 300,
-	  slidesToShow: 1,
-	  adaptiveHeight: true
 	});
 });
 

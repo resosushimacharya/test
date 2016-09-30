@@ -2,8 +2,6 @@
 if ( ! is_admin() ) {
     include ABSPATH . 'wp-admin/includes/template.php';
 }
-
-
 /*=============Temporary code to show total sales of products starts===============*/
 add_filter( 'manage_edit-product_columns', 'cc_sales_count_coloumn',11);
 function cc_sales_count_coloumn($columns)
@@ -44,10 +42,6 @@ function cc_custom_orderby_total_sales( $query ) {
     }
 }
 /*=============Temporary code to show total sales of products ends===============*/
-
-
-
-
 add_action('init','cc_create_table_for_sales_record');
 function cc_create_table_for_sales_record(){
 	global $wpdb;
@@ -62,19 +56,12 @@ function cc_create_table_for_sales_record(){
 	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 	dbDelta( $sql );
 }
-
-
-
-//echo get_template_directory().'inc/order-reports-cron.php';die;
 include_once(get_template_directory().'/inc/order-reports-cron.php');
-
-
 add_filter( 'woocommerce_return_to_shop_redirect', 'return_to_shop_link' );
 function return_to_shop_link() {
 	$shop_page = get_page_by_title('Shop our range');
 	return get_permalink($shop_page->ID);
 }
-
 
 /*
 * Hook to remove add new product from admin bar menu
@@ -109,7 +96,6 @@ if( $current_screen->post_type != 'product' ) return $actions;
 	</script>
 	<?php
 }
-
 
 /*
 * Function to hide/remve the add new product button form product edit screen
@@ -161,7 +147,7 @@ function return_parent_catlink_if_lastchild($link,$term_obj,$taxonomy){
 			$last_cat_depth = 2;
 		}else if($top_cat_slug == 'hard-flooring'){
 			$last_cat_depth = 2;
-		}else if($top_cat_slug == 'carpets'){
+		}else if(($top_cat_slug == 'carpets') || ($top_cat_slug == 'awnings') || ($top_cat_slug == 'shutters') || ($top_cat_slug == 'blinds')){
 			$last_cat_depth = 1;
 		}
 	}
@@ -321,6 +307,12 @@ function show_category_slider_block($args=array()){
 							'post_type'=>'product',
 							'posts_per_page'=>-1,
 							'post_stauts' =>'publish',
+							'meta_query'=>array(
+										array(
+											'key'	=>'_stock_status',
+											'value'	=>'instock',
+										),
+									),
 							'tax_query' => array(
 												array(
 													'taxonomy' => 'product_cat',
@@ -409,9 +401,13 @@ function show_category_slider_block($args=array()){
 					if($_product->is_in_stock()){
 						$title = $product->post_title;
 						$grp_code_arr = explode('.',$title);
-						$grp_prods[$product->ID] = $grp_code_arr[1];
-					}
+						$grp_code_unique = $grp_code_arr[1].'.'.$grp_code_arr[2];
+						$grp_prods[$product->ID] = $grp_code_unique;
+					}else{
+						$product_found--;
+						}
 				}
+				
 				wp_reset_postdata();
 				if(!empty($grp_prods)){
 					$product_ids = array_keys(array_unique($grp_prods));
@@ -421,6 +417,7 @@ function show_category_slider_block($args=array()){
 					$grp_prod_args = array(
 										'post_type'	=>'product',
 										'post_status'	=>'publish',
+										'posts_per_page'	=>-1,
 										'post__in' => $product_ids,
 									);	
 				if($sort_by == 'price'){
@@ -435,7 +432,7 @@ function show_category_slider_block($args=array()){
 				$filloop = '';
 				$offset++;
 				}
-				
+			//do_action('pr',$filloop);	
 			}else{
 					$offset++;
 					if($offset < count($cat_arr) && $found_cats < $perpage ){
@@ -448,97 +445,67 @@ function show_category_slider_block($args=array()){
 			}
 			$hold = 1;
 			if($filloop !='' && $filloop->post_count > 0){
+				$banner_prods = array();
+				$slider_prods = array();
+				$first_prod_id = $filloop->post->ID;
 				$current_cat = get_term_by('id',$discat->parent,'product_cat');
 				?>
 				<div class="row cc-cat-sub-title-price-cover">
-				<div class="col-md-6 cc-cat-sub-title">
-				<h4><?php _e($current_cat->name,'carpetcall')?></h4>
-				<?php echo '<h3>'.$discat->name.'</h3><br/>'; ?>
+					<div class="col-md-6 cc-cat-sub-title">
+					<h4><?php _e($current_cat->name,'carpetcall')?></h4>
+					<?php echo '<h3>'.$discat->name.'</h3><br/>';?>
 				</div>
-				<?php
-				if($filloop->have_posts()){
-					
-					$slidercounter = 1;
-					while($filloop->have_posts()){
-						
-						$post = $filloop->the_post();
-						$imgflag = false;
-						$feat_image = cc_custom_get_feat_img(get_the_ID(),'large');
-						if($pch==1){
-							$res = get_post_meta($filloop->post->ID ,'_sale_price',true);
-							//$res = get_post_meta($filloop->post->ID ,'_regular_price',true);
-							echo '<div class="col-md-6 cc-cat-sub-price">From <span>$'.round($res).'</span></div></div> <div class="row cc-cat-sub-carousal-a">';
-						$pch++;
-						}
-						if($slidercounter<=5){
-							if($slidercounter==1){
-								echo '<div class="cat_slider">';
-							}
-							?>
-							<a href="<?php echo get_permalink($filloop->post->ID);?>">
-							<div class="cat_slider_item ">
-							<div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image;?>)"></div>
-							</div>
-							</a>
-							<?php 
-							if($slidercounter==5 || $slidercounter==$filloop->post_count){
-								echo '</div>';
-							}
-							$slidercounter++;
-						}
-					}
-					wp_reset_query();
-				}
-				if($filloop->have_posts()){?>
-                    <div class=" cc-cat-sub-group-item">
-                    <?php 
-                    $slidercounter = 1;
+                <?php $res = get_post_meta($first_prod_id,'_sale_price',true);?>
+                	<div class="col-md-6 cc-cat-sub-price">From <span>$<?php echo round($res)?></span></div>
+                </div> 
+                <div class="row cc-cat-sub-carousal-a">
+                	<div class="cat_slider">
+					<?php
                     while($filloop->have_posts()){
-						$filloop->the_post();
-						$feat_image = cc_custom_get_feat_img(get_the_ID(),'small');
-						/*
-						$feat_image = wp_get_attachment_url( get_post_thumbnail_id($filloop->post->ID),'thumbnail');
-						$proGal = get_post_meta($filloop->post->ID, '_product_image_gallery', TRUE );
-						$proGalId = explode(',',$proGal);
-						$reqProImageId = '';
-						foreach($proGalId as $imgid){
-							$proImageName = wp_get_attachment_url($imgid);
-							
-							if(preg_match("/\_V/i", $proImageName)){
-								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
-								if($feat_image){
-									$feat_image = $feat_image[0];
-								}
-							}
-							elseif(preg_match("/\_S/i", $proImageName)){
-								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
-								if($feat_image){
-									$feat_image = $feat_image[0];
-								}
-							}
-							elseif(preg_match("/\_L/i", $proImageName)){
-								$feat_image = wp_get_attachment_image_src($imgid,'thumbnail');
-								if($feat_image){
-									$feat_image = $feat_image[0];
-								}
-							}
-						}
-						*/
-						
-						?>
-						<div class=" cc-other-term-pro">
-						<div class="cc-img-wrapper">
-						<div class="cat-item-group-image" style="background-image:url(<?php echo $feat_image;?>)">
-						<a href ="<?php echo get_permalink($filloop->post->ID);?>" class="cc-pro-view">VIEW</a> </div>
-						</div>
-						</div>
-                    <?php }?>
-                    <?php 
-                    wp_reset_query(); ?>
+                        $post = $filloop->the_post();
+                        $banner_image = cc_get_banner_img(get_the_ID());
+                        if($banner_image){
+                            $banner_prods[get_the_ID()] = $banner_image;
+                        }
+                        $slider_prods[get_the_ID()] = cc_custom_get_feat_img(get_the_ID(),'large');
+                    }?>
+                    <?php if(!empty($banner_prods)){
+                        foreach($banner_prods as $postid=>$feat_image){
+							//unset($slider_prods[$postid()]);
+							?>
+                            <a href="<?php echo get_permalink($postid);?>">
+                                <div class="cat_slider_item ">
+                                <div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image;?>)"></div>
+                                </div>
+                                </a>
+                            <?php }
+                        }else{
+                            $slider_prods_five = array_slice($slider_prods,0,5,true);
+                            foreach($slider_prods_five as $postid=>$feat_image){?>
+                                <a href="<?php echo get_permalink($postid);?>">
+                                <div class="cat_slider_item ">
+                                <div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image;?>)"></div>
+                                </div>
+                                </a>
+                                <?php }
+                            ?>
+                            
+                        <?php }?>
                     </div>
-				<?php }
-				?>
-				</div>
+                
+                 <div class=" cc-cat-sub-group-item">
+                 	<?php foreach($slider_prods as $postid=>$imgurl){
+						$feat_image  = cc_custom_get_feat_img($postid,'small','V');?>
+						<div class=" cc-other-term-pro">
+                        <div class="cc-img-wrapper">
+                            <div class="cat-item-group-image" style="background-image:url(<?php echo $feat_image;?>)">
+                                <a href ="<?php echo get_permalink($postid);?>" class="cc-pro-view">VIEW</a> 
+                            </div>
+                        </div>
+                    </div>
+					<?php }?>
+                 </div>   
+			</div>
 			<?php }
 			?>
 			</div>
@@ -562,6 +529,7 @@ function show_category_slider_block($args=array()){
 	return $ret;
 	}
 }
+
 add_action('wp_ajax_loadmore_hf','loadmore_hf');
 add_action('wp_ajax_nopriv_loadmore_hf','loadmore_hf');
 function loadmore_hf($args){
@@ -727,7 +695,7 @@ function loadmore_hf($args){
                         foreach($filloop as $post){
 						$_product = new WC_Product($post->ID);
 						if($_product->is_in_stock()){
-						$feat_image = cc_custom_get_feat_img($post->ID,'small');
+						$feat_image = cc_custom_get_feat_img($post->ID,'small','V');
 						
 							?>
 							<div class=" cc-other-term-pro">
@@ -932,6 +900,7 @@ function load_more_carpet_blinds($args){
 	
 	}	
 	
+
 add_action('wp_ajax_cc_custom_search','cc_custom_search');
 add_action('wp_ajax_nopriv_cc_custom_search','cc_custom_search');
 function cc_custom_search($args){
@@ -969,45 +938,73 @@ function cc_custom_search($args){
 		if(isset($_POST['shop_range']) && ($_POST['shop_range'] !='')){
 		$args['shop_range'] = sanitize_text_field($_POST['shop_range']);
 		}
-	}
+		  set_query_var('s',$args['s']);
+		  set_query_var('search',$args['s']);
+		  set_query_var('price',$args['price']);
+		  set_query_var('category_filter',$args['shop_range']);
+}
+	
 	extract($args);
 	global $wp_query;
 	$found_count = 0;
+	
+	
+	
+	$meta_query=$meta_query_status=$meta_query_price=array();
+	$meta_query_status=array(
+						array(
+											'key'	=>'_stock_status',
+											'value'	=>'instock',
+										),
+					);
+	/*if($price !='' ){
+			$range_arr = explode(',',$price);
+			$meta_query_price=array(
+										array(
+											'key' => '_price', 
+											'value' => $range_arr,
+											'type'	=>	'NUMERIC',
+											'compare' => 'BETWEEN'
+										)
+			
+							);							
+				}				
+				*/	
+	
+	$meta_query=array_merge($meta_query_status,$meta_query_price);
 	$filargs = array(
 					'post_type'=>'product',
 					'offset'	=> $offset,
 					'post_stauts' =>'publish',
-					'posts_per_page'=>$perpage,
+					'posts_per_page'=>-1,//$perpage,
 					's'				=>$s,
-					'meta_query'=>array(
-										array(
-											'key'	=>'_stock_status',
-											'value'	=>'instock',
-										),
-									),
+					'meta_query'=>$meta_query,
 					'tax_query'	=>array(
 									array(
 										'taxonomy' => 'product_cat',
 										'terms' => array('accessories'),
 										'field' => 'slug',
+										'include_children' => true,
 										'operator' => 'NOT IN',
 									)
 								)
+								
 				);
 				
-				
-		if($shop_range !='' ){
+	/*	if($shop_range !='' ){
 					$shop_range_arr = explode(',',$shop_range);
-					$filargs['tax_query'] = array(
+					$filargs['tax_query'][] =
 													array(
 														'taxonomy' => 'product_cat',
 														'field' => 'id',
 														'terms' => $shop_range_arr,
 														'include_children' => true,
 														'operator' => 'IN'
-													  )
+													 
 												);
+												
 				}
+				*/
 				
 				if($sort_by == 'price'){
 					$filargs['meta_key'] = '_regular_price';
@@ -1017,30 +1014,32 @@ function cc_custom_search($args){
 				$filargs['orderby'] = 'meta_value_num';
 				$filargs['order'] = $sort_order;
 				
-				if($price !='' ){
-					$range_arr = explode(',',$price);
-					$filargs['meta_query'][] = array(
-													'key' => '_regular_price', 
-													'value' => $range_arr,
-													'type'	=>	'NUMERIC',
-													'compare' => 'BETWEEN'
-												);
-				}			
-				wp_reset_postdata();
-				$prod_count_init = new WP_Query($filargs);
+							
 				
-				$found_count = ($prod_count_init->post_count  > 0)?$prod_count_init->post_count:0;	
+				wp_reset_postdata();
+				//$prod_count_init = new WP_Query($filargs);
+				
+				$found_count = 0;//($prod_count_init->post_count  > 0)?$prod_count_init->post_count:0;	
 				//$filargs['posts_per_page']=$perpage;
 				//$filargs['offset']=$offset;
 				
 				$filloop = new WP_Query($filargs);
+				global $wpdb;
+				//do_action('pr',$wpdb->queries);
+				//do_action('pr',$filloop->post_count);
+				
 				
 				if($filloop->have_posts()){
 					while($filloop->have_posts()){
 						$filloop->the_post();
+						//do_action('pr',get_post_meta(get_the_ID(),'description_1',true));
 						$woo=get_post_meta(get_the_ID());
 						$_product = new WC_Product(get_the_ID());
-						if($_product->is_in_stock()){
+						//do_action('pr',$_product->id);
+						
+						if($_product->is_in_stock() && !has_term('accessories','product_cat',get_the_ID())){
+							//do_action('pr',$_product->stock.' '.$_product->get_formatted_name());
+							$found_count++;
 							$feat_image = cc_custom_get_feat_img(get_the_ID(),'medium');
 							if(has_term('rugs','product_cat',get_the_ID())){
 								$price=round($woo['_sale_price'][0]);
@@ -1060,8 +1059,11 @@ function cc_custom_search($args){
                                         </a>
                                 <div class="sublk_prom">
                                         <div class="ptxt">
-                                <h3><a href="<?php echo get_permalink(get_the_ID()) ?>"><?php echo get_the_title()?></a></h3>
+                                <h3>
+                                <a href="<?php echo get_permalink(get_the_ID()) ?>"><?php echo get_the_title()?></a>
                                 
+                                </h3>
+                               
                                 <?php
                                 $reqTempTerms=get_the_terms(get_the_ID(),'product_cat');
                                 
@@ -1117,6 +1119,7 @@ global $wpdb;
 $parent = $wpdb->get_var("SELECT parent FROM $wpdb->term_taxonomy WHERE term_id = '".$tag->term_id."'");
 if($parent=='0'){
 $cat_top_description =get_term_meta($tag->term_id,'cat_top_description',true) ;
+$cat_return_policy = get_term_meta($tag->term_id,'cat_return_policy',true) ;
 ?>
 <tr class="form-field">
   <th scope="row" valign="top"><label for="cat_top_description">
@@ -1126,6 +1129,16 @@ $cat_top_description =get_term_meta($tag->term_id,'cat_top_description',true) ;
     <br />
     <span class="description">
     <?php _e('Description that appears below title in top level categories'); ?>
+    </span></td>
+</tr>
+<tr class="form-field">
+  <th scope="row" valign="top"><label for="cat_return_policy">
+      <?php _e('Cateogry Returns Policy'); ?>
+    </label></th>
+  <td><textarea rows="10" name="cat_return_policy" id="cat_return_policy" style="width:60%;"><?php echo $cat_return_policy ? $cat_return_policy : ''; ?></textarea>
+    <br />
+    <span class="description">
+    <?php _e('Returns Policy for this Category'); ?>
     </span></td>
 </tr>
 <?php	
@@ -1138,11 +1151,19 @@ return $tag;
 add_action( 'edited_product_cat', 'saveCategoryFields', 10, 1 );
 function saveCategoryFields($term_id) {
     if ( isset( $_POST['cat_top_description'] ) ) {
-		$exist = get_term_meta($term_id,'cat_top_description',true);
+		$exist = get_term_meta($term_id,'cat_top_description');
 		if($exist){
-			update_term_meta($term_id, 'cat_top_description', $_POST['cat_top_description'],$exist);
+			update_term_meta($term_id, 'cat_top_description', $_POST['cat_top_description']);
 			}else{
-				add_term_meta($term_id, 'cat_top_description', $_POST['cat_top_description'], true);
+				add_term_meta($term_id, 'cat_top_description', $_POST['cat_top_description']);
+				}
+    }
+    if ( isset( $_POST['cat_return_policy'] ) ) {
+		$exist = get_term_meta($term_id,'cat_return_policy');
+		if($exist){
+			update_term_meta($term_id, 'cat_return_policy', $_POST['cat_return_policy']);
+			}else{
+				add_term_meta($term_id, 'cat_return_policy', $_POST['cat_return_policy']);
 				}
     }
 }
@@ -1236,7 +1257,7 @@ function generate_catids_array($top_lvl_cat,$depth){
 	}
 			
 			
-		}else if($top_cat_slug == 'carpets'){
+		}else if(($top_cat_slug == 'carpets') || ($top_cat_slug == 'awnings') || ($top_cat_slug == 'shutters') || ($top_cat_slug == 'blinds')){
 			foreach($second_lvl_cats as $cat_parents){
 				$cat_arr[] = $cat_parents->term_id;
 			}
@@ -1514,8 +1535,9 @@ if($selected_store){
 function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
 	$temp_url = $url;
 	if ( $post->post_type == 'product' ) {
-		if(has_term('carpets','product_cat',$post->ID) || has_term('rugs','product_cat',$post->ID) || has_term('hard-flooring','product_cat',$post->ID)){
-			
+		if(has_term('carpets','product_cat',$post->ID) ||  has_term('awnings','product_cat',$post->ID) || 
+		has_term('blinds','product_cat',$post->ID) || has_term('shutters','product_cat',$post->ID) ||  has_term('rugs','product_cat',$post->ID) ||  has_term('hard-flooring','product_cat',$post->ID)
+		){
 		$terms = wc_get_product_terms( $post->ID, 'product_cat', array( 'orderby' => 'parent', 'order' => 'DESC' ) ) ;
 		//do_action('pr',$terms);
 		
@@ -1589,6 +1611,9 @@ add_filter( 'rewrite_rules_array', function( $rules )
 {
     $new_rules = array(
 	    'shop-our-range/carpets/([^/]*?)/([^/]*?)/?$' => 'index.php?product=$matches[2]',
+	    'shop-our-range/shutters/([^/]*?)/([^/]*?)/?$' => 'index.php?product=$matches[2]',
+	    'shop-our-range/awnings/([^/]*?)/([^/]*?)/?$' => 'index.php?product=$matches[2]',
+	    'shop-our-range/blinds/([^/]*?)/([^/]*?)/?$' => 'index.php?product=$matches[2]',
         'shop-our-range/([^/]*?)/?$' => 'index.php?product_cat=$matches[1]',
 		'shop-our-range/([^/]*?)/([^/]*?)?$' => 'index.php?product_cat=$matches[2]',
 		'shop-our-range/([^/]*?)/([^/]*?)/([^/]*?)?$' => 'index.php?product_cat=$matches[3]',
@@ -1653,19 +1678,24 @@ if($item_sku){
 
 function cc_custom_get_feat_img($post_id,$size='small',$pattern='L'){
 	$feat_image = '';
+	$pattern = strtoupper($pattern);
 	if(has_term('hard-flooring','product_cat',$post_id) || has_term('rugs','product_cat',$post_id)){
 							if(has_term('hard-flooring','product_cat',$post_id)){
 							$sku = get_post_meta($post_id,'_sku',true);
+							
 							$image_names = array(
+											strtoupper($sku).'_'.$pattern.'jpg',
 											strtoupper($sku).'_L.jpg',
 											strtoupper($sku).'_V.jpg',
 											strtoupper($sku).'_S.jpg',
 										);
+										
 							}
 						if(has_term('rugs','product_cat',$post_id)){
 							
 							$sku = explode('.',get_post_meta($post_id,'_sku',true));
 							$image_names = array(
+											strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_'.$pattern.'.jpg',
 											strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_L.jpg',
 											strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_V.jpg',
 											strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_S.jpg',
@@ -1687,7 +1717,7 @@ function cc_custom_get_feat_img($post_id,$size='small',$pattern='L'){
 									}elseif($size=='large'){
 										$size = 'full';
 										}
-								if(has_term('carpets','product_cat',$post_id)){
+								if(has_term('carpets','product_cat',$post_id) ||  has_term('awnings','product_cat',$post->ID) ||  has_term('blinds','product_cat',$post->ID) || has_term('shutters','product_cat',$post->ID) ){
 									global $woocommerce;
 									$product = new WC_Product($post_id);
 									$attachment_ids = $product->get_gallery_attachment_ids();
@@ -1713,6 +1743,19 @@ function cc_custom_get_feat_img($post_id,$size='small',$pattern='L'){
 		}
 	return $feat_image;
 	}
+function cc_get_banner_img($post_id){
+	$feat_image = '';
+	if(has_term('rugs','product_cat',$post_id)){
+		$sku = explode('.',get_post_meta($post_id,'_sku',true));
+		$image_name = strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_LB.jpg';
+		$img_path =  WP_CONTENT_DIR.'/uploads/images/large/'.$image_name;
+		if(file_exists($img_path)){
+			$feat_image = content_url('uploads/images/large/'.$image_name);
+		}
+	}
+	return $feat_image;
+}
+
 
 
 function is_last_cat($cat_id){
@@ -1797,6 +1840,152 @@ function cc_filter_wp_mail_from_name($from_name){
 return "Carpetcall";
 }
 add_filter("wp_mail_from_name", "cc_filter_wp_mail_from_name");
+
+function cc_get_banner_image($post_id){
+	$feat_image = '';
+	if(has_term('rugs','product_cat',$post_id)){
+		$sku = explode('.',get_post_meta($post_id,'_sku',true));
+		$image_name= strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_LB.jpg';
+		
+		$img_path =  WP_CONTENT_DIR.'/uploads/images/large/'.$image_name;
+		if(file_exists($img_path)){
+			$feat_image = content_url('uploads/images/large/'.$image_name);
+		}
+	}
+	return $feat_image;
+}
+
+function show_most_popular_products(){
+	$args = array(
+					'post_type'=>'product',
+					'post_status'=>'publish',
+					'posts_per_page'=>3,
+					'meta_key' => 'total_sales',
+					'orderby' =>'meta_value_num',
+					'tax_query'             => array(
+													array(
+														'taxonomy'      => 'product_cat',
+														'field' => 'slug', 
+														'terms'         => array('rugs','hard-flooring','carpets'),
+														'operator'      => 'IN'
+													)
+												),
+					'meta_query'=>array(
+										array(
+											'key'	=>'_stock_status',
+											'value'	=>'instock',
+										),
+									),
+				
+				
+					);
+	$popular_products = get_posts($args);
+	$output = '';
+	if(count($popular_products) > 0 ){
+		ob_start();?>
+        <div class="inerblock_sec_a">
+            <div class="container clearfix you_may_link_cntr">
+            <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
+            <div class="you_may_like-content">
+            <?php
+			foreach($popular_products as $product){
+				$terms = get_the_terms($product->ID,'product_cat');
+				$last_cat ='';
+				if($terms){
+					foreach($terms as $term){
+						if(is_last_cat($term->term_id)){
+							$last_cat = $term;
+							break;
+							}
+						}
+					}
+				$_product = new WC_Product($product->ID);
+				if($_product->is_in_stock()){
+					$price = $_product->get_price();
+					$feat_image = cc_custom_get_feat_img($product->ID,'medium');
+					?>
+                    <div class="col-md-4">
+                      <div class="pro_secone"> 
+                        <a href="<?php echo get_permalink($product->ID)?>" class="cc-product-item-image-link">
+                            <div class="img_cntr" style="background-image:url('<?php echo $feat_image?>');"></div>
+                        </a> 
+                        <div class="mero_itemss">
+                          <div class="proabtxt"> 
+                            <a href="<?php echo get_permalink($product->ID)?>" class="cc-product-item-title-link"><h4> <?php echo $last_cat->name?></h4></a>
+                            <?php if($price){?><h6> FROM $<?php echo number_format(esc_attr( round($_product->get_price()) ),2,'.',''); ?></h6><?php } ?>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                      </div>
+                    </div>
+                <?php
+                }
+			}
+            ?>
+            </div>
+            <div class="clearfix"></div>
+            
+            </div>
+        </div>
+
+		<?php 
+		$output = ob_get_clean();
+		}
+	if($output)return $output;
+	}
+
+function atom_search_where($where){
+  global $wpdb;
+    
+  $price=get_query_var('price');
+  $category_filter=get_query_var('category_filter');
+
+  if (is_search() || get_search_query()!=''){	  
+    $where .= "OR (t.name LIKE '%".get_search_query()."%' AND {$wpdb->posts}.post_status = 'publish' AND {$wpdb->posts}.post_type = 'product')";
+	//$where .=" AND t.term_id NOT IN({$acc_term_list}) ";
+ 
+	if(!empty($price)){
+		$price_=explode(',', $price);
+		$where.=" AND ( {$wpdb->postmeta}.meta_key = '_price' AND CAST({$wpdb->postmeta}.meta_value AS SIGNED) BETWEEN '".$price_[0]."' AND '".$price_[1]."' )";
+	}
+	if(!empty( $category_filter)){
+		$where.=" AND tr.term_taxonomy_id IN (select term_id from {$wpdb->term_taxonomy} where {$wpdb->term_taxonomy}.parent in (".$category_filter.") )";
+	}
+	
+	 }
+	
+  return $where;
+}
+
+function atom_search_join($join){
+  global $wpdb;
+
+ // var_dump(get_search_query());
+  if (is_search() || get_search_query()!=''){
+    $join .= "LEFT JOIN {$wpdb->term_relationships} tr ON {$wpdb->posts}.ID = tr.object_id INNER JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id=tr.term_taxonomy_id INNER JOIN {$wpdb->terms} t ON t.term_id = tt.term_id";
+  
+  }
+  return $join;
+}
+
+function atom_search_groupby($groupby){
+  global $wpdb;
+
+  // we need to group on post ID
+  $groupby_id = "{$wpdb->posts}.ID";
+  if(!is_search() || strpos($groupby, $groupby_id) !== false) return $groupby;
+
+  // groupby was empty, use ours
+  if(!strlen(trim($groupby))) return $groupby_id;
+
+  // wasn't empty, append ours
+  return $groupby.", ".$groupby_id;
+}
+
+add_filter('posts_where','atom_search_where');
+add_filter('posts_join', 'atom_search_join');
+add_filter('posts_groupby', 'atom_search_groupby');
+
 
 
 

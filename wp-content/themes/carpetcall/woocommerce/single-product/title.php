@@ -18,7 +18,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-
+global $product;
 ?>
-<h3 class="online_price_subhead">ONLINE PRICE</h3>
+<h3 class="ticketed_price">Ticketed Price $<?php echo $product->get_regular_price()?></h3>
 <h3 class="product_title entry-title"><span>CODE:</span><span itemprop="name"><?php the_title(); ?></span></h3>

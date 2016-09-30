@@ -17,7 +17,29 @@ show_admin_bar(true);
       * used on file: inc/carpetcall-contact-information.php
     */
 
-add_filter('wpseo_canonical','__return_false');
+//add_filter('wpseo_canonical','__return_false');
+function capetcall_custom_canonical_rule() {
+	global $post;
+	if ( get_post_type( $post->ID ) == 'product' ) {
+		$categories = get_the_terms($post->ID, 'product_cat' ); 
+		foreach($categories as $category) {
+			$args = array(
+						'taxonomy' => 'product_cat', 
+						'hide_empty'=>true, 
+						'parent' => $category->term_id
+					);
+			$children = get_categories($args);
+			if ( count($children) == 0 ) {
+			return  get_term_link($category->term_id,"product_cat");
+			}
+		}
+		//return site_url( '/design/' . $post->post_name );
+	}else{
+		return get_post_meta($post->ID,'_yoast_wpseo_canonical',true);
+		}
+}
+add_filter( 'wpseo_canonical', 'capetcall_custom_canonical_rule' );
+
 	
 add_action( 'wp_enqueue_scripts', 'wooocommerce_scripts' );
 function wooocommerce_scripts(){
@@ -48,7 +70,7 @@ wp_localize_script( 'woo-load-autocomplete', 'woo_load_autocomplete', array( 'aj
   acf_add_options_sub_page('Labeling');
   acf_add_options_sub_page('Front-Page Sections');
   acf_add_options_sub_page('Miscellaneous');
-  acf_add_options_sub_page('Enquiry Emails Settings');
+  acf_add_options_sub_page('Enquiry Email Settings');
 #update_option('siteurl',"http://localhost/carpetcall");
 #update_option('home',"http://localhost/carpetcall");
 add_action('pr','inspect_carpetcall',10,1);
@@ -62,7 +84,6 @@ add_action('init','ses_set');
 function ses_set(){
  if (!session_id()){
           session_start();
-
       }
 }
 

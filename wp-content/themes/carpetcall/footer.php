@@ -189,10 +189,10 @@ else{
 </div>
 <script>
 // Initiate Lightbox
-(function() {
-    if(jQuery('.ourgallery').length>0)
-        jQuery('.ourgallery a').lightbox();
-});
+// (function() {
+//     if(jQuery('.ourgallery').length>0)
+//         jQuery('.ourgallery a').lightbox();
+// });
 </script>
 <script type="text/javascript">
 jQuery(document).ready(function () {
@@ -251,6 +251,12 @@ $tabs.responsiveTabs('activate', jQuery(this).val());
 <?php wp_footer();?>
 </body>
 </html>
+
+
+
+
+
+
 <?php  
 if(isset($_POST["wpsl-search-input"]) && isset($_POST["cc-control-map"]) ){?>
   <script>

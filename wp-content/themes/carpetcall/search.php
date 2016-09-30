@@ -10,7 +10,7 @@
             <div class="search_header clearfix">
 				<div itemscope itemtype="http://schema.org/WebSite">
                             <link itemprop="url" href="<?php echo site_url()?>"/>
-                            <form itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction" >
+                            <form>
                                   <meta itemprop="target" content="<?php echo site_url()?>?q={<?php echo get_search_query()?>}"/>
                               <div class="input-group"><input itemprop="query-input" type="text" name="s" placeholder="TYPE TO SEARCH" class="form-control" value="<?php echo get_search_query()?>"/>
                               <span class="input-group-btn">
@@ -30,20 +30,20 @@
 
 
 <?php
+global $woocommerce;
 $search_query = esc_html( get_search_query( false ) );
 $perpage_var = 9;
 $args = array(
-				'post_type'			=> 'product',
-				'posts_per_page'	=> -1,
-				's'				=> $search_query,
-				'meta_query' => array(
-									array(
-										'key' => '_stock_status',
-										'value' => 'instock'
-									)
-        						)
-			);
-$found_prod = new WP_Query($args);
+					'offset'=>0,
+					'sort_by'	=>'price',
+					'perpage'=>-1,
+					'sort_order'=>'ASC',
+					'price'	=>'',
+					'shop_range'	=>'',
+					's'				=>$search_query,
+				);
+$found_prod = cc_custom_search($args);
+//do_action('pr',$found_prod);
 ?>
 
 
@@ -52,7 +52,7 @@ $found_prod = new WP_Query($args);
     <div class="container">
       <div class="tophead_sec col-md-12 no-lr">
       <div class="rugm-blk col-md-6 no-pl">
-          <p> <span class="cc-cat-title-count"> <span class="post_count"><?php echo $found_prod->post_count;?></span> <?php _e('results for ','carpetcall');?>"<?php echo $search_query?>" </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
+          <p> <span class="cc-cat-title-count"> <span class="post_count"><?php echo $found_prod['found_prod']?></span> <?php _e('results for ','carpetcall');?>"<?php echo $search_query?>" </span> <span class="cc-count-clear"><a href="javascript:void(0)">CLEAR ALL</a></span> </p>
           <span class="open-product-sidebar">
             +
           </span>
@@ -95,16 +95,26 @@ $found_prod = new WP_Query($args);
 
         <div id="category_slider_block_wrapper" class="search_sidebar search_list_wrapper">
         <?php 
-			$args = array('s'=>$search_query,'perpage'=>$perpage_var);
+			$args = array(
+					'offset'=>0,
+					'sort_by'	=>'price',
+					'perpage'=>-1,
+					'sort_order'=>'ASC',
+					'price'	=>'',
+					'shop_range'	=>'',
+					's'				=>$search_query,
+				);
 			$search_result = cc_custom_search($args);
-			//do_action('pr',$search_result);
+			//do_action('pr',$search_result['found_prod']);
 			echo $search_result['html'];
 		?>
         </div>
         <div class="woo-added"></div>
-        <input type="button" name="cc_load_more" id ="cc_load_more" callto="cc_custom_search" value="load more" <?php echo ($search_result['found_prod'] < $perpage_var)?'style="display:none"':'' ?>  />
+        <input type="button" name="cc_load_more" id ="cc_load_more" callto="cc_custom_search" value="load more" style="display:none"/>
+        
+        <?php /*?><input type="button" name="cc_load_more" id ="cc_load_more" callto="cc_custom_search" value="load more" <?php echo ($search_result['found_prod'] < $perpage_var)?'style="display:none"':'' ?> /><?php */?>
         <input type="hidden" name="perpage_var" id="perpage_var" value="<?php echo $perpage_var;?>">
-        <input type="hidden" name="ajax_offset" id="ajax_offset" value="<?php echo ($search_result['offset'])?$search_result['offset']:0?>">
+        <input type="hidden" name="ajax_offset" id="ajax_offset" value="<?php echo ($search_result['offset'])?$search_result['offset']:$perpage_var?>">
         <input type="hidden" name="ajax_sort_by" id="ajax_sort_by" value="price">
         <input type="hidden" name="ajax_sort_order" id="ajax_sort_order" value="ASC">
         <input type="hidden" name="search_query" id="search_query" value="<?php echo $search_query?>">

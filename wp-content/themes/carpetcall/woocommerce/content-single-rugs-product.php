@@ -129,12 +129,8 @@ if ( ! defined( 'ABSPATH' ) ) {
        $strsizes= array();
        global $post;
        $pro_cur_id = $post->ID;
-       
            $reqTempTerms=get_the_terms($post->ID,'product_cat');
-
-   
             if($reqTempTerms){
-            	
            foreach($reqTempTerms as $cat){
            	$has_sub_cat=get_terms(array('parent'=>$cat->term_id,'taxonomy'=>'product_cat'));
            	 
@@ -157,7 +153,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 							 'tax_query' => array(
 												array(
-												  'taxonomy' => 'product_cat',
+												'taxonomy' => 'product_cat',
 												'terms' => $cat->slug,
 												'field' => 'slug',
 												'compare' => 'IN'
@@ -193,22 +189,16 @@ if ( ! defined( 'ABSPATH' ) ) {
      
      $proGroup = array();
         foreach($titlepro as $key => $value){
-
             preg_match('/([A-Z]*)\.([0-9]*)\.([0-9]*)\.([0-9]*)/',$value,$match);
-              
-             $proGroup[] = array($value,$match[2],$key);
-             
-           if($secondVar!=$match[2]){
-            
+             $temp =  $match[2].'.'.$match[3];
+             $proGroup[] = array($value,$temp,$key);
+           if($secondVar!=$temp){
              $uniqueId = $key;
-
-             $secondVar = $match[2];
+             $secondVar = $temp;
              $resList[$uniqueId][]=$key;
-             
             }
          else{
           $resList[$uniqueId][]=$key;
-
             }
 
   
@@ -250,7 +240,7 @@ $count = 1;
 foreach($bundle as $key=>$value){
 	
 	$imgflag = false;
-	$feat_image = cc_custom_get_feat_img($key,'small');
+	$feat_image = cc_custom_get_feat_img($key,'small','V');
 	
 	/*
 	$feat_image = get_template_directory_uri().'/images/placeholder.png';
@@ -274,10 +264,10 @@ foreach($bundle as $key=>$value){
 		$count++;
 		?>
 		<div class="select-design-product-image <?php echo (array_key_exists($post->ID,$bundle))?'pro-active':null;?>">
-              <a href="<?php echo get_permalink($key)?>" class="select_design">
+              <a href="<?php echo get_permalink($key)?>" class="select_design" title="<?php echo strtoupper(str_replace('-','.',get_the_title($key)))?>">
               
               
-             <img name="<?php echo $post->post_name?>" class="cc-product_no_image" src="<?php echo $feat_image ;?>"/>
+             <img name="<?php echo get_the_title($key)?>" class="cc-product_no_image" src="<?php echo $feat_image ;?>"/>
               <span class="selected-pro-name" style=""><?php echo get_the_title($key)?></span>
               
               
@@ -439,6 +429,13 @@ foreach($resList as $mainId){
       	 $x=do_shortcode('[add_to_cart_url id="'.$post->ID.'"]');
       	 ?>
       	 <?php  do_action( 'cc_custom_quantiy' );?>
+        <div class="tick-list rugs-single-ticks">
+          <ul>
+            <li>Price & satisfation guarantee</li>
+            <li>free delivery</li>
+            <li>Stock held in Australia</li>
+          </ul>
+        </div>
       	 <div class="cc-quantiy-section-inner">
       	 <a href="<?php echo $x ;?>" data-quantity="1" data-product_id="<?php echo $post->ID;?>" data-product_sku="<?php
       	  echo $pro['_sku'][0] ; ?>" class="button product_type_simple add_to_cart_button ajax_add_to_cart col-md-12" id="store-count-quantity" >ADD TO CART</a>
@@ -452,7 +449,7 @@ foreach($resList as $mainId){
       	<button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#myModal2">ENQUIRE NOW</button>
       </div>
       <div class="cc-product-ship-free-section col-md-12">
-      <div class="cc-product-ship col-md-6"><span>SHIPPING<i class="fa fa-info-circle" aria-hidden="true"></i></span></div><div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="cc-product-free col-md-6"> FREE DELIVERY</div>
+      <div class="cc-product-ship col-md-6"><span>SHIPPING<i class="fa fa-info-circle" aria-hidden="true"></i></span></div><div class="cc-product-free col-md-6"> FREE DELIVERY</div>
       </div>
       <div class="cc-product-pick-location-section col-md-12">
       <div class="cc-product-pick col-md-6">
@@ -871,91 +868,7 @@ wrapper close start */?>
 </div></div>
 <?php /* before-wrapper close end*/?>
 <?php do_action( 'woocommerce_after_single_product' ); ?>
-
-<?php
-
-	wp_reset_query();
-	global $post;
-	$you_may_like_prods = array();
-	//$reqTempTerms=get_the_terms($post->ID,'product_cat');
-	$second_lvl_cat = get_term_by('id',$current_post_term_id,'product_cat');
-	$you_may_like_cats = get_term_children( $second_lvl_cat->parent, 'product_cat' );
-	if(count( $you_may_like_cats ) > 0 ){
-		$count =1;
-		
-		foreach($you_may_like_cats as $cat){
-			if($cat != $second_lvl_cat->term_id){
-				$args = array(
-							'post_type'=>'product',
-							'posts_per_page'=>1,
-							'meta_key'		=>'_regular_price',
-							'order_by'		=>'meta_value_num',
-							'order'			=>'ASC',
-							'tax_query'	=>array(
-										array(
-											'taxonomy' => 'product_cat',
-											'field'    => 'term_id',
-											'terms'    => $cat,
-										)
-									)
-								);
-			$like_prod = new WP_Query($args);
-			if($like_prod->have_posts()){
-				foreach($like_prod->posts as $post){
-						if($count >3){
-						break;
-						}
-				$you_may_like_prods	[$cat] =  $post;
-				$count++;
-				}
-				}
-			}
-		}
-	}
-					
-					?>
-    
- <?php if(count($you_may_like_prods) >0){?>
-	 <div class="inerblock_sec_a">
-    <div class="container clearfix you_may_link_cntr">
-        <h3 style="text-align:center">YOU MAY ALSO LIKE</h3>
-<div class="you_may_like-content">
-	<?php 
-				foreach($you_may_like_prods as $key=>$post){
-					setup_postdata($post);
-					$woo=get_post_meta($post->ID);
-					$price=$woo['_regular_price'][0];
-					//$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-					$feat_image = cc_custom_get_feat_img($post->ID,'medium');
-									?> <div class="col-md-4">
-                  		<div class="pro_secone">
-                  		<a href="<?php the_permalink();?>" class="cc-product-item-image-link"><div class="img_cntr" style="background-image:url('<?php echo $feat_image; ?>');"></div></a>
-                  
-                    <!--img src="<?php echo $feat_image; ?>" alt="<?php the_title();?>" class="img-responsive"/-->
-                    <div class="mero_itemss">
-                      		<div class="proabtxt">
-					 <a href="<?php the_permalink();?>" class="cc-product-item-title-link"><h4>
-					<?php $term = get_term_by('id',$key,'product_cat');
-					echo $term->name;?>
-					</h4></a><?php 
-					if(!empty($price)){
-						echo '<h6> FROM $'.$price.'</h6>';
-						}?></div>
-					<div class="clearfix"></div>
-                      </div>
-                      </div></a>
-                      </div>
-								<?php
-								$count++; }?>
-                     		<?php 
-                     		wp_reset_query(); 
-	?>
-</div>
-<div class="clearfix"></div>
-               
-    </div>
-    </div>
-	<?php }?> 
+<?php echo show_most_popular_products();?> 
     
  <?php /*?>
 

@@ -18,7 +18,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
 if ( $order ) : ?>
 
 	<?php if ( $order->has_status( 'failed' ) ) : ?>

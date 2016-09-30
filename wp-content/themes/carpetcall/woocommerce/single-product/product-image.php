@@ -44,7 +44,7 @@ global $post, $woocommerce, $product;
               	}
 				
 				$feat_image = get_template_directory_uri().'/images/placeholder.png';
-				if(has_term('carpets','product_cat',get_the_ID())){
+				if((has_term('carpets','product_cat',get_the_ID())) || (has_term('blinds','product_cat',get_the_ID())) || (has_term('awnings','product_cat',get_the_ID())) || (has_term('shutters','product_cat',get_the_ID()))){
 					$attachment_ids = $product->get_gallery_attachment_ids();
 					//do_action('pr',$attachment_ids);
 					foreach( $attachment_ids as $attachment_id ) 
@@ -146,7 +146,7 @@ global $post, $woocommerce, $product;
 	
 	?>
     	<?php 
-		if(has_term('carpets','product_cat',get_the_ID())){
+		if((has_term('carpets','product_cat',get_the_ID())) || (has_term('blinds','product_cat',get_the_ID())) || (has_term('awnings','product_cat',get_the_ID())) || (has_term('shutters','product_cat',get_the_ID()))){
 		$attachment_ids = $product->get_gallery_attachment_ids();
 		
 		foreach( $attachment_ids as $attachment_id ) 
@@ -154,7 +154,7 @@ global $post, $woocommerce, $product;
 			$image_link = wp_get_attachment_url( $attachment_id );
 			$image_thumb = wp_get_attachment_image_src($attachment_id,'thumbnail');
 			?>
-        <div>
+        <div class="single-thumb-img">
         <a href="<?php echo  $image_link?>" class="single-product-thumb-img">
         
         	
@@ -184,9 +184,8 @@ global $post, $woocommerce, $product;
 			}	
 		//$sku = explode('.',get_post_meta(get_the_ID(),'_sku',true));
 		
-							
+		$feat_image = $feat_image_full = get_template_directory_uri().'/images/placeholder.png';
 		foreach($image_names as $imgname){
-			$feat_image = $feat_image_full = get_template_directory_uri().'/images/placeholder.png';
 			$img_path =  WP_CONTENT_DIR.'/uploads/images/large/'.$imgname;
 			$thumb_path =  WP_CONTENT_DIR.'/uploads/images/medium/'.$imgname;
 			if(file_exists($img_path)){
@@ -194,7 +193,7 @@ global $post, $woocommerce, $product;
 				if(file_exists($thumb_path)){
 					$feat_image = content_url('uploads/images/medium/'.$imgname);
 				} ?>
-				<div>
+				<div class="single-thumb-img">
         <a href="<?php echo  $feat_image_full ?>" class="single-product-thumb-img">
         	<img src="<?php echo $feat_image?>">
         </a></div>

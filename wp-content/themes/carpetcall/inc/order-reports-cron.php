@@ -1,18 +1,12 @@
 <?php
-add_action( 'init', 'cc_create_order_export_schedule');
-function cc_create_order_export_schedule(){
-  //Use wp_next_scheduled to check if the event is already scheduled
-  $timestamp = wp_next_scheduled( 'cc_order_export_daily_schedule' );
-  //If $timestamp == false schedule daily backups since it hasn't been done previously
-  if( $timestamp == false ){
-    //Schedule the event for right now, then to repeat daily using the hook 'wi_create_daily_backup'
-    wp_schedule_event(strtotime("+1 minutes"), 'hourly', 'cc_order_export_daily_schedule' );
-  }
-}
-
-
-add_action( 'cc_order_export_daily_schedule', 'hourly_order_export_func' );
 function hourly_order_export_func(){
+/*$file = WP_CONTENT_DIR.'/mylog.txt';
+$fh = fopen($file, "a");
+$new_log= 'Order Export Cron started at '.date("Y-m-d H:i:s");
+fwrite($fh, "\n"."\r".$new_log.PHP_EOL);
+fclose($fh);
+*/
+
 $cc_order_report = cc_cron_generate_order_report();
 
 if($cc_order_report !=''){
