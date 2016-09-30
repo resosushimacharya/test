@@ -9,6 +9,7 @@ if(autoCurrentLoc.curr_loc==="1"){
 	wpslSettings.geoLocationTimout = "1000000";
 
 }
+delete(wpslSettings.autolaod);
 wpslSettings.startLatlng =startLatlng;
 
 console.log(wpslSettings);

@@ -29,8 +29,8 @@ if($cat->taxonomy){
     }
    $categoryDisdplay ='<div class="cc-store-cat-page-heading">SHOWING '.$cat->count.' '.$categoryStore.'  IN '.$categoryName.' </div>' ;
 }
-
 $output         = $this->get_custom_css(); 
+$wpsl_settings['autoload']=0;
 $autoload_class = ( !$wpsl_settings['autoload'] ) ? 'class="wpsl-not-loaded"' : '';
 
 $output .= '<div id="wpsl-wrap" class="wpsl-store-below store-finder-page-form">' . "\r\n";
@@ -45,7 +45,7 @@ $res = get_queried_object();
 $res = get_object_vars($res);
 
 if(isset($_POST["wpsl-search-input"])){
-$output .= "\t\t\t\t" . '<input id="wpsl-search-input" type="text" value="" name="wpsl-search-input" placeholder="'.$_POST["wpsl-search-input"] .'" aria-required="true" />' . "\r\n";
+$output .= "\t\t\t\t" . '<input id="wpsl-search-input" type="text" value="'.$_POST["wpsl-search-input"] .'" name="wpsl-search-input" placeholder="'.$_POST["wpsl-search-input"] .'" aria-required="true" />' . "\r\n";
 }
 else if(array_key_exists('taxonomy',$res)){
    $output .= "\t\t\t\t" . '<input id="wpsl-search-input" type="text" value="" name="wpsl-search-input" placeholder="" aria-required="true" />' . "\r\n"; 
