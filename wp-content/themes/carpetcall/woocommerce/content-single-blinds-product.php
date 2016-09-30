@@ -398,7 +398,7 @@ if($reqTempTerms){
                 </div></div>
 
                 
-                <div class="form-group col-sm-12">
+                <div class="form-group col-sm-12 contact-msg-cntr">
                 
                  <textarea class="form-control" rows="5" id="cc_message" name="cc_message" placeholder="ENTER YOUR MESSAGE HERE"></textarea>
                   <div class="error_label"></div>
