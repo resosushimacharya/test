@@ -49,17 +49,17 @@ $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=qld&posts_per_page
  $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=wa&posts_per_page=-1'); 
     $count = count($posts); 
 
- $locState[] = array('WA, AUSTRALIA',$count);
+ $locState[] = array('Western Australia, AUSTRALIA',$count);
  wp_reset_postdata();
  $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=act&posts_per_page=-1'); 
     $count = count($posts); 
 
- $locState[] = array('ACT, AUSTRALIA',$count);
+ $locState[] = array('Australian Capital Territory, AUSTRALIA',$count);
  wp_reset_postdata();
   $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=nt&posts_per_page=-1'); 
     $count = count($posts); 
 
- $locState[] = array('NT, AUSTRALIA',$count);
+ $locState[] = array('Northern territory, AUSTRALIA',$count);
  wp_reset_postdata();
  
 ?>
@@ -165,6 +165,7 @@ function deg2rad(deg) {
 
 
             geocodeAddress(locations, i,urlstore);
+
            // alert()
            var myoverlay = new google.maps.OverlayView();
   myoverlay.draw = function () {
@@ -184,6 +185,7 @@ function deg2rad(deg) {
 
 
     function geocodeAddress(locations, i, urlstore) {
+        console.log(locations);
         var title = locations[i][0];
         var address = locations[i][1];
         //alert(urlstore);
@@ -201,7 +203,7 @@ function deg2rad(deg) {
 
                          var latlong=[res.lat(), res.lng()];
                              //if()
-                       var tempvar = ["QLD","NSW","TAS","ACT"];
+                       var tempvar = ["QLD","NSW","TAS","Australian Capital Territory"];
                          
 
                            // alert(dis+'km');
@@ -264,7 +266,8 @@ function deg2rad(deg) {
                             if(Number(title)<=0){
                                     var class__= "hide_info";
                             }
-                        var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  act_modify'><h5>" + asl +'</h5>'+ "<h6 >" + title +"</h6><div class='custom_icon_act'></div></div></div></a>";
+                           
+                        var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  act_modify'><h5>" + "ACT" +'</h5>'+ "<h6 >" + title +"</h6><div class='custom_icon_act'></div></div></div></a>";
                            
                             var right_=3;
 
@@ -275,6 +278,14 @@ function deg2rad(deg) {
                             if(Number(title)<=0){
                                     var class__= "hide_info";
                             }
+                            var tempwesstr = 'Western Australia';
+                            var tempnorthstr = "Northern territory";
+                             if(asl.toUpperCase()==tempwesstr.toUpperCase()){
+                                asl = 'WA';
+                             }
+                             if(asl.toUpperCase()==tempnorthstr.toUpperCase()){
+                                asl = 'NT';
+                             }
                             var html = "<a href="+urlstore+asll+"><div class='map_info  "+class__+"' ><div class='contents'><h5>" + asl +'</h5>'+ "<h6 >" + title + " </h6><div class='custom_icon'></div></div></div></a>";
                            
                            var right_=0;

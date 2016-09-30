@@ -1,4 +1,4 @@
-<div style="overflow:hidden;height:259px;width:100%;background-image: url(<?php echo get_template_directory_uri(); ?>/images/map-content.svg); background-repeat:no-repeat; background-size:contain; background-position:50% 50%;">
+<div style="overflow:hidden;height:259px;width:100%;background-image: url(<?php echo get_template_directory_uri(); ?>/images/map-content.png); background-repeat:no-repeat; background-size:contain; background-position:50% 50%;">
     <div class="map_img"  style=""></div>
 <div id="gmap" style="position:relative;height: 500px; width:100%;top:-120px;background-color: transparent;"></div>
 </div>
@@ -46,7 +46,7 @@ $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=sa&posts_per_page=
  $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=vic&posts_per_page=-1'); 
     $count = count($posts); 
 
-   //$countNSW = $query->found_posts;
+   
    $locState[] = array('VIC, AUSTRALIA',$count);
    wp_reset_postdata();
 $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=qld&posts_per_page=-1'); 
@@ -57,17 +57,17 @@ $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=qld&posts_per_page
  $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=wa&posts_per_page=-1'); 
     $count = count($posts); 
 
- $locState[] = array('WA, AUSTRALIA',$count);
+ $locState[] = array('Western Australia, AUSTRALIA',$count);
  wp_reset_postdata();
  $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=act&posts_per_page=-1'); 
     $count = count($posts); 
 
- $locState[] = array('ACT, AUSTRALIA',$count);
+ $locState[] = array('Australian Capital Territory, AUSTRALIA',$count);
  wp_reset_postdata();
   $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=nt&posts_per_page=-1'); 
     $count = count($posts); 
 
- $locState[] = array('NT, AUSTRALIA',$count);
+ $locState[] = array('Northern territory, AUSTRALIA',$count);
  wp_reset_postdata();
  
 ?>
@@ -75,7 +75,7 @@ $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=qld&posts_per_page
 
 <script>
  stoLLPTL=[];
- urlstore = <?php echo json_encode(site_url().'/find-a-store/');?>;
+ urlstore = <?php echo json_encode(site_url().'/store-category/');?>;
  //alert(urlstore);
 function getLocation() {
     if (navigator.geolocation) {
@@ -396,7 +396,7 @@ function deg2rad(deg) {
         geocoder = new google.maps.Geocoder();
 
         for (i = 0; i < locations.length; i++) {
-
+      
 
             geocodeAddress(locations, i,urlstore);
            // alert()
@@ -410,7 +410,7 @@ function deg2rad(deg) {
     }
            
         }
-
+         
     google.maps.event.addDomListener(window, "load", initialize);
 
 
@@ -418,6 +418,7 @@ function deg2rad(deg) {
 
 
     function geocodeAddress(locations, i, urlstore) {
+
         var title = locations[i][0];
         var address = locations[i][1];
         //alert(urlstore);
@@ -435,7 +436,7 @@ function deg2rad(deg) {
 
                          var latlong=[res.lat(), res.lng()];
                              //if()
-                       var tempvar = ["QLD","NSW","TAS","ACT"];
+                       var tempvar = ["QLD","NSW","TAS","Australian Capital Territory"];
                          
 
                            // alert(dis+'km');
@@ -459,7 +460,6 @@ function deg2rad(deg) {
                             address: address,
                             
                         })
-                     
                         var strdis = Number(title)>1?"stores":"store";
                       
                         if((asl.toUpperCase() === tempvar[0].toUpperCase())){
@@ -478,7 +478,7 @@ function deg2rad(deg) {
                                     var class__= "hide_info";
                             }
                             
-                           var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  nsw_modify'><h5>" + asl +'</h5>'+ "<h6 >" + title  + "&nbsp;" + strdis +" </h6><div class='custom_icon_nsw'></div></div></div></a>";
+                           var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  nsw_modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "&nbsp;" + strdis +" </h6><div class='custom_icon_nsw'></div></div></div></a>";
                            
                             var right_=4;
 
@@ -488,7 +488,7 @@ function deg2rad(deg) {
                             if(Number(title)<=0){
                                     var class__= "hide_info";
                             }
-                         var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6>" + title  +"&nbsp;" + strdis+" </h6><div class='custom_icon_down'></div></div></div></a>";
+                         var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  +"&nbsp;" + strdis+" </h6><div class='custom_icon_down'></div></div></div></a>";
                            
                             var right_=2;
 
@@ -498,7 +498,7 @@ function deg2rad(deg) {
                             if(Number(title)<=0){
                                     var class__= "hide_info";
                             }
-                        var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  act_modify'><h5>" + asl +'</h5>'+ "<h6 >" + title  +"&nbsp;" + strdis +"</h6><div class='custom_icon_act'></div></div></div></a>";
+                        var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  act_modify'><h5>" + "ACT" +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  +"&nbsp;" + strdis +"</h6><div class='custom_icon_act'></div></div></div></a>";
                            
                             var right_=3;
 
@@ -509,7 +509,16 @@ function deg2rad(deg) {
                             if(Number(title)<=0){
                                     var class__= "hide_info";
                             }
-                            var html = "<a href="+urlstore+asll+"><div class='map_info  "+class__+"' ><div class='contents'><h5>" + asl +'</h5>'+ "<h6 >" + title  + "&nbsp" +strdis + " </h6><div class='custom_icon'></div></div></div></a>";
+                             var tempwesstr = 'Western Australia';
+                            var tempnorthstr = "Northern territory";
+                             if(asl.toUpperCase()==tempwesstr.toUpperCase()){
+                                asl = 'WA';
+                             }
+                             if(asl.toUpperCase()==tempnorthstr.toUpperCase()){
+                                asl = 'NT';
+                             }
+                        
+                            var html = "<a href="+urlstore+asll+"><div class='map_info  "+class__+"' ><div class='contents'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "&nbsp" +strdis + " </h6><div class='custom_icon'></div></div></div></a>";
                            
                            var right_=0;
                         }
