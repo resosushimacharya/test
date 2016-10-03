@@ -154,7 +154,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 		if(!term_exists( $slct, 'product_cat', $rootcatterm ))
 		{  
 			fwrite($import_fh, "\n"."\r".'Second Level Category: '.$slct.' created.'.PHP_EOL); 
-		   cc_category_second_level($slct ,$rootcatterm) ;
+		   category_second_level($slct ,$rootcatterm) ;
 		   category_third_level($tlct ,$slct);
 		   fwrite($import_fh, "\n"."\r".'Third Level Category: '.$tlct.' created.'.PHP_EOL); 
 		}
@@ -324,7 +324,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 		$rootcatterm   = ucwords($rootcatterm);*/
 		if(!term_exists( $slct, 'product_cat', $rootcatterm ))
 		{  
-		   cc_category_second_level($slct ,$rootcatterm) ;
+		   category_second_level($slct ,$rootcatterm) ;
 		   fwrite($import_fh, "\n"."\r".'Second Level Category: '.$slct.' created'.PHP_EOL);
 		   category_third_level($tlct ,$slct);
 		    fwrite($import_fh, "\n"."\r".'Third Level Category: '.$tlct.' created'.PHP_EOL);

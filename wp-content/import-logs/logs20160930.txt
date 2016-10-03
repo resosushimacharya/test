@@ -1,0 +1,172 @@
+
+Import Started
+
+Import Started at: 2016-09-30 11:08:10
+
+Product: PA2518 imported sucessfully
+
+Product: PA2527 imported sucessfully
+
+Product: PA2529 imported sucessfully
+
+Product: PA2534 imported sucessfully
+
+Product: PA2549 imported sucessfully
+
+Product: TC0314 imported sucessfully
+
+Product: PA2551 imported sucessfully
+
+Product: UN4808 imported sucessfully
+
+Product: PA2564 imported sucessfully
+
+Product: UN2209 imported sucessfully
+
+Product: PA3117 imported sucessfully
+
+Product: PA3119 imported sucessfully
+
+Product: PA3126 imported sucessfully
+
+Product: PA8609 imported sucessfully
+
+Product: PA8612 imported sucessfully
+
+Product: PA8626 imported sucessfully
+
+Product: PA8649 imported sucessfully
+
+Product: TC0306 imported sucessfully
+
+Product: TC0313 imported sucessfully
+
+Product: TC0361 imported sucessfully
+
+Product: UN4661 imported sucessfully
+
+Product: UL1457 imported sucessfully
+
+Product: UN4803 imported sucessfully
+
+Product: UL1460 imported sucessfully
+
+Product: UL1468 imported sucessfully
+
+Product: UL2410 imported sucessfully
+
+Product: UL2413 imported sucessfully
+
+Product: UN4641 imported sucessfully
+
+Product: PA8608 imported sucessfully
+
+Product: UN1213 imported sucessfully
+
+Product: UN1209 imported sucessfully
+
+Product: UN2201 imported sucessfully
+
+Product: UN2213 imported sucessfully
+
+Product: UN3615 imported sucessfully
+
+Product: UN3638 imported sucessfully
+
+Product: UN4935 imported sucessfully
+
+Product: UN4939 imported sucessfully
+
+Product: UN4962 imported sucessfully
+
+Product: UN4965 imported sucessfully
+
+Product: PA2519 imported sucessfully
+
+Third Level Category: Castleton created
+
+Product: CT0207 imported sucessfully
+
+Product: CT0213 imported sucessfully
+
+Product: CT0214 imported sucessfully
+
+Product: CT0215 imported sucessfully
+
+Product: UN0542 imported sucessfully
+
+Product: PA2509 imported sucessfully
+
+Product: UN3694 imported sucessfully
+
+Product: PA2542 imported sucessfully
+
+Product: PA2548 imported sucessfully
+
+Product: UN3680 imported sucessfully
+
+Product: PA2575 imported sucessfully
+
+Product: PA3103 imported sucessfully
+
+Product: PA3118 imported sucessfully
+
+Product: PA8611 imported sucessfully
+
+Product: PA3121 imported sucessfully
+
+Product: TC0381 imported sucessfully
+
+Product: UL1449 imported sucessfully
+
+Product: UL1459 imported sucessfully
+
+Product: UL1463 imported sucessfully
+
+Product: UN4675 imported sucessfully
+
+Product: UL2409 imported sucessfully
+
+Product: UL2415 imported sucessfully
+
+Product: UN0536 imported sucessfully
+
+Product: UN0540 imported sucessfully
+
+Product: UN0541 imported sucessfully
+
+Product: UN5215 imported sucessfully
+
+Product: UN5219 imported sucessfully
+
+Product: UN5230 imported sucessfully
+
+Product: PA3110 imported sucessfully
+
+Product: PA3149 imported sucessfully
+
+Product: UN0538 imported sucessfully
+
+Product: UL1471 imported sucessfully
+
+Product: UN0533 imported sucessfully
+
+Product: PA2553 imported sucessfully
+
+Product: PA3114 imported sucessfully
+
+Product: UN1245 imported sucessfully
+
+Product: UL2411 imported sucessfully
+
+Product: UL2431 imported sucessfully
+
+Product: PA8602 imported sucessfully
+
+Product: UN1201 imported sucessfully
+
+Product: UN2245 imported sucessfully
+
+Product: UN4806 imported sucessfully
+
+Import Finished at: 2016-09-30 11:08:27
