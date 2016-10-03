@@ -431,7 +431,7 @@ foreach($resList as $mainId){
       	 <?php  do_action( 'cc_custom_quantiy' );?>
         <div class="tick-list rugs-single-ticks">
           <ul>
-            <li>Price & satisfation guarantee</li>
+            <li>Price & satisfaction guarantee </li>
             <li>free delivery</li>
             <li>Stock held in Australia</li>
           </ul>

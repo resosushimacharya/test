@@ -2296,10 +2296,13 @@
 		padding-left: 20px;
 		margin-bottom: 15px
 	}
-	.review-form {
+	.review-form{
 		padding: 0 10px 120px
 	}
-	.review-form::after{
+	.contact_block_cntr{
+		padding: 0 0 120px;
+	}
+	.review-form::after, .contact_block_cntr::after{
 		content:'';
 		display: table;
 		clear: both;
@@ -2331,6 +2334,9 @@
 	}
 	.contact_block_cntr .form-group {
 	    margin-bottom: 25px !important;
+	}
+	.contact_form_cntr .success_message_wrapper{
+		margin-bottom: 0 !important;
 	}
 	.review-form #cc-store-form-section .form-group.col-sm-12 h3, .review-form .ur-msg-title .form-group.col-sm-12 h3 {
 		font-size: 36px;
@@ -3080,7 +3086,7 @@
 		height: 90px;
 		line-height: 90px;
 		font-size: 36px;
-		margin: 70px auto 0;
+		margin: 30px auto 0;
 		display: block
 	}
 	.contact_form_cntr .form-group.cc-enquiry-section {

@@ -2409,7 +2409,10 @@ select#cc-size {
 	padding: 0
 }
 .woocommerce div.product .woocommerce-tabs .panel {
-	margin: 0 125px 45px 0
+	margin: 0 125px 45px 0;	
+}
+.woocommerce div.product .woocommerce-tabs .panel#tab-additional_information{
+	padding-left: 15px;
 }
 div#tab-faq_tab {
 	margin-top: 20px
@@ -3116,7 +3119,7 @@ select#cc-state-type-only, textarea.form-control {
 	margin-top: 10px
 }
 .btn-dn:hover {
-	background-color: #bc2024
+	background-color: #b01519
 }
 .g-recaptcha {
 	margin: 4px 0 0
@@ -3575,7 +3578,7 @@ div#collapse_color .panel-body {
 	background-color: #e7edf8;
 	padding: 2px
 }
-.review-form {
+.review-form,  .contact_form_cntr{
 	padding: 0 0 60px
 }
 .review-form::after{
@@ -3583,7 +3586,7 @@ div#collapse_color .panel-body {
 	display: table;
 	clear: both;
 }
-.review-form .success_message_wrapper {
+.review-form .success_message_wrapper, .contact_form_cntr .success_message_wrapper{
     position: absolute;
     bottom: 10px;
     padding: 15px !important;
@@ -3593,7 +3596,11 @@ div#collapse_color .panel-body {
     width: auto;
     background: #090;
 }
-.review-form .success_message_wrapper .close_box {
+.contact_form_cntr .success_message_wrapper{
+	left: 0;
+	right: 0;
+}
+.review-form .success_message_wrapper .close_box, .contact_form_cntr .success_message_wrapper .close_box {
     width: 25px;
     height: 25px;
     text-align: center;
@@ -6350,7 +6357,8 @@ span.no_product {
 	text-align: center;
 	margin-top: 50px;
 	font-family: ProximaN Bold, sans-serif;
-	font-size: 24px
+	font-size: 24px;
+	color: #f00
 }
 .rugs-single-ticks {
 	clear: both;
