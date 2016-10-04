@@ -299,7 +299,8 @@ function show_category_slider_block($args=array()){
 		}
 		
 		if(!empty($cat_slice)){
-			foreach($cat_slice as &$discat){?>
+			foreach($cat_slice as &$discat){
+				?>
 			<div class="cat-single-products">
 			
 			<?php 
@@ -388,13 +389,12 @@ function show_category_slider_block($args=array()){
 			wp_reset_postdata();
 			$pch = 1;
 			
-			
+			$all_products = array();
+			$grp_prods = array();
 			$all_products = get_posts($filargs);
 			$product_found += count($all_products);
-			if($product_found > 0){
-				//$found_cat ++;
-				
-				$grp_prods = array();
+			if(count($all_products) > 0 && !empty($all_products)){
+				//do_action('pr',$all_products);
 				foreach ($all_products as $product)
 				{ 
 				$_product = new WC_Product($product->ID);
@@ -409,6 +409,8 @@ function show_category_slider_block($args=array()){
 				}
 				
 				wp_reset_postdata();
+				$product_ids = array();
+				$filloop = '';
 				if(!empty($grp_prods)){
 					$product_ids = array_keys(array_unique($grp_prods));
 				}
@@ -432,7 +434,6 @@ function show_category_slider_block($args=array()){
 				$filloop = '';
 				$offset++;
 				}
-			//do_action('pr',$filloop);	
 			}else{
 					$offset++;
 					if($offset < count($cat_arr) && $found_cats < $perpage ){
@@ -444,7 +445,7 @@ function show_category_slider_block($args=array()){
 					}
 			}
 			$hold = 1;
-			if($filloop !='' && $filloop->post_count > 0){
+			if($filloop !='' && $filloop->post_count > 0 && count($all_products) > 0){
 				$banner_prods = array();
 				$slider_prods = array();
 				$first_prod_id = $filloop->post->ID;
@@ -1481,7 +1482,6 @@ add_action('woocommerce_checkout_update_order_meta','save_delivery_option_cc');
 function save_delivery_option_cc($order_id){
 	if(!empty($_POST['pickup_store_id'])){
 		update_post_meta( $order_id, 'pickup_store_id', $_POST['pickup_store_id']);
-		
 		//cc_notify_selected_store($order_id);
 		}
 	if(!empty($_POST['cc_shipping_method'])){
@@ -1530,8 +1530,7 @@ if($selected_store){
 
 //do_action('pr',$message);
 }
-	
-		
+
 function cc_custom_proudcts_url( $url, $post, $leavename=false ) {
 	$temp_url = $url;
 	if ( $post->post_type == 'product' ) {
@@ -1675,7 +1674,6 @@ if($item_sku){
 /*
 * Function to reutun the images from the upload folder for the given product and given size
 */
-
 function cc_custom_get_feat_img($post_id,$size='small',$pattern='L'){
 	$feat_image = '';
 	$pattern = strtoupper($pattern);
@@ -1702,7 +1700,6 @@ function cc_custom_get_feat_img($post_id,$size='small',$pattern='L'){
 										);
 	
 							}
-									
 							foreach($image_names as $imgname){
 								$img_path =  WP_CONTENT_DIR.'/uploads/images/'.$size.'/'.$imgname;
 								if(file_exists($img_path)){

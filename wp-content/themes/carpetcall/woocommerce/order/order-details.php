@@ -92,7 +92,6 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 	</tbody>
 	<tfoot>
 		<?php
-		
 			foreach ( $order->get_order_item_totals() as $key => $total ) {
 			
 				if($key == 'shipping'){
