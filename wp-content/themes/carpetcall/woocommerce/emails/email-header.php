@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             <td width="20"></td>    
             <td width="220">      
               <a href="<?php echo site_url();?>">
-                <img src="http://resolutionaustralia.com.au/design/Carpetcall/carpetcall-logo.png" width="150" alt="logo"/>
+                <img src="<?php echo get_template_directory_uri()?>/carpetcall-logo.png" width="150" alt="logo"/>
               </a>      
             </td>
 

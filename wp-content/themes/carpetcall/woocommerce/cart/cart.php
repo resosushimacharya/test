@@ -65,7 +65,11 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 					<td class="product-thumbnail">
 						<?php
-							$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
+						
+							//$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
+							$feat_image  = cc_custom_get_feat_img($_product->id,'small');
+							
+							$thumbnail = '<img src="'.$feat_image.'">';
 
 							if ( ! $_product->is_visible() ) {
 								echo $thumbnail;

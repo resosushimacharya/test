@@ -19,7 +19,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 if ( $order ) : ?>
-
+<?php 
+$expres_txnid = get_post_meta($order->id,'_express_chekout_transactionid',true);
+if(!empty($expres_txnid)){
+	update_post_meta($order->id,'_payment_method','express_checkout');
+	update_post_meta($order->id,'_payment_method_title','Paypal Express Checkout');
+	}
+//do_action('pr',get_post_meta($order->id));
+?>
 	<?php if ( $order->has_status( 'failed' ) ) : ?>
 
 		<p class="woocommerce-thankyou-order-failed"><?php _e( 'Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction. Please attempt your purchase again.', 'woocommerce' ); ?></p>

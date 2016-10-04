@@ -186,9 +186,9 @@ while($loop->have_posts()){
 					$order->shipping_address_1,
 					$order->shipping_address_2,
 					$order->shipping_postcode,
-					$order->shipping_state,
+					strtoupper(substr($order->shipping_state),0,1),
 					$order->shipping_city,
-					$order->shipping_country,
+					'Australia',//$order->shipping_country,
 					'',
 					$order->billing_first_name,
 					$order->billing_last_name,
@@ -199,7 +199,7 @@ while($loop->have_posts()){
 					$order->billing_postcode,
 					$order->billing_state,
 					$order->billing_city,
-					$order->billing_country,
+					'Australia',//$order->billing_country,
 					$shipping_method,
 					$selected_store,
 					$selected_store_meta['wpsl_state'][0],
@@ -221,7 +221,7 @@ while($loop->have_posts()){
 					'',
 					'',
 					'',
-					$order->order_date,
+					date('d/M/Y, H:i:s',strtotime($order->order_date)),
 					'',
 					'',
 					'',
@@ -238,10 +238,23 @@ while($loop->have_posts()){
 					'',
 					$order->customer_note
  					);
+					
+					
+					$last_cat ='';
+					if($terms){
+						foreach($terms as $term){
+							if(is_last_cat($term->term_id)){
+								$last_cat = $term;
+								break;
+								}
+							}
+						}
+					
+					
 					$arrayCsv_rugs_ol[] = array(
 									get_the_ID(),
 									get_post_meta($post->ID,'_sku',true),
-									$lineItem['name'],
+									strtoupper($last_cat),
 									$lineItem['line_total'],
 									$lineItem['qty']
 									);
@@ -257,9 +270,9 @@ while($loop->have_posts()){
 					$order->shipping_address_1,
 					$order->shipping_address_2,
 					$order->shipping_postcode,
-					$order->shipping_state,
+					strtoupper(substr($order->shipping_state),0,1),
 					$order->shipping_city,
-					$order->shipping_country,
+					'Australia',//$order->shipping_country,
 					'',
 					$order->billing_first_name,
 					$order->billing_last_name,
@@ -270,7 +283,7 @@ while($loop->have_posts()){
 					$order->billing_postcode,
 					$order->billing_state,
 					$order->billing_city,
-					$order->billing_country,
+					'Australia',//$order->billing_country,
 					$shipping_method,
 					$selected_store,
 					$selected_store_meta['wpsl_state'][0],
@@ -292,7 +305,7 @@ while($loop->have_posts()){
 					'',
 					'',
 					'',
-					$order->order_date,
+					date('d/M/Y, H:i:s',strtotime($order->order_date)),
 					'',
 					'',
 					'',
@@ -312,7 +325,7 @@ while($loop->have_posts()){
 					$arrayCsv_hardflooring_ol[] = array(
 									get_the_ID(),
 									get_post_meta($post->ID,'_sku',true),
-									$lineItem['name'],
+									strtoupper($lineItem['name']),
 									$lineItem['line_total'],
 									$lineItem['qty']
 									);

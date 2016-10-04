@@ -314,8 +314,11 @@ if($top_cat == 'hard-flooring'){
 	);
 	}
 if($top_cat == 'carpets' || $top_cat == 'blinds' || $top_cat == 'awnings' || $top_cat == 'shutters'){
-	unset($tabs['additional_information']);
+	//unset($tabs['additional_information']);
+	$tabs['additional_information']['title'] = __( 'DETAILS' );	// Rename the additional information tab
+	$tabs['additional_information']['callback'] = 'woo_carpet_blinds_shutter_awning_detail_tab';
 	unset($tabs['ret_tab']);
+	
 	}
 	return $tabs;
 
@@ -576,8 +579,6 @@ function woo_new_product_tab_accesories() {
                             	 
                             <?php
 						}
-					
-					
 					?>
                     
                             
@@ -955,18 +956,29 @@ echo '<p>'.$d4.'</p>';
 		<ul class="specific-list">
 		<?php if(!empty($yarn)){?>
 		<li><span>Yarn Type : </span><?php echo $yarn; ?></li><?php }?>
-		<?php if(!empty($length) && !empty($width) && !empty($height)) {?>
+		<?php if(!empty($length) && !empty($width)) {?>
 		<li><span>Size : </span>
-        <span itemprop="width" itemscope itemtype="http://schema.org/QuantitativeValue">
- <span itemprop="value"><?php echo $width?></span>cm
+        
+<?php if(!empty($length)){?>
+<span itemprop itemscope itemtype="http://schema.org/QuantitativeValue">
+ <span itemprop="value"><?php echo $length?></span>cm
  <meta itemprop="unitCode" content="CMT">
-</span>x<span itemprop="height" itemscope itemtype="http://schema.org/QuantitativeValue">
- <span itemprop="value"><?php echo $height?></span>cm
- <meta itemprop="unitCode" content="CMT">
-</span><span itemprop itemscope itemtype="http://schema.org/QuantitativeValue">
- <span itemprop="value"><?php echo $length?></span>
- <meta itemprop="unitCode" content="CMT">
-</span>
+ </span>x
+ <?php } ?>
+<?php if(!empty($width)){?>
+    <span itemprop="width" itemscope itemtype="http://schema.org/QuantitativeValue">
+        <span itemprop="value"><?php echo $width?></span>cm
+        <meta itemprop="unitCode" content="CMT">
+    </span>
+ <?php } ?>
+ 
+<?php if(!empty($height)){?>
+<span itemprop="height" itemscope itemtype="http://schema.org/QuantitativeValue">
+     <span itemprop="value"><?php echo $height?></span>
+     <meta itemprop="unitCode" content="CMT">
+ </span>
+ <?php } ?>
+
 		</li>
 		<?php }?>
 		<?php if(!empty($weight)){?>
@@ -977,7 +989,16 @@ echo '<p>'.$d4.'</p>';
 		<?php }?>
 		</ul>
 		<?php 
-}?>
+}
+/*
+Function to show the details for carpets, blinds, shutters and awnings produtcs
+*/
+function woo_carpet_blinds_shutter_awning_detail_tab() {
+    global	$post;
+	$details = get_field('product_tab_description',$post->ID);
+	echo apply_filters('the_content',$details);
+}
+?>
 <?php 
 
 add_action( 'cc_woocommerce_single_product_summary', 'cc_woocommerce_single_product_summary_function');

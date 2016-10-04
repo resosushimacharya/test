@@ -30,15 +30,14 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 }
 
 ?>
-
 <div class="checkout-main-form-cntr">
 	<form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
 
 		<?php if ( sizeof( $checkout->checkout_fields ) > 0 ) : ?>
 
 			<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
-
-			<div class="col-1 checkout-form-sec billing-details-cntr">
+		<?php	if(empty( $wp->query_vars['order-received'] )){?>
+            <div class="col-1 checkout-form-sec billing-details-cntr">
 	          <h3><?php _e( 'Billing Details', 'woocommerce' ); ?><span class="checkout_next_prev_button">
 		              <a href="#checkout_customer_details" class="edit_section" style="display:none">Edit</a>
 		            </span></h3>
@@ -63,6 +62,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 		            </div>
 				</div>
 	        </div>
+        <?php }?>
 
 	        <div class="col-1 checkout-form-sec payment-options-cntr">
 		        <h3><?php _e( 'Payment Options', 'woocommerce' ); ?><span class="checkout_next_prev_button">
