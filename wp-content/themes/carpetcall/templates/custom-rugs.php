@@ -240,7 +240,7 @@ global $post;
                               <h3>Message</h3>
                             </div>
                           </div>
-                          <div class="form-group col-sm-12">
+                          <div class="form-group col-sm-12 enq-form-mes-cntr">
                             <textarea class="form-control" rows="5" id="cc_message" name="cc_message" placeholder="ENTER YOUR MESSAGE HERE"></textarea>
                             <div class="error_label"></div>
                           </div>

@@ -15,6 +15,9 @@
 		padding-right: 20px;
 		min-height: inherit
 	}
+	select, button, input{
+		border-radius: 0;
+	}
 	.wrap_body {
 		margin-top: 311px
 	}
@@ -2301,6 +2304,9 @@
 	}
 	.contact_block_cntr{
 		padding: 0 0 120px;
+	}
+	.review-form .contact_block_cntr{
+		padding-bottom: 0;
 	}
 	.review-form::after, .contact_block_cntr::after{
 		content:'';
