@@ -431,7 +431,7 @@ foreach($resList as $mainId){
       	 <?php  do_action( 'cc_custom_quantiy' );?>
         <div class="tick-list rugs-single-ticks">
           <ul>
-            <li>Price & satisfation guarantee</li>
+            <li>Price & satisfaction guarantee </li>
             <li>free delivery</li>
             <li>Stock held in Australia</li>
           </ul>
@@ -695,7 +695,7 @@ foreach($resList as $mainId){
                 </div></div>
 
                 
-                <div class="form-group col-sm-12">
+                <div class="form-group col-sm-12 contact-msg-cntr">
                 
                  <textarea class="form-control" rows="5" id="cc_message" name="cc_message" placeholder="ENTER YOUR MESSAGE HERE"></textarea>
                   <div class="error_label"></div>

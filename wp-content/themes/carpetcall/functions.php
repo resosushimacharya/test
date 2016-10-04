@@ -4,7 +4,7 @@
 * @subpackage carpetcall
 */
 show_admin_bar(true);
-
+define('DISABLE_WP_CRON', 'true');
 /*
   * register multiple ACF pages
   * Option pages :
@@ -82,9 +82,13 @@ echo '<pre>';
 }
 add_action('init','ses_set');
 function ses_set(){
- if (!session_id()){
+	//var_dump($_SERVER); die;
+	if(!empty($_SERVER["SCRIPT_FILENAME"]) && (strpos($_SERVER["SCRIPT_FILENAME"],'cc-order-export-cron.php')==false && strpos($_SERVER["SCRIPT_FILENAME"],'cc-import-cron.php')==false) ){
+		 if (!session_id()){
           session_start();
-      }
+		}
+	}
+
 }
 
 

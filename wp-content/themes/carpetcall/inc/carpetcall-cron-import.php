@@ -154,7 +154,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 		if(!term_exists( $slct, 'product_cat', $rootcatterm ))
 		{  
 			fwrite($import_fh, "\n"."\r".'Second Level Category: '.$slct.' created.'.PHP_EOL); 
-		   cc_category_second_level($slct ,$rootcatterm) ;
+		   category_second_level($slct ,$rootcatterm) ;
 		   category_third_level($tlct ,$slct);
 		   fwrite($import_fh, "\n"."\r".'Third Level Category: '.$tlct.' created.'.PHP_EOL); 
 		}
@@ -324,7 +324,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 		$rootcatterm   = ucwords($rootcatterm);*/
 		if(!term_exists( $slct, 'product_cat', $rootcatterm ))
 		{  
-		   cc_category_second_level($slct ,$rootcatterm) ;
+		   category_second_level($slct ,$rootcatterm) ;
 		   fwrite($import_fh, "\n"."\r".'Second Level Category: '.$slct.' created'.PHP_EOL);
 		   category_third_level($tlct ,$slct);
 		    fwrite($import_fh, "\n"."\r".'Third Level Category: '.$tlct.' created'.PHP_EOL);
@@ -474,8 +474,8 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 
 //add_action("admin_init",'cron_func_update');
 function cron_func_update(){
-
-$file = WP_CONTENT_DIR.'/mylog.txt';
+	
+	$file = WP_CONTENT_DIR.'/mylog.txt';
 $fh = fopen($file, "a");
 $new_log= 'CSV IMPORT Cron started at '.date("Y-m-d H:i:s");
 fwrite($fh, "\n"."\r".$new_log.PHP_EOL);
@@ -510,10 +510,20 @@ $errorflag = false;
 // to write a file and save in folder 
 $time = current_time('mysql');
 
+$server_path__=$_SERVER['DOCUMENT_ROOT'];
+if(empty($server_path__)){
+	if(!empty($_SERVER['SCRIPT_FILENAME']) && strpos($_SERVER['SCRIPT_FILENAME'],'cc-import-cron.php')!==false){
+		$paths__=explode('cc-import-cron.php',$_SERVER['SCRIPT_FILENAME']);
+		$server_path__=$paths__[0];
+	} 
+}
+
+
+
 if(strcasecmp($url[2],'localhost')==0){
-    $desfolder = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/history/';}
+    $desfolder = $server_path__.'/carpetcall/history/';}
 else{
-    $desfolder= $_SERVER['DOCUMENT_ROOT'].'/history/';
+    $desfolder= $server_path__.'/history/';
 }
 $time =  current_time('Y-m-d-H-i-s');
  $date =current_time('Y-m-d');
@@ -525,9 +535,9 @@ file_put_contents($newfilename, $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
 
 
 if(strcasecmp($url[2],'localhost')==0){
-    $directory = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/productfiles';}
+    $directory = $server_path__.'/carpetcall/productfiles';}
 else{
-    $directory = $_SERVER['DOCUMENT_ROOT'].'/productfiles';
+    $directory = $server_path__.'/productfiles';
 }
 
 $csc_rugs_flag=$csc_hardfloor_flag=false;
@@ -804,11 +814,21 @@ function cc_csv_conv_array($filename){
 	$url = site_url();
 $url = explode('/',$url);
 
-if(strcasecmp($url[2],'localhost')==0){
-    $desfolder = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/productfiles/';}
-else{
-    $desfolder= $_SERVER['DOCUMENT_ROOT'].'/productfiles/';
+
+$server_path__=$_SERVER['DOCUMENT_ROOT'];
+if(empty($server_path__)){
+	if(!empty($_SERVER['SCRIPT_FILENAME']) && strpos($_SERVER['SCRIPT_FILENAME'],'cc-import-cron.php')!==false){
+		$paths__=explode('cc-import-cron.php',$_SERVER['SCRIPT_FILENAME']);
+		$server_path__=$paths__[0];
+	}
 }
+
+if(strcasecmp($url[2],'localhost')==0){
+    $desfolder = $server_path__.'/carpetcall/productfiles/';}
+else{
+    $desfolder= $server_path__.'/productfiles/';
+}
+
 $filename = $desfolder.$filename;
 $file = fopen($filename,"r");
 $count_csv = 0;
@@ -857,16 +877,29 @@ function cc_res_csv_rugs ( $rugs_post_ids,$filename ) {
     }
     $url = site_url();
     $url = explode('/',$url);
+	
+	$server_path__=$_SERVER['DOCUMENT_ROOT'];
+	if(empty($server_path__)){
+		if(!empty($_SERVER['SCRIPT_FILENAME']) && strpos($_SERVER['SCRIPT_FILENAME'],'cc-import-cron.php')!==false){
+			$paths__=explode('cc-import-cron.php',$_SERVER['SCRIPT_FILENAME']);
+			$server_path__=$paths__[0];
+		}
+	}
+	
+	
     if(strcasecmp($url[2],'localhost')==0){
-        $desfolder = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/netcsvs/';
+        $desfolder = $server_path__.'/carpetcall/netcsvs/';
     }else{
-        $desfolder= $_SERVER['DOCUMENT_ROOT'].'/netcsvs/';
+        $desfolder= $server_path__.'/netcsvs/';
     }
         $time =  current_time('Y-m-d-h-i-s');
         $resfile = $desfolder.$filename.$time.'.csv';
     $fp = fopen($desfolder.$filename.$time.'.csv', 'w');
     foreach($new_rugs_ids as $writeline){
-        fputcsv($fp, $writeline);
+		if(is_array($writeline)){
+			fputcsv($fp, $writeline);
+		}
+        
 
     }
     fclose($fp);
@@ -901,10 +934,20 @@ function cc_res_csv_hards($hards_post_ids,$filename){
       }
       $url = site_url();
       $url = explode('/',$url);
+	  
+	  $server_path__=$_SERVER['DOCUMENT_ROOT'];
+	if(empty($server_path__)){
+		if(!empty($_SERVER['SCRIPT_FILENAME']) && strpos($_SERVER['SCRIPT_FILENAME'],'cc-import-cron.php')!==false){
+			$paths__=explode('cc-import-cron.php',$_SERVER['SCRIPT_FILENAME']);
+			$server_path__=$paths__[0];
+		}
+	}
+	  
+	  
       if(strcasecmp($url[2],'localhost')==0){
-          $desfolder = $_SERVER['DOCUMENT_ROOT'].'/carpetcall/netcsvs/';
+          $desfolder = $server_path__.'/carpetcall/netcsvs/';
       }else{
-          $desfolder= $_SERVER['DOCUMENT_ROOT'].'/netcsvs/';
+          $desfolder= $server_path__.'/netcsvs/';
       }
           $time =  current_time('Y-m-d-h-i-s');
       $resfile = $desfolder.$filename.$time.'.csv';

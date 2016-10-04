@@ -266,6 +266,7 @@ function deg2rad(deg) {
                             if(Number(title)<=0){
                                     var class__= "hide_info";
                             }
+                            asll = 'act';
                            
                         var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  act_modify'><h5>" + "ACT" +'</h5>'+ "<h6 >" + title +"</h6><div class='custom_icon_act'></div></div></div></a>";
                            
@@ -282,9 +283,11 @@ function deg2rad(deg) {
                             var tempnorthstr = "Northern territory";
                              if(asl.toUpperCase()==tempwesstr.toUpperCase()){
                                 asl = 'WA';
+                                asll = 'wa';
                              }
                              if(asl.toUpperCase()==tempnorthstr.toUpperCase()){
                                 asl = 'NT';
+                                asll ='nt';
                              }
                             var html = "<a href="+urlstore+asll+"><div class='map_info  "+class__+"' ><div class='contents'><h5>" + asl +'</h5>'+ "<h6 >" + title + " </h6><div class='custom_icon'></div></div></div></a>";
                            
