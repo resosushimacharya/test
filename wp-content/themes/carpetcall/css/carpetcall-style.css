@@ -2373,7 +2373,7 @@ select#cc-size {
 	border-bottom: 1px solid #d3ced2;
 	padding: 0;
 	font-size: 0;
-	height: 24px
+	height: 22px
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs li {
 	border-radius: 0;
@@ -2382,21 +2382,24 @@ select#cc-size {
 	border: 0;
 	margin: 0;
 	font-size: 16px;
-	padding: 0 30px;
+	padding: 0 5px;
+	height: 100%;
+	margin-right: 50px;
 	line-height: 18px
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs li:after {
 	content: '';
 	border: 0;
 	box-shadow: none;
-	width: 76%;
+	width: 100%;
 	left: 50%;
-	bottom: -7px;
+	top: 100%;
 	background: #09f;
-	height: 6px;
-	right: auto;
+	height: 6px;	
 	border-radius: 0;
-	display: none;
+	display: none;	
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
 	transform: translateX(-50%)
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active a, .woocommerce div.product .woocommerce-tabs ul.tabs li a:hover {
@@ -2409,10 +2412,10 @@ select#cc-size {
 	padding: 0
 }
 .woocommerce div.product .woocommerce-tabs .panel {
-	margin: 0 125px 45px 0;	
+	margin: 25px 125px 45px 0;	
 }
 .woocommerce div.product .woocommerce-tabs .panel#tab-additional_information{
-	padding-left: 15px;
+	/*padding-left: 15px;*/
 }
 div#tab-faq_tab {
 	margin-top: 20px
@@ -3049,7 +3052,7 @@ select#cc-enquiry-type {
 	font-size: 24px;
 	color: #15489f;
 	text-transform: uppercase;
-	padding: 27px 0 10px
+	padding: 30px 0 10px
 }
 #cc-store-form-section .form-group.col-sm-12 p {
 	font-family: proxima_nova_rgregular, sans-serif;
@@ -3162,7 +3165,7 @@ select#cc-state-type-only {
 .flsm-blk .col-sm-6:nth-child(1), .flsm-blk .col-sm-6:nth-child(2) {
 	width: 46.7%;
 	padding: 0;
-	margin: 17px 15px 20px 0
+	margin: 17px 15px 25px 0
 }
 .meroi-blka .col-sm-12:nth-child(1) {
 	width: 96%;
@@ -3172,7 +3175,7 @@ select#cc-state-type-only {
 .tela-blkb .col-sm-6:nth-child(1) {
 	width: 46.7%;
 	padding: 0;
-	margin: 20px 0 0
+	margin: 25px 0 0
 }
 .flsm-blk .form-group.col-sm-6 .form-control {
 	font-family: proxima_nova_ltsemibold, sans-serif;
@@ -4849,15 +4852,21 @@ a.btn-employment:hover {
 .single.single-product table.product_specifications_table tbody tr td {
 	width: 35%;
 	position: relative;
-	padding-left: 10px;
-	font-family: proxima_nova_ltsemibold
+    padding: 5px 0 5px 10px;
+    font-family: proxima_nova_ltsemibold;
+    text-transform: uppercase;
+    vertical-align: top
+}
+.single.single-product table.product_specifications_table tbody tr td:last-child{
+	font-family: proxima_nova_rgregular;
+	text-transform: none;
 }
 .single.single-product table.product_specifications_table tbody tr td.specs_value:before {
-	content: '\:';
-	font-family: FontAwesome;
+	content: '\:';	
 	font-size: 15px;
 	color: #666;
 	position: absolute;
+    font-family: 'proxima_nova_ltsemibold';
 	left: 0
 }
 .range_slider .slider {
@@ -5002,8 +5011,9 @@ div#error_max_msg {
 }
 .carpet_blinds_single_right .againlt ul li:before {
 	content: '-';
-	color: #666;
+	color: #989898;
 	position: absolute;
+    top: -2px;
 	left: 0
 }
 .carpet_blinds_single_right .againlt ul li {
@@ -5011,8 +5021,9 @@ div#error_max_msg {
 	display: block;
 	font-family: proxima_nova_rgregular, sans-serif;
 	font-size: 16px;
-	color: #666;
+	color: #989898;
 	margin-bottom: 0;
+	line-height: 1.2;
 	position: relative;
 	padding-left: 15px
 }

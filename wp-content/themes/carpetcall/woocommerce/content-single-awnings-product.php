@@ -392,7 +392,7 @@ if($reqTempTerms){
                 <input type="hidden" value="<?php echo $myemail;?>" class="btn-dn" id="send_email_address" name="send_email_address">
                 
                 <div class="ur-msg-title">
-                 <div class="form-group col-sm-12">
+                 <div class="form-group col-sm-12 enq-form-mes-cntr">
                 	
                 		<h3>Message</h3>
                 </div></div>
