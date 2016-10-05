@@ -170,7 +170,8 @@ if($reqTempTerms){
 		  //do_action('pr',get_permalink('55730'));
 		//  do_action('pr',$relprod->ID.'->'.get_permalink($relprod->ID));
 		  $stockcheck = get_post_meta($relprod->ID);
-         if(strcasecmp($stockcheck['_stock_status'][0],'instock')==0){ 
+		  $_product = new WC_Product($relprod->ID);
+         if($_product->is_in_stock()){ 
 		
 		
 		$imgflag = false;
@@ -216,7 +217,7 @@ if($reqTempTerms){
              
              
 		  <div class="select-design-product-image <?php echo  ($relprod->ID == $post->ID)?'pro-active':null?>"> 
-            <a href="<?php echo get_the_permalink($relprod->ID)?>" class="select_design">
+            <a href="<?php echo get_the_permalink($relprod->ID)?>" class="select_design" title="<?php echo strtoupper(str_replace('-','.',get_the_title($post->ID)))?>">
             <img class="cc-product_no_image" src="<?php echo $feat_image?>"> 
             <span class="selected-pro-name" style=""><?php echo $relprod->post_name;?></span>
             </a> 

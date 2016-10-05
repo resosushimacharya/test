@@ -1042,11 +1042,13 @@ function cc_custom_search($args){
 							//do_action('pr',$_product->stock.' '.$_product->get_formatted_name());
 							$found_count++;
 							$feat_image = cc_custom_get_feat_img(get_the_ID(),'medium');
-							if(has_term('rugs','product_cat',get_the_ID())){
+							$price = $woo['_price'][0];
+							/*if(has_term('rugs','product_cat',get_the_ID())){
 								$price=round($woo['_sale_price'][0]);
 								}else{
 									$price=round($woo['_regular_price'][0]);
 									}
+									*/
 							
 							
 							?>
@@ -1480,19 +1482,36 @@ Function to save the selected store for delivery during checkout in our order me
 */
 add_action('woocommerce_checkout_update_order_meta','save_delivery_option_cc');
 function save_delivery_option_cc($order_id){
-	if(!empty($_POST['pickup_store_id'])){
-		update_post_meta( $order_id, 'pickup_store_id', $_POST['pickup_store_id']);
+	global $woocommerce;
+	
+	
+	//do_action('pr',WC()->session->post_data);die;
+	$shipping_method = '';
+	if(!empty(WC()->session->post_data['cc_shipping_method'])){
+		$shipping_method = WC()->session->post_data['cc_shipping_method'];
+		}else if(!empty($_POST['cc_shipping_method'])){
+			$shipping_method = $_POST['cc_shipping_method'];
+		}
+		
+	$pickup_store_id = '';
+	if(!empty(WC()->session->post_data['pickup_store_id'])){
+		$pickup_store_id = WC()->session->post_data['pickup_store_id'];
+		}else if(!empty($_POST['pickup_store_id'])){
+			$pickup_store_id = $_POST['pickup_store_id'];
+		}
+	
+	if($pickup_store_id){
+		update_post_meta( $order_id, 'pickup_store_id', $pickup_store_id);
 		//cc_notify_selected_store($order_id);
 		}
-	if(!empty($_POST['cc_shipping_method'])){
-		$shipping_method = $_POST['cc_shipping_method'];
+	if($shipping_method){
 		$shipping_arr = array(	'local_delivery'=>'Local Delivery',
 								'store_pickup'=>'Pickup From Head Offices',
 								'pickup_n_deliver'=>'Pickup Hard Flooring and Deliver Rugs'
 								);
-		update_post_meta( $order_id, 'cc_shipping_method', $shipping_arr[$_POST['cc_shipping_method']]);
-	
-	}
+		update_post_meta( $order_id, 'cc_shipping_method', $shipping_arr[$shipping_method]);
+		//cc_notify_selected_store($order_id);
+		}
 		update_post_meta( $order_id, 'cc_order_date', strtotime("now"));
 	}
 
@@ -1938,7 +1957,7 @@ function atom_search_where($where){
   $category_filter=get_query_var('category_filter');
 
   if (is_search() || get_search_query()!=''){	  
-    $where .= "OR (t.name LIKE '%".get_search_query()."%' AND {$wpdb->posts}.post_status = 'publish' AND {$wpdb->posts}.post_type = 'product')";
+    $where .= " OR (t.name LIKE '%".get_search_query()."%' AND {$wpdb->posts}.post_status = 'publish' AND {$wpdb->posts}.post_type = 'product')";
 	//$where .=" AND t.term_id NOT IN({$acc_term_list}) ";
  
 	if(!empty($price)){
@@ -1950,8 +1969,8 @@ function atom_search_where($where){
 	}
 	
 	 }
-	
   return $where;
+  
 }
 
 function atom_search_join($join){
@@ -1978,12 +1997,11 @@ function atom_search_groupby($groupby){
   // wasn't empty, append ours
   return $groupby.", ".$groupby_id;
 }
-
-add_filter('posts_where','atom_search_where');
-add_filter('posts_join', 'atom_search_join');
-add_filter('posts_groupby', 'atom_search_groupby');
-
-
+if(!is_admin()){
+	add_filter('posts_where','atom_search_where');
+	add_filter('posts_join', 'atom_search_join');
+	add_filter('posts_groupby', 'atom_search_groupby');
+}
 
 
 //add_rewrite_rule('^shop-our-range/([^/]*)/([^/]*)/([^/]*)/([^/]*)?','index.php?&product=$matches[4]','top');

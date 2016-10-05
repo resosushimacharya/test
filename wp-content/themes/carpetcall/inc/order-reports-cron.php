@@ -59,6 +59,7 @@ $args = array(
 								)
 	
 							)
+							
 	
 	/*'date_query' => array(
      array(
@@ -174,6 +175,7 @@ while($loop->have_posts()){
 				setup_postdata($post);
 						
 				$terms = wp_get_object_terms( $post->ID, 'product_cat',array('fields'=>'slugs'));
+				$terms_obj = wp_get_object_terms( $post->ID, 'product_cat');
 				
 				if(array_intersect(array('rugs'),$terms)){
 					$arrayCsv_rugs_or[get_the_ID()] =array(
@@ -186,7 +188,7 @@ while($loop->have_posts()){
 					$order->shipping_address_1,
 					$order->shipping_address_2,
 					$order->shipping_postcode,
-					strtoupper(substr($order->shipping_state),0,1),
+					strtoupper(substr($order->shipping_state,0,1)),
 					$order->shipping_city,
 					'Australia',//$order->shipping_country,
 					'',
@@ -197,7 +199,7 @@ while($loop->have_posts()){
 					$order->billing_address_1,
 					$order->billing_address_2,
 					$order->billing_postcode,
-					$order->billing_state,
+					strtoupper(substr($order->billing_state,0,1)),//$order->billing_state,
 					$order->billing_city,
 					'Australia',//$order->billing_country,
 					$shipping_method,
@@ -242,14 +244,13 @@ while($loop->have_posts()){
 					
 					$last_cat ='';
 					if($terms){
-						foreach($terms as $term){
+						foreach($terms_obj as $term){
 							if(is_last_cat($term->term_id)){
-								$last_cat = $term;
+								$last_cat = $term->name;
 								break;
 								}
 							}
 						}
-					
 					
 					$arrayCsv_rugs_ol[] = array(
 									get_the_ID(),
@@ -270,7 +271,7 @@ while($loop->have_posts()){
 					$order->shipping_address_1,
 					$order->shipping_address_2,
 					$order->shipping_postcode,
-					strtoupper(substr($order->shipping_state),0,1),
+					strtoupper(substr($order->shipping_state,0,1)),
 					$order->shipping_city,
 					'Australia',//$order->shipping_country,
 					'',
@@ -281,7 +282,7 @@ while($loop->have_posts()){
 					$order->billing_address_1,
 					$order->billing_address_2,
 					$order->billing_postcode,
-					$order->billing_state,
+					strtoupper(substr($order->billing_state,0,1)),//$order->billing_state,
 					$order->billing_city,
 					'Australia',//$order->billing_country,
 					$shipping_method,
