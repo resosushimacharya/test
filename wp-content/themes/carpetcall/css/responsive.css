@@ -1,5 +1,5 @@
 @media only screen and (min-width:801px) {
-	.cc-carpet-subcat-list ul.guide_list_cbg {
+	.cc-carpet-subcat-list ul.guide_list_cbg, .banner .header-search-cntr {
 		display: block !important
 	}
 }
@@ -1165,7 +1165,7 @@
 		margin: 0 0 20px;
 		height: auto
 	}
-	.faq-cont-blka .cbg_content h2.sub_page_title, .wrap_body .inerblock_sec .cbg_content h2.sub_page_title {
+	.faq-cont-blka .cbg_content h2.sub_page_title, .wrap_body .inerblock_sec .cbg_content h2.sub_page_title, .child-guide-content h2, .child-guide-content .cbg_content h2 {
 		font-size: 36px;
 		margin-bottom: 25px
 	}
@@ -2915,6 +2915,12 @@
 	.cc-store-icon-label strong a, span.cc-cat-store-item-fax strong, span.cc-cat-store-item-phone strong, span.wpsl-hf-street-b strong, span.wpsl-hf-street-c strong {
 		font-size: 36px
 	}
+	.wpsl-info-window span strong{
+		font-size: 18px;
+	}
+	.cc-woo-order-phone a{
+		color: #666;
+	}
 	.cc-cat-store-item span, .cc-cat-store-section span.cc-cat-store-item-phone a, .cc-head-office-list-item span {
 		font-size: 32px;
 		line-height: 1.4
@@ -3030,7 +3036,7 @@
 		font-size: 36px
 	}
 	.opeaning_list {
-		color: #09f;
+		color: #666;
 		text-transform: uppercase;
 		font-family: proxima_nova_ltsemibold
 	}
@@ -3517,7 +3523,7 @@
 @media (max-width:800px) and (orientation:landscape) {
 	.banner {
 		position: relative;
-		overflow-x: hidden
+		/*overflow-x: hidden*/
 	}
 	.wrap_body {
 		margin-top: 0
@@ -5030,7 +5036,7 @@
 	.inerblock_serc_child.about-page {
 		margin: 0
 	}
-	.faq-cont-blka .cbg_content h2.sub_page_title, .wrap_body .inerblock_sec .cbg_content h2.sub_page_title {
+	.faq-cont-blka .cbg_content h2.sub_page_title, .wrap_body .inerblock_sec .cbg_content h2.sub_page_title, .child-guide-content h2, .child-guide-content .cbg_content h2 {
 		font-size: 22px;
 		margin-bottom: 20px
 	}

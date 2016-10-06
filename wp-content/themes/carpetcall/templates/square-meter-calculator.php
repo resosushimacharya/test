@@ -90,7 +90,7 @@
             <button class="btn btn-default pull-right" type="button" id="cancel_calc"  > Cancel </button>
           </div>
           <div class="col-md-6 no-pl">
-            <button class="btn btn-default" data-dismiss="modal" type="button" id="confirm_calc" > Confirm </button>
+            <button class="btn btn-default" type="button" id="confirm_calc" data-dismiss="modal" aria-hidden="true"> Confirm </button>
           </div>
         </div>
         <div class="row">

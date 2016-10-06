@@ -447,13 +447,20 @@ if(get_post_type() == 'product'){?>
             $('#nav-search-cntr').toggle();
         });
 
+
         $(document).click(function(event) { 
-            if(!$(event.target).closest('#nav-search-cntr').length && !$(event.target).closest('.top-search-icon').length) {
-                if($('#nav-search-cntr').is(":visible")) {
-                    $('.top-search-icon').removeClass('open-search');
-                    $('#nav-search-cntr').hide();
+            function closeSearch(){ 
+                if($(window).width() <= 800){
+                    if(!$(event.target).closest('#nav-search-cntr').length && !$(event.target).closest('.top-search-icon').length) {
+                        if($('#nav-search-cntr').is(":visible")) {
+                            $('.top-search-icon').removeClass('open-search');
+                            $('#nav-search-cntr').hide();
+                        }
+                    }        
                 }
-            }        
+            }
+            closeSearch();
+            window.addEventListener('resize', closeSearch);
         });
 
     });
