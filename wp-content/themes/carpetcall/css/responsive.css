@@ -19,7 +19,7 @@
 		border-radius: 0;
 	}
 	.wrap_body {
-		margin-top: 311px
+		margin-top: 205px
 	}
 	.slick-dotted.slick-slider {
 		margin-bottom: 0
@@ -95,13 +95,47 @@
 	.banner .cc-logo-cntr img {
 		width: 100%
 	}
+	.top-search-icon::after{
+		content: '';
+		display: table;
+		clear: both;
+	}
+	.top-search-icon{
+	    width: 70px;
+	    height: 105px;
+	    display: inline-block;
+	    text-align: center;
+	    position: relative;
+	    margin-right: 5px;
+	    vertical-align: top;
+	}
+	.top-search-icon.open-search {
+	    background: #09f;
+	}
+	.top-search-fa-icon {
+	    font-size: 40px;
+	    position: absolute;
+	    color: #fff;
+	    width: 70px;
+	    height: 105px;
+	    line-height: 105px;
+	    left: 0;
+	}
 	.banner .header-search-cntr {
-		width: auto;
-		padding: 0 20px;
-		margin: -6px 0 0
+		position: absolute;
+		left: 0;
+		right: 0;
+	    margin: 0;
+	    width: auto;
+	    display: none;
+	    background: #09f;
+	    padding: 25px 0;
+	    z-index: 9;
+	    top: 105px;
 	}
 	.searchm {
-		margin-top: 25px
+		margin-top: 0;
+		padding: 0 20px;
 	}
 	.searchm .input-group {
 		border: none
@@ -124,7 +158,7 @@
 		width: 11%
 	}
 	.navsrchblk {
-		margin-top: 30px
+		margin-top: 5px
 	}
 	.navsrchblk .col-md-12 {
 		padding: 0;
@@ -140,7 +174,7 @@
 		font-size: 0
 	}
 	.top-mobile-icons .top-cart-icon, .top-mobile-icons .top-map-icon {
-		height: 118px;
+		height: 105px;
 		width: auto;
 		margin: 0;
 		display: inline-block;
@@ -150,7 +184,7 @@
 		text-indent: -9999px;
 		width: 70px;
 		text-align: center;
-		height: 118px
+		height: 105px
 	}
 	.dropdown.click-open .dropbtn {
 		width: 70px
@@ -261,7 +295,7 @@
 	}
 	.mcrt {
 		margin: 0;
-		top: 40px
+		top: 35px
 	}
 	.mcrt img {
 		width: 45px;
@@ -283,7 +317,7 @@
 		position: absolute;
 		left: 0;
 		background: #fff;
-		top: 118px;
+		top: 105px;
 		width: 100%;
 		height: auto;
 		max-height: 600px
@@ -3603,7 +3637,7 @@
 }
 @media only screen and (max-width:599px) {
 	.wrap_body {
-		margin-top: 230px
+		margin-top: 155px
 	}
 	.cpyrt, .sfind address, .sfind address strong {
 		font-size: 14px
@@ -3647,17 +3681,28 @@
 		height: 22px;
 		width: 22px
 	}
-	.searchm {
-		margin-top: 15px
-	}
 	.input-group .form-control {
 		width: 86%
 	}
 	.searchm .input-group-btn {
 		width: 14%
 	}
-	.top-mobile-icons .top-cart-icon, .top-mobile-icons .top-map-icon {
+	.top-mobile-icons .top-cart-icon, .top-mobile-icons .top-map-icon, .top-search-fa-icon, .top-search-icon {
 		height: 80px
+	}
+	.top-search-fa-icon, .top-search-icon{
+		line-height: 80px;
+	}
+	.top-search-fa-icon{
+		line-height: 74px;
+	    font-size: 24px;
+	    width: 40px;
+	}
+	.banner .header-search-cntr{
+		top: 80px;
+	}
+	.top-search-icon{
+		width: 40px;
 	}
 	.top-mobile-icons .top-map-icon .dropbtn {
 		width: 40px;
@@ -3667,7 +3712,7 @@
 		width: 40px
 	}
 	.top-mobile-icons .top-map-icon button img {
-		width: 20px;
+		width: 18px;
 		margin-top: 5px !important
 	}
 	.dropdown-content {
@@ -3720,11 +3765,11 @@
 		top: 25px
 	}
 	.mcrt img {
-		width: 35px
+		width: 30px
 	}
 	.rnkct {
-		left: 25px;
-		top: -6px
+		left: 20px;
+		top: -7px
 	}
 	.rnkct .badge {
 		height: 18px;
@@ -3733,11 +3778,11 @@
 		font-size: 12px
 	}
 	ul#mywoosection ul.dropdown-menu {
-		top: 90px;
+		top: 80px;
 		max-height: 400px
 	}
 	ul#mywoosection li#woo_control>a {
-		padding: 0 20px 0 10px
+		padding: 0 15px 0 10px
 	}
 	.sitemap-wrap ul {
 		margin-left: 0
@@ -5346,7 +5391,7 @@
 }
 @media only screen and (max-width:420px) {
 	.wrap_body {
-		margin-top: 212px
+		margin-top: 140px
 	}
 	.cpyrt {
 		font-size: 14px
@@ -5387,8 +5432,9 @@
 		line-height: 50px
 	}
 	.banner .cc-logo-cntr {
-		max-width: 215px;
-		width: 215px
+		max-width: 200px;
+		width: 200px;
+		padding-right: 0;
 	}
 	.input-group-btn:last-child>.btn svg {
 		height: 20px;
@@ -5407,7 +5453,7 @@
 		margin-top: 0
 	}
 	.navsrchblk {
-		margin-top: 22px
+		margin-top: 0
 	}
 	#cssmenu>ul>li {
 		height: 60px;

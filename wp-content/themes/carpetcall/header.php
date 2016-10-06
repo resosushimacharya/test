@@ -266,7 +266,7 @@ if(get_post_type() == 'product'){?>
     <div class="container-fluid banner clearfix">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 cc-main-nav-cntr">
                     <div class="col-md-4 no-lr cc-logo-cntr">
                         <div class="logo">
                             <a href="<?php echo site_url(); ?>"> 
@@ -276,6 +276,9 @@ if(get_post_type() == 'product'){?>
                     </div><!-- logo end -->
 
                     <div class="top-mobile-icons mobile">
+                        <div class="top-search-icon">
+                            <i class="fa fa-search top-search-fa-icon"></i>
+                        </div>
                         <div class="top-map-icon">
                             
                         </div><!-- store finder end -->
@@ -284,7 +287,7 @@ if(get_post_type() == 'product'){?>
                         </div><!-- my cart end -->
                     </div>
 
-                    <div class="col-md-4 header-search-cntr">
+                    <div class="col-md-4 header-search-cntr" id="nav-search-cntr">
                         <div class="searchm">
                         
                         
@@ -411,7 +414,9 @@ if(get_post_type() == 'product'){?>
                 load_minicart();
                 jQuery('#after_dropdown').hide();
                 $('.storefinder_cntr').removeClass('click-open');
-                jQuery('#woo_control').show();                                 
+                $('.top-search-icon').removeClass('open-search');
+                $('#nav-search-cntr').hide();
+                jQuery('#woo_control').show();                                         
             });
         }
         cartDrop();
@@ -434,6 +439,23 @@ if(get_post_type() == 'product'){?>
           cloneCartDrop();
           window.addEventListener('resize', cloneCartDrop);
         }
+
+        $('.top-search-fa-icon').click(function(e){
+            jQuery('#after_dropdown').hide();
+            $('.storefinder_cntr').removeClass('click-open');
+            $(this).parent().toggleClass('open-search');
+            $('#nav-search-cntr').toggle();
+        });
+
+        $(document).click(function(event) { 
+            if(!$(event.target).closest('#nav-search-cntr').length && !$(event.target).closest('.top-search-icon').length) {
+                if($('#nav-search-cntr').is(":visible")) {
+                    $('.top-search-icon').removeClass('open-search');
+                    $('#nav-search-cntr').hide();
+                }
+            }        
+        });
+
     });
 
     var ajax_count = 0;

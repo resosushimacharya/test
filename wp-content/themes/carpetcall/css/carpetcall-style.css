@@ -4946,6 +4946,9 @@ div#error_max_msg {
 	margin-top: 0;
 	margin-bottom: 10px
 }
+.returns_text, .wc-tabs-wrapper{
+    color: #666
+}
 .wc-tabs-wrapper {
 	margin-bottom: 50px
 }
