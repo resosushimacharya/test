@@ -250,8 +250,6 @@ $(document).on('click','#confirm_calc',function(){
 		$('#error_max_msg').html('Insufficient stock.');
 	}
 	}
-
-	
 	
 });
 

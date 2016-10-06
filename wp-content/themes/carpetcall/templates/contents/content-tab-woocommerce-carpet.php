@@ -66,7 +66,7 @@ $list = get_field('buying_guide_archive',$faqid );
 
 			 <div class="panel-group single-produc-acc-cntr" id="single-product-acc">
 
-                <div class="panel panel-default">
+                <div class="panel panel-default carpets_blinds_details_tab">
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#single-product-acc" href="#collapseDetail"> Details

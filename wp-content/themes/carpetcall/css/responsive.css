@@ -2115,6 +2115,7 @@
 	.single-produc-acc-cntr .panel {
 		border: none;
 		padding: 0;
+		border-radius: 0;
 		border-bottom: 2px solid #dadada
 	}
 	.single-produc-acc-cntr .panel:first-child {
@@ -2208,6 +2209,25 @@
 	}
 	.single.single-product table.product_specifications_table tbody tr td:last-child:before {
 		display: none
+	}
+	.carpets_blinds_details_tab {
+	    font-size: 32px;
+	    line-height: 1.4;
+	    color: #666;
+	    margin-top: 15px;
+	}	
+	.carpets_blinds_details_tab h2{		
+	    font-size: 36px;	    	    
+	    margin-bottom: 30px;
+	}
+	.carpets_blinds_details_tab h2 span{
+		color: #09f !important;
+	}
+	.carpets_blinds_details_tab ul {
+	    padding-left: 25px;
+	    margin-top: 15px;
+	    margin-bottom: 20px;
+	    font-size: 32px;
 	}
 	.single.single-product .modal-dialog {
 		width: 100%;
@@ -3767,6 +3787,9 @@
 	.carpet_blinds_single_right h3.calspl.calspll a, .cc-cat-sub-price span, .hamro h3 {
 		font-size: 28px
 	}
+	.carpet_blinds_single_right h3.calspl.calspll a{
+		font-size: 26px;
+	}
 	h5.tryit.tryita {
 		margin-top: 20px
 	}
@@ -4289,12 +4312,15 @@
 		padding: 20px
 	}
 	.single-produc-acc-cntr .panel .panel-collapse h2, .single-produc-acc-cntr .panel .panel-collapse h3 {
-		font-size: 22px;
+		font-size: 18px;
 		margin-bottom: 15px
 	}
 	.single-produc-acc-cntr .panel .panel-collapse .panel-body p, ul.specific-list li {
-		font-size: 20px;
+		font-size: 16px;
 		margin: 0 0 20px
+	}
+	ul.specific-list li{
+		margin-bottom: 5px;
 	}
 	.single-produc-acc-cntr .panel .panel-body .panel-heading a {
 		padding: 10px 25px 10px 10px;
@@ -4303,6 +4329,14 @@
 	.single-produc-acc-cntr .panel .panel-body .panel-group .panel-body {
 		padding: 15px;
 		font-size: 17px
+	}
+	.carpets_blinds_details_tab {
+	    font-size: 16px;
+	}
+	.carpets_blinds_details_tab ul {
+	    padding-left: 18px;
+	    margin-top: 10px;
+	    font-size: 16px;
 	}
 	.cc-product-pick-location-section .modal-header {
 		padding: 50px 20px 30px

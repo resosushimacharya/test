@@ -2421,7 +2421,7 @@ div#tab-faq_tab {
 	margin-top: 20px
 }
 div#tab-additional_information p {
-	margin: 13px 0 24px
+	margin: 0 0 20px
 }
 .panel {
 	border: 0;
@@ -2434,7 +2434,7 @@ div#tab-additional_information p {
 	font-size: 18px;
 	color: #09f;
 	text-transform: uppercase;
-	margin: 41px 0 0
+	margin: 41px 0 20px
 }
 .detail-heading-item-spec {
 	margin: 36px 0 21px
@@ -4553,9 +4553,7 @@ div#calculator_container {
 	color: #fff
 }
 .single.single-product button#confirm_calc:hover {
-	border-color: #c32428;
-	background: 0 0;
-	color: #144a9f
+	background: #b01519;		
 }
 .single.single-product span.cc-cal-showup {
 	display: inline-block;
@@ -6419,5 +6417,28 @@ span.no_product {
     border-color: #f00;
 }
 label{
+	font-weight: normal;
+}
+.carpets_blinds_details_tab{
+	margin-top: 15px;
+}
+.carpets_blinds_details_tab h2{
+	font-family: proxima_nova_ltsemibold, sans-serif;
+    font-size: 18px;
+    color: #09f;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.carpets_blinds_details_tab h2 span{
+	color: #09f !important;
+}
+.carpets_blinds_details_tab ul {
+    padding-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: #666;
+}
+.carpets_blinds_details_tab strong{
+	font-family: proxima_nova_ltsemibold;
 	font-weight: normal;
 }
