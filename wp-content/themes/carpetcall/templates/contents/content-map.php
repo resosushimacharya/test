@@ -75,7 +75,7 @@ $posts = get_posts('post_type=wpsl_stores&wpsl_store_category=qld&posts_per_page
 
 <script>
  stoLLPTL=[];
- urlstore = <?php echo json_encode(site_url().'/store-category/');?>;
+ urlstore = <?php echo json_encode(site_url().'/find-a-store/');?>;
  //alert(urlstore);
 function getLocation() {
     if (navigator.geolocation) {
@@ -97,7 +97,6 @@ function showPosition(position) {
 }
  var locations = [
 <?php
-
  foreach ($locState as $lst): ?>
                 ['<?php echo $lst[1]; ?>', "<?php echo $lst[0]; ?>"],
     <?php endforeach; ?>
@@ -477,7 +476,6 @@ function deg2rad(deg) {
                             if(Number(title)<=0){
                                     var class__= "hide_info";
                             }
-                            
                            var html = "<a href="+urlstore+asll+"><div class='map_info xyz  "+class__+"'><div class='contents  nsw_modify'><h5>" + asl +'</h5>'+ "<h6 style='color:#000000 !important'>" + title  + "&nbsp;" + strdis +" </h6><div class='custom_icon_nsw'></div></div></div></a>";
                            
                             var right_=4;

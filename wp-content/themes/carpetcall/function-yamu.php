@@ -632,6 +632,20 @@ function loadmore_hf($args){
 				wp_reset_postdata();
 				$pch = 1;
 				$filloop = get_posts($filargs);
+				$banner_prods = array();
+				$slider_prods = array();
+				foreach($filloop as $key=>$post){
+					$_product = new WC_Product($post->ID);
+					if(!$_product->is_in_stock()){
+						unset($filloop[$key]);
+						}else{
+						 $banner_image = cc_get_banner_img($post->ID);
+                        if($banner_image){
+                            $banner_prods[$post->ID] = $banner_image;
+                        }
+                        $slider_prods[$post->ID] = cc_custom_get_feat_img($post->ID,'large');	
+							}
+					}
 				if(count($filloop) == 0){
 					$offset++;
 					if($offset < count($cat_arr)){
@@ -644,10 +658,13 @@ function loadmore_hf($args){
 				}
 				?>
 				<?php 
+				reset($filloop);
 				if($filloop !='' && count($filloop) > 0){
 					$found_count += count($filloop);
 					$current_cat = get_term_by('id',$discat->parent,'product_cat');
+					$first_prod_id = $filloop[0]->ID;
 					?>
+                    
 					<div class="row cc-cat-sub-title-price-cover">
 					<div class="col-md-6 cc-cat-sub-title">
 					<h4>
@@ -657,8 +674,53 @@ function loadmore_hf($args){
 					echo '<h3>'.$discat->name.'</h3><br/>';
 					?>
 					</div>
+                    
+                    <?php $res = get_post_meta($first_prod_id,'_price',true);?>
+                	<div class="col-md-6 cc-cat-sub-price">From <span>$<?php echo round($res)?></span></div>
+                </div>
+               		<div class="row cc-cat-sub-carousal-a">
+                	<div class="cat_slider">
+                    <?php if(!empty($banner_prods)){
+                        foreach($banner_prods as $postid=>$feat_image){
+							//unset($slider_prods[$postid()]);
+							?>
+                            <a href="<?php echo get_permalink($postid);?>">
+                                <div class="cat_slider_item ">
+                                <div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image;?>)"></div>
+                                </div>
+                                </a>
+                            <?php }
+                        }else{
+                            $slider_prods_five = array_slice($slider_prods,0,5,true);
+                            foreach($slider_prods_five as $postid=>$feat_image){?>
+                                <a href="<?php echo get_permalink($postid);?>">
+                                <div class="cat_slider_item ">
+                                <div class="cat_slider_item_image" style="background-image:url(<?php echo $feat_image;?>)"></div>
+                                </div>
+                                </a>
+                                <?php }
+                            ?>
+                            
+                        <?php }?>
+                    </div>
+                
+                 <div class=" cc-cat-sub-group-item">
+                 	<?php foreach($slider_prods as $postid=>$imgurl){
+						$feat_image  = cc_custom_get_feat_img($postid,'small','V');?>
+						<div class=" cc-other-term-pro">
+                        <div class="cc-img-wrapper">
+                            <div class="cat-item-group-image" style="background-image:url(<?php echo $feat_image;?>)">
+                                <a href ="<?php echo get_permalink($postid);?>" class="cc-pro-view">VIEW</a> 
+                            </div>
+                        </div>
+                    </div>
+					<?php }?>
+                 </div>   
+			</div>
+                
+                
 					<?php
-					
+					/*
 					if(!empty($filloop)){
 						$slidercounter = 1;
 						foreach($filloop as $post){
@@ -711,8 +773,9 @@ function loadmore_hf($args){
                         wp_reset_query(); ?>
                         </div>
 					<?php }
+					*/
 					?>
-					</div>
+				<!--	</div> -->
 				<?php }
 				?>
 				</div>
@@ -1049,11 +1112,7 @@ function cc_custom_search($args){
 									$price=round($woo['_regular_price'][0]);
 									}
 									*/
-							
-							
 							?>
-                            
-                            
                             
                             <div class="search_prod_wrapper col-md-4 clearfix">
                             <div class="search_result_inner_wrap">
@@ -1326,6 +1385,8 @@ add_action('wp_ajax_nopriv_get_nearby_stores','get_nearby_stores');
 function get_nearby_stores($args)
 {
   global $wpdb;
+  $only_headoffice =false;
+	  
 if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 	  if(isset($_POST['latitude'])){ 
 	  		$lat=$_POST['latitude'];
@@ -1340,6 +1401,9 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 	  $lat=isset($args['latitude'])?$args['latitude']:'';
 	  $long=isset($args['longitude'])?$args['longitude']:'';
 	  $address = isset($args['address'])?str_replace(' ','+',$args['address']):'';
+	  if(isset($args['only_headoffice']) && $args['only_headoffice'] == 'yes'){
+		  $only_headoffice = true;
+		  }
 	}
 if($lat==''|| $long == '' && $address !=''){
 	$geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$address.'&sensor=false');
@@ -1354,7 +1418,16 @@ if($lat==''|| $long == '' && $address !=''){
     'posts_per_page'=>'-1'
     );
 
-
+if($only_headoffice){
+	$meta_query = array(
+						array(
+							'key'=>'store_type',
+							'value'=>'head_office',
+							'compare'=>'!='
+							)
+						);
+	$backarg['meta_query'] = $meta_query;
+	}
   $loop= new WP_Query($backarg);
   while($loop->have_posts()){
   $loop->the_post();?>
@@ -1769,6 +1842,14 @@ function cc_get_banner_img($post_id){
 			$feat_image = content_url('uploads/images/large/'.$image_name);
 		}
 	}
+	else if(has_term('hard-flooring','product_cat',$post_id)){
+		$sku = get_post_meta($post_id,'_sku',true);
+		$image_name = strtoupper($sku).'_LB.jpg';
+		$img_path =  WP_CONTENT_DIR.'/uploads/images/large/'.$image_name;
+		if(file_exists($img_path)){
+			$feat_image = content_url('uploads/images/large/'.$image_name);
+		}
+	}
 	return $feat_image;
 }
 
@@ -1997,11 +2078,10 @@ function atom_search_groupby($groupby){
   // wasn't empty, append ours
   return $groupby.", ".$groupby_id;
 }
-if(!is_admin()){
-	add_filter('posts_where','atom_search_where');
-	add_filter('posts_join', 'atom_search_join');
-	add_filter('posts_groupby', 'atom_search_groupby');
-}
+
+	//add_filter('posts_where','atom_search_where');
+	//add_filter('posts_join', 'atom_search_join');
+	//add_filter('posts_groupby', 'atom_search_groupby');
 
 
 //add_rewrite_rule('^shop-our-range/([^/]*)/([^/]*)/([^/]*)/([^/]*)?','index.php?&product=$matches[4]','top');

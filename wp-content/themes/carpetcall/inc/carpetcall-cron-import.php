@@ -231,9 +231,9 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 		update_post_meta($new_post_id,'care_instructions',$csv[12]);   
 		update_post_meta( $new_post_id, '_weight', $weight );
 		//update_post_meta( $new_post_id, '_weight', $csv[15] );
-		update_post_meta( $new_post_id, '_regular_price', round($regular_price)  );
-		update_post_meta( $new_post_id, '_sale_price', round($sale_price) );
-		update_post_meta( $new_post_id, '_price', round($actual_price) );
+		update_post_meta( $new_post_id, '_regular_price', floor($regular_price)  );
+		update_post_meta( $new_post_id, '_sale_price', floor($sale_price) );
+		update_post_meta( $new_post_id, '_price', floor($actual_price) );
 		
 		update_post_meta($new_post_id,'state',$csv[0]);
 		update_post_meta( $new_post_id, '_visibility', 'visible' );
@@ -436,10 +436,10 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
        $width  =  str_replace("mm","",$csv[13]);
        $length  = str_replace("mm","",$csv[12]);
        $thick = str_replace("mm","",$csv[15]);
-		update_post_meta( $new_post_id, '_regular_price', round($regular_price) );
-		update_post_meta( $new_post_id, '_sales_price', round($regular_price) );
+		update_post_meta( $new_post_id, '_regular_price', floor($regular_price) );
+		update_post_meta( $new_post_id, '_sales_price', floor($regular_price) );
 		
-		update_post_meta( $new_post_id, '_price', round($regular_price) );
+		update_post_meta( $new_post_id, '_price', floor($regular_price) );
 		update_post_meta($new_post_id,'state',$csv[0]);
 		update_post_meta( $new_post_id, '_visibility', 'visible' );
 		update_post_meta( $new_post_id, '_length', $length);

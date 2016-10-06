@@ -996,7 +996,7 @@ Function to show the details for carpets, blinds, shutters and awnings produtcs
 function woo_carpet_blinds_shutter_awning_detail_tab() {
     global	$post;
 	$details = get_field('product_tab_description',$post->ID);
-	echo apply_filters('the_content',$details);
+	echo '<div class="carpets_blinds_details_tab>"'.apply_filters('the_content',$details).'</div>';
 }
 ?>
 <?php 
