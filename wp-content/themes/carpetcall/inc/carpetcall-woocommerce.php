@@ -400,8 +400,8 @@ $list = get_field('buying_guide_archive',$faqid );
     <div class="panel-heading">
       <h4 class="panel-title">
         <a class="accordion-toggle <?php echo ($faqcounter==1)?'first-acc-cat':'collapsed';?>  " data-toggle="collapse" data-parent="#accordion_<?php echo $faqcounter;?> " href="#collapse_<?php echo $faqcounter;?>">
-            <span class="pull-right glyphicon glyphicon glyphicon-chevron-down " ></span>	
-			<span class="pull-right glyphicon glyphicon-chevron-up"></span>
+            <span class="pull-right glyphicon glyphicon-chevron-down " ></span>	
+			
 
           <?php echo $listitem['title'];?>
         </a>
@@ -466,8 +466,7 @@ function woo_new_product_tab_accesories() {
                     <div class="panel-heading">
             <h4 class="panel-title">
                 <a class="accordion-toggle <?php echo ($count==1)?'first-acc-cat':'collapsed' ;?> " data-toggle="collapse" data-parent="#accordion" href="#collapse_<?php echo $acc_cat->term_id;?>">
-               <span class="pull-right glyphicon glyphicon glyphicon-chevron-down " ></span>	
-			<span class="pull-right glyphicon glyphicon-chevron-up"></span>
+               <span class="pull-right glyphicon glyphicon-chevron-down " ></span>	
                 <?php echo $acc_cat->name;?>
                 </a>
             </h4>

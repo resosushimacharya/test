@@ -65,6 +65,23 @@ $list = get_field('buying_guide_archive',$faqid );
 
 
 			 <div class="panel-group single-produc-acc-cntr" id="single-product-acc">
+
+                <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#single-product-acc" href="#collapseDetail"> Details
+                        </a>
+                    </h4>
+                </div>
+                                    <div id="collapseDetail" class="panel-collapse collapse ">
+                                        <div class="panel-body">    <?php 
+                    $details = get_field('product_tab_description',$post->ID);
+                    if(!empty($details)){
+                        echo $details;
+                    } ?></div>
+                </div>
+            </div>
+
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">

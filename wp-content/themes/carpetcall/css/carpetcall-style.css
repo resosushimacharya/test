@@ -1231,7 +1231,7 @@ ul.guide_list .fa {
 .cbg_content h5 {
 	margin-bottom: 22px
 }
-.cbg_content h5 span strong, .faq-cont-blka .cbg_content h2.sub_page_title, .wrap_body .inerblock_sec .cbg_content h2.sub_page_title {
+.cbg_content h5 span strong, .faq-cont-blka .cbg_content h2.sub_page_title, .wrap_body .inerblock_sec .cbg_content h2.sub_page_title, .child-guide-content h2, .child-guide-content .cbg_content h2 {
 	font-family: proxima_nova_ltsemibold, sans-serif;
 	font-size: 18px;
 	color: #09f
@@ -4645,6 +4645,9 @@ a.btn-employment:hover {
 .cc-pro-det-fb .accordion-toggle.collapsed .glyphicon-chevron-up, .woocomerce_dropdown #cc-mini-cart-cntr, a.clear_color_selection {
 	display: none
 }
+/*.cc-pro-det-fb .accordion-toggle .glyphicon-chevron-up{
+	display: none;
+}*/
 .cc-quantiy-section .cc-smc-underline {
 	border-bottom: 1px solid #a8bee5;
 	padding-bottom: 17px;

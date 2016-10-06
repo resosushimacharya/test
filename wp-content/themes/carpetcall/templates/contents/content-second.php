@@ -150,7 +150,7 @@ if(have_posts()):
          foreach($res as $rs){
                   	$i++;?>
 
-                      <h3 id="<?php echo "guide_item_".$i; ?>" class="sub_page_title"><?php echo $rs['title'];?></h3>
+                      <h2 id="<?php echo "guide_item_".$i; ?>" class="sub_page_title"><?php echo $rs['title'];?></h2>
                       <p> <?php echo $rs['description'];?></p>
                   <?php  } 
               }

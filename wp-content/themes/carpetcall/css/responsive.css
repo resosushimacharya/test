@@ -716,8 +716,11 @@
 		padding: 0 20px;
 		margin-top: 90px
 	}
+	.hamro_trade .idea-:first-child .measr_cnt {
+	    margin-top: 55px;
+	}
 	.measr_cnt p {
-		line-height: 1.2
+		line-height: 1.4
 	}
 	.find_tb {
 		margin-bottom: 0;
@@ -1109,6 +1112,19 @@
 		font-style: italic;
 		font-size: 32px
 	}
+	.about-us-pages-cntr .cbg_content ol li, .about-us-pages-cntr .cbg_content ul li, .about-us-pages-cntr div#right_col ol li {
+	    font-size: 32px;
+	    line-height: 1.4;
+	    margin-bottom: 10px;
+	}
+	.about-us-pages-cntr .cbg_content ol li a, .about-us-pages-cntr .cbg_content ul li a, .about-us-pages-cntr div#right_col ol li a{
+		color: #666;
+		font-style: normal;
+	}
+	.about-us-pages-cntr .cbg_content ol, .about-us-pages-cntr .cbg_content ul, .about-us-pages-cntr div#right_col ol {
+	    margin-left: 0;
+	    padding-left: 30px;
+	}
 	img.alignright {
 		float: none;
 		width: 100%;
@@ -1203,7 +1219,7 @@
 		text-align: center
 	}
 	#main.sec_head_cntr p {
-		line-height: 36px
+		line-height: 1.4
 	}
 	.body-wrapper .gpf-block {
 		margin: 35px 0 0
@@ -1787,7 +1803,13 @@
 	}
 	.cc-cat-sub-desc-sec {
 		text-align: left;
+		line-height: 1.4;
 		padding: 0 50px
+	}
+	.cc-cat-sub-desc-sec ul{
+		margin-left: 0;
+		padding-left: 30px;
+		margin-bottom: 15px;
 	}
 	.cc-cat-sub-desc-sec h3 {
 		margin-bottom: 40px
@@ -2843,6 +2865,9 @@
 		font-size: 32px;
 		line-height: 1.4
 	}
+	.cc-head-office-list-item span.wpsl-hf-street-c a{
+		color: #666;
+	}
 	.cc-cat-store-item .cc-phone-fax-wrapper, .cc-cat-store-item .cc-store-map-last-cover, .cc-head-office-list-item .cc-phone-fax-wrapper, .page-template-find-a-store .cc-store-map-last-cover {
 		height: auto
 	}
@@ -2928,7 +2953,7 @@
 	.cc-storef-phnum {
 		margin-bottom: 5px
 	}
-	.cc-single-wpsl-ccstore span.cc-cat-store-item-fax, .cc-single-wpsl-ccstore span.cc-cat-store-item-phone a {
+	.cc-single-wpsl-ccstore span.cc-cat-store-item-fax, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax a, .cc-single-wpsl-ccstore span.cc-cat-store-item-phone a {
 		line-height: 1;
 		font-size: 32px
 	}
@@ -4024,6 +4049,9 @@
 	#myModal .modal-body, .cc-cat-sub-desc-sec {
 		padding: 0 20px
 	}
+	.cc-cat-sub-desc-sec ul{
+		padding-left: 20px;
+	}
 	.cc-cat-sub-desc-sec h3 {
 		margin-bottom: 30px
 	}
@@ -4704,7 +4732,7 @@
 	.cc-single-wpsl-ccstore {
 		margin-top: 50px
 	}
-	.cc-single-wpsl-ccstore span.cc-cat-store-item-fax, .cc-single-wpsl-ccstore span.cc-cat-store-item-phone a {
+	.cc-single-wpsl-ccstore span.cc-cat-store-item-fax, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax a, .cc-single-wpsl-ccstore span.cc-cat-store-item-phone a {
 		line-height: 1.4;
 		font-size: 18px
 	}
@@ -4848,6 +4876,17 @@
 		font-size: 18px;
 		line-height: 30px
 	}
+	.about-us-pages-cntr .cbg_content ol li, .about-us-pages-cntr .cbg_content ul li, .about-us-pages-cntr div#right_col ol li {
+	    font-size: 18px;
+	    line-height: 30px;	    
+	}
+	.about-us-pages-cntr .cbg_content ol, .about-us-pages-cntr .cbg_content ul, .about-us-pages-cntr div#right_col ol {	    
+	    padding-left: 20px;
+	}
+	.about-us-pages-cntr .cbg_content p.sub_page_title{
+		font-size: 18px;	
+		line-height: 1.4;	
+	}
 	.cc-mobile-blk, .search_list_wrapper .search_prod_wrapper .sublk_prom .nowsp {
 		margin-top: 10px
 	}
@@ -4913,7 +4952,7 @@
 		margin: 0
 	}
 	.faq-cont-blka .cbg_content h2.sub_page_title, .wrap_body .inerblock_sec .cbg_content h2.sub_page_title {
-		font-size: 24px;
+		font-size: 22px;
 		margin-bottom: 20px
 	}
 	.about-us-pages-cntr p a, .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h4, .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h5 {

@@ -282,7 +282,7 @@ function recaptchaCallbackone(){
   <ul class="tabs wc-tabs">
     <li class="additional_information_tab active"> <a href="#tab-additional_information">DETAILS</a> </li>
   </ul>
-  <div class="panel entry-content wc-tab" id="tab-additional_information" style="display: block;">
+  <div class="panel entry-content wc-tab tab-detail-info" id="tab-additional_information" style="display: block;">
   <?php echo apply_filters('the_content',get_the_content())?>
   </div>
 </div>
