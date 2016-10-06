@@ -42,13 +42,16 @@
 				$prepAddr = str_replace(' ','+',$address);
 				$geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&sensor=false');
 				$output= json_decode($geocode);
+				if(!empty($output->results)){
 				$latitude = $output->results[0]->geometry->location->lat;
 				$longitude = $output->results[0]->geometry->location->lng;
-				
-				
-				$nearby_stores_html = get_nearby_stores(array('latitude'=>$latitude,'longitude'=>$longitude));
+				$nearby_stores_html = get_nearby_stores(array('latitude'=>$latitude,'longitude'=>$longitude,'store_type'=>$store_type));
+					
 					}else{
-					$nearby_stores_html = get_nearby_stores(array('address'=>'Sydney Australia'));
+				$nearby_stores_html = get_nearby_stores(array('address'=>'Sydney Australia','store_type'=>$store_type));
+						}
+					}else{
+						$nearby_stores_html = get_nearby_stores(array('address'=>'Sydney Australia','store_type'=>$store_type));
 					}
 		
 	

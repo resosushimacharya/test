@@ -242,7 +242,7 @@ while($loop->have_posts()){
 					'',
 					'',
 					'',
-					'',
+					get_post_meta($order->id,'atl',true),
 					$order->customer_note
  					);
 					
@@ -325,7 +325,7 @@ while($loop->have_posts()){
 					'',
 					'',
 					'',
-					'',
+					get_post_meta($order->id,'atl',true),
 					$order->customer_note
  					);
 					$arrayCsv_hardflooring_ol[] = array(

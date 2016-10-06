@@ -37,12 +37,24 @@ global $woocommerce, $product;
 	-->
     </div>
 </div>
-
+<?php 
+$store_type = 'owned_store';?>
+<input type="hidden" name="store_type" value="<?php echo $store_type?>" id="store_type">
 	<div class="rugs_store_pickup_list">
-	<?php get_template_part( 'templates/delivery/pickup_closest', 'office' );?>
+    
+	<?php 
+	//$store_type = 'head_office';
+	include_once(get_template_directory().'/templates/delivery/pickup_closest-office.php');
+	//get_template_part( 'templates/delivery/pickup_closest', 'office' );?>
 	</div>
+    
 
-	<div class="shipping_needed_checkout" style="opacity:0; height: 0;overflow: hidden; visibility:hidden"><?php do_action( 'woocommerce_checkout_shipping' ); ?></div>
+	<div class="shipping_needed_checkout" style="opacity:0; height: 0;overflow: hidden; visibility:hidden">
+	<p>
+            <input type="checkbox" name="atl" id="atl">
+            <label>Authority to Leave See Terms and Conditions for Full Details</label>
+        </p>
+		<?php do_action( 'woocommerce_checkout_shipping' ); ?></div>
 	
 </div>
 <script type="text/javascript">

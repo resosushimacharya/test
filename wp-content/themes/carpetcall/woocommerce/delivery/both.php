@@ -10,6 +10,9 @@
 			
 			?> 
 		</div>
+        <?php 
+$store_type = 'head_office';?>
+<input type="hidden" name="store_type" value="<?php echo $store_type?>" id="store_type">
 		<div class="delivery_option_item">
 				<?php
 				woocommerce_form_field("cc_shipping_method", array(
@@ -22,9 +25,13 @@
 		</div>
 	</div>
 
-	<?php get_template_part( 'templates/delivery/pickup_head', 'office' );?>
-
+	<?php 
+	include_once(get_template_directory().'/templates/delivery/pickup_head-office.php');?>
 	<div class="shipping_needed_checkout" style="display:none">
+    	<div class="atl_wrap">
+            <input type="checkbox" name="atl" id="atl">
+            <label>Authority to Leave See Terms and Conditions for Full Details</label>
+        </div>
 		<?php do_action( 'woocommerce_checkout_shipping' ); ?>
 	</div>
 </div>
