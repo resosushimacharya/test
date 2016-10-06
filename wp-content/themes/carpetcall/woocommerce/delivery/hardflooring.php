@@ -15,9 +15,15 @@
 -->
 </div>
 </div>
-
+<?php 
+$store_type = 'head_office';?>
+<input type="hidden" name="store_type" value="<?php echo $store_type?>" id="store_type">
 <div class="pickup_head_offices_list">
-<?php get_template_part( 'templates/delivery/pickup_head', 'office' );?>
+
+<?php 
+include_once(get_template_directory().'/templates/delivery/pickup_head-office.php');?>
+    <input type="hidden" name="store_type" value="<?php echo $store_type?>" id="store_type">
+
 </div>
 </div>
 

@@ -1385,8 +1385,8 @@ add_action('wp_ajax_nopriv_get_nearby_stores','get_nearby_stores');
 function get_nearby_stores($args)
 {
   global $wpdb;
-  $only_headoffice =false;
-	  
+  $store_type = ''; 
+  $lat = $long = ''; 
 if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 	  if(isset($_POST['latitude'])){ 
 	  		$lat=$_POST['latitude'];
@@ -1397,33 +1397,40 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 	  if(isset($_POST['address'])){
 		  $address = str_replace(' ','+',$_POST['address']);
 		  }
+	  if(isset($_POST['store_type'])){
+		  $store_type = $_POST['store_type'];
+		  }
 	}else{
 	  $lat=isset($args['latitude'])?$args['latitude']:'';
 	  $long=isset($args['longitude'])?$args['longitude']:'';
 	  $address = isset($args['address'])?str_replace(' ','+',$args['address']):'';
-	  if(isset($args['only_headoffice']) && $args['only_headoffice'] == 'yes'){
-		  $only_headoffice = true;
+	  if(isset($args['store_type'])){
+		  $store_type = $args['store_type'];
 		  }
 	}
 if($lat==''|| $long == '' && $address !=''){
-	$geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$address.'&sensor=false');
+		$geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$address.'&sensor=false');
         $output= json_decode($geocode);
-        $lat = $output->results[0]->geometry->location->lat;
-        $long = $output->results[0]->geometry->location->lng;
+		if(!empty($output->results)){
+			$lat = $output->results[0]->geometry->location->lat;
+			$long = $output->results[0]->geometry->location->lng;
+		}else{
+			$geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address=Sydney+Australia&sensor=false');
+			 $output= json_decode($geocode);
+			$lat = $output->results[0]->geometry->location->lat;
+			$long = $output->results[0]->geometry->location->lng;
+			}
 	}
-
 	$a=array();
      $myArrays= array();
   	$backarg=array('post_type'=>'wpsl_stores',
     'posts_per_page'=>'-1'
     );
-
-if($only_headoffice){
+if($store_type!=''){
 	$meta_query = array(
 						array(
 							'key'=>'store_type',
-							'value'=>'head_office',
-							'compare'=>'!='
+							'value'=>$store_type,
 							)
 						);
 	$backarg['meta_query'] = $meta_query;
@@ -1432,7 +1439,6 @@ if($only_headoffice){
   while($loop->have_posts()){
   $loop->the_post();?>
     <?php 
-  
    $loc = get_post_meta(get_the_ID());
     $latitude2=$loc['wpsl_lat'][0];
       $longitude2=$loc['wpsl_lng'][0];
@@ -1443,7 +1449,6 @@ if($only_headoffice){
         $latlongloc = getDistanceBetweenPointsNew($lat, $long, $latitude2, $longitude2,'Km');
         $myArrays[get_the_ID()]=array('address'=>$loc['wpsl_address'][0],'city'=>$loc['wpsl_city'][0],'state'=>$loc['wpsl_state'][0],'zip'=>$loc['wpsl_zip'][0],'distance'=>$latlongloc,'title'=>get_the_title(),'id'=>get_the_ID()); ?>
         <?php }
- 
 }
 wp_reset_query();
 function sortByOrder($a, $b) {
@@ -1572,7 +1577,20 @@ function save_delivery_option_cc($order_id){
 		}else if(!empty($_POST['pickup_store_id'])){
 			$pickup_store_id = $_POST['pickup_store_id'];
 		}
-	
+		
+	$atl = '';
+	if(!empty(WC()->session->post_data['atl'])){
+		$atl = WC()->session->post_data['atl'];
+		}else if(!empty($_POST['atl'])){
+			$atl = $_POST['atl'];
+		}
+
+	if($atl=='on'){
+		update_post_meta( $order_id, 'atl', 1);
+		//cc_notify_selected_store($order_id);
+		}else{
+			update_post_meta( $order_id, 'atl', 0);
+			}
 	if($pickup_store_id){
 		update_post_meta( $order_id, 'pickup_store_id', $pickup_store_id);
 		//cc_notify_selected_store($order_id);
