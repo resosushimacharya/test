@@ -5618,7 +5618,7 @@ label.inner-radio-label:after {
 .inner-check-label {
 	height: 24px;
 	width: 24px;
-	border: 1px solid #f0f2f1;
+	border: 2px solid #909090;
 	position: relative;
 	margin: 0 20px 0 0
 }
@@ -5628,8 +5628,8 @@ label.inner-check-label.radio-check-label:after {
 	font-family: FontAwesome;
 	font-size: 16px;
 	color: #c32327;
-	left: 4px;
-	top: -2px
+	left: 3px;
+	top: -3px
 }
 #ship-to-different-address {
 	margin-bottom: 20px !important
@@ -6441,4 +6441,53 @@ label{
 .carpets_blinds_details_tab strong{
 	font-family: proxima_nova_ltsemibold;
 	font-weight: normal;
+}
+.atl_wrap{
+	margin-top: 20px;
+	position: relative;
+}
+.atl_wrap input[type="checkbox"]{
+	opacity: 0;
+	position: absolute;
+	height: 24px;
+	width: 24px;
+	z-index: 1;
+	top: 4px;
+	left: 0;
+	margin: 0;
+}
+.atl_wrap label{
+	position: relative;	
+    font-family: proxima_nova_rgregular;
+    font-size: 16px;
+    color: #666;
+}
+.atl_wrap label::before{
+	content: '';
+	width: 24px;
+	height: 24px;
+	margin-right: 25px;
+    border: 2px solid #909090;
+    position: relative;   
+    top: 5px; 
+    display: inline-block;
+}
+.atl_wrap label::after{
+	content: '\f00c';
+    position: absolute;
+    font-family: FontAwesome;
+    font-size: 16px;
+    color: #c32327;
+    left: 5px;
+    top: 5px;
+    opacity: 0
+}
+.atl_wrap input[type="checkbox"]:checked + label::after{
+	opacity: 1
+}
+.delivery-options-cntr .nearstore{
+	padding-bottom: 0;
+}
+.delivery-options-cntr .nearstore .cc-pul-headoff{
+	margin: 0;
 }

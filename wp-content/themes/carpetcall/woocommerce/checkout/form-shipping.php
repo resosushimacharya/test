@@ -38,7 +38,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <h3 id="ship-to-different-address">
             <label for="ship-to-different-address-checkbox" class="checkbox"><?php _e( 'Ship to a different address?', 'woocommerce' ); ?></label>
             <span class="ship_to_shipping">
-            <input id="ship-to-different-address-checkbox" class="input-checkbox" <?php checked( $ship_to_different_address, 1 ); ?> type="checkbox" name="ship_to_different_address" value="1" /> Ship to Different Address</span>
+            <div class="atl_wrap">
+            	<input id="ship-to-different-address-checkbox" class="input-checkbox" <?php checked( $ship_to_different_address, 1 ); ?> type="checkbox" name="ship_to_different_address" value="1" /> 
+            	<label>Ship to Different Address</label>
+            </div>
 		</h3>
 
 		<div class="shipping_address">
