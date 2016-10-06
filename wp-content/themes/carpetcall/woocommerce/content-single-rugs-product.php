@@ -260,7 +260,9 @@ foreach($bundle as $key=>$value){
 	}
 	*/
 	$stockcheck = get_post_meta($post->ID);
-	if(strcasecmp($stockcheck['_stock_status'][0],'instock')==0 && $count == 1){
+	 $_product = new WC_Product($relprod->ID);
+         if($_product->is_in_stock() && $count == 1){ 
+	//if(strcasecmp($stockcheck['_stock_status'][0],'instock')==0 && $count == 1){
 		$count++;
 		?>
 		<div class="select-design-product-image <?php echo (array_key_exists($post->ID,$bundle))?'pro-active':null;?>">

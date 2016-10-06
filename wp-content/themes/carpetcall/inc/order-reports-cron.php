@@ -59,6 +59,7 @@ $args = array(
 								)
 	
 							)
+							
 	
 	/*'date_query' => array(
      array(
@@ -76,75 +77,75 @@ $arrayCsv_rugs_or = $arrayCsv_hardflooring_or = array();
 $arrayCsv_rugs_ol = $arrayCsv_hardflooring_ol = array();
 
 $arrayCsv_rugs_ol[] = $arrayCsv_hardflooring_ol[] =array(
-														'Order Id',
-														'Product Code',
-														'Product Name',
-														'Price',
-														'Quantity'
+														'order id',
+														'product code',
+														'product name',
+														'price',
+														'quantity'
 														);
 
 
 $arrayCsv_rugs_or[] = $arrayCsv_hardflooring_or[] =array(
-					'Order Id',
-					'Business Name',
-					'First Name',
-					'Last Name',
-					'Email',
-					'Phone',
-					'Delivery Address 1',
-					'Delivery Address 2',
-					'Delivery Zip',
-					'Delivery State',
-					'Delivery City',
-					'Delivery Country',
-					'Billing Business Name',
-					'Billing First Name',
-					'Billing Last Name',
-					'Billing Email',
-					'Billing Phone',
-					'Billing Address 1',
-					'Billing Address 2',
-					'Billing Zip',
-					'Billing State',
-					'Billing City',
-					'Billing Country',
-					'Delivery Option',
-					'Store Id',
-					'Store State',
-					'Store Address',
-					'Grand Total',
-					'Code',
-					'Shipping Cost',
-					'Payment Method',
-					'Status',
-					'Order Status',
-					'CC Name',
-					'CC Type',
-					'CC Date',
-					'CC Num',
-					'CC CCV',
-					'Timestamp',
-					'Payment Number',
-					'Bank Reference',
-					'Summary Code',
-					'Response Code',
-					'Response Text',
-					'Payment Time',
-					'Payment Reference',
-					'Invoice',
-					'Payer Id',
-					'Payment Date',
-					'Payment Status',
-					'Payer Status',
-					'Txn Id',
-					'Payment Type',
-					'Receiver Id',
-					'Receipt Id',
-					'Status Code',
-					'Status Description',
-					'Response Description',
-					'ATL',
-					'Comment'
+					'order id',
+					'business name',
+					'first name',
+					'last name',
+					'email',
+					'phone',
+					'delivery address 1',
+					'delivery address 2',
+					'delivery zip',
+					'delivery state',
+					'delivery city',
+					'delivery country',
+					'billing business name',
+					'billing first name',
+					'billing last name',
+					'billing email',
+					'billing phone',
+					'billing address 1',
+					'billing address 2',
+					'billing zip',
+					'billing state',
+					'billing city',
+					'billing country',
+					'delivery option',
+					'store id',
+					'store_state',
+					'store address',
+					'grand total',
+					'code',
+					'shipping cost',
+					'payment method',
+					'status',
+					'order status',
+					'cc name',
+					'cc type',
+					'cc date',
+					'cc num',
+					'cc ccv',
+					'time stamp',
+					'payment number',
+					'bank reference',
+					'summary code',
+					'response code',
+					'response text',
+					'payment time',
+					'payment reference',
+					'invoice',
+					'payer id',
+					'payment date',
+					'payment status',
+					'payer status',
+					'txn id',
+					'payment type',
+					'receiver id',
+					'receipt id',
+					'status code',
+					'status description',
+					'response description',
+					'atl',
+					'comment'
 					);
  
 while($loop->have_posts()){
@@ -153,6 +154,11 @@ while($loop->have_posts()){
 			 $order = new WC_Order(get_the_ID());
 			 $selected_store = get_post_meta($order->id,'pickup_store_id',true);
 			 $shipping_method = get_post_meta($order->id,'cc_shipping_method',true); 
+			 if($shipping_method == 'pickup_n_deliver' || $shipping_method == 'store_pickup'){
+				 $shipping_method = 'pickup';
+				 }else{
+					 $shipping_method = 'deliver';
+				}
 			 $selected_store_meta = get_post_meta($selected_store);
 			 foreach ($order->get_items() as $key => $lineItem) {
 				$sku = $lineItem['sku'];
@@ -174,6 +180,7 @@ while($loop->have_posts()){
 				setup_postdata($post);
 						
 				$terms = wp_get_object_terms( $post->ID, 'product_cat',array('fields'=>'slugs'));
+				$terms_obj = wp_get_object_terms( $post->ID, 'product_cat');
 				
 				if(array_intersect(array('rugs'),$terms)){
 					$arrayCsv_rugs_or[get_the_ID()] =array(
@@ -186,7 +193,7 @@ while($loop->have_posts()){
 					$order->shipping_address_1,
 					$order->shipping_address_2,
 					$order->shipping_postcode,
-					strtoupper(substr($order->shipping_state),0,1),
+					strtoupper(substr($order->shipping_state,0,1)),
 					$order->shipping_city,
 					'Australia',//$order->shipping_country,
 					'',
@@ -197,12 +204,12 @@ while($loop->have_posts()){
 					$order->billing_address_1,
 					$order->billing_address_2,
 					$order->billing_postcode,
-					$order->billing_state,
+					strtoupper(substr($order->billing_state,0,1)),//$order->billing_state,
 					$order->billing_city,
 					'Australia',//$order->billing_country,
 					$shipping_method,
 					$selected_store,
-					$selected_store_meta['wpsl_state'][0],
+					strtoupper(substr($selected_store_meta['wpsl_state'][0],0,1)),
 					$selected_store_meta['wpsl_address'][0],
 					$order->order_total,
 					'',//code
@@ -242,14 +249,13 @@ while($loop->have_posts()){
 					
 					$last_cat ='';
 					if($terms){
-						foreach($terms as $term){
+						foreach($terms_obj as $term){
 							if(is_last_cat($term->term_id)){
-								$last_cat = $term;
+								$last_cat = $term->name;
 								break;
 								}
 							}
 						}
-					
 					
 					$arrayCsv_rugs_ol[] = array(
 									get_the_ID(),
@@ -270,7 +276,7 @@ while($loop->have_posts()){
 					$order->shipping_address_1,
 					$order->shipping_address_2,
 					$order->shipping_postcode,
-					strtoupper(substr($order->shipping_state),0,1),
+					strtoupper(substr($order->shipping_state,0,1)),
 					$order->shipping_city,
 					'Australia',//$order->shipping_country,
 					'',
@@ -281,12 +287,12 @@ while($loop->have_posts()){
 					$order->billing_address_1,
 					$order->billing_address_2,
 					$order->billing_postcode,
-					$order->billing_state,
+					strtoupper(substr($order->billing_state,0,1)),//$order->billing_state,
 					$order->billing_city,
 					'Australia',//$order->billing_country,
 					$shipping_method,
 					$selected_store,
-					$selected_store_meta['wpsl_state'][0],
+					strtoupper(substr($selected_store_meta['wpsl_state'][0],0,1)),
 					$selected_store_meta['wpsl_address'][0],
 					$order->order_total,
 					'',//code
