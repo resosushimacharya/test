@@ -50,10 +50,10 @@ $store_type = 'owned_store';?>
     
 
 	<div class="shipping_needed_checkout" style="opacity:0; height: 0;overflow: hidden; visibility:hidden">
-	<p>
+	<div class="atl_wrap">
             <input type="checkbox" name="atl" id="atl">
             <label>Authority to Leave See Terms and Conditions for Full Details</label>
-        </p>
+        </div>
 		<?php do_action( 'woocommerce_checkout_shipping' ); ?></div>
 	
 </div>
