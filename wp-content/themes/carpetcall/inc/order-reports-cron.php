@@ -208,7 +208,7 @@ while($loop->have_posts()){
 					$order->billing_city,
 					'Australia',//$order->billing_country,
 					$shipping_method,
-					$selected_store,
+					get_post_meta($selected_store,'store_id',true),
 					strtoupper(substr($selected_store_meta['wpsl_state'][0],0,1)),
 					$selected_store_meta['wpsl_address'][0],
 					$order->order_total,
@@ -222,7 +222,7 @@ while($loop->have_posts()){
 					'',//CC Date
 					'',//CC Num
 					'',//CC CCV
-					strtotime($order->order_date),
+					date('d/M/Y, H:i:s',strtotime($order->order_date)),
 					'',//payment number
 					'',
 					'',
@@ -291,7 +291,7 @@ while($loop->have_posts()){
 					$order->billing_city,
 					'Australia',//$order->billing_country,
 					$shipping_method,
-					$selected_store,
+					get_post_meta($selected_store,'store_id',true),
 					strtoupper(substr($selected_store_meta['wpsl_state'][0],0,1)),
 					$selected_store_meta['wpsl_address'][0],
 					$order->order_total,
@@ -305,7 +305,7 @@ while($loop->have_posts()){
 					'',//CC Date
 					'',//CC Num
 					'',//CC CCV
-					strtotime($order->order_date),
+					date('d/M/Y, H:i:s',strtotime($order->order_date)),
 					'',//payment number
 					'',
 					'',

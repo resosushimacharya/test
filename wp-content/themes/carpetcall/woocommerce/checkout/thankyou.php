@@ -25,7 +25,6 @@ if(!empty($expres_txnid)){
 	update_post_meta($order->id,'_payment_method','express_checkout');
 	update_post_meta($order->id,'_payment_method_title','Paypal Express Checkout');
 	}
-//do_action('pr',get_post_meta($order->id));
 ?>
 	<?php if ( $order->has_status( 'failed' ) ) : ?>
 
