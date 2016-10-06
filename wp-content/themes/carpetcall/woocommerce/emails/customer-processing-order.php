@@ -25,16 +25,16 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
   <tr>
-    <td colspan="2" style="border:1px solid #cfcfcf; border-top:0; border-bottom:0; background-color:#f0f2f1;">
+    <td colspan="3" style="border:1px solid #cfcfcf; border-top:0; border-bottom:0; background-color:#f0f2f1;">
     <div style="background-color:#f0f2f1;  font-family: 'proxima_nova_ltsemibold', sans-serif; font-size:20px; color:#15489f; text-transform:uppercase; font-weight:bold; margin:29px 0 25px 45px;"> THANK YOU FOR YOUR ORDER </div>
     </td>
   </tr><!-- thank you for order end -->
   
   <tr>
-    <td colspan="2" style="border:1px solid #cfcfcf; border-top:0; border-bottom:0;">
+    <td colspan="3" style="border:1px solid #cfcfcf; border-top:0; border-bottom:0;">
     <table width="504px" border="0" cellspacing="0" cellpadding="0" style="width:504px; margin:0 49px 0 45px;">
       <tr style="border:0;">
-        <td colspan="2"><p style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666666; margin-top:29px; clear:both;">Your order has been received and is now being processed. Your order details are shown below for your reference. </p></td>
+        <td colspan="3"><p style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666666; margin-top:29px; clear:both;">Your order has been received and is now being processed. Your order details are shown below for your reference. </p></td>
         </tr>
         
       <tr>
@@ -92,7 +92,7 @@ $date = $datearr[2].'/'.$datearr[1].'/'.$datearr[0];
 
 				 
 				
-        <td colspan="2" style="padding-top:30px;">
+        <td colspan="3" style="padding-top:30px;">
         <table width="504" border="0" cellspacing="0" cellpadding="0" style="width:504px;">
                       <tr style="background-color:#e7edf8;">
                         <td width="171" style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666; text-transform:uppercase; padding:12px 15px; font-weight: bold;">Product</td>
@@ -146,7 +146,7 @@ $date = $datearr[2].'/'.$datearr[1].'/'.$datearr[0];
                   
                     <?php if($key == 'cart_subtotal'){ ?>
                        <tr>
-                        <td colspan="2" rowspan="3">&nbsp;</td>
+                        <td colspan="3" rowspan="3">&nbsp;</td>
                         <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666;  padding:12px 15px; text-transform:uppercase; font-weight:bold;">subtotal</td>
                         <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666;  padding:12px 15px;"><?php echo ($total['value']); ?></td>
                       </tr>
@@ -165,7 +165,7 @@ $date = $datearr[2].'/'.$datearr[1].'/'.$datearr[0];
                         <?php } ?>
                         <?php if($key == 'order_total'){ ?>
                       <tr style="background-color:#e7edf8;">
-                        <td colspan="2" style="background-color: #e7edf8; padding:12px 15px;">&nbsp;</td>
+                        <td colspan="3" style="background-color: #e7edf8; padding:12px 15px;">&nbsp;</td>
                         <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666;  padding:12px 15px; text-transform:uppercase; font-weight:bold;">TOTAL</td>
                         <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666;  padding:12px 15px;"><?php echo ($total['value']); ?></td>
                       </tr><?php } ?>
@@ -182,7 +182,7 @@ $date = $datearr[2].'/'.$datearr[1].'/'.$datearr[0];
         </tr>
         
       <tr>
-        <td colspan="2">
+        <td colspan="3">
         <?php if($order->customer_message){ ?>
         <div style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666; text-transform:uppercase; border-bottom:1px solid #e7edf8; padding-bottom:8px; margin-bottom:6px; margin-top:36px;">ADDITIONAL COMMENTS OR INSTRUCTIONS</div>
                 <span style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666;"><?php echo $order->customer_message; ;?></span>
@@ -191,7 +191,7 @@ $date = $datearr[2].'/'.$datearr[1].'/'.$datearr[0];
         </tr>
         
       <tr>
-        <td colspan="2">&nbsp;</td>
+        <td colspan="3">&nbsp;</td>
       </tr>
       
     </table>

@@ -33,57 +33,66 @@ if ( ! defined( 'ABSPATH' ) ) {
   <tr style="background-color:#144a9f; height:70px;">
     <td colspan="3">      
       <table width="600" border="0" cellspacing="0" cellpadding="0">
-          <tr>      
-            <td width="20"></td>    
-            <td width="220">      
-              <a href="<?php echo site_url();?>">
-                <img src="<?php echo get_template_directory_uri()?>/carpetcall-logo.png" width="150" alt="logo"/>
-              </a>      
-            </td>
+        <tr>
+          <td colspan="3" height="10"></td>
+        </tr>
+        <tr>      
+          <td width="20"></td>    
+          <td width="220">      
+            <a href="<?php echo site_url();?>">
+              <img src="<?php echo get_template_directory_uri()?>/images/carpetcall-logo.png" width="150" alt="logo"/>
+            </a>      
+          </td>
 
-            <td width="340">
-              <table width="340" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td colspan="3">
-                    <div style="font-family:'proxima_nova_ltsemibold', sans-serif; font-size:18px; color:#FFF;  line-height:1; font-weight:bold; text-align: right;">  <?php $x =  get_field('telephone', '89',false);
-                      $x = preg_replace('/\s+/', '', $x);
-                      $x = preg_replace( '/^[0]{1}/', '', $x );
-                      $i = 1;
-                      $x = '+61'.$x;   ?>
-
-                      <a href="tel:<?php
-                      echo $x; ?>" style="text-decoration:none;color:#fff;">
-
-                      CALL 1300 502 427 </a>
-                    </div>
-                  </td>                  
-                </tr>
-                <tr>
-                  <td colspan="3" height="10"></td>
-                </tr>
-                <tr>
-                  <td colspan="3">
-                    <table width="340" border="0" cellspacing="0" cellpadding="0">
-                      <tr>
-                        <td width="245">
-                          <p style=" font-family:'proxima_nova_ltsemibold', sans-serif; font-size:6.69px; color:#FFF; margin:0; text-transform:uppercase; text-align: right;"> OR BOOK A CALL BACK WITH <br>
-                        OUR FLOORING SPECIALISTS 
-                          </p>
-                        </td>      
-                        <td width="20"></td>                                      
-                        <td style="background: #c32327;" width="75" height="18" valign="middle">                            
-                            <a href="<?php echo site_url();?>/contact-us" style="font-family:'proxima_nova_rgregular', sans-serif; font-size:7.25px; color:#FFF; text-align:center; text-decoration:none; text-transform:uppercase; display: block;"> CONTACT US 
-                            </a>
-                          </td>
-                        </tr>
-                      </table>                      
-                  </td>                  
-                </tr>
-              </table>
-            </td>
-            <td width="20"></td>
-          </tr>
-
+          <td width="340">
+            <table width="340" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="3" style="text-align: right;">
+                  <?php $x =  get_field('telephone', '89',false);
+                    $x = preg_replace('/\s+/', '', $x);
+                    $x = preg_replace( '/^[0]{1}/', '', $x );
+                    $i = 1;
+                    $x = '+61'.$x;   ?>
+                    <a href="tel:<?php echo $x;?>"><span style="text-decoration:none; color:#fff; font-size: 18px; font-weight: bold;">CALL 1300 502 427</span></a>                  
+                </td>                  
+              </tr>
+              <tr>
+                <td colspan="3" height="10"></td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <table width="340" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td width="245">
+                        <table width="245" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td style="font-size:6.69px; color:#FFF; text-align: right; line-height: 9px;" height="9" colspan="3">
+                              <div style="height: 9px;">OR BOOK A CALL BACK WITH</div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="font-size:6.69px; color:#FFF; text-align: right; line-height: 9px;" height="9" colspan="3">
+                              <div style="height: 9px;">OUR FLOORING SPECIALISTS</div>
+                            </td>
+                          </tr>
+                        </table>                        
+                      </td>      
+                      <td width="20"></td>                                      
+                      <td style="background: #c32327; text-align: center;" width="75" height="18" valign="middle">                            
+                          <a href="<?php echo site_url();?>/contact-us" style="font-family:'proxima_nova_rgregular', sans-serif; font-size:7.25px; color:#FFF; text-align:center; text-transform:uppercase; display: block;"> <span style="text-decoration:none;">CONTACT US</span>
+                          </a>
+                        </td>
+                      </tr>
+                    </table>                      
+                </td>                  
+              </tr>
+            </table>
+          </td>
+          <td width="20"></td>
+        </tr>
+        <tr>
+          <td colspan="3" height="10"></td>
+        </tr>
       </table>
 
 

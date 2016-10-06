@@ -716,8 +716,11 @@
 		padding: 0 20px;
 		margin-top: 90px
 	}
+	.hamro_trade .idea-:first-child .measr_cnt {
+	    margin-top: 55px;
+	}
 	.measr_cnt p {
-		line-height: 1.2
+		line-height: 1.4
 	}
 	.find_tb {
 		margin-bottom: 0;
@@ -1109,6 +1112,19 @@
 		font-style: italic;
 		font-size: 32px
 	}
+	.about-us-pages-cntr .cbg_content ol li, .about-us-pages-cntr .cbg_content ul li, .about-us-pages-cntr div#right_col ol li {
+	    font-size: 32px;
+	    line-height: 1.4;
+	    margin-bottom: 10px;
+	}
+	.about-us-pages-cntr .cbg_content ol li a, .about-us-pages-cntr .cbg_content ul li a, .about-us-pages-cntr div#right_col ol li a{
+		color: #666;
+		font-style: normal;
+	}
+	.about-us-pages-cntr .cbg_content ol, .about-us-pages-cntr .cbg_content ul, .about-us-pages-cntr div#right_col ol {
+	    margin-left: 0;
+	    padding-left: 30px;
+	}
 	img.alignright {
 		float: none;
 		width: 100%;
@@ -1203,7 +1219,7 @@
 		text-align: center
 	}
 	#main.sec_head_cntr p {
-		line-height: 36px
+		line-height: 1.4
 	}
 	.body-wrapper .gpf-block {
 		margin: 35px 0 0
@@ -1787,7 +1803,13 @@
 	}
 	.cc-cat-sub-desc-sec {
 		text-align: left;
+		line-height: 1.4;
 		padding: 0 50px
+	}
+	.cc-cat-sub-desc-sec ul{
+		margin-left: 0;
+		padding-left: 30px;
+		margin-bottom: 15px;
 	}
 	.cc-cat-sub-desc-sec h3 {
 		margin-bottom: 40px
@@ -2093,6 +2115,7 @@
 	.single-produc-acc-cntr .panel {
 		border: none;
 		padding: 0;
+		border-radius: 0;
 		border-bottom: 2px solid #dadada
 	}
 	.single-produc-acc-cntr .panel:first-child {
@@ -2186,6 +2209,25 @@
 	}
 	.single.single-product table.product_specifications_table tbody tr td:last-child:before {
 		display: none
+	}
+	.carpets_blinds_details_tab {
+	    font-size: 32px;
+	    line-height: 1.4;
+	    color: #666;
+	    margin-top: 15px;
+	}	
+	.carpets_blinds_details_tab h2{		
+	    font-size: 36px;	    	    
+	    margin-bottom: 30px;
+	}
+	.carpets_blinds_details_tab h2 span{
+		color: #09f !important;
+	}
+	.carpets_blinds_details_tab ul {
+	    padding-left: 25px;
+	    margin-top: 15px;
+	    margin-bottom: 20px;
+	    font-size: 32px;
 	}
 	.single.single-product .modal-dialog {
 		width: 100%;
@@ -2843,6 +2885,9 @@
 		font-size: 32px;
 		line-height: 1.4
 	}
+	.cc-head-office-list-item span.wpsl-hf-street-c a{
+		color: #666;
+	}
 	.cc-cat-store-item .cc-phone-fax-wrapper, .cc-cat-store-item .cc-store-map-last-cover, .cc-head-office-list-item .cc-phone-fax-wrapper, .page-template-find-a-store .cc-store-map-last-cover {
 		height: auto
 	}
@@ -2928,7 +2973,7 @@
 	.cc-storef-phnum {
 		margin-bottom: 5px
 	}
-	.cc-single-wpsl-ccstore span.cc-cat-store-item-fax, .cc-single-wpsl-ccstore span.cc-cat-store-item-phone a {
+	.cc-single-wpsl-ccstore span.cc-cat-store-item-fax, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax a, .cc-single-wpsl-ccstore span.cc-cat-store-item-phone a {
 		line-height: 1;
 		font-size: 32px
 	}
@@ -3742,6 +3787,9 @@
 	.carpet_blinds_single_right h3.calspl.calspll a, .cc-cat-sub-price span, .hamro h3 {
 		font-size: 28px
 	}
+	.carpet_blinds_single_right h3.calspl.calspll a{
+		font-size: 26px;
+	}
 	h5.tryit.tryita {
 		margin-top: 20px
 	}
@@ -4024,6 +4072,9 @@
 	#myModal .modal-body, .cc-cat-sub-desc-sec {
 		padding: 0 20px
 	}
+	.cc-cat-sub-desc-sec ul{
+		padding-left: 20px;
+	}
 	.cc-cat-sub-desc-sec h3 {
 		margin-bottom: 30px
 	}
@@ -4261,12 +4312,15 @@
 		padding: 20px
 	}
 	.single-produc-acc-cntr .panel .panel-collapse h2, .single-produc-acc-cntr .panel .panel-collapse h3 {
-		font-size: 22px;
+		font-size: 18px;
 		margin-bottom: 15px
 	}
 	.single-produc-acc-cntr .panel .panel-collapse .panel-body p, ul.specific-list li {
-		font-size: 20px;
+		font-size: 16px;
 		margin: 0 0 20px
+	}
+	ul.specific-list li{
+		margin-bottom: 5px;
 	}
 	.single-produc-acc-cntr .panel .panel-body .panel-heading a {
 		padding: 10px 25px 10px 10px;
@@ -4275,6 +4329,14 @@
 	.single-produc-acc-cntr .panel .panel-body .panel-group .panel-body {
 		padding: 15px;
 		font-size: 17px
+	}
+	.carpets_blinds_details_tab {
+	    font-size: 16px;
+	}
+	.carpets_blinds_details_tab ul {
+	    padding-left: 18px;
+	    margin-top: 10px;
+	    font-size: 16px;
 	}
 	.cc-product-pick-location-section .modal-header {
 		padding: 50px 20px 30px
@@ -4704,7 +4766,7 @@
 	.cc-single-wpsl-ccstore {
 		margin-top: 50px
 	}
-	.cc-single-wpsl-ccstore span.cc-cat-store-item-fax, .cc-single-wpsl-ccstore span.cc-cat-store-item-phone a {
+	.cc-single-wpsl-ccstore span.cc-cat-store-item-fax, .cc-single-wpsl-ccstore span.cc-cat-store-item-fax a, .cc-single-wpsl-ccstore span.cc-cat-store-item-phone a {
 		line-height: 1.4;
 		font-size: 18px
 	}
@@ -4848,6 +4910,17 @@
 		font-size: 18px;
 		line-height: 30px
 	}
+	.about-us-pages-cntr .cbg_content ol li, .about-us-pages-cntr .cbg_content ul li, .about-us-pages-cntr div#right_col ol li {
+	    font-size: 18px;
+	    line-height: 30px;	    
+	}
+	.about-us-pages-cntr .cbg_content ol, .about-us-pages-cntr .cbg_content ul, .about-us-pages-cntr div#right_col ol {	    
+	    padding-left: 20px;
+	}
+	.about-us-pages-cntr .cbg_content p.sub_page_title{
+		font-size: 18px;	
+		line-height: 1.4;	
+	}
 	.cc-mobile-blk, .search_list_wrapper .search_prod_wrapper .sublk_prom .nowsp {
 		margin-top: 10px
 	}
@@ -4913,7 +4986,7 @@
 		margin: 0
 	}
 	.faq-cont-blka .cbg_content h2.sub_page_title, .wrap_body .inerblock_sec .cbg_content h2.sub_page_title {
-		font-size: 24px;
+		font-size: 22px;
 		margin-bottom: 20px
 	}
 	.about-us-pages-cntr p a, .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h4, .search_list_wrapper .search_prod_wrapper .sublk_prom .ptxt h5 {
