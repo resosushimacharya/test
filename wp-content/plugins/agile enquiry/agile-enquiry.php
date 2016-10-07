@@ -28,9 +28,9 @@ class CSVExport {
    * Constructor
    */
   public function __construct() {
-    if (isset($_GET['report'])) {
-     ob_end_clean();
-      $csv = $this->generate_csv();
+    if (isset($_POST['export_enquiry'])) {
+      ob_end_clean();
+      $csv = $this->generate_csv($_POST['from'],$_POST['to']);
       header("Pragma: public");
       header("Expires: 0");
       header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
@@ -79,17 +79,22 @@ class CSVExport {
   /**
    * Download report
    */
-  public function enquiry_details() {
-  
-  
-    echo '<div class="enquiry-details-csv-page"><h3>Click download to export Enquiry details in CSV</h3>';
-    echo '<p><a href="?post_type=enquiries&report=users">Download</a></p></div>';
-  }
+  public function enquiry_details() {?>
+    <div class="enquiry-details-csv-page"><h3>Click download to export Enquiry details in CSV</h3>
+    <form method="post">
+    <label>From </label><input type="date" name="from" max="<?php echo date('Y-m-d')?>">
+    <label>To </label><input type="date" name="to">
+    <input type="submit" name="export_enquiry" value="Submit">
+   	<?php /*?><p><a href="?post_type=enquiries&report=users">Download</a></p><?php */?>
+    </form>
+    </div>
+ <?php 
+ }
 
   /**
    * Converting data to CSV
    */
-  public function generate_csv() {
+public function generate_csv($from,$to) {
     /*$rows = array (
     array('aaa', 'bbb', 'ccc', 'dddd'),
     array('123', '456', '789'),
@@ -98,7 +103,14 @@ class CSVExport {
 $args = array(
     'post_type'=>'enquiries',
     'posts_per_page'=>'-1',
-    'post_status' => 'publish'
+    'post_status' => 'publish',
+	'date_query' => array(
+     array(
+           'after' => $from,
+           'before' => $to,
+		   'inclusive' => true,
+           )
+     )
    );
 $loop = new WP_Query($args);
 
@@ -126,7 +138,6 @@ $arrayCsv[] = array('Name','Email Address','Phone','Admin Email','Enquiry Type',
                       
                    $arrayCsv[] = array( $title,
                                         $useremail,
-                                       
                                         $phone,
                                         $adminemail,
                                         $enquirytype,
@@ -167,7 +178,6 @@ endforeach;
 add_action('init' ,'custom_csv_export_function');
 function custom_csv_export_function(){
   $csvExport = new CSVExport();
-
 }
 add_filter('custom_csv_escape_tag','myclean',10,1);
   function myclean($txt) {

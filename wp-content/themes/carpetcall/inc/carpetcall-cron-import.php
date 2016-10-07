@@ -125,7 +125,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 			
 		
                $new_post_id =   $resrugs[$csv[1]][1];
-			   fwrite($rugs_fh, "\n"."\r".'Product: '.$csv[1].'already Exists'.PHP_EOL);  
+			   fwrite($rugs_fh, "\n"."\r".date('Y-m-d H:i:s').date('Y-m-d H:i:s').'Product: '.$csv[1].'already Exists'.PHP_EOL);  
 			   
 			   echo $csv[1].'Rugs Item already exists'; 
 		
@@ -143,7 +143,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 			
 		$new_post_id = wp_insert_post( $post );
 		if($new_post_id){
-			fwrite($rugs_fh, "\n"."\r".'Product: '.$csv[1].' created.'.PHP_EOL); 
+			fwrite($rugs_fh, "\n"."\r".date('Y-m-d H:i:s').'Product: '.$csv[1].' created.'.PHP_EOL); 
 			update_post_meta( $new_post_id, 'total_sales', 0);
 		}
 
@@ -153,15 +153,15 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 		$tlct        = $csv[2];
 		if(!term_exists( $slct, 'product_cat', $rootcatterm ))
 		{  
-			fwrite($import_fh, "\n"."\r".'Second Level Category: '.$slct.' created.'.PHP_EOL); 
+			fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Second Level Category: '.$slct.' created.'.PHP_EOL); 
 		   category_second_level($slct ,$rootcatterm) ;
 		   category_third_level($tlct ,$slct);
-		   fwrite($import_fh, "\n"."\r".'Third Level Category: '.$tlct.' created.'.PHP_EOL); 
+		   fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Third Level Category: '.$tlct.' created.'.PHP_EOL); 
 		}
 		elseif(!term_exists($tlct,'product_cat',$tlct ))
 		{
 		  category_third_level($tlct ,$slct);
-		  fwrite($import_fh, "\n"."\r".'Third Level Category: '.$tlct.' created.'.PHP_EOL); 	
+		  fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Third Level Category: '.$tlct.' created.'.PHP_EOL); 	
 		}
 		else{
 			echo '<br/>'.ucfirst($rootcatterm).'>'.$slct.'>'.$tlct.'<br/>';
@@ -183,12 +183,12 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 	 		update_post_meta($new_post_id, '_stock_status', 'instock');
 	        update_post_meta($new_post_id, '_stock', $csv[13]);
 	        update_post_meta($new_post_id, '_manage_stock', 'yes');
-			fwrite($rugs_fh, "\n"."\r".'Stock status Updated for Product: '.$csv[1].PHP_EOL); 
+			fwrite($rugs_fh, "\n"."\r".date('Y-m-d H:i:s').'Stock status Updated for Product: '.$csv[1].PHP_EOL); 
 	    }
 	    else
 	    {
 	        update_post_meta($new_post_id, '_stock_status', 'outofstock');
-			fwrite($rugs_fh, "\n"."\r".'Product: '.$csv[1].'is out of stock'.PHP_EOL); 
+			fwrite($rugs_fh, "\n"."\r".date('Y-m-d H:i:s').'Product: '.$csv[1].'is out of stock'.PHP_EOL); 
 	    }
 		$hhh = $csv[14];
 				
@@ -259,8 +259,8 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 		require_once(ABSPATH . "wp-admin" . '/includes/image.php');
 	
 
-		fwrite($import_fh, "\n"."\r".'Product: '.$csv[1].' imported sucessfully'.PHP_EOL); 
-		fwrite($rugs_fh, "\n"."\r".'Product: '.$csv[1].' imported sucessfully'.PHP_EOL); 
+		fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Product: '.$csv[1].' imported sucessfully'.PHP_EOL); 
+		fwrite($rugs_fh, "\n"."\r".date('Y-m-d H:i:s').'Product: '.$csv[1].' imported sucessfully'.PHP_EOL); 
 		echo 'Rugs Product '.$csv[1].' imported</br>';
 
 	}
@@ -291,7 +291,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 			 
 			 $new_post_id = $reshardflooring[$csv[1]][1];
 			 echo $csv[1].'Hard Flooring Item already exists';
-		     fwrite($hf_fh, "\n"."\r".'Product: '.$csv[1].'already Exists'.PHP_EOL);   
+		     fwrite($hf_fh, "\n"."\r".date('Y-m-d H:i:s').'Product: '.$csv[1].'already Exists'.PHP_EOL);   
 
 		
 	 }
@@ -308,7 +308,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 				
 			$new_post_id = wp_insert_post( $post );
 			if($new_post_id){
-				fwrite($hf_fh, "\n"."\r".'Proudct '.$csv[1].' added'.PHP_EOL);
+				fwrite($hf_fh, "\n"."\r".date('Y-m-d H:i:s').'Proudct '.$csv[1].' added'.PHP_EOL);
 				update_post_meta( $new_post_id, 'total_sales', 0);
 			}
 
@@ -325,14 +325,14 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 		if(!term_exists( $slct, 'product_cat', $rootcatterm ))
 		{  
 		   category_second_level($slct ,$rootcatterm) ;
-		   fwrite($import_fh, "\n"."\r".'Second Level Category: '.$slct.' created'.PHP_EOL);
+		   fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Second Level Category: '.$slct.' created'.PHP_EOL);
 		   category_third_level($tlct ,$slct);
-		    fwrite($import_fh, "\n"."\r".'Third Level Category: '.$tlct.' created'.PHP_EOL);
+		    fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Third Level Category: '.$tlct.' created'.PHP_EOL);
 		}
 		elseif(!term_exists($tlct,'product_cat',$tlct ))
 		{
 		  category_third_level($tlct ,$slct);	
-		  fwrite($import_fh, "\n"."\r".'Third Level Category: '.$tlct.' created'.PHP_EOL);
+		  fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Third Level Category: '.$tlct.' created'.PHP_EOL);
 		}
 		else{
 			echo '<br/>'.ucfirst($rootcatterm).'>'.$slct.'>'.$tlct.'<br/>';
@@ -354,12 +354,12 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 	 		update_post_meta($new_post_id, '_stock_status', 'instock');
 	        update_post_meta($new_post_id, '_stock', $csv[2]);
 	        update_post_meta($new_post_id, '_manage_stock', 'yes');
-			fwrite($hf_fh, "\n"."\r".'Stock Quantity Updated for: '.$csv[1].' to '.$csv[2].PHP_EOL);
+			fwrite($hf_fh, "\n"."\r".date('Y-m-d H:i:s').'Stock Quantity Updated for: '.$csv[1].' to '.$csv[2].PHP_EOL);
 	    }
 	    else
 	    {
 	        update_post_meta($new_post_id, '_stock_status', 'outofstock');
-			fwrite($hf_fh, "\n"."\r".'Product: '.$csv[1].' is out of stock'.PHP_EOL);
+			fwrite($hf_fh, "\n"."\r".date('Y-m-d H:i:s').'Product: '.$csv[1].' is out of stock'.PHP_EOL);
 	    }
 		
 	    $regular_price = str_replace(' ', '', $csv[44]);
@@ -369,7 +369,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 	    
 
 	     $regular_price = ltrim($regular_price, '0');
-	
+		 $sale_price = ($regular_price*$csv[26]);
 	
 
 	   
@@ -437,7 +437,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
        $length  = str_replace("mm","",$csv[12]);
        $thick = str_replace("mm","",$csv[15]);
 		update_post_meta( $new_post_id, '_regular_price', floor($regular_price) );
-		update_post_meta( $new_post_id, '_sales_price', floor($regular_price) );
+		update_post_meta( $new_post_id, '_sale_price', floor($sale_price) );
 		
 		update_post_meta( $new_post_id, '_price', floor($regular_price) );
 		update_post_meta($new_post_id,'state',$csv[0]);
@@ -461,8 +461,8 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 		require_once(ABSPATH . 'wp-admin/includes/media.php');
 		require_once(ABSPATH . "wp-admin" . '/includes/image.php');
 		
-		fwrite($import_fh, "\n"."\r".'Product: '.$csv[1].' imported sucessfully'.PHP_EOL);
-		fwrite($hf_fh, "\n"."\r".'Product: '.$csv[1].' imported sucessfully.'.PHP_EOL);
+		fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Product: '.$csv[1].' imported sucessfully'.PHP_EOL);
+		fwrite($hf_fh, "\n"."\r".date('Y-m-d H:i:s').'Product: '.$csv[1].' imported sucessfully.'.PHP_EOL);
 		echo 'Hard Flooring Product '.$csv[1].' imported</br>';
 	}
 }
@@ -478,20 +478,20 @@ function cron_func_update(){
 	$file = WP_CONTENT_DIR.'/mylog.txt';
 $fh = fopen($file, "a");
 $new_log= 'CSV IMPORT Cron started at '.date("Y-m-d H:i:s");
-fwrite($fh, "\n"."\r".$new_log.PHP_EOL);
+fwrite($fh, "\n"."\r".date('Y-m-d H:i:s').$new_log.PHP_EOL);
 fclose($fh);
 
 $import_log =  WP_CONTENT_DIR.'/import-logs/logs'.date("Ymd").'.txt';
 $import_fh = fopen($import_log, "a");
-fwrite($import_fh, "\n"."\r".'Import Started'.PHP_EOL);
+fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Import Started'.PHP_EOL);
 
 $rugs_import_log =  WP_CONTENT_DIR.'/import-logs/rugs_log'.date("Ymd").'.txt';
 $rugs_fh = fopen($rugs_import_log, "a");
-fwrite($rugs_fh, "\n"."\r".'Rugs Prouducts Import Started:'.PHP_EOL);
+fwrite($rugs_fh, "\n"."\r".date('Y-m-d H:i:s').'Rugs Prouducts Import Started:'.PHP_EOL);
 
 $hf_import_log =  WP_CONTENT_DIR.'/import-logs/hf_log'.date("Ymd").'.txt';
 $hf_fh = fopen($hf_import_log, "a");
-fwrite($hf_fh, "\n"."\r".'Hard Flooring Prouducts Import Started:'.PHP_EOL);
+fwrite($hf_fh, "\n"."\r".date('Y-m-d H:i:s').'Hard Flooring Prouducts Import Started:'.PHP_EOL);
 
 
 $rugsadmin = data_database_read("rugs");
@@ -528,7 +528,7 @@ else{
 $time =  current_time('Y-m-d-H-i-s');
  $date =current_time('Y-m-d');
 $newfilename = $desfolder.'log.txt';
-fwrite($import_fh, "\n"."\r".'Import Started at: '.date("Y-m-d H:i:s").PHP_EOL);
+fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Import Started at: '.date("Y-m-d H:i:s").PHP_EOL);
 
 $txt = "\r\n Import has been started in ".$time." \r\n";
 file_put_contents($newfilename, $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
@@ -557,7 +557,7 @@ foreach($filecols as $fileitem){
             $csc_rugs_flag=true;
         }
         else{
-			fwrite($import_fh, "\n"."\r".'Undefined File('.$fileitem.')'.PHP_EOL);
+			fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Undefined File('.$fileitem.')'.PHP_EOL);
             echo "undefined file($fileitem) for rugs.";
         }
            //to name the history files with date
@@ -566,12 +566,12 @@ foreach($filecols as $fileitem){
         $filedesname = $filedesarr[0].'-'.$date.'.'.$filedesarr[1];
           if(!copy($directory.'/'.$fileitem, $desfolder.$filedesname)){
     		
-			fwrite($import_fh, "\n"."\r".'Error Copying the File('.$fileitem.')'.PHP_EOL);
+			fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Error Copying the File('.$fileitem.')'.PHP_EOL);
           	echo "file ".$fileitem." hasn't been copied.";
 			
           }
            if(!unlink($directory.'/'.$fileitem)){
-			fwrite($import_fh, "\n"."\r".'Error Deleting the File('.$fileitem.')'.PHP_EOL);
+			fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Error Deleting the File('.$fileitem.')'.PHP_EOL);
            	echo "file".$fileitem."hasn't been deleted.";
            }
     }
@@ -584,7 +584,7 @@ foreach($filecols as $fileitem){
 
         }
         else{
-			fwrite($import_fh, "\n"."\r".'Undefined file('.$fileitem.') for hardflooring'.PHP_EOL);
+			fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Undefined file('.$fileitem.') for hardflooring'.PHP_EOL);
             echo "undefined file($fileitem) for hardflooring.";
         }
         //to name the history files with date
@@ -593,12 +593,12 @@ foreach($filecols as $fileitem){
         $filedesname = $filedesarr[0].'-'.$date.'.'.$filedesarr[1];
 
        if(!copy($directory.'/'.$fileitem, $desfolder.$filedesname)){
-		   fwrite($import_fh, "\n"."\r".'Error Copying the file('.$fileitem.PHP_EOL);
+		   fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Error Copying the file('.$fileitem.PHP_EOL);
           	echo "file ".$fileitem." hasn't been copied.";
 			
           }
            if(!unlink($directory.'/'.$fileitem)){
-			fwrite($import_fh, "\n"."\r".'Error Deleting the file('.$fileitem.') for hardflooring'.PHP_EOL);
+			fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Error Deleting the file('.$fileitem.') for hardflooring'.PHP_EOL);
            	echo "file".$fileitem."hasn't been deleted.";
            }
     }
@@ -610,12 +610,12 @@ foreach($filecols as $fileitem){
         
         $filedesname = $filedesarr[0].'-'.$date.'.'.$filedesarr[1];
           if(!copy($directory.'/'.$fileitem, $desfolder.$filedesname)){
-          	 fwrite($import_fh, "\n"."\r".'Error Copying the file('.$fileitem.PHP_EOL);
+          	 fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Error Copying the file('.$fileitem.PHP_EOL);
 			echo "file ".$fileitem." hasn't been copied.";
 			
           }
            if(!unlink($directory.'/'.$fileitem)){
-			fwrite($import_fh, "\n"."\r".'Error Deleting the file('.$fileitem.') for hardflooring'.PHP_EOL);   
+			fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Error Deleting the file('.$fileitem.') for hardflooring'.PHP_EOL);   
            	echo "file".$fileitem."hasn't been deleted.";
            }
     }
@@ -647,7 +647,7 @@ if(file_exists($new_rugs_file)){
 					 	}
 					 	else{
 					 		wp_delete_post($value[1]);
-					 		fwrite($hf_fh, "\n"."\r".'Product '.$key.' has been deleted.'.PHP_EOL);
+					 		fwrite($hf_fh, "\n"."\r".date('Y-m-d H:i:s').'Product '.$key.' has been deleted.'.PHP_EOL);
 
 					 	}
 					 	
@@ -718,7 +718,7 @@ $new_rugs_file = cc_res_csv_rugs($rugs_post_ids,'NETRUGOLS');
 					 		 	$resrugs[$key] = $value;
 					 	}
 					 	else{
-					 		fwrite($hf_fh, "\n"."\r".'Product '.$key.' has been deleted.'.PHP_EOL);
+					 		fwrite($hf_fh, "\n"."\r".date('Y-m-d H:i:s').'Product '.$key.' has been deleted.'.PHP_EOL);
 					 		wp_delete_post($value[1]);
 
 					 	}
@@ -789,7 +789,7 @@ $new_rugs_file = cc_res_csv_rugs($rugs_post_ids,'NETRUGOLS');
 else{
 	$time =  current_time('Y-m-d-h-i-s');
 	$txt = "In ".$time."\r\n prdouctfiles folder is empty \r\n";
-	fwrite($import_fh, "\n"."\r".'Product files Folder is empty'.PHP_EOL);
+	fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Product files Folder is empty'.PHP_EOL);
 		
 		 file_put_contents($newfilename, $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
 
@@ -801,7 +801,7 @@ else{
 $time =  current_time('Y-m-d-h-i-s');
 
 $txt = "\r\n Import has been finished in ".$time."\r\n";
-fwrite($import_fh, "\n"."\r".'Import Finished at: '.date("Y-m-d H:i:s").PHP_EOL);
+fwrite($import_fh, "\n"."\r".date('Y-m-d H:i:s').'Import Finished at: '.date("Y-m-d H:i:s").PHP_EOL);
 file_put_contents($newfilename, $txt.PHP_EOL , FILE_APPEND | LOCK_EX);
 		
 fclose($import_fh);

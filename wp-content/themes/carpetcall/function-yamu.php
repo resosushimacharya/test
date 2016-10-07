@@ -675,7 +675,7 @@ function loadmore_hf($args){
 					?>
 					</div>
                     
-                    <?php $res = get_post_meta($first_prod_id,'_price',true);?>
+                    <?php $res = get_post_meta($first_prod_id,'_regular_price',true);?>
                 	<div class="col-md-6 cc-cat-sub-price">From <span>$<?php echo round($res)?></span></div>
                 </div>
                		<div class="row cc-cat-sub-carousal-a">
