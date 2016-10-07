@@ -59,7 +59,7 @@
                 <div class="row">
 
                         <div class="col-md-6 idea-left">
-                                <div class="idea-bottom_block guide_a" style="background-image:url(<?php echo get_template_directory_uri().'/images/guides.png';?>); ">
+                                <div class="idea-bottom_block guide_a" style="background-image:url(<?php echo get_template_directory_uri().'/images/tools.png';?>); ">
 
 
                                         <div class="inner_cont">
@@ -94,7 +94,7 @@
                         </div>
 
                         <div class="col-md-6 idea-right">
-                                <div class="idea-bottom_block faq_blk" style="background-image:url(<?php echo get_template_directory_uri().'/images/faq.png';?>);">
+                                <div class="idea-bottom_block faq_blk" style="background-image:url(<?php echo get_template_directory_uri().'/images/hand.png';?>);">
 
 
                                         <div class="quest_cont">

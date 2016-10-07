@@ -448,7 +448,7 @@ if(get_post_type() == 'product'){?>
         });
 
 
-        $(document).click(function(event) { 
+        $(document).on('click', function(event) { 
             function closeSearch(){ 
                 if($(window).width() <= 800){
                     if(!$(event.target).closest('#nav-search-cntr').length && !$(event.target).closest('.top-search-icon').length) {
@@ -460,7 +460,7 @@ if(get_post_type() == 'product'){?>
                 }
             }
             closeSearch();
-            window.addEventListener('resize', closeSearch);
+            //window.addEventListener('resize', closeSearch);
         });
 
     });

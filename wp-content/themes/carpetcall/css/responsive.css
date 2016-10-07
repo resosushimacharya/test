@@ -714,11 +714,12 @@
 		width: 100%;
 		margin-top: 0;
 		margin-bottom: 15px;
-		background-position: 99% bottom;
+		background-position: 100% bottom;
 		min-width: inherit;
-		background-size: 150%
+		background-size: 45%
 	}
 	.idea-right .faq_blk {
+		background-size: 25%;
 		margin-bottom: 0
 	}
 	ul.guide_list li {
@@ -1773,7 +1774,8 @@
 		margin-top: 20px
 	}
 	.cat_slider_item_image {
-		height: 370px
+		height: auto;
+		padding-bottom: 45%;
 	}
 	.cc-cat-sub-carousal-a .slick-dots li {
 		margin: 0 10px
@@ -1792,7 +1794,8 @@
 		padding: 8px
 	}
 	.cat-item-group-image {
-		height: 145px
+		height: auto;
+		padding-bottom: 55%;
 	}
 	.cc-img-wrapper a.cc-pro-view {
 		font-size: 18px;
@@ -3522,7 +3525,7 @@
 }
 @media (max-width:800px) and (orientation:landscape) {
 	.banner {
-		position: relative;
+		/*position: relative;*/
 		/*overflow-x: hidden*/
 	}
 	.wrap_body {
@@ -3912,7 +3915,13 @@
 	}
 	.idea-left .rmvisual.idea-top_block, .idea-right .care_pro.idea-top_block {
 		height: 110px;
-		background-size: cover
+		/*background-size: cover*/
+	}
+	.idea-left .guide_a {
+	    background-size: 55%;
+	}
+	.idea-left .guide_a, .idea-right .faq_blk{
+		background-size: 45%;
 	}
 	ul.guide_list li a {
 		line-height: 40px
@@ -4067,7 +4076,17 @@
 		margin-top: 13px
 	}
 	.cat_slider_item_image {
-		height: 280px
+		/*height: 280px*/
+	}
+	.cc-cat-sub-carousal-a .slick-dots, .slick-dots {
+	    bottom: 15px;
+	}
+	.cc-cat-sub-carousal-a .slick-dots li, .slick-dots li {
+	    margin: 0 5px;
+	}
+	.slick-dots li, .slick-dots li button {
+	    height: 16px;
+	    width: 16px;
 	}
 	.cc-cat-sub-carousal-a .cat_slider.slick-slider {
 		margin-bottom: 7px
@@ -5470,10 +5489,10 @@
 		line-height: 1
 	}
 	.cat_slider_item_image {
-		height: 220px
+		/*height: 220px*/
 	}
 	.cat-item-group-image {
-		height: 100px
+		/*height: 100px*/
 	}
 	.img_cntr, .img_cntr_a {
 		height: 180px
@@ -5561,9 +5580,9 @@
 		margin-top: 28px
 	}
 }
-@media only screen and (max-width:330px) {
+@media only screen and (max-width:350px) {
 	.banner .cc-logo-cntr {
-		max-width: 205px;
-		width: 205px
+		max-width: 170px;
+		width: 170px
 	}
 }

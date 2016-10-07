@@ -1258,11 +1258,24 @@ ul.guide_list .fa {
 .idea-left .rmvisual, .idea-right .care_pro {
 	min-height: 165px;
 	background-color: #0a71cf;
-	background-position: -55px 0
+	background-size: contain;
+	background-position: 100% 0
+}
+.idea-right .care_pro {
+    background-size: 230px;
+    background-position: 108% -5px;
+}
+.idea-left .guide_a {
+    background-size: 340px;
+    background-position: 150% 100%;
+}
+.idea-right .faq_blk {
+    background-size: 200px;
+    background-position: 105% 100%;
 }
 .idea-left .guide_a, .idea-right .faq_blk {
 	background-color: #15489f;
-	background-position: 85% 0
+	/*background-position: 85% 0*/
 }
 .trade {
 	background: #e7edf8
