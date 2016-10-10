@@ -17,7 +17,7 @@ else{
   $faqID = 26721;
 }
 
-$feat_image = cc_custom_get_feat_img($post->ID,'medium');
+$feat_image = cc_custom_get_feat_img($post->ID,'large');
 //$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 
 
