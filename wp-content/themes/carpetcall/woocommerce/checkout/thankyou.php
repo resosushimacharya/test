@@ -103,10 +103,6 @@ $date = $datearr[2].'/'.$datearr[1].'/'.$datearr[0];
 	<?php echo ( $address = $order->get_formatted_billing_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
 </address>
 </div>
-
-
-
-	
 </div>
 
 

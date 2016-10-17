@@ -154,7 +154,7 @@ while($loop->have_posts()){
 			 $order = new WC_Order(get_the_ID());
 			 $selected_store = get_post_meta($order->id,'pickup_store_id',true);
 			 $shipping_method = get_post_meta($order->id,'cc_shipping_method',true); 
-			 if($shipping_method == 'pickup_n_deliver' || $shipping_method == 'store_pickup'){
+			 if (strpos(strtolower($shipping_method), 'pickup') !== false) {
 				 $shipping_method = 'pickup';
 				 }else{
 					 $shipping_method = 'deliver';
@@ -217,11 +217,11 @@ while($loop->have_posts()){
 					$order->payment_method_title,
 					'',//order status
 					$order->get_status(),
-					'',//CC Name
-					'',//CC Type
-					'',//CC Date
-					'',//CC Num
-					'',//CC CCV
+					get_post_meta($order->id,'securepay_first_name',true).' '.get_post_meta($order->id,'securepay_last_name',true),
+					get_post_meta($order->id,'securepay_cctype',true),//CC Type
+					get_post_meta($order->id,'securepay_expmonth',true).'/'.get_post_meta($order->id,'securepay_expyear',true),//CC Date
+					substr(get_post_meta($order->id,'securepay_cardno',true),-4),//CC Num
+					get_post_meta($order->id,'securepay_cardcvv',true),//CC CCV
 					date('d/M/Y, H:i:s',strtotime($order->order_date)),
 					'',//payment number
 					'',
@@ -229,10 +229,10 @@ while($loop->have_posts()){
 					'',
 					'',
 					date('d/M/Y, H:i:s',strtotime($order->order_date)),
+					$order->id,
 					'',
 					'',
-					'',
-					'',
+					date('d/M/Y, H:i:s',strtotime($order->order_date)),
 					'',
 					'',
 					$order->get_transaction_id(),

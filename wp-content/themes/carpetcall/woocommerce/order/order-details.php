@@ -93,7 +93,6 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 	<tfoot>
 		<?php
 			foreach ( $order->get_order_item_totals() as $key => $total ) {
-			
 				if($key == 'shipping'){
 					$total['value'] = get_post_meta($order->id,'cc_shipping_method',true);
 					}

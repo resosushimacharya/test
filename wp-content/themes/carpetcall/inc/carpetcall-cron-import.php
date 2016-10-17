@@ -439,7 +439,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 		update_post_meta( $new_post_id, '_regular_price', floor($regular_price) );
 		update_post_meta( $new_post_id, '_sale_price', floor($sale_price) );
 		
-		update_post_meta( $new_post_id, '_price', floor($regular_price) );
+		update_post_meta( $new_post_id, '_price', floor($sale_price) );
 		update_post_meta($new_post_id,'state',$csv[0]);
 		update_post_meta( $new_post_id, '_visibility', 'visible' );
 		update_post_meta( $new_post_id, '_length', $length);

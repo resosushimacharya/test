@@ -1561,29 +1561,58 @@ Function to save the selected store for delivery during checkout in our order me
 add_action('woocommerce_checkout_update_order_meta','save_delivery_option_cc');
 function save_delivery_option_cc($order_id){
 	global $woocommerce;
-	
-	
-	//do_action('pr',WC()->session->post_data);die;
 	$shipping_method = '';
-	if(!empty(WC()->session->post_data['cc_shipping_method'])){
-		$shipping_method = WC()->session->post_data['cc_shipping_method'];
-		}else if(!empty($_POST['cc_shipping_method'])){
-			$shipping_method = $_POST['cc_shipping_method'];
+	if(isset($_POST['payment_method']) && $_POST['payment_method'] == 'securepay'){
+		$card_no_first = (substr($_POST['cardno'],0,1)=='4');
+		switch($card_no_first){
+			case '3':
+			$card_type = 'Americal Express';
+			break;
+			case '4':
+			$card_type = 'Visa';
+			break;
+			case '':
+			$card_type = 'MasterCard';
+			break;
+			default:
+			$card_type = '';
+			}
+		
+			update_post_meta($order_id,'securepay_first_name',$_POST['first_name']);
+			update_post_meta($order_id,'securepay_last_name',$_POST['last_name']);
+			update_post_meta($order_id,'securepay_cctype',$card_type);
+			update_post_meta($order_id,'securepay_cardno',$_POST['cardno']);
+			update_post_meta($order_id,'securepay_cardcvv',$_POST['cardcvv']);
+			update_post_meta($order_id,'securepay_expmonth',$_POST['expmonth']);
+			update_post_meta($order_id,'securepay_expyear',$_POST['expyear']);
+		}else{
+			delete_post_meta($order_id,'securepay_first_name');
+			delete_post_meta($order_id,'securepay_last_name');
+			delete_post_meta($order_id,'securepay_cardno');
+			delete_post_meta($order_id,'securepay_expmonth');
+			delete_post_meta($order_id,'securepay_expyear');
+			delete_post_meta($order_id,'securepay_cardcvv');
 		}
+		
+		if(!empty($_POST['cc_shipping_method'])){
+			$shipping_method = $_POST['cc_shipping_method'];
+		}else if(!empty(WC()->session->post_data['cc_shipping_method'])){
+			$shipping_method = WC()->session->post_data['cc_shipping_method'];
+		} 
 		
 	$pickup_store_id = '';
-	if(!empty(WC()->session->post_data['pickup_store_id'])){
-		$pickup_store_id = WC()->session->post_data['pickup_store_id'];
-		}else if(!empty($_POST['pickup_store_id'])){
+		if(!empty($_POST['pickup_store_id'])){
 			$pickup_store_id = $_POST['pickup_store_id'];
-		}
+		}else if(!empty(WC()->session->post_data['pickup_store_id'])){
+			$pickup_store_id = WC()->session->post_data['pickup_store_id'];
+		} 
 		
 	$atl = '';
-	if(!empty(WC()->session->post_data['atl'])){
-		$atl = WC()->session->post_data['atl'];
-		}else if(!empty($_POST['atl'])){
+		if(!empty($_POST['atl'])){
 			$atl = $_POST['atl'];
-		}
+		}else if(!empty(WC()->session->post_data['atl'])){
+			$atl = WC()->session->post_data['atl'];
+		} 
 
 	if($atl=='on'){
 		update_post_meta( $order_id, 'atl', 1);
@@ -1596,11 +1625,17 @@ function save_delivery_option_cc($order_id){
 		//cc_notify_selected_store($order_id);
 		}
 	if($shipping_method){
+		if($pickup_store_id){
+			$store = get_post($pickup_store_id);
+			$store_title = $store->post_title;
+			}
 		$shipping_arr = array(	'local_delivery'=>'Local Delivery',
-								'store_pickup'=>'Pickup From Head Offices',
-								'pickup_n_deliver'=>'Pickup Hard Flooring and Deliver Rugs'
+								'store_pickup'=>(isset($store_title))?'Pickup From '.$store_title:'Pickup From Head Offices',
+								'pickup_n_deliver'=>(isset($store_title))?'Pickup From '.$store_title:'Pickup Hard Flooring and Deliver Rugs'
 								);
 		update_post_meta( $order_id, 'cc_shipping_method', $shipping_arr[$shipping_method]);
+		update_post_meta( $order_id, '_shipping_method',$shipping_arr[$shipping_method]);
+		update_post_meta( $order_id, '_shipping_method_title',$shipping_arr[$shipping_method]);
 		//cc_notify_selected_store($order_id);
 		}
 		update_post_meta( $order_id, 'cc_order_date', strtotime("now"));
@@ -1855,17 +1890,17 @@ function cc_get_banner_img($post_id){
 	if(has_term('rugs','product_cat',$post_id)){
 		$sku = explode('.',get_post_meta($post_id,'_sku',true));
 		$image_name = strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_LB.jpg';
-		$img_path =  WP_CONTENT_DIR.'/uploads/images/large/'.$image_name;
+		$img_path =  WP_CONTENT_DIR.'/uploads/images/banner/'.$image_name;
 		if(file_exists($img_path)){
-			$feat_image = content_url('uploads/images/large/'.$image_name);
+			$feat_image = content_url('uploads/images/banner/'.$image_name);
 		}
 	}
 	else if(has_term('hard-flooring','product_cat',$post_id)){
 		$sku = get_post_meta($post_id,'_sku',true);
 		$image_name = strtoupper($sku).'_LB.jpg';
-		$img_path =  WP_CONTENT_DIR.'/uploads/images/large/'.$image_name;
+		$img_path =  WP_CONTENT_DIR.'/uploads/images/banner/'.$image_name;
 		if(file_exists($img_path)){
-			$feat_image = content_url('uploads/images/large/'.$image_name);
+			$feat_image = content_url('uploads/images/banner/'.$image_name);
 		}
 	}
 	return $feat_image;
