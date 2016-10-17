@@ -30,7 +30,7 @@ $store_type = 'head_office';?>
 	<div class="shipping_needed_checkout" style="display:none">
     	<div class="atl_wrap">
             <input type="checkbox" name="atl" id="atl">
-            <label>Authority to Leave See <a href="<?php echo site_url()?>/terms-and-conditions/">Terms and Conditions</a> for Full Details</label>
+            <label>Authority to Leave See <a target="_blank" href="<?php echo site_url()?>/terms-and-conditions/">Terms and Conditions</a> for Full Details</label>
         </div>
 		<?php do_action( 'woocommerce_checkout_shipping' ); ?>
 	</div>

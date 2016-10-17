@@ -19,7 +19,75 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 if ( $order ) : ?>
-<?php 
+<?php
+		if(!empty($_POST['shipping_first_name'])){
+		$shipping_first_name = $_POST['shipping_first_name'];
+		}else if(!empty(WC()->session->post_data['shipping_first_name'])){
+			$shipping_first_name = WC()->session->post_data['shipping_first_name'];
+		}
+		if($shipping_first_name){
+			update_post_meta( $order->id, '_shipping_first_name', $shipping_first_name);
+			} 
+		if(!empty($_POST['shipping_last_name'])){
+			$shipping_last_name = $_POST['shipping_last_name'];
+		}else if(!empty(WC()->session->post_data['shipping_last_name'])){
+			$shipping_last_name = WC()->session->post_data['shipping_last_name'];
+		} 
+		if($shipping_last_name){
+			update_post_meta( $order->id, '_shipping_last_name', $shipping_last_name);
+			} 
+		if(!empty($_POST['shipping_company'])){
+			$shipping_company = $_POST['shipping_company'];
+		}else if(!empty(WC()->session->post_data['shipping_company'])){
+			$shipping_company = WC()->session->post_data['shipping_company'];
+		} 
+		if($shipping_company){
+			update_post_meta( $order->id, '_shipping_company', $shipping_company);
+			} 
+		if(!empty($_POST['shipping_email'])){
+			$shipping_email = $_POST['shipping_email'];
+		}else if(!empty(WC()->session->post_data['shipping_email'])){
+			$shipping_email = WC()->session->post_data['shipping_email'];
+		} 
+		if($shipping_email){
+			update_post_meta( $order->id, '_shipping_email', $shipping_email);
+			}
+			
+			
+		if(!empty($_POST['billing_first_name'])){
+		$billing_first_name = $_POST['billing_first_name'];
+		}else if(!empty(WC()->session->post_data['billing_first_name'])){
+			$billing_first_name = WC()->session->post_data['billing_first_name'];
+		}
+		if($billing_first_name){
+			update_post_meta( $order->id, '_billing_first_name', $billing_first_name);
+			} 
+		if(!empty($_POST['billing_last_name'])){
+			$billing_last_name = $_POST['billing_last_name'];
+		}else if(!empty(WC()->session->post_data['billing_last_name'])){
+			$billing_last_name = WC()->session->post_data['billing_last_name'];
+		} 
+		if($billing_last_name){
+			update_post_meta( $order->id, '_billing_last_name', $billing_last_name);
+			} 
+		if(!empty($_POST['billing_company'])){
+			$billing_company = $_POST['billing_company'];
+		}else if(!empty(WC()->session->post_data['billing_company'])){
+			$billing_company = WC()->session->post_data['billing_company'];
+		} 
+		if($billing_company){
+			update_post_meta( $order->id, '_billing_company', $billing_company);
+			} 
+		if(!empty($_POST['billing_email'])){
+			$billing_email = $_POST['billing_email'];
+		}else if(!empty(WC()->session->post_data['billing_email'])){
+			$billing_email = WC()->session->post_data['billing_email'];
+		} 
+		if($billing_email){
+			update_post_meta( $order->id, '_billing_email', $billing_email);
+			}
+
+ 
 $expres_txnid = get_post_meta($order->id,'_express_chekout_transactionid',true);
 if(!empty($expres_txnid)){
 	update_post_meta($order->id,'_payment_method','express_checkout');
