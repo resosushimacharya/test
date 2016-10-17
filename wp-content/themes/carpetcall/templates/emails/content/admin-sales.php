@@ -10,7 +10,7 @@
               </tr>
               <tr>
                 <td>
-                  <p style="font-size: 12px; text-align: right;"><?php echo date('d/m/Y, H:i:s')?></p>
+                  <p style="font-size: 12px; text-align: right;">Date: <?php echo date('d/m/Y, H:i:s')?></p>
                 </td>
               </tr>
               <tr>
