@@ -26,89 +26,103 @@ $show_purchase_note    = $order->has_status( apply_filters( 'woocommerce_purchas
 $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_current_user_id();
 ?>
 
-<header class="title cc-checkout-od">
-<h3><?php _e( 'Order Details', 'woocommerce' ); ?></h3></header>
-<table class="shop_table order_details cc-checkkout-details-ord">
-	<thead>
-		<tr>
-			<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
-			<th class="product-total"><?php _e( 'QTY', 'woocommerce' ); ?></th>
-            <th class="product-total"><?php _e( 'PRICE', 'woocommerce' ); ?></th>
-			<th class="product-total"><?php _e( 'Total', 'woocommerce' ); ?></th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php
-		
-		$_pf = new WC_Product_Factory(); 
-			foreach( $order->get_items() as $item_id => $item ) {
-			
-            	
-				
-
-				$id = $item['item_meta']['_product_id'][0];
-
-				
-				$item_price = get_post_meta($id ,'_price',true);
-				$item_price = number_format(round($item_price), 2);
-			  
-			
-			  
-				$qty = $item['item_meta']['_qty'][0];
-				$sku= $item['item_meta']['sku'][0];
-				$item_total = $item['item_meta']['_line_total'][0];
-				$item_total = number_format(round($item_total), 2);
-				$product = new WC_Product($id);
-				?>
-				<tr class="order_item">
-					<td><?php echo $item['name'];?>
-					<span>SKU:<?php echo $item['item_meta']['sku'][0]; ?></span>
-                    <span class="mobile">QTY: <?php echo $qty;?></span>
-                    <?php if($product->get_dimensions() !=''){
+<tr>
+	<td colspan="3" height="20"></td>
+</tr>
+<tr>
+	<td width="40"></td>
+	<td width="520">
+		<span style="text-transform: uppercase; color: #15489f; font-weight: bold; font-size: 20px;"><?php _e( 'Order Details', 'woocommerce' ); ?></span>
+	</td>
+	<td width="40"></td>
+</tr>
+<tr>
+	<td colspan="3" height="20"></td>
+</tr>
+<tr>
+	<td colspan="3">
+		<table width="600" border="0" cellspacing="0" cellpadding="0" align="center">
+			<td width="40"></td>
+			<td width="520">
+				<table width="520" border="0" cellspacing="0" cellpadding="0">
+					<thead>
+						<tr style="background-color:#e7edf8;">
+							<th width="190" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px;font-weight:bold; text-align: left;">
+								<?php _e( 'PRODUCT', 'woocommerce' ); ?>								
+							</th>
+							<th width="30" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px;font-weight:bold; text-align: left;">
+								<?php _e( 'QTY', 'woocommerce' ); ?>								
+							</th>
+				            <th width="150" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px;font-weight:bold; text-align: left;">
+				            	<?php _e( 'PRICE', 'woocommerce' ); ?>				            	
+				            </th>
+							<th width="150" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px;font-weight:bold; text-align: left;">
+								<?php _e( 'TOTAL', 'woocommerce' ); ?>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php		
+							$_pf = new WC_Product_Factory(); 
+							foreach( $order->get_items() as $item_id => $item ) {
+								$id = $item['item_meta']['_product_id'][0];				
+								$item_price = get_post_meta($id ,'_price',true);
+								$item_price = number_format(round($item_price), 2);			  
+								$qty = $item['item_meta']['_qty'][0];
+								$sku= $item['item_meta']['sku'][0];
+								$item_total = $item['item_meta']['_line_total'][0];
+								$item_total = number_format(round($item_total), 2);
+								$product = new WC_Product($id);
 						?>
-						<span class="cart-pro-size">Size: <?php echo $product->get_dimensions();?></span>
-						<?php 
-						}?>
-					</td>
-					<td><?php echo $qty;?></td> 
-					<td><?php echo '$'.$item_price;?></td>
-					<td><?php echo '$'.$item_total;?></td>
-				</tr>
-				<?php 
-				
-				$product = apply_filters( 'woocommerce_order_item_product', $order->get_product_from_item( $item ), $item );
-/*
-				wc_get_template( 'order/order-details-item.php', array(
-					'order'			     => $order,
-					'item_id'		     => $item_id,
-					'item'			     => $item,
-					'show_purchase_note' => $show_purchase_note,
-					'purchase_note'	     => $product ? get_post_meta( $product->id, '_purchase_note', true ) : '',
-					'product'	         => $product,
-				) );*/
-			}
-		?>
-		<?php do_action( 'woocommerce_order_items_table', $order ); ?>
-	</tbody>
-	<tfoot>
-		<?php
-			foreach ( $order->get_order_item_totals() as $key => $total ) {
-				if($key == 'shipping'){
-					$total['value'] = get_post_meta($order->id,'cc_shipping_method',true);
-					}
-				?>
-				<tr class="mod-table-calc-res"><td class="empty"></td>
-					<td class="empty"></td>
-					<td class="ord-tfoot-label"><?php 
-					 $label = rtrim($total['label'],":");
-					 echo $label; ?></td>
-					<td class="ord-tfoot-results"><?php echo ($total['value']); ?></td>
-				</tr>
-				<?php
-			}
-		?>
-	</tfoot>
-</table>
+						<tr>
+							<td width="190" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px;text-align: left;">
+								<p style="margin: 0;"><?php echo $item['name'];?></p>
+								<p style="margin: 0;">SKU:<?php echo $item['item_meta']['sku'][0]; ?></p>
+				            	<p style="margin: 0;">QTY: <?php echo $qty;?></p>
+				            	<?php if($product->get_dimensions() !=''){?>
+									<p style="margin: 0;">Size: <?php echo $product->get_dimensions();?></p>
+								<?php}?>
+							</td>
+							<td width="30" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px; text-align: left;">
+								<?php echo $qty;?>
+							</td> 
+							<td width="150" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px; text-align: left;">
+								<?php echo '$'.$item_price;?>
+							</td>
+							<td width="150" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px; text-align: left;">
+								<?php echo '$'.$item_total;?>	
+							</td>
+						</tr>
+						<?php 				
+								$product = apply_filters( 'woocommerce_order_item_product', $order->get_product_from_item( $item ), $item );
+							}
+						?>
+						<?php do_action( 'woocommerce_order_items_table', $order ); ?>
+					</tbody>
+					<tfoot>
+						<?php
+							foreach ( $order->get_order_item_totals() as $key => $total ) {
+								if($key == 'shipping'){
+									$total['value'] = get_post_meta($order->id,'cc_shipping_method',true);
+								}
+						?>
+								<tr style="background-color:#e7edf8;">									<
+									<td colspan="2"></td>
+									<td style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px;font-weight:bold; text-align: left;"><?php 
+									 $label = rtrim($total['label'],":");
+									 echo $label; ?></td>
+									<td style="font-family:Arial;font-size:12px;color:#666;padding:12px 15px;text-align: left;"><?php echo ($total['value']); ?></td>
+								</tr>
+						<?php
+							}
+						?>
+					</tfoot>
+				</table>
+			</td>
+			<td width="40"></td>
+		</table>
+	</td>
+</tr>
 
 <?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>
 

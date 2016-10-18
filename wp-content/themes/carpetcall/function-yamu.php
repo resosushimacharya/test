@@ -1766,10 +1766,29 @@ function cc_notify_selected_store($order_id){
 wc_get_template( 'emails/email-header.php',array('email_heading'=>'New Order Received'));
 wc_get_template( 'order/order-details.php', array('order_id'=>$order_id));
 ?>
-<div class="shipping_info col-md-6">
-<h3> Shipping Address </h3>
-<?php echo $order->get_formatted_shipping_address();?>
-</div>
+<tr>
+	<td colspan="3" height="20"></td>
+</tr>
+<tr>
+	<td width="40"></td>
+	<td width="520">
+		<span style="text-transform: uppercase; color: #15489f; font-weight: bold; font-size: 20px;">Shipping Address</span>
+	</td>
+	<td width="40"></td>
+</tr>
+<tr>
+	<td colspan="3" height="20"></td>
+</tr>
+<tr>
+	<td width="40"></td>
+	<td colspan="3" width="520">
+		<?php echo $order->get_formatted_shipping_address();?>
+	</td>
+	<td width="40"></td>
+</tr>
+<tr>
+	<td colspan="3" height="20"></td>
+</tr>
 
 <?php
 wc_get_template( 'emails/email-footer.php');
