@@ -76,7 +76,7 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 									$product = new WC_Product($id);
 							?>
 							<tr>
-								<td width="190" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px;text-align: left;">
+								<td width="190" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px;text-align: left;border-bottom:1px solid #e7edf8;">
 									<p style="margin: 0;"><?php echo $item['name'];?></p>
 									<p style="margin: 0;">SKU:<?php echo $item['item_meta']['sku'][0]; ?></p>
 					            	<p style="margin: 0;">QTY: <?php echo $qty;?></p>
@@ -84,13 +84,13 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 										<p style="margin: 0;">Size: <?php echo $product->get_dimensions();?></p>
 									<?php}?>
 								</td>
-								<td width="30" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px; text-align: left;">
+								<td width="30" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px; text-align: left;border-bottom:1px solid #e7edf8;">
 									<?php echo $qty;?>
 								</td> 
-								<td width="150" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px; text-align: left;">
+								<td width="150" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px; text-align: left;border-bottom:1px solid #e7edf8;">
 									<?php echo '$'.$item_price;?>
 								</td>
-								<td width="150" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px; text-align: left;">
+								<td width="150" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px; text-align: left;border-bottom:1px solid #e7edf8;">
 									<?php echo '$'.$item_total;?>	
 								</td>
 							</tr>
