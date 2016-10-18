@@ -182,7 +182,24 @@ if(!empty($careins)){
 
                      <?php 
 										global $post;
+										
+										$term = '';
+										$reqTempTerms=get_the_terms($post->ID,'product_cat');
+										if($reqTempTerms){
+												foreach($reqTempTerms as $cat){
+													if($cat->parent==0){
+														$term = $cat;
+														break;
+														}
+													}
+											if($term !=''){
+											$retinfo = get_term_meta($cat->term_id,'cat_return_policy',true);
+											echo '<p class="returns_text">'.$retinfo.'</p>';
+											}
+										}
 
+
+/*
 										$url = site_url();
 										$url =explode('/',$url);
 
@@ -196,6 +213,7 @@ if(!empty($careins)){
 										}
 										$retinfo = get_field('return_policy',$retID);
 										echo '<p class="returns_text">'.$retinfo.'</p>';
+										*/
 
 										?>
 

@@ -1021,7 +1021,7 @@ function cc_custom_search($args){
 											'value'	=>'instock',
 										),
 					);
-	/*if($price !='' ){
+	if($price !='' ){
 			$range_arr = explode(',',$price);
 			$meta_query_price=array(
 										array(
@@ -1033,7 +1033,7 @@ function cc_custom_search($args){
 			
 							);							
 				}				
-				*/	
+					
 	
 	$meta_query=array_merge($meta_query_status,$meta_query_price);
 	$filargs = array(
@@ -1055,7 +1055,7 @@ function cc_custom_search($args){
 								
 				);
 				
-	/*	if($shop_range !='' ){
+		if($shop_range !='' ){
 					$shop_range_arr = explode(',',$shop_range);
 					$filargs['tax_query'][] =
 													array(
@@ -1068,7 +1068,6 @@ function cc_custom_search($args){
 												);
 												
 				}
-				*/
 				
 				if($sort_by == 'price'){
 					$filargs['meta_key'] = '_regular_price';
@@ -1197,11 +1196,14 @@ $cat_return_policy = get_term_meta($tag->term_id,'cat_return_policy',true) ;
   <th scope="row" valign="top"><label for="cat_return_policy">
       <?php _e('Cateogry Returns Policy'); ?>
     </label></th>
-  <td><textarea rows="10" name="cat_return_policy" id="cat_return_policy" style="width:60%;"><?php echo $cat_return_policy ? $cat_return_policy : ''; ?></textarea>
+  <td>
+  <textarea rows="10" name="cat_return_policy" id="cat_return_policy" style="width:60%;"><?php echo $cat_return_policy ? $cat_return_policy : ''; ?></textarea>
+  
     <br />
     <span class="description">
     <?php _e('Returns Policy for this Category'); ?>
-    </span></td>
+    </span>
+    </td>
 </tr>
 <?php	
 }
@@ -1561,29 +1563,83 @@ Function to save the selected store for delivery during checkout in our order me
 add_action('woocommerce_checkout_update_order_meta','save_delivery_option_cc');
 function save_delivery_option_cc($order_id){
 	global $woocommerce;
-	
-	
-	//do_action('pr',WC()->session->post_data);die;
 	$shipping_method = '';
-	if(!empty(WC()->session->post_data['cc_shipping_method'])){
-		$shipping_method = WC()->session->post_data['cc_shipping_method'];
-		}else if(!empty($_POST['cc_shipping_method'])){
-			$shipping_method = $_POST['cc_shipping_method'];
-		}
+	
+	if(isset($_POST['payment_method']) && $_POST['payment_method'] == 'securepay'){
+		$card_no_first = (substr($_POST['cardno'],0,1));
+		switch($card_no_first){
+			case '3':
+			$card_type = 'Americal Express';
+			break;
+			case '4':
+			$card_type = 'Visa';
+			break;
+			case '5':
+			$card_type = 'MasterCard';
+			break;
+			default:
+			$card_type = '';
+			}
 		
-	$pickup_store_id = '';
-	if(!empty(WC()->session->post_data['pickup_store_id'])){
-		$pickup_store_id = WC()->session->post_data['pickup_store_id'];
-		}else if(!empty($_POST['pickup_store_id'])){
-			$pickup_store_id = $_POST['pickup_store_id'];
+			update_post_meta($order_id,'securepay_first_name',$_POST['first_name']);
+			update_post_meta($order_id,'securepay_last_name',$_POST['last_name']);
+			update_post_meta($order_id,'securepay_cctype',$card_type);
+			update_post_meta($order_id,'securepay_cardno',$_POST['cardno']);
+			update_post_meta($order_id,'securepay_cardcvv',$_POST['cardcvv']);
+			update_post_meta($order_id,'securepay_expmonth',$_POST['expmonth']);
+			update_post_meta($order_id,'securepay_expyear',$_POST['expyear']);
+		}else{
+			delete_post_meta($order_id,'securepay_first_name');
+			delete_post_meta($order_id,'securepay_last_name');
+			delete_post_meta($order_id,'securepay_cardno');
+			delete_post_meta($order_id,'securepay_expmonth');
+			delete_post_meta($order_id,'securepay_expyear');
+			delete_post_meta($order_id,'securepay_cardcvv');
 		}
+		if(!empty($_POST['cc_shipping_method'])){
+			$shipping_method = $_POST['cc_shipping_method'];
+		}else if(!empty(WC()->session->post_data['cc_shipping_method'])){
+			$shipping_method = WC()->session->post_data['cc_shipping_method'];
+		} 
+
+
+	if(!empty($_POST['shipping_first_name'])){
+		$first_name = $_POST['shipping_first_name'];
+		}else if(!empty(WC()->session->post_data['shipping_first_name'])){
+			$first_name = WC()->session->post_data['shipping_first_name'];
+		}
+	if(!empty($_POST['billing_first_name'])){
+		$first_name = $_POST['billing_first_name'];
+		}else if(!empty(WC()->session->post_data['billing_first_name'])){
+			$first_name = WC()->session->post_data['billing_first_name'];
+		}
+	if(!empty($_POST['shipping_last_name'])){
+		$last_name = $_POST['shipping_last_name'];
+		}else if(!empty(WC()->session->post_data['shipping_last_name'])){
+			$last_name = WC()->session->post_data['shipping_last_name'];
+		}
+	if(!empty($_POST['billing_last_name'])){
+		$last_name = $_POST['billing_last_name'];
+		}else if(!empty(WC()->session->post_data['billing_last_name'])){
+			$last_name = WC()->session->post_data['billing_last_name'];
+		}
+	//WC()->session->paypal_express_checkout = array();
+	//WC()->session->paypal_express_checkout['shipping_details'][0]['last_name'] = $last_name;
+	//do_action('pr',WC()->session->paypal_express_checkout['shipping_details']);
+	//echo 'one';die;
+	$pickup_store_id = '';
+		if(!empty($_POST['pickup_store_id'])){
+			$pickup_store_id = $_POST['pickup_store_id'];
+		}else if(!empty(WC()->session->post_data['pickup_store_id'])){
+			$pickup_store_id = WC()->session->post_data['pickup_store_id'];
+		} 
 		
 	$atl = '';
-	if(!empty(WC()->session->post_data['atl'])){
-		$atl = WC()->session->post_data['atl'];
-		}else if(!empty($_POST['atl'])){
+		if(!empty($_POST['atl'])){
 			$atl = $_POST['atl'];
-		}
+		}else if(!empty(WC()->session->post_data['atl'])){
+			$atl = WC()->session->post_data['atl'];
+		} 
 
 	if($atl=='on'){
 		update_post_meta( $order_id, 'atl', 1);
@@ -1596,17 +1652,109 @@ function save_delivery_option_cc($order_id){
 		//cc_notify_selected_store($order_id);
 		}
 	if($shipping_method){
+		if($pickup_store_id){
+			$store = get_post($pickup_store_id);
+			$store_title = $store->post_title;
+			}
 		$shipping_arr = array(	'local_delivery'=>'Local Delivery',
-								'store_pickup'=>'Pickup From Head Offices',
-								'pickup_n_deliver'=>'Pickup Hard Flooring and Deliver Rugs'
+								'store_pickup'=>(isset($store_title))?'Pickup From '.$store_title:'Pickup From Head Offices',
+								'pickup_n_deliver'=>(isset($store_title))?'Pickup From '.$store_title:'Pickup Hard Flooring and Deliver Rugs'
 								);
 		update_post_meta( $order_id, 'cc_shipping_method', $shipping_arr[$shipping_method]);
+		update_post_meta( $order_id, '_shipping_method',$shipping_arr[$shipping_method]);
+		update_post_meta( $order_id, '_shipping_method_title',$shipping_arr[$shipping_method]);
 		//cc_notify_selected_store($order_id);
 		}
 		update_post_meta( $order_id, 'cc_order_date', strtotime("now"));
 	}
 
 
+/*
+
+*Fix to stop paypal express to overwrite the shipping address by the address of cardholder during chekcout
+
+*Save the PayerId in oreder meta during payment via paypal express checkout.
+
+*/
+add_action( 'woocommerce_payment_complete', 'cc_save_shipping_address_forcefully', 10, 1 ); 
+function cc_save_shipping_address_forcefully($order_id){
+	global $woocommerce;
+	$payer_id = $_REQUEST['PayerID'];
+	update_post_meta($order_id,'payer_id',$payer_id);
+	if(!empty($_POST['shipping_first_name'])){
+		$first_name = $_POST['shipping_first_name'];
+		}else if(!empty(WC()->session->post_data['shipping_first_name'])){
+			$first_name = WC()->session->post_data['shipping_first_name'];
+		}
+	if(!empty($_POST['billing_first_name'])){
+		$first_name = $_POST['billing_first_name'];
+		}else if(!empty(WC()->session->post_data['billing_first_name'])){
+			$first_name = WC()->session->post_data['billing_first_name'];
+		}
+		
+	update_post_meta($order_id,'_shipping_first_name',$first_name);
+	
+	if(!empty($_POST['shipping_last_name'])){
+		$last_name = $_POST['shipping_last_name'];
+		}else if(!empty(WC()->session->post_data['shipping_last_name'])){
+			$last_name = WC()->session->post_data['shipping_last_name'];
+		}
+	if(!empty($_POST['billing_last_name'])){
+		$last_name = $_POST['billing_last_name'];
+		}else if(!empty(WC()->session->post_data['billing_last_name'])){
+			$last_name = WC()->session->post_data['billing_last_name'];
+		}
+	update_post_meta($order_id,'_shipping_last_name',$last_name);
+	
+	if(!empty($_POST['shipping_company'])){
+		$company = $_POST['shipping_company'];
+		}else if(!empty(WC()->session->post_data['shipping_company'])){
+			$company = WC()->session->post_data['shipping_company'];
+		}
+	update_post_meta($order_id,'_shipping_company',$company);
+	
+	if(!empty($_POST['shipping_phone'])){
+		$phone = $_POST['shipping_phone'];
+		}else if(!empty(WC()->session->post_data['shipping_phone'])){
+			$phone = WC()->session->post_data['shipping_phone'];
+		}
+	update_post_meta($order_id,'_shipping_phone',$phone);
+	
+	if(!empty($_POST['shipping_address_1'])){
+		$address1 = $_POST['shipping_address_1'];
+		}else if(!empty(WC()->session->post_data['shipping_address_1'])){
+			$address1 = WC()->session->post_data['shipping_address_1'];
+		}
+	update_post_meta($order_id,'_shipping_address_1',$address1);
+	
+	if(!empty($_POST['shipping_address_2'])){
+		$address2 = $_POST['shipping_address_2'];
+		}else if(!empty(WC()->session->post_data['shipping_address_2'])){
+			$address2 = WC()->session->post_data['shipping_address_2'];
+		}
+	update_post_meta($order_id,'_shipping_address_2',$address2);
+	
+	if(!empty($_POST['shipping_city'])){
+		$city = $_POST['shipping_city'];
+		}else if(!empty(WC()->session->post_data['shipping_city'])){
+			$city = WC()->session->post_data['shipping_city'];
+		}
+	update_post_meta($order_id,'_shipping_city',$city);
+	
+	if(!empty($_POST['shipping_country'])){
+		$country = $_POST['shipping_country'];
+		}else if(!empty(WC()->session->post_data['shipping_country'])){
+			$country = WC()->session->post_data['shipping_country'];
+		}
+	update_post_meta($order_id,'_shipping_country',$country);
+	
+	if(!empty($_POST['shipping_state'])){
+		$state = $_POST['shipping_state'];
+		}else if(!empty(WC()->session->post_data['shipping_state'])){
+			$state = WC()->session->post_data['shipping_state'];
+		}
+	update_post_meta($order_id,'_shipping_state',$state);
+	}
 /*
 Function to send the notification email to respective store email address when order is generated
 */
@@ -1855,17 +2003,17 @@ function cc_get_banner_img($post_id){
 	if(has_term('rugs','product_cat',$post_id)){
 		$sku = explode('.',get_post_meta($post_id,'_sku',true));
 		$image_name = strtoupper($sku[0].'_'.$sku[1].'_'.$sku[2]).'_LB.jpg';
-		$img_path =  WP_CONTENT_DIR.'/uploads/images/large/'.$image_name;
+		$img_path =  WP_CONTENT_DIR.'/uploads/images/banner/'.$image_name;
 		if(file_exists($img_path)){
-			$feat_image = content_url('uploads/images/large/'.$image_name);
+			$feat_image = content_url('uploads/images/banner/'.$image_name);
 		}
 	}
 	else if(has_term('hard-flooring','product_cat',$post_id)){
 		$sku = get_post_meta($post_id,'_sku',true);
 		$image_name = strtoupper($sku).'_LB.jpg';
-		$img_path =  WP_CONTENT_DIR.'/uploads/images/large/'.$image_name;
+		$img_path =  WP_CONTENT_DIR.'/uploads/images/banner/'.$image_name;
 		if(file_exists($img_path)){
-			$feat_image = content_url('uploads/images/large/'.$image_name);
+			$feat_image = content_url('uploads/images/banner/'.$image_name);
 		}
 	}
 	return $feat_image;

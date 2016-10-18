@@ -181,7 +181,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 		if($csv[13]!=0)
 		{
 	 		update_post_meta($new_post_id, '_stock_status', 'instock');
-	        update_post_meta($new_post_id, '_stock', $csv[13]);
+	        update_post_meta($new_post_id, '_stock', str_replace(',','',$csv[13]));
 	        update_post_meta($new_post_id, '_manage_stock', 'yes');
 			fwrite($rugs_fh, "\n"."\r".date('Y-m-d H:i:s').'Stock status Updated for Product: '.$csv[1].PHP_EOL); 
 	    }
@@ -352,7 +352,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 		if($csv[2]!=0)
 		{
 	 		update_post_meta($new_post_id, '_stock_status', 'instock');
-	        update_post_meta($new_post_id, '_stock', $csv[2]);
+	        update_post_meta($new_post_id, '_stock', str_replace(',','',$csv[2]));
 	        update_post_meta($new_post_id, '_manage_stock', 'yes');
 			fwrite($hf_fh, "\n"."\r".date('Y-m-d H:i:s').'Stock Quantity Updated for: '.$csv[1].' to '.$csv[2].PHP_EOL);
 	    }
@@ -439,7 +439,7 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 		update_post_meta( $new_post_id, '_regular_price', floor($regular_price) );
 		update_post_meta( $new_post_id, '_sale_price', floor($sale_price) );
 		
-		update_post_meta( $new_post_id, '_price', floor($regular_price) );
+		update_post_meta( $new_post_id, '_price', floor($sale_price) );
 		update_post_meta($new_post_id,'state',$csv[0]);
 		update_post_meta( $new_post_id, '_visibility', 'visible' );
 		update_post_meta( $new_post_id, '_length', $length);

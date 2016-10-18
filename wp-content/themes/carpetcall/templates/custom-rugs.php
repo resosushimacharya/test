@@ -94,7 +94,7 @@ global $post;
                           ?>
               <?php echo $tel_html;?>
                </h3>
-            <h4 class="bcwfsp">BOOK A CALLBACK WITH OUR RUGS SPECIALISTS </h4>
+            <h4 class="bcwfsp">BOOK A CALL BACK WITH OUR RUGS SPECIALISTS </h4>
             <div class="againlt">
               <ul>
                 <?php $booklink=get_field('contactlink',89);?>
