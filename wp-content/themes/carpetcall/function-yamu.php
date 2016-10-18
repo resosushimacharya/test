@@ -1564,6 +1564,7 @@ add_action('woocommerce_checkout_update_order_meta','save_delivery_option_cc');
 function save_delivery_option_cc($order_id){
 	global $woocommerce;
 	$shipping_method = '';
+	
 	if(isset($_POST['payment_method']) && $_POST['payment_method'] == 'securepay'){
 		$card_no_first = (substr($_POST['cardno'],0,1));
 		switch($card_no_first){
