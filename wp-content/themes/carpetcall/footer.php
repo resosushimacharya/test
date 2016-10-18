@@ -192,8 +192,8 @@ else{
 
 
 <?php 
-  include('woocommerce/emails/email-header.php');
-  include('woocommerce/emails/email-footer.php');
+  // include('woocommerce/emails/email-header.php');
+  // include('woocommerce/emails/email-footer.php');
 
 
 ?>
