@@ -45,7 +45,7 @@
 	#main.sec_head_cntr p, .aag_ab a, .aag_cdd a, .cc-cat-sub-desc-sec p, .cc-cat-sub-desc-sec ul li, .cc-count-label, .cc-pro-sub-cat-ul.guide_list_cbg h3, .cc-product-sort li a, .filter-go-back, .inner_cont h4, .intro p, .measr_cnt h3, .meroshop .col-md-4:nth-child(3) .aag p span, .panel-title>a, .quest_cont h4, .rmblk_cont h3, .rmoree a, .so_titlee a {
 		font-size: 32px
 	}
-	.cc-cat-pro-section-left .glyphicon-chevron-up:before, .cc-cat-pro-section-right input, .cc-cat-sub-desc-sec h3, .cc-cat-sub-price, .hamro_trade h2, .intro h1, .meropro_blk h1, .mobile-filter-sec .cc-cat-title-count, .social li a, .stmap h2, .thought_blk h2, h3.cc-idea-ad-title {
+	.cc-cat-pro-section-left .glyphicon-chevron-up:before, .cc-cat-pro-section-right input, .cc-cat-sub-desc-sec h3, .cc-cat-sub-price, .hamro_trade h2, .intro h1, .meropro_blk h1, .mobile-filter-sec .cc-cat-title-count, .social li a, .stmap h2, .thought_blk h2, h3.cc-idea-ad-title, .cc-cat-pro-section-left .glyphicon-chevron-down:before {
 		font-size: 36px
 	}
 	.bookcbk, .calspl a, .cc-cat-sub-title h3 {
@@ -3989,6 +3989,9 @@
 	ul.guide_list_cbg {
 		padding: 30px 25px
 	}
+	ul.guide_list li{
+		padding-left: 20px;
+	}
 	ul.guide_list_cbg li .fa, ul.guide_list_cbg li a {
 		line-height: 45px
 	}
@@ -4004,7 +4007,7 @@
 	.cc-color-var-section {
 		margin-top: 20px
 	}
-	.cc-color-var-section .panel-title>a .glyphicon {
+	.cc-color-var-section .panel-title>a .glyphicon, .cc-cat-pro-section-left .glyphicon-chevron-down:before {
 		top: -2px
 	}
 	.cc-cat-pro-section-left .glyphicon-chevron-up:before, .images .mod-social a .fa {
