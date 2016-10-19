@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
               <tr>                
                 <td colspan="3">
-                  <a href="<?php echo site_url();?>"><img src="<?php echo get_template_directory_uri(); ?>/images/carpetcall-logo.png" width="150" alt="logo"/></a>
+                  <a href="<?php echo site_url();?>"><img src="resolutionaustralia.com.au/design/Carpetcall/carpetcall-logo.png" width="150" alt="logo"/></a>
                 </td>
               </tr> <!-- LOGO -->
 
@@ -67,15 +67,15 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <tr>
                       <td style="width:70px; font-size:6.88px; font-weight:bold; color:#FFF; text-transform:uppercase;" valign="bottom"> Get to know us</td>
                       
-                      <td style="width:20px;"><a href="http://www.facebook.com/carpetcallau" style="text-decoration:none;"><img src="<?php echo get_template_directory_uri(); ?>/images/facebook.png" width="9" height="9" alt="facebook" style="vertical-align: bottom;"/></a></td>
+                      <td style="width:20px;"><a href="http://www.facebook.com/carpetcallau" style="text-decoration:none;"><img src="resolutionaustralia.com.au/design/Carpetcall/facebook.png" width="9" height="9" alt="facebook" style="vertical-align: bottom;"/></a></td>
                       
-                      <td style="width:20px;"><a href="http://www.youtube.com/user/carpetcallau?sub_confirmation=1" style="text-decoration:none;"><img src="<?php echo get_template_directory_uri(); ?>/images/youtube.png" width="11" height="8" alt="youtube" style="vertical-align: bottom;"/></a></td>
+                      <td style="width:20px;"><a href="http://www.youtube.com/user/carpetcallau?sub_confirmation=1" style="text-decoration:none;"><img src="resolutionaustralia.com.au/design/Carpetcall/youtube.png" width="11" height="8" alt="youtube" style="vertical-align: bottom;"/></a></td>
                       
-                      <td style="width:20px;"><a href="http://www.pinterest.com/carpetcall" style="text-decoration:none;"><img src="<?php echo get_template_directory_uri(); ?>/images/pinterest.png" width="9" height="9" alt="pinterest" style="vertical-align: bottom;"/></a></td>
+                      <td style="width:20px;"><a href="http://www.pinterest.com/carpetcall" style="text-decoration:none;"><img src="resolutionaustralia.com.au/design/Carpetcall/pinterest.png" width="9" height="9" alt="pinterest" style="vertical-align: bottom;"/></a></td>
                       
-                      <td style="width:20px;"><a href="https://plus.google.com/108290827729290320654" style="text-decoration:none;"><img src="<?php echo get_template_directory_uri(); ?>/images/google-plus.png" width="13" height="9" alt="google-plus" style="vertical-align: bottom;"/></a></td>
+                      <td style="width:20px;"><a href="https://plus.google.com/108290827729290320654" style="text-decoration:none;"><img src="resolutionaustralia.com.au/design/Carpetcall/google-plus.png" width="13" height="9" alt="google-plus" style="vertical-align: bottom;"/></a></td>
                       
-                      <td><a href="https://www.instagram.com/carpetcallau/" style="text-decoration:none;"><img src="<?php echo get_template_directory_uri(); ?>/images/instagram.png" width="10" height="9" alt="instagram" style="vertical-align: bottom;"/></a></td>                      
+                      <td><a href="https://www.instagram.com/carpetcallau/" style="text-decoration:none;"><img src="resolutionaustralia.com.au/design/Carpetcall/instagram.png" width="10" height="9" alt="instagram" style="vertical-align: bottom;"/></a></td>                      
                     </tr>
                   </table>
                 </td>
