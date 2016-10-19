@@ -2425,7 +2425,7 @@ select#cc-size {
 	padding: 0
 }
 .woocommerce div.product .woocommerce-tabs .panel {
-	margin: 25px 125px 45px 0;	
+	margin: 45px 125px 45px 0;	
 }
 .woocommerce div.product .woocommerce-tabs .panel#tab-additional_information{
 	/*padding-left: 15px;*/
@@ -2447,7 +2447,7 @@ div#tab-additional_information p {
 	font-size: 18px;
 	color: #09f;
 	text-transform: uppercase;
-	margin: 41px 0 20px
+	margin-bottom: 20px
 }
 .detail-heading-item-spec {
 	margin: 36px 0 21px
@@ -4950,7 +4950,7 @@ div#error_max_msg {
 	color: red
 }
 .single.single-product .panel.entry-content.wc-tab .clcc-care_inst, .single.single-product .panel.entry-content.wc-tab .faq_read_more_para, .single.single-product .panel.entry-content.wc-tab .returns_text {
-	padding: 30px 0
+	padding: 0 0 30px
 }
 .cc-price-var-sec .cc-price-var-items {
 	margin-top: 12px
