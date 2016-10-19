@@ -26,13 +26,15 @@
  do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 <tr>
-  <td colspan="3" height="20"></td>
+  <td colspan="3" height="15"></td>
+</tr>
+<tr>
   <td>
-    <table width="600" border="0" cellspacing="0" cellpadding="0">      
-      <tr>
-        <td width="40"></td>
+    <table width="600" border="0" cellspacing="0" cellpadding="0">     
+      <tr> 
+        <td width="40"></td>      
         <td width="520">
-          <p>
+          <p style="margin: 0; font-size: 16px; color: #000;">
             <?php printf( __( 'You have received an order from %s. The order is as follows:', 'woocommerce' ), $order->get_formatted_billing_full_name() ); ?>    
           </p> 
         </td>
@@ -40,8 +42,7 @@
       </tr>      
     </table>     
   </td>
-  <td colspan="3" height="20"></td>
-</tr> 
+</tr>
 
  <?php
 

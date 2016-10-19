@@ -22,26 +22,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <tr>
-	<td width="40"></td>
-	<td width="520">
-		<table width="520" border="0" cellspacing="0" cellpadding="0">
-			<tr>
-				<td style="text-align:left; font-family: Arial, sans-serif;">
-					<h3 style="font-family:Arial; color:#666666; margin-bottom: 10px; text-transform:uppercase;">
-						<?php _e( 'BILLING ADDRESS', 'woocommerce' ); ?>
-					</h3>
-					<p><?php echo $order->get_formatted_billing_address(); ?></p>
-				</td>
-				<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() && ( $shipping = $order->get_formatted_shipping_address() ) ) : ?>
-				<td style="text-align:left; font-family: Arial, sans-serif;">
-					<h3 style="font-family:Arial; color:#666666; margin-bottom: 10px; text-transform:uppercase;">
-						<?php _e( 'SHIPPING ADDRESS', 'woocommerce' ); ?>
-					</h3>
-					<p><?php echo $shipping; ?></p>
-				</td>
-			<?php endif; ?>
-			</tr>
+  <td>
+    <table width="600" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+				<tr>
+					<td width="40"></td>
+					<td width="520">
+						<table width="520" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td style="text-align:left; font-family: Arial, sans-serif;">
+									<h3 style="font-family:Arial; color:#666666; margin-bottom: 10px; text-transform:uppercase; font-size: 14px;">
+										<?php _e( 'BILLING ADDRESS', 'woocommerce' ); ?>
+									</h3>
+									<p style="font-size: 12px;"><?php echo $order->get_formatted_billing_address(); ?></p>
+								</td>
+								<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() && ( $shipping = $order->get_formatted_shipping_address() ) ) : ?>
+								<td style="text-align:left; font-family: Arial, sans-serif;">
+									<h3 style="font-family:Arial; color:#666666; margin-bottom: 10px; text-transform:uppercase; font-size: 14px;">
+										<?php _e( 'SHIPPING ADDRESS', 'woocommerce' ); ?>
+									</h3>
+									<p style="font-size: 12px;"><?php echo $shipping; ?></p>
+								</td>
+							<?php endif; ?>
+							</tr>
+						</table>
+					</td>	
+					<td width="40"></td>
+				</tr>
+			</tbody>
 		</table>
-	</td>	
-	<td width="40"></td>
+	</td>
 </tr>

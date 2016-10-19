@@ -30,7 +30,7 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 			</tr>			
 			<tr>
 				<td width="520">
-					<table width="520" border="0" cellspacing="0" cellpadding="0">
+					<table width="520" border="0" cellspacing="0" cellpadding="10">
 						<tr>
 							<td colspan="3" height="20"></td>
 						</tr>
@@ -40,7 +40,7 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 									<p><?php printf( __( 'Order #%s', 'woocommerce' ), $order->get_order_number() ); ?></p>
 								<?php else : ?>
 									<p>
-										<a href="<?php echo esc_url( admin_url( 'post.php?post=' . $order->id . '&action=edit' ) ); ?>">
+										<a href="<?php echo esc_url( admin_url( 'post.php?post=' . $order->id . '&action=edit' ) ); ?>" style="text-decoration: none;">
 											<?php printf( __( 'Order #%s', 'woocommerce'), $order->get_order_number() ); ?>
 										</a> 
 										(<?php printf( '<time datetime="%s">%s</time>', date_i18n( 'c', strtotime( $order->order_date ) ), date_i18n( wc_date_format(), strtotime( $order->order_date ) ) ); ?>)
@@ -49,8 +49,11 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 							</td>
 						</tr>
 						<tr>
+							<td colspan="3" height="15"></td>
+						</tr>
+						<tr>
 							<td>
-								<table width="520" border="0" cellspacing="0" cellpadding="0">
+								<table width="520" border="0" cellspacing="0">
 									<thead>
 										<tr style="background-color:#e7edf8;">
 											<th width="300" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px;font-weight:bold; text-align: left;">
@@ -84,7 +87,7 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 													$i++;
 													?><tr>
 														<td width="150"></td>
-														<td width="200" style="text-align:left; color: #666; font-weight: bold;text-transform: upppercase; padding:12px 15px; <?php if ( $i === 1 ) echo 'border-top-width: 4px;'; ?>"><?php echo $total['label']; ?></td>
+														<td width="200" style="text-align:left; color: #666; font-weight: bold;text-transform: uppercase; padding:12px 15px; <?php if ( $i === 1 ) echo 'border-top-width: 4px;'; ?>"><?php echo $total['label']; ?></td>
 														<td width="150" style="text-align:left; color: #666; padding:12px 15px; <?php if ( $i === 1 ) echo 'border-top-width: 4px;'; ?>"><?php echo $total['value']; ?></td>
 													</tr><?php
 												}
