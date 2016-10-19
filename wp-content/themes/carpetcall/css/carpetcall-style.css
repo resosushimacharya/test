@@ -5718,7 +5718,7 @@ label.inner-check-label.radio-check-label:after {
 	background: 0 0;
 	border-radius: 0
 }
-.wc_payment_method.payment_method_paypal label a, .wc_payment_method.payment_method_paypal label img, .wc_payment_method.payment_method_securepay img, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_paypal:before, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay:before {
+.wc_payment_method.payment_method_paypal label a, .wc_payment_method.payment_method_paypal label img, .wc_payment_method.payment_method_securepay img, li.wc_payment_method.payment_method_express_checkout label img, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_paypal:before, .woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay:before {
 	display: none
 }
 .woocommerce-checkout .payment-form #payment .wc_payment_methods {
