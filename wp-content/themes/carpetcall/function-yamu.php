@@ -1767,6 +1767,7 @@ wc_get_template( 'emails/email-header.php',array('email_heading'=>'New Order Rec
 //wc_get_template( 'order/order-details.php', array('order_id'=>$order_id));
 wc_get_template( 'order/cc-order-details.php', array('order_id'=>$order_id));
 ?>
+
 <tr>
 	<td colspan="3" height="20"></td>
 </tr>
@@ -1793,6 +1794,7 @@ wc_get_template( 'order/cc-order-details.php', array('order_id'=>$order_id));
 
 <?php
 wc_get_template( 'emails/email-footer.php');
+$message = ob_get_clean();
 
 $selected_store = get_post_meta($order_id,'pickup_store_id',true);
 if($selected_store){
@@ -1800,7 +1802,6 @@ if($selected_store){
 	if($to =='' || !$to){
 		$to = get_option('admin_email');
 		}
-	$message = ob_get_clean();
 	if($to){
 	(wc_mail( $to, 'New Order Received', $message, $headers = "Content-Type: text/htmlrn", $attachments = "" ));
 	}

@@ -82,7 +82,7 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 					            	<p style="margin: 0;">QTY: <?php echo $qty;?></p>
 					            	<?php if($product->get_dimensions() !=''){?>
 										<p style="margin: 0;">Size: <?php echo $product->get_dimensions();?></p>
-									<?php}?>
+									<?php } ?>
 								</td>
 								<td width="30" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px; text-align: left;border-bottom:1px solid #e7edf8;">
 									<?php echo $qty;?>
