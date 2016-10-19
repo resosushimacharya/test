@@ -10,7 +10,7 @@
               </tr>
               <tr>
                 <td>
-                  <p style="font-size: 12px; text-align: right;">Date: <?php echo date('d/m/Y, H:i:s')?></p>
+                  <p style="font-size: 12px; text-align: right;">Date: <?php echo $date_time; ?></p>
                 </td>
               </tr>
               <tr>
@@ -19,7 +19,7 @@
               <tr>
                 <td>
                   <p>Dear Admin,</p>
-                  <p>The following service enquiry was received from the website on <?php echo date('d/m/Y, H:i:s')?></p>
+                  <p>The following service enquiry was received from the website on <?php echo $date_time; ?></p>
                 </td>
               </tr>
 

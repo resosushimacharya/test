@@ -180,8 +180,12 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 					
 		if($csv[13]!=0)
 		{
+			delete_post_meta($new_post_id,'_stock_status');
+			delete_post_meta($new_post_id,'_stock');
+			
 	 		update_post_meta($new_post_id, '_stock_status', 'instock');
-	        update_post_meta($new_post_id, '_stock', str_replace(',','',$csv[13]));
+			update_post_meta($new_post_id, '_stock', str_replace(',','',str_replace(',','',$csv[13])));
+			echo $csv[1].'Stock Qty updated to '.$csv[13];
 	        update_post_meta($new_post_id, '_manage_stock', 'yes');
 			fwrite($rugs_fh, "\n"."\r".date('Y-m-d H:i:s').'Stock status Updated for Product: '.$csv[1].PHP_EOL); 
 	    }
@@ -351,8 +355,13 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 					
 		if($csv[2]!=0)
 		{
+			delete_post_meta($new_post_id,'_stock_status');
+			delete_post_meta($new_post_id,'_stock');
+
+
 	 		update_post_meta($new_post_id, '_stock_status', 'instock');
 	        update_post_meta($new_post_id, '_stock', str_replace(',','',$csv[2]));
+			echo $csv[1].'Stock Qty updated to '.$csv[2];
 	        update_post_meta($new_post_id, '_manage_stock', 'yes');
 			fwrite($hf_fh, "\n"."\r".date('Y-m-d H:i:s').'Stock Quantity Updated for: '.$csv[1].' to '.$csv[2].PHP_EOL);
 	    }
@@ -863,7 +872,8 @@ function cc_res_csv_rugs ( $rugs_post_ids,$filename ) {
 
             if(array_key_exists($rugs[1],$new_rugs_ids)){
                 $old_item=$new_rugs_ids[$rugs[1]];
-                $qty= intval($old_item[13])+intval($rugs[13]);
+				$qty= intval(str_replace(',','',$old_item[13]))+intval(str_replace(',','',$rugs[13]));
+                //$qty= intval($old_item[13])+intval($rugs[13]);
                 $old_item[13]=$qty;
                 $new_rugs_ids[$rugs[1]]=$old_item;
 
@@ -912,20 +922,25 @@ function cc_res_csv_rugs ( $rugs_post_ids,$filename ) {
 function cc_res_csv_hards($hards_post_ids,$filename){ 
      $new_hards_ids=array();
       foreach($hards_post_ids as $hards_ids){
-
+		
           foreach($hards_ids as $hards){
               if(strcasecmp($hards[0],'category')==0){
                   continue;
               }
 
               if(array_key_exists($hards[1],$new_hards_ids)){
+					
+					//do_action('pr',$new_hards_ids[$hards[1]]);
+					
                   $old_item=$new_hards_ids[$hards[1]];
-                  $qty= intval($old_item[2])+intval($hards[2]);
+                  $qty= intval(str_replace(',','',$old_item[2]))+intval(str_replace(',','',$hards[2]));
                   $old_item[2]=$qty;
-                  $new_hards_ids[$hards[2]]=$old_item;
+                  $new_hards_ids[$hards[1]]=$old_item;
+				 
+				  //do_action('pr',$new_hards_ids[$hards[1]]);
 
               }else{
-                  $new_hards_ids[$hards[2]]=$hards;
+                  $new_hards_ids[$hards[1]]=$hards;
               }
 
 

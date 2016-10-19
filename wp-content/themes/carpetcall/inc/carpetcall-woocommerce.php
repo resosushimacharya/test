@@ -672,7 +672,7 @@ function woo_new_product_tab_specifications(){
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Product - Length','carptecall')?></td>
-            <td class="specs_value"><?php echo get_post_meta( $post->ID, '_length', TRUE );?></td>
+            <td class="specs_value"></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Product - Width','carptecall')?></td>
@@ -684,7 +684,8 @@ function woo_new_product_tab_specifications(){
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Product - Thickness Total','carptecall')?></td>
-            <td class="specs_value"><?php echo get_field('pack_thickness')?></td>
+            <td class="specs_value"><?php echo get_post_meta( $post->ID, '_height', TRUE ).'mm';?>
+			<?php //echo get_field('pack_thickness')?></td>
         </tr>
     	<tr>
             <td class="spec_label"><?php _e('Pack - Length','carptecall')?></td>

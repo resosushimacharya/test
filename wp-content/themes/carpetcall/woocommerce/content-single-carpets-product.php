@@ -287,9 +287,9 @@ if($reqTempTerms){
                         $sizen    ='Size       ';
                         $coden    ='Carpet Code   ';
                         $productn ='Product    ';
-                        $resprodim = $resproLength.'cm'.' '.$resproWidth.' '.'cm'.' '.$resproHeight;
-                        $resproSize ='Size      : '.$resprodim;
-                        $resproCode ='Carpet Code  : '.$resproSKU;
+                        $resprodim = ($resproLength)?$resproLength.'cm'.' '.$resproWidth.' '.'cm'.' '.$resproHeight:'';
+                        $resproSize =($resprodim !='')?'Size      : '.$resprodim:'';
+                        $resproCode =($resproSKU)?'Carpet Code  : '.$resproSKU:'';
                         $resproProduct ='Product   : '.$reserve; 
                         
                         

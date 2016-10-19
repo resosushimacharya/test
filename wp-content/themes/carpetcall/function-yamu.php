@@ -1764,7 +1764,8 @@ function cc_notify_selected_store($order_id){
 	$order = new WC_Order( $order_id );
 	ob_start();
 wc_get_template( 'emails/email-header.php',array('email_heading'=>'New Order Received'));
-wc_get_template( 'order/order-details.php', array('order_id'=>$order_id));
+//wc_get_template( 'order/order-details.php', array('order_id'=>$order_id));
+wc_get_template( 'order/cc-order-details.php', array('order_id'=>$order_id));
 ?>
 <div class="shipping_info col-md-6">
 <h3> Shipping Address </h3>
@@ -2257,3 +2258,11 @@ function atom_search_groupby($groupby){
 //$shipping = '';
 //$order = new WC_Order( $order_id );
 //$order->add_shipping($shipping);
+//add_action('init','tesxty');
+function tesxty(){
+	$a =str_replace(',','','1234');
+	$b =str_replace(',','','1,234');
+	
+	echo intval($a)+intval($b);die;
+	echo (int)$a+(int)$b;die;
+	}

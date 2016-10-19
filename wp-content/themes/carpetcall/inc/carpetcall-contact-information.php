@@ -251,6 +251,7 @@ function contact_action(){
 				$message['sent_mail']=$sent_mail;
 				$textmessage=get_field('success_message_content',89);
 				$message['success']=$textmessage;
+				$date_time =  esc_attr( get_the_date('d/m/Y',$user_id)).', '.esc_attr(get_the_time('g:i a',$user_id));
 				if($cc_enq_type == 'sales'){
 					ob_start();
 					include get_template_directory().'/templates/emails/header.php';
@@ -326,6 +327,7 @@ function contact_action(){
 				$headers[] = 'Cc: '.$cc_emails. "\r\n";
 				$headers[] = 'Bcc: '.$bcc_emails. "\r\n";
 				$email_subject = $email_header;
+				$to = array('yamuaryal@gmail.com');
 				$sent_mail= wp_mail($to, $email_subject, $body_admin,$headers);
 				if(!$sent_mail){
 					$sent_mail= mail(explode(', ',$to), $email_subject, $body_admin,explode(' ',$headers));

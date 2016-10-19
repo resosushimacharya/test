@@ -89,7 +89,7 @@ $ = jQuery.noConflict(), $(function() {
         jQuery(this).attr("disabled", "disabled")
     }), jQuery(document).on("keyup", "input[name=s]", function() {
         var a = jQuery(this).val();
-        "" == a ? jQuery(this).next(".input-group-btn").find(".cc_search_button").attr("disabled", "disabled") : jQuery(this).next(".input-group-btn").find(".cc_search_button").removeAttr("disabled")
+        ("" == a || a.length < 3) ? jQuery(this).next(".input-group-btn").find(".cc_search_button").attr("disabled", "disabled") : jQuery(this).next(".input-group-btn").find(".cc_search_button").removeAttr("disabled")
     }), a("#pickup_location_form").on("keyup keypress", function(a) {
         var b = a.keyCode || a.which;
         13 === b && a.preventDefault()
