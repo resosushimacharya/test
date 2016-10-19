@@ -107,12 +107,13 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 										$total['value'] = get_post_meta($order->id,'cc_shipping_method',true);
 									}
 							?>
-									<tr style="background-color:#e7edf8;">									<
-										<td colspan="2"></td>
-										<td style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px;font-weight:bold; text-align: left;"><?php 
+									<tr>									
+										<td width="120">&nbsp;</td>
+										<td width="50">&nbsp;</td>
+										<td width="190" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px;font-weight:bold; text-align: left;"><?php 
 										 $label = rtrim($total['label'],":");
 										 echo $label; ?></td>
-										<td style="font-family:Arial;font-size:12px;color:#666;padding:12px 15px;text-align: left;"><?php echo ($total['value']); ?></td>
+										<td width="160" style="font-family:Arial;font-size:12px;color:#666;padding:12px 15px;text-align: left;"><?php echo ($total['value']); ?></td>
 									</tr>
 							<?php
 								}
