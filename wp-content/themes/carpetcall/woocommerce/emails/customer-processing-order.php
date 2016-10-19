@@ -41,9 +41,9 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
         
         <tr>
           <td style="width:420px;">
-            <h1 style="font-family:Arial; font-size:12px; color:#15489f; font-weight:bold; margin:30px 0 10px 0;">  CUSTOMER DETAILS 
+            <h1 style="font-family:Arial; font-size:14px; color:#15489f; font-weight:bold; margin:30px 0 10px 0;">  CUSTOMER DETAILS 
             </h1>
-            <p style="font-family:Arial;font-size:10px; color:#15489f; margin:0;">
+            <p style="font-family:Arial;font-size:12px; color:#15489f; margin:0;">
               <span style="font-weight:bold;">Email:</span> <?php echo $order->billing_email; ?><br>
               <span style="font-weight:bold;">Tel:</span> <?php echo $order->billing_phone; ?><br>
               <span style="font-weight:bold;">Order:</span> #<?php echo $order->get_order_number(); ?><br>
@@ -64,7 +64,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
           <?php if ( !wc_ship_to_billing_address_only() || $order->needs_shipping_address()) : ?>
           <?php if(strcasecmp('Pickup From Head Offices',$where)!=0){ ?>
             <td style="width:252px;">
-              <h2 style="font-family:Arial; font-size:12px; color:#666666; margin:30px 0 0 0; text-transform:uppercase;">
+              <h2 style="font-family:Arial; font-size:14px; color:#666666; margin:30px 0 0 0; text-transform:uppercase;">
                 <span style="text-transform: uppercase;">Shipping Address</span>
               </h2>
               <span style="font-family:Arial; font-size:12px; color:#666666; margin:0;">Your order has been delivered to: </span>
@@ -76,12 +76,12 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
             </td>
           <?php } ?> <?php endif; ?>
             <td style="width:252px;">
-              <h2 style="font-family:Arial; font-size:12px; color:#666666; margin:30px 0 0 0; text-transform:uppercase;"> 
+              <h2 style="font-family:Arial; font-size:14px; color:#666666; margin:30px 0 0 0; text-transform:uppercase;"> 
                 <span style="text-transform: uppercase;">Billing Address</span>
               </h2>
               <span style="font-family:Arial; font-size:12px; color:#666666; margin:0;">Your order will be billed to: </span>
               <div style="border-bottom:1px solid #e7edf8; margin:5px 20% 10px 0; height: 1px;"></div>
-              <p style="font-family:Arial; font-size:10px; color:#666; line-height:13px; text-decoration:none; margin:0;">
+              <p style="font-family:Arial; font-size:10px; color:#666; text-decoration:none; margin:0;">
                 <?php echo ( $address = $order->get_formatted_billing_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
               </p> 
             </td>
@@ -117,10 +117,10 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
           				$product = new WC_Product($id);
               ?>
               <tr>
-                <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666;  padding:12px 15px; border-bottom:1px solid #e7edf8;"><?php echo $item['name'];?><span style="display:block;">SKU: <?php echo $item['item_meta']['sku'][0]; ?></span></td>
-                <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666;  padding:12px 15px; border-bottom:1px solid #e7edf8;"><?php echo $qty;?></td>
-                <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666;  padding:12px 15px; border-bottom:1px solid #e7edf8;"><?php echo '$'.$item_price;?></td>
-                <td style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666;  padding:12px 15px; border-bottom:1px solid #e7edf8;"><?php echo '$'.$item_total;?></td>
+                <td style="font-family:Arial; font-size:12px; color:#666;  padding:12px 15px; border-bottom:1px solid #e7edf8;"><?php echo $item['name'];?><span style="display:block;">SKU: <?php echo $item['item_meta']['sku'][0]; ?></span></td>
+                <td style="font-family:Arial; font-size:12px; color:#666;  padding:12px 15px; border-bottom:1px solid #e7edf8;"><?php echo $qty;?></td>
+                <td style="font-family:Arial; font-size:12px; color:#666;  padding:12px 15px; border-bottom:1px solid #e7edf8;"><?php echo '$'.$item_price;?></td>
+                <td style="font-family:Arial; font-size:12px; color:#666;  padding:12px 15px; border-bottom:1px solid #e7edf8;"><?php echo '$'.$item_total;?></td>
               </tr>
               <?php } ?>
               <?php 
@@ -136,28 +136,30 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
           		?>
                 <?php if($key == 'cart_subtotal'){ ?>
                   <tr>
-                    <td colspan="3" rowspan="3">&nbsp;</td>
-                    <td style="font-family:Arial; font-size:12px; color:#666;  padding:12px 15px; text-transform:uppercase; font-weight:bold;">SUBTOTAL</td>
-                    <td style="font-family:Arial; font-size:12px; color:#666;  padding:12px 15px;"><?php echo ($total['value']); ?></td>
+                    <td colspan="2">&nbsp;</td>
+                    <td style="font-family:Arial; font-size:12px; color:#666; padding:12px 15px; text-transform:uppercase; font-weight:bold;">SUBTOTAL</td>
+                    <td style="font-family:Arial; font-size:12px; color:#666; padding:12px 15px;"><?php echo ($total['value']); ?></td>
                   </tr>
                 <?php } ?>
                 <?php if($key == 'shipping'){ ?>
                   <tr>
-                    <td style="font-family:Arial; font-size:12px; color:#666;  padding:12px 15px; text-transform:uppercase; font-weight:bold;">SHIPPING</td>
-                    <td style="font-family:Arial; font-size:12px; color:#666;  padding:12px 15px;"><?php echo ($total['value']); ?></td>
+                    <td colspan="2">&nbsp;</td>
+                    <td style="font-family:Arial; font-size:12px; color:#666; padding:12px 15px; text-transform:uppercase; font-weight:bold;">SHIPPING</td>
+                    <td style="font-family:Arial; font-size:12px; color:#666; padding:12px 15px;"><?php echo ($total['value']); ?></td>
                   </tr>
                 <?php } ?>
                 <?php if($key == 'payment_method'){ ?>
                   <tr>
-                    <td style="font-family:Arial; font-size:12px; color:#666;  padding:12px 15px; text-transform:uppercase; font-weight:bold;">PAYMENT METHOD</td>
-                    <td style="font-family:Arial; font-size:12px; color:#666;  padding:12px 15px;"><?php echo ($total['value']); ?></td>
+                    <td colspan="2">&nbsp;</td>
+                    <td style="font-family:Arial; font-size:12px; color:#666; padding:12px 15px; text-transform:uppercase; font-weight:bold;">PAYMENT METHOD</td>
+                    <td style="font-family:Arial; font-size:12px; color:#666; padding:12px 15px;"><?php echo ($total['value']); ?></td>
                   </tr>
                 <?php } ?>
                 <?php if($key == 'order_total'){ ?>
                   <tr style="background-color:#e7edf8;">
-                    <td colspan="3" style="background-color: #e7edf8; padding:12px 15px;">&nbsp;</td>
-                    <td style="font-family:Arial; font-size:12px; color:#666;  padding:12px 15px; text-transform:uppercase; font-weight:bold;">TOTAL</td>
-                    <td style="font-family:Arial; font-size:12px; color:#666;  padding:12px 15px;"><?php echo ($total['value']); ?></td>
+                    <td colspan="2" style="background-color: #e7edf8;padding:12px 15px;">&nbsp;</td>
+                    <td style="font-family:Arial; font-size:12px; color:#666; padding:12px 15px; text-transform:uppercase; font-weight:bold;">TOTAL</td>
+                    <td style="font-family:Arial; font-size:12px; color:#666; padding:12px 15px;"><?php echo ($total['value']); ?></td>
                   </tr>
                 <?php } ?>
               <?php                     
