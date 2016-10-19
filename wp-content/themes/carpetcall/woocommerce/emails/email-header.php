@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     $x = preg_replace( '/^[0]{1}/', '', $x );
                     $i = 1;
                     $x = '+61'.$x;   ?>
-                    <a href="tel:<?php echo $x;?>"><span style="text-decoration:none; color:#fff; font-size: 18px; font-weight: bold;">CALL 1300 502 427</span></a>                  
+                    <a href="tel:<?php echo $x;?>" style="text-decoration:none;"><span style="text-decoration:none; color:#fff; font-size: 18px; font-weight: bold;">CALL 1300 502 427</span></a>                  
                 </td>                  
               </tr>
               <tr>
@@ -79,7 +79,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                       </td>      
                       <td width="20"></td>                                      
                       <td style="background: #c32327; text-align: center;" width="75" height="18" valign="middle">                            
-                          <a href="<?php echo site_url();?>/contact-us" style="font-family:'proxima_nova_rgregular', sans-serif; font-size:7.25px; color:#FFF; text-align:center; text-transform:uppercase; display: block;"> <span style="text-decoration:none;">CONTACT US</span>
+                          <a href="<?php echo site_url();?>/contact-us" style="text-decoration:none; font-size:7.25px; color:#FFF; text-align:center; text-transform:uppercase; display: block;"> <span style="text-decoration:none;">CONTACT US</span>
                           </a>
                         </td>
                       </tr>

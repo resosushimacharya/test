@@ -23,9 +23,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<h2><?php _e( 'Customer details', 'woocommerce' ); ?></h2>
-<ul>
-    <?php foreach ( $fields as $field ) : ?>
-        <li><strong><?php echo wp_kses_post( $field['label'] ); ?>:</strong> <span class="text"><?php echo wp_kses_post( $field['value'] ); ?></span></li>
-    <?php endforeach; ?>
-</ul>
+ <tr>
+  <td>
+    <table width="600" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr>
+					<td width="40"></td>
+					<td width="520">
+						<table width="520" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td>
+									<h2 style="font-family:Arial;color:#666666; margin-bottom: 10px; font-size: 14px;"><?php _e( 'CUSTOMER DETAILS', 'woocommerce' ); ?></h2>
+									<div style="font-family:Arial;color:#666; margin-bottom:25px; font-size: 12px;">
+										<?php foreach ( $fields as $field ) : ?>
+								       		<p style="margin: 0">
+								       			<strong style="text-transform: uppercase;"><?php echo wp_kses_post( $field['label'] ); ?>:</strong> <span class="text"><?php echo wp_kses_post( $field['value'] ); ?></span>
+								       		</p>
+								    	<?php endforeach; ?>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td width="40"></td>
+				</tr>
+			</tbody>
+		</table>
+	</td>
+</tr>
