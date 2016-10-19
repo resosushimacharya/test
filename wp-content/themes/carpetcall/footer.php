@@ -187,28 +187,6 @@ else{
 </div><!-- main wrapper end -->
 </div>
 
-
-
-
-
-<?php 
-  include('woocommerce/emails/email-header.php');
-  include('woocommerce/emails/email-footer.php');
-
-
-?>
-
-
-
-
-
-
-
-
-
-
-
-
 <script>
 // Initiate Lightbox
 // (function() {
