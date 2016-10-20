@@ -1774,7 +1774,7 @@ wc_get_template( 'order/cc-order-details.php', array('order_id'=>$order_id));
 <tr>
 	<td width="40"></td>
 	<td width="520">
-		<span style="text-transform: uppercase; color: #15489f; font-weight: bold; font-size: 20px;">Shipping Address</span>
+		<span style="text-transform: uppercase; color: #15489f; font-weight: bold; font-size: 20px; font-family: Arial;">Shipping Address</span>
 	</td>
 	<td width="40"></td>
 </tr>
@@ -1783,7 +1783,7 @@ wc_get_template( 'order/cc-order-details.php', array('order_id'=>$order_id));
 </tr>
 <tr>
 	<td width="40"></td>
-	<td colspan="3" width="520">
+	<td colspan="3" width="520" style="font-family: Arial;">
 		<?php echo $order->get_formatted_shipping_address();?>
 	</td>
 	<td width="40"></td>

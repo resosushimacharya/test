@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
   <tr>
     <td colspan="3" style="border:1px solid #cfcfcf; border-top:0; border-bottom:0; background-color:#f0f2f1;">
-      <div style="background-color:#f0f2f1; font-size:20px; color:#15489f; text-transform:uppercase; font-weight:bold; margin:29px 0 25px 45px;"> THANK YOU FOR YOUR ORDER </div>
+      <div style="background-color:#f0f2f1; font-family:Arial; font-size:20px; color:#15489f; text-transform:uppercase; font-weight:bold; margin:29px 0 25px 45px;"> THANK YOU FOR YOUR ORDER </div>
     </td>
   </tr><!-- thank you for order end -->
   

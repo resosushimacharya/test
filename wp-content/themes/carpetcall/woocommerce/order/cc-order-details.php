@@ -32,7 +32,7 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 <tr>
 	<td width="40"></td>
 	<td width="520">
-		<span style="text-transform: uppercase; color: #15489f; font-weight: bold; font-size: 20px;"><?php _e( 'Order Details', 'woocommerce' ); ?></span>
+		<span style="text-transform: uppercase; color: #15489f; font-weight: bold; font-size: 20px; font-family:Arial;"><?php _e( 'Order Details', 'woocommerce' ); ?></span>
 	</td>
 	<td width="40"></td>
 </tr>

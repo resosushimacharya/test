@@ -34,7 +34,7 @@
       <tr> 
         <td width="40"></td>      
         <td width="520">
-          <p style="margin: 0; font-size: 14px; color: #000;">
+          <p style="margin: 0; font-size: 14px; color: #000; font-family: Arial;">
             <?php printf( __( 'You have received an order from %s. The order is as follows:', 'woocommerce' ), $order->get_formatted_billing_full_name() ); ?>    
           </p> 
         </td>
