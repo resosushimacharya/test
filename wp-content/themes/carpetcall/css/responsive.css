@@ -4087,7 +4087,7 @@
 	.cc-cat-sub-carousal-a .slick-dots li, .slick-dots li {
 	    margin: 0 5px;
 	}
-	.slick-dots li, .slick-dots li button {
+	.slick-dots li, .slick-dots li button, .responsive .slick-dots li button {
 	    height: 16px;
 	    width: 16px;
 	}
