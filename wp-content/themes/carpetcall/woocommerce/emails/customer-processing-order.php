@@ -35,7 +35,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
       <table width="504px" border="0" cellspacing="0" cellpadding="0" style="width:504px; margin:0 49px 0 45px;">
         <tr style="border:0;">
           <td colspan="3">
-            <p style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666666; margin-top:29px; clear:both;">Your order has been received and is now being processed. Your order details are shown below for your reference. </p>
+            <p style="font-family:Arial; font-size:12px; color:#666666; margin-top:29px; clear:both;">Your order has been received and is now being processed. Your order details are shown below for your reference. </p>
           </td>
         </tr>
         
@@ -174,7 +174,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
         <tr>
           <td colspan="3">
             <?php if($order->customer_message){ ?>
-              <div style="font-family:Arial; font-size:12px; color:#666; text-transform:uppercase; border-bottom:1px solid #e7edf8; padding-bottom:8px; margin-bottom:6px; margin-top:36px;">
+              <div style="font-family:Arial; font-size:14px; color:#666; text-transform:uppercase; border-bottom:1px solid #e7edf8; padding-bottom:8px; margin-bottom:6px; margin-top:36px;">
                 ADDITIONAL COMMENTS OR INSTRUCTIONS
               </div>
               <span style="font-family:Arial; font-size:12px; color:#666;">
