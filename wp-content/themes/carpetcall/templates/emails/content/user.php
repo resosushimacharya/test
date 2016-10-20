@@ -7,7 +7,7 @@
       <tr>
         <td width="20"></td>
         <td width="560">
-          <p style="font-size: 12px; text-align: right;">Date: <?php echo date('d/m/Y, H:i:s')?></p>
+          <p style="font-size: 12px; text-align: right;font-family:'Arial', sans-serif;">Date: <?php echo date('d/m/Y, H:i:s')?></p>
         </td>
         <td width="20"></td>
       </tr>
@@ -17,9 +17,9 @@
       <tr>
         <td width="20"></td>
         <td colspan="560">
-          <p class="email_greeting">Dear <?php echo $first_name.' '.$last_name?>,</p>
-          <p>Thank you for your query. One of our staff members will get back to you shortly.</p>
-          <p>Please <a href="<?php echo home_url();?>">click here</a> to return to <a href="<?php echo home_url();?>">homepage</a></p>
+          <p class="email_greeting" style="font-family:'Arial', sans-serif;">Dear <?php echo $first_name.' '.$last_name?>,</p>
+          <p style="font-family:'Arial', sans-serif;">Thank you for your query. One of our staff members will get back to you shortly.</p>
+          <p style="font-family:'Arial', sans-serif;">Please <a href="<?php echo home_url();?>">click here</a> to return to <a href="<?php echo home_url();?>">homepage</a></p>
         </td>
         <td width="20"></td>
       </tr>

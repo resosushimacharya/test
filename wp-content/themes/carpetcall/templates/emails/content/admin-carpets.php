@@ -30,31 +30,31 @@
                 <td colspan="3">
                   <table width="540" border="0" cellspacing="0" cellpadding="0">
                     <tr>
-                        <td width="140" style="font-size: 12px; font-family:'Arial', sans-serif;">Carpets Information:</td>
-                        <td style="font-size: 12px; font-family:'Arial', sans-serif;"><?php echo $netMessage?></td>
+                        <td width="140" style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;">Carpets Information:</td>
+                        <td style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;"><?php echo $netMessage?></td>
                     </tr>
                     <tr>
-                        <td width="140" style="font-size: 12px; font-family:'Arial', sans-serif;">Name:</td>
-                          <td style="font-size: 12px; font-family:'Arial', sans-serif;"><?php echo $first_name.' '.$last_name;?></td>
+                        <td width="140" style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;">Name:</td>
+                          <td style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;"><?php echo $first_name.' '.$last_name;?></td>
                       </tr>
                     <tr>
-                        <td width="140" style="font-size: 12px; font-family:'Arial', sans-serif;">Email:</td>
-                          <td style="font-size: 12px; font-family:'Arial', sans-serif;"><?php echo $emailcheck;?></td>
+                        <td width="140" style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;">Email:</td>
+                          <td style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;"><?php echo $emailcheck;?></td>
                       </tr>
                     <tr>
-                        <td width="140" style="font-size: 12px; font-family:'Arial', sans-serif;">Contact Number:</td>
-                          <td style="font-size: 12px; font-family:'Arial', sans-serif;"><?php echo $phono;?></td>
+                        <td width="140" style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;">Contact Number:</td>
+                          <td style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;"><?php echo $phono;?></td>
                       </tr>
                     <tr>
-                        <td width="140" style="font-size: 12px; font-family:'Arial', sans-serif;">State:</td>
-                          <td style="font-size: 12px; font-family:'Arial', sans-serif;"><?php echo strtoupper($data['cc_state_type']);?></td>
+                        <td width="140" style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;">State:</td>
+                          <td style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;"><?php echo strtoupper($data['cc_state_type']);?></td>
                       </tr>
                     <tr>
-                        <td width="140" style="font-size: 12px; font-family:'Arial', sans-serif;">Nearest Store:</td>
-                          <td style="font-size: 12px; font-family:'Arial', sans-serif;"><?php echo ucwords(strtolower($data['cc_store_name']));?></td>
+                        <td width="140" style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;">Nearest Store:</td>
+                          <td style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;"><?php echo ucwords(strtolower($data['cc_store_name']));?></td>
                       </tr>
                     <tr>
-                        <td width="140" style="font-size: 12px; font-family:'Arial', sans-serif;">Comments/enquiries:</td>
+                        <td width="140" style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;">Comments/enquiries:</td>
                         <td style="font-size: 12px;"><?php echo $data['cc_message'];?></td>
                     </tr>
                   </table>
