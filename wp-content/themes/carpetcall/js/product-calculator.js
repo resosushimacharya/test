@@ -145,7 +145,8 @@ $ = jQuery.noConflict();
 		
 	});
 function calculate_square(){
-
+		
+		jQuery('#confirm_calc').attr('data-dismiss','');
 	
 	/*alert($("#calculator_container>div").length);*/
        	var $loop =$("#calculator_container>div").length;
@@ -217,6 +218,7 @@ $(document).on('click','#confirm_calc',function(){
 	var culc_val=$('#no_of_packs').text();
 	if(Number(culc_val)!=0){
 	if(Number(max_val)>=Number(culc_val)){
+		jQuery('#confirm_calc').attr('data-dismiss','modal');
 		 var temp_count = $('#cov_per_pack').val();
 		  temp_count = Number(temp_count);
 		  var cal_quan = Number(culc_val);

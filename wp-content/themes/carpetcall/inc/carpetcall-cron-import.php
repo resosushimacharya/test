@@ -64,7 +64,7 @@ function readCSV($csvFile)
 
 function category_second_level($csvitem,$rootcatterm)
 {
-	$sluglower = strtolower($csvitem);
+	$sluglower = strtolower(str_replace(' ','-',$csvitem));
 	$second_level_cat = array('name' => $csvitem,'description' => ' ','slug' =>$sluglower ,'parent'=>$rootcatterm);
 	$parent = get_term_by('slug',$second_level_cat['parent'], 'product_cat');
 	$cid = wp_insert_term(
@@ -83,8 +83,8 @@ function category_second_level($csvitem,$rootcatterm)
 */
 function category_third_level($csvitem,$slct)
 {
-	$sluglower = strtolower($csvitem);
-	$parentslug= strtolower($slct);
+	$sluglower = strtolower(str_replace(' ','-',$csvitem));
+	$parentslug= strtolower(str_replace(' ','-',$slct));
 	$second_level_cat = array('name' => $csvitem,'description' => ' ','slug' =>$sluglower ,'parent'=>$parentslug);
 	$parent = get_term_by('slug',$second_level_cat['parent'], 'product_cat');
 	$cid = wp_insert_term(
@@ -184,8 +184,8 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 			delete_post_meta($new_post_id,'_stock');
 			
 	 		update_post_meta($new_post_id, '_stock_status', 'instock');
-			update_post_meta($new_post_id, '_stock', str_replace(',','',str_replace(',','',$csv[13])));
-			echo $csv[1].'Stock Qty updated to '.$csv[13];
+			update_post_meta($new_post_id, '_stock', (int)str_replace(',','',$csv[13]));
+			echo $csv[1].'Stock Qty updated to '.(int)str_replace(',','',$csv[13]);
 	        update_post_meta($new_post_id, '_manage_stock', 'yes');
 			fwrite($rugs_fh, "\n"."\r".date('Y-m-d H:i:s').'Stock status Updated for Product: '.$csv[1].PHP_EOL); 
 	    }
@@ -360,8 +360,8 @@ function  csv_import_rugs($csv,$appcat,$resrugs,$import_fh,$rugs_fh)
 
 
 	 		update_post_meta($new_post_id, '_stock_status', 'instock');
-	        update_post_meta($new_post_id, '_stock', str_replace(',','',$csv[2]));
-			echo $csv[1].'Stock Qty updated to '.$csv[2];
+	        update_post_meta($new_post_id, '_stock', (int)str_replace(',','',$csv[2]));
+			echo $csv[1].'Stock Qty updated to '. (int)str_replace(',','',$csv[2]);
 	        update_post_meta($new_post_id, '_manage_stock', 'yes');
 			fwrite($hf_fh, "\n"."\r".date('Y-m-d H:i:s').'Stock Quantity Updated for: '.$csv[1].' to '.$csv[2].PHP_EOL);
 	    }
@@ -878,6 +878,7 @@ function cc_res_csv_rugs ( $rugs_post_ids,$filename ) {
                 $new_rugs_ids[$rugs[1]]=$old_item;
 
             }else{
+				$rugs[13] = (int)str_replace(',','',$rugs[13]);
                 $new_rugs_ids[$rugs[1]]=$rugs;
             }
 
@@ -940,6 +941,7 @@ function cc_res_csv_hards($hards_post_ids,$filename){
 				  //do_action('pr',$new_hards_ids[$hards[1]]);
 
               }else{
+				  $hards[2] = (int)str_replace(',','',$hards[2]);
                   $new_hards_ids[$hards[1]]=$hards;
               }
 

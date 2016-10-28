@@ -288,7 +288,6 @@ function show_category_slider_block($args=array()){
 		$cat_arr = generate_catids_array($cat_id,$depth);
 		}
 	$found_cat = 0;
-	
 	//$cat_arr_popular = generate_catids_array_popular($cat_id,$depth);
 	if(!empty($cat_arr)){
 		$cat_slice = array();
@@ -297,7 +296,6 @@ function show_category_slider_block($args=array()){
 		foreach($cat_slice_arr as $catid){
 			$cat_slice[] = get_term_by('id',$catid,'product_cat');
 		}
-		
 		if(!empty($cat_slice)){
 			foreach($cat_slice as &$discat){
 				?>
@@ -406,6 +404,7 @@ function show_category_slider_block($args=array()){
 					}else{
 						$product_found--;
 						}
+				
 				}
 				
 				wp_reset_postdata();
@@ -433,6 +432,14 @@ function show_category_slider_block($args=array()){
 			}else{
 				$filloop = '';
 				$offset++;
+				/* Added Code for test start */
+				//$offset++;
+					if($offset < count($cat_arr) && $found_cats < $perpage ){
+						$next_cat = array_slice($cat_arr,$offset,1);
+						$next_cat =  get_term_by('id',$next_cat[0],'product_cat');
+						$cat_slice[] = $next_cat;
+					}
+				/* Addedd code for test end */
 				}
 			}else{
 					$offset++;
@@ -1601,32 +1608,95 @@ function save_delivery_option_cc($order_id){
 		}else if(!empty(WC()->session->post_data['cc_shipping_method'])){
 			$shipping_method = WC()->session->post_data['cc_shipping_method'];
 		} 
+	
+	
+	if(empty(WC()->session->post_data['ship_to_different_address'])){
+		$first_name = WC()->session->post_data['billing_first_name'];
+		$last_name = WC()->session->post_data['billing_last_name'];
+		$company = WC()->session->post_data['billing_company'];
+		$address_1 = WC()->session->post_data['billing_address_1'];
+		$address_2 = WC()->session->post_data['billing_address_2'];
+		$email = WC()->session->post_data['billing_email'];
+		$phone = WC()->session->post_data['billing_phone'];
+		$country = WC()->session->post_data['billing_country'];
+		$city = WC()->session->post_data['billing_city'];
+		$state = WC()->session->post_data['billing_state'];
+		$postcode = WC()->session->post_data['billing_postcode'];
+		
+		WC()->session->set('shipping_first_name_cc',$first_name);
+		WC()->session->set('shipping_last_name_cc', $last_name);
+		WC()->session->set('shipping_company_cc',$company);
+		WC()->session->set('shipping_address1_cc', $address_1);
+		WC()->session->set('shipping_address2_cc',$address_2);
+		WC()->session->set('shipping_email_cc', $email);
+		WC()->session->set('shipping_phone_cc', $phone);
+		WC()->session->set('shipping_country_cc', $country);
+		WC()->session->set('shipping_city_cc', $city);
+		WC()->session->set('shipping_state_cc', $state);
+		WC()->session->set('shipping_postcode_cc', $postcode);
+		}
 
 
+
+	/*
+	
 	if(!empty($_POST['shipping_first_name'])){
 		$first_name = $_POST['shipping_first_name'];
-		}else if(!empty(WC()->session->post_data['shipping_first_name'])){
-			$first_name = WC()->session->post_data['shipping_first_name'];
+		update_post_meta($order_id,'_shipping_first_name',$first_name);
 		}
-	if(!empty($_POST['billing_first_name'])){
-		$first_name = $_POST['billing_first_name'];
-		}else if(!empty(WC()->session->post_data['billing_first_name'])){
-			$first_name = WC()->session->post_data['billing_first_name'];
-		}
+	
 	if(!empty($_POST['shipping_last_name'])){
 		$last_name = $_POST['shipping_last_name'];
-		}else if(!empty(WC()->session->post_data['shipping_last_name'])){
-			$last_name = WC()->session->post_data['shipping_last_name'];
+		update_post_meta($order_id,'_shipping_last_name',$last_name);
 		}
-	if(!empty($_POST['billing_last_name'])){
-		$last_name = $_POST['billing_last_name'];
-		}else if(!empty(WC()->session->post_data['billing_last_name'])){
-			$last_name = WC()->session->post_data['billing_last_name'];
+	
+	if(!empty($_POST['shipping_company'])){
+		$shipping_company = $_POST['shipping_company'];
+		update_post_meta($order_id,'_shipping_company',$shipping_company);
 		}
+		
+	if(!empty($_POST['shipping_last_name'])){
+		$last_name = $_POST['shipping_last_name'];
+		update_post_meta($order_id,'_shipping_last_name',$last_name);
+		}
+	
+	if(!empty($_POST['shipping_country'])){
+		$shipping_country = $_POST['shipping_country'];
+		update_post_meta($order_id,'_shipping_country',$shipping_country);
+		}
+	
+	if(!empty($_POST['shipping_address_1'])){
+		$shipping_address_1 = $_POST['shipping_address_1'];
+		update_post_meta($order_id,'_shipping_address_1',$shipping_address_1);
+		}
+		
+	if(!empty($_POST['shipping_address_2'])){
+		$shipping_address_2 = $_POST['shipping_address_2'];
+		update_post_meta($order_id,'_shipping_address_2',$shipping_address_2);
+		}
+		
+	if(!empty($_POST['shipping_city'])){
+		$shipping_city = $_POST['shipping_city'];
+		update_post_meta($order_id,'_shipping_city',$shipping_city);
+		}
+		
+	if(!empty($_POST['shipping_state'])){
+		$shipping_state = $_POST['shipping_state'];
+		update_post_meta($order_id,'_shipping_state',$shipping_state);
+		}
+		
+	if(!empty($_POST['shipping_postcode'])){
+		$shipping_postcode = $_POST['shipping_postcode'];
+		update_post_meta($order_id,'_shipping_postcode',$shipping_postcode);
+		}
+		
+*/
+
 	//WC()->session->paypal_express_checkout = array();
 	//WC()->session->paypal_express_checkout['shipping_details'][0]['last_name'] = $last_name;
 	//do_action('pr',WC()->session->paypal_express_checkout['shipping_details']);
 	//echo 'one';die;
+	
 	$pickup_store_id = '';
 		if(!empty($_POST['pickup_store_id'])){
 			$pickup_store_id = $_POST['pickup_store_id'];
@@ -1680,80 +1750,157 @@ add_action( 'woocommerce_payment_complete', 'cc_save_shipping_address_forcefully
 function cc_save_shipping_address_forcefully($order_id){
 	global $woocommerce;
 	$payer_id = $_REQUEST['PayerID'];
+	if(!empty($payer_id)){
 	update_post_meta($order_id,'payer_id',$payer_id);
-	if(!empty($_POST['shipping_first_name'])){
-		$first_name = $_POST['shipping_first_name'];
-		}else if(!empty(WC()->session->post_data['shipping_first_name'])){
-			$first_name = WC()->session->post_data['shipping_first_name'];
-		}
-	if(!empty($_POST['billing_first_name'])){
-		$first_name = $_POST['billing_first_name'];
-		}else if(!empty(WC()->session->post_data['billing_first_name'])){
-			$first_name = WC()->session->post_data['billing_first_name'];
-		}
-		
+ //do_action('pr',WC()->session->post_data);die;
+	if(WC()->session->get('shipping_first_name_cc')){
+		$first_name = WC()->session->get('shipping_first_name_cc');
+		}else{
+			if(!empty(WC()->session->post_data['shipping_first_name'])){
+				$first_name = WC()->session->post_data['shipping_first_name'];
+				}else{
+					$first_name = WC()->session->post_data['billing_first_name'];
+				}			
+			}
 	update_post_meta($order_id,'_shipping_first_name',$first_name);
 	
-	if(!empty($_POST['shipping_last_name'])){
-		$last_name = $_POST['shipping_last_name'];
-		}else if(!empty(WC()->session->post_data['shipping_last_name'])){
-			$last_name = WC()->session->post_data['shipping_last_name'];
-		}
-	if(!empty($_POST['billing_last_name'])){
-		$last_name = $_POST['billing_last_name'];
-		}else if(!empty(WC()->session->post_data['billing_last_name'])){
+	if(WC()->session->get('shipping_last_name_cc')){
+		$last_name = WC()->session->get('shipping_last_name_cc');
+		}else{
+	if(!empty(WC()->session->post_data['shipping_last_name'])){
+		$last_name = WC()->session->post_data['shipping_last_name'];
+		}else{
 			$last_name = WC()->session->post_data['billing_last_name'];
 		}
+		}
 	update_post_meta($order_id,'_shipping_last_name',$last_name);
-	
-	if(!empty($_POST['shipping_company'])){
-		$company = $_POST['shipping_company'];
-		}else if(!empty(WC()->session->post_data['shipping_company'])){
-			$company = WC()->session->post_data['shipping_company'];
+
+	if(WC()->session->get('shipping_company_cc')){
+		$shipping_company = WC()->session->get('shipping_company_cc');
+		}else{
+	if(!empty(WC()->session->post_data['shipping_company'])){
+		$shipping_company = WC()->session->post_data['shipping_company'];
+		}else{
+			$shipping_company = WC()->session->post_data['billing_company'];
 		}
-	update_post_meta($order_id,'_shipping_company',$company);
-	
-	if(!empty($_POST['shipping_phone'])){
-		$phone = $_POST['shipping_phone'];
-		}else if(!empty(WC()->session->post_data['shipping_phone'])){
-			$phone = WC()->session->post_data['shipping_phone'];
 		}
-	update_post_meta($order_id,'_shipping_phone',$phone);
-	
-	if(!empty($_POST['shipping_address_1'])){
-		$address1 = $_POST['shipping_address_1'];
-		}else if(!empty(WC()->session->post_data['shipping_address_1'])){
-			$address1 = WC()->session->post_data['shipping_address_1'];
+	update_post_meta($order_id,'_shipping_company',$shipping_company);
+
+if(WC()->session->get('shipping_phone_cc')){
+		$shipping_phone = WC()->session->get('shipping_phone_cc');
+		}else{	if(!empty(WC()->session->post_data['shipping_phone'])){
+		$shipping_phone = WC()->session->post_data['shipping_phone'];
+		}else{
+			$shipping_phone = WC()->session->post_data['billing_phone'];
 		}
-	update_post_meta($order_id,'_shipping_address_1',$address1);
-	
-	if(!empty($_POST['shipping_address_2'])){
-		$address2 = $_POST['shipping_address_2'];
-		}else if(!empty(WC()->session->post_data['shipping_address_2'])){
-			$address2 = WC()->session->post_data['shipping_address_2'];
 		}
-	update_post_meta($order_id,'_shipping_address_2',$address2);
-	
-	if(!empty($_POST['shipping_city'])){
-		$city = $_POST['shipping_city'];
-		}else if(!empty(WC()->session->post_data['shipping_city'])){
-			$city = WC()->session->post_data['shipping_city'];
+	update_post_meta($order_id,'_shipping_phone',$shipping_phone);
+
+
+if(WC()->session->get('shipping_address1_cc')){
+		$shipping_address_1 = WC()->session->get('shipping_address1_cc');
+		}else{
+	if(!empty(WC()->session->post_data['shipping_address_1'])){
+		$shipping_address_1 = WC()->session->post_data['shipping_address_1'];
+		}else{
+			$shipping_address_1 = WC()->session->post_data['billing_address_1'];
 		}
-	update_post_meta($order_id,'_shipping_city',$city);
-	
-	if(!empty($_POST['shipping_country'])){
-		$country = $_POST['shipping_country'];
-		}else if(!empty(WC()->session->post_data['shipping_country'])){
-			$country = WC()->session->post_data['shipping_country'];
 		}
-	update_post_meta($order_id,'_shipping_country',$country);
+	update_post_meta($order_id,'_shipping_address_1',$shipping_address_1);
 	
-	if(!empty($_POST['shipping_state'])){
-		$state = $_POST['shipping_state'];
-		}else if(!empty(WC()->session->post_data['shipping_state'])){
-			$state = WC()->session->post_data['shipping_state'];
+	if(WC()->session->get('shipping_address2_cc')){
+		$shipping_company = WC()->session->get('shipping_address2_cc');
+		}else{
+	if(!empty(WC()->session->post_data['shipping_address_2'])){
+		$shipping_address_2 = WC()->session->post_data['shipping_address_2'];
+		}else{
+			$shipping_address_2 = WC()->session->post_data['billing_address_2'];
 		}
-	update_post_meta($order_id,'_shipping_state',$state);
+		}
+	update_post_meta($order_id,'_shipping_address_2',$shipping_address_2);
+	
+	if(WC()->session->get('shipping_city_cc')){
+		$shipping_city = WC()->session->get('shipping_city_cc');
+		}else{		
+	if(!empty(WC()->session->post_data['shipping_city'])){
+		$shipping_city = WC()->session->post_data['shipping_city'];
+		}else{
+			$shipping_city = WC()->session->post_data['billing_city'];
+		}
+		}
+	update_post_meta($order_id,'_shipping_city',$shipping_city);
+
+	if(WC()->session->get('shipping_state_cc')){
+		$shipping_state = WC()->session->get('shipping_state_cc');
+		}else{		
+	if(!empty(WC()->session->post_data['shipping_state'])){
+		$shipping_state = WC()->session->post_data['shipping_state'];
+		}else{
+			$shipping_state = WC()->session->post_data['billing_state'];
+		}
+		}
+	update_post_meta($order_id,'_shipping_state',$shipping_state);
+
+	if(WC()->session->get('shipping_country_cc')){
+		$shipping_country = WC()->session->get('shipping_country_cc');
+		}else{	
+	if(!empty(WC()->session->post_data['shipping_country'])){
+		$shipping_country = WC()->session->post_data['shipping_country'];
+		}else{
+			$shipping_country = WC()->session->post_data['billing_country'];
+		}
+		}
+	update_post_meta($order_id,'_shipping_country',$shipping_country);
+	
+	if(WC()->session->get('shipping_state_cc')){
+		$shipping_state = WC()->session->get('shipping_state_cc');
+		}else{		
+	if(!empty(WC()->session->post_data['shipping_state'])){
+		$shipping_state = WC()->session->post_data['shipping_state'];
+		}else{
+			$shipping_state = WC()->session->post_data['billing_state'];
+		}
+		}
+	update_post_meta($order_id,'_shipping_state',$shipping_state);
+	
+	
+	if(WC()->session->get('shipping_postcode_cc')){
+		$shipping_postcode = WC()->session->get('shipping_postcode_cc');
+		}else{	
+	if(!empty(WC()->session->post_data['shipping_postcode'])){
+		$shipping_postcode = WC()->session->post_data['shipping_postcode'];
+		}else{
+			$shipping_postcode = WC()->session->post_data['billing_postcode'];
+		}
+		}
+	update_post_meta($order_id,'_shipping_postcode',$shipping_postcode);
+	
+
+
+	update_post_meta($order_id,'_billing_first_name',WC()->session->post_data['billing_first_name']);
+	update_post_meta($order_id,'_billing_last_name',WC()->session->post_data['billing_last_name']);
+	update_post_meta($order_id,'_billing_company',WC()->session->post_data['billing_company']);
+	update_post_meta($order_id,'_billing_phone',WC()->session->post_data['billing_phone']);
+	update_post_meta($order_id,'_billing_address_1',WC()->session->post_data['billing_address_1']);
+	update_post_meta($order_id,'_billing_address_2',WC()->session->post_data['billing_address_2']);
+	update_post_meta($order_id,'_billing_city',WC()->session->post_data['billing_city']);
+	update_post_meta($order_id,'_billing_country',WC()->session->post_data['billing_country']);
+	update_post_meta($order_id,'_billing_state',WC()->session->post_data['billing_state']);
+	update_post_meta($order_id,'_billing_postcode',WC()->session->post_data['billing_postcode']);
+
+		
+	}
+		WC()->session->__unset('shipping_first_name_cc');
+		WC()->session->__unset('shipping_last_name_cc');
+		WC()->session->__unset('shipping_company_cc');
+		WC()->session->__unset('shipping_address1_cc');
+		WC()->session->__unset('shipping_address2_cc');
+		WC()->session->__unset('shipping_email_cc');
+		WC()->session->__unset('shipping_phone_cc');
+		WC()->session->__unset('shipping_country_cc');
+		WC()->session->__unset('shipping_city_cc');
+		WC()->session->__unset('shipping_state_cc');
+		WC()->session->__unset('shipping_postcode_cc');
 	}
 /*
 Function to send the notification email to respective store email address when order is generated
@@ -2266,6 +2413,20 @@ function atom_search_groupby($groupby){
   return $groupby.", ".$groupby_id;
 }
 
+/*
+Filter to always have 5 rugs and hardflooring products in reserved stock
+*/ 
+add_filter('woocommerce_get_stock_quantity', 'custome_add_to_cart',10,2);
+function custome_add_to_cart($stock,$product) {
+	if(has_term('rugs','product_cat',$product->id) || has_term('hard-flooring','product_cat',get_the_ID())){
+			$stock = $stock-5;
+		}
+	return $stock;
+	}
+
+
+
+
 	//add_filter('posts_where','atom_search_where');
 	//add_filter('posts_join', 'atom_search_join');
 	//add_filter('posts_groupby', 'atom_search_groupby');
@@ -2278,11 +2439,73 @@ function atom_search_groupby($groupby){
 //$shipping = '';
 //$order = new WC_Order( $order_id );
 //$order->add_shipping($shipping);
-//add_action('init','tesxty');
-function tesxty(){
-	$a =str_replace(',','','1234');
-	$b =str_replace(',','','1,234');
 	
-	echo intval($a)+intval($b);die;
-	echo (int)$a+(int)$b;die;
+/*
+//Function to delete all products from hard flooring and rugs category except 5 products from each category
+
+
+//add_action('init','delete_all_but_five_products');
+function delete_all_but_five_products(){
+	$rugs_cat = get_term_by('slug','rugs','product_cat');
+	$hf_cat = get_term_by('slug','hard-flooring','product_cat');
+	
+	$rugs_prod = generate_catids_array($rugs_cat->term_id,0);
+	$hf_prod = generate_catids_array($hf_cat->term_id,0);
+	foreach($rugs_prod as $catid){
+		$args = array(
+						'post_type'=>'product',
+						'post_status'=>'publish',
+						'offset' => 5,
+						'posts_per_page'=>10000,
+						'tax_query'=>array(
+										array(	'taxonomy'=>'product_cat',
+												'field'=>'id',
+												'terms'=>array($catid),
+												'operator'=>'IN'
+											)
+										)
+					);
+		
+		$the_query  =  new WP_Query( $args );
+		echo $the_query->post_count; echo '<br>';
+		if ( $the_query->have_posts() ) :
+		while ( $the_query->have_posts() ) : $the_query->the_post();
+		 echo 'Deleting '. get_the_title();
+		 echo '<br>';
+		 wp_delete_post(get_the_ID(),true);
+		endwhile;
+		endif;
+		wp_reset_postdata();
+	
+		}		
+	foreach($hf_prod as $catid){
+		$args = array(
+						'post_type'=>'product',
+						'offset' => 5,
+						'posts_per_page'=>10000,
+						'tax_query'=>array(
+										array(	'taxonomy'=>'product_cat',
+												'field'=>'id',
+												'terms'=>array($catid),
+												'operator'=>'IN'
+											)
+										)
+					);
+		
+		$the_query  =  new WP_Query( $args );
+		echo $the_query->post_count; echo '<br>';
+		if ( $the_query->have_posts() ) :
+		while ( $the_query->have_posts() ) : $the_query->the_post();
+		 echo 'Deleting '. get_the_title();
+		 echo '<br>';
+		 wp_delete_post();
+		endwhile;
+		endif;
+		wp_reset_postdata();
+	
+		}		
+		
+
 	}
+	
+*/

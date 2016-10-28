@@ -115,7 +115,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 								$product_quantity = woocommerce_quantity_input( array(
 									'input_name'  => "cart[{$cart_item_key}][qty]",
 									'input_value' => $cart_item['quantity'],
-									'max_value'   => $_product->backorders_allowed() ? '' : $_product->get_stock_quantity()-get_option( 'woocommerce_notify_no_stock_amount' ),
+									'max_value'   => $_product->backorders_allowed() ? '' : (has_term('accessories','product_cat',$_product->id))?20:$_product->get_stock_quantity()-get_option( 'woocommerce_notify_no_stock_amount' ),
 									'min_value'   => '1'
 								), $_product, false );
 							}

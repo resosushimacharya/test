@@ -7,7 +7,7 @@
       <tr>
         <td width="20"></td>
         <td width="560">
-          <p style="font-size: 12px; text-align: right;">Date: <?php echo date('d/m/Y, H:i:s')?></p>
+          <p style="font-size: 12px; text-align: right;">Date: <?php echo current_time('d/m/Y, g:i a')?></p>
         </td>
         <td width="20"></td>
       </tr>

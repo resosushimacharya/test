@@ -20,6 +20,125 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 if ( $order ) : ?>
 <?php
+
+/*
+	if(!empty($_POST['shipping_last_name'])){
+		$last_name = $_POST['shipping_last_name'];
+		}else if(!empty(WC()->session->post_data['shipping_last_name'])){
+			$last_name = WC()->session->post_data['shipping_last_name'];
+		}
+	if(!empty($_POST['billing_last_name'])){
+		$last_name = $_POST['billing_last_name'];
+		}else if(!empty(WC()->session->post_data['billing_last_name'])){
+			$last_name = WC()->session->post_data['billing_last_name'];
+		}
+	update_post_meta($order->id,'_shipping_last_name',$last_name);
+	
+	if(!empty($_POST['shipping_company'])){
+		$company = $_POST['shipping_company'];
+		}else if(!empty(WC()->session->post_data['shipping_company'])){
+			$company = WC()->session->post_data['shipping_company'];
+		}
+	if(!empty($company)){
+		if(!empty($_POST['billing_company'])){
+		$company = $_POST['billing_company'];
+		}else if(!empty(WC()->session->post_data['billing_company'])){
+			$company = WC()->session->post_data['billing_company'];
+		}
+	}	
+	update_post_meta($order->id,'_shipping_company',$company);
+	
+	if(!empty($_POST['shipping_phone'])){
+		$phone = $_POST['shipping_phone'];
+		}else if(!empty(WC()->session->post_data['shipping_phone'])){
+			$phone = WC()->session->post_data['shipping_phone'];
+		}
+	if(!empty($phone)){
+		if(!empty($_POST['billing_phone'])){
+			$phone = $_POST['billing_phone'];
+			}else if(!empty(WC()->session->post_data['billing_phone'])){
+				$phone = WC()->session->post_data['billing_phone'];
+			}
+		}
+	update_post_meta($order->id,'_shipping_phone',$phone);
+	
+	if(!empty($_POST['shipping_address_1'])){
+		$address1 = $_POST['shipping_address_1'];
+		}else if(!empty(WC()->session->post_data['shipping_address_1'])){
+			$address1 = WC()->session->post_data['shipping_address_1'];
+		}
+	if(!empty($address1)){
+		if(!empty($_POST['billing_address_1'])){
+			$address1 = $_POST['billing_address_1'];
+			}else if(!empty(WC()->session->post_data['billing_address_1'])){
+				$address1 = WC()->session->post_data['billing_address_1'];
+			}
+		}
+	update_post_meta($order->id,'_shipping_address_1',$address1);
+	
+	if(!empty($_POST['shipping_address_2'])){
+		$address2 = $_POST['shipping_address_2'];
+		}else if(!empty(WC()->session->post_data['shipping_address_2'])){
+			$address2 = WC()->session->post_data['shipping_address_2'];
+		}
+	if(!empty($address2)){
+		if(!empty($_POST['billing_address_2'])){
+			$address2 = $_POST['billing_address_2'];
+			}else if(!empty(WC()->session->post_data['billing_address_2'])){
+				$address2 = WC()->session->post_data['billing_address_2'];
+			}
+		}
+	update_post_meta($order->id,'_shipping_address_2',$address2);
+	
+	if(!empty($_POST['shipping_city'])){
+		$city = $_POST['shipping_city'];
+		}else if(!empty(WC()->session->post_data['shipping_city'])){
+			$city = WC()->session->post_data['shipping_city'];
+		}
+	if(!empty($city)){
+		if(!empty($_POST['billing_city'])){
+			$city = $_POST['billing_city'];
+			}else if(!empty(WC()->session->post_data['billing_city'])){
+				$city = WC()->session->post_data['billing_city'];
+			}
+		}
+	update_post_meta($order->id,'_shipping_city',$city);
+	
+	if(!empty($_POST['shipping_country'])){
+		$country = $_POST['shipping_country'];
+		}else if(!empty(WC()->session->post_data['shipping_country'])){
+			$country = WC()->session->post_data['shipping_country'];
+		}
+	if(!empty($country)){
+		if(!empty($_POST['billing_country'])){
+			$country = $_POST['billing_country'];
+			}else if(!empty(WC()->session->post_data['billing_country'])){
+				$country = WC()->session->post_data['billing_country'];
+			}
+		}
+	update_post_meta($order->id,'_shipping_country',$country);
+	
+	if(!empty($_POST['shipping_state'])){
+		$state = $_POST['shipping_state'];
+		}else if(!empty(WC()->session->post_data['shipping_state'])){
+			$state = WC()->session->post_data['shipping_state'];
+		}
+	if(!empty($state)){
+		if(!empty($_POST['billing_state'])){
+			$state = $_POST['billing_state'];
+			}else if(!empty(WC()->session->post_data['billing_state'])){
+				$state = WC()->session->post_data['billing_state'];
+			}
+		}
+	update_post_meta($order->id,'_shipping_state',$state);
+	
+*/	
+	
+
+
+/*
+
+
 		if(!empty($_POST['shipping_first_name'])){
 		$shipping_first_name = $_POST['shipping_first_name'];
 		}else if(!empty(WC()->session->post_data['shipping_first_name'])){
@@ -53,7 +172,16 @@ if ( $order ) : ?>
 			update_post_meta( $order->id, '_shipping_email', $shipping_email);
 			}
 			
-			
+		
+		*/
+		
+		
+		
+		
+		
+		
+		
+/*			
 		if(!empty($_POST['billing_first_name'])){
 		$billing_first_name = $_POST['billing_first_name'];
 		}else if(!empty(WC()->session->post_data['billing_first_name'])){
@@ -86,6 +214,7 @@ if ( $order ) : ?>
 		if($billing_email){
 			update_post_meta( $order->id, '_billing_email', $billing_email);
 			}
+*/
 
  
 $expres_txnid = get_post_meta($order->id,'_express_chekout_transactionid',true);

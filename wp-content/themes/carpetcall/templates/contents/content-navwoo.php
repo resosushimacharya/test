@@ -7,6 +7,7 @@
                              <div class="rnkct">
                                  <span class="badge" id="counttest" >
                                   <?php 
+								  global $woocommerce;
                                           $count=0;
                                           foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ):
                                                   $count++;

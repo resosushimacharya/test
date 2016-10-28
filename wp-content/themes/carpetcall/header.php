@@ -472,7 +472,7 @@ if(get_post_type() == 'product'){?>
 
     jQuery(document).ajaxSuccess(function() {
         if (ajax_count == 1) {
-            load_minicart();
+            load_minicarts();
         }
     });
 

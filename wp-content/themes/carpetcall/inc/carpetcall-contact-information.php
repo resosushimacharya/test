@@ -118,6 +118,8 @@ function contact_action(){
 				else{
 					$hold_enquiry_type =  sanitize_text_field(ucfirst($data['cc_enquiry_type'] ));
 				}
+				
+				$date_time = current_time('d/m/Y, g:i a');
 				$email_title = '';
 				$cc_enq_type = sanitize_text_field($data['cc_contact_type']);
 				switch ($cc_enq_type){
@@ -146,25 +148,6 @@ function contact_action(){
 				include get_template_directory().'/templates/emails/header.php';
 				include get_template_directory().'/templates/emails/content/user.php';
 				include get_template_directory().'/templates/emails/footer.php';
-				
-				/*
-				?>
-				
-				Dear Admin,
-				<br><br>
-				We have an enquiry with the following information -<br><br>
-				
-				<b>Enquiry Type</b> : <?php echo $hold_enquiry_type;?> <br>
-				<b>First Name</b>   : <?php echo sanitize_text_field(ucfirst($data['first_name'])); ?><br>
-				<b>Last Name</b>    : <?php echo sanitize_text_field(ucfirst($data['last_name']));?><br>
-				<b>Email</b>        : <?php echo sanitize_email($data['email_address']); ?><br>
-				<b>Phone</b>        : <?php echo sanitize_text_field($data['mobile_phone_no']); ?><br>
-				
-				<?php echo $hold;?><br>
-				<b>Message</b>      :<br> <?php echo sanitize_text_field($data['cc_message'] ); ?>
-				
-				<?php */
-				
 				$body_user = ob_get_contents();
 				ob_end_clean(); 
 				
@@ -182,6 +165,9 @@ function contact_action(){
 				if(sanitize_email($data['send_email_address'])==''){
 					$user_email =$adminEmailAdd;
 				}
+				
+				
+				
 				$headers = array();
 				$headers[]  = 'MIME-Version: 1.0' . "\r\n";
 				$headers[] = 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -196,24 +182,6 @@ function contact_action(){
 				if(!$sent_mail){
 					$sent_mail= mail($emailcheck, $email_subject, $body_user,$headers);
 				}
-				//error_log('User Email: user_email '.print_r($emailcheck, true).' email subject '.$email_subject.' email header '.print_r($headers,true).' body '.$body_user.'mail log'.$sent_mail);
-				//  var_dump($user_email);var_dump($email_subject);var_dump($email_message);var_dump($headers);
-				//  die;
-				/*
-				
-				
-				if(isset($data['product_page_cat'])){
-				
-				$netMessage = $data['product_page_cat'].'<br>'.$data['product_page_code'].'<br>'.$data['product_page_size'].'<br><br>Thanks .';
-				$email_message = $email_message.'<br>'.$netMessage; 
-				}
-				else{
-				$email_message .='<br><br>Thanks .' ;
-				}
-				$sent_mail= wp_mail($user_email, $email_subject, $email_message);
-				
-				
-				*/
 				
 				if(isset($data['product_page_cat'])){
 					$netMessage = $data['product_page_cat'].'<br>'.$data['product_page_code'].'<br>'.$data['product_page_size'].'<br>';
@@ -248,10 +216,17 @@ function contact_action(){
 				else{
 					update_post_meta($user_id,'state',strtoupper($data['cc_state_type_only']));
 				}
+				
+				
+				
 				$message['sent_mail']=$sent_mail;
 				$textmessage=get_field('success_message_content',89);
 				$message['success']=$textmessage;
-				$date_time =  esc_attr( get_the_date('d/m/Y',$user_id)).', '.esc_attr(get_the_time('g:i a',$user_id));
+				$date_time =  $date_time = current_time('d/m/Y, g:i a');
+				
+				
+				
+				
 				if($cc_enq_type == 'sales'){
 					ob_start();
 					include get_template_directory().'/templates/emails/header.php';
