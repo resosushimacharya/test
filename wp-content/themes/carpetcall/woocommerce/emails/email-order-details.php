@@ -26,84 +26,82 @@ do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plai
 	<td>
 		<table width="600" border="0" cellspacing="0" cellpadding="0">
 			<tr>
-				<td width="40"></td>
-			</tr>			
-			<tr>
-				<td width="520">
+				<td width="40"></td>		
+				<td width="520">					
 					<table width="520" border="0" cellspacing="0" cellpadding="10">
-						<tr>
-							<td colspan="3" height="20"></td>
-						</tr>
-						<tr>
-							<td>
-								<?php if ( ! $sent_to_admin ) : ?>
-									<p><?php printf( __( 'Order #%s', 'woocommerce' ), $order->get_order_number() ); ?></p>
-								<?php else : ?>
-									<p>
-										<a href="<?php echo esc_url( admin_url( 'post.php?post=' . $order->id . '&action=edit' ) ); ?>" style="text-decoration: none;">
-											<?php printf( __( 'Order #%s', 'woocommerce'), $order->get_order_number() ); ?>
-										</a> 
-										(<?php printf( '<time datetime="%s">%s</time>', date_i18n( 'c', strtotime( $order->order_date ) ), date_i18n( wc_date_format(), strtotime( $order->order_date ) ) ); ?>)
-									</p>
-								<?php endif; ?>
-							</td>
-						</tr>
-						<tr>
-							<td colspan="3" height="15"></td>
-						</tr>
-						<tr>
-							<td>
-								<table width="520" border="0" cellspacing="0">
-									<thead>
-										<tr style="background-color:#e7edf8;">
-											<th width="300" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px;font-weight:bold; text-align: left;">
-												<?php _e( 'PRODUCT', 'woocommerce' ); ?>
-											</th>
-											<th width="60" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px;font-weight:bold; text-align: left;">
-												<?php _e( 'QUANTITY', 'woocommerce' ); ?>
-											</th>
-											<th width="160" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px;font-weight:bold; text-align: left;">
-												<?php _e( 'PRICE', 'woocommerce' ); ?>
-											</th>
-										</tr>
-									</thead>
-									<tbody>
-										<?php echo $order->email_order_items_table( array(
-											'show_sku'      => $sent_to_admin,
-											'show_image'    => false,
-											'image_size'    => array( 32, 32 ),
-											'plain_text'    => $plain_text,
-											'sent_to_admin' => $sent_to_admin
-										) ); ?>
-									</tbody>
-									<tfoot style="border-top: 1px solid #e7edf8;">
-										<?php
-											if ( $totals = $order->get_order_item_totals() ) {
-												$i = 0;
-												foreach ( $totals as $key=>$total ) {
-													if($key == 'shipping'){
-													$total['value'] = get_post_meta($order->id,'cc_shipping_method',true);
+						<tbody>
+							<tr>
+								<td colspan="3" height="5"></td>
+							</tr>
+							<tr>
+								<td>
+									<?php if ( ! $sent_to_admin ) : ?>
+										<p style="font-family:Arial;"><?php printf( __( 'Order #%s', 'woocommerce' ), $order->get_order_number() ); ?></p>
+									<?php else : ?>
+										<p style="font-family:Arial;">
+											<a href="<?php echo esc_url( admin_url( 'post.php?post=' . $order->id . '&action=edit' ) ); ?>" style="text-decoration: none; font-family:Arial;">
+												<?php printf( __( 'Order #%s', 'woocommerce'), $order->get_order_number() ); ?>
+											</a> 
+											(<?php printf( '<time datetime="%s">%s</time>', date_i18n( 'c', strtotime( $order->order_date ) ), date_i18n( wc_date_format(), strtotime( $order->order_date ) ) ); ?>)
+										</p>
+									<?php endif; ?>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3" height="15"></td>
+							</tr>
+							<tr>
+								<td>
+									<table width="520" border="0" cellspacing="0" cellpadding="10">
+										<thead>
+											<tr style="background-color:#e7edf8;">
+												<th width="300" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px;font-weight:bold; text-align: left;">
+													<?php _e( 'PRODUCT', 'woocommerce' ); ?>
+												</th>
+												<th width="60" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px;font-weight:bold; text-align: left;">
+													<?php _e( 'QUANTITY', 'woocommerce' ); ?>
+												</th>
+												<th width="160" style="font-family:Arial;font-size:12px;color:#666;text-transform:uppercase;padding:12px 15px;font-weight:bold; text-align: left;">
+													<?php _e( 'PRICE', 'woocommerce' ); ?>
+												</th>
+											</tr>
+										</thead>
+										<tbody style="font-family:Arial;">
+											<?php echo $order->email_order_items_table( array(
+												'show_sku'      => $sent_to_admin,
+												'show_image'    => false,
+												'image_size'    => array( 32, 32 ),
+												'plain_text'    => $plain_text,
+												'sent_to_admin' => $sent_to_admin
+											) ); ?>
+										</tbody>
+										<tfoot style="border-top: 1px solid #e7edf8;">
+											<?php
+												if ( $totals = $order->get_order_item_totals() ) {
+													$i = 0;
+													foreach ( $totals as $key=>$total ) {
+														if($key == 'shipping'){
+														$total['value'] = get_post_meta($order->id,'cc_shipping_method',true);
+														}
+														$i++;
+														?><tr>
+															<td width="150"></td>
+															<td width="200" style="text-align:left; font-family:Arial; color: #666; font-weight: bold;text-transform: uppercase; padding:12px 15px; <?php if ( $i === 1 ) echo 'border-top-width: 4px;'; ?>"><?php echo $total['label']; ?></td>
+															<td width="150" style="text-align:left; font-family:Arial; color: #666; padding:12px 15px; <?php if ( $i === 1 ) echo 'border-top-width: 4px;'; ?>"><?php echo $total['value']; ?></td>
+														</tr><?php
 													}
-													$i++;
-													?><tr>
-														<td width="150"></td>
-														<td width="200" style="text-align:left; color: #666; font-weight: bold;text-transform: uppercase; padding:12px 15px; <?php if ( $i === 1 ) echo 'border-top-width: 4px;'; ?>"><?php echo $total['label']; ?></td>
-														<td width="150" style="text-align:left; color: #666; padding:12px 15px; <?php if ( $i === 1 ) echo 'border-top-width: 4px;'; ?>"><?php echo $total['value']; ?></td>
-													</tr><?php
 												}
-											}
-										?>
-									</tfoot>
-								</table>
-							</td>
-						</tr>
-						<tr>
-							<td colspan="3" height="20"></td>
-						</tr>
-					</table>
+											?>
+										</tfoot>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3" height="20"></td>
+							</tr>
+						</tbody>
+					</table>					
 				</td>
-			</tr>
-			<tr>
 				<td width="40"></td>
 			</tr>
 		</table>

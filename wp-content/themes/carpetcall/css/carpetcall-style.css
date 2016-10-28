@@ -64,6 +64,9 @@ body, html {
 	font-variant: normal;
 	-moz-osx-font-smoothing: grayscale
 }
+html{
+	height: auto
+}
 button {
 	display: inline-block;
 	color: #fff;
@@ -4748,8 +4751,14 @@ a.btn-employment:hover {
 .single.single-product .panel.panel-default, .single.single-product div#tab-accesories_tab {
 	margin: 0 !important
 }
+.panel.entry-content.wc-tab .panel-default>.panel-heading+.panel-collapse>.panel-body.hf-faq{
+	font-size: 0;
+}
 .acc_list_item.col-md-3 {
 	padding: 0 10px;
+	float: none;
+	display: inline-block;
+	vertical-align: top;
 	margin-top: 6px
 }
 .acc_list_item.col-md-3 .accessories_innner_wrap {
@@ -6506,4 +6515,7 @@ label{
 }
 .delivery-options-cntr .nearstore .cc-pul-headoff{
 	margin: 0;
+}
+.page-template-template-contact .contact_block_cntr .g-recaptcha{
+	position: relative;
 }

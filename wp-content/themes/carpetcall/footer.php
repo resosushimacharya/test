@@ -315,5 +315,5 @@ jQuery('#wpsl-search-btn').trigger('click');
         });*/
   });
 
-
+  
   </script>
