@@ -75,6 +75,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 					<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
 		            <?php do_action( 'woocommerce_checkout_order_review' ); ?>
 		            <?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
+                   
 		             <div class="checkout_next_prev_button read_more">
 		            </div> 		             
 				</div>
