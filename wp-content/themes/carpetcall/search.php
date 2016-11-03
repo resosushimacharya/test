@@ -10,7 +10,7 @@
             <div class="search_header clearfix">
 				<div itemscope itemtype="http://schema.org/WebSite">
                             <link itemprop="url" href="<?php echo site_url()?>"/>
-                            <form>
+                            <form name="search-form" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction" method="get" action="<?php echo home_url()?>">
                                   <meta itemprop="target" content="<?php echo site_url()?>?q={<?php echo get_search_query()?>}"/>
                               <div class="input-group"><input itemprop="query-input" type="text" name="s" placeholder="TYPE TO SEARCH" class="form-control" value="<?php echo get_search_query()?>"/>
                               <span class="input-group-btn">

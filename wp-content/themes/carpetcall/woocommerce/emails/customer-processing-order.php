@@ -67,7 +67,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
               <h2 style="font-family:Arial; font-size:14px; color:#666666; margin:30px 0 0 0; text-transform:uppercase;">
                 <span style="text-transform: uppercase;">Shipping Address</span>
               </h2>
-              <span style="font-family:Arial; font-size:12px; color:#666666; margin:0;">Your order has been delivered to: </span>
+              <span style="font-family:Arial; font-size:12px; color:#666666; margin:0;">Your order will be delivered to: </span>
               <div style="border-bottom:1px solid #e7edf8; margin:5px 20% 10px 0; height: 1px;"></div>
               <p style="font-family:Arial; font-size:10px; color:#666;text-decoration:none; margin:0;">
                 <?php echo ( $address = $order->get_formatted_shipping_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>

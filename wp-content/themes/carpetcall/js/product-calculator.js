@@ -240,8 +240,17 @@ $(document).on('click','#confirm_calc',function(){
 			var tmpr = jQuery(element).attr('tpm_ratio');
 			var rec_qty = Math.ceil(Number(total_cov_ret)/Number(tmpr));
 			jQuery(element).text(rec_qty);
-			jQuery(this).parents('.acc_qnty').find('select.qty').val(rec_qty);
+			
+			if(rec_qty > 100){
+				jQuery(this).parents('.acc_qnty').find('select.qty').addClass('validation_dd_error').val(100);
+			}else{
+				jQuery(this).parents('.acc_qnty').find('select.qty').removeClass('validation_dd_error').val(rec_qty);
+			}
+			
 			jQuery(this).parents('.acc_qnty').find('select.qty').trigger('change');
+			if(rec_qty > 100){
+				jQuery(this).parents('.acc_qnty').find('select.qty').addClass('validation_dd_error');
+				}
 		});
 		
 		$("#quantity-control").trigger('change');

@@ -56,7 +56,7 @@ OUR FLOORING SPECIALISTS </p> </td>
       <tr>
         <td style="width:252px;">
         <h2 style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666666; margin:35px 0 0 0; text-transform:uppercase;"> Shipping Address</h2>
-                        <span style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666666; margin:0;">Your order has been delivered to: </span>
+                        <span style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:12px; color:#666666; margin:0;">Your order will be delivered to: </span>
                         <div style="border-bottom:1px solid #e7edf8; margin:5px 20% 10px 0;"></div>
 <pre style="font-family:Arial, Gotham, 'Helvetica Neue', Helvetica, sans-serif; font-size:10px; color:#666; line-height:13px; text-decoration:none; margin:0;">
 [First Name] [Last Name]

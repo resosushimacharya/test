@@ -9,7 +9,7 @@ if(!is_last_cat($term_id)){?>
     */
    
    // $prosubcats=get_term_children($term_id,'product_cat');
-	$prosubcats = get_terms(array('parent'=>$term_id,'taxonomy'=>'product_cat','hide_empty'=>true));
+	$prosubcats = get_terms('product_cat',array('child_of'=>$term_id,'hide_empty'=>true,'order_by'=>'name','order'=>'DESC'));
 	
 	$taxonomy = 'product_cat';
 	//$prosubcats=get_terms(array('child'=>$term_id,'taxonomy'=>'product_cat'));

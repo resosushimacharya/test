@@ -198,7 +198,11 @@ $ = jQuery.noConflict(), $(function() {
                     jQuery(".total_coverage .coverage_value").text(c.toFixed(2)), jQuery(".acc_list_item.underlay .acc_rec_qty").each(function(a, b) {
                         if (jQuery(this).attr("tpm_ratio")) {
                             var d = Math.ceil(Number(c) / Number(jQuery(this).attr("tpm_ratio")));
-                            jQuery(this).text(d), jQuery(this).parents(".acc_qnty").find("select.qty").val(d), jQuery(this).parents(".acc_qnty").find("select.qty").trigger("change")
+							if(d > 100){
+								jQuery(this).text(d), jQuery(this).parents(".acc_qnty").find("select.qty").val(100), jQuery(this).parents(".acc_qnty").find("select.qty").trigger("change").addClass('validation_dd_error');
+								}else{
+									jQuery(this).text(d), jQuery(this).parents(".acc_qnty").find("select.qty").val(d), jQuery(this).parents(".acc_qnty").find("select.qty").trigger("change").removeClass('validation_dd_error');
+									}
                         }
                     })
                 }

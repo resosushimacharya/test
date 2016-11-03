@@ -2210,7 +2210,7 @@ function cc_billing_fields_customize($fields){
      $fields['billing_last_name']['placeholder'] = 'EG. SMITH';
      $fields['billing_company']['placeholder'] = 'EG. CARPET CALL';
      $fields['billing_email']['placeholder'] = 'EG. JOHN@GMAIL.COM';
-     $fields['billing_phone']['placeholder'] = 'EG. 02 1234 5678';
+     $fields['billing_phone']['placeholder'] = 'EG. 0212345678';
      $fields['billing_address_1']['placeholder'] = '';
      $fields['billing_address_1']['label'] = 'Address Line 1';
      $fields['billing_address_2']['placeholder'] = '';
@@ -2232,7 +2232,7 @@ function cc_shipping_fields_customize( $fields ) {
      $fields['shipping_last_name']['placeholder'] = 'EG. SMITH';
      $fields['shipping_company']['placeholder'] = 'EG. CARPET CALL';
     // $fields['shipping_email']['placeholder'] = 'EG. JOHN@GMAIL.COM';
-    // $fields['shipping_phone']['placeholder'] = 'EG. 02 1234 5678';
+    // $fields['shipping_phone']['placeholder'] = 'EG. 0212345678';
      $fields['shipping_address_1']['placeholder'] = '';
      $fields['shipping_address_1']['label'] = 'Address Line 1';
      $fields['shipping_address_2']['placeholder'] = '';

@@ -293,7 +293,7 @@ if(get_post_type() == 'product'){?>
                         
                         <div itemscope itemtype="http://schema.org/WebSite">
                             <link itemprop="url" href="<?php echo site_url()?>"/>
-                            <form itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction" method="get" action="<?php echo home_url()?>">
+                            <form name="search-form" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction" method="get" action="<?php echo home_url()?>">
                                   <meta itemprop="target" content="<?php echo site_url()?>?q={<?php echo get_search_query()?>}"/>
                               <div class="input-group">
                               
@@ -472,7 +472,7 @@ if(get_post_type() == 'product'){?>
 
     jQuery(document).ajaxSuccess(function() {
         if (ajax_count == 1) {
-            load_minicarts();
+            load_minicart();
         }
     });
 
