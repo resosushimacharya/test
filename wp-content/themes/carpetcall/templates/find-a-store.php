@@ -32,6 +32,7 @@
                   </div>
                   <div class="cc-options-wrapper-nh">
                       <form method="post" class="form-near-str">
+                       <input type="hidden" id="find_store_near_nounce" name="find_store_near_nounce" value="<?php echo wp_create_nonce('find_store_near_nounce') ?>">
                       <div class="cc-find-store-au <?php if($nearest) echo ' store-finder-active-tab'; ?>">
                           <input type="hidden" name="check-near-id" value="check near value"/>
                           <button type="submit" id="cc-but-near" class="cc-but-near-con" name="cc-but-near-name">
@@ -40,6 +41,7 @@
                           </div>
                       </form >
                       <form method="post" class="form-head-off">
+                      <input type="hidden" id="find_store_head_nounce" name="find_store_head_nounce" value="<?php echo wp_create_nonce('find_store_head_nounce') ?>">
                       <div class="cc-find-store-au hf <?php if(!$nearest) echo ' store-finder-active-tab'; ?>">
                           <input type="hidden" name="check-head-id" value="check head value"/>
                           <button type="submit" id="cc-but-head" class="cc-but-head-con" name="cc-but-head-name">
@@ -65,7 +67,11 @@
                     ?>
 
                   <?php if(!isset($_POST["cc-current-location-store"]) && !isset($_POST["wpsl-search-input"])){
-                                  if(isset($_POST["check-near-id"])){?>
+                                  if(isset($_POST["check-near-id"])){
+									  /*if (!wp_verify_nonce($_POST['find_store_near_nounce'],'find_store_near_nounce')) {
+										  echo "Security Check Failed";die;
+									  }*/
+									  ?>
                      
 
                       <div id="gmap" style="height: 500px; width:100%;"></div>
@@ -97,7 +103,12 @@
                         </div>
 
                     <?php    }
-                        elseif(isset($_POST["check-head-id"])){?>
+                        elseif(isset($_POST["check-head-id"])){
+							 /*if (!wp_verify_nonce($_POST['find_store_head_nounce'],'find_store_head_nounce')) {
+										  echo "Security Check Failed";die;
+									  }
+									  */
+									  ?>
                        <div id="Map" style="width: 100%; height: 450px;"></div>
                       
         <?php 

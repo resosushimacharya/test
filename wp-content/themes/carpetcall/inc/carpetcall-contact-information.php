@@ -3,7 +3,12 @@
 
 function contact_action(){
 	$data=$_POST['form_data'];
+	$security = $data['enquiry_nounce'];
 	$message=array();
+	if (!wp_verify_nonce($security,'enquiry_nounce')){
+		$message['error'] = 'Security Check Failed';
+		echo json_encode($message); die;
+		}
 	if (isset($data["g-recaptcha-response"])) {
 		$secret = "6LdfuCMTAAAAADtG2SjSrybHzqJobEAoJk5880oD";
 		// empty response

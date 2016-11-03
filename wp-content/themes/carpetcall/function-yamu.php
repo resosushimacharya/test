@@ -1751,6 +1751,9 @@ function cc_save_shipping_address_forcefully($order_id){
 	global $woocommerce;
 	$payer_id = $_REQUEST['PayerID'];
 	if(!empty($payer_id)){
+	//do_action('pr',WC()->session->post_data);die;
+	update_post_meta($order_id,'_billing_email',WC()->session->post_data['billing_email']);
+	
 	update_post_meta($order_id,'payer_id',$payer_id);
  //do_action('pr',WC()->session->post_data);die;
 	if(WC()->session->get('shipping_first_name_cc')){

@@ -12,7 +12,7 @@ if(autoCurrentLoc.curr_loc==="1"){
 delete(wpslSettings.autolaod);
 wpslSettings.startLatlng =startLatlng;
 
-console.log(wpslSettings);
+//console.log(wpslSettings);
 
 
 
