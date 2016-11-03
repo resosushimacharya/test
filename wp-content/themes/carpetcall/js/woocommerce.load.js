@@ -125,20 +125,25 @@ $ = jQuery.noConflict(), $(function() {
             jQuery('form[name="checkout"]').submit()
         } else jQuery('form[name="checkout"]').submit()
     }), jQuery(document).on("change", "#expmonth, #expyear", function() {
+		var payment_method = jQuery('input[name="payment_method"]:checked').val();
+	if(payment_method == 'securepay'){
         if ("" != jQuery("#expmonth").val() && "" != jQuery("#expyear").val()) {
             var a = !1,
                 b = new Date(jQuery("#expyear").val(), parseInt(jQuery("#expmonth").val()) - 1);
             if (b < new Date ? (a = !0, jQuery("#expyear, #expmonth").addClass("cc_error_checkout"), jQuery("#securepay_exp_date-errormessage").length > 0 ? jQuery("#securepay_exp_date-errormessage").show() : jQuery("#expyear").parent("td").append('<label id="securepay_exp_date-errormessage" class="cc_error" for="securepay_exp_date">Invalid expiry date!</label>')) : (jQuery("select#expmonth, select#expyear").removeClass("cc_error_checkout"), jQuery("#securepay_exp_date-errormessage").hide()), a) return jQuery("#place_order").attr("disabled", "disabled"), !1;
             jQuery("#place_order").removeAttr("disabled")
         }
-    }), jQuery(document).on("keyup, focusout", 'input[name="cardno"]', function() {
+	}}), jQuery(document).on("keyup, focusout", 'input[name="cardno"]', function() {var payment_method = jQuery('input[name="payment_method"]:checked').val();
+	if(payment_method == 'securepay'){
         var a = 16;
         return this.value = this.value.replace(/[^0-9\.]/g, ""), jQuery(this).val().length > a && jQuery(this).val(jQuery(this).val().substr(0, a)), jQuery(this).val().length != a ? (jQuery(this).addClass("cc_error_checkout"), jQuery("#place_order").attr("disabled", "disabled"), !1) : void jQuery("#place_order").removeAttr("disabled")
-    }), jQuery(document).on("keyup, focusout", 'input[name="cardcvv"]', function() {
+	}}), jQuery(document).on("keyup, focusout", 'input[name="cardcvv"]', function() {var payment_method = jQuery('input[name="payment_method"]:checked').val();
+	if(payment_method == 'securepay'){
         var a = 3;
         return this.value = this.value.replace(/[^0-9\.]/g, ""), jQuery(this).val().length > a && jQuery(this).val(jQuery(this).val().substr(0, a)), jQuery(this).val().length != a ? (jQuery(this).addClass("cc_error_checkout"), jQuery("#place_order").attr("disabled", "disabled"), !1) : void jQuery("#place_order").removeAttr("disabled")
-    }), jQuery(document).ajaxSuccess(function(a, b, c) {
-        if (c.url.indexOf("checkout/?wc-ajax=checkout") >= 0) {
+	}}), jQuery(document).ajaxSuccess(function(a, b, c) {
+		var payment_method = jQuery('input[name="payment_method"]:checked').val();
+        if (c.url.indexOf("checkout/?wc-ajax=checkout") >= 0 && payment_method == 'securepay') {
             jQuery(document).find(".cc_woocommerce-message").remove();
             var d = jQuery.parseJSON(b.responseText);
             "failure" == d.result && jQuery(".wc_payment_methods").prepend('<div class="cc_woocommerce-message">Please enter valid credit card details</div>')
