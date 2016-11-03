@@ -5367,11 +5367,14 @@
 		font-size: 24px
 	}
 	#checkout_delivery .pickup_location_list h3, #nearby_stores_main_wrapper .pickup_location_list h3, #ship-to-different-address {
-		font-size: 22px
+		font-size: 20px
 	}
 	#ship-to-different-address .ship_to_shipping {
 		font-size: 18px;
 		color: #666
+	}
+	.atl_wrap label::before, .wc-terms-and-conditions .terms_cb::before{
+		margin-right: 10px;
 	}
 	label.inner-radio-label {
 		margin-right: 15px

@@ -6471,7 +6471,7 @@ label{
 	margin-top: 20px;
 	position: relative;
 }
-.atl_wrap input[type="checkbox"]{
+.atl_wrap input[type="checkbox"], .wc-terms-and-conditions input[type="checkbox"]{
 	opacity: 0;
 	position: absolute;
 	height: 24px;
@@ -6481,13 +6481,17 @@ label{
 	left: 0;
 	margin: 0;
 }
-.atl_wrap label{
+.wc-terms-and-conditions input[type="checkbox"]{
+	top: 6px;
+	margin: 0 !important;
+}
+.atl_wrap label, .wc-terms-and-conditions .terms_cb{
 	position: relative;	
     font-family: proxima_nova_rgregular;
     font-size: 16px;
     color: #666;
 }
-.atl_wrap label::before{
+.atl_wrap label::before, .wc-terms-and-conditions .terms_cb::before{
 	content: '';
 	width: 24px;
 	height: 24px;
@@ -6497,7 +6501,7 @@ label{
     top: 5px; 
     display: inline-block;
 }
-.atl_wrap label::after{
+.atl_wrap label::after, .wc-terms-and-conditions .terms_cb::after{
 	content: '\f00c';
     position: absolute;
     font-family: FontAwesome;
@@ -6507,8 +6511,20 @@ label{
     top: 5px;
     opacity: 0
 }
-.atl_wrap input[type="checkbox"]:checked + label::after{
+.wc-terms-and-conditions .terms_cb::after{
+	top: 0;
+}
+.atl_wrap input[type="checkbox"]:checked + label::after, .wc-terms-and-conditions input[type="checkbox"]:checked + .terms_cb::after{
 	opacity: 1
+}
+.wc-terms-and-conditions span.required{
+	display: inline-block;
+}
+.woocommerce-checkout #payment div.place-order{
+	padding: 0;
+}
+.wc-terms-and-conditions{
+	position: relative;
 }
 .delivery-options-cntr .nearstore{
 	padding-bottom: 0;
