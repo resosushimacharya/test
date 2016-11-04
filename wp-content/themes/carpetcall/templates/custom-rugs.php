@@ -122,6 +122,10 @@ global $post;
                   <div class="modal-body">
                     <div class="review-form">
                       <form action="" method="post" id="contact_form" role="form">
+                      	<?php
+						$enquiry_nounce = wp_create_nonce( "enquiry_nounce" );
+						 ?>
+                         <input type="hidden" id="enquiry_nounce"  name="enquiry_nounce" value="<?php echo $enquiry_nounce?>">
                         <div class="contact_block_cntr">
                           <div class="yd-title">
                             <h3>YOUR  DETAILS</h3>

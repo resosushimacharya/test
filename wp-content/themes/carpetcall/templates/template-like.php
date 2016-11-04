@@ -35,7 +35,7 @@ while($parent->have_posts()){
    //$feat_image = cc_custom_get_feat_img($post->ID,'medium');
    
   
-    $feat_image =wp_get_attachment_image_src( get_post_thumbnail_id($post->ID),'medium' );
+    $feat_image =wp_get_attachment_image_src( get_post_thumbnail_id($post->ID),'large' );
     if($feat_image){
       $feat_image = $feat_image[0];
       }

@@ -154,7 +154,7 @@ $ = jQuery.noConflict();
     });
 });
 jQuery.validator.setDefaults({ 
-ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one)",
+ignore: ":hidden:not(.chosen, #send_email_address,#check_captcha_one, #enquiry_nounce)",
  submitHandler: function() {
      var form_data= jQuery("#contact_form").serializeArray();
       var json = {};

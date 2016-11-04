@@ -296,7 +296,7 @@ if(get_post_type() == 'product'){?>
                             <form name="search-form" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction" method="get" action="<?php echo home_url()?>">
                                   <meta itemprop="target" content="<?php echo site_url()?>?q={<?php echo get_search_query()?>}"/>
                               <div class="input-group">
-                              
+                              <?php wp_nonce_field( 'search_nounce' ); ?>
                               <input itemprop="query-input" type="text" name="s" placeholder="TYPE TO SEARCH" class="form-control" value="<?php echo get_search_query()?>"/>
                               <span class="input-group-btn">
     <button type="submit" class="btn btn-default cc_search_button" id="searchsubmit" value="">
