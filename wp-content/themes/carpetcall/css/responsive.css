@@ -2705,11 +2705,11 @@
 		position: absolute;
 		width: 100%;
 		left: 0;
-		/*top: 50%;*/
-		-webkit-transform: translateY(150%);
-		-moz-transform: translateY(150%);
-		-ms-transform: translateY(150%);		
-		transform: translateY(150%);
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);		
+		transform: translateY(-50%);
 	}
 	.single-produc-acc-cntr .panel .panel-collapse h3.acc_title_n_cat {
 		padding: 0 15px;
