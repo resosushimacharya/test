@@ -2600,9 +2600,14 @@
 		height: 100%;
 		top: 0
 	}
-	.modal-open {
+	.smc-modal-open, .pickl-modal-open, .enfo-modal-open, .rug-pick-modal-open {
 		position: fixed;
 		width: 100%
+	}
+	.modal-open.acc-modal-open {
+	    position: static;
+	    overflow: inherit;
+	    width: auto;
 	}
 	.woocommerce-checkout .payment-form #payment .payment_box.payment_method_securepay table tr td select:last-child {
 		float: none
@@ -2689,6 +2694,22 @@
 	}
 	.acc_list_item.col-md-3 .accessories_innner_wrap {
 		padding: 0
+	}
+	.accessories_innner_wrap .modal-body{
+		padding-bottom: 20px;
+	}
+	.accessories_innner_wrap .modal-body, .accessories_innner_wrap .modal-body p{
+		font-size: 18px;
+	}
+	.accessories_innner_wrap .modal.in .modal-dialog{		
+		position: absolute;
+		width: 100%;
+		left: 0;
+		/*top: 50%;*/
+		-webkit-transform: translateY(150%);
+		-moz-transform: translateY(150%);
+		-ms-transform: translateY(150%);		
+		transform: translateY(150%);
 	}
 	.single-produc-acc-cntr .panel .panel-collapse h3.acc_title_n_cat {
 		padding: 0 15px;

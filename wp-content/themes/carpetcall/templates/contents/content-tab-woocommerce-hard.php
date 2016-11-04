@@ -142,7 +142,7 @@ $list = get_field('buying_guide_archive',$faqid );
                                             
                             <div class="acc_list_item col-md-3 <?php echo $acc_cat->slug?>">
                                 <div class="accessories_innner_wrap">
-                                    <div class="acc_info_wrap" data-toggle="modal" data-target="#accinfo_<?php echo get_the_ID()?>_<?php echo $acc_cat->slug;?>">
+                                    <div class="acc_info_wrap" data-toggle="modal" data-target="#accinfo__<?php echo get_the_ID()?>_<?php echo $acc_cat->slug;?>">
                                         <div class="acc_thumb" style="background-image:url(<?php echo $acc_feat_img;?>)"></div>
                                         <h3 class="acc_title_n_cat">
                                              <span class="acc_title"><a href="javascript:void(0)"><?php _e($acc_product->post_title,'carpetcall');?></a></span> 
@@ -195,7 +195,7 @@ $list = get_field('buying_guide_archive',$faqid );
                                     </a>
                                     </div>
                                     
-                                    <div class="modal fade" tabindex="-1" role="dialog" id="accinfo_<?php echo get_the_ID()?>_<?php echo $acc_cat->slug;?>">
+                                    <div class="modal fade mobile-acc-modal" tabindex="-1" role="dialog" id="accinfo__<?php echo get_the_ID()?>_<?php echo $acc_cat->slug;?>">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
