@@ -313,7 +313,14 @@ jQuery('#wpsl-search-btn').trigger('click');
             // instead of a settings object
           ]
         });*/
+		
+		jQuery.fn.modal.Constructor.prototype.enforceFocus = function () { };
   });
 
-  
+  if(typeof Recaptcha!="undefined"){
+    console.log(Recaptcha);
+    Recaptcha.focus_response_field = function(){return false;};
+  }
+
   </script>
+  
