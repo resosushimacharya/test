@@ -2512,14 +2512,20 @@ function delete_all_but_five_products(){
 	}
 	
 */
-//add_action('init','testing');
-function testing(){
-//$emails_settings = get_field('custom_rugs_emails_settings','options');
-//$emails_settingss = get_field('blinds_emails_settings','options');
-//echo '<div class="testing" style="display:none">';
-//var_dump($emails_settings);
-//var_dump($emails_settingss);
-//echo '</div>';
-//delete_field('awnings_emails_settings','options');
-//delete_field('shutters_emails_settings','options');
-}
+
+/*
+Backup Code to add to wp-sitemap-page.php plugin line 1038 to exclude accessories category sitemap
+	if($taxonomy_name == 'product_cat'){
+		$accessories = get_term_by('slug','accessories','product_cat');
+		if(!empty($accessories)){
+			$exclude_catids = get_terms(array('taxonomy'=>'product_cat','fields'=>'ids','child_of'=>$accessories->term_id));
+			$exclude_catids[] = $accessories->term_id;
+		if(!empty($exclude_catids)){
+			$args['exclude'] = $exclude_catids;
+			}			
+			}
+		
+		
+		}
+*/
+
