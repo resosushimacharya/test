@@ -3,12 +3,7 @@
 
 function contact_action(){
 	$data=$_POST['form_data'];
-	$security = $data['enquiry_nounce'];
 	$message=array();
-	if (!wp_verify_nonce($security,'enquiry_nounce')){
-		$message['error'] = 'Security Check Failed';
-		echo json_encode($message); die;
-		}
 	if (isset($data["g-recaptcha-response"])) {
 		$secret = "6LdfuCMTAAAAADtG2SjSrybHzqJobEAoJk5880oD";
 		// empty response
@@ -25,7 +20,7 @@ function contact_action(){
 			$store_name_error=false;
 			$conenq = 1;
 			$terms = get_terms('wpsl_store_category');
-			if($data['cc_state_type_only'] && $data['cc_contact_type'] == 'custom_rugs' ){
+			if($data['cc_contact_type'] == 'custom_rugs' || $data['cc_contact_type'] == 'blinds' || $data['cc_contact_type'] == 'shutters' || $data['cc_contact_type'] == 'awnings'){
 				$flag=0;
 				$state_error=false;
 				$store_name_error=false;
@@ -109,7 +104,7 @@ function contact_action(){
 			}elseif($store_name_error){
 				$message['error'] ="You haven't choosen the store  correctly yet!";
 			}else{
-				$user_email= sanitize_email($data['send_email_address']);
+				$user_email= sanitize_email($data['email_address']);
 				if(strcasecmp(sanitize_text_field($data['cc_enquiry_type']),'sales enquiry')==0){
 					$hold = '<b>State</b>       :'.strtoupper($data['cc_state_type']).'<br>'.'<b>Store</b>        :'.ucwords($data['cc_store_name']).'<br>';
 				}
@@ -146,6 +141,15 @@ function contact_action(){
 					case 'carpets':
 					$email_header = 'Carpets Product Enquiry';
 					break;
+					case 'blinds':
+					$email_header = 'Blinds Product Enquiry';
+					break;
+					case 'shutters':
+					$email_header = 'Shutters Product Enquiry';
+					break;
+					case 'awnings':
+					$email_header = 'Awnings Product Enquiry';
+					break;
 					default:
 					$email_header = 'Carpetcall Enquiry';
 				}
@@ -155,22 +159,6 @@ function contact_action(){
 				include get_template_directory().'/templates/emails/footer.php';
 				$body_user = ob_get_contents();
 				ob_end_clean(); 
-				
-				function get_administrator_email(){
-					$blogusers = get_users('role=Administrator');
-					$i=1;
-					foreach ($blogusers as $user) {
-						if($i==1){
-							return $user->data->user_email;
-							$i++;
-						}
-					}  
-				}
-				$adminEmailAdd = get_administrator_email();   
-				if(sanitize_email($data['send_email_address'])==''){
-					$user_email =$adminEmailAdd;
-				}
-				
 				
 				
 				$headers = array();
@@ -187,6 +175,29 @@ function contact_action(){
 				if(!$sent_mail){
 					$sent_mail= mail($emailcheck, $email_subject, $body_user,$headers);
 				}
+
+				/*
+				
+				function get_administrator_email(){
+					$blogusers = get_users('role=Administrator');
+					$i=1;
+					foreach ($blogusers as $user) {
+						if($i==1){
+							return $user->data->user_email;
+							$i++;
+						}
+					}  
+				}
+				
+			
+				$adminEmailAdd = get_administrator_email();   
+				if(sanitize_email($data['send_email_address'])==''){
+					$user_email =$adminEmailAdd;
+				}else{
+					$user_email = sanitize_email($data['send_email_address']);
+					}
+
+				*/
 				
 				if(isset($data['product_page_cat'])){
 					$netMessage = $data['product_page_cat'].'<br>'.$data['product_page_code'].'<br>'.$data['product_page_size'].'<br>';
@@ -208,7 +219,8 @@ function contact_action(){
 				update_post_meta($user_id,'email',$data['email_address']);
 				update_post_meta($user_id,'enquiry_type',ucwords($email_header));
 				update_post_meta($user_id,'phone',$data['mobile_phone_no']);
-				update_post_meta($user_id,'admin_email',$user_email[0]);
+				update_post_meta($user_id,'admin_email',$data['send_email_address']);
+				//update_post_meta($user_id,'admin_email',$user_email);
 				
 				// do_action('manage_enquiries_posts_custom_column','names',$email_subject,$user_id);
 				$time =   esc_attr( get_the_date('F j, Y',$user_id)).' at '.esc_attr(get_the_time('g:i a',$user_id));
@@ -230,15 +242,23 @@ function contact_action(){
 				$date_time =  $date_time = current_time('d/m/Y, g:i a');
 				
 				
-				
+				//$emails_settings = get_field($cc_enq_type.'_emails_settings','options');
+				$bcc_emails = '';
+				$cc_emails = '';
+				$to = array();
+				if(!empty($data['send_email_address'])){
+					$to[] = sanitize_email($data['send_email_address']);
+				}
 				
 				if($cc_enq_type == 'sales'){
+					 $data['cc_state_type'] =  $data['cc_state_type_only'];
 					ob_start();
 					include get_template_directory().'/templates/emails/header.php';
 					include get_template_directory().'/templates/emails/content/admin-sales.php';
 					include get_template_directory().'/templates/emails/footer.php';
 					$body_admin = ob_get_clean();	
 				}if($cc_enq_type == 'service'){
+					 $data['cc_state_type'] =  $data['cc_state_type_only'];
 					ob_start();
 					include get_template_directory().'/templates/emails/header.php';
 					include get_template_directory().'/templates/emails/content/admin-service.php';
@@ -258,7 +278,10 @@ function contact_action(){
 					include get_template_directory().'/templates/emails/footer.php';
 					$body_admin = ob_get_clean();	
 						
-				}elseif($cc_enq_type == 'carpets'){
+				}elseif($cc_enq_type == 'carpets' || $cc_enq_type == 'blinds' || $cc_enq_type == 'shutters' || $cc_enq_type == 'awnings'){
+					if($cc_enq_type != 'carpets'){
+						 $data['cc_state_type'] =  $data['cc_state_type_only'];
+						}
 					ob_start();
 					include get_template_directory().'/templates/emails/header.php';
 					include get_template_directory().'/templates/emails/content/admin-carpets.php';
@@ -266,17 +289,16 @@ function contact_action(){
 					$body_admin = ob_get_clean();	
 						
 				}elseif($cc_enq_type == 'custom_rugs'){
+					$data['cc_state_type'] =  $data['cc_state_type_only'];
 					ob_start();
 					include get_template_directory().'/templates/emails/header.php';
 					include get_template_directory().'/templates/emails/content/admin-custom_rugs.php';
 					include get_template_directory().'/templates/emails/footer.php';
 					$body_admin = ob_get_clean();	
 				}
+				//$to[] = $user_email;
 				$emails_settings = get_field($cc_enq_type.'_emails_settings','options');
-				$bcc_emails = '';
-				$cc_emails = '';
-				$to = array();
-				$to[] = $user_email;
+				
 				if(!empty($emails_settings)){
 					foreach($emails_settings as $emails){
 						if($emails[$cc_enq_type.'_state'] == $data['cc_state_type'] || $emails[$cc_enq_type.'_state'] =='all' ){
@@ -296,7 +318,6 @@ function contact_action(){
 						}
 					}
 				}
-				
 				$headers = array();
 				$headers[]  = 'MIME-Version: 1.0' . "\r\n";
 				$headers[] = 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -307,10 +328,10 @@ function contact_action(){
 				$headers[] = 'Cc: '.$cc_emails. "\r\n";
 				$headers[] = 'Bcc: '.$bcc_emails. "\r\n";
 				$email_subject = $email_header;
-				$to = array('yamuaryal@gmail.com');
-				$sent_mail= wp_mail($to, $email_subject, $body_admin,$headers);
-				if(!$sent_mail){
-					$sent_mail= mail(explode(', ',$to), $email_subject, $body_admin,explode(' ',$headers));
+				//$to = array('yamuaryal@gmail.com');
+				$sent_mail_admin= wp_mail($to, $email_subject, $body_admin,$headers);
+				if(!$sent_mail_admin){
+					$sent_mail_admin= mail(explode(', ',$to), $email_subject, $body_admin,explode(' ',$headers));
 				}
 			}
 			//error_log('Admin Mail: user_email '.print_r($to, true).' email subject '.$email_subject.' email header '.print_r($headers,true).' body '.$body_admin.'mail log'.$sent_mail);

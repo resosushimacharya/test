@@ -71,7 +71,9 @@ function email_address()
 				
 				if(!$res['wpsl_email'][0])
 				{
-			    	$html.=$stateemailpair[$res['wpsl_state'][0]];
+					//This line is to return head office email if selected store don't have email.
+					$html = '';
+			    	//$html.=$stateemailpair[$res['wpsl_state'][0]];
 
 				}
 				else
@@ -149,7 +151,8 @@ function email_address_state(){
      if($html==""){
      	$html.=get_option('admin_email');
      }
-   echo $html;
+   echo '';
+   //echo $html;
    die;
 }
 add_action('wp_ajax_email_address_state', 'email_address_state');

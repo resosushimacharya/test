@@ -1,0 +1,572 @@
+
+Hard Flooring Prouducts Import Started:
+
+Product PA8602 has been deleted.
+
+Product UN4806 has been deleted.
+
+Product UL2413 has been deleted.
+
+Product: PA2518already Exists
+
+Stock Quantity Updated for: PA2518 to 543
+
+Product: PA2518 imported sucessfully.
+
+Product: PA2527already Exists
+
+Stock Quantity Updated for: PA2527 to 301
+
+Product: PA2527 imported sucessfully.
+
+Product: PA2529already Exists
+
+Stock Quantity Updated for: PA2529 to 132
+
+Product: PA2529 imported sucessfully.
+
+Product: PA2534already Exists
+
+Stock Quantity Updated for: PA2534 to 2,219
+
+Product: PA2534 imported sucessfully.
+
+Product: PA2542already Exists
+
+Stock Quantity Updated for: PA2542 to 306
+
+Product: PA2542 imported sucessfully.
+
+Product: PA2548already Exists
+
+Stock Quantity Updated for: PA2548 to 366
+
+Product: PA2548 imported sucessfully.
+
+Product: PA2551already Exists
+
+Stock Quantity Updated for: PA2551 to 618
+
+Product: PA2551 imported sucessfully.
+
+Product: UN4808already Exists
+
+Stock Quantity Updated for: UN4808 to 185
+
+Product: UN4808 imported sucessfully.
+
+Product: PA2564already Exists
+
+Stock Quantity Updated for: PA2564 to 4,059
+
+Product: PA2564 imported sucessfully.
+
+Product: UN2209already Exists
+
+Stock Quantity Updated for: UN2209 to 188
+
+Product: UN2209 imported sucessfully.
+
+Product: PA2553already Exists
+
+Stock Quantity Updated for: PA2553 to 296
+
+Product: PA2553 imported sucessfully.
+
+Product: PA3119already Exists
+
+Stock Quantity Updated for: PA3119 to 177
+
+Product: PA3119 imported sucessfully.
+
+Product: PA3117already Exists
+
+Stock Quantity Updated for: PA3117 to 142
+
+Product: PA3117 imported sucessfully.
+
+Product: PA3126already Exists
+
+Stock Quantity Updated for: PA3126 to 195
+
+Product: PA3126 imported sucessfully.
+
+Product: PA8609already Exists
+
+Stock Quantity Updated for: PA8609 to 206
+
+Product: PA8609 imported sucessfully.
+
+Product: PA8612already Exists
+
+Stock Quantity Updated for: PA8612 to 577
+
+Product: PA8612 imported sucessfully.
+
+Product: UN1201already Exists
+
+Stock Quantity Updated for: UN1201 to 224
+
+Product: UN1201 imported sucessfully.
+
+Product: TC0314already Exists
+
+Stock Quantity Updated for: TC0314 to 193
+
+Product: TC0314 imported sucessfully.
+
+Product: TC0361already Exists
+
+Stock Quantity Updated for: TC0361 to 774
+
+Product: TC0361 imported sucessfully.
+
+Product: UL1449already Exists
+
+Stock Quantity Updated for: UL1449 to 284
+
+Product: UL1449 imported sucessfully.
+
+Product: UL1457already Exists
+
+Stock Quantity Updated for: UL1457 to 200
+
+Product: UL1457 imported sucessfully.
+
+Product: UL1459already Exists
+
+Stock Quantity Updated for: UL1459 to 719
+
+Product: UL1459 imported sucessfully.
+
+Product: UL1460already Exists
+
+Stock Quantity Updated for: UL1460 to 420
+
+Product: UL1460 imported sucessfully.
+
+Product: TC0306already Exists
+
+Stock Quantity Updated for: TC0306 to 169
+
+Product: TC0306 imported sucessfully.
+
+Product: UL1468already Exists
+
+Stock Quantity Updated for: UL1468 to 103
+
+Product: UL1468 imported sucessfully.
+
+Product: UL1471already Exists
+
+Stock Quantity Updated for: UL1471 to 115
+
+Product: UL1471 imported sucessfully.
+
+Product: UN3615already Exists
+
+Stock Quantity Updated for: UN3615 to 502
+
+Product: UN3615 imported sucessfully.
+
+Product: UN0542already Exists
+
+Stock Quantity Updated for: UN0542 to 239
+
+Product: UN0542 imported sucessfully.
+
+Product: UN3694already Exists
+
+Stock Quantity Updated for: UN3694 to 126
+
+Product: UN3694 imported sucessfully.
+
+Product: UN1213already Exists
+
+Stock Quantity Updated for: UN1213 to 343
+
+Product: UN1213 imported sucessfully.
+
+Product: UN1209already Exists
+
+Stock Quantity Updated for: UN1209 to 121
+
+Product: UN1209 imported sucessfully.
+
+Product: UN2201already Exists
+
+Stock Quantity Updated for: UN2201 to 438
+
+Product: UN2201 imported sucessfully.
+
+Product: UN2213already Exists
+
+Stock Quantity Updated for: UN2213 to 223
+
+Product: UN2213 imported sucessfully.
+
+Product: UN4965already Exists
+
+Stock Quantity Updated for: UN4965 to 532
+
+Product: UN4965 imported sucessfully.
+
+Product: UN4935already Exists
+
+Stock Quantity Updated for: UN4935 to 212
+
+Product: UN4935 imported sucessfully.
+
+Product: PA8608already Exists
+
+Stock Quantity Updated for: PA8608 to 104
+
+Product: PA8608 imported sucessfully.
+
+Product: UN5219already Exists
+
+Stock Quantity Updated for: UN5219 to 208
+
+Product: UN5219 imported sucessfully.
+
+Product: CT0207already Exists
+
+Stock Quantity Updated for: CT0207 to 821
+
+Product: CT0207 imported sucessfully.
+
+Proudct CT0209 added
+
+Stock Quantity Updated for: CT0209 to 165
+
+Product: CT0209 imported sucessfully.
+
+Proudct CT0211 added
+
+Stock Quantity Updated for: CT0211 to 309
+
+Product: CT0211 imported sucessfully.
+
+Product: CT0213already Exists
+
+Stock Quantity Updated for: CT0213 to 395
+
+Product: CT0213 imported sucessfully.
+
+Product: CT0214already Exists
+
+Stock Quantity Updated for: CT0214 to 383
+
+Product: CT0214 imported sucessfully.
+
+Product: CT0215already Exists
+
+Stock Quantity Updated for: CT0215 to 176
+
+Product: CT0215 imported sucessfully.
+
+Proudct CT0216 added
+
+Stock Quantity Updated for: CT0216 to 228
+
+Product: CT0216 imported sucessfully.
+
+Product: PA2509already Exists
+
+Stock Quantity Updated for: PA2509 to 456
+
+Product: PA2509 imported sucessfully.
+
+Product: PA3114already Exists
+
+Stock Quantity Updated for: PA3114 to 518
+
+Product: PA3114 imported sucessfully.
+
+Product: PA2549already Exists
+
+Stock Quantity Updated for: PA2549 to 5,149
+
+Product: PA2549 imported sucessfully.
+
+Product: PA3103already Exists
+
+Stock Quantity Updated for: PA3103 to 310
+
+Product: PA3103 imported sucessfully.
+
+Product: PA3118already Exists
+
+Stock Quantity Updated for: PA3118 to 205
+
+Product: PA3118 imported sucessfully.
+
+Product: UN0536already Exists
+
+Stock Quantity Updated for: UN0536 to 180
+
+Product: UN0536 imported sucessfully.
+
+Product: PA3121already Exists
+
+Stock Quantity Updated for: PA3121 to 371
+
+Product: PA3121 imported sucessfully.
+
+Product: PA8626already Exists
+
+Stock Quantity Updated for: PA8626 to 350
+
+Product: PA8626 imported sucessfully.
+
+Product: PA8649already Exists
+
+Stock Quantity Updated for: PA8649 to 339
+
+Product: PA8649 imported sucessfully.
+
+Product: TC0381already Exists
+
+Stock Quantity Updated for: TC0381 to 266
+
+Product: TC0381 imported sucessfully.
+
+Product: UL1463already Exists
+
+Stock Quantity Updated for: UL1463 to 624
+
+Product: UL1463 imported sucessfully.
+
+Product: UN4675already Exists
+
+Stock Quantity Updated for: UN4675 to 229
+
+Product: UN4675 imported sucessfully.
+
+Product: UL2409already Exists
+
+Stock Quantity Updated for: UL2409 to 379
+
+Product: UL2409 imported sucessfully.
+
+Product: UL2415already Exists
+
+Stock Quantity Updated for: UL2415 to 231
+
+Product: UL2415 imported sucessfully.
+
+Product: UN4661already Exists
+
+Stock Quantity Updated for: UN4661 to 300
+
+Product: UN4661 imported sucessfully.
+
+Product: UN0540already Exists
+
+Stock Quantity Updated for: UN0540 to 384
+
+Product: UN0540 imported sucessfully.
+
+Product: UN4939already Exists
+
+Stock Quantity Updated for: UN4939 to 114
+
+Product: UN4939 imported sucessfully.
+
+Product: UN3638already Exists
+
+Stock Quantity Updated for: UN3638 to 504
+
+Product: UN3638 imported sucessfully.
+
+Product: UN3680already Exists
+
+Stock Quantity Updated for: UN3680 to 319
+
+Product: UN3680 imported sucessfully.
+
+Product: UN4962already Exists
+
+Stock Quantity Updated for: UN4962 to 262
+
+Product: UN4962 imported sucessfully.
+
+Product: UN5230already Exists
+
+Stock Quantity Updated for: UN5230 to 141
+
+Product: UN5230 imported sucessfully.
+
+Product: UN4803already Exists
+
+Stock Quantity Updated for: UN4803 to 541
+
+Product: UN4803 imported sucessfully.
+
+Product: PA2519already Exists
+
+Stock Quantity Updated for: PA2519 to 153
+
+Product: PA2519 imported sucessfully.
+
+Product: PA2575already Exists
+
+Stock Quantity Updated for: PA2575 to 116
+
+Product: PA2575 imported sucessfully.
+
+Product: PA3110already Exists
+
+Stock Quantity Updated for: PA3110 to 148
+
+Product: PA3110 imported sucessfully.
+
+Product: PA3149already Exists
+
+Stock Quantity Updated for: PA3149 to 168
+
+Product: PA3149 imported sucessfully.
+
+Product: PA8611already Exists
+
+Stock Quantity Updated for: PA8611 to 270
+
+Product: PA8611 imported sucessfully.
+
+Product: TC0313already Exists
+
+Stock Quantity Updated for: TC0313 to 435
+
+Product: TC0313 imported sucessfully.
+
+Product: UN0538already Exists
+
+Stock Quantity Updated for: UN0538 to 260
+
+Product: UN0538 imported sucessfully.
+
+Product: UN0533already Exists
+
+Stock Quantity Updated for: UN0533 to 202
+
+Product: UN0533 imported sucessfully.
+
+Product: UN1245already Exists
+
+Stock Quantity Updated for: UN1245 to 164
+
+Product: UN1245 imported sucessfully.
+
+Product: UL2410already Exists
+
+Stock Quantity Updated for: UL2410 to 1,405
+
+Product: UL2410 imported sucessfully.
+
+Product: UL2431already Exists
+
+Stock Quantity Updated for: UL2431 to 151
+
+Product: UL2431 imported sucessfully.
+
+Product: UL2411already Exists
+
+Stock Quantity Updated for: UL2411 to 140
+
+Product: UL2411 imported sucessfully.
+
+Product: UN5215already Exists
+
+Stock Quantity Updated for: UN5215 to 275
+
+Product: UN5215 imported sucessfully.
+
+Proudct UN5275 added
+
+Stock Quantity Updated for: UN5275 to 152
+
+Product: UN5275 imported sucessfully.
+
+Product: UN0541already Exists
+
+Stock Quantity Updated for: UN0541 to 493
+
+Product: UN0541 imported sucessfully.
+
+Product: UN2245already Exists
+
+Stock Quantity Updated for: UN2245 to 400
+
+Product: UN2245 imported sucessfully.
+
+Product: UN4641already Exists
+
+Stock Quantity Updated for: UN4641 to 172
+
+Product: UN4641 imported sucessfully.
+
+Product MAY.3575.55.160 has been deleted.
+
+Product MAY.3575.10.160 has been deleted.
+
+Product CAB.6049.40.243 has been deleted.
+
+Product BOU.1215.44.215 has been deleted.
+
+Product TDS.1104.45.121 has been deleted.
+
+Product SPG.0181.04.243 has been deleted.
+
+Product PTR.1225.54.253 has been deleted.
+
+Product PTR.1108.55.253 has been deleted.
+
+Product PTR.1061.53.253 has been deleted.
+
+Product PTR.1061.40.300 has been deleted.
+
+Product PTR.1035.40.300 has been deleted.
+
+Product PLU.1111.19.243 has been deleted.
+
+Product NLA.0110.45.300 has been deleted.
+
+Product NLA.0002.45.121 has been deleted.
+
+Product NLA.0002.05.982 has been deleted.
+
+Product NLA.0002.05.121 has been deleted.
+
+Product NLA.0001.05.121 has been deleted.
+
+Product MAG.0215.55.167 has been deleted.
+
+Product LIN.1101.45.201 has been deleted.
+
+Product FLO.1071.45.244 has been deleted.
+
+Product FLO.1027.45.300 has been deleted.
+
+Product FLO.1027.45.244 has been deleted.
+
+Product FLO.1007.04.244 has been deleted.
+
+Product DOL.1367.45.280 has been deleted.
+
+Product CHE.3750.10.303 has been deleted.
+
+Product CHE.3750.05.303 has been deleted.
+
+Product CHE.3740.45.980 has been deleted.
+
+Product CHE.3740.20.303 has been deleted.
+
+Product CHE.3740.10.303 has been deleted.
+
+Product CHE.3740.05.303 has been deleted.
+
+Product CHE.3740.05.980 has been deleted.
+
+Product CHE.1880.20.241 has been deleted.
+
+Product BOU.1161.80.280 has been deleted.

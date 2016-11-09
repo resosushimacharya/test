@@ -43,12 +43,9 @@
                       </tr>
                     <tr>
                         <td width="140" style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;">State:</td>
-                          <td style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;"><?php echo strtoupper($data['cc_state_type']);?></td>
+                          <td style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;"><?php echo strtoupper($data['cc_state_type_only']);?></td>
                       </tr>
-                    <tr>
-                        <td width="140" style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;">Nearest Store:</td>
-                          <td style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;"><?php echo ucwords(strtolower($data['cc_store_name']));?></td>
-                      </tr>
+                    
                     <tr>
                         <td width="130" style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;">Comments/enquiries:</td>
                         <td style="font-size: 12px; font-family:'Arial', sans-serif; padding-bottom: 10px;"><?php echo $data['cc_message'];?></td>

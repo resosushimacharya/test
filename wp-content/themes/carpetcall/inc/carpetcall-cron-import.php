@@ -980,5 +980,3 @@ function cc_res_csv_hards($hards_post_ids,$filename){
 }
 
 ?>
-
-

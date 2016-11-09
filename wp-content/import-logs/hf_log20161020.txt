@@ -1,0 +1,506 @@
+
+2016-10-20 08:08:35Hard Flooring Prouducts Import Started:
+
+2016-10-20 08:08:43Product: PA2518already Exists
+
+2016-10-20 08:08:43Stock Quantity Updated for: PA2518 to 1599
+
+2016-10-20 08:08:43Product: PA2518 imported sucessfully.
+
+2016-10-20 08:08:43Product: PA2527already Exists
+
+2016-10-20 08:08:43Stock Quantity Updated for: PA2527 to 2492
+
+2016-10-20 08:08:43Product: PA2527 imported sucessfully.
+
+2016-10-20 08:08:43Product: PA2529already Exists
+
+2016-10-20 08:08:43Stock Quantity Updated for: PA2529 to 1231
+
+2016-10-20 08:08:43Product: PA2529 imported sucessfully.
+
+2016-10-20 08:08:43Product: PA2534already Exists
+
+2016-10-20 08:08:44Stock Quantity Updated for: PA2534 to 3953
+
+2016-10-20 08:08:44Product: PA2534 imported sucessfully.
+
+2016-10-20 08:08:44Product: PA2542already Exists
+
+2016-10-20 08:08:44Stock Quantity Updated for: PA2542 to 2198
+
+2016-10-20 08:08:44Product: PA2542 imported sucessfully.
+
+2016-10-20 08:08:44Product: PA2548already Exists
+
+2016-10-20 08:08:44Stock Quantity Updated for: PA2548 to 1417
+
+2016-10-20 08:08:44Product: PA2548 imported sucessfully.
+
+2016-10-20 08:08:44Product: PA2551already Exists
+
+2016-10-20 08:08:44Stock Quantity Updated for: PA2551 to 1819
+
+2016-10-20 08:08:44Product: PA2551 imported sucessfully.
+
+2016-10-20 08:08:44Product: PA2553already Exists
+
+2016-10-20 08:08:44Stock Quantity Updated for: PA2553 to 801
+
+2016-10-20 08:08:44Product: PA2553 imported sucessfully.
+
+2016-10-20 08:08:44Product: PA2564already Exists
+
+2016-10-20 08:08:44Stock Quantity Updated for: PA2564 to 5904
+
+2016-10-20 08:08:44Product: PA2564 imported sucessfully.
+
+2016-10-20 08:08:44Product: PA2575already Exists
+
+2016-10-20 08:08:44Stock Quantity Updated for: PA2575 to 624
+
+2016-10-20 08:08:44Product: PA2575 imported sucessfully.
+
+2016-10-20 08:08:44Product: PA3114already Exists
+
+2016-10-20 08:08:44Stock Quantity Updated for: PA3114 to 581
+
+2016-10-20 08:08:44Product: PA3114 imported sucessfully.
+
+2016-10-20 08:08:44Product: PA3117already Exists
+
+2016-10-20 08:08:44Stock Quantity Updated for: PA3117 to 370
+
+2016-10-20 08:08:44Product: PA3117 imported sucessfully.
+
+2016-10-20 08:08:44Product: PA3121already Exists
+
+2016-10-20 08:08:44Stock Quantity Updated for: PA3121 to 731
+
+2016-10-20 08:08:44Product: PA3121 imported sucessfully.
+
+2016-10-20 08:08:44Product: PA8608already Exists
+
+2016-10-20 08:08:44Stock Quantity Updated for: PA8608 to 617
+
+2016-10-20 08:08:44Product: PA8608 imported sucessfully.
+
+2016-10-20 08:08:44Product: PA8609already Exists
+
+2016-10-20 08:08:44Stock Quantity Updated for: PA8609 to 1387
+
+2016-10-20 08:08:44Product: PA8609 imported sucessfully.
+
+2016-10-20 08:08:44Product: PA8612already Exists
+
+2016-10-20 08:08:44Stock Quantity Updated for: PA8612 to 1442
+
+2016-10-20 08:08:44Product: PA8612 imported sucessfully.
+
+2016-10-20 08:08:44Product: PA8649already Exists
+
+2016-10-20 08:08:44Stock Quantity Updated for: PA8649 to 1172
+
+2016-10-20 08:08:44Product: PA8649 imported sucessfully.
+
+2016-10-20 08:08:44Product: TC0314already Exists
+
+2016-10-20 08:08:44Stock Quantity Updated for: TC0314 to 674
+
+2016-10-20 08:08:44Product: TC0314 imported sucessfully.
+
+2016-10-20 08:08:44Product: TC0361already Exists
+
+2016-10-20 08:08:44Stock Quantity Updated for: TC0361 to 1182
+
+2016-10-20 08:08:44Product: TC0361 imported sucessfully.
+
+2016-10-20 08:08:44Product: UL1449already Exists
+
+2016-10-20 08:08:45Stock Quantity Updated for: UL1449 to 1326
+
+2016-10-20 08:08:45Product: UL1449 imported sucessfully.
+
+2016-10-20 08:08:45Product: UL1457already Exists
+
+2016-10-20 08:08:45Stock Quantity Updated for: UL1457 to 2566
+
+2016-10-20 08:08:45Product: UL1457 imported sucessfully.
+
+2016-10-20 08:08:45Product: UL1459already Exists
+
+2016-10-20 08:08:45Stock Quantity Updated for: UL1459 to 871
+
+2016-10-20 08:08:45Product: UL1459 imported sucessfully.
+
+2016-10-20 08:08:45Product: UL1460already Exists
+
+2016-10-20 08:08:45Stock Quantity Updated for: UL1460 to 988
+
+2016-10-20 08:08:45Product: UL1460 imported sucessfully.
+
+2016-10-20 08:08:45Product: UL1463already Exists
+
+2016-10-20 08:08:45Stock Quantity Updated for: UL1463 to 1051
+
+2016-10-20 08:08:45Product: UL1463 imported sucessfully.
+
+2016-10-20 08:08:45Product: UL1468already Exists
+
+2016-10-20 08:08:45Stock Quantity Updated for: UL1468 to 711
+
+2016-10-20 08:08:45Product: UL1468 imported sucessfully.
+
+2016-10-20 08:08:45Product: UL1471already Exists
+
+2016-10-20 08:08:45Stock Quantity Updated for: UL1471 to 1174
+
+2016-10-20 08:08:45Product: UL1471 imported sucessfully.
+
+2016-10-20 08:08:45Product: UL2411already Exists
+
+2016-10-20 08:08:45Stock Quantity Updated for: UL2411 to 2028
+
+2016-10-20 08:08:45Product: UL2411 imported sucessfully.
+
+2016-10-20 08:08:45Product: UL2413already Exists
+
+2016-10-20 08:08:45Stock Quantity Updated for: UL2413 to 372
+
+2016-10-20 08:08:45Product: UL2413 imported sucessfully.
+
+2016-10-20 08:08:45Product: UN0542already Exists
+
+2016-10-20 08:08:45Stock Quantity Updated for: UN0542 to 1014
+
+2016-10-20 08:08:45Product: UN0542 imported sucessfully.
+
+2016-10-20 08:08:45Product: UN1201already Exists
+
+2016-10-20 08:08:45Stock Quantity Updated for: UN1201 to 448
+
+2016-10-20 08:08:45Product: UN1201 imported sucessfully.
+
+2016-10-20 08:08:45Product: UN1209already Exists
+
+2016-10-20 08:08:45Stock Quantity Updated for: UN1209 to 1304
+
+2016-10-20 08:08:45Product: UN1209 imported sucessfully.
+
+2016-10-20 08:08:45Product: UN1213already Exists
+
+2016-10-20 08:08:45Stock Quantity Updated for: UN1213 to 1196
+
+2016-10-20 08:08:45Product: UN1213 imported sucessfully.
+
+2016-10-20 08:08:45Product: UN1245already Exists
+
+2016-10-20 08:08:45Stock Quantity Updated for: UN1245 to 421
+
+2016-10-20 08:08:45Product: UN1245 imported sucessfully.
+
+2016-10-20 08:08:45Product: UN2201already Exists
+
+2016-10-20 08:08:45Stock Quantity Updated for: UN2201 to 1009
+
+2016-10-20 08:08:45Product: UN2201 imported sucessfully.
+
+2016-10-20 08:08:45Product: UN2213already Exists
+
+2016-10-20 08:08:45Stock Quantity Updated for: UN2213 to 550
+
+2016-10-20 08:08:46Product: UN2213 imported sucessfully.
+
+2016-10-20 08:08:46Product: UN3615already Exists
+
+2016-10-20 08:08:46Stock Quantity Updated for: UN3615 to 1026
+
+2016-10-20 08:08:46Product: UN3615 imported sucessfully.
+
+2016-10-20 08:08:46Product: UN3680already Exists
+
+2016-10-20 08:08:46Stock Quantity Updated for: UN3680 to 1277
+
+2016-10-20 08:08:46Product: UN3680 imported sucessfully.
+
+2016-10-20 08:08:46Product: UN3695already Exists
+
+2016-10-20 08:08:46Stock Quantity Updated for: UN3695 to 243
+
+2016-10-20 08:08:46Product: UN3695 imported sucessfully.
+
+2016-10-20 08:08:46Product: UN4641already Exists
+
+2016-10-20 08:08:46Stock Quantity Updated for: UN4641 to 657
+
+2016-10-20 08:08:46Product: UN4641 imported sucessfully.
+
+2016-10-20 08:08:46Product: UN4661already Exists
+
+2016-10-20 08:08:46Stock Quantity Updated for: UN4661 to 1645
+
+2016-10-20 08:08:46Product: UN4661 imported sucessfully.
+
+2016-10-20 08:08:46Product: UN4935already Exists
+
+2016-10-20 08:08:46Stock Quantity Updated for: UN4935 to 1127
+
+2016-10-20 08:08:46Product: UN4935 imported sucessfully.
+
+2016-10-20 08:08:46Product: UN4939already Exists
+
+2016-10-20 08:08:46Stock Quantity Updated for: UN4939 to 1055
+
+2016-10-20 08:08:46Product: UN4939 imported sucessfully.
+
+2016-10-20 08:08:46Product: UN4962already Exists
+
+2016-10-20 08:08:46Stock Quantity Updated for: UN4962 to 825
+
+2016-10-20 08:08:46Product: UN4962 imported sucessfully.
+
+2016-10-20 08:08:46Product: UN4965already Exists
+
+2016-10-20 08:08:46Stock Quantity Updated for: UN4965 to 2085
+
+2016-10-20 08:08:46Product: UN4965 imported sucessfully.
+
+2016-10-20 08:08:46Product: UN5219already Exists
+
+2016-10-20 08:08:46Stock Quantity Updated for: UN5219 to 663
+
+2016-10-20 08:08:46Product: UN5219 imported sucessfully.
+
+2016-10-20 08:08:46Product: CT0216already Exists
+
+2016-10-20 08:08:46Stock Quantity Updated for: CT0216 to 162
+
+2016-10-20 08:08:46Product: CT0216 imported sucessfully.
+
+2016-10-20 08:08:46Product: PA2509already Exists
+
+2016-10-20 08:08:46Stock Quantity Updated for: PA2509 to 859
+
+2016-10-20 08:08:46Product: PA2509 imported sucessfully.
+
+2016-10-20 08:08:46Product: PA3103already Exists
+
+2016-10-20 08:08:46Stock Quantity Updated for: PA3103 to 243
+
+2016-10-20 08:08:46Product: PA3103 imported sucessfully.
+
+2016-10-20 08:08:46Product: PA3119already Exists
+
+2016-10-20 08:08:46Stock Quantity Updated for: PA3119 to 219
+
+2016-10-20 08:08:46Product: PA3119 imported sucessfully.
+
+2016-10-20 08:08:46Product: PA3126already Exists
+
+2016-10-20 08:08:47Stock Quantity Updated for: PA3126 to 741
+
+2016-10-20 08:08:47Product: PA3126 imported sucessfully.
+
+2016-10-20 08:08:47Product: PA3149already Exists
+
+2016-10-20 08:08:47Stock Quantity Updated for: PA3149 to 656
+
+2016-10-20 08:08:47Product: PA3149 imported sucessfully.
+
+2016-10-20 08:08:47Product: PA8602already Exists
+
+2016-10-20 08:08:47Stock Quantity Updated for: PA8602 to 699
+
+2016-10-20 08:08:47Product: PA8602 imported sucessfully.
+
+2016-10-20 08:08:47Product: PA8611already Exists
+
+2016-10-20 08:08:47Stock Quantity Updated for: PA8611 to 369
+
+2016-10-20 08:08:47Product: PA8611 imported sucessfully.
+
+2016-10-20 08:08:47Product: UL2409already Exists
+
+2016-10-20 08:08:47Stock Quantity Updated for: UL2409 to 492
+
+2016-10-20 08:08:47Product: UL2409 imported sucessfully.
+
+2016-10-20 08:08:47Product: UN0536already Exists
+
+2016-10-20 08:08:47Stock Quantity Updated for: UN0536 to 812
+
+2016-10-20 08:08:47Product: UN0536 imported sucessfully.
+
+2016-10-20 08:08:47Product: UN0538already Exists
+
+2016-10-20 08:08:47Stock Quantity Updated for: UN0538 to 652
+
+2016-10-20 08:08:47Product: UN0538 imported sucessfully.
+
+2016-10-20 08:08:47Product: UN0540already Exists
+
+2016-10-20 08:08:47Stock Quantity Updated for: UN0540 to 867
+
+2016-10-20 08:08:47Product: UN0540 imported sucessfully.
+
+2016-10-20 08:08:47Product: UN0541already Exists
+
+2016-10-20 08:08:47Stock Quantity Updated for: UN0541 to 981
+
+2016-10-20 08:08:47Product: UN0541 imported sucessfully.
+
+2016-10-20 08:08:47Product: UN2209already Exists
+
+2016-10-20 08:08:47Stock Quantity Updated for: UN2209 to 659
+
+2016-10-20 08:08:47Product: UN2209 imported sucessfully.
+
+2016-10-20 08:08:47Product: UN3638already Exists
+
+2016-10-20 08:08:47Stock Quantity Updated for: UN3638 to 879
+
+2016-10-20 08:08:47Product: UN3638 imported sucessfully.
+
+2016-10-20 08:08:47Product: UN3694already Exists
+
+2016-10-20 08:08:47Stock Quantity Updated for: UN3694 to 626
+
+2016-10-20 08:08:47Product: UN3694 imported sucessfully.
+
+2016-10-20 08:08:47Product: UN4675already Exists
+
+2016-10-20 08:08:47Stock Quantity Updated for: UN4675 to 470
+
+2016-10-20 08:08:47Product: UN4675 imported sucessfully.
+
+2016-10-20 08:08:47Product: UN4803already Exists
+
+2016-10-20 08:08:47Stock Quantity Updated for: UN4803 to 849
+
+2016-10-20 08:08:47Product: UN4803 imported sucessfully.
+
+2016-10-20 08:08:47Product: UN4805already Exists
+
+2016-10-20 08:08:47Stock Quantity Updated for: UN4805 to 158
+
+2016-10-20 08:08:47Product: UN4805 imported sucessfully.
+
+2016-10-20 08:08:47Product: UN4808already Exists
+
+2016-10-20 08:08:47Stock Quantity Updated for: UN4808 to 329
+
+2016-10-20 08:08:47Product: UN4808 imported sucessfully.
+
+2016-10-20 08:08:48Product: UN5215already Exists
+
+2016-10-20 08:08:48Stock Quantity Updated for: UN5215 to 389
+
+2016-10-20 08:08:48Product: UN5215 imported sucessfully.
+
+2016-10-20 08:08:48Product: UN5230already Exists
+
+2016-10-20 08:08:48Stock Quantity Updated for: UN5230 to 343
+
+2016-10-20 08:08:48Product: UN5230 imported sucessfully.
+
+2016-10-20 08:08:48Product: UN5275already Exists
+
+2016-10-20 08:08:48Stock Quantity Updated for: UN5275 to 366
+
+2016-10-20 08:08:48Product: UN5275 imported sucessfully.
+
+2016-10-20 08:08:48Product: PA2541already Exists
+
+2016-10-20 08:08:48Stock Quantity Updated for: PA2541 to 306
+
+2016-10-20 08:08:48Product: PA2541 imported sucessfully.
+
+2016-10-20 08:08:48Product: PA2549already Exists
+
+2016-10-20 08:08:48Stock Quantity Updated for: PA2549 to 4903
+
+2016-10-20 08:08:48Product: PA2549 imported sucessfully.
+
+2016-10-20 08:08:48Product: PA3118already Exists
+
+2016-10-20 08:08:48Stock Quantity Updated for: PA3118 to 150
+
+2016-10-20 08:08:48Product: PA3118 imported sucessfully.
+
+2016-10-20 08:08:48Product: TC0306already Exists
+
+2016-10-20 08:08:48Stock Quantity Updated for: TC0306 to 507
+
+2016-10-20 08:08:48Product: TC0306 imported sucessfully.
+
+2016-10-20 08:08:48Product: TC0381already Exists
+
+2016-10-20 08:08:48Stock Quantity Updated for: TC0381 to 378
+
+2016-10-20 08:08:48Product: TC0381 imported sucessfully.
+
+2016-10-20 08:08:48Product: UL2410already Exists
+
+2016-10-20 08:08:48Stock Quantity Updated for: UL2410 to 2003
+
+2016-10-20 08:08:48Product: UL2410 imported sucessfully.
+
+2016-10-20 08:08:48Product: UN4804already Exists
+
+2016-10-20 08:08:48Stock Quantity Updated for: UN4804 to 171
+
+2016-10-20 08:08:48Product: UN4804 imported sucessfully.
+
+2016-10-20 08:08:48Product: TC0313already Exists
+
+2016-10-20 08:08:48Stock Quantity Updated for: TC0313 to 435
+
+2016-10-20 08:08:48Product: TC0313 imported sucessfully.
+
+2016-10-20 08:08:48Product: TC0370already Exists
+
+2016-10-20 08:08:48Stock Quantity Updated for: TC0370 to 252
+
+2016-10-20 08:08:48Product: TC0370 imported sucessfully.
+
+2016-10-20 08:08:48Product: UL2431already Exists
+
+2016-10-20 08:08:48Stock Quantity Updated for: UL2431 to 333
+
+2016-10-20 08:08:48Product: UL2431 imported sucessfully.
+
+2016-10-20 08:08:48Product: UN0533already Exists
+
+2016-10-20 08:08:48Stock Quantity Updated for: UN0533 to 342
+
+2016-10-20 08:08:48Product: UN0533 imported sucessfully.
+
+2016-10-20 08:08:48Product: PA2519already Exists
+
+2016-10-20 08:08:48Stock Quantity Updated for: PA2519 to 144
+
+2016-10-20 08:08:48Product: PA2519 imported sucessfully.
+
+2016-10-20 08:08:48Product: PA8626already Exists
+
+2016-10-20 08:08:48Stock Quantity Updated for: PA8626 to 275
+
+2016-10-20 08:08:48Product: PA8626 imported sucessfully.
+
+2016-10-20 08:08:48Product: UL2415already Exists
+
+2016-10-20 08:08:48Stock Quantity Updated for: UL2415 to 393
+
+2016-10-20 08:08:49Product: UL2415 imported sucessfully.
+
+2016-10-20 08:08:49Product: UN2245already Exists
+
+2016-10-20 08:08:49Stock Quantity Updated for: UN2245 to 244
+
+2016-10-20 08:08:49Product: UN2245 imported sucessfully.
+
+2016-10-20 08:08:49Product: UN4806already Exists
+
+2016-10-20 08:08:49Stock Quantity Updated for: UN4806 to 300
+
+2016-10-20 08:08:49Product: UN4806 imported sucessfully.

@@ -1,87 +1,18 @@
 
- Import has been started in 2016-09-19-02-32-42 
+ Import has been started in 2016-10-19-21-05-48 
 
-In 2016-09-19-02-32-42
-List of error files 
-NTLAOLS.csv
-NTLUOLS.csv
-QTLAOLS.csv
-QTLUOLS.csv
-STLAOLS.csv
-STLUOLS.csv
-VTLAOLS.csv
-VTLUOLS.csv
-WTLAOLS.csv
-WTLUOLS.csv
-
-
- Import has been finished in 2016-09-19-02-34-27
-
-
- Import has been started in 2016-09-19-02-41-15 
-
-
- Import has been started in 2016-09-19-02-41-16 
-
-In 2016-09-19-02-41-15
-List of error files 
-NTLAOLS.csv
-NTLUOLS.csv
-QTLAOLS.csv
-QTLUOLS.csv
-STLAOLS.csv
-STLUOLS.csv
-VTLAOLS.csv
-VTLUOLS.csv
-WTLAOLS.csv
-WTLUOLS.csv
-
-
- Import has been finished in 2016-09-19-02-42-11
-
-
- Import has been started in 2016-09-23-11-44-59 
-
-In 2016-09-23-11-44-59
-List of error files 
-NTLAOLS.csv
-NTLUOLS.csv
-QTLAOLS.csv
-QTLUOLS.csv
-STLAOLS.csv
-STLUOLS.csv
-VTLAOLS.csv
-VTLUOLS.csv
-WTLAOLS.csv
-WTLUOLS.csv
-
-
- Import has been finished in 2016-09-23-11-46-48
-
-
- Import has been started in 2016-09-22-11-22-04 
-
-In 2016-09-22-11-22-04
- prdouctfiles folder is empty 
-
-
- Import has been finished in 2016-09-22-11-22-04
-
-
- Import has been started in 2016-09-22-19-42-22 
-
-In 2016-09-22-07-42-22
- prdouctfiles folder is empty 
-
-
- Import has been finished in 2016-09-22-07-42-22
-
-
- Import has been started in 2016-09-30-21-08-10 
-
-In 2016-09-30-21-08-10
+In 2016-10-19-21-05-48
 List of error files 
 No error files .
 
- Import has been finished in 2016-09-30-09-08-27
+ Import has been finished in 2016-10-19-09-08-09
+
+
+ Import has been started in 2016-10-20-19-08-41 
+
+In 2016-10-20-19-08-41
+List of error files 
+No error files .
+
+ Import has been finished in 2016-10-20-07-10-45
 

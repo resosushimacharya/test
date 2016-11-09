@@ -38,7 +38,7 @@ function rocket_upgrader() {
 
         // Empty OPCache to prevent issue where plugin is updated but still showing as old version in WP admin
         if ( function_exists( 'opcache_reset' ) ) {
-            opcache_reset();
+            @opcache_reset();
         }
 	} else {
 		if ( empty( $_POST ) && rocket_valid_key() ) {
@@ -132,10 +132,11 @@ function rocket_first_install() {
 			'cloudflare_email'            => '',
 			'cloudflare_api_key'          => '',
 			'cloudflare_domain'           => '',
+			'cloudflare_zone_id'          => '',
 			'cloudflare_devmode'          => 0,
 			'cloudflare_protocol_rewrite' => 0,
 			'cloudflare_auto_settings'    => 0,
-			'cloudflare_old_settings'     => 0,
+			'cloudflare_old_settings'     => '',
 			'varnish_auto_purge'          => 0,
 			'do_beta'                     => 0,
 		)
@@ -288,4 +289,27 @@ function rocket_new_upgrade( $wp_rocket_version, $actual_version ) {
 		
 		update_option( WP_ROCKET_SLUG, $options );
 	}
+
+    // Deactivate CloudFlare completely if PHP Version is lower than 5.4
+    if ( version_compare( $actual_version, '2.8.16', '<' ) && phpversion() < '5.4' ) {
+        $options                                = get_option( WP_ROCKET_SLUG );
+        $options['do_cloudflare']               = 0;
+        $options['cloudflare_email']            = '';
+		$options['cloudflare_api_key']          = '';
+		$options['cloudflare_domain']           = '';
+		$options['cloudflare_devmode']          = 0;
+		$options['cloudflare_protocol_rewrite'] = 0;
+		$options['cloudflare_auto_settings']    = 0;
+		$options['cloudflare_old_settings']     = '';
+
+        update_option( WP_ROCKET_SLUG, $options );
+    }
+
+    // Add a value to the new CF zone_id field if the CF domain is set
+    if ( version_compare( $actual_version, '2.8.21', '<' ) && phpversion() >= '5.4' ) {
+        $options = get_option( WP_ROCKET_SLUG );
+        if ( 0 < $options['do_cloudflare'] && $options['cloudflare_domain'] !== '' ) {
+            require( WP_ROCKET_ADMIN_PATH . 'compat/cf-upgrader-5.4.php' );
+        }
+    }
 }

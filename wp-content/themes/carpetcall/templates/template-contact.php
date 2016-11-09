@@ -42,6 +42,8 @@ get_header();
     <div class="clearfix"></div>
     <div class="contact_form_cntr col-md-12">
       <form action="" method="post" id="contact_form" role="form">
+      <?php $enquiry_nounce = wp_create_nonce( "enquiry_nounce" );?>
+      <input type="hidden" id="enquiry_nounce"  name="enquiry_nounce" value="<?php echo $enquiry_nounce?>">
         <div class="contact_block_cntr">
           <div class="col-sm-12 form-group cc-enquiry-section">
             <h3> Enquiry Type</h3>
@@ -80,7 +82,7 @@ get_header();
           <div class="tel-blk">
             <div class="form-group col-sm-6">
               <label for="mobile_phone_no">Phone</label>
-              <input type="tel" name="mobile_phone_no" class="form-control"  value="" size="40" id="mobile_phone_no" placeholder="E.G. 02 1234 5678">
+              <input type="tel" name="mobile_phone_no" class="form-control"  value="" size="40" id="mobile_phone_no" placeholder="E.G. 0212345678">
               <div class="error_label"></div>
             </div>
           </div>

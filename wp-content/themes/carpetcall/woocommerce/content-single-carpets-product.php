@@ -138,7 +138,7 @@ if($reqTempTerms){
                              $x = preg_replace( '/^[0]{1}/', '', $x );
                              $i = 1;
                              $x = '+61'.$x;   
-			$tel_html = '<a href="tel:'.$x.'">CALL'. $telephone_link.'</a>';
+			$tel_html = '<a href="tel:'.$x.'">CALL '. $telephone_link.'</a>';
 			$contact_title_label = get_field('footer_contact_title_label',89);
 			 }
 	  
@@ -240,7 +240,8 @@ if($reqTempTerms){
                 </div>
                 
                 <div class="provision-section col-sm-12 clearfix">
-                <div class="form-group col-sm-4">
+                <?php if(has_term('carpets','product_cat',get_the_ID())){?>
+               		<div class="form-group col-sm-4">
 
                 	<select class="selectpicker col-md-6 form-control"  name="cc_state_type" id="cc-state-type">
                 	<option class="col-md-12" value="default">STATE</option>
@@ -250,8 +251,7 @@ if($reqTempTerms){
                      </select>
                      <div class="error_label"></div>
                 </div>
-                
-                <div class="form-group col-sm-8">
+					<div class="form-group col-sm-8">
               
                 	<select class="selectpicker col-md-6 form-control" name="cc_store_name" id="cc-store-name">
                      <option class="col-md-12" value="default">Select a Store</option>
@@ -262,6 +262,19 @@ if($reqTempTerms){
                      </select>
                      <div class="error_label"></div>
                 </div>
+					<?php }else{?> 
+					<div class="form-group col-sm-4">
+                	<select class="selectpicker col-md-6 form-control"  name="cc_state_type_only" id="cc-state-type-only">
+                                  <option class="col-md-12" value="default">STATE</option>
+                                  <?php  get_template_part('templates/contact/content', 'contact-state');
+                     ?>
+                                </select>
+                     <div class="error_label"></div>
+                </div>
+					
+                                
+					<?php }?>
+                
 
                 </div>
                   <div class="provision-section col-sm-12 clearfix">
@@ -323,7 +336,17 @@ if($reqTempTerms){
                         echo '<input type="hidden" value="'.$resproProduct.'" name="product_page_cat"/>';
                         echo '<input type="hidden" value="'.$resproCode.'" name="product_page_code"/>';
                         echo '<input type="hidden" value="'.$resproSize.'" name="product_page_size"/>';
+                        
+						if(has_term('carpets','product_cat',get_the_ID())){
                         echo '<input type="hidden" value="carpets" name="cc_contact_type"/>';
+						}elseif(has_term('blinds','product_cat',get_the_ID())){
+						echo '<input type="hidden" value="blinds" name="cc_contact_type"/>';
+						}elseif(has_term('shutters','product_cat',get_the_ID())){
+						echo '<input type="hidden" value="shutters" name="cc_contact_type"/>';
+						}elseif(has_term('awnings','product_cat',get_the_ID())){
+						echo '<input type="hidden" value="awnings" name="cc_contact_type"/>';
+						}
+                        
                         
 
 

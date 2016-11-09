@@ -1,0 +1,4388 @@
+
+Import Started
+
+Import Started at: 2016-10-06 08:28:55
+
+Product: PA2518 imported sucessfully
+
+Product: PA2527 imported sucessfully
+
+Product: PA2529 imported sucessfully
+
+Product: PA2534 imported sucessfully
+
+Product: PA2542 imported sucessfully
+
+Product: PA2548 imported sucessfully
+
+Product: PA2551 imported sucessfully
+
+Product: UN4808 imported sucessfully
+
+Product: PA2564 imported sucessfully
+
+Product: UN2209 imported sucessfully
+
+Product: PA2553 imported sucessfully
+
+Product: PA3119 imported sucessfully
+
+Product: PA3117 imported sucessfully
+
+Product: PA3126 imported sucessfully
+
+Product: PA8609 imported sucessfully
+
+Product: PA8612 imported sucessfully
+
+Product: UN1201 imported sucessfully
+
+Product: TC0314 imported sucessfully
+
+Product: TC0361 imported sucessfully
+
+Product: UL1449 imported sucessfully
+
+Product: UL1457 imported sucessfully
+
+Product: UL1459 imported sucessfully
+
+Product: UL1460 imported sucessfully
+
+Product: TC0306 imported sucessfully
+
+Product: UL1468 imported sucessfully
+
+Product: UL1471 imported sucessfully
+
+Product: UN3615 imported sucessfully
+
+Product: UN0542 imported sucessfully
+
+Product: UN3694 imported sucessfully
+
+Product: UN1213 imported sucessfully
+
+Product: UN1209 imported sucessfully
+
+Product: UN2201 imported sucessfully
+
+Product: UN2213 imported sucessfully
+
+Product: UN4965 imported sucessfully
+
+Product: UN4935 imported sucessfully
+
+Product: PA8608 imported sucessfully
+
+Product: UN5219 imported sucessfully
+
+Product: CT0207 imported sucessfully
+
+Product: CT0209 imported sucessfully
+
+Product: CT0211 imported sucessfully
+
+Product: CT0213 imported sucessfully
+
+Product: CT0214 imported sucessfully
+
+Product: CT0215 imported sucessfully
+
+Product: CT0216 imported sucessfully
+
+Product: PA2509 imported sucessfully
+
+Product: PA3114 imported sucessfully
+
+Product: PA2549 imported sucessfully
+
+Product: PA3103 imported sucessfully
+
+Product: PA3118 imported sucessfully
+
+Product: UN0536 imported sucessfully
+
+Product: PA3121 imported sucessfully
+
+Product: PA8626 imported sucessfully
+
+Product: PA8649 imported sucessfully
+
+Product: TC0381 imported sucessfully
+
+Product: UL1463 imported sucessfully
+
+Product: UN4675 imported sucessfully
+
+Product: UL2409 imported sucessfully
+
+Product: UL2415 imported sucessfully
+
+Product: UN4661 imported sucessfully
+
+Product: UN0540 imported sucessfully
+
+Product: UN4939 imported sucessfully
+
+Product: UN3638 imported sucessfully
+
+Product: UN3680 imported sucessfully
+
+Product: UN4962 imported sucessfully
+
+Product: UN5230 imported sucessfully
+
+Product: UN4803 imported sucessfully
+
+Product: PA2519 imported sucessfully
+
+Product: PA2575 imported sucessfully
+
+Product: PA3110 imported sucessfully
+
+Product: PA3149 imported sucessfully
+
+Product: PA8611 imported sucessfully
+
+Product: TC0313 imported sucessfully
+
+Product: UN0538 imported sucessfully
+
+Product: UN0533 imported sucessfully
+
+Product: UN1245 imported sucessfully
+
+Product: UL2410 imported sucessfully
+
+Product: UL2431 imported sucessfully
+
+Product: UL2411 imported sucessfully
+
+Product: UN5215 imported sucessfully
+
+Product: UN5275 imported sucessfully
+
+Product: UN0541 imported sucessfully
+
+Product: UN2245 imported sucessfully
+
+Product: UN4641 imported sucessfully
+
+Product: AMO.1206.80.121 imported sucessfully
+
+Product: AMO.1206.80.158 imported sucessfully
+
+Product: AMO.1206.80.202 imported sucessfully
+
+Product: AMO.1206.80.253 imported sucessfully
+
+Product: AMO.1206.80.280 imported sucessfully
+
+Product: AMO.1392.80.121 imported sucessfully
+
+Product: AMO.1392.80.158 imported sucessfully
+
+Product: AMO.1392.80.202 imported sucessfully
+
+Product: AMO.1392.80.280 imported sucessfully
+
+Product: AMO.1449.80.121 imported sucessfully
+
+Product: AMO.1449.80.158 imported sucessfully
+
+Product: AMO.1449.80.202 imported sucessfully
+
+Product: AMO.1449.80.253 imported sucessfully
+
+Product: AMO.1449.80.280 imported sucessfully
+
+Product: AMO.1503.63.121 imported sucessfully
+
+Product: AMO.1503.63.158 imported sucessfully
+
+Product: AMO.1503.63.202 imported sucessfully
+
+Product: AMO.1503.63.280 imported sucessfully
+
+Product: AMO.1506.63.121 imported sucessfully
+
+Product: AMO.1506.63.158 imported sucessfully
+
+Product: AMO.1506.63.202 imported sucessfully
+
+Product: AMO.1506.63.253 imported sucessfully
+
+Product: AMO.1506.63.280 imported sucessfully
+
+Product: AMO.1512.05.121 imported sucessfully
+
+Product: AMO.1512.05.158 imported sucessfully
+
+Product: AMO.1512.05.202 imported sucessfully
+
+Product: AMO.1512.05.253 imported sucessfully
+
+Product: AMO.1512.05.280 imported sucessfully
+
+Product: AMO.1520.08.121 imported sucessfully
+
+Product: AMO.1520.08.158 imported sucessfully
+
+Product: AMO.1520.08.202 imported sucessfully
+
+Product: AMO.1520.08.253 imported sucessfully
+
+Product: AMO.1520.08.280 imported sucessfully
+
+Product: AMO.1522.80.121 imported sucessfully
+
+Product: AMO.1522.80.158 imported sucessfully
+
+Product: AMO.1522.80.202 imported sucessfully
+
+Product: AMO.1522.80.253 imported sucessfully
+
+Product: AMO.1522.80.280 imported sucessfully
+
+Product: AMO.1524.80.121 imported sucessfully
+
+Product: AMO.1524.80.158 imported sucessfully
+
+Product: AMO.1524.80.202 imported sucessfully
+
+Product: AMO.1524.80.280 imported sucessfully
+
+Product: AMO.1581.10.121 imported sucessfully
+
+Product: AMO.1581.10.158 imported sucessfully
+
+Product: AMO.1581.10.202 imported sucessfully
+
+Product: AMO.1581.10.253 imported sucessfully
+
+Product: AMO.1581.10.280 imported sucessfully
+
+Product: BER.1003.80.158 imported sucessfully
+
+Product: BER.1003.80.215 imported sucessfully
+
+Product: BER.1003.80.243 imported sucessfully
+
+Product: BER.1003.80.280 imported sucessfully
+
+Product: BER.1021.80.120 imported sucessfully
+
+Product: BER.1021.80.158 imported sucessfully
+
+Product: BER.1021.80.215 imported sucessfully
+
+Product: BER.1021.80.243 imported sucessfully
+
+Product: BER.1561.80.120 imported sucessfully
+
+Product: BER.1561.80.158 imported sucessfully
+
+Product: BER.1561.80.215 imported sucessfully
+
+Product: BER.1561.80.243 imported sucessfully
+
+Product: BER.1561.80.280 imported sucessfully
+
+Product: BER.1622.65.120 imported sucessfully
+
+Product: BER.1622.65.158 imported sucessfully
+
+Product: BER.1622.65.215 imported sucessfully
+
+Product: BER.1622.65.243 imported sucessfully
+
+Product: BER.1622.65.280 imported sucessfully
+
+Product: BER.4443.80.120 imported sucessfully
+
+Product: BER.4443.80.158 imported sucessfully
+
+Product: BER.4443.80.215 imported sucessfully
+
+Product: BER.4443.80.243 imported sucessfully
+
+Product: BER.4443.80.280 imported sucessfully
+
+Product: BER.4444.80.120 imported sucessfully
+
+Product: BER.4444.80.158 imported sucessfully
+
+Product: BER.4444.80.215 imported sucessfully
+
+Product: BER.4444.80.243 imported sucessfully
+
+Product: BER.4444.80.280 imported sucessfully
+
+Product: BER.5996.10.158 imported sucessfully
+
+Product: BER.5996.10.215 imported sucessfully
+
+Product: BER.5996.10.243 imported sucessfully
+
+Product: BER.5996.10.280 imported sucessfully
+
+Product: BER.5996.65.120 imported sucessfully
+
+Product: BER.5996.65.158 imported sucessfully
+
+Product: BER.5996.65.215 imported sucessfully
+
+Product: BER.5996.65.243 imported sucessfully
+
+Product: BER.5996.65.280 imported sucessfully
+
+Product: BER.8021.80.120 imported sucessfully
+
+Product: BER.8021.80.158 imported sucessfully
+
+Product: BER.8021.80.215 imported sucessfully
+
+Product: BER.8021.80.243 imported sucessfully
+
+Product: BER.8021.80.280 imported sucessfully
+
+Product: BER.8022.80.120 imported sucessfully
+
+Product: BER.8022.80.158 imported sucessfully
+
+Product: BER.8022.80.243 imported sucessfully
+
+Product: BER.8022.80.280 imported sucessfully
+
+Product: BLM.1001.05.089 imported sucessfully
+
+Product: BLM.1001.05.120 imported sucessfully
+
+Product: BLM.1001.05.160 imported sucessfully
+
+Product: BLM.1001.05.243 imported sucessfully
+
+Product: BLM.1001.14.089 imported sucessfully
+
+Product: BLM.1001.14.120 imported sucessfully
+
+Product: BLM.1001.14.160 imported sucessfully
+
+Product: BLM.1001.14.201 imported sucessfully
+
+Product: BLM.1001.45.089 imported sucessfully
+
+Product: BLM.1001.45.120 imported sucessfully
+
+Product: BLM.1001.45.160 imported sucessfully
+
+Product: BLM.1001.45.201 imported sucessfully
+
+Product: BLM.1001.45.243 imported sucessfully
+
+Product: BLM.1001.50.089 imported sucessfully
+
+Product: BLM.1001.50.120 imported sucessfully
+
+Product: BLM.1001.50.160 imported sucessfully
+
+Product: BLM.1001.50.201 imported sucessfully
+
+Product: BLM.1001.50.243 imported sucessfully
+
+Product: BLM.1058.05.120 imported sucessfully
+
+Product: BLM.1058.05.160 imported sucessfully
+
+Product: BLM.1058.05.201 imported sucessfully
+
+Product: BLM.1058.05.243 imported sucessfully
+
+Product: BLM.1058.08.120 imported sucessfully
+
+Product: BLM.1058.08.160 imported sucessfully
+
+Product: BLM.1058.08.201 imported sucessfully
+
+Product: BLM.1058.14.120 imported sucessfully
+
+Product: BLM.1058.14.160 imported sucessfully
+
+Product: BLM.1058.14.201 imported sucessfully
+
+Product: BLM.1058.14.243 imported sucessfully
+
+Product: BLM.1058.40.120 imported sucessfully
+
+Product: BLM.1058.40.160 imported sucessfully
+
+Product: BLM.1058.40.201 imported sucessfully
+
+Product: BLM.1058.40.243 imported sucessfully
+
+Product: BLM.1058.55.120 imported sucessfully
+
+Product: BLM.1058.55.160 imported sucessfully
+
+Product: BLM.1058.55.201 imported sucessfully
+
+Product: BLM.1058.55.243 imported sucessfully
+
+Product: BLM.1058.65.120 imported sucessfully
+
+Product: BLM.1058.65.160 imported sucessfully
+
+Product: BLM.1058.65.201 imported sucessfully
+
+Product: BLM.1058.65.243 imported sucessfully
+
+Product: BLM.1944.45.120 imported sucessfully
+
+Product: BLM.1944.45.160 imported sucessfully
+
+Product: BLM.1944.45.201 imported sucessfully
+
+Product: BLM.1944.79.120 imported sucessfully
+
+Product: BLM.1944.79.160 imported sucessfully
+
+Product: BLM.1944.79.201 imported sucessfully
+
+Product: BLM.1944.79.243 imported sucessfully
+
+Product: BLM.1973.14.243 imported sucessfully
+
+Product: BLM.1975.45.120 imported sucessfully
+
+Product: BLM.1975.45.160 imported sucessfully
+
+Product: BLM.1975.45.201 imported sucessfully
+
+Product: BLM.1975.45.243 imported sucessfully
+
+Product: BLM.3344.10.120 imported sucessfully
+
+Product: BLM.3344.10.160 imported sucessfully
+
+Product: BLM.3344.10.201 imported sucessfully
+
+Product: BLM.3344.28.120 imported sucessfully
+
+Product: BLM.3344.28.160 imported sucessfully
+
+Product: BLM.3344.28.201 imported sucessfully
+
+Product: BLM.3344.28.243 imported sucessfully
+
+Product: BLM.3697.45.120 imported sucessfully
+
+Product: BLM.3697.45.160 imported sucessfully
+
+Product: BLM.3697.45.201 imported sucessfully
+
+Product: BOU.1005.80.120 imported sucessfully
+
+Product: BOU.1005.80.158 imported sucessfully
+
+Product: BOU.1005.80.215 imported sucessfully
+
+Product: BOU.1005.80.243 imported sucessfully
+
+Product: BOU.1005.80.280 imported sucessfully
+
+Product: BOU.1008.80.120 imported sucessfully
+
+Product: BOU.1008.80.158 imported sucessfully
+
+Product: BOU.1008.80.215 imported sucessfully
+
+Product: BOU.1008.80.243 imported sucessfully
+
+Product: BOU.1008.80.280 imported sucessfully
+
+Product: BOU.1161.80.120 imported sucessfully
+
+Product: BOU.1161.80.215 imported sucessfully
+
+Product: BOU.1161.80.243 imported sucessfully
+
+Product: BOU.1215.44.158 imported sucessfully
+
+Product: BOU.1215.44.243 imported sucessfully
+
+Product: BOU.1215.44.280 imported sucessfully
+
+Product: BOU.1330.80.120 imported sucessfully
+
+Product: BOU.1330.80.158 imported sucessfully
+
+Product: BOU.1330.80.215 imported sucessfully
+
+Product: BOU.1330.80.243 imported sucessfully
+
+Product: BOU.1330.80.280 imported sucessfully
+
+Product: BOU.1560.80.120 imported sucessfully
+
+Product: BOU.1560.80.158 imported sucessfully
+
+Product: BOU.1560.80.215 imported sucessfully
+
+Product: BOU.1560.80.243 imported sucessfully
+
+Product: BOU.1560.80.280 imported sucessfully
+
+Product: BOU.4440.80.120 imported sucessfully
+
+Product: BOU.4440.80.158 imported sucessfully
+
+Product: BOU.4440.80.215 imported sucessfully
+
+Product: BOU.4440.80.243 imported sucessfully
+
+Product: BOU.4440.80.280 imported sucessfully
+
+Product: BOU.5992.20.120 imported sucessfully
+
+Product: BOU.5992.20.158 imported sucessfully
+
+Product: BOU.5992.20.215 imported sucessfully
+
+Product: BOU.5992.20.243 imported sucessfully
+
+Product: BOU.5992.28.120 imported sucessfully
+
+Product: BOU.5992.28.158 imported sucessfully
+
+Product: BOU.5992.28.215 imported sucessfully
+
+Product: BOU.5992.28.243 imported sucessfully
+
+Product: BOU.8020.80.120 imported sucessfully
+
+Product: BOU.8020.80.158 imported sucessfully
+
+Product: BOU.8020.80.215 imported sucessfully
+
+Product: BOU.8020.80.243 imported sucessfully
+
+Product: BOU.8020.80.280 imported sucessfully
+
+Product: BOU.8022.80.120 imported sucessfully
+
+Product: BOU.8022.80.158 imported sucessfully
+
+Product: BOU.8022.80.215 imported sucessfully
+
+Product: BOU.8022.80.243 imported sucessfully
+
+Product: BOU.8022.80.280 imported sucessfully
+
+Product: BRA.1003.80.074 imported sucessfully
+
+Product: BRA.1003.80.155 imported sucessfully
+
+Product: BRA.1003.80.182 imported sucessfully
+
+Product: BRA.1003.80.234 imported sucessfully
+
+Product: BRA.1013.80.074 imported sucessfully
+
+Product: BRA.1013.80.155 imported sucessfully
+
+Product: BRA.1013.80.182 imported sucessfully
+
+Product: BRA.1013.80.234 imported sucessfully
+
+Product: CAB.0031.80.121 imported sucessfully
+
+Product: CAB.0031.80.158 imported sucessfully
+
+Product: CAB.0031.80.215 imported sucessfully
+
+Product: CAB.0031.80.243 imported sucessfully
+
+Product: CAB.0112.05.121 imported sucessfully
+
+Product: CAB.0112.05.158 imported sucessfully
+
+Product: CAB.0112.05.215 imported sucessfully
+
+Product: CAB.0112.05.243 imported sucessfully
+
+Product: CAB.0112.40.121 imported sucessfully
+
+Product: CAB.0112.40.158 imported sucessfully
+
+Product: CAB.0112.40.215 imported sucessfully
+
+Product: CAB.0112.40.243 imported sucessfully
+
+Product: CAB.0112.65.158 imported sucessfully
+
+Product: CAB.6049.40.121 imported sucessfully
+
+Product: CAB.6049.40.158 imported sucessfully
+
+Product: CAB.6049.40.285 imported sucessfully
+
+Product: CAB.6049.65.121 imported sucessfully
+
+Product: CAB.6049.65.215 imported sucessfully
+
+Product: CAB.8020.05.121 imported sucessfully
+
+Product: CAB.8020.05.158 imported sucessfully
+
+Product: CAB.8020.05.215 imported sucessfully
+
+Product: CAB.8020.05.243 imported sucessfully
+
+Product: CAB.8020.10.121 imported sucessfully
+
+Product: CAB.8020.10.158 imported sucessfully
+
+Product: CAB.8020.10.215 imported sucessfully
+
+Product: CAB.8020.40.121 imported sucessfully
+
+Product: CAB.8020.40.158 imported sucessfully
+
+Product: CAB.8020.65.158 imported sucessfully
+
+Product: CAB.8020.65.215 imported sucessfully
+
+Product: CAI.0050.05.121 imported sucessfully
+
+Product: CAI.0050.05.158 imported sucessfully
+
+Product: CAI.0050.05.215 imported sucessfully
+
+Product: CAI.0050.05.243 imported sucessfully
+
+Product: CAI.0050.05.984 imported sucessfully
+
+Product: CAI.0050.15.121 imported sucessfully
+
+Product: CAI.0050.15.158 imported sucessfully
+
+Product: CAI.0050.15.215 imported sucessfully
+
+Product: CAI.0050.15.243 imported sucessfully
+
+Product: CAI.0050.15.984 imported sucessfully
+
+Product: CAI.0050.20.121 imported sucessfully
+
+Product: CAI.0050.20.158 imported sucessfully
+
+Product: CAI.0050.20.215 imported sucessfully
+
+Product: CAI.0050.20.984 imported sucessfully
+
+Product: CAI.0050.45.121 imported sucessfully
+
+Product: CAI.0050.45.158 imported sucessfully
+
+Product: CAI.0050.45.215 imported sucessfully
+
+Product: CAI.0050.45.984 imported sucessfully
+
+Product: CHE.1870.05.120 imported sucessfully
+
+Product: CHE.1870.05.160 imported sucessfully
+
+Product: CHE.1870.05.201 imported sucessfully
+
+Product: CHE.1870.05.241 imported sucessfully
+
+Product: CHE.1870.05.303 imported sucessfully
+
+Product: CHE.1870.10.120 imported sucessfully
+
+Product: CHE.1870.10.160 imported sucessfully
+
+Product: CHE.1870.10.201 imported sucessfully
+
+Product: CHE.1870.10.241 imported sucessfully
+
+Product: CHE.1870.10.303 imported sucessfully
+
+Product: CHE.1870.20.120 imported sucessfully
+
+Product: CHE.1870.20.160 imported sucessfully
+
+Product: CHE.1870.20.201 imported sucessfully
+
+Product: CHE.1870.20.241 imported sucessfully
+
+Product: CHE.1870.45.120 imported sucessfully
+
+Product: CHE.1870.45.160 imported sucessfully
+
+Product: CHE.1870.45.201 imported sucessfully
+
+Product: CHE.1870.45.241 imported sucessfully
+
+Product: CHE.1870.45.303 imported sucessfully
+
+Product: CHE.1870.54.120 imported sucessfully
+
+Product: CHE.1870.54.160 imported sucessfully
+
+Product: CHE.1870.54.201 imported sucessfully
+
+Product: CHE.1870.54.241 imported sucessfully
+
+Product: CHE.1870.54.303 imported sucessfully
+
+Product: CHE.1870.55.120 imported sucessfully
+
+Product: CHE.1870.55.160 imported sucessfully
+
+Product: CHE.1870.55.201 imported sucessfully
+
+Product: CHE.1880.05.160 imported sucessfully
+
+Product: CHE.1880.10.120 imported sucessfully
+
+Product: CHE.1880.10.160 imported sucessfully
+
+Product: CHE.1880.10.201 imported sucessfully
+
+Product: CHE.1880.10.241 imported sucessfully
+
+Product: CHE.1880.10.303 imported sucessfully
+
+Product: CHE.1880.20.120 imported sucessfully
+
+Product: CHE.1880.20.201 imported sucessfully
+
+Product: CHE.1880.45.160 imported sucessfully
+
+Product: CHE.1880.54.120 imported sucessfully
+
+Product: CHE.1880.54.160 imported sucessfully
+
+Product: CHE.1880.54.201 imported sucessfully
+
+Product: CHE.1880.55.120 imported sucessfully
+
+Product: CHE.1880.55.160 imported sucessfully
+
+Product: CHE.1880.55.201 imported sucessfully
+
+Product: CHE.1880.55.241 imported sucessfully
+
+Product: CHE.1880.55.303 imported sucessfully
+
+Product: CHE.3740.05.120 imported sucessfully
+
+Product: CHE.3740.05.160 imported sucessfully
+
+Product: CHE.3740.05.201 imported sucessfully
+
+Product: CHE.3740.05.241 imported sucessfully
+
+Product: CHE.3740.05.982 imported sucessfully
+
+Product: CHE.3740.10.120 imported sucessfully
+
+Product: CHE.3740.10.201 imported sucessfully
+
+Product: CHE.3740.10.241 imported sucessfully
+
+Product: CHE.3740.10.982 imported sucessfully
+
+Product: CHE.3740.20.120 imported sucessfully
+
+Product: CHE.3740.20.160 imported sucessfully
+
+Product: CHE.3740.20.201 imported sucessfully
+
+Product: CHE.3740.20.982 imported sucessfully
+
+Product: CHE.3740.45.120 imported sucessfully
+
+Product: CHE.3740.45.160 imported sucessfully
+
+Product: CHE.3740.45.241 imported sucessfully
+
+Product: CHE.3740.45.303 imported sucessfully
+
+Product: CHE.3740.45.982 imported sucessfully
+
+Product: CHE.3750.05.120 imported sucessfully
+
+Product: CHE.3750.05.160 imported sucessfully
+
+Product: CHE.3750.05.201 imported sucessfully
+
+Product: CHE.3750.05.241 imported sucessfully
+
+Product: CHE.3750.10.160 imported sucessfully
+
+Product: CHE.3750.10.201 imported sucessfully
+
+Product: CHE.3750.10.241 imported sucessfully
+
+Product: CHE.3750.20.120 imported sucessfully
+
+Product: CHE.3750.20.160 imported sucessfully
+
+Product: CHE.3750.20.201 imported sucessfully
+
+Product: CHE.3750.20.241 imported sucessfully
+
+Product: CHE.3750.45.120 imported sucessfully
+
+Product: CHE.3750.45.160 imported sucessfully
+
+Product: CHE.3750.45.201 imported sucessfully
+
+Product: CHE.3750.45.241 imported sucessfully
+
+Product: CHE.3770.55.120 imported sucessfully
+
+Product: CHE.3770.55.160 imported sucessfully
+
+Product: CHE.3770.55.201 imported sucessfully
+
+Product: CHE.3770.55.241 imported sucessfully
+
+Product: CHE.3820.55.120 imported sucessfully
+
+Product: CHE.3820.55.160 imported sucessfully
+
+Product: CHE.3820.55.201 imported sucessfully
+
+Third Level Category: CLASSIC                                                      created.
+
+Product: CLA.0023.05.120 imported sucessfully
+
+Product: CLA.0023.05.160 imported sucessfully
+
+Product: CLA.0023.05.201 imported sucessfully
+
+Product: CLA.0023.05.241 imported sucessfully
+
+Product: CLA.0023.05.303 imported sucessfully
+
+Product: CLA.0157.05.120 imported sucessfully
+
+Product: CLA.0157.05.160 imported sucessfully
+
+Product: CLA.0157.05.201 imported sucessfully
+
+Product: CLA.0157.05.241 imported sucessfully
+
+Product: CLA.0157.05.303 imported sucessfully
+
+Product: CLA.0157.10.120 imported sucessfully
+
+Product: CLA.0157.10.160 imported sucessfully
+
+Product: CLA.0157.10.201 imported sucessfully
+
+Product: CLA.0157.10.241 imported sucessfully
+
+Product: CLA.0157.10.303 imported sucessfully
+
+Product: CLA.0157.15.120 imported sucessfully
+
+Product: CLA.0157.15.160 imported sucessfully
+
+Product: CLA.0157.15.201 imported sucessfully
+
+Product: CLA.0157.15.241 imported sucessfully
+
+Product: CLA.0157.15.303 imported sucessfully
+
+Product: CLA.0157.40.120 imported sucessfully
+
+Product: CLA.0157.40.160 imported sucessfully
+
+Product: CLA.0157.40.201 imported sucessfully
+
+Product: CLA.0157.40.241 imported sucessfully
+
+Product: CLA.0157.40.303 imported sucessfully
+
+Product: CLA.0162.15.120 imported sucessfully
+
+Product: CLA.0162.15.160 imported sucessfully
+
+Product: CLA.0162.15.201 imported sucessfully
+
+Product: CLA.0162.15.241 imported sucessfully
+
+Product: CLA.0162.15.303 imported sucessfully
+
+Product: CLA.0162.40.120 imported sucessfully
+
+Product: CLA.0162.40.160 imported sucessfully
+
+Product: CLA.0162.40.201 imported sucessfully
+
+Product: CLA.0162.40.241 imported sucessfully
+
+Product: CLA.0162.40.303 imported sucessfully
+
+Product: CUD.3200.20.086 imported sucessfully
+
+Product: CUD.3206.10.062 imported sucessfully
+
+Product: CUD.3207.05.073 imported sucessfully
+
+Product: CUD.4755.50.084 imported sucessfully
+
+Product: CUD.4818.50.084 imported sucessfully
+
+Product: CUD.4969.10.084 imported sucessfully
+
+Product: CUD.5028.50.101 imported sucessfully
+
+Product: CUD.5064.10.090 imported sucessfully
+
+Product: CUD.5064.50.090 imported sucessfully
+
+Product: CUD.5174.65.101 imported sucessfully
+
+Product: CUD.5486.05.061 imported sucessfully
+
+Product: CUD.5538.50.101 imported sucessfully
+
+Product: CUD.5580.10.101 imported sucessfully
+
+Product: CUD.5580.50.101 imported sucessfully
+
+Product: CUD.5949.10.101 imported sucessfully
+
+Product: CUD.6697.45.087 imported sucessfully
+
+Product: DNV.0138.45.120 imported sucessfully
+
+Product: DNV.0138.45.160 imported sucessfully
+
+Product: DNV.0138.45.201 imported sucessfully
+
+Product: DNV.0138.45.241 imported sucessfully
+
+Product: DOL.1367.10.120 imported sucessfully
+
+Product: DOL.1367.10.160 imported sucessfully
+
+Product: DOL.1367.10.243 imported sucessfully
+
+Product: DOL.1367.10.280 imported sucessfully
+
+Product: DOL.1367.45.120 imported sucessfully
+
+Product: DOL.1367.45.160 imported sucessfully
+
+Product: DOL.1367.45.201 imported sucessfully
+
+Product: DOL.1369.15.120 imported sucessfully
+
+Product: DOL.1369.15.160 imported sucessfully
+
+Product: DOL.1369.15.201 imported sucessfully
+
+Product: DOL.1369.15.280 imported sucessfully
+
+Product: DOL.1369.15.982 imported sucessfully
+
+Product: DOL.1369.45.120 imported sucessfully
+
+Product: DOL.1369.45.160 imported sucessfully
+
+Product: DOL.1369.45.201 imported sucessfully
+
+Product: DOL.1369.45.243 imported sucessfully
+
+Product: DOL.1369.45.280 imported sucessfully
+
+Product: DOL.1369.45.982 imported sucessfully
+
+Product: DOL.1369.54.120 imported sucessfully
+
+Product: DOL.1369.54.160 imported sucessfully
+
+Product: DOL.1369.54.201 imported sucessfully
+
+Product: DOL.1369.54.280 imported sucessfully
+
+Product: DOL.1369.54.982 imported sucessfully
+
+Product: DOL.1488.10.120 imported sucessfully
+
+Product: DOL.1488.10.160 imported sucessfully
+
+Product: DOL.1488.10.201 imported sucessfully
+
+Product: DOL.1488.10.243 imported sucessfully
+
+Product: DOL.1488.10.280 imported sucessfully
+
+Product: DOL.1488.45.120 imported sucessfully
+
+Product: DOL.1488.45.160 imported sucessfully
+
+Product: DOL.1488.45.201 imported sucessfully
+
+Product: DOL.1488.45.243 imported sucessfully
+
+Product: DOL.1488.45.280 imported sucessfully
+
+Product: DOL.1489.10.120 imported sucessfully
+
+Product: DOL.1489.10.160 imported sucessfully
+
+Product: DOL.1489.10.201 imported sucessfully
+
+Product: DOL.1489.10.243 imported sucessfully
+
+Product: DOL.1489.10.280 imported sucessfully
+
+Product: DOL.1489.45.120 imported sucessfully
+
+Product: DOL.1489.45.160 imported sucessfully
+
+Product: DOL.1489.45.243 imported sucessfully
+
+Product: DOL.1489.45.280 imported sucessfully
+
+Product: EBO.1408.55.118 imported sucessfully
+
+Product: EBO.1408.55.167 imported sucessfully
+
+Product: EBO.1408.55.201 imported sucessfully
+
+Product: EBO.1408.55.237 imported sucessfully
+
+Product: EBO.1408.65.118 imported sucessfully
+
+Product: EBO.1408.65.167 imported sucessfully
+
+Product: EBO.1408.65.201 imported sucessfully
+
+Product: EBO.1408.65.237 imported sucessfully
+
+Product: EBO.1433.40.118 imported sucessfully
+
+Product: EBO.1433.40.167 imported sucessfully
+
+Product: EBO.1433.40.201 imported sucessfully
+
+Product: EBO.1433.40.237 imported sucessfully
+
+Product: EBO.1433.45.118 imported sucessfully
+
+Product: EBO.1433.45.167 imported sucessfully
+
+Product: EBO.1433.45.201 imported sucessfully
+
+Product: EBO.1433.45.237 imported sucessfully
+
+Product: EBO.1522.45.118 imported sucessfully
+
+Product: EBO.1522.45.167 imported sucessfully
+
+Product: EBO.1522.45.201 imported sucessfully
+
+Product: EBO.1522.45.237 imported sucessfully
+
+Product: EBO.1522.46.118 imported sucessfully
+
+Product: EBO.1522.46.167 imported sucessfully
+
+Product: EBO.1522.46.201 imported sucessfully
+
+Product: EBO.1522.46.237 imported sucessfully
+
+Product: EBO.1522.65.118 imported sucessfully
+
+Product: EBO.1522.65.167 imported sucessfully
+
+Product: EBO.1522.65.201 imported sucessfully
+
+Product: EBO.1522.65.237 imported sucessfully
+
+Product: EBO.1707.40.118 imported sucessfully
+
+Product: EBO.1707.40.167 imported sucessfully
+
+Product: EBO.1707.40.201 imported sucessfully
+
+Product: EBO.1707.55.118 imported sucessfully
+
+Product: EBO.1707.55.167 imported sucessfully
+
+Product: EBO.1707.55.201 imported sucessfully
+
+Product: EBO.1707.55.237 imported sucessfully
+
+Product: ESF.0326.05.080 imported sucessfully
+
+Product: ESF.0326.05.120 imported sucessfully
+
+Product: ESF.0326.05.160 imported sucessfully
+
+Product: ESF.0326.05.201 imported sucessfully
+
+Product: ESF.0326.05.300 imported sucessfully
+
+Product: ESF.0326.20.080 imported sucessfully
+
+Product: ESF.0326.20.120 imported sucessfully
+
+Product: ESF.0326.20.160 imported sucessfully
+
+Product: ESF.0326.20.201 imported sucessfully
+
+Product: ESF.0326.20.243 imported sucessfully
+
+Product: ESF.0326.20.300 imported sucessfully
+
+Product: ESF.0326.65.080 imported sucessfully
+
+Product: ESF.0326.65.120 imported sucessfully
+
+Product: ESF.0326.65.160 imported sucessfully
+
+Product: ESF.0326.65.201 imported sucessfully
+
+Product: ESF.0326.65.243 imported sucessfully
+
+Product: ESF.0326.65.300 imported sucessfully
+
+Product: ESF.1630.45.080 imported sucessfully
+
+Product: ESF.1630.45.120 imported sucessfully
+
+Product: ESF.1630.45.160 imported sucessfully
+
+Product: ESF.1630.45.201 imported sucessfully
+
+Product: ESF.1630.45.243 imported sucessfully
+
+Product: ESF.1630.45.300 imported sucessfully
+
+Product: ESF.1910.05.080 imported sucessfully
+
+Product: ESF.1910.05.120 imported sucessfully
+
+Product: ESF.1910.05.160 imported sucessfully
+
+Product: ESF.1910.05.201 imported sucessfully
+
+Product: ESF.1910.05.243 imported sucessfully
+
+Product: ESF.1910.05.300 imported sucessfully
+
+Product: ESF.1910.20.080 imported sucessfully
+
+Product: ESF.1910.20.120 imported sucessfully
+
+Product: ESF.1910.20.160 imported sucessfully
+
+Product: ESF.1910.20.201 imported sucessfully
+
+Product: ESF.1910.20.243 imported sucessfully
+
+Product: ESF.1910.45.080 imported sucessfully
+
+Product: ESF.1910.45.120 imported sucessfully
+
+Product: ESF.1910.45.160 imported sucessfully
+
+Product: ESF.1910.45.201 imported sucessfully
+
+Product: ESF.1910.45.300 imported sucessfully
+
+Product: ESF.1910.65.080 imported sucessfully
+
+Product: ESF.1910.65.120 imported sucessfully
+
+Product: ESF.1910.65.160 imported sucessfully
+
+Product: ESF.1910.65.201 imported sucessfully
+
+Product: ESF.1910.65.243 imported sucessfully
+
+Product: ESF.1910.65.300 imported sucessfully
+
+Product: EVO.0460.04.120 imported sucessfully
+
+Product: EVO.0460.04.160 imported sucessfully
+
+Product: EVO.0460.04.201 imported sucessfully
+
+Product: EVO.0460.04.243 imported sucessfully
+
+Product: EVO.0460.05.120 imported sucessfully
+
+Product: EVO.0460.05.160 imported sucessfully
+
+Product: EVO.0460.05.201 imported sucessfully
+
+Product: EVO.0460.05.243 imported sucessfully
+
+Product: EVO.0460.10.120 imported sucessfully
+
+Product: EVO.0460.10.160 imported sucessfully
+
+Product: EVO.0460.10.201 imported sucessfully
+
+Product: EVO.0460.10.243 imported sucessfully
+
+Product: EVO.0460.45.120 imported sucessfully
+
+Product: EVO.0460.45.160 imported sucessfully
+
+Product: EVO.0460.45.201 imported sucessfully
+
+Product: EVO.0460.45.243 imported sucessfully
+
+Product: EVO.0460.54.120 imported sucessfully
+
+Product: EVO.0460.54.160 imported sucessfully
+
+Product: EVO.0460.54.201 imported sucessfully
+
+Product: EVO.0460.54.243 imported sucessfully
+
+Product: EVO.0460.65.120 imported sucessfully
+
+Product: EVO.0460.65.160 imported sucessfully
+
+Product: EVO.0460.65.201 imported sucessfully
+
+Product: EVO.0460.65.243 imported sucessfully
+
+Product: EVO.1322.05.120 imported sucessfully
+
+Product: EVO.1322.05.160 imported sucessfully
+
+Product: EVO.1322.05.201 imported sucessfully
+
+Product: EVO.1322.06.120 imported sucessfully
+
+Product: EVO.1322.06.160 imported sucessfully
+
+Product: EVO.1322.06.201 imported sucessfully
+
+Product: EVO.1322.06.243 imported sucessfully
+
+Product: EVO.1322.08.120 imported sucessfully
+
+Product: EVO.1322.08.160 imported sucessfully
+
+Product: EVO.1322.08.201 imported sucessfully
+
+Product: EVO.1322.08.243 imported sucessfully
+
+Product: EVO.1322.10.120 imported sucessfully
+
+Product: EVO.1322.10.160 imported sucessfully
+
+Product: EVO.1322.10.201 imported sucessfully
+
+Product: EVO.1322.10.243 imported sucessfully
+
+Product: EVO.1322.15.120 imported sucessfully
+
+Product: EVO.1322.15.160 imported sucessfully
+
+Product: EVO.1322.15.201 imported sucessfully
+
+Product: EVO.1322.15.243 imported sucessfully
+
+Product: EVO.1322.28.120 imported sucessfully
+
+Product: EVO.1322.28.160 imported sucessfully
+
+Product: EVO.1322.28.201 imported sucessfully
+
+Product: EVO.1322.28.243 imported sucessfully
+
+Product: EVO.1322.54.120 imported sucessfully
+
+Product: EVO.1322.54.160 imported sucessfully
+
+Product: EVO.1322.54.201 imported sucessfully
+
+Product: EVO.1322.54.243 imported sucessfully
+
+Product: EVO.1322.65.120 imported sucessfully
+
+Product: EVO.1322.65.160 imported sucessfully
+
+Product: EVO.1322.65.201 imported sucessfully
+
+Product: EVO.1322.65.243 imported sucessfully
+
+Product: EVO.2685.05.120 imported sucessfully
+
+Product: EVO.2685.05.160 imported sucessfully
+
+Product: EVO.2685.05.201 imported sucessfully
+
+Product: EVO.2685.05.243 imported sucessfully
+
+Product: EVO.2685.15.120 imported sucessfully
+
+Product: EVO.2685.15.160 imported sucessfully
+
+Product: EVO.2685.15.201 imported sucessfully
+
+Product: EVO.2685.15.243 imported sucessfully
+
+Product: EVO.2685.45.120 imported sucessfully
+
+Product: EVO.2685.45.160 imported sucessfully
+
+Product: EVO.2685.45.201 imported sucessfully
+
+Product: EVO.2685.45.243 imported sucessfully
+
+Product: EVO.2685.54.120 imported sucessfully
+
+Product: EVO.2685.54.160 imported sucessfully
+
+Product: EVO.2685.54.201 imported sucessfully
+
+Product: EVO.2685.54.243 imported sucessfully
+
+Product: EVO.2685.72.120 imported sucessfully
+
+Product: EVO.2685.72.160 imported sucessfully
+
+Product: EVO.2685.72.201 imported sucessfully
+
+Product: EVO.2848.08.120 imported sucessfully
+
+Product: EVO.2848.08.160 imported sucessfully
+
+Product: EVO.2848.08.201 imported sucessfully
+
+Product: EVO.2848.08.243 imported sucessfully
+
+Product: EVO.2848.28.120 imported sucessfully
+
+Product: EVO.2848.28.160 imported sucessfully
+
+Product: EVO.2848.28.201 imported sucessfully
+
+Product: EVO.2848.28.243 imported sucessfully
+
+Product: EVO.2848.45.120 imported sucessfully
+
+Product: EVO.2848.45.160 imported sucessfully
+
+Product: EVO.2848.45.201 imported sucessfully
+
+Product: EVO.2848.45.243 imported sucessfully
+
+Product: EVO.2848.54.120 imported sucessfully
+
+Product: EVO.2848.54.160 imported sucessfully
+
+Product: EVO.2848.54.201 imported sucessfully
+
+Product: EVO.2848.72.120 imported sucessfully
+
+Product: EVO.2848.72.160 imported sucessfully
+
+Product: EVO.2848.72.201 imported sucessfully
+
+Product: EVO.2848.72.243 imported sucessfully
+
+Product: EVO.2848.95.120 imported sucessfully
+
+Product: EVO.2848.95.160 imported sucessfully
+
+Product: EVO.2848.95.201 imported sucessfully
+
+Product: EVO.2848.95.243 imported sucessfully
+
+Product: FLO.1007.04.158 imported sucessfully
+
+Product: FLO.1007.04.300 imported sucessfully
+
+Product: FLO.1007.45.121 imported sucessfully
+
+Product: FLO.1007.45.158 imported sucessfully
+
+Product: FLO.1007.45.202 imported sucessfully
+
+Product: FLO.1007.45.244 imported sucessfully
+
+Product: FLO.1017.45.121 imported sucessfully
+
+Product: FLO.1017.45.158 imported sucessfully
+
+Product: FLO.1017.45.202 imported sucessfully
+
+Product: FLO.1017.45.244 imported sucessfully
+
+Product: FLO.1017.45.300 imported sucessfully
+
+Product: FLO.1017.55.300 imported sucessfully
+
+Product: FLO.1027.45.121 imported sucessfully
+
+Product: FLO.1027.45.158 imported sucessfully
+
+Product: FLO.1027.45.202 imported sucessfully
+
+Product: FLO.1030.05.121 imported sucessfully
+
+Product: FLO.1030.05.158 imported sucessfully
+
+Product: FLO.1030.05.202 imported sucessfully
+
+Product: FLO.1030.05.244 imported sucessfully
+
+Product: FLO.1030.45.121 imported sucessfully
+
+Product: FLO.1030.45.158 imported sucessfully
+
+Product: FLO.1030.45.202 imported sucessfully
+
+Product: FLO.1030.45.244 imported sucessfully
+
+Product: FLO.1069.05.121 imported sucessfully
+
+Product: FLO.1069.05.158 imported sucessfully
+
+Product: FLO.1069.05.202 imported sucessfully
+
+Product: FLO.1069.05.244 imported sucessfully
+
+Product: FLO.1069.05.300 imported sucessfully
+
+Product: FLO.1069.45.121 imported sucessfully
+
+Product: FLO.1069.45.158 imported sucessfully
+
+Product: FLO.1069.79.158 imported sucessfully
+
+Product: FLO.1069.79.202 imported sucessfully
+
+Product: FLO.1069.79.244 imported sucessfully
+
+Product: FLO.1069.79.300 imported sucessfully
+
+Product: FLO.1071.04.121 imported sucessfully
+
+Product: FLO.1071.04.202 imported sucessfully
+
+Product: FLO.1071.25.121 imported sucessfully
+
+Product: FLO.1071.25.244 imported sucessfully
+
+Product: FLO.1071.25.300 imported sucessfully
+
+Product: FLO.1071.45.121 imported sucessfully
+
+Product: FLO.1071.45.158 imported sucessfully
+
+Product: FLO.1084.45.244 imported sucessfully
+
+Product: FLO.1084.72.121 imported sucessfully
+
+Product: FLO.1084.72.158 imported sucessfully
+
+Product: FLO.1084.72.202 imported sucessfully
+
+Product: FLO.1174.54.121 imported sucessfully
+
+Product: FLO.1179.45.121 imported sucessfully
+
+Product: FLO.1179.45.158 imported sucessfully
+
+Product: FLO.1223.45.121 imported sucessfully
+
+Product: FLO.1223.45.158 imported sucessfully
+
+Product: FLO.1223.45.202 imported sucessfully
+
+Product: FLO.1223.55.121 imported sucessfully
+
+Product: FLO.1223.55.300 imported sucessfully
+
+Product: ISI.0100.40.118 imported sucessfully
+
+Product: ISI.0100.40.167 imported sucessfully
+
+Product: ISI.0100.40.201 imported sucessfully
+
+Product: ISI.0100.40.237 imported sucessfully
+
+Product: ISI.0100.45.118 imported sucessfully
+
+Product: ISI.0100.45.167 imported sucessfully
+
+Product: ISI.0100.45.201 imported sucessfully
+
+Product: ISI.0100.45.237 imported sucessfully
+
+Product: ISI.0100.54.118 imported sucessfully
+
+Product: ISI.0100.54.167 imported sucessfully
+
+Product: ISI.0100.54.201 imported sucessfully
+
+Product: ISI.0100.54.237 imported sucessfully
+
+Product: ISI.0100.57.118 imported sucessfully
+
+Product: ISI.0100.57.167 imported sucessfully
+
+Product: ISI.0100.57.201 imported sucessfully
+
+Product: ISI.0100.57.237 imported sucessfully
+
+Product: ISI.0100.65.118 imported sucessfully
+
+Product: ISI.0100.65.167 imported sucessfully
+
+Product: ISI.0100.65.201 imported sucessfully
+
+Product: ISI.1321.55.118 imported sucessfully
+
+Product: ISI.1321.55.167 imported sucessfully
+
+Product: ISI.1321.55.201 imported sucessfully
+
+Product: ISI.1321.55.237 imported sucessfully
+
+Product: ISI.1418.79.118 imported sucessfully
+
+Product: ISI.1418.79.167 imported sucessfully
+
+Product: ISI.1418.79.201 imported sucessfully
+
+Product: ISI.1418.79.237 imported sucessfully
+
+Product: ISI.1426.55.118 imported sucessfully
+
+Product: ISI.1426.55.167 imported sucessfully
+
+Product: ISI.1426.55.201 imported sucessfully
+
+Product: ISI.1430.54.118 imported sucessfully
+
+Product: ISI.1430.54.167 imported sucessfully
+
+Product: ISI.1430.54.201 imported sucessfully
+
+Product: ISI.1430.54.237 imported sucessfully
+
+Product: ISI.1430.55.118 imported sucessfully
+
+Product: ISI.1430.55.167 imported sucessfully
+
+Product: ISI.1430.55.201 imported sucessfully
+
+Product: ISI.1430.55.237 imported sucessfully
+
+Product: ISI.1430.65.118 imported sucessfully
+
+Product: ISI.1430.65.167 imported sucessfully
+
+Product: ISI.1430.65.201 imported sucessfully
+
+Product: ISI.1430.65.237 imported sucessfully
+
+Product: ISI.1431.55.118 imported sucessfully
+
+Product: ISI.1431.55.167 imported sucessfully
+
+Product: ISI.1431.55.201 imported sucessfully
+
+Product: ISI.1431.55.237 imported sucessfully
+
+Product: JOR.0470.45.118 imported sucessfully
+
+Product: JOR.0470.45.167 imported sucessfully
+
+Product: JOR.0470.45.201 imported sucessfully
+
+Product: JOR.0470.65.118 imported sucessfully
+
+Product: JOR.0470.65.167 imported sucessfully
+
+Product: JOR.0470.65.201 imported sucessfully
+
+Product: JOR.0470.65.237 imported sucessfully
+
+Product: JOR.0512.45.118 imported sucessfully
+
+Product: JOR.0512.45.167 imported sucessfully
+
+Product: JOR.0512.45.201 imported sucessfully
+
+Product: JOR.0551.55.118 imported sucessfully
+
+Product: JOR.0551.55.167 imported sucessfully
+
+Product: JOR.0551.55.237 imported sucessfully
+
+Product: JOR.0552.45.118 imported sucessfully
+
+Product: JOR.0552.45.167 imported sucessfully
+
+Product: JOR.0552.45.201 imported sucessfully
+
+Product: JOR.0552.45.237 imported sucessfully
+
+Product: JOR.0590.55.118 imported sucessfully
+
+Product: JOR.0590.55.167 imported sucessfully
+
+Product: JOR.0590.55.201 imported sucessfully
+
+Product: JOR.0590.55.237 imported sucessfully
+
+Product: JOR.0591.55.118 imported sucessfully
+
+Product: JOR.0591.55.167 imported sucessfully
+
+Product: JOR.0591.55.237 imported sucessfully
+
+Product: JOR.0603.55.118 imported sucessfully
+
+Product: JOR.0603.55.167 imported sucessfully
+
+Product: JOR.0603.55.201 imported sucessfully
+
+Product: JOR.0603.55.237 imported sucessfully
+
+Product: KIR.1004.05.121 imported sucessfully
+
+Product: KIR.1004.05.158 imported sucessfully
+
+Product: KIR.1004.05.202 imported sucessfully
+
+Product: KIR.1004.05.253 imported sucessfully
+
+Product: KIR.1004.05.300 imported sucessfully
+
+Product: KIR.1004.05.982 imported sucessfully
+
+Product: KIR.1006.05.121 imported sucessfully
+
+Product: KIR.1006.05.158 imported sucessfully
+
+Product: KIR.1006.05.202 imported sucessfully
+
+Product: KIR.1006.05.253 imported sucessfully
+
+Product: KIR.1006.05.300 imported sucessfully
+
+Product: KIR.1006.05.982 imported sucessfully
+
+Product: KIR.1006.45.121 imported sucessfully
+
+Product: KIR.1006.45.158 imported sucessfully
+
+Product: KIR.1006.45.202 imported sucessfully
+
+Product: KIR.1006.45.253 imported sucessfully
+
+Product: KIR.1006.45.300 imported sucessfully
+
+Product: KIR.1006.45.982 imported sucessfully
+
+Product: KIR.1007.05.121 imported sucessfully
+
+Product: KIR.1007.05.158 imported sucessfully
+
+Product: KIR.1007.05.202 imported sucessfully
+
+Product: KIR.1007.05.253 imported sucessfully
+
+Product: KIR.1007.05.300 imported sucessfully
+
+Product: KIR.1007.05.982 imported sucessfully
+
+Product: KIR.1011.05.121 imported sucessfully
+
+Product: KIR.1011.05.158 imported sucessfully
+
+Product: KIR.1011.05.202 imported sucessfully
+
+Product: KIR.1011.05.253 imported sucessfully
+
+Product: KIR.1011.05.300 imported sucessfully
+
+Product: KIR.1011.05.982 imported sucessfully
+
+Product: KIR.1016.05.121 imported sucessfully
+
+Product: KIR.1016.05.158 imported sucessfully
+
+Product: KIR.1016.05.202 imported sucessfully
+
+Product: KIR.1016.05.253 imported sucessfully
+
+Product: KIR.1016.05.300 imported sucessfully
+
+Product: KIR.1016.05.982 imported sucessfully
+
+Product: KIR.1016.45.121 imported sucessfully
+
+Product: KIR.1016.45.158 imported sucessfully
+
+Product: KIR.1016.45.202 imported sucessfully
+
+Product: KIR.1016.45.982 imported sucessfully
+
+Product: KIR.1027.05.121 imported sucessfully
+
+Product: KIR.1027.05.158 imported sucessfully
+
+Product: KIR.1027.05.202 imported sucessfully
+
+Product: KIR.1027.05.253 imported sucessfully
+
+Product: KIR.1027.05.300 imported sucessfully
+
+Product: KIR.1027.05.982 imported sucessfully
+
+Product: KIR.1028.05.121 imported sucessfully
+
+Product: KIR.1028.05.158 imported sucessfully
+
+Product: KIR.1028.05.202 imported sucessfully
+
+Product: KIR.1028.05.253 imported sucessfully
+
+Product: KIR.1028.05.300 imported sucessfully
+
+Product: KIR.1028.05.982 imported sucessfully
+
+Product: KIR.1043.05.121 imported sucessfully
+
+Product: KIR.1043.05.158 imported sucessfully
+
+Product: KIR.1043.05.202 imported sucessfully
+
+Product: KIR.1043.05.253 imported sucessfully
+
+Product: KIR.1043.05.300 imported sucessfully
+
+Product: KIR.1043.05.982 imported sucessfully
+
+Product: KIR.1090.05.121 imported sucessfully
+
+Product: KIR.1090.05.158 imported sucessfully
+
+Product: KIR.1090.05.202 imported sucessfully
+
+Product: KIR.1090.05.253 imported sucessfully
+
+Product: KIR.1090.05.300 imported sucessfully
+
+Product: KIR.1090.05.982 imported sucessfully
+
+Product: KIR.1094.05.158 imported sucessfully
+
+Product: KIR.1094.05.300 imported sucessfully
+
+Product: KIR.1170.05.121 imported sucessfully
+
+Product: KIR.1170.05.158 imported sucessfully
+
+Product: KIR.1170.05.202 imported sucessfully
+
+Product: KIR.1170.05.253 imported sucessfully
+
+Product: KIR.1170.05.300 imported sucessfully
+
+Product: KIR.1170.05.982 imported sucessfully
+
+Product: KIR.1204.05.121 imported sucessfully
+
+Product: KIR.1204.05.158 imported sucessfully
+
+Product: KIR.1204.05.202 imported sucessfully
+
+Product: KIR.1204.05.253 imported sucessfully
+
+Product: KIR.1204.05.300 imported sucessfully
+
+Product: KIR.1204.05.982 imported sucessfully
+
+Product: KIR.1204.45.121 imported sucessfully
+
+Product: KIR.1204.45.158 imported sucessfully
+
+Product: KIR.1204.45.202 imported sucessfully
+
+Product: KIR.1204.45.300 imported sucessfully
+
+Product: KIR.1204.45.982 imported sucessfully
+
+Product: KIR.1208.05.121 imported sucessfully
+
+Product: KIR.1208.05.158 imported sucessfully
+
+Product: KIR.1208.05.202 imported sucessfully
+
+Product: KIR.1208.05.253 imported sucessfully
+
+Product: KIR.1208.05.300 imported sucessfully
+
+Product: KIR.1208.05.982 imported sucessfully
+
+Product: KIR.1208.45.121 imported sucessfully
+
+Product: KIR.1208.45.158 imported sucessfully
+
+Product: KIR.1208.45.202 imported sucessfully
+
+Product: KIR.1208.45.253 imported sucessfully
+
+Product: KIR.1208.45.300 imported sucessfully
+
+Product: KIR.1208.45.982 imported sucessfully
+
+Product: KIR.1320.05.121 imported sucessfully
+
+Product: KIR.1320.05.158 imported sucessfully
+
+Product: KIR.1320.05.202 imported sucessfully
+
+Product: KIR.1320.05.253 imported sucessfully
+
+Product: KIR.1320.05.300 imported sucessfully
+
+Product: KIR.1320.05.982 imported sucessfully
+
+Product: KSQ.4303.20.163 imported sucessfully
+
+Product: KSQ.4303.20.202 imported sucessfully
+
+Product: KSQ.4303.20.243 imported sucessfully
+
+Product: KSQ.4303.45.083 imported sucessfully
+
+Product: KSQ.4303.45.163 imported sucessfully
+
+Product: KSQ.4303.45.202 imported sucessfully
+
+Product: KSQ.4303.45.243 imported sucessfully
+
+Product: KSQ.4303.65.163 imported sucessfully
+
+Product: KSQ.4303.65.202 imported sucessfully
+
+Product: KSQ.4303.65.243 imported sucessfully
+
+Product: KSQ.4323.80.163 imported sucessfully
+
+Product: KSQ.4323.80.202 imported sucessfully
+
+Product: KSQ.4323.80.243 imported sucessfully
+
+Product: LAU.1001.40.120 imported sucessfully
+
+Product: LAU.1001.40.160 imported sucessfully
+
+Product: LAU.1001.40.201 imported sucessfully
+
+Product: LAU.1001.40.241 imported sucessfully
+
+Product: LAU.1001.45.120 imported sucessfully
+
+Product: LAU.1001.45.160 imported sucessfully
+
+Product: LAU.1001.45.201 imported sucessfully
+
+Product: LAU.1002.40.120 imported sucessfully
+
+Product: LAU.1002.40.160 imported sucessfully
+
+Product: LAU.1002.40.201 imported sucessfully
+
+Product: LAU.1002.40.241 imported sucessfully
+
+Product: LAU.1002.45.120 imported sucessfully
+
+Product: LAU.1002.45.160 imported sucessfully
+
+Product: LAU.1002.45.201 imported sucessfully
+
+Product: LAU.1002.45.241 imported sucessfully
+
+Product: LAY.1080.54.089 imported sucessfully
+
+Product: LAY.1080.54.120 imported sucessfully
+
+Product: LAY.1080.54.160 imported sucessfully
+
+Product: LAY.1080.54.200 imported sucessfully
+
+Product: LAY.1080.54.241 imported sucessfully
+
+Product: LAY.1080.55.089 imported sucessfully
+
+Product: LAY.1080.55.120 imported sucessfully
+
+Product: LAY.1080.55.160 imported sucessfully
+
+Product: LAY.1080.55.200 imported sucessfully
+
+Product: LAY.1080.55.241 imported sucessfully
+
+Product: LAY.1085.54.089 imported sucessfully
+
+Product: LAY.1085.54.120 imported sucessfully
+
+Product: LAY.1085.54.160 imported sucessfully
+
+Product: LAY.1085.54.200 imported sucessfully
+
+Product: LAY.1085.54.241 imported sucessfully
+
+Product: LAY.1085.55.089 imported sucessfully
+
+Product: LAY.1085.55.120 imported sucessfully
+
+Product: LAY.1085.55.160 imported sucessfully
+
+Product: LAY.1085.55.200 imported sucessfully
+
+Product: LAY.1085.55.241 imported sucessfully
+
+Product: LAY.1086.54.089 imported sucessfully
+
+Product: LAY.1086.54.120 imported sucessfully
+
+Product: LAY.1086.54.160 imported sucessfully
+
+Product: LAY.1086.54.200 imported sucessfully
+
+Product: LAY.1086.54.241 imported sucessfully
+
+Product: LAY.1086.55.089 imported sucessfully
+
+Product: LAY.1086.55.120 imported sucessfully
+
+Product: LAY.1086.55.160 imported sucessfully
+
+Product: LAY.1086.55.200 imported sucessfully
+
+Product: LAY.1086.55.241 imported sucessfully
+
+Product: LAY.1180.54.089 imported sucessfully
+
+Product: LAY.1180.54.120 imported sucessfully
+
+Product: LAY.1180.54.160 imported sucessfully
+
+Product: LAY.1180.54.200 imported sucessfully
+
+Product: LAY.1180.54.241 imported sucessfully
+
+Product: LAY.1181.54.089 imported sucessfully
+
+Product: LAY.1181.54.120 imported sucessfully
+
+Product: LAY.1181.54.160 imported sucessfully
+
+Product: LAY.1181.54.200 imported sucessfully
+
+Product: LAY.1181.54.241 imported sucessfully
+
+Product: LAY.1186.54.089 imported sucessfully
+
+Product: LAY.1186.54.120 imported sucessfully
+
+Product: LAY.1186.54.160 imported sucessfully
+
+Product: LAY.1186.54.200 imported sucessfully
+
+Product: LAY.1186.54.241 imported sucessfully
+
+Product: LIN.1101.45.120 imported sucessfully
+
+Product: LIN.1101.45.160 imported sucessfully
+
+Product: LON.4697.05.120 imported sucessfully
+
+Product: LON.4697.05.160 imported sucessfully
+
+Product: LON.4697.05.201 imported sucessfully
+
+Product: LON.4697.05.241 imported sucessfully
+
+Product: LON.4727.05.120 imported sucessfully
+
+Product: LON.4727.05.160 imported sucessfully
+
+Product: LON.4727.05.201 imported sucessfully
+
+Product: LON.4727.20.120 imported sucessfully
+
+Product: LON.4727.20.160 imported sucessfully
+
+Product: LON.4727.20.201 imported sucessfully
+
+Product: LON.4727.20.241 imported sucessfully
+
+Product: LON.4727.54.120 imported sucessfully
+
+Product: LON.4727.54.160 imported sucessfully
+
+Product: LON.4727.54.201 imported sucessfully
+
+Product: LON.4727.54.241 imported sucessfully
+
+Product: LON.4733.05.120 imported sucessfully
+
+Product: LON.4733.05.160 imported sucessfully
+
+Product: LON.4733.05.201 imported sucessfully
+
+Product: LON.4733.05.241 imported sucessfully
+
+Product: LON.4733.20.120 imported sucessfully
+
+Product: LON.4733.20.160 imported sucessfully
+
+Product: LON.4733.20.201 imported sucessfully
+
+Product: LON.4733.20.241 imported sucessfully
+
+Product: LON.4734.05.120 imported sucessfully
+
+Product: LON.4734.05.160 imported sucessfully
+
+Product: LON.4734.05.201 imported sucessfully
+
+Product: LON.4734.21.120 imported sucessfully
+
+Product: LON.4734.21.160 imported sucessfully
+
+Product: LON.4734.21.201 imported sucessfully
+
+Product: LON.4734.28.120 imported sucessfully
+
+Product: LON.4734.28.201 imported sucessfully
+
+Product: LON.4734.28.241 imported sucessfully
+
+Product: LON.4734.63.120 imported sucessfully
+
+Product: LON.4734.63.160 imported sucessfully
+
+Product: LON.4734.63.201 imported sucessfully
+
+Product: LON.4734.72.120 imported sucessfully
+
+Product: LON.4734.72.160 imported sucessfully
+
+Product: LON.5067.54.120 imported sucessfully
+
+Product: LON.5067.54.160 imported sucessfully
+
+Product: LON.5067.54.201 imported sucessfully
+
+Product: LON.5067.54.241 imported sucessfully
+
+Product: LON.5117.80.120 imported sucessfully
+
+Product: LON.5117.80.160 imported sucessfully
+
+Product: LON.5117.80.201 imported sucessfully
+
+Product: LON.5261.10.120 imported sucessfully
+
+Product: LON.5261.10.160 imported sucessfully
+
+Product: LON.5261.10.241 imported sucessfully
+
+Product: LON.5831.05.120 imported sucessfully
+
+Product: LON.5831.05.160 imported sucessfully
+
+Product: LON.5831.05.201 imported sucessfully
+
+Product: LON.5831.05.241 imported sucessfully
+
+Product: LON.5831.08.120 imported sucessfully
+
+Product: LON.5831.08.160 imported sucessfully
+
+Product: LON.5831.08.201 imported sucessfully
+
+Product: LON.5831.08.241 imported sucessfully
+
+Product: LON.5831.10.120 imported sucessfully
+
+Product: LON.5831.10.160 imported sucessfully
+
+Product: LON.5831.10.201 imported sucessfully
+
+Product: LON.5831.28.120 imported sucessfully
+
+Product: LON.5831.28.160 imported sucessfully
+
+Product: LON.5831.28.241 imported sucessfully
+
+Product: LON.5831.55.120 imported sucessfully
+
+Product: LON.5831.55.201 imported sucessfully
+
+Product: LON.5831.65.120 imported sucessfully
+
+Product: LON.5831.65.160 imported sucessfully
+
+Product: LON.5831.65.201 imported sucessfully
+
+Product: LON.5831.65.241 imported sucessfully
+
+Product: LON.5833.80.120 imported sucessfully
+
+Product: LON.5833.80.160 imported sucessfully
+
+Product: LON.5833.80.201 imported sucessfully
+
+Product: MAG.0204.45.118 imported sucessfully
+
+Product: MAG.0204.45.167 imported sucessfully
+
+Product: MAG.0204.45.201 imported sucessfully
+
+Product: MAG.0204.55.118 imported sucessfully
+
+Product: MAG.0204.55.167 imported sucessfully
+
+Product: MAG.0204.55.201 imported sucessfully
+
+Product: MAG.0204.55.237 imported sucessfully
+
+Product: MAG.0205.40.118 imported sucessfully
+
+Product: MAG.0205.40.167 imported sucessfully
+
+Product: MAG.0205.40.201 imported sucessfully
+
+Product: MAG.0205.40.237 imported sucessfully
+
+Product: MAG.0213.45.118 imported sucessfully
+
+Product: MAG.0213.45.167 imported sucessfully
+
+Product: MAG.0213.45.201 imported sucessfully
+
+Product: MAG.0213.45.237 imported sucessfully
+
+Product: MAG.0213.55.118 imported sucessfully
+
+Product: MAG.0213.55.167 imported sucessfully
+
+Product: MAG.0214.55.118 imported sucessfully
+
+Product: MAG.0214.55.167 imported sucessfully
+
+Product: MAG.0214.55.201 imported sucessfully
+
+Product: MAG.0215.55.118 imported sucessfully
+
+Product: MAG.0215.55.201 imported sucessfully
+
+Product: MAN.1070.10.120 imported sucessfully
+
+Product: MAN.1070.10.160 imported sucessfully
+
+Product: MAN.1070.10.201 imported sucessfully
+
+Product: MAN.1070.10.241 imported sucessfully
+
+Product: MAN.1070.65.120 imported sucessfully
+
+Product: MAN.1070.65.160 imported sucessfully
+
+Product: MAN.1070.65.201 imported sucessfully
+
+Product: MAN.1070.65.241 imported sucessfully
+
+Product: MAN.1072.55.120 imported sucessfully
+
+Product: MAN.1072.55.160 imported sucessfully
+
+Product: MAN.1072.55.201 imported sucessfully
+
+Product: MAN.1072.55.241 imported sucessfully
+
+Product: MAN.1136.10.120 imported sucessfully
+
+Product: MAN.1136.10.160 imported sucessfully
+
+Product: MAN.1136.10.201 imported sucessfully
+
+Product: MAN.1136.10.241 imported sucessfully
+
+Product: MAN.1351.10.120 imported sucessfully
+
+Product: MAN.1351.10.160 imported sucessfully
+
+Product: MAN.1351.10.201 imported sucessfully
+
+Product: MAN.1351.10.241 imported sucessfully
+
+Product: MAN.1351.65.120 imported sucessfully
+
+Product: MAN.1351.65.160 imported sucessfully
+
+Product: MAN.1351.65.201 imported sucessfully
+
+Product: MAN.1351.65.241 imported sucessfully
+
+Product: MAN.8212.10.120 imported sucessfully
+
+Product: MAN.8212.10.160 imported sucessfully
+
+Product: MAN.8212.10.201 imported sucessfully
+
+Product: MAN.8212.10.241 imported sucessfully
+
+Product: MAN.8212.55.120 imported sucessfully
+
+Product: MAN.8212.55.160 imported sucessfully
+
+Product: MAN.8212.55.201 imported sucessfully
+
+Product: MAN.8213.10.120 imported sucessfully
+
+Product: MAN.8213.10.160 imported sucessfully
+
+Product: MAN.8213.10.201 imported sucessfully
+
+Product: MAN.8213.10.241 imported sucessfully
+
+Product: MAY.3202.05.120 imported sucessfully
+
+Product: MAY.3202.05.160 imported sucessfully
+
+Product: MAY.3202.05.201 imported sucessfully
+
+Product: MAY.3202.10.120 imported sucessfully
+
+Product: MAY.3202.10.160 imported sucessfully
+
+Product: MAY.3202.14.120 imported sucessfully
+
+Product: MAY.3202.14.160 imported sucessfully
+
+Product: MAY.3202.14.201 imported sucessfully
+
+Product: MAY.3202.14.241 imported sucessfully
+
+Product: MAY.3202.20.201 imported sucessfully
+
+Product: MAY.3202.20.241 imported sucessfully
+
+Product: MAY.3202.45.201 imported sucessfully
+
+Product: MAY.3575.05.120 imported sucessfully
+
+Product: MAY.3575.05.160 imported sucessfully
+
+Product: MAY.3575.05.201 imported sucessfully
+
+Product: MAY.3575.14.120 imported sucessfully
+
+Product: MAY.4001.05.120 imported sucessfully
+
+Product: MAY.4001.05.160 imported sucessfully
+
+Product: MAY.4001.05.201 imported sucessfully
+
+Product: MAY.4001.05.241 imported sucessfully
+
+Product: MAY.4001.45.120 imported sucessfully
+
+Product: MAY.4001.45.160 imported sucessfully
+
+Product: MAY.4001.45.201 imported sucessfully
+
+Product: MAY.4005.05.120 imported sucessfully
+
+Product: MAY.4005.05.160 imported sucessfully
+
+Product: MAY.4005.05.201 imported sucessfully
+
+Product: MAY.4005.10.120 imported sucessfully
+
+Product: MAY.4005.10.160 imported sucessfully
+
+Product: MAY.4005.14.120 imported sucessfully
+
+Product: MAY.4005.14.160 imported sucessfully
+
+Product: MAY.4005.14.201 imported sucessfully
+
+Product: MAY.4005.20.120 imported sucessfully
+
+Product: MAY.4005.20.201 imported sucessfully
+
+Product: MAY.4005.45.160 imported sucessfully
+
+Product: MAY.4005.45.201 imported sucessfully
+
+Product: MAY.4583.05.120 imported sucessfully
+
+Product: MAY.4583.05.160 imported sucessfully
+
+Product: MAY.4583.14.120 imported sucessfully
+
+Product: MAY.4583.14.160 imported sucessfully
+
+Product: MAY.4583.14.241 imported sucessfully
+
+Product: MAY.4583.20.120 imported sucessfully
+
+Product: MAY.4583.20.160 imported sucessfully
+
+Product: MAY.4583.20.201 imported sucessfully
+
+Product: MAY.4583.20.241 imported sucessfully
+
+Product: MAY.4583.45.120 imported sucessfully
+
+Product: MAY.4583.45.201 imported sucessfully
+
+Product: MIA.2026.05.120 imported sucessfully
+
+Product: MIA.2026.05.160 imported sucessfully
+
+Product: MIA.2026.05.201 imported sucessfully
+
+Product: MIA.2026.05.241 imported sucessfully
+
+Product: MIA.2026.10.120 imported sucessfully
+
+Product: MIA.2026.10.160 imported sucessfully
+
+Product: MIA.2026.10.201 imported sucessfully
+
+Product: MIA.2026.10.241 imported sucessfully
+
+Product: MIA.2026.55.120 imported sucessfully
+
+Product: MIA.2026.55.160 imported sucessfully
+
+Product: MIA.2026.55.201 imported sucessfully
+
+Product: MIA.2026.55.241 imported sucessfully
+
+Product: MIA.2290.05.120 imported sucessfully
+
+Product: MIA.2290.05.160 imported sucessfully
+
+Product: MIA.2290.05.201 imported sucessfully
+
+Product: MIA.2290.10.120 imported sucessfully
+
+Product: MIA.2290.10.160 imported sucessfully
+
+Product: MIA.2290.10.201 imported sucessfully
+
+Product: MIA.2290.15.120 imported sucessfully
+
+Product: MIA.2290.15.160 imported sucessfully
+
+Product: MIA.2290.15.201 imported sucessfully
+
+Product: MIA.2290.15.241 imported sucessfully
+
+Product: MIA.2290.20.120 imported sucessfully
+
+Product: MIA.2290.20.160 imported sucessfully
+
+Product: MIA.2290.20.201 imported sucessfully
+
+Product: MIA.2290.20.241 imported sucessfully
+
+Product: MIA.2290.55.120 imported sucessfully
+
+Product: MIA.2290.55.160 imported sucessfully
+
+Product: MIA.2290.55.201 imported sucessfully
+
+Product: MIA.2290.55.241 imported sucessfully
+
+Product: MIA.7764.54.120 imported sucessfully
+
+Product: MIA.7764.54.160 imported sucessfully
+
+Product: MIA.7764.54.201 imported sucessfully
+
+Product: MIA.7764.54.241 imported sucessfully
+
+Product: MIA.7764.54.984 imported sucessfully
+
+Product: MIA.7764.55.120 imported sucessfully
+
+Product: MIA.7764.55.160 imported sucessfully
+
+Product: MIA.7764.55.201 imported sucessfully
+
+Product: MIA.7764.55.241 imported sucessfully
+
+Product: MIA.7764.55.984 imported sucessfully
+
+Product: MIA.8290.45.120 imported sucessfully
+
+Product: MIA.8290.45.160 imported sucessfully
+
+Product: MIA.8290.45.201 imported sucessfully
+
+Product: MIA.8290.45.241 imported sucessfully
+
+Product: MIA.8290.45.984 imported sucessfully
+
+Product: MIA.8290.55.120 imported sucessfully
+
+Product: MIA.8290.55.160 imported sucessfully
+
+Product: MIA.8290.55.201 imported sucessfully
+
+Product: MIA.8290.55.241 imported sucessfully
+
+Product: MIA.8290.55.984 imported sucessfully
+
+Product: MIA.8355.05.120 imported sucessfully
+
+Product: MIA.8355.05.160 imported sucessfully
+
+Product: MIA.8355.05.201 imported sucessfully
+
+Product: MIA.8355.05.241 imported sucessfully
+
+Product: MIA.8355.10.120 imported sucessfully
+
+Product: MIA.8355.10.160 imported sucessfully
+
+Product: MIA.8355.10.201 imported sucessfully
+
+Product: MIA.8355.10.241 imported sucessfully
+
+Product: MIA.8355.15.120 imported sucessfully
+
+Product: MIA.8355.15.201 imported sucessfully
+
+Product: MIA.8355.20.120 imported sucessfully
+
+Product: MIA.8355.20.160 imported sucessfully
+
+Product: MIA.8355.20.201 imported sucessfully
+
+Product: MIA.8355.20.241 imported sucessfully
+
+Product: MIA.8355.45.120 imported sucessfully
+
+Product: MIA.8355.45.160 imported sucessfully
+
+Product: MIA.8355.45.201 imported sucessfully
+
+Product: MIA.8355.45.241 imported sucessfully
+
+Product: MIA.8355.54.120 imported sucessfully
+
+Product: MIA.8355.54.160 imported sucessfully
+
+Product: MIA.8355.54.201 imported sucessfully
+
+Product: MIA.8355.54.241 imported sucessfully
+
+Product: MIA.8355.55.120 imported sucessfully
+
+Product: MIA.8355.55.160 imported sucessfully
+
+Product: MIA.8355.55.201 imported sucessfully
+
+Product: MIA.8355.55.241 imported sucessfully
+
+Product: MOH.1101.05.160 imported sucessfully
+
+Product: MOH.1101.05.202 imported sucessfully
+
+Product: MOH.1101.05.243 imported sucessfully
+
+Product: MOH.1101.05.982 imported sucessfully
+
+Product: MOH.1102.05.160 imported sucessfully
+
+Product: MOH.1102.05.202 imported sucessfully
+
+Product: MOH.1102.05.243 imported sucessfully
+
+Product: MOH.1102.05.982 imported sucessfully
+
+Product: MOH.1104.05.160 imported sucessfully
+
+Product: MOH.1104.05.202 imported sucessfully
+
+Product: MOH.1104.05.243 imported sucessfully
+
+Product: MOH.1104.05.982 imported sucessfully
+
+Product: MOH.1105.05.202 imported sucessfully
+
+Product: MOH.1105.05.982 imported sucessfully
+
+Product: NLA.0001.05.158 imported sucessfully
+
+Product: NLA.0001.05.202 imported sucessfully
+
+Product: NLA.0001.05.300 imported sucessfully
+
+Product: NLA.0001.45.121 imported sucessfully
+
+Product: NLA.0001.45.202 imported sucessfully
+
+Product: NLA.0002.45.202 imported sucessfully
+
+Product: NLA.0002.45.300 imported sucessfully
+
+Product: NLA.0070.45.121 imported sucessfully
+
+Product: NLA.0070.45.158 imported sucessfully
+
+Product: NLA.0070.45.202 imported sucessfully
+
+Product: NLA.0080.05.121 imported sucessfully
+
+Product: NLA.0080.05.158 imported sucessfully
+
+Product: NLA.0080.05.253 imported sucessfully
+
+Product: NLA.0080.40.121 imported sucessfully
+
+Product: NLA.0080.40.202 imported sucessfully
+
+Product: NLA.0080.40.253 imported sucessfully
+
+Product: NLA.0108.40.121 imported sucessfully
+
+Product: NLA.0108.40.158 imported sucessfully
+
+Product: NLA.0108.40.202 imported sucessfully
+
+Product: NLA.0108.40.253 imported sucessfully
+
+Product: NLA.0108.40.300 imported sucessfully
+
+Product: NLA.0110.05.121 imported sucessfully
+
+Product: NLA.0110.05.158 imported sucessfully
+
+Product: NLA.0110.05.202 imported sucessfully
+
+Product: NLA.0110.05.253 imported sucessfully
+
+Product: NLA.0110.45.121 imported sucessfully
+
+Product: NLA.0110.45.158 imported sucessfully
+
+Product: NLA.0110.45.202 imported sucessfully
+
+Product: NLA.1105.45.121 imported sucessfully
+
+Product: NLA.1105.45.158 imported sucessfully
+
+Product: NLA.1105.45.202 imported sucessfully
+
+Product: NOB.6503.05.121 imported sucessfully
+
+Product: NOB.6503.05.160 imported sucessfully
+
+Product: NOB.6503.05.201 imported sucessfully
+
+Product: NOB.6503.05.241 imported sucessfully
+
+Product: NOB.6503.05.303 imported sucessfully
+
+Product: NOB.6503.45.121 imported sucessfully
+
+Product: NOB.6503.45.160 imported sucessfully
+
+Product: NOB.6503.45.201 imported sucessfully
+
+Product: NOB.6503.45.303 imported sucessfully
+
+Product: NOB.6503.65.121 imported sucessfully
+
+Product: NOB.6503.65.160 imported sucessfully
+
+Product: NOB.6503.65.201 imported sucessfully
+
+Product: NOB.6503.65.241 imported sucessfully
+
+Product: NOB.6503.65.303 imported sucessfully
+
+Product: NOB.6510.05.121 imported sucessfully
+
+Product: NOB.6510.05.160 imported sucessfully
+
+Product: NOB.6510.05.201 imported sucessfully
+
+Product: NOB.6510.05.303 imported sucessfully
+
+Product: NOB.6510.06.121 imported sucessfully
+
+Product: NOB.6510.06.160 imported sucessfully
+
+Product: NOB.6510.06.201 imported sucessfully
+
+Product: NOB.6510.06.241 imported sucessfully
+
+Product: NOB.6510.06.303 imported sucessfully
+
+Product: NOB.6510.20.121 imported sucessfully
+
+Product: NOB.6510.20.160 imported sucessfully
+
+Product: NOB.6510.20.201 imported sucessfully
+
+Product: NOB.6510.20.241 imported sucessfully
+
+Product: NOB.6510.20.303 imported sucessfully
+
+Product: NOB.6510.45.121 imported sucessfully
+
+Product: NOB.6510.45.160 imported sucessfully
+
+Product: NOB.6510.45.201 imported sucessfully
+
+Product: NOB.6510.45.241 imported sucessfully
+
+Product: NOB.6510.45.303 imported sucessfully
+
+Product: NOB.6510.65.121 imported sucessfully
+
+Product: NOB.6510.65.160 imported sucessfully
+
+Product: NOB.6510.65.201 imported sucessfully
+
+Product: NOB.6510.65.241 imported sucessfully
+
+Product: NOB.6510.65.303 imported sucessfully
+
+Product: NOB.6540.05.121 imported sucessfully
+
+Product: NOB.6540.05.160 imported sucessfully
+
+Product: NOB.6540.05.201 imported sucessfully
+
+Product: NOB.6540.05.241 imported sucessfully
+
+Product: NOB.6540.05.303 imported sucessfully
+
+Product: NOB.6577.05.121 imported sucessfully
+
+Product: NOB.6577.05.160 imported sucessfully
+
+Product: NOB.6577.05.201 imported sucessfully
+
+Product: NOB.6577.05.241 imported sucessfully
+
+Product: NOB.6577.05.303 imported sucessfully
+
+Product: NOB.6577.06.121 imported sucessfully
+
+Product: NOB.6577.06.160 imported sucessfully
+
+Product: NOB.6577.06.201 imported sucessfully
+
+Product: NOB.6577.06.241 imported sucessfully
+
+Product: NOB.6577.06.303 imported sucessfully
+
+Product: NOB.6577.20.121 imported sucessfully
+
+Product: NOB.6577.20.160 imported sucessfully
+
+Product: NOB.6577.20.201 imported sucessfully
+
+Product: NOB.6577.20.241 imported sucessfully
+
+Product: NOB.6577.45.121 imported sucessfully
+
+Product: NOB.6577.45.160 imported sucessfully
+
+Product: NOB.6577.45.201 imported sucessfully
+
+Product: NOB.6577.45.241 imported sucessfully
+
+Product: NOB.6577.45.303 imported sucessfully
+
+Product: NOB.6577.65.121 imported sucessfully
+
+Product: NOB.6577.65.160 imported sucessfully
+
+Product: NOB.6577.65.201 imported sucessfully
+
+Product: NOB.6577.65.241 imported sucessfully
+
+Product: NOB.6577.65.303 imported sucessfully
+
+Third Level Category: OCEANS                                                       created.
+
+Product: OCN.9851.10.120 imported sucessfully
+
+Product: OCN.9851.10.160 imported sucessfully
+
+Product: OCN.9851.10.201 imported sucessfully
+
+Product: OCN.9851.10.241 imported sucessfully
+
+Product: OCN.9851.45.120 imported sucessfully
+
+Product: OCN.9851.45.160 imported sucessfully
+
+Product: OCN.9851.45.241 imported sucessfully
+
+Product: OCN.9851.45.303 imported sucessfully
+
+Product: OCN.9878.45.120 imported sucessfully
+
+Product: OCN.9878.45.160 imported sucessfully
+
+Product: OCN.9878.45.241 imported sucessfully
+
+Product: OCN.9878.45.303 imported sucessfully
+
+Product: OCN.9896.45.120 imported sucessfully
+
+Product: OCN.9896.45.160 imported sucessfully
+
+Product: OCN.9896.45.241 imported sucessfully
+
+Product: OCN.9896.45.303 imported sucessfully
+
+Product: OCN.9897.15.120 imported sucessfully
+
+Product: OCN.9897.15.160 imported sucessfully
+
+Product: OCN.9897.15.241 imported sucessfully
+
+Product: OCN.9897.15.303 imported sucessfully
+
+Product: PLU.1111.05.120 imported sucessfully
+
+Product: PLU.1111.05.160 imported sucessfully
+
+Product: PLU.1111.05.201 imported sucessfully
+
+Product: PLU.1111.05.243 imported sucessfully
+
+Product: PLU.1111.10.120 imported sucessfully
+
+Product: PLU.1111.10.160 imported sucessfully
+
+Product: PLU.1111.10.201 imported sucessfully
+
+Product: PLU.1111.10.243 imported sucessfully
+
+Product: PLU.1111.17.120 imported sucessfully
+
+Product: PLU.1111.17.160 imported sucessfully
+
+Product: PLU.1111.17.201 imported sucessfully
+
+Product: PLU.1111.17.243 imported sucessfully
+
+Product: PLU.1111.19.120 imported sucessfully
+
+Product: PLU.1111.19.160 imported sucessfully
+
+Product: PLU.1111.19.201 imported sucessfully
+
+Product: PLU.1111.20.120 imported sucessfully
+
+Product: PLU.1111.20.160 imported sucessfully
+
+Product: PLU.1111.20.201 imported sucessfully
+
+Product: PLU.1111.20.243 imported sucessfully
+
+Product: PLU.1111.45.120 imported sucessfully
+
+Product: PLU.1111.45.160 imported sucessfully
+
+Product: PLU.1111.45.201 imported sucessfully
+
+Product: PLU.1111.45.243 imported sucessfully
+
+Product: PLU.1111.54.120 imported sucessfully
+
+Product: PLU.1111.54.160 imported sucessfully
+
+Product: PLU.1111.54.201 imported sucessfully
+
+Product: PLU.1111.63.120 imported sucessfully
+
+Product: PLU.1111.63.160 imported sucessfully
+
+Product: PLU.1111.63.201 imported sucessfully
+
+Product: PLU.1111.63.243 imported sucessfully
+
+Product: PLU.1111.79.120 imported sucessfully
+
+Product: PLU.1111.79.160 imported sucessfully
+
+Product: PLU.1111.79.201 imported sucessfully
+
+Product: PLU.1111.88.120 imported sucessfully
+
+Product: PLU.1111.88.160 imported sucessfully
+
+Product: PLU.1111.88.201 imported sucessfully
+
+Product: PLU.1111.88.243 imported sucessfully
+
+Product: PLU.1111.95.120 imported sucessfully
+
+Product: PLU.1111.95.160 imported sucessfully
+
+Product: PLU.1111.95.201 imported sucessfully
+
+Product: PTR.1009.40.121 imported sucessfully
+
+Product: PTR.1009.40.158 imported sucessfully
+
+Product: PTR.1009.40.202 imported sucessfully
+
+Product: PTR.1009.40.253 imported sucessfully
+
+Product: PTR.1009.40.300 imported sucessfully
+
+Product: PTR.1009.40.982 imported sucessfully
+
+Product: PTR.1009.81.121 imported sucessfully
+
+Product: PTR.1009.81.158 imported sucessfully
+
+Product: PTR.1009.81.253 imported sucessfully
+
+Product: PTR.1009.81.300 imported sucessfully
+
+Product: PTR.1009.81.982 imported sucessfully
+
+Product: PTR.1035.40.121 imported sucessfully
+
+Product: PTR.1035.40.158 imported sucessfully
+
+Product: PTR.1035.40.202 imported sucessfully
+
+Product: PTR.1035.40.253 imported sucessfully
+
+Product: PTR.1052.53.121 imported sucessfully
+
+Product: PTR.1052.53.158 imported sucessfully
+
+Product: PTR.1052.53.253 imported sucessfully
+
+Product: PTR.1057.40.121 imported sucessfully
+
+Product: PTR.1057.40.158 imported sucessfully
+
+Product: PTR.1057.40.202 imported sucessfully
+
+Product: PTR.1057.40.253 imported sucessfully
+
+Product: PTR.1057.45.121 imported sucessfully
+
+Product: PTR.1057.45.202 imported sucessfully
+
+Product: PTR.1057.45.253 imported sucessfully
+
+Product: PTR.1057.45.300 imported sucessfully
+
+Product: PTR.1061.40.121 imported sucessfully
+
+Product: PTR.1061.40.158 imported sucessfully
+
+Product: PTR.1061.40.202 imported sucessfully
+
+Product: PTR.1061.40.253 imported sucessfully
+
+Product: PTR.1061.53.121 imported sucessfully
+
+Product: PTR.1061.53.158 imported sucessfully
+
+Product: PTR.1061.53.202 imported sucessfully
+
+Product: PTR.1061.53.300 imported sucessfully
+
+Product: PTR.1108.55.121 imported sucessfully
+
+Product: PTR.1108.55.158 imported sucessfully
+
+Product: PTR.1108.55.202 imported sucessfully
+
+Product: PTR.1108.55.300 imported sucessfully
+
+Product: PTR.1111.40.121 imported sucessfully
+
+Product: PTR.1111.40.158 imported sucessfully
+
+Product: PTR.1111.40.300 imported sucessfully
+
+Product: PTR.1111.45.121 imported sucessfully
+
+Product: PTR.1111.45.202 imported sucessfully
+
+Product: PTR.1111.45.253 imported sucessfully
+
+Product: PTR.1111.45.300 imported sucessfully
+
+Product: PTR.1116.04.202 imported sucessfully
+
+Product: PTR.1125.54.121 imported sucessfully
+
+Product: PTR.1125.54.158 imported sucessfully
+
+Product: PTR.1125.54.202 imported sucessfully
+
+Product: PTR.1125.54.253 imported sucessfully
+
+Product: PTR.1125.54.300 imported sucessfully
+
+Product: PTR.1225.53.121 imported sucessfully
+
+Product: PTR.1225.53.158 imported sucessfully
+
+Product: PTR.1225.53.202 imported sucessfully
+
+Product: PTR.1225.53.300 imported sucessfully
+
+Product: PTR.1225.54.121 imported sucessfully
+
+Product: PTR.1225.54.158 imported sucessfully
+
+Product: PTR.1225.54.202 imported sucessfully
+
+Product: SPG.0181.04.089 imported sucessfully
+
+Product: SPG.0181.04.120 imported sucessfully
+
+Product: SPG.0181.04.160 imported sucessfully
+
+Product: SPG.0181.04.201 imported sucessfully
+
+Product: SPG.0181.05.089 imported sucessfully
+
+Product: SPG.0181.05.120 imported sucessfully
+
+Product: SPG.0181.05.160 imported sucessfully
+
+Product: SPG.0181.05.201 imported sucessfully
+
+Product: SPG.0181.05.243 imported sucessfully
+
+Product: SPG.0181.16.089 imported sucessfully
+
+Product: SPG.0181.16.120 imported sucessfully
+
+Product: SPG.0181.16.160 imported sucessfully
+
+Product: SPG.0181.16.201 imported sucessfully
+
+Product: SPG.0181.16.243 imported sucessfully
+
+Product: SPG.0181.25.089 imported sucessfully
+
+Product: SPG.0181.25.120 imported sucessfully
+
+Product: SPG.0181.25.160 imported sucessfully
+
+Product: SPG.0181.25.201 imported sucessfully
+
+Product: SPG.0181.25.243 imported sucessfully
+
+Product: SPG.0181.29.089 imported sucessfully
+
+Product: SPG.0181.29.120 imported sucessfully
+
+Product: SPG.0181.29.160 imported sucessfully
+
+Product: SPG.0181.29.201 imported sucessfully
+
+Product: SPG.0181.41.089 imported sucessfully
+
+Product: SPG.0181.41.120 imported sucessfully
+
+Product: SPG.0181.41.160 imported sucessfully
+
+Product: SPG.0181.41.201 imported sucessfully
+
+Product: SPG.0181.41.243 imported sucessfully
+
+Product: SPG.0181.45.089 imported sucessfully
+
+Product: SPG.0181.45.120 imported sucessfully
+
+Product: SPG.0181.45.160 imported sucessfully
+
+Product: SPG.0181.45.201 imported sucessfully
+
+Product: SPG.0181.45.243 imported sucessfully
+
+Product: SPG.0181.50.089 imported sucessfully
+
+Product: SPG.0181.50.120 imported sucessfully
+
+Product: SPG.0181.50.160 imported sucessfully
+
+Product: SPG.0181.50.201 imported sucessfully
+
+Product: SPG.0181.51.089 imported sucessfully
+
+Product: SPG.0181.51.120 imported sucessfully
+
+Product: SPG.0181.51.160 imported sucessfully
+
+Product: SPG.0181.57.089 imported sucessfully
+
+Product: SPG.0181.57.120 imported sucessfully
+
+Product: SPG.0181.57.160 imported sucessfully
+
+Product: SPG.0181.57.201 imported sucessfully
+
+Product: SPG.0181.57.243 imported sucessfully
+
+Product: SPG.0181.58.089 imported sucessfully
+
+Product: SPG.0181.58.120 imported sucessfully
+
+Product: SPG.0181.58.160 imported sucessfully
+
+Product: SPG.0181.58.201 imported sucessfully
+
+Product: SPG.0181.58.243 imported sucessfully
+
+Product: SPG.0181.63.089 imported sucessfully
+
+Product: SPG.0181.63.120 imported sucessfully
+
+Product: SPG.0181.63.160 imported sucessfully
+
+Product: SPG.0181.63.201 imported sucessfully
+
+Product: SPG.0181.63.243 imported sucessfully
+
+Product: SPG.0181.65.089 imported sucessfully
+
+Product: SPG.0181.65.120 imported sucessfully
+
+Product: SPG.0181.65.160 imported sucessfully
+
+Product: SPG.0181.65.201 imported sucessfully
+
+Product: SPG.0181.65.243 imported sucessfully
+
+Product: SPG.0181.72.089 imported sucessfully
+
+Product: SPG.0181.72.120 imported sucessfully
+
+Product: SPG.0181.72.160 imported sucessfully
+
+Product: SPG.0181.72.201 imported sucessfully
+
+Product: SPG.0181.72.243 imported sucessfully
+
+Product: SPG.0181.86.089 imported sucessfully
+
+Product: SPG.0181.86.120 imported sucessfully
+
+Product: SPG.0181.86.160 imported sucessfully
+
+Product: SPG.0181.86.201 imported sucessfully
+
+Product: SPG.0181.86.243 imported sucessfully
+
+Product: SUM.1007.55.133 imported sucessfully
+
+Product: SUM.1007.55.158 imported sucessfully
+
+Product: SUM.1007.55.215 imported sucessfully
+
+Product: SUM.1007.55.243 imported sucessfully
+
+Product: SUM.1192.08.133 imported sucessfully
+
+Product: SUM.1192.08.158 imported sucessfully
+
+Product: SUM.1192.08.215 imported sucessfully
+
+Product: SUM.1192.08.243 imported sucessfully
+
+Product: SUM.1192.10.133 imported sucessfully
+
+Product: SUM.1192.10.158 imported sucessfully
+
+Product: SUM.1192.10.215 imported sucessfully
+
+Product: SUM.1192.10.243 imported sucessfully
+
+Product: SUM.1192.15.133 imported sucessfully
+
+Product: SUM.1192.15.158 imported sucessfully
+
+Product: SUM.1192.15.215 imported sucessfully
+
+Product: SUM.1192.15.243 imported sucessfully
+
+Product: SUM.1192.28.133 imported sucessfully
+
+Product: SUM.1192.28.158 imported sucessfully
+
+Product: SUM.1192.28.215 imported sucessfully
+
+Product: SUM.1192.28.243 imported sucessfully
+
+Product: SUM.1192.55.133 imported sucessfully
+
+Product: SUM.1192.55.158 imported sucessfully
+
+Product: SUM.1192.55.215 imported sucessfully
+
+Product: SUM.1192.55.243 imported sucessfully
+
+Product: SUM.1501.55.133 imported sucessfully
+
+Product: SUM.1501.55.158 imported sucessfully
+
+Product: SUM.1501.55.215 imported sucessfully
+
+Product: SUM.1501.55.243 imported sucessfully
+
+Product: SUM.1536.10.133 imported sucessfully
+
+Product: SUM.1536.10.158 imported sucessfully
+
+Product: SUM.1536.10.215 imported sucessfully
+
+Product: SUM.1536.10.243 imported sucessfully
+
+Product: SUM.1536.28.133 imported sucessfully
+
+Product: SUM.1536.28.158 imported sucessfully
+
+Product: SUM.1536.28.215 imported sucessfully
+
+Product: SUM.1536.28.243 imported sucessfully
+
+Product: SUM.1536.55.133 imported sucessfully
+
+Product: SUM.1536.55.158 imported sucessfully
+
+Product: SUM.1536.55.215 imported sucessfully
+
+Product: SUM.1536.57.133 imported sucessfully
+
+Product: SUM.1536.57.158 imported sucessfully
+
+Product: SUM.1536.57.215 imported sucessfully
+
+Product: SUM.1536.57.243 imported sucessfully
+
+Product: SUM.1538.55.133 imported sucessfully
+
+Product: SUM.1538.55.158 imported sucessfully
+
+Product: SUM.1538.55.215 imported sucessfully
+
+Product: SUM.1538.55.243 imported sucessfully
+
+Product: SUM.2063.80.133 imported sucessfully
+
+Product: SUM.2063.80.158 imported sucessfully
+
+Product: SUM.2063.80.215 imported sucessfully
+
+Product: SUM.2063.80.243 imported sucessfully
+
+Product: SUM.2064.10.133 imported sucessfully
+
+Product: SUM.2064.10.158 imported sucessfully
+
+Product: SUM.2064.10.215 imported sucessfully
+
+Product: SUM.2064.10.243 imported sucessfully
+
+Product: SUM.2064.28.133 imported sucessfully
+
+Product: SUM.2064.28.158 imported sucessfully
+
+Product: SUM.2064.28.215 imported sucessfully
+
+Product: SUM.2064.28.243 imported sucessfully
+
+Product: SUM.2064.55.133 imported sucessfully
+
+Product: SUM.2064.55.158 imported sucessfully
+
+Product: SUM.2064.55.215 imported sucessfully
+
+Product: SUM.2064.55.243 imported sucessfully
+
+Product: SUM.2065.80.158 imported sucessfully
+
+Product: SUM.2065.80.215 imported sucessfully
+
+Product: SUM.2065.80.243 imported sucessfully
+
+Product: SUM.2331.80.133 imported sucessfully
+
+Product: SUM.2331.80.158 imported sucessfully
+
+Product: SUM.2331.80.215 imported sucessfully
+
+Product: SUM.2331.80.243 imported sucessfully
+
+Product: SUM.2546.10.133 imported sucessfully
+
+Product: SUM.2546.10.158 imported sucessfully
+
+Product: SUM.2546.10.215 imported sucessfully
+
+Product: SUM.4929.15.133 imported sucessfully
+
+Product: SUM.4929.15.158 imported sucessfully
+
+Product: SUM.4929.15.215 imported sucessfully
+
+Product: SUM.4929.15.243 imported sucessfully
+
+Product: TDS.0002.05.201 imported sucessfully
+
+Product: TDS.0002.15.241 imported sucessfully
+
+Product: TDS.0002.40.201 imported sucessfully
+
+Product: TDS.0002.45.121 imported sucessfully
+
+Product: TDS.0002.45.160 imported sucessfully
+
+Product: TDS.0002.45.201 imported sucessfully
+
+Product: TDS.0002.45.241 imported sucessfully
+
+Product: TDS.0605.45.121 imported sucessfully
+
+Product: TDS.0606.05.121 imported sucessfully
+
+Product: TDS.0606.05.160 imported sucessfully
+
+Product: TDS.0606.05.201 imported sucessfully
+
+Product: TDS.0606.15.121 imported sucessfully
+
+Product: TDS.0606.15.160 imported sucessfully
+
+Product: TDS.0606.15.201 imported sucessfully
+
+Product: TDS.0606.45.121 imported sucessfully
+
+Product: TDS.0606.45.160 imported sucessfully
+
+Product: TDS.0606.45.201 imported sucessfully
+
+Product: TDS.0608.45.121 imported sucessfully
+
+Product: TDS.0608.45.160 imported sucessfully
+
+Product: TDS.0706.45.121 imported sucessfully
+
+Product: TDS.0706.45.160 imported sucessfully
+
+Product: TDS.0706.45.201 imported sucessfully
+
+Product: TDS.0706.72.121 imported sucessfully
+
+Product: TDS.0706.72.160 imported sucessfully
+
+Product: TDS.0811.45.121 imported sucessfully
+
+Product: TDS.0811.45.160 imported sucessfully
+
+Product: TDS.0811.45.201 imported sucessfully
+
+Product: TDS.1101.10.121 imported sucessfully
+
+Product: TDS.1101.10.160 imported sucessfully
+
+Product: TDS.1101.10.241 imported sucessfully
+
+Product: TDS.1101.20.121 imported sucessfully
+
+Product: TDS.1101.20.160 imported sucessfully
+
+Product: TDS.1101.20.201 imported sucessfully
+
+Product: TDS.1101.20.241 imported sucessfully
+
+Product: TDS.1101.45.121 imported sucessfully
+
+Product: TDS.1101.45.160 imported sucessfully
+
+Product: TDS.1101.45.201 imported sucessfully
+
+Product: TDS.1101.45.241 imported sucessfully
+
+Product: TDS.1103.05.201 imported sucessfully
+
+Product: TDS.1103.05.241 imported sucessfully
+
+Product: TDS.1103.45.121 imported sucessfully
+
+Product: TDS.1103.45.201 imported sucessfully
+
+Product: TDS.1103.45.241 imported sucessfully
+
+Product: TDS.1103.54.160 imported sucessfully
+
+Product: TDS.1103.54.201 imported sucessfully
+
+Product: TDS.1103.54.241 imported sucessfully
+
+Product: TDS.1104.45.160 imported sucessfully
+
+Product: TDS.1104.45.201 imported sucessfully
+
+Product: TDS.1105.45.201 imported sucessfully
+
+Product: TDS.1106.45.121 imported sucessfully
+
+Product: TDS.1106.45.160 imported sucessfully
+
+Product: TDS.1106.45.201 imported sucessfully
+
+Product: TDS.1106.45.241 imported sucessfully
+
+Product: TDS.1106.55.121 imported sucessfully
+
+Product: TDS.1106.55.160 imported sucessfully
+
+Product: TDS.1106.55.201 imported sucessfully
+
+Product: TDS.1107.45.121 imported sucessfully
+
+Product: TDS.1107.45.160 imported sucessfully
+
+Product: TDS.1107.45.201 imported sucessfully
+
+Product: TDS.1107.65.121 imported sucessfully
+
+Product: TDS.1107.65.160 imported sucessfully
+
+Product: TDS.1107.65.201 imported sucessfully
+
+Product: TDS.1107.65.241 imported sucessfully
+
+Product: TDS.4145.17.160 imported sucessfully
+
+Product: TDS.4145.17.201 imported sucessfully
+
+Product: TDS.4145.45.121 imported sucessfully
+
+Product: TDS.4145.45.160 imported sucessfully
+
+Product: TDS.4145.45.201 imported sucessfully
+
+Product: TDS.4145.65.121 imported sucessfully
+
+Product: TDS.4145.65.201 imported sucessfully
+
+Product: TDS.4145.65.241 imported sucessfully
+
+Product: TDS.7707.05.201 imported sucessfully
+
+Product: TDS.7707.05.241 imported sucessfully
+
+Product: TDS.7707.15.121 imported sucessfully
+
+Product: TDS.7707.15.201 imported sucessfully
+
+Product: TDS.7707.15.241 imported sucessfully
+
+Product: TDS.7707.45.201 imported sucessfully
+
+Product: TDS.7707.45.241 imported sucessfully
+
+Product: TDS.8156.72.121 imported sucessfully
+
+Product: TDS.8156.72.160 imported sucessfully
+
+Product: TDS.8156.72.201 imported sucessfully
+
+Product: TDS.8976.45.121 imported sucessfully
+
+Product: TDS.8976.45.160 imported sucessfully
+
+Product: TDS.8976.45.201 imported sucessfully
+
+Product: TDS.8977.45.121 imported sucessfully
+
+Product: TDS.8977.45.160 imported sucessfully
+
+Product: TDS.8977.45.201 imported sucessfully
+
+Product: TDS.8981.45.121 imported sucessfully
+
+Product: TDS.8981.45.201 imported sucessfully
+
+Product: TDS.8982.45.121 imported sucessfully
+
+Product: TDS.8982.45.160 imported sucessfully
+
+Product: TDS.8982.45.201 imported sucessfully
+
+Product: TDS.8982.45.241 imported sucessfully
+
+Product: TDS.9840.05.121 imported sucessfully
+
+Product: TDS.9840.05.160 imported sucessfully
+
+Product: TDS.9840.05.201 imported sucessfully
+
+Product: TDS.9840.45.121 imported sucessfully
+
+Product: TDS.9840.45.160 imported sucessfully
+
+Product: TDS.9840.45.201 imported sucessfully
+
+Product: TDS.9974.05.121 imported sucessfully
+
+Product: TDS.9974.05.160 imported sucessfully
+
+Product: TDS.9974.05.201 imported sucessfully
+
+Product: TDS.9974.45.121 imported sucessfully
+
+Product: TDS.9974.45.160 imported sucessfully
+
+Product: TDS.9974.45.201 imported sucessfully
+
+Product: TDS.9974.45.241 imported sucessfully
+
+Product: TDS.9975.05.121 imported sucessfully
+
+Product: TDS.9975.05.160 imported sucessfully
+
+Product: TDS.9975.05.201 imported sucessfully
+
+Product: TDS.9975.05.241 imported sucessfully
+
+Product: TDS.9975.45.121 imported sucessfully
+
+Product: TDS.9975.45.160 imported sucessfully
+
+Product: TDS.9975.45.241 imported sucessfully
+
+Product: TSK.0114.05.121 imported sucessfully
+
+Product: TSK.0114.05.158 imported sucessfully
+
+Product: TSK.0114.05.215 imported sucessfully
+
+Product: TSK.0114.15.121 imported sucessfully
+
+Product: TSK.0114.15.158 imported sucessfully
+
+Product: TSK.0114.15.215 imported sucessfully
+
+Product: TSK.0114.15.243 imported sucessfully
+
+Product: TSK.0114.15.280 imported sucessfully
+
+Product: TSK.0114.20.121 imported sucessfully
+
+Product: TSK.0114.20.158 imported sucessfully
+
+Product: TSK.0114.20.215 imported sucessfully
+
+Product: TSK.0114.20.243 imported sucessfully
+
+Product: TSK.0114.20.280 imported sucessfully
+
+Product: TSK.0114.40.121 imported sucessfully
+
+Product: TSK.0114.40.158 imported sucessfully
+
+Product: TSK.0114.40.215 imported sucessfully
+
+Product: TSK.0114.40.243 imported sucessfully
+
+Product: TSK.0114.40.280 imported sucessfully
+
+Product: TSK.0170.05.121 imported sucessfully
+
+Product: TSK.0170.05.158 imported sucessfully
+
+Product: TSK.0170.05.215 imported sucessfully
+
+Product: TSK.0170.05.243 imported sucessfully
+
+Product: TSK.0170.06.121 imported sucessfully
+
+Product: TSK.0170.06.158 imported sucessfully
+
+Product: TSK.0170.06.215 imported sucessfully
+
+Product: TSK.0170.06.243 imported sucessfully
+
+Product: TSK.0170.15.121 imported sucessfully
+
+Product: TSK.0170.15.158 imported sucessfully
+
+Product: TSK.0170.15.215 imported sucessfully
+
+Product: TSK.0170.15.243 imported sucessfully
+
+Product: TSK.0170.15.280 imported sucessfully
+
+Product: TSK.0170.20.121 imported sucessfully
+
+Product: TSK.0170.20.158 imported sucessfully
+
+Product: TSK.0170.20.215 imported sucessfully
+
+Product: TSK.0170.20.243 imported sucessfully
+
+Product: TSK.0170.20.280 imported sucessfully
+
+Product: TSK.0170.40.121 imported sucessfully
+
+Product: TSK.0170.40.158 imported sucessfully
+
+Product: TSK.0170.40.215 imported sucessfully
+
+Product: TSK.0170.40.243 imported sucessfully
+
+Product: TSK.1060.05.121 imported sucessfully
+
+Product: TSK.1060.05.158 imported sucessfully
+
+Product: TSK.1060.05.215 imported sucessfully
+
+Product: TSK.1060.05.243 imported sucessfully
+
+Product: TSK.1060.05.280 imported sucessfully
+
+Product: TSK.1073.05.121 imported sucessfully
+
+Product: TSK.1073.05.158 imported sucessfully
+
+Product: TSK.1073.05.215 imported sucessfully
+
+Product: TSK.1073.05.243 imported sucessfully
+
+Product: TSK.1073.05.280 imported sucessfully
+
+Product: TSK.1073.15.121 imported sucessfully
+
+Product: TSK.1073.15.158 imported sucessfully
+
+Product: TSK.1073.15.215 imported sucessfully
+
+Product: TSK.1073.15.243 imported sucessfully
+
+Product: TSK.1073.15.280 imported sucessfully
+
+Product: TSK.1073.40.121 imported sucessfully
+
+Product: TSK.1073.40.158 imported sucessfully
+
+Product: TSK.1073.40.215 imported sucessfully
+
+Product: TSK.1073.40.243 imported sucessfully
+
+Product: TSK.1073.40.280 imported sucessfully
+
+Product: TSK.1565.05.121 imported sucessfully
+
+Product: TSK.1565.05.158 imported sucessfully
+
+Product: TSK.1565.05.215 imported sucessfully
+
+Product: TSK.1565.05.243 imported sucessfully
+
+Product: TSK.1565.05.280 imported sucessfully
+
+Product: TSK.1565.10.121 imported sucessfully
+
+Product: TSK.1565.10.158 imported sucessfully
+
+Product: TSK.1565.10.215 imported sucessfully
+
+Product: TSK.1565.10.243 imported sucessfully
+
+Product: TSK.1565.10.280 imported sucessfully
+
+Product: TSK.1565.15.121 imported sucessfully
+
+Product: TSK.1565.15.158 imported sucessfully
+
+Product: TSK.1565.15.215 imported sucessfully
+
+Product: TSK.1565.15.243 imported sucessfully
+
+Product: TSK.1565.15.280 imported sucessfully
+
+Product: TSK.1565.20.121 imported sucessfully
+
+Product: TSK.1565.20.158 imported sucessfully
+
+Product: TSK.1565.20.215 imported sucessfully
+
+Product: TSK.1565.20.243 imported sucessfully
+
+Product: TSK.1565.20.280 imported sucessfully
+
+Product: TSK.1565.40.121 imported sucessfully
+
+Product: TSK.1565.40.158 imported sucessfully
+
+Product: TSK.1565.40.215 imported sucessfully
+
+Product: TSK.1565.40.243 imported sucessfully
+
+Product: TSK.1565.40.280 imported sucessfully
+
+Product: VNT.1237.05.120 imported sucessfully
+
+Product: VNT.1237.05.160 imported sucessfully
+
+Product: VNT.1237.05.201 imported sucessfully
+
+Product: VNT.1237.05.280 imported sucessfully
+
+Product: VNT.1237.05.982 imported sucessfully
+
+Product: VNT.1237.44.120 imported sucessfully
+
+Product: VNT.1237.44.160 imported sucessfully
+
+Product: VNT.1237.44.280 imported sucessfully
+
+Product: VNT.1237.44.982 imported sucessfully
+
+Product: VNT.1237.45.120 imported sucessfully
+
+Product: VNT.1237.45.160 imported sucessfully
+
+Product: VNT.1237.45.982 imported sucessfully
+
+Product: VNT.1237.54.120 imported sucessfully
+
+Product: VNT.1237.54.160 imported sucessfully
+
+Product: VNT.1237.54.201 imported sucessfully
+
+Product: VNT.1237.54.243 imported sucessfully
+
+Product: VNT.1237.54.280 imported sucessfully
+
+Product: VNT.1237.54.982 imported sucessfully
+
+Product: VNT.1237.65.120 imported sucessfully
+
+Product: VNT.1237.65.160 imported sucessfully
+
+Product: VNT.1237.65.201 imported sucessfully
+
+Product: VNT.1237.65.280 imported sucessfully
+
+Product: VNT.1237.65.982 imported sucessfully
+
+Product: VNT.1239.05.120 imported sucessfully
+
+Product: VNT.1239.05.160 imported sucessfully
+
+Product: VNT.1239.05.201 imported sucessfully
+
+Product: VNT.1239.05.280 imported sucessfully
+
+Product: VNT.1239.44.120 imported sucessfully
+
+Product: VNT.1239.44.201 imported sucessfully
+
+Product: VNT.1239.44.243 imported sucessfully
+
+Product: VNT.1239.44.280 imported sucessfully
+
+Product: VNT.1239.45.160 imported sucessfully
+
+Product: VNT.1239.45.201 imported sucessfully
+
+Product: VNT.1239.45.280 imported sucessfully
+
+Product: VNT.1239.54.120 imported sucessfully
+
+Product: VNT.1239.54.280 imported sucessfully
+
+Product: VNT.1239.65.120 imported sucessfully
+
+Product: VNT.1239.65.160 imported sucessfully
+
+Product: VNT.1239.65.201 imported sucessfully
+
+Product: VNT.1239.65.280 imported sucessfully
+
+Product: VNT.1490.44.120 imported sucessfully
+
+Product: VNT.1490.44.160 imported sucessfully
+
+Product: VNT.1490.44.201 imported sucessfully
+
+Product: VNT.1490.44.243 imported sucessfully
+
+Product: VNT.2346.05.120 imported sucessfully
+
+Product: VNT.2346.05.160 imported sucessfully
+
+Product: VNT.2346.45.120 imported sucessfully
+
+Product: VNT.2346.45.160 imported sucessfully
+
+Product: VNT.2346.45.201 imported sucessfully
+
+Product: VNT.2346.45.243 imported sucessfully
+
+Product: VNT.2346.45.280 imported sucessfully
+
+Product: VNT.2347.44.120 imported sucessfully
+
+Product: VNT.2347.44.160 imported sucessfully
+
+Product: VNT.2347.44.201 imported sucessfully
+
+Product: VNT.2347.44.243 imported sucessfully
+
+Product: VNT.2347.44.280 imported sucessfully
+
+Product: VNT.2347.65.120 imported sucessfully
+
+Product: VNT.2347.65.160 imported sucessfully
+
+Product: VNT.2347.65.201 imported sucessfully
+
+Product: VNT.2347.65.243 imported sucessfully
+
+Product: VNT.2347.65.280 imported sucessfully
+
+Product: VNT.2617.45.120 imported sucessfully
+
+Product: VNT.2617.45.160 imported sucessfully
+
+Product: VNT.2617.45.201 imported sucessfully
+
+Product: VNT.2617.45.243 imported sucessfully
+
+Product: VNT.2617.45.280 imported sucessfully
+
+Product: AMO.1392.80.253 imported sucessfully
+
+Product: AMO.1503.63.253 imported sucessfully
+
+Product: BER.1021.80.280 imported sucessfully
+
+Product: BLM.1001.05.201 imported sucessfully
+
+Product: BLM.1058.20.120 imported sucessfully
+
+Product: BLM.1058.20.160 imported sucessfully
+
+Product: BLM.1058.20.201 imported sucessfully
+
+Product: BLM.1058.20.243 imported sucessfully
+
+Product: BLM.1944.45.243 imported sucessfully
+
+Product: BLM.3344.10.243 imported sucessfully
+
+Product: BLM.3697.45.243 imported sucessfully
+
+Product: BOU.1002.80.120 imported sucessfully
+
+Product: BOU.1002.80.158 imported sucessfully
+
+Product: BOU.1002.80.215 imported sucessfully
+
+Product: BOU.1002.80.243 imported sucessfully
+
+Product: BOU.1161.80.158 imported sucessfully
+
+Product: BOU.1215.44.120 imported sucessfully
+
+Product: BOU.5992.20.280 imported sucessfully
+
+Product: BOU.5992.28.280 imported sucessfully
+
+Product: CAB.0112.65.215 imported sucessfully
+
+Product: CAB.6049.40.215 imported sucessfully
+
+Product: CAB.6049.65.158 imported sucessfully
+
+Product: CAB.8020.40.215 imported sucessfully
+
+Product: CHE.1870.20.303 imported sucessfully
+
+Product: CHE.1880.20.160 imported sucessfully
+
+Product: CHE.1880.45.241 imported sucessfully
+
+Product: CHE.1880.54.241 imported sucessfully
+
+Product: CHE.1880.54.303 imported sucessfully
+
+Product: CHE.3740.10.160 imported sucessfully
+
+Product: CHE.3740.20.241 imported sucessfully
+
+Product: CHE.3740.45.201 imported sucessfully
+
+Product: CHE.3750.10.120 imported sucessfully
+
+Product: CHE.3750.20.303 imported sucessfully
+
+Product: CHE.3750.45.303 imported sucessfully
+
+Product: CHE.3770.55.303 imported sucessfully
+
+Product: DOL.1367.10.201 imported sucessfully
+
+Product: DOL.1367.45.243 imported sucessfully
+
+Product: DOL.1369.15.243 imported sucessfully
+
+Product: DOL.1369.54.243 imported sucessfully
+
+Product: DOL.1489.45.201 imported sucessfully
+
+Product: EBO.1707.40.237 imported sucessfully
+
+Product: ESF.0326.05.243 imported sucessfully
+
+Product: ESF.1910.20.300 imported sucessfully
+
+Product: ESF.1910.45.243 imported sucessfully
+
+Product: EVO.1322.05.243 imported sucessfully
+
+Product: EVO.2848.54.243 imported sucessfully
+
+Product: FLO.1007.04.202 imported sucessfully
+
+Product: FLO.1007.45.300 imported sucessfully
+
+Product: FLO.1017.55.121 imported sucessfully
+
+Product: FLO.1071.04.158 imported sucessfully
+
+Product: FLO.1071.45.202 imported sucessfully
+
+Product: FLO.1174.54.158 imported sucessfully
+
+Product: ISI.0100.05.118 imported sucessfully
+
+Product: ISI.0100.05.167 imported sucessfully
+
+Product: ISI.0100.05.201 imported sucessfully
+
+Product: ISI.0100.65.237 imported sucessfully
+
+Product: ISI.1426.55.237 imported sucessfully
+
+Product: JOR.0470.45.237 imported sucessfully
+
+Product: JOR.0512.45.237 imported sucessfully
+
+Product: JOR.0551.55.201 imported sucessfully
+
+Product: JOR.0591.55.201 imported sucessfully
+
+Product: KIR.1016.45.300 imported sucessfully
+
+Product: KIR.1204.45.253 imported sucessfully
+
+Product: KSQ.4302.05.083 imported sucessfully
+
+Product: KSQ.4302.05.163 imported sucessfully
+
+Product: KSQ.4302.05.202 imported sucessfully
+
+Product: KSQ.4302.05.243 imported sucessfully
+
+Product: KSQ.4304.05.163 imported sucessfully
+
+Product: KSQ.4304.05.202 imported sucessfully
+
+Product: KSQ.4304.05.243 imported sucessfully
+
+Product: KSQ.4306.05.083 imported sucessfully
+
+Product: KSQ.4306.05.163 imported sucessfully
+
+Product: KSQ.4306.05.202 imported sucessfully
+
+Product: KSQ.4306.20.083 imported sucessfully
+
+Product: KSQ.4306.20.163 imported sucessfully
+
+Product: KSQ.4306.20.202 imported sucessfully
+
+Product: KSQ.4306.45.083 imported sucessfully
+
+Product: KSQ.4306.45.163 imported sucessfully
+
+Product: KSQ.4306.45.202 imported sucessfully
+
+Product: KSQ.4306.45.243 imported sucessfully
+
+Product: KSQ.4307.05.163 imported sucessfully
+
+Product: KSQ.4307.05.202 imported sucessfully
+
+Product: KSQ.4307.05.243 imported sucessfully
+
+Product: KSQ.4308.05.163 imported sucessfully
+
+Product: KSQ.4308.05.202 imported sucessfully
+
+Product: KSQ.4308.05.243 imported sucessfully
+
+Product: KSQ.4308.45.163 imported sucessfully
+
+Product: KSQ.4308.45.202 imported sucessfully
+
+Product: KSQ.4308.45.243 imported sucessfully
+
+Product: KSQ.4323.45.163 imported sucessfully
+
+Product: KSQ.4323.45.202 imported sucessfully
+
+Product: KSQ.4323.45.243 imported sucessfully
+
+Product: LAU.1001.45.241 imported sucessfully
+
+Product: LIN.1101.45.241 imported sucessfully
+
+Product: LON.4727.05.241 imported sucessfully
+
+Product: LON.4734.28.160 imported sucessfully
+
+Product: LON.4734.63.241 imported sucessfully
+
+Product: LON.4734.72.201 imported sucessfully
+
+Product: LON.4734.72.241 imported sucessfully
+
+Product: LON.5261.10.201 imported sucessfully
+
+Product: LON.5831.10.241 imported sucessfully
+
+Product: LON.5831.28.201 imported sucessfully
+
+Product: LON.5833.80.241 imported sucessfully
+
+Product: MAG.0204.45.237 imported sucessfully
+
+Product: MAG.0213.55.201 imported sucessfully
+
+Product: MAG.0213.55.237 imported sucessfully
+
+Product: MAY.3202.10.201 imported sucessfully
+
+Product: MAY.3202.20.120 imported sucessfully
+
+Product: MAY.3575.14.160 imported sucessfully
+
+Product: MAY.4001.45.241 imported sucessfully
+
+Product: MAY.4005.05.241 imported sucessfully
+
+Product: MAY.4005.14.241 imported sucessfully
+
+Product: MAY.4005.20.160 imported sucessfully
+
+Product: MAY.4005.45.120 imported sucessfully
+
+Product: MAY.4583.05.201 imported sucessfully
+
+Product: MAY.4583.10.120 imported sucessfully
+
+Product: MAY.4583.10.160 imported sucessfully
+
+Product: MAY.4583.10.201 imported sucessfully
+
+Product: MAY.4583.14.201 imported sucessfully
+
+Product: MIA.2290.05.241 imported sucessfully
+
+Product: MIA.2290.10.241 imported sucessfully
+
+Product: MIA.8355.15.160 imported sucessfully
+
+Product: MIA.8355.15.241 imported sucessfully
+
+Product: MOH.1105.05.243 imported sucessfully
+
+Product: NLA.0001.05.253 imported sucessfully
+
+Product: NLA.0002.05.158 imported sucessfully
+
+Product: NLA.0002.45.982 imported sucessfully
+
+Product: NLA.0070.45.253 imported sucessfully
+
+Product: NLA.0080.05.202 imported sucessfully
+
+Product: NLA.0080.05.300 imported sucessfully
+
+Product: NLA.0080.40.158 imported sucessfully
+
+Product: NLA.0080.40.300 imported sucessfully
+
+Product: NLA.0110.05.300 imported sucessfully
+
+Product: NLA.1105.45.300 imported sucessfully
+
+Product: NOB.6510.05.241 imported sucessfully
+
+Product: OCN.9851.45.201 imported sucessfully
+
+Product: OCN.9878.45.201 imported sucessfully
+
+Product: OCN.9896.45.201 imported sucessfully
+
+Product: OCN.9897.15.201 imported sucessfully
+
+Product: PLU.1111.54.243 imported sucessfully
+
+Product: PLU.1111.79.243 imported sucessfully
+
+Product: PLU.1111.95.243 imported sucessfully
+
+Product: PTR.1009.81.202 imported sucessfully
+
+Product: PTR.1052.53.202 imported sucessfully
+
+Product: PTR.1052.53.300 imported sucessfully
+
+Product: PTR.1057.40.300 imported sucessfully
+
+Product: PTR.1111.40.202 imported sucessfully
+
+Product: PTR.1111.45.158 imported sucessfully
+
+Product: PTR.1116.04.158 imported sucessfully
+
+Product: PTR.1225.54.300 imported sucessfully
+
+Product: SPG.0181.29.243 imported sucessfully
+
+Product: SPG.0181.51.201 imported sucessfully
+
+Product: SUM.2065.80.133 imported sucessfully
+
+Product: TDS.0002.05.121 imported sucessfully
+
+Product: TDS.0002.05.241 imported sucessfully
+
+Product: TDS.0002.15.121 imported sucessfully
+
+Product: TDS.0002.15.160 imported sucessfully
+
+Product: TDS.0002.15.201 imported sucessfully
+
+Product: TDS.0002.40.121 imported sucessfully
+
+Product: TDS.0002.40.160 imported sucessfully
+
+Product: TDS.0605.45.160 imported sucessfully
+
+Product: TDS.0605.45.241 imported sucessfully
+
+Product: TDS.0606.05.241 imported sucessfully
+
+Product: TDS.0608.45.201 imported sucessfully
+
+Product: TDS.0608.45.241 imported sucessfully
+
+Product: TDS.1101.10.201 imported sucessfully
+
+Product: TDS.1103.05.121 imported sucessfully
+
+Product: TDS.1103.45.160 imported sucessfully
+
+Product: TDS.1103.54.121 imported sucessfully
+
+Product: TDS.1106.55.241 imported sucessfully
+
+Product: TDS.1107.45.241 imported sucessfully
+
+Product: TDS.4145.17.121 imported sucessfully
+
+Product: TDS.4145.17.241 imported sucessfully
+
+Product: TDS.4145.45.241 imported sucessfully
+
+Product: TDS.4145.65.160 imported sucessfully
+
+Product: TDS.4605.45.121 imported sucessfully
+
+Product: TDS.4605.45.160 imported sucessfully
+
+Product: TDS.4605.45.201 imported sucessfully
+
+Product: TDS.7707.05.121 imported sucessfully
+
+Product: TDS.7707.05.160 imported sucessfully
+
+Product: TDS.7707.15.160 imported sucessfully
+
+Product: TDS.7707.45.121 imported sucessfully
+
+Product: TDS.7707.45.160 imported sucessfully
+
+Product: TDS.7707.65.121 imported sucessfully
+
+Product: TDS.7707.65.160 imported sucessfully
+
+Product: TDS.7707.65.201 imported sucessfully
+
+Product: TDS.8977.55.121 imported sucessfully
+
+Product: TDS.8977.55.160 imported sucessfully
+
+Product: TDS.8977.55.201 imported sucessfully
+
+Product: TDS.8981.45.160 imported sucessfully
+
+Product: TDS.8984.54.160 imported sucessfully
+
+Product: TDS.9840.05.241 imported sucessfully
+
+Product: TDS.9840.15.121 imported sucessfully
+
+Product: TDS.9840.15.160 imported sucessfully
+
+Product: TDS.9840.15.201 imported sucessfully
+
+Product: TDS.9840.15.241 imported sucessfully
+
+Product: TDS.9974.05.241 imported sucessfully
+
+Product: TDS.9975.45.201 imported sucessfully
+
+Product: VNT.1237.44.201 imported sucessfully
+
+Product: VNT.1237.45.201 imported sucessfully
+
+Product: VNT.1237.45.243 imported sucessfully
+
+Product: VNT.1237.45.280 imported sucessfully
+
+Product: VNT.1239.45.120 imported sucessfully
+
+Product: VNT.1239.45.243 imported sucessfully
+
+Product: VNT.2346.05.201 imported sucessfully
+
+Product: AMO.1524.80.253 imported sucessfully
+
+Product: BER.1003.80.120 imported sucessfully
+
+Product: BER.5996.10.120 imported sucessfully
+
+Product: BER.8022.80.215 imported sucessfully
+
+Product: BLM.1058.08.243 imported sucessfully
+
+Product: BLM.1973.14.120 imported sucessfully
+
+Product: BLM.1973.14.201 imported sucessfully
+
+Product: CAB.0112.65.121 imported sucessfully
+
+Product: CAB.6049.65.285 imported sucessfully
+
+Product: CAB.8020.10.243 imported sucessfully
+
+Product: CAI.0050.45.243 imported sucessfully
+
+Product: EVO.2685.72.243 imported sucessfully
+
+Product: FLO.1007.04.121 imported sucessfully
+
+Product: FLO.1017.55.158 imported sucessfully
+
+Product: FLO.1017.55.202 imported sucessfully
+
+Product: FLO.1017.55.244 imported sucessfully
+
+Product: FLO.1030.05.300 imported sucessfully
+
+Product: FLO.1030.45.300 imported sucessfully
+
+Product: FLO.1069.79.121 imported sucessfully
+
+Product: FLO.1071.04.244 imported sucessfully
+
+Product: FLO.1071.25.158 imported sucessfully
+
+Product: FLO.1071.25.202 imported sucessfully
+
+Product: FLO.1071.45.300 imported sucessfully
+
+Product: FLO.1084.45.121 imported sucessfully
+
+Product: FLO.1084.45.158 imported sucessfully
+
+Product: FLO.1084.72.244 imported sucessfully
+
+Product: FLO.1084.72.300 imported sucessfully
+
+Product: FLO.1174.54.202 imported sucessfully
+
+Product: FLO.1174.55.121 imported sucessfully
+
+Product: FLO.1174.55.300 imported sucessfully
+
+Product: FLO.1179.45.202 imported sucessfully
+
+Product: FLO.1179.45.300 imported sucessfully
+
+Product: FLO.1223.45.244 imported sucessfully
+
+Product: FLO.1223.55.158 imported sucessfully
+
+Product: FLO.1223.55.202 imported sucessfully
+
+Product: FLO.1223.55.244 imported sucessfully
+
+Product: ISI.0100.05.237 imported sucessfully
+
+Product: KIR.1016.45.253 imported sucessfully
+
+Product: KSQ.4306.05.243 imported sucessfully
+
+Product: KSQ.4306.20.243 imported sucessfully
+
+Product: LON.4734.21.241 imported sucessfully
+
+Product: MAG.0214.55.237 imported sucessfully
+
+Product: MAG.0215.55.237 imported sucessfully
+
+Product: MAN.8212.55.241 imported sucessfully
+
+Product: MAY.3202.20.160 imported sucessfully
+
+Product: MAY.3202.45.120 imported sucessfully
+
+Product: MAY.3575.10.120 imported sucessfully
+
+Product: MAY.3575.45.120 imported sucessfully
+
+Product: MAY.3575.45.160 imported sucessfully
+
+Product: MAY.3575.45.201 imported sucessfully
+
+Product: MAY.3575.55.120 imported sucessfully
+
+Product: MAY.4005.10.201 imported sucessfully
+
+Product: MAY.4005.20.241 imported sucessfully
+
+Product: MAY.4005.45.241 imported sucessfully
+
+Product: MAY.4583.05.241 imported sucessfully
+
+Product: MAY.4583.45.160 imported sucessfully
+
+Product: NLA.0001.45.253 imported sucessfully
+
+Product: NLA.0001.45.300 imported sucessfully
+
+Product: NLA.0002.45.158 imported sucessfully
+
+Product: NLA.0002.45.253 imported sucessfully
+
+Product: NLA.1105.45.253 imported sucessfully
+
+Product: NOB.6577.20.303 imported sucessfully
+
+Product: PTR.1225.53.253 imported sucessfully
+
+Product: SUM.1536.55.243 imported sucessfully
+
+Product: SUM.2546.10.243 imported sucessfully
+
+Product: TDS.0002.05.160 imported sucessfully
+
+Product: TDS.0605.45.201 imported sucessfully
+
+Product: TDS.0606.45.241 imported sucessfully
+
+Product: TDS.0706.72.201 imported sucessfully
+
+Product: TDS.0706.72.241 imported sucessfully
+
+Product: TDS.1103.05.160 imported sucessfully
+
+Product: TDS.1105.45.160 imported sucessfully
+
+Product: TDS.8156.72.241 imported sucessfully
+
+Product: TDS.8977.45.241 imported sucessfully
+
+Product: TSK.0114.05.243 imported sucessfully
+
+Product: TSK.0114.05.280 imported sucessfully
+
+Product: TSK.0170.05.280 imported sucessfully
+
+Product: TSK.0170.06.280 imported sucessfully
+
+Product: VNT.1237.05.243 imported sucessfully
+
+Product: VNT.1237.44.243 imported sucessfully
+
+Product: VNT.1237.65.243 imported sucessfully
+
+Product: VNT.1239.05.243 imported sucessfully
+
+Product: VNT.1239.44.160 imported sucessfully
+
+Product: VNT.1239.54.160 imported sucessfully
+
+Product: VNT.1239.54.201 imported sucessfully
+
+Product: VNT.1239.54.243 imported sucessfully
+
+Product: VNT.1239.65.243 imported sucessfully
+
+Product: VNT.1490.44.280 imported sucessfully
+
+Product: VNT.2346.05.243 imported sucessfully
+
+Product: VNT.2346.05.280 imported sucessfully
+
+Import Finished at: 2016-10-06 08:33:37

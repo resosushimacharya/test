@@ -39,8 +39,6 @@ function capetcall_custom_canonical_rule() {
 		}
 }
 add_filter( 'wpseo_canonical', 'capetcall_custom_canonical_rule' );
-
-	
 add_action( 'wp_enqueue_scripts', 'wooocommerce_scripts' );
 function wooocommerce_scripts(){
 	wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', '',true);
@@ -59,18 +57,16 @@ wp_localize_script( 'woo-load-autocomplete', 'woo_load_autocomplete', array( 'aj
   include_once TEMPLATEPATH."/inc/recaptchalib.php";
   $url = site_url();
   $url = explode('/',$url);
-
-
-
-
   include_once TEMPLATEPATH."/inc/carpetcall-cron-import.php";
 
   include_once TEMPLATEPATH."/function-yamu.php";
   //require_once('function-yamu.php');
+  if(  class_exists('acf') ) {
   acf_add_options_sub_page('Labeling');
   acf_add_options_sub_page('Front-Page Sections');
   acf_add_options_sub_page('Miscellaneous');
   acf_add_options_sub_page('Enquiry Email Settings');
+  }
 #update_option('siteurl',"http://localhost/carpetcall");
 #update_option('home',"http://localhost/carpetcall");
 add_action('pr','inspect_carpetcall',10,1);
