@@ -2514,12 +2514,12 @@ function delete_all_but_five_products(){
 */
 //add_action('init','testing');
 function testing(){
-$emails_settings = get_field('custom_rugs_emails_settings','options');
-$emails_settingss = get_field('blinds_emails_settings','options');
-echo '<div class="testing" style="display:none">';
-var_dump($emails_settings);
-var_dump($emails_settingss);
-echo '</div>';
+//$emails_settings = get_field('custom_rugs_emails_settings','options');
+//$emails_settingss = get_field('blinds_emails_settings','options');
+//echo '<div class="testing" style="display:none">';
+//var_dump($emails_settings);
+//var_dump($emails_settingss);
+//echo '</div>';
 //delete_field('awnings_emails_settings','options');
 //delete_field('shutters_emails_settings','options');
 }
